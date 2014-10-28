@@ -1,0 +1,272 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "104"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+	visgroup
+	{
+		"name" "Extra logic"
+		"visgroupid" "4"
+		"color" "90 115 176"
+	}
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "8"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "104"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_day01_01"
+}
+entity
+{
+	"id" "1184"
+	"classname" "info_placement_helper"
+	"angles" "-90 0 0"
+	"force_placement" "0"
+	"radius" "64"
+	"snap_to_helper_angles" "0"
+	"StartDisabled" "0"
+	"targetname" "placement_helper"
+	"origin" "0 0 -64"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "1229"
+		"classname" "func_instance_parms"
+		"parm1" "$connectioncount integer"
+		"parm2" "$start_enabled integer"
+		"parm3" "$helper_radius integer"
+		"parm4" "$use_helper_angles integer"
+		"parm5" "$force_placement integer"
+		"origin" "-8 -16 -48"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 500]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "1280"
+		"classname" "logic_branch"
+		"InitialValue" "$start_enabled"
+		"targetname" "branch_toggle"
+		connections
+		{
+			"OnTrue" "helper_enable_rlTrigger0-1"
+			"OnFalse" "helper_disable_rlTrigger0-1"
+		}
+		"origin" "-8 32 -48"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "1282"
+		"classname" "math_counter"
+		"max" "$connectioncount"
+		"targetname" "counter"
+		connections
+		{
+			"OnHitMax" "branch_toggleToggleTest0-1"
+			"OnChangedFromMax" "branch_toggleToggleTest0-1"
+		}
+		"origin" "-32 32 -48"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "1284"
+		"classname" "logic_auto"
+		"spawnflags" "1"
+		connections
+		{
+			"OnMapSpawn" "branch_toggleTest0-1"
+		}
+		"origin" "16 32 -48"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 1000]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "1095"
+		"classname" "logic_relay"
+		"targetname" "helper_enable_rl"
+		connections
+		{
+			"OnTrigger" "placement_helperEnable0-1"
+		}
+		"origin" "16 -16 -48"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 2000]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "1105"
+		"classname" "logic_relay"
+		"targetname" "helper_disable_rl"
+		connections
+		{
+			"OnTrigger" "placement_helperDisable0-1"
+		}
+		"origin" "40 -16 -48"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 2000]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "1175"
+		"classname" "func_instance_io_proxy"
+		"targetname" "proxy"
+		connections
+		{
+			"OnProxyRelay" "counterAdd10-1"
+			"OnProxyRelay" "counterSubtract10-1"
+		}
+		"origin" "-32 -16 -48"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 2500]"
+		}
+	}
+}
+cameras
+{
+	"activecamera" "0"
+	camera
+	{
+		"position" "[113.688 -170.924 53.8691]"
+		"look" "[-20.7956 22.5705 -61.0599]"
+	}
+	camera
+	{
+		"position" "[-27.2599 -57.2046 25.9054]"
+		"look" "[75.8136 105.213 -152.226]"
+	}
+	camera
+	{
+		"position" "[23.0621 -64.8361 23.7638]"
+		"look" "[-41.6899 92.2619 -175.891]"
+	}
+	camera
+	{
+		"position" "[-27.2599 -57.2046 25.9054]"
+		"look" "[75.8136 105.213 -152.226]"
+	}
+	camera
+	{
+		"position" "[-28.647 -51.2686 24.3385]"
+		"look" "[43.942 82.9805 -188.834]"
+	}
+	camera
+	{
+		"position" "[-27.2599 -57.2046 25.9054]"
+		"look" "[75.8136 105.213 -152.226]"
+	}
+	camera
+	{
+		"position" "[23.0621 -64.8361 23.7638]"
+		"look" "[-41.6899 92.2619 -175.891]"
+	}
+	camera
+	{
+		"position" "[-27.2599 -57.2046 25.9054]"
+		"look" "[75.8136 105.213 -152.226]"
+	}
+}
+cordons
+{
+	"active" "0"
+	cordon
+	{
+		"name" "cordon"
+		"active" "1"
+		box
+		{
+			"mins" "(-1024 -1024 -1024)"
+			"maxs" "(1024 1024 1024)"
+		}
+	}
+}
