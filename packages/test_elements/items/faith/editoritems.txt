@@ -1,0 +1,122 @@
+"Item"
+{
+	"Type"			"ITEM_CATAPULT"
+	"ItemClass"		"ItemCatapult"
+	"Editor"
+	{
+		"SubType"
+		{
+			"Name"		"PORTAL2_PuzzleEditor_Item_faith_plate"
+			"Model"
+			{
+				"ModelName"		"faithplate.3ds"
+			}
+			"Palette"
+			{
+				"Tooltip"	"PORTAL2_PuzzleEditor_Palette_faith_plate"
+				"Image"		"palette/faithplate.png"
+				"Position"	"1 2 0"
+			}
+			"Sounds"
+			{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+			}
+		}
+		"MovementHandle"		"HANDLE_CATAPULT"
+	}
+	"Properties"
+	{
+		"CatapultSpeed"
+		{
+			"DefaultValue"		"500"
+			"Index"				"1"
+		}
+		"TargetName"
+		{
+			"DefaultValue"		"target"
+			"Index"				"2"
+		}
+		"VerticalAlignment"
+		{
+			"DefaultValue"		"0"
+			"Index"				"0"
+		}
+	}
+	"Exporting"
+	{
+		"Instances"
+		{
+			"0"
+			{
+				"Name"				"instances/p2editor_clean/faith_plate_floor.vmf"
+				"EntityCount"		"8"
+				"BrushCount"		"3"
+				"BrushSideCount"	"22"
+			}
+		}
+
+		"TargetName"		"fp"
+		"Offset"		"64 64 64"
+		"OccupiedVoxels"
+		{
+			"Voxel"
+			{
+				"Pos"		"0 0 0"
+				"CollideType"		"COLLIDE_SOLID"
+				"CollideAgainst"	"COLLIDE_SOLID COLLIDE_GLASS COLLIDE_GRATING COLLIDE_ANTLINES"
+
+				"Surface"
+				{
+					"Normal"	"0 0 1"
+				}
+			}
+		}
+		"EmbeddedVoxels"
+		{
+			"Voxel"
+			{
+				"Pos"		"0 0 0"
+			}
+		}
+		
+		"EmbedFace"
+		{
+			"Solid"
+			{
+				"Center"		"64 16 128"
+				"Dimensions"	"128 32 4"
+				"Grid"			"4x4"
+			}
+			"Solid"
+			{
+				"Center"		"64 112 128"
+				"Dimensions"	"128 32 4"
+				"Grid"			"4x4"
+			}
+		}
+		"Overlay"
+		{
+			"Material"		"signage/signage_overlay_arrow"
+			"Center"		"16 16 0"
+			"Dimensions"	"32 32 0"
+			"Rotation"		"0"
+		}
+		"Overlay"
+		{
+			"Material"		"signage/signage_overlay_catapult1"
+			"Center"		"112 16 0"
+			"Dimensions"	"32 32 0"
+			"Rotation"		"180"
+		}
+		"Overlay"
+		{
+			"Material"		"signage/signage_overlay_catapult2"
+			"Center"		"112 112 0"
+			"Dimensions"	"32 32 0"
+			"Rotation"		"180"
+		}
+	}
+}
