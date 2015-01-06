@@ -1,0 +1,105 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "5667"
+	"mapversion" "10"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "8"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "10"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2"
+	"classname" "point_energy_ball_launcher"
+	"angles" "0 0 0"
+	"ballcount" "1"
+	"BallLifetime" "$lifetime"
+	"ballradius" "12"
+	"ballrespawntime" "$respawntime"
+	"balltype" "Combine Energy Ball 1"
+	"maxspeed" "$speed"
+	"MinLifeAfterPortal" "$life_after_portaltransition"
+	"minspeed" "$speed"
+	"origin" "0 0 0"
+	"spawnflags" "4096"
+	"targetname" "BallLauncher"
+	connections
+	{
+		"OnPostSpawnBall" "proxyProxyRelay0-1"
+		"OnBallCaught" "proxyProxyRelay0-1"
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "11"
+	"classname" "func_instance_parms"
+	"parm1" "$lifetime integer 5"
+	"parm2" "$respawntime integer 1"
+	"parm3" "$speed integer 500"
+	"parm4" "$life_after_portaltransition integer 5"
+	"origin" "16 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "27"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	connections
+	{
+		"OnProxyRelay" "BallLauncherDisable0-1"
+		"OnProxyRelay" "BallLauncherEnable0-1"
+		"OnProxyRelay" "BallLauncherLaunchBall0-1"
+		"OnProxyRelay" "BallLauncherKill0-1"
+	}
+	"origin" "32 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
