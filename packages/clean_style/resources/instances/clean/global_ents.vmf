@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "236"
+	"mapversion" "242"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -44,6 +44,12 @@ visgroups
 		"visgroupid" "17"
 		"color" "86 255 252"
 	}
+	visgroup
+	{
+		"name" "Rocket"
+		"visgroupid" "54"
+		"color" "225 246 239"
+	}
 }
 viewsettings
 {
@@ -56,7 +62,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "236"
+	"mapversion" "242"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2925,53 +2931,65 @@ entity
 		"logicalpos" "[0 0]"
 	}
 }
-entity
+hidden
 {
-	"id" "7623"
-	"classname" "filter_activator_class"
-	"filterclass" "RocketSentry_Missile"
-	"Negated" "Allow entities that match criteria"
-	"targetname" "@filter_rockets"
-	"origin" "-80 64 16"
-	editor
+	entity
 	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"id" "7623"
+		"classname" "filter_activator_class"
+		"filterclass" "RocketSentry_Missile"
+		"Negated" "Allow entities that match criteria"
+		"targetname" "@filter_rockets"
+		"origin" "-80 64 16"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "54"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
 	}
 }
-entity
+hidden
 {
-	"id" "7625"
-	"classname" "point_template"
-	"spawnflags" "2"
-	"targetname" "@RocketSentry_Missile_Template"
-	"Template01" "@RocketSentry_Missile"
-	"origin" "-64 64 16"
-	editor
+	entity
 	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
+		"id" "7625"
+		"classname" "point_template"
+		"spawnflags" "2"
+		"targetname" "@RocketSentry_Missile_Template"
+		"Template01" "@RocketSentry_Missile"
+		"origin" "-64 64 16"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "54"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 1000]"
+		}
 	}
 }
-entity
+hidden
 {
-	"id" "7627"
-	"classname" "rocket_turret_projectile"
-	"angles" "0 0 0"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"targetname" "@RocketSentry_Missile"
-	"origin" "-64 64 16"
-	editor
+	entity
 	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
+		"id" "7627"
+		"classname" "rocket_turret_projectile"
+		"angles" "0 0 0"
+		"renderamt" "255"
+		"rendercolor" "255 255 255"
+		"targetname" "@RocketSentry_Missile"
+		"origin" "-64 64 16"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "54"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 1500]"
+		}
 	}
 }
 entity
@@ -3317,25 +3335,29 @@ hidden
 		}
 	}
 }
-entity
+hidden
 {
-	"id" "6918"
-	"classname" "logic_timer"
-	"RefireTime" "1"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "vis_tim"
-	connections
+	entity
 	{
-		"OnTimer" "vis_makerForceSpawn0-1"
-	}
-	"origin" "80 88 32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 10000]"
+		"id" "6918"
+		"classname" "logic_timer"
+		"RefireTime" "1"
+		"spawnflags" "0"
+		"StartDisabled" "1"
+		"targetname" "vis_tim"
+		connections
+		{
+			"OnTimer" "vis_makerForceSpawn0-1"
+		}
+		"origin" "80 88 32"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "16"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 10000]"
+		}
 	}
 }
 hidden
@@ -5080,7 +5102,7 @@ entity
 {
 	"id" "4470"
 	"classname" "func_instance"
-	"angles" "-0 90 0"
+	"angles" "-0 -90 0"
 	"file" "instances/p2editor/tspen/clean/monitor_studio.vmf"
 	"fixup_style" "0"
 	"replace01" "$disable_choreo 0"
@@ -6352,65 +6374,6 @@ entity
 }
 entity
 {
-	"id" "3833"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/glados/sp_trust_fling_entry01.vcd"
-	"targetname" "glados_carefree"
-	"origin" "-193.068 114.894 8"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 5500]"
-	}
-}
-entity
-{
-	"id" "3835"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/glados/mp_coop_calibration03.vcd"
-	"targetname" "@glados_cube_button"
-	connections
-	{
-		"OnCompletion" "!selfKill0-1"
-	}
-	"origin" "-212.221 37.0424 8"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupid" "17"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 5500]"
-	}
-}
-entity
-{
-	"id" "3887"
-	"classname" "logic_relay"
-	"spawnflags" "1"
-	"StartDisabled" "0"
-	"targetname" "@glados_faith_fly"
-	connections
-	{
-		"OnTrigger" "glados_carefreeStart0-1"
-	}
-	"origin" "-216.528 122.297 8"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 5500]"
-	}
-}
-entity
-{
 	"id" "3250"
 	"classname" "logic_choreographed_scene"
 	"busyactor" "1"
@@ -6465,27 +6428,6 @@ entity
 	{
 		"color" "220 30 220"
 		"visgroupid" "12"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "3125"
-	"classname" "ambient_generic"
-	"health" "10"
-	"message" "music.pti_b1_001"
-	"null" "-----------------------"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"spawnflags" "17"
-	"targetname" "@music"
-	"origin" "-165.664 -52.9265 40"
-	editor
-	{
-		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -6578,6 +6520,7 @@ entity
 		"OnMapSpawn" "@tonemapperSetAutoExposureMin.50-1"
 		"OnMapSpawn" "@tonemapperSetAutoExposureMax30-1"
 		"OnMapSpawn" "!playerSetFogController@environment_testchamber_fog0-1"
+		"OnMapSpawn" "@template_spawn_3ForceSpawn1.51"
 	}
 	"origin" "-64 -64 64"
 	editor
@@ -6720,8 +6663,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-189.04 -212.284 519.598]"
-		"look" "[-178.926 -209.384 457.386]"
+		"position" "[-67.8927 54.998 24.586]"
+		"look" "[-59.1068 101.057 -17.633]"
 	}
 	camera
 	{

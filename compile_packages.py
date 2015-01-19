@@ -3,6 +3,10 @@ import os
 import os.path
 from zipfile import ZipFile
 
+# Skip these files, if they exist in the source folders.
+# Users won't need them.
+SKIPPED_EXTENSIONS = ('vmx', 'log', 'bsp', 'prt', 'lin')
+
 zip_path = os.path.join(os.getcwd(), 'zips/')
 if not os.path.isdir(zip_path):
     os.makedirs(zip_path)
@@ -18,6 +22,10 @@ for package in os.listdir(path):
             for file in files:
                 full_path = os.path.normpath(os.path.join(base, file))
                 rel_path = os.path.relpath(full_path, package_path)
+                if file[-3:] in SKIPPED_EXTENSIONS:
+                    print('X   \\' + rel_path)
+                    continue
                 print('    \\' +rel_path)
+                
                 zip.write(full_path, rel_path)
         print('')

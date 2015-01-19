@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "5685"
-	"mapversion" "134"
+	"editorbuild" "6432"
+	"mapversion" "139"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "134"
+	"mapversion" "139"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -479,82 +479,6 @@ world
 		editor
 		{
 			"color" "0 217 126"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	solid
-	{
-		"id" "6521"
-		side
-		{
-			"id" "1920"
-			"plane" "(1024 1024 1024) (1024 -1024 1024) (-1024 -1024 1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1919"
-			"plane" "(1024 -1024 -1024) (1024 1024 -1024) (-1024 1024 -1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1918"
-			"plane" "(-1024 -1024 1024) (-1024 -1024 -1024) (-1024 1024 -1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1917"
-			"plane" "(1024 -1024 -1024) (1024 -1024 1024) (1024 1024 1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1916"
-			"plane" "(-1024 1024 1024) (-1024 1024 -1024) (1024 1024 -1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1915"
-			"plane" "(-1024 -1024 -1024) (-1024 -1024 1024) (1024 -1024 1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 186 127"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1153,7 +1077,7 @@ world
 		{
 			"id" "2029"
 			"plane" "(136 -64 -88) (136 64 -88) (136 64 -120)"
-			"material" "METAL/BLACK_WALL_METAL_002B"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
@@ -1628,7 +1552,7 @@ entity
 {
 	"id" "8327"
 	"classname" "prop_static"
-	"angles" "90 0 0"
+	"angles" "90 180 0"
 	"fademindist" "-1"
 	"fadescale" "1"
 	"model" "models/anim_wp/framework/squarebeam_off.mdl"
@@ -1636,7 +1560,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "144 -32 -344"
+	"origin" "128 -32 -344"
 	editor
 	{
 		"color" "255 255 0"
@@ -1649,7 +1573,7 @@ entity
 {
 	"id" "8331"
 	"classname" "prop_static"
-	"angles" "90 0 0"
+	"angles" "90 180 0"
 	"fademindist" "-1"
 	"fadescale" "1"
 	"model" "models/anim_wp/framework/squarebeam_off.mdl"
@@ -1657,7 +1581,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "144 -32 -152"
+	"origin" "128 -32 -152"
 	editor
 	{
 		"color" "255 255 0"
@@ -1908,38 +1832,6 @@ entity
 }
 entity
 {
-	"id" "8115"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/glados/faith_plate_intro01.vcd"
-	"targetname" "@glados_enter_faith"
-	connections
-	{
-		"OnUser2" "!selfStart0-1"
-		"OnUser1" "@glados_enter_newKill0-1"
-		"OnUser1" "@glados_enter_bridgeKill0-1"
-		"OnUser1" "@glados_enter_crusherKill0-1"
-		"OnUser1" "@glados_enter_deadlyKill0-1"
-		"OnUser1" "@glados_enter_turretKill0-1"
-		"OnUser1" "@glados_enter_momentumKill0-1"
-		"OnUser1" "@glados_enter_whitegelKill0-1"
-		"OnUser1" "@glados_enter_genericKill0-1"
-		"OnUser1" "@glados_enter_laserKill0-1"
-		"OnUser1" "@glados_enter_paintfizzlerKill0-1"
-		"OnUser1" "@glados_enter_fizzlerKill0-1"
-	}
-	"origin" "9 -11.2508 -389.031"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 5500]"
-	}
-}
-entity
-{
 	"id" "8076"
 	"classname" "logic_choreographed_scene"
 	"busyactor" "1"
@@ -1995,7 +1887,7 @@ entity
 {
 	"id" "6772"
 	"classname" "prop_static"
-	"angles" "90 0 0"
+	"angles" "90 180 0"
 	"fademindist" "-1"
 	"fadescale" "1"
 	"model" "models/anim_wp/framework/squarebeam_off.mdl"
@@ -2003,7 +1895,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "144 -32 -408"
+	"origin" "128 -32 -408"
 	editor
 	{
 		"color" "255 255 0"
@@ -2016,7 +1908,7 @@ entity
 {
 	"id" "6795"
 	"classname" "prop_static"
-	"angles" "90 0 0"
+	"angles" "90 180 0"
 	"fademindist" "-1"
 	"fadescale" "1"
 	"model" "models/anim_wp/framework/squarebeam_off_2x2.mdl"
@@ -2024,7 +1916,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "144 0 -248"
+	"origin" "128 -3.49692e-007 -248"
 	editor
 	{
 		"color" "255 255 0"
