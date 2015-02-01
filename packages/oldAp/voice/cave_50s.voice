@@ -2,23 +2,18 @@
 {
 	"QuoteLoc" "-10000 0 0"
 	"Base" "50s/base.vmf"
-	"Group"
+	"MidChamber"
 	{
-		"Name" 		"Mid"
-		"Desc" 		"During Chamber"
-		"Config" 	"None"
-		"MidChamber"	"1"
 		"Quote"
+		{
+			"Instance"
 			{
-				"Has" ""
-				"MidInst"
-				{
-					"Name" "Loitering on catwalks"
-					"Trans" "If you're hearing this, it means you're taking a long time on the catwalks between tests. The lab boys say that might be a fear reaction."
-					"Trans" "I'm no psychiatrist, but coming from a bunch of eggheads who wouldn't recognize the thrill of danger if it walked up and snapped their little pink bras, that sounds like 'projection'."
-					"File" "50s/catwalks.vmf"
-				}
+				"Name" "Loitering on catwalks"
+				"Trans" "If you're hearing this, it means you're taking a long time on the catwalks between tests. The lab boys say that might be a fear reaction."
+				"Trans" "I'm no psychiatrist, but coming from a bunch of eggheads who wouldn't recognize the thrill of danger if it walked up and snapped their little pink bras, that sounds like 'projection'."
+				"File" "50s/catwalks.vmf"
 			}
+		}
 	}
 	"Group"
 	{
@@ -27,7 +22,6 @@
 		"Config" "Entry"
 		"Quote"
 		{
-			"Has"		""
 			"Priority"	"0"
 			"Name"		"Generic"
 			"Instance"
@@ -129,7 +123,6 @@
 		"Config" "Exit"
 		"Quote"
 		{
-			"Has"		""
 			"Priority"	"0"
 			"Name"		"Generic"
 			"Instance"
@@ -164,6 +157,8 @@
 			"Name"		"Lobby Corridor Override"
 			"Instance"
 			{
+				"ID		"LOBBY"
+				"Name"	"Nanoparticle Gels"
 				"Trans"	"For this next test, we put nanoparticles in the gel. In layman's terms, that's a billion little gizmos that are gonna travel into your bloodstream and pump experimental genes and RNA molecules and so forth into your tumors."
 				"Trans"	"Now, maybe you don't have any tumors. Well, don't worry. If you sat on a folding chair in the lobby and weren't wearing lead underpants, we took care of that too."
 				"File"	"50s/exit_lobby.vmf"
@@ -177,6 +172,7 @@
 			"Name"		"Propulsion Gel"
 			"Instance"
 			{
+				"ID"	"ALWAYS_LIMO_PROP"
 				"Name"	"There'll Always Be a Limo Waiting For You."
 				"Trans"	"We're not gonna release this stuff into the wild until it's good and damn ready, so as long as you keep yourself in top physical form, there'll always be a limo waiting for you."
 			}
@@ -185,9 +181,10 @@
 		{
 			"Has"		"Deadly"
 			"Priority"	"2"
-			"Name"	"Deadly"
+			"Name"		"Deadly"
 			"Instance"
 			{
+				"ID"	"BOX_STUFF"
 				"Name"	"Box. Your Stuff"
 				"Trans"	"Science isn't about WHY. It's about WHY NOT. Why is so much of our science dangerous? Why not marry safe science if you love it so much. In fact, why not invent a special safety door that won't hit you on the butt on the way out, because you are fired."
 				"Trans"	"Not you, test subject, you're doing fine."
@@ -203,6 +200,7 @@
 			"Name"		"Repulsion Gel"
 			"Instance"
 			{
+				"ID"	"NO_REP_COVER"
 				"Name"	"Do Not Get Covered In Repulsion Gel"
 				"Trans"  "Oh, in case you got covered in that repulsion gel, here's some advice the lab boys gave me: DO NOT get covered in the repulsion gel."
 				"Trans"	"We haven't entirely nailed down what element it is yet, but I'll tell you this: It's a lively one, and it does NOT like the human skeleton."
@@ -210,6 +208,7 @@
 			}
 			"Instance"
 			{
+				"ID"	"NO_MENTIONING_CONTROL"
 				"Name"	"Don't Mention the Control Group"
 				"Trans"	"The lab boys just informed me that I should not have mentioned the control group. They're telling me I oughtta stop making these pre-recorded messages. That gave me an idea: Make more pre-recorded messages. I pay the bills here, I can talk about the control group all damn day."
 				"File"	"50s/exit_gel_bounce_2.vmf"
@@ -223,6 +222,7 @@
 			"Name"		"Conversion Gel"
 			"Instance"
 			{
+				"ID"	"ALWAYS_LIMO_CONV"
 				"Name"	"There'll Always Be a Limo Waiting For You."
 				"Trans"	"We're not gonna release this stuff into the wild until it's good and damn ready, so as long as you keep yourself in top physical form, there'll always be a limo waiting for you."
 			}
@@ -235,6 +235,7 @@
 			"Name"		"Excursion Funnel"
 			"Instance"
 			{
+				"ID"	"HAPPY_FACE"
 				"Name"	"It Makes a Happy Face"
 				"Trans"	"Good news is, the lab boys say the symptoms of asbestos poisoning show a median latency of forty-four point six years, so if you're thirty or older, you're laughing. Worst case scenario, you miss out on a few rounds of canasta, plus you forwarded the cause of science by three centuries. I punch those numbers into my calculator, it makes a happy face."
 				"File"	"50s/exit_funnel.vmf"
@@ -247,27 +248,24 @@
 {
 	"QuoteLoc" "-10000 0 0"
 	"Base" "50s/base.vmf"
-	"Group"
+	"MidChamber"
 	{
-		"Name" "Mid"
-		"Desc" "During Chamber"
-		"Config" "None"
 		"Quote"
 		{
-			"Has" ""
-			"MidInst"
+			"Instance"
 			{
-				"Name" "Loitering on catwalks"
-				"Trans" "If you're hearing this, it means you're taking a long time on the catwalks between tests. The lab boys say that might be a fear reaction."
-				"Trans" "I'm no psychiatrist, but coming from a bunch of eggheads who wouldn't recognize the thrill of danger if it walked up and snapped their little pink bras, that sounds like 'projection'."
-				"File" "50s/catwalks.vmf"
+				"ID"	"CATWALKS"
+				"Name"	"Loitering on catwalks"
+				"Trans"	"If you're hearing this, it means you're taking a long time on the catwalks between tests. The lab boys say that might be a fear reaction."
+				"Trans"	"I'm no psychiatrist, but coming from a bunch of eggheads who wouldn't recognize the thrill of danger if it walked up and snapped their little pink bras, that sounds like 'projection'."
+				"File"	"50s/catwalks.vmf"
 			}
 		}
 		"Quote"
 		{
-			"Has" ""
-			"MidInst"
+			"Instance"
 			{
+				"ID"	"CAVE_OWN"
 				"Name"	"I Own The Place"
 				"Trans"	"Now, you already met one another on the limo ride over, so let me introduce myself."
 				"Trans"	"I'm Cave Johnson. I own the place."
@@ -278,7 +276,7 @@
 	"Group"
 	{
 		"Name" "Entry"
-		"Desc" "After Chamber Entry"
+		"Desc" "After Players Spawn"
 		"Config" "Entry"
 		"Quote"
 		{
@@ -287,6 +285,7 @@
 			"Name"		"Glass"
 			"Instance"
 			{
+				"ID"	"GLASS_SMUDGE"
 				"Name"	"Don't Smudge the Glass"
 				"Trans"	"Anyway, don't smudge up the glass down there. In fact, why don't you just go ahead and not touch anything unless it's test related."
 				"File"	"50s/entry_glass.vmf"
@@ -299,7 +298,8 @@
 			"Name"	"Repulsion Gel"
 			"Instance"
 			{
-				"Name"	"It's Does NOT Like the Human Skeleton"
+				"ID"	"BOUNCE_SKELETON"
+				"Name"	"It Does NOT Like the Human Skeleton"
 				"Trans"	"Alright, let's get started. This first test involves something the lab boys call 'repulsion gel'."
 				"Trans"	"We haven't entirely nailed down what element it is yet, but I'll tell you this: It's a lively one, and it does NOT like the human skeleton."
 				"Trans"	"[cough] As a result, you may have heard we're gonna phase out human testing. There's still a few things left to wrap up, though."
@@ -325,6 +325,7 @@
 			"Name"		"Conversion Gel"
 			"Instance"
 			{
+				"ID"	"MOON_DEADLY"
 				"Name"	"Moon Rocks Are Pure Poison"
 				"Trans"	"First up, Conversion Gel. [Cough]"
 				"Trans"	"And guess what? Ground up moon rocks are pure poison. I am deathly ill."
@@ -340,6 +341,7 @@
 			"Name"		"Excursion Funnel"
 			"Instance"
 			{
+				"ID"	"ASBESTOS_SPHERE"
 				"Name"	"These Spheres are made of Asbestos!"
 				"Trans"	"All these science spheres are made of asbestos, by the way. Keeps out the rats. Let us know if you feel a shortness of breath, a persistent dry cough or your heart stopping. Because that's not part of the test. That's asbestos."
 				"Trans"	"[cough] As a result, you may have heard we're gonna phase out human testing. There's still a few things left to wrap up, though."
@@ -357,9 +359,10 @@
 		{
 			"Has"		"Deadly"
 			"Priority"	"2"
-			"Name"	"Deadly"
+			"Name"		"Deadly"
 			"Instance"
 			{
+				"ID"	"Deadly"
 				"Name"	"Box. Your Stuff"
 				"Trans"	"Science isn't about WHY. It's about WHY NOT. Why is so much of our science dangerous? Why not marry safe science if you love it so much. In fact, why not invent a special safety door that won't hit you on the butt on the way out, because you are fired."
 				"Trans"	"Not you, test subject, you're doing fine."
