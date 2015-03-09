@@ -70,7 +70,7 @@ function StartVideo(videoType, width, height, use_destructed)
 	}
 	else
 	{
-		videoScaleType = RandomInt(6,7)
+		videoScaleType = RandomInt(6,14)
 	}
 	
 	if (scale_override > -1)
