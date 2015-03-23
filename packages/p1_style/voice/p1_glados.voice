@@ -1,6 +1,371 @@
 "Quotes_SP"
-{
+	{
 	"quote_loc" "-3000 0 0"
 	"Base"	"p1/base.vmf"
+	"Midchamber"
+		{
+		"Quote"
+			{
+			"Name"	"Pre-Entry"
+			"Instance"
+				{
+				"Name" 	"Hello and Welcome"
+				"ID"	"PRE_ENTRY"
+				"Trans" 	"Hello and, again, welcome to the Aperture Science Computer-Aided Enrichment Center."
+				"file"	"p1/pre_entry.vmf"
+				}
+			}
+		"Quote"
+			{
+			"Name"	"Destroyed Camera"
+			"Instance"
+				{
+				"Name"	"Not Part of the Test (Obs Room)"
+				"ID"		"CAM_OBS"
+				"Trans"	"That is not part of the test."
+				"Target"		"@glados_cam_obs"
+				"Choreo"		"taunt_highfive01.vcd"
+				"PlayOnce"	"1"
+				}
+			"Instance"
+				{
+				"Name"	"Yes, I See You (Entry)"
+				"ID"		"CAM_ENTRY"
+				"Trans"	"Yes, I see you, and no, I don't care."
+				"Target"		"@glados_cam_entry"
+				"Choreo"		"taunt_small_wave01.vcd"
+				"PlayOnce"	"1"
+				}
+			"Instance"
+				{
+				"Name"	"How You Could Annoy Me (Exit)"
+				"ID"		"CAM_EXIT"
+				"Trans"	"If you were wondering how could you annoy me without failing a test. Now you know."
+				"Target"		"@glados_cam_exit"
+				"Choreo"		"taunt_robot_arm_ripple05.vcd"
+				"PlayOnce"	"1"
+				}
+			}
+		"Quote"
+			{
+			"Name"	"Camera fizzled in Exit Door fizzler"
+			"Instance"
+				{
+				"Name"	"How You Could Annoy Me (Exit)"
+				"ID"		"CAM_FIZZ"
+				"Trans"	"Did you know we originally used these cameras to capture moments of intense pain and agony in test subjects?"
+				"Trans"	"If the subject survived the test, we let them purchase the pictures for $5. If the subject died, we gave the photo to their next of kin free of charge."
+				"Trans"	"The photos weren't as popular as we had hoped, so we repurposed the cameras."
+				"File"	"p1/cam_monologue.vmf"
+				}
+			}
+		"Quote"
+			{
+			"Name"	"Faith Plate Triggered"
+			"Has"	"FaithPlate"
+			"Instance"
+				{
+				"Name"	"Without A Care In The World"
+				"ID"		"FAITH_FLING"
+				"Trans"	"Well. Have fun soaring through the air without a care in the world."
+				"Target"	"@voice_cat_triggered"
+				"OnlyOnce"	"1"
+				"Choreo"		"sp_trust_fling_entry01.vcd"
+				}
+			}
+		"Quote"
+			{
+			"Name"	"Ball Placed in Ball Button"
+			"Has"	"Ball"
+			"Has"	"BallButton"
+			"Instance"
+				{
+				"Name" "Designed To Exactly Fit"
+				"ID"		"BALL_BUTTON_LONG"
+				
+				"Trans"	"You did an excellent job placing the edgeless safety cube in the receptacle, you should be very - oh wait."
+				"Trans"	"You have NO idea how tiring it is to praise someone for placing an Edgeless Safety Cube in a receptacle desinged to exactly fit an Edgeless Safety Cube."
+				
+				"File"	"p1/ball_button_sp.vmf"
+				}
+			}
+		"Quote"
+			{
+			"Name"	"Ball Placed in Ball Button"
+			"Has"	"CubeNotBall"
+			"Has"	"BallButton"
+			"Instance"
+				{
+				"Name" "Cube Calibration"
+				"ID"		"BALL_BUTTON_LONG"
+				"Trans"	"Weighted Cubes calibrated."
+				
+				"Target"		"@voice_cube_button_pressed"
+				"Choreo"		"mp_coop_calibration03.vcd"
+				"OnlyOnce"	"1"
+				}
+			}
+		}
 	
-}
+	"Group"
+		{
+		"Name"	"Entry"
+		"Desc"	"On Entry"
+		"Config"	"Entry"
+		"Choreo_Name"	"@glados_enter"
+		"Choreo_Loc" "-2984 0 0"
+		"Quote"
+			{
+			"Priority"	"0"
+			"Name"	"Generic"
+			"Instance"
+				{
+				"Name" 	"These Old Tests"
+				"ID"	"GENERIC"
+				"Trans" 	"I thought going back to these old tests would satisfy me. But try as you might to fail this next test, I still won't be satisfied."
+				"choreo"	"scenes/npc/glados/mp_coop_turret_ball01.vcd"
+				}
+			}
+		
+		"Quote"
+			{
+			"Has"		"Fizzler"
+			"Priority"	"1"
+			"Name"		"Emancipation Grill"
+			"Instance"
+				{
+				"Name"	"The Last Chamber Did Not Have One"
+				"ID"	"FIZZLER_1"
+				"Trans"	"This next test involves emancipation grills. Remember? I told you about them in the last test area, that did not have one."
+				"Choreo"	"scenes/npc/glados/sp_a2_fizzler_intro01.vcd"
+				}
+				
+		"Quote"
+			{
+			"Has"		"PaintFizzler"
+			"Priority"	"2"
+			"Name"		"Paint Fizzler"
+			"Instance"
+				{
+				"Name"	"Lump-Of-Coal Failure"
+				"ID"		"PAINT_FIZZ"
+				"Trans"	"This next test involves emancipation grills. Remember? I told you about them in the last test area, that did not have one."
+				"Trans"	"While I was out investigating, I found a fascinating new test element. It's never been used for human testing because, apparently, contact with it causes heart failure. The literature doesn't mention anything about lump-of-coal failure, though, so you should be fine."
+				"File"	"p1/paint_fizz.vmf"
+			}
+			
+		"Quote"
+			{
+			"Has"		"Deadly"
+			"Priority"	"3"
+			"Name"		"Deadly"
+			"Instance"
+				{
+				"Name"	"Checked An Old Suggestion Box"
+				"ID"	"DEADLY_1"
+				"Trans"	"To start preparing for human testing again, I checked an old suggestion box. The number one request? Less deadly tests."
+				"Trans"	"That's ridiculous, how do they know for sure the tests are deadly if they could still write the suggestion?"
+				"File"	"clean/entry_deadly.vmf"
+				}
+			}
+		"Quote"
+			{
+			"Has"	"Turret"
+			"Priority"	"4"
+			"Name"	"Sentry Turret"
+			"Instance"
+				{
+				"Name"	"Avoid Those Turrets"
+				"ID"	"TURRET_1"
+				"Trans"	"You might want to try and avoid those turrets."
+				"Choreo"	"scenes/npc/glados/mp_coop_tbeam_end12.vcd"
+				}
+			}
+		"Quote"
+			{
+			"Has"	"Funnel"
+			"Priority"	"5"
+			"Instance"
+				{
+				"Name	"Lump-Of-Coal Failure"
+				"ID"	"FUNNEL"
+				"Trans"	While I was out investigating, I found a fascinating new test element. It's never been used for human testing because, apparently, contact with it causes heart failure. The literature doesn't mention anything about lump-of-coal failure, though, so you should be fine."
+				"Choreo"		"sp_paint_jump_trampoline_entry01.vcd"
+				}
+			}	
+		"Quote"
+		{
+			"Has"	"Laser"
+			"Priority"	"6"
+			"Name"	"Discouragement Beam"
+			"Instance"
+			{
+				"Name"	"Deadly Lasers"
+				"ID"	"LASER_1"
+				"Trans"	"Please proceed into the next test chamber."
+				"Trans"	"Which involves deadly lasers and how test subjects react when locked in a room with deadly lasers."
+				"File"	"clean/entry_laser.vmf"
+			}
+		}
+		}
+			
+	"Group"
+		{
+		"Name"	"Exit"
+		"Desc"	"On Exit"
+		"Config"	"Exit"
+		"Choreo_Name"	"@glados_exit"
+		"Choreo_Loc" "-2984 0 0"
+		"Quote"
+			{
+			"Priority"	"0"
+			"Name"	"Generic"
+			"Instance"
+				{	
+				"Name"	"You Are a Horrible Person"
+				"ID"		"GENERIC_EXIT"
+				
+				"Trans"	I have the results of the last chamber: You are a horrible person. That's what it says: A horrible person. We weren't even testing for that." 
+				"Choreo"		"sp_laser_powered_lift_completion01.vcd"
+				}
+			}
+		}
+	
+	}
+	
+"Quotes_COOP"
+	{
+	"quote_loc" "-3000 0 0"
+	"Base"	"p1/base.vmf"
+	"Midchamber"
+		{
+		"Quote"
+			{
+			"Name"	"Ball Placed in Ball Button"
+			"Has"	"Ball"
+			"Has"	"BallButton"
+			"Instance"
+				{
+				"Name" "Excellent Ball Placement, Robots"
+				"ID"		"BALL_BUTTON_COOP"
+				
+				"Trans"	"You did an excellent job placing the edgeless safety cube in the receptacle, you should be very - oh wait."
+				"Trans"	"That's right. You're not humans."
+				"Trans"	"I can drop the fake praise."
+				
+				"File"	"p1/ball_button_coop.vmf"
+				}
+			}
+		"Quote"
+			{
+			"Name"	"Turret killed/defeated"
+			"Has"	"Turret"
+			"Instance"
+				{
+				"Name"	"They're One Of Us"
+				"ID		"TURRET_KILL"
+				
+				"Trans"	"What are you doing? YOU MONSTER! They're one of us."
+				"Trans"	"I'm kidding."
+				"Trans"	"Destroying them is part of the test. They are no more important to you than you are to me."
+				
+				"File"	"p1/turret_death_coop.vmf"
+				}
+			}
+		}
+	
+	"Group"
+		{
+		"Name"	"Entry"
+		"Desc"	"On Entry"
+		"Config"	"Entry"
+		"Choreo_Name"	"@glados_enter"
+		"Choreo_Loc" "-2984 0 0"
+		"Quote"
+			{
+			"Priority"	"0"
+			"Name"	"Generic"
+			"Instance"
+				{
+				"Name" 	"Federal Regulations"
+				"ID"	"GENERIC_1"
+				"Trans" 	"Federal regulations require me to warn you that this next test chamber... is looking pretty good."
+				"choreo"	"scenes/npc/glados/a2_triple_laser01.vcd"
+				}
+			}
+		"Quote"
+			{
+			"Has"		"Fizzler"
+			"Priority"	"1"
+			"Name"		"Emancipation Grill"
+			"Instance"
+				{
+				"Name"	"The Last Chamber Did Not Have One"
+				"ID"	"FIZZLER_1"
+				"Trans"	"This next test involves emancipation grills. Remember? I told you about them in the last test area, that did not have one."
+				"Choreo"	"scenes/npc/glados/sp_a2_fizzler_intro01.vcd"
+				}
+			}
+		"Quote"
+			{
+			"Has"		"PaintFizzler"
+			"Priority"	"2"
+			"Name"		"Paint Fizzler"
+			"Instance"
+				{
+				"Name"	"Lump-Of-Coal Failure"
+				"ID"		"PAINT_FIZZ"
+				"Trans"	"This next test involves emancipation grills. Remember? I told you about them in the last test area, that did not have one."
+				"Trans"	"While I was out investigating, I found a fascinating new test element. It's never been used for human testing because, apparently, contact with it causes heart failure. The literature doesn't mention anything about lump-of-coal failure, though, so you should be fine."
+				"File"	"p1/paint_fizz.vmf"
+			}
+		
+		"Quote"
+			{
+			"Has"		"Deadly"
+			"Priority"	"3"
+			"Name"		"Deadly"
+			"Instance"
+				{
+				"Name"	"Checked An Old Suggestion Box"
+				"ID"	"DEADLY"
+				"Trans"	"To start preparing for human testing again, I checked an old suggestion box. The number one request? Less deadly tests."
+				"Trans"	"That's ridiculous, how do they know for sure the tests are deadly if they could still write the suggestion?"
+				"File"	"p1/entry_deadly.vmf"
+				}
+			}
+		"Quote"
+			{
+			"Has"	"Turret"
+			"Priority"	"4"
+			"Name"	"Sentry Turret"
+			"Instance"
+				{
+				"Name"	"Avoid Those Turrets"
+				"ID"	"TURRET"
+				"Trans"	"You might want to try and avoid those turrets."
+				"Choreo"	"scenes/npc/glados/mp_coop_tbeam_end12.vcd"
+				}
+			}
+		}
+		
+	"Group"
+		{
+		"Name"	"Exit"
+		"Desc"	"On Exit"
+		"Config"	"Exit"
+		"Choreo_Name"	"@glados_exit"
+		"Choreo_Loc" "-2984 0 0"
+		"Quote"
+			{
+			"Priority"	"0"
+			"Name"	"Generic"
+			"Instance"
+				{
+				"Name" 	"History Will Only Remember One Of You"
+				"ID"		"GENERIC_EXIT"
+				"Trans" 	"Excellent. Although great science is always the result of collaboration, keep in mind that, like Albert Einstein and his cousin Terry, history will only remember one of you."
+				"choreo"	"scenes/npc/glados/botcoop_competition01.vcd"
+				}
+			}
+	}
