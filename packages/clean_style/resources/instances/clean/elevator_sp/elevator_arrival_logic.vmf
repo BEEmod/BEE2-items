@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "5685"
-	"mapversion" "214"
+	"editorbuild" "6432"
+	"mapversion" "230"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "128"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "214"
+	"mapversion" "230"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -184,6 +184,36 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "15364"
+	"classname" "prop_static"
+	"angles" "0 0 0"
+	"disableselfshadowing" "0"
+	"disableshadows" "0"
+	"disablevertexlighting" "0"
+	"drawinfastreflection" "0"
+	"fademaxdist" "0"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"ignorenormals" "0"
+	"maxdxlevel" "0"
+	"mindxlevel" "0"
+	"model" "models/elevator/elevator_central_pipe.mdl"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"screenspacefade" "0"
+	"skin" "0"
+	"solid" "6"
+	"origin" "1.90735e-005 0.166706 -752"
+	editor
+	{
+		"color" "255 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
 	}
 }
 entity
@@ -381,9 +411,7 @@ entity
 	"wheels" "50"
 	connections
 	{
-		"OnArrivedAtDestinationNode" "//openTrigger0.5-1"
 		"OnArrivedAtDestinationNode" "openTrigger0.5-1"
-		"OnArrivedAtDestinationNode" "//elevator_1//Stop0-1"
 	}
 	solid
 	{
@@ -556,16 +584,15 @@ entity
 	"targetname" "source_elevator_door_open_trigger"
 	connections
 	{
-		"OnTrigger" "//signs_onTrigger0-1"
 		"OnTrigger" "light_elevator_fillTurnOn0-1"
-		"OnTrigger" "@glados_cave1FireUser20-1"
+		"OnTrigger" "@arrival_elev_door_openTrigger0-1"
 	}
 	solid
 	{
 		"id" "2530"
 		side
 		{
-			"id" "1696"
+			"id" "5240"
 			"plane" "(-64 -64 80) (-64 64 80) (64 64 80)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -576,7 +603,7 @@ entity
 		}
 		side
 		{
-			"id" "1695"
+			"id" "5239"
 			"plane" "(-64 64 16) (-64 -64 16) (64 -64 16)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -587,7 +614,7 @@ entity
 		}
 		side
 		{
-			"id" "1694"
+			"id" "5238"
 			"plane" "(-64 -64 16) (-64 64 16) (-64 64 80)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -598,7 +625,7 @@ entity
 		}
 		side
 		{
-			"id" "1693"
+			"id" "5237"
 			"plane" "(64 64 16) (64 -64 16) (64 -64 80)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -609,7 +636,7 @@ entity
 		}
 		side
 		{
-			"id" "1692"
+			"id" "5236"
 			"plane" "(-64 64 16) (64 64 16) (64 64 80)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -620,7 +647,7 @@ entity
 		}
 		side
 		{
-			"id" "1691"
+			"id" "5235"
 			"plane" "(64 -64 16) (-64 -64 16) (-64 -64 80)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -672,7 +699,7 @@ entity
 	"targetname" "signs_off"
 	connections
 	{
-		"OnTrigger" "video_scriptRunScriptCodeStopArrivalVideo(23,2)0-1"
+		"OnTrigger" "@video_scriptRunScriptCodeStopArrivalVideo(23,2)0-1"
 	}
 	"origin" "48 -128 24"
 	editor
@@ -687,7 +714,7 @@ entity
 {
 	"id" "14018"
 	"classname" "prop_dynamic"
-	"angles" "0 90 0"
+	"angles" "0 0 0"
 	"DefaultAnim" "close_idle"
 	"DisableBoneFollowers" "0"
 	"disablereceiveshadows" "0"
@@ -760,7 +787,7 @@ entity
 {
 	"id" "10651"
 	"classname" "logic_script"
-	"targetname" "video_script"
+	"targetname" "@video_script"
 	"vscripts" "videos/video_splitter.nut"
 	"origin" "16 -128 24"
 	editor
@@ -829,7 +856,7 @@ entity
 	"targetname" "signs_on"
 	connections
 	{
-		"OnTrigger" "video_scriptRunScriptCodeStartDestructedArrivalVideo(23,2)0-1"
+		"OnTrigger" "@video_scriptRunScriptCodeStartArrivalVideo(23,2)0-1"
 	}
 	"origin" "32 -128 24"
 	editor
@@ -881,10 +908,10 @@ entity
 		side
 		{
 			"id" "5198"
-			"plane" "(-288 -256 0) (-288 256 0) (288 256 0)"
+			"plane" "(-128 -128 0) (-128 128 0) (128 128 0)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 -0.00164795] 0.25"
+			"uaxis" "[1 0 0 0] 0.111111"
+			"vaxis" "[0 -1 0 -0.0015564] 0.125"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -892,10 +919,10 @@ entity
 		side
 		{
 			"id" "5197"
-			"plane" "(-288 256 -64) (-288 -256 -64) (288 -256 -64)"
+			"plane" "(-128 128 -64) (-128 -128 -64) (128 -128 -64)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 -0.00164795] 0.25"
+			"uaxis" "[1 0 0 0] 0.111111"
+			"vaxis" "[0 -1 0 -0.0015564] 0.125"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -903,9 +930,9 @@ entity
 		side
 		{
 			"id" "5196"
-			"plane" "(-288 -256 -64) (-288 256 -64) (-288 256 0)"
+			"plane" "(-128 -128 -64) (-128 128 -64) (-128 128 0)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
-			"uaxis" "[0 1 0 0.00164795] 0.25"
+			"uaxis" "[0 1 0 0.0015564] 0.125"
 			"vaxis" "[0 0 -1 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -914,9 +941,9 @@ entity
 		side
 		{
 			"id" "5195"
-			"plane" "(288 256 -64) (288 -256 -64) (288 -256 0)"
+			"plane" "(128 128 -64) (128 -128 -64) (128 -128 0)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
-			"uaxis" "[0 1 0 0.00164795] 0.25"
+			"uaxis" "[0 1 0 0.0015564] 0.125"
 			"vaxis" "[0 0 -1 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -925,9 +952,9 @@ entity
 		side
 		{
 			"id" "5194"
-			"plane" "(-288 256 -64) (288 256 -64) (288 256 0)"
+			"plane" "(-128 128 -64) (128 128 -64) (128 128 0)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
-			"uaxis" "[1 0 0 0] 0.25"
+			"uaxis" "[1 0 0 0] 0.111111"
 			"vaxis" "[0 0 -1 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -936,9 +963,9 @@ entity
 		side
 		{
 			"id" "5193"
-			"plane" "(288 -256 -64) (-288 -256 -64) (-288 -256 0)"
+			"plane" "(128 -128 -64) (-128 -128 -64) (-128 -128 0)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
-			"uaxis" "[1 0 0 0] 0.25"
+			"uaxis" "[1 0 0 0] 0.111111"
 			"vaxis" "[0 0 -1 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -957,102 +984,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "1814"
-	"classname" "trigger_once"
-	"origin" "0 -176 80"
-	"spawnflags" "4099"
-	"StartDisabled" "0"
-	"targetname" "leaving_elevator_trigger"
-	connections
-	{
-		"OnStartTouch" "@gladosRunScriptCodePuzzleStart()0-1"
-	}
-	solid
-	{
-		"id" "1815"
-		side
-		{
-			"id" "796"
-			"plane" "(-64 -256 144) (-64 -96 144) (64 -96 144)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 -32] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "795"
-			"plane" "(-64 -96 16) (-64 -256 16) (64 -256 16)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 -32] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "794"
-			"plane" "(-64 -256 16) (-64 -96 16) (-64 -96 144)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 32] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "793"
-			"plane" "(64 -96 16) (64 -256 16) (64 -256 144)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 32] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "792"
-			"plane" "(-64 -96 16) (64 -96 16) (64 -96 144)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "791"
-			"plane" "(64 -256 16) (-64 -256 16) (-64 -256 144)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 5000]"
 	}
 }
 entity
@@ -1258,8 +1189,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[204.805 -68.6185 85.4338]"
-		"look" "[23.4978 -57.2232 58.6084]"
+		"position" "[-102.004 -162.377 208.347]"
+		"look" "[-27.9621 -141.145 41.648]"
 	}
 	camera
 	{

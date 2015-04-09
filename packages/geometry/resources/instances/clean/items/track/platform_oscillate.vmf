@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "5633"
-	"mapversion" "174"
+	"editorbuild" "6432"
+	"mapversion" "178"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "174"
+	"mapversion" "178"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -134,7 +134,7 @@ entity
 	"filterclass" "prop_weighted_cube"
 	"Negated" "Allow entities that match criteria"
 	"targetname" "weighted_cube_filter"
-	"origin" "-136 56 -56"
+	"origin" "48 0 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -154,33 +154,13 @@ entity
 	{
 		"OnTrigger" "branch_activeTest0-1"
 	}
-	"origin" "34.0428 -0.762712 16.148"
+	"origin" "48 0 32"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 3000]"
-	}
-}
-entity
-{
-	"id" "2994"
-	"classname" "math_counter"
-	"max" "512"
-	"startvalue" "$speed"
-	"targetname" "counter_speed"
-	connections
-	{
-		"OnGetValue" "track_lift_movelinearSetSpeed0-1"
-	}
-	"origin" "10.8646 -2.55499 62.5045"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 4000]"
 	}
 }
 entity
@@ -194,7 +174,7 @@ entity
 	{
 		"OnGetValue" "track_lift_movelinearSetPosition0-1"
 	}
-	"origin" "16 -48 36.842"
+	"origin" "48 -16 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -210,12 +190,12 @@ entity
 	"targetname" "relay_start_moving"
 	connections
 	{
-		"OnTrigger" "counter_speedGetValue0-1"
 		"OnTrigger" "counter_desired_positionGetValue0.05-1"
 		"OnTrigger" "cube_enable_motion_triggerEnable0-1"
 		"OnTrigger" "cube_enable_motion_triggerDisable0.01-1"
+		"OnTrigger" "track_lift_movelinearSetSpeed$speed0-1"
 	}
-	"origin" "16.1447 -15.2832 51.9442"
+	"origin" "48 -16 32"
 	editor
 	{
 		"color" "220 30 220"
@@ -235,7 +215,7 @@ entity
 		"OnTrigger" "cube_enable_motion_triggerDisable0.01-1"
 		"OnTrigger" "cube_enable_motion_triggerEnable0-1"
 	}
-	"origin" "17.3869 11.2919 49.4597"
+	"origin" "48 16 32"
 	editor
 	{
 		"color" "220 30 220"
@@ -255,7 +235,7 @@ entity
 		"OnFalse" "relay_stop_movingTrigger0-1"
 		"OnTrue" "relay_start_movingTrigger0-1"
 	}
-	"origin" "56 1.9655 -16"
+	"origin" "48 0 16"
 	editor
 	{
 		"color" "220 30 220"
@@ -275,7 +255,7 @@ entity
 		"OnHitMax" "branch_activeToggleTest0-1"
 		"OnChangedFromMax" "branch_activeToggleTest0-1"
 	}
-	"origin" "40.0545 -48 48"
+	"origin" "48 16 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -294,7 +274,7 @@ entity
 	"parm4" "$travel_direction angle 0 90 0"
 	"parm5" "$starting_position float 0"
 	"parm6" "$start_active float 0"
-	"origin" "40.0545 48 16"
+	"origin" "48 16 16"
 	editor
 	{
 		"color" "220 30 220"
@@ -313,7 +293,7 @@ entity
 		"OnProxyRelay" "counterAdd10-1"
 		"OnProxyRelay" "counterSubtract10-1"
 	}
-	"origin" "40.0545 48 48"
+	"origin" "48 -16 16"
 	editor
 	{
 		"color" "220 30 220"

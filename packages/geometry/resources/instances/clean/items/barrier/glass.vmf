@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "78"
+	"mapversion" "53"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "78"
+	"mapversion" "53"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -36,7 +36,7 @@ world
 			"plane" "(-60 64 -64) (-64 64 -64) (-64 -64 -64)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
 			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 -36] 0.25"
+			"vaxis" "[-1 0 0 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -47,7 +47,7 @@ world
 			"plane" "(-64 64 -64) (-60 64 -64) (-60 64 64)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
 			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[-1 0 0 -36] 0.25"
+			"vaxis" "[-1 0 0 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -69,7 +69,7 @@ world
 			"plane" "(-64 64 64) (-60 64 64) (-60 -64 64)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
 			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 -36] 0.25"
+			"vaxis" "[-1 0 0 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -80,7 +80,7 @@ world
 			"plane" "(-60 -64 64) (-60 -64 -64) (-64 -64 -64)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
 			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[-1 0 0 -36] 0.25"
+			"vaxis" "[-1 0 0 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -106,32 +106,12 @@ world
 }
 entity
 {
-	"id" "76"
-	"classname" "prop_static"
-	"angles" "90 0 0"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"model" "models/anim_wp/framework/squarebeam_off_2x2.mdl"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"skin" "2"
-	"solid" "6"
-	"origin" "-56 0 0"
-	editor
-	{
-		"color" "255 255 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "75"
 	"classname" "func_clip_vphysics"
 	"filtername" "@filter_paint_bomb"
 	"origin" "-62 0 0"
 	"StartDisabled" "0"
+	"targetname" "@glass"
 	solid
 	{
 		"id" "72"
@@ -139,9 +119,9 @@ entity
 		{
 			"id" "78"
 			"plane" "(-60 64 -64) (-64 64 -64) (-64 -64 -64)"
-			"material" "TOOLS/TOOLSNODRAW_GLASS_FOOTSTEPS"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 -36] 0.25"
+			"vaxis" "[-1 0 0 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -150,9 +130,9 @@ entity
 		{
 			"id" "77"
 			"plane" "(-64 64 -64) (-60 64 -64) (-60 64 64)"
-			"material" "TOOLS/TOOLSNODRAW_GLASS_FOOTSTEPS"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[-1 0 0 -36] 0.25"
+			"vaxis" "[-1 0 0 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -161,7 +141,7 @@ entity
 		{
 			"id" "76"
 			"plane" "(-60 64 64) (-60 64 -64) (-60 -64 -64)"
-			"material" "TOOLS/TOOLSNODRAW_GLASS_FOOTSTEPS"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
@@ -172,9 +152,9 @@ entity
 		{
 			"id" "75"
 			"plane" "(-64 64 64) (-60 64 64) (-60 -64 64)"
-			"material" "TOOLS/TOOLSNODRAW_GLASS_FOOTSTEPS"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 -36] 0.25"
+			"vaxis" "[-1 0 0 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -183,9 +163,9 @@ entity
 		{
 			"id" "74"
 			"plane" "(-60 -64 64) (-60 -64 -64) (-64 -64 -64)"
-			"material" "TOOLS/TOOLSNODRAW_GLASS_FOOTSTEPS"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[-1 0 0 -36] 0.25"
+			"vaxis" "[-1 0 0 28] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -194,7 +174,7 @@ entity
 		{
 			"id" "73"
 			"plane" "(-64 -64 -64) (-64 64 -64) (-64 64 64)"
-			"material" "TOOLS/TOOLSNODRAW_GLASS_FOOTSTEPS"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
