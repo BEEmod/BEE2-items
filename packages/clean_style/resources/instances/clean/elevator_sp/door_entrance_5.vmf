@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "180"
+	"mapversion" "183"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "180"
+	"mapversion" "183"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2848,82 +2848,6 @@ world
 	}
 	solid
 	{
-		"id" "8118"
-		side
-		{
-			"id" "2456"
-			"plane" "(224 -144 -416) (32 -144 -416) (32 -144 -320)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2455"
-			"plane" "(224 -136 -320) (32 -136 -320) (32 -136 -416)"
-			"material" "METAL/BLACK_WALL_METAL_002B"
-			"uaxis" "[0 0 -1 -384] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2454"
-			"plane" "(32 -136 -416) (32 -136 -320) (32 -144 -320)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[0 1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2453"
-			"plane" "(224 -136 -416) (32 -136 -416) (32 -144 -416)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2452"
-			"plane" "(224 -144 -320) (32 -144 -320) (32 -136 -320)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2451"
-			"plane" "(224 -144 -416) (224 -144 -320) (224 -136 -320)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[0 1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 245 206"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	solid
-	{
 		"id" "8291"
 		side
 		{
@@ -4304,33 +4228,6 @@ world
 }
 entity
 {
-	"id" "12345"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/glados/dlc1_leaderboard07.vcd"
-	"targetname" "@glados_exit_generic"
-	connections
-	{
-		"OnUser2" "!selfStart0-1"
-		"OnUser1" "@glados_exit_faithKill0-1"
-		"OnUser1" "@glados_exit_deadlyKill0-1"
-		"OnUser1" "@glados_exit_gelKill0-1"
-		"OnUser1" "@glados_exit_momentumKill0-1"
-		"OnUser1" "@glados_exit_bridgeKill0-1"
-	}
-	"origin" "7.99998 -60.5559 -373.319"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "maybe I was wrong about you (impressed)"
-		"logicalpos" "[1500 5500]"
-	}
-}
-entity
-{
 	"id" "12292"
 	"classname" "trigger_weapon_strip"
 	"KillWeapons" "1"
@@ -5274,7 +5171,7 @@ entity
 	"id" "8074"
 	"classname" "func_instance"
 	"angles" "-90 -180 0"
-	"file" "instances/p2editor/info_sign_sp_clean.vmf"
+	"file" "instances/bee2/clean/info_sign.vmf"
 	"targetname" "info_sign"
 	"origin" "32 -128 -368"
 	editor
@@ -7222,7 +7119,7 @@ entity
 	connections
 	{
 		"OnTrigger" "@entrance_airlock_doorClose0-1"
-		"OnTrigger" "info_signinstance:info_panel_activate_rl;Trigger0-1"
+		"OnTrigger" "info_signinstance:info_panel;SetActive0-1"
 	}
 	solid
 	{

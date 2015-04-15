@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "141"
+	"mapversion" "148"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "141"
+	"mapversion" "148"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -431,7 +431,7 @@ entity
 		"OnEndTouchBluePlayer" "blue_completely_inSetValue00-1"
 		"OnStartTouchOrangePlayer" "orange_completely_inSetValue10-1"
 		"OnEndTouchOrangePlayer" "orange_completely_inSetValue00-1"
-		"OnStartTouch" "@glados_exitTrigger0-1"
+		"OnStartTouch" "@voice_exitTrigger0-1"
 	}
 	solid
 	{
@@ -640,8 +640,8 @@ entity
 	"model" "models/props/security_camera.mdl"
 	"skin" "0"
 	"spawnflags" "0"
-	"targetname" "cam_2_light1"
-	"TeamToLookAt" "3"
+	"targetname" "camera"
+	"TeamToLookAt" "1"
 	"origin" "45.2531 -51 -66.7469"
 	editor
 	{
@@ -650,26 +650,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "253"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "spr_light_shadowed_5bSetParentAttachmentlight0-1"
-		"OnMapSpawn" "spr_light_shadowed_4bSetParentAttachmentlight0-1"
-	}
-	"origin" "58.5461 -32.1675 -43.0599"
-	editor
-	{
-		"color" "199 100 0"
-		"groupid" "250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[12500 -15268]"
 	}
 }
 entity
@@ -683,15 +663,15 @@ entity
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "sprites/glow04.vmt"
-	"parentname" "cam_2_light1"
+	"parentname" "camera"
 	"renderamt" "255"
 	"rendercolor" "255 156 21"
 	"renderfx" "0"
 	"rendermode" "9"
 	"scale" "0.3"
 	"spawnflags" "0"
-	"targetname" "spr_light_shadowed_5b"
-	"origin" "12.5741 -96.139 -52.0779"
+	"targetname" "spr_oran"
+	"origin" "56 -40 -40"
 	editor
 	{
 		"color" "199 100 0"
@@ -707,7 +687,7 @@ entity
 	"classname" "env_texturetoggle"
 	"target" "brush_blue"
 	"targetname" "textog_blue"
-	"origin" "37.2531 -80 -50.7469"
+	"origin" "80 -16 -50.7469"
 	editor
 	{
 		"color" "199 100 0"
@@ -715,31 +695,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "260"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "relay_orange_in"
-	connections
-	{
-		"OnTrigger" "coopman_airlock_successSetStateATrue0-1"
-		"OnTrigger" "spr_light_shadowed_5bShowSprite0-1"
-		"OnTrigger" "textog_orangeSetTextureIndex10-1"
-		"OnTrigger" "snd_airlock_button_dnPlaySound0-1"
-		"OnTrigger" "cam_2_light1Enable0-1"
-		"OnTrigger" "orange_nearSetValue10-1"
-	}
-	"origin" "24.0871 64 -50.7469"
-	editor
-	{
-		"color" "199 100 0"
-		"groupid" "2256"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 -1268]"
 	}
 }
 entity
@@ -752,8 +707,8 @@ entity
 	connections
 	{
 		"OnChangeToAllTrue" "both_players_nearSetValue101"
-		"OnChangeToAllTrue" "spr_light_shadowed_4bKill01"
-		"OnChangeToAllTrue" "spr_light_shadowed_5bKill01"
+		"OnChangeToAllTrue" "spr_oranKill01"
+		"OnChangeToAllTrue" "spr_blueKill01"
 		"OnChangeToAnyFalse" "both_players_nearSetValue00-1"
 	}
 	"origin" "-58.7469 0.231201 -67.4519"
@@ -877,7 +832,7 @@ entity
 	"classname" "env_texturetoggle"
 	"target" "brush_orange"
 	"targetname" "textog_orange"
-	"origin" "37.2531 -48 -50.7469"
+	"origin" "80 16 -50.7469"
 	editor
 	{
 		"color" "199 100 0"
@@ -1048,79 +1003,6 @@ entity
 }
 entity
 {
-	"id" "281"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "relay_orange_out"
-	connections
-	{
-		"OnTrigger" "coopman_airlock_successSetStateAFalse0-1"
-		"OnTrigger" "spr_light_shadowed_5bHideSprite0-1"
-		"OnTrigger" "textog_orangeSetTextureIndex00-1"
-		"OnTrigger" "snd_airlock_button_upPlaySound0-1"
-		"OnTrigger" "orange_nearSetValue00-1"
-	}
-	"origin" "8.0871 64 -50.7469"
-	editor
-	{
-		"color" "199 100 0"
-		"groupid" "2256"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 -1268]"
-	}
-}
-entity
-{
-	"id" "288"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "relay_blue_in"
-	connections
-	{
-		"OnTrigger" "spr_light_shadowed_4bShowSprite0-1"
-		"OnTrigger" "coopman_airlock_successSetStateBTrue0-1"
-		"OnTrigger" "textog_blueSetTextureIndex10-1"
-		"OnTrigger" "snd_airlock_button_dnPlaySound0-1"
-		"OnTrigger" "cam_2_light1Enable0-1"
-		"OnTrigger" "blue_nearSetValue10-1"
-	}
-	"origin" "24.0871 -64.1355 -50.7469"
-	editor
-	{
-		"color" "199 100 0"
-		"groupid" "2256"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 -1268]"
-	}
-}
-entity
-{
-	"id" "290"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "relay_blue_out"
-	connections
-	{
-		"OnTrigger" "spr_light_shadowed_4bHideSprite0-1"
-		"OnTrigger" "coopman_airlock_successSetStateBFalse0-1"
-		"OnTrigger" "textog_blueSetTextureIndex00-1"
-		"OnTrigger" "snd_airlock_button_upPlaySound0-1"
-		"OnTrigger" "blue_nearSetValue00-1"
-	}
-	"origin" "8.0871 -64.1355 -50.7469"
-	editor
-	{
-		"color" "199 100 0"
-		"groupid" "2256"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 -1268]"
-	}
-}
-entity
-{
 	"id" "292"
 	"classname" "ambient_generic"
 	"cspinup" "0"
@@ -1162,15 +1044,15 @@ entity
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "sprites/glow04.vmt"
-	"parentname" "cam_2_light1"
+	"parentname" "camera"
 	"renderamt" "255"
 	"rendercolor" "32 104 185"
 	"renderfx" "0"
 	"rendermode" "9"
 	"scale" "0.3"
 	"spawnflags" "0"
-	"targetname" "spr_light_shadowed_4b"
-	"origin" "13.2531 -88 -26.7469"
+	"targetname" "spr_blue"
+	"origin" "56 -56 -40"
 	editor
 	{
 		"color" "199 100 0"
@@ -1192,10 +1074,28 @@ entity
 	"trigger_once" "0"
 	connections
 	{
-		"OnStartTouchBluePlayer" "relay_blue_inTrigger0-1"
-		"OnEndTouchBluePlayer" "relay_blue_outTrigger0-1"
-		"OnStartTouchOrangePlayer" "relay_orange_inTrigger0-1"
-		"OnEndTouchOrangePlayer" "relay_orange_outTrigger0-1"
+		"OnStartTouchBluePlayer" "blue_nearSetValue10-1"
+		"OnStartTouchBluePlayer" "cameraEnable01"
+		"OnStartTouchBluePlayer" "snd_airlock_button_dnPlaySound0-1"
+		"OnStartTouchBluePlayer" "textog_blueSetTextureIndex10-1"
+		"OnStartTouchBluePlayer" "coopman_airlock_successSetStateBTrue0-1"
+		"OnStartTouchBluePlayer" "spr_blueShowSprite0-1"
+		"OnEndTouchBluePlayer" "blue_nearSetValue00-1"
+		"OnEndTouchBluePlayer" "snd_airlock_button_upPlaySound0-1"
+		"OnEndTouchBluePlayer" "textog_blueSetTextureIndex00-1"
+		"OnEndTouchBluePlayer" "coopman_airlock_successSetStateBFalse0-1"
+		"OnEndTouchBluePlayer" "spr_blueHideSprite0-1"
+		"OnStartTouchOrangePlayer" "orange_nearSetValue10-1"
+		"OnStartTouchOrangePlayer" "cameraEnable01"
+		"OnStartTouchOrangePlayer" "snd_airlock_button_dnPlaySound0-1"
+		"OnStartTouchOrangePlayer" "textog_orangeSetTextureIndex10-1"
+		"OnStartTouchOrangePlayer" "spr_oranShowSprite0-1"
+		"OnStartTouchOrangePlayer" "coopman_airlock_successSetStateATrue0-1"
+		"OnEndTouchOrangePlayer" "orange_nearSetValue00-1"
+		"OnEndTouchOrangePlayer" "snd_airlock_button_upPlaySound0-1"
+		"OnEndTouchOrangePlayer" "textog_orangeSetTextureIndex00-1"
+		"OnEndTouchOrangePlayer" "spr_oranHideSprite0-1"
+		"OnEndTouchOrangePlayer" "coopman_airlock_successSetStateAFalse0-1"
 	}
 	solid
 	{
@@ -1761,8 +1661,11 @@ entity
 	connections
 	{
 		"OnTrigger" "@exit_airlock_doorOpen0-1"
+		"OnSpawn" "spr_blueSetParentAttachmentlight01"
+		"OnSpawn" "spr_oranSetParentAttachmentlight01"
+		"OnTrigger" "@map_finishedTrigger0-1"
 	}
-	"origin" "-32 0 -64"
+	"origin" "-32 0 -56"
 	editor
 	{
 		"color" "220 30 220"

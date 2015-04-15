@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "41"
+	"mapversion" "56"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "41"
+	"mapversion" "56"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,18 +30,150 @@ world
 }
 entity
 {
-	"id" "241"
-	"classname" "filter_activator_class"
-	"filterclass" "func_physbox"
-	"Negated" "Allow entities that match criteria"
-	"targetname" "physbox_filter"
-	"origin" "8.30696 17.051 -55"
+	"id" "333"
+	"classname" "prop_static"
+	"angles" "90 180 0"
+	"disableselfshadowing" "0"
+	"disablevertexlighting" "0"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"ignorenormals" "0"
+	"model" "models/props/fizzler.mdl"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"screenspacefade" "0"
+	"skin" "0"
+	"solid" "6"
+	"origin" "0 64 -104"
+	editor
+	{
+		"color" "255 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "337"
+	"classname" "prop_static"
+	"angles" "-90 0 0"
+	"disableselfshadowing" "0"
+	"disablevertexlighting" "0"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"ignorenormals" "0"
+	"model" "models/props/fizzler.mdl"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"screenspacefade" "0"
+	"skin" "0"
+	"solid" "6"
+	"origin" "0 -64 -104"
+	editor
+	{
+		"color" "255 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "341"
+	"classname" "trigger_portal_cleanser"
+	"origin" "0 0 -103.5"
+	"spawnflags" "9"
+	"StartDisabled" "0"
+	"targetname" "fizz"
+	"UseScanline" "1"
+	"Visible" "1"
+	connections
+	{
+		"OnDissolve" "!activatorFireUser20-1"
+	}
+	solid
+	{
+		"id" "342"
+		side
+		{
+			"id" "66"
+			"plane" "(-64 -64 -103) (-64 -64 -104) (-64 64 -104)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 -1 0 -60.0039] 0.25"
+			"vaxis" "[0 0 -1 32] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "65"
+			"plane" "(64 64 -103) (64 64 -104) (64 -64 -104)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 -1 0 -60.0039] 0.25"
+			"vaxis" "[0 0 -1 32] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "64"
+			"plane" "(-64 64 -103) (-64 64 -104) (64 64 -104)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 0 1 -32] 0.25"
+			"vaxis" "[1 0 0 63.2422] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "63"
+			"plane" "(64 -64 -103) (64 -64 -104) (-64 -64 -104)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 0 1 -32] 0.25"
+			"vaxis" "[1 0 0 63.2422] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "62"
+			"plane" "(-64 -64 -103) (-64 64 -103) (64 64 -103)"
+			"material" "EFFECTS/FIZZLER"
+			"uaxis" "[0 -1 0 -512] 0.125"
+			"vaxis" "[1 0 0 512] 0.125"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "61"
+			"plane" "(-64 64 -104) (-64 -64 -104) (64 -64 -104)"
+			"material" "EFFECTS/FIZZLER"
+			"uaxis" "[0 1 0 512] 0.125"
+			"vaxis" "[1 0 0 512] 0.125"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"logicalpos" "[1000 -6268]"
 	}
 }
 entity
@@ -151,8 +283,7 @@ entity
 	connections
 	{
 		"OnTrigger" "@exit_doorClose0-1"
-		"OnTrigger" "@relay_spawn_on_entranceFireUser40-1"
-		"OnTrigger" "@neurotoxin_ventFireUser20-1"
+		"OnTrigger" "@voice_exitTrigger0-1"
 	}
 	solid
 	{
@@ -345,7 +476,7 @@ entity
 	{
 		"OnAllTrue" "@exit_doorClose0-1"
 	}
-	"origin" "27.9138 0.417764 -55"
+	"origin" "32 0 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -360,7 +491,7 @@ entity
 	"classname" "logic_branch"
 	"InitialValue" "1"
 	"targetname" "door_clear"
-	"origin" "13.6709 18.1145 -55"
+	"origin" "32 32 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -375,7 +506,7 @@ entity
 	"classname" "logic_branch"
 	"InitialValue" "1"
 	"targetname" "@door_wants_close"
-	"origin" "16.2639 -26.782 -55"
+	"origin" "32 -32 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -393,9 +524,10 @@ entity
 	connections
 	{
 		"OnClose" "brush_blockerEnable0-1"
-		"OnFullyClosed" "exit_door_areaportalClose0-1"
+		"OnFullyClosed" "exit_areaportalClose0-1"
 		"OnFullyClosed" "relay_leaving_levelTrigger0-1"
 		"OnOpen" "brush_blockerDisable0-1"
+		"OnOpen" "exit_areaportalOpen0-1"
 	}
 	"origin" "-64 9.76826e-007 -77"
 	editor
@@ -519,6 +651,7 @@ entity
 	"classname" "func_areaportal"
 	"PortalVersion" "1"
 	"StartOpen" "1"
+	"targetname" "exit_areaportal"
 	solid
 	{
 		"id" "8"
@@ -613,9 +746,9 @@ entity
 	connections
 	{
 		"OnTrigger" "@exit_airlock_doorOpen0-1"
-		"OnTrigger" "@glados_exitTrigger0-1"
+		"OnTrigger" "@map_finishedTrigger0-1"
 	}
-	"origin" "-16 0 -64"
+	"origin" "0 0 -32"
 	editor
 	{
 		"color" "220 30 220"
