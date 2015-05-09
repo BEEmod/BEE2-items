@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "279"
+	"mapversion" "285"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "279"
+	"mapversion" "285"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -839,8 +839,8 @@ world
 			"id" "3178"
 			"plane" "(0 -64 -224) (0 -64 -448) (0 -128 -448)"
 			"material" "WOOD/UNDERGROUND_PLYWOOD_01A_BOTTOM"
-			"uaxis" "[0 1 0 544] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 1 0 256] 0.25"
+			"vaxis" "[0 0 -1 -560] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1588,8 +1588,8 @@ world
 			"id" "2969"
 			"plane" "(0 -64 -512) (0 -64 -64) (0 64 -64)"
 			"material" "WOOD/UNDERGROUND_PLYWOOD_01A_BOTTOM"
-			"uaxis" "[0 1 0 544] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 1 0 256] 0.25"
+			"vaxis" "[0 0 -1 -560] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1751,9 +1751,9 @@ world
 			"id" "2482"
 			"plane" "(-1.95827e-005 -64 -448) (-2.23802e-005 -64 -512) (128 -64 -512)"
 			"material" "METAL/UNDERGROUND_WALL_METAL004A"
-			"uaxis" "[0 0 -1 -256] 0.25"
+			"uaxis" "[0 0 1 16] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "270"
+			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
@@ -1979,9 +1979,9 @@ world
 			"id" "2674"
 			"plane" "(128 64 -512) (-0 64 -512) (-0 64 -448)"
 			"material" "METAL/UNDERGROUND_WALL_METAL004A"
-			"uaxis" "[0 0 -1 -256] 0.25"
+			"uaxis" "[0 0 1 16] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "270"
+			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
@@ -2055,9 +2055,9 @@ world
 			"id" "2692"
 			"plane" "(128 -64 -448) (128 -64 -512) (128 64 -512)"
 			"material" "METAL/UNDERGROUND_WALL_METAL004A"
-			"uaxis" "[0 0 -1 -256] 0.25"
-			"vaxis" "[0 -1 0 256] 0.25"
-			"rotation" "270"
+			"uaxis" "[0 0 1 16] 0.25"
+			"vaxis" "[0 -1 0 -256] 0.25"
+			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
@@ -2164,6 +2164,31 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "16529"
+	"classname" "light"
+	"_constant_attn" "0"
+	"_distance" "0"
+	"_fifty_percent_distance" "0"
+	"_hardfalloff" "0"
+	"_light" "247 228 170 25"
+	"_lightHDR" "-1 -1 -1 1"
+	"_lightscaleHDR" "1"
+	"_linear_attn" "0"
+	"_quadratic_attn" "1"
+	"_zero_percent_distance" "0"
+	"spawnflags" "0"
+	"style" "0"
+	"origin" "64 0 -484"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -3375,31 +3400,6 @@ entity
 }
 entity
 {
-	"id" "14396"
-	"classname" "light"
-	"_constant_attn" "0"
-	"_distance" "0"
-	"_fifty_percent_distance" "0"
-	"_hardfalloff" "0"
-	"_light" "181 67 34 10"
-	"_lightHDR" "-1 -1 -1 1"
-	"_lightscaleHDR" "1"
-	"_linear_attn" "0"
-	"_quadratic_attn" "1"
-	"_zero_percent_distance" "0"
-	"spawnflags" "0"
-	"style" "0"
-	"origin" "64 0 -456.5"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 -9768]"
-	}
-}
-entity
-{
 	"id" "14201"
 	"classname" "linked_portal_door"
 	"angles" "-90 180 0"
@@ -3424,7 +3424,7 @@ entity
 	"id" "14274"
 	"classname" "func_instance"
 	"angles" "-0 0 0"
-	"file" "instances/p2editor_old/light_strip.vmf"
+	"file" "instances/BEE2/50s/items/light_strip_warm.vmf"
 	"fixup_style" "0"
 	"origin" "158.936 -0.741762 -383"
 	editor
@@ -4039,7 +4039,6 @@ entity
 		"OnTrigger" "@relay_lights_onTrigger1-1"
 		"OnTrigger" "@musicPlaySound01"
 		"OnTrigger" "@relay_spawn_on_entranceTrigger0-1"
-		"OnTrigger" "@entrance_portal_insideClose0-1"
 		"OnTrigger" "@cave_enterTrigger01"
 		"OnTrigger" "@entrance_portal_insideClose2-1"
 	}
