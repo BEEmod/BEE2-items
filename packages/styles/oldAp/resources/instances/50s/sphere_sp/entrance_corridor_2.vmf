@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "247"
+	"mapversion" "251"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -10,9 +10,15 @@ visgroups
 {
 	visgroup
 	{
-		"name" "Dynamic"
+		"name" "Dynamic Enabled"
 		"visgroupid" "28"
 		"color" "223 172 157"
+	}
+	visgroup
+	{
+		"name" "Dynamic Disabled"
+		"visgroupid" "20"
+		"color" "149 122 99"
 	}
 }
 viewsettings
@@ -20,13 +26,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "256"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "247"
+	"mapversion" "251"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1924,82 +1930,6 @@ world
 	}
 	solid
 	{
-		"id" "8389"
-		side
-		{
-			"id" "2720"
-			"plane" "(0 144 -160) (0 144 -448) (80 144 -448)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2719"
-			"plane" "(80 128 -160) (80 128 -448) (0 128 -448)"
-			"material" "METAL/UNDERGROUND_WALL_METAL004A"
-			"uaxis" "[0 0 -1 -256] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2718"
-			"plane" "(0 128 -160) (0 128 -448) (0 144 -448)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2717"
-			"plane" "(80 144 -448) (0 144 -448) (0 128 -448)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2716"
-			"plane" "(80 144 -160) (80 144 -448) (80 128 -448)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2715"
-			"plane" "(80 128 -160) (0 128 -160) (0 144 -160)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 125 210"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	solid
-	{
 		"id" "9660"
 		side
 		{
@@ -2237,6 +2167,86 @@ world
 		}
 	}
 }
+hidden
+{
+	entity
+	{
+		"id" "15792"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/50s/sphere_sp/entry_corridor_2/funnel.vmf"
+		"fixup_style" "0"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "28"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "15863"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/50s/sphere_sp/entry_corridor_2/no_bluegel.vmf"
+		"fixup_style" "0"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "20"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "15866"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/50s/sphere_sp/entry_corridor_2/no_deadly.vmf"
+		"fixup_style" "0"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "20"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "15869"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/50s/sphere_sp/entry_corridor_2/no_funnel.vmf"
+		"fixup_style" "0"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "20"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
+	}
+}
 entity
 {
 	"id" "15653"
@@ -2433,7 +2443,7 @@ hidden
 		"id" "15417"
 		"classname" "func_instance"
 		"angles" "0 0 0"
-		"file" "instances/bee2/50s/sphere_sp/entry_corridor_2/blue_gel.vmf"
+		"file" "instances/bee2/50s/sphere_sp/entry_corridor_2/bluegel.vmf"
 		"fixup_style" "0"
 		"origin" "0 0 0"
 		editor
@@ -2485,114 +2495,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 6500]"
-	}
-}
-entity
-{
-	"id" "14205"
-	"classname" "func_brush"
-	"_minlight" "0.05"
-	"disableflashlight" "0"
-	"disablereceiveshadows" "0"
-	"disableshadowdepth" "0"
-	"disableshadows" "0"
-	"drawinfastreflection" "0"
-	"InputFilter" "0"
-	"invert_exclusion" "0"
-	"origin" "46.46 127 -266.01"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"rendermode" "0"
-	"shadowdepthnocache" "0"
-	"solidbsp" "0"
-	"Solidity" "1"
-	"spawnflags" "2"
-	"StartDisabled" "1"
-	"targetname" "@has_funnel"
-	"vrad_brush_cast_shadows" "0"
-	solid
-	{
-		"id" "14206"
-		side
-		{
-			"id" "3578"
-			"plane" "(16.9719 126 -327.581) (75.9719 126 -327.581) (75.9719 128 -327.581)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS_RUSTY_01"
-			"uaxis" "[1 0 0 207.527] 0.25"
-			"vaxis" "[0 1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3577"
-			"plane" "(16.9719 128 -204.426) (75.9719 128 -204.426) (75.9719 126 -204.426)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS_RUSTY_01"
-			"uaxis" "[1 0 0 207.527] 0.25"
-			"vaxis" "[0 1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3576"
-			"plane" "(16.9719 126 -327.581) (16.9719 128 -327.581) (16.9719 128 -204.426)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS_RUSTY_01"
-			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[0 0 1 -189.366] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3575"
-			"plane" "(75.9719 126 -204.426) (75.9719 128 -204.426) (75.9719 128 -327.581)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS_RUSTY_01"
-			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[0 0 1 -189.366] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3574"
-			"plane" "(75.9719 126 -327.581) (16.9719 126 -327.581) (16.9719 126 -204.426)"
-			"material" "SIGNAGE/UNDERGROUND_KNOWYOUR_HAZARDMATERIALS"
-			"uaxis" "[0 0 -1 214.677] 0.25"
-			"vaxis" "[-1 0 0 -192.112] 0.25"
-			"rotation" "90"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3573"
-			"plane" "(75.9719 128 -204.426) (16.9719 128 -204.426) (16.9719 128 -327.581)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 15.5268] 0.25"
-			"vaxis" "[0 0 1 -61.3662] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
 	}
 }
 entity
@@ -2861,7 +2763,7 @@ entity
 	{
 		"OnTrigger" "door_propSetAnimationopen0-1"
 		"OnTrigger" "door_propSetDefaultAnimationopen_idle0.1-1"
-		"OnTrigger" "door_closeCancelPending0-1"
+		"OnTrigger" "@entrance_door_closeCancelPending0-1"
 		"OnTrigger" "door_pushersDisable0-1"
 		"OnTrigger" "door_hurterDisable0-1"
 		"OnTrigger" "@entrance_areaportalOpen0-1"
@@ -2886,7 +2788,7 @@ entity
 	{
 		"OnTrigger" "door_propSetAnimationclose0-1"
 		"OnTrigger" "door_propSetDefaultAnimationclose_idle0.1-1"
-		"OnTrigger" "door_openCancelPending0-1"
+		"OnTrigger" "@entrance_door_openCancelPending0-1"
 		"OnTrigger" "door_pushersEnable0-1"
 		"OnTrigger" "door_pushersDisable1-1"
 		"OnTrigger" "door_hurterEnable1-1"
@@ -4002,27 +3904,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "7738"
-	"classname" "point_template"
-	"spawnflags" "2"
-	"targetname" "@player_start_template"
-	"Template01" "player_start_teleport"
-	"Template02" "player_start_portalgun"
-	connections
-	{
-		"OnEntitySpawned" "@preview_restart_triggerEnable0-1"
-	}
-	"origin" "40 0 -131"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
 	}
 }
 entity

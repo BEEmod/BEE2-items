@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "92"
+	"mapversion" "95"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "92"
+	"mapversion" "95"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -410,43 +410,20 @@ world
 }
 entity
 {
-	"id" "662"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "fire"
+	"id" "701"
+	"classname" "logic_auto"
+	"spawnflags" "1"
 	connections
 	{
-		"OnTrigger" "@sendtor_mutexFireUser10-1"
-		"OnTrigger" "targetRunScriptCode::sendtor_source <- self;0-1"
-		"OnTrigger" "@sendtor_fireTrigger0-1"
-		"OnSpawn" "branch_toggleTest2.21"
-		"OnSpawn" "targetSetParentAttachmentlaser_attachment01"
+		"OnMapSpawn" "branch_toggleTest0-1"
 	}
-	"origin" "-24 0 -48"
+	"origin" "0 0 -40"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "664"
-	"classname" "info_target"
-	"angles" "-90 180 0"
-	"parentname" "laser"
-	"spawnflags" "0"
-	"targetname" "target"
-	"origin" "24 0 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -459,8 +436,6 @@ entity
 	{
 		"OnTrue" "laserTurnOn0-1"
 		"OnFalse" "laserTurnOff0-1"
-		"OnFalse" "fireDisable0-1"
-		"OnTrue" "fireEnable0-1"
 		"OnTrue" "lightTurnOn0-1"
 		"OnFalse" "lightTurnOff0-1"
 	}
@@ -502,7 +477,6 @@ entity
 	{
 		"OnProxyRelay" "counterAdd10-1"
 		"OnProxyRelay" "counterSubtract10-1"
-		"OnProxyRelay" "fireTrigger0-1"
 	}
 	"origin" "24 24 -48"
 	editor

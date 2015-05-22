@@ -1,0 +1,255 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "114"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "114"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_day01_01"
+	solid
+	{
+		"id" "198"
+		side
+		{
+			"id" "309"
+			"plane" "(-40 -40 -48) (-40 40 -48) (40 40 -48)"
+			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "308"
+			"plane" "(-56 56 -64) (-56 -56 -64) (56 -56 -64)"
+			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "307"
+			"plane" "(-56 -56 -64) (-56 56 -64) (-40 40 -48)"
+			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "306"
+			"plane" "(56 56 -64) (56 -56 -64) (40 -40 -48)"
+			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "305"
+			"plane" "(-56 56 -64) (56 56 -64) (40 40 -48)"
+			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "304"
+			"plane" "(56 -56 -64) (-56 -56 -64) (-40 -40 -48)"
+			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "0 238 251"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+}
+entity
+{
+	"id" "3626"
+	"classname" "logic_branch"
+	"InitialValue" "$start_enabled"
+	"targetname" "branch_toggle"
+	connections
+	{
+		"OnTrue" "tbeamEnable0-1"
+		"OnFalse" "tbeamDisable0-1"
+	}
+	"origin" "-24 -24 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "3628"
+	"classname" "math_counter"
+	"max" "$connectioncount"
+	"targetname" "counter"
+	connections
+	{
+		"OnHitMax" "branch_toggleToggleTest0-1"
+		"OnChangedFromMax" "branch_toggleToggleTest0-1"
+	}
+	"origin" "24 24 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "3644"
+	"classname" "math_counter"
+	"max" "$connectioncount_polarity"
+	"targetname" "counter_polarity"
+	connections
+	{
+		"OnHitMax" "branch_toggle_polarityToggleTest0-1"
+		"OnChangedFromMax" "branch_toggle_polarityToggleTest0-1"
+	}
+	"origin" "-24 24 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "3692"
+	"classname" "logic_branch"
+	"InitialValue" "$start_reversed"
+	"targetname" "branch_toggle_polarity"
+	connections
+	{
+		"OnTrue" "tbeamSetLinearForce-2500-1"
+		"OnFalse" "tbeamSetLinearForce2500-1"
+	}
+	"origin" "24 -24 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "189"
+	"classname" "func_instance_parms"
+	"parm1" "$connectioncount integer 1"
+	"parm2" "$connectioncount_polarity integer 1"
+	"parm3" "$start_enabled integer 1"
+	"parm4" "$start_reversed integer 0"
+	"parm5" "$linear_force integer"
+	"origin" "24 0 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
+	"id" "22"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	connections
+	{
+		"OnProxyRelay" "counterAdd10-1"
+		"OnProxyRelay" "counterSubtract10-1"
+		"OnProxyRelay" "counter_polarityAdd10-1"
+		"OnProxyRelay" "counter_polaritySubtract10-1"
+	}
+	"origin" "-24 0 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
+	"id" "38"
+	"classname" "prop_tractor_beam"
+	"angles" "-90 0 0"
+	"disableautoreprojection" "1"
+	"linearForce" "$linear_force"
+	"model" "models/props_ingame/tractor_beam_128.mdl"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"StartEnabled" "$start_enabled"
+	"targetname" "tbeam"
+	"use128model" "1"
+	"origin" "0 0 -68"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 2000]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}

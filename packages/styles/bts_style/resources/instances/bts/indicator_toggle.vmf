@@ -1,0 +1,148 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "8"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+	visgroup
+	{
+		"name" "Unused - no toggle overlays"
+		"visgroupid" "4"
+		"color" "90 211 208"
+	}
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "32"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "8"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+hidden
+{
+	entity
+	{
+		"id" "2"
+		"classname" "env_texturetoggle"
+		"target" "$indicator_name"
+		"targetname" "texture_toggle"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "8"
+		"classname" "func_instance_parms"
+		"parm1" "$indicator_name string"
+		"origin" "-32 -32 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 500]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "10"
+		"classname" "func_instance_io_proxy"
+		"targetname" "proxy"
+		connections
+		{
+			"OnProxyRelay" "indicator_on_rlTrigger0-1"
+			"OnProxyRelay" "indicator_off_rlTrigger0-1"
+		}
+		"origin" "32 -32 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 1000]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "72"
+		"classname" "logic_relay"
+		"targetname" "indicator_on_rl"
+		connections
+		{
+			"OnTrigger" "texture_toggleSetTextureIndex10-1"
+		}
+		"origin" "32 32 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 1500]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "74"
+		"classname" "logic_relay"
+		"targetname" "indicator_off_rl"
+		connections
+		{
+			"OnTrigger" "texture_toggleSetTextureIndex00-1"
+		}
+		"origin" "-32 32 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "4"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 2000]"
+		}
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
