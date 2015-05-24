@@ -6,7 +6,6 @@ in any packages.
 import os
 import shutil
 import sys
-from zipfile import ZipFile
 
 # Location of Portal 2
 GAME_FOLDER = r'F:\SteamLibrary\SteamApps\common\Portal 2'
@@ -31,12 +30,11 @@ def check_file(pack_path, rel_path):
     else:
         game_path = os.path.join(GAME_FOLDER, 'bee2_dev', rel_path)
     if os.path.isfile(game_path):
-        pass
-        # print('Applying changes to "{}"'.format(rel_path))
-        #shutil.copyfile(game_path, pack_path)
+        print('Applying changes to "{}"'.format(rel_path))
+        shutil.copyfile(game_path, pack_path)
     else:
         print('Removing "{}"'.format(rel_path), file=sys.stderr)
-        #os.remove(pack_path)
+        os.remove(pack_path)
 
 def do_folder(path):
     """Check a folder to see if it's a package.
