@@ -1,28 +1,42 @@
+# coding=utf-8
 """
 This script applies any changes made to the game files to matching resources
 in any packages.
 """
 import os
 import shutil
+import sys
 from zipfile import ZipFile
 
 # Location of Portal 2
 GAME_FOLDER = r'F:\SteamLibrary\SteamApps\common\Portal 2'
-EXTRA_FILE_LOC = r'extra_files\\'
+EXTRA_FILE_LOC = 'extra_files'
+
+# Skip these files, if they exist in the source folders.
+# Users won't need them.
+SKIPPED_EXTENSIONS = ('vmx', 'log', 'bsp', 'prt', 'lin')
 
 resource_paths = set()
 
 def check_file(pack_path, rel_path):
-    if rel_path.startswith('sdk_content'):
-        game_path = os.path.join(GAME_FOLDER, rel_path)
+    if rel_path.startswith('instances'):
+        game_path = os.path.join(
+            GAME_FOLDER,
+            'sdk_content',
+            'maps',
+            'instances',
+            'bee2',
+            rel_path[10:],
+        )
     else:
         game_path = os.path.join(GAME_FOLDER, 'bee2_dev', rel_path)
     if os.path.isfile(game_path):
-        print('Applying changes to "{}"'.format(rel_path))
-        shutil.copyfile(game_path, pack_path)
+        pass
+        # print('Applying changes to "{}"'.format(rel_path))
+        #shutil.copyfile(game_path, pack_path)
     else:
-        print('Removing "{}"'.format(rel_path))
-        os.remove(pack_path)
+        print('Removing "{}"'.format(rel_path), file=sys.stderr)
+        #os.remove(pack_path)
 
 def do_folder(path):
     """Check a folder to see if it's a package.
@@ -47,12 +61,7 @@ def do_folder(path):
                     for file in files:
                         full_path = os.path.normpath(os.path.join(base, file))
                         rel_path = os.path.relpath(full_path, res_folder)
-                        if rel_path.startswith('instances'):
-                            rel_path = (
-                                'sdk_content\\maps\\instances\\bee2\\' + rel_path[10:]
-                            )
-                        full_path = os.path.join(package_path, rel_path)
-                        resource_paths.add(rel_path)
+                        resource_paths.add(rel_path.casefold())
                         check_file(
                             full_path,
                             rel_path,
@@ -64,18 +73,26 @@ def check_extra(game_subfolder, set_prefix):
     full_folder = os.path.join(GAME_FOLDER, game_subfolder)
     for base, dirs, files in os.walk(full_folder):
         for file in files:
+            if file[-3:] in SKIPPED_EXTENSIONS:
+                continue
             full_path = os.path.normpath(os.path.join(base, file))
             rel_path = os.path.relpath(full_path, full_folder)
-            if full_path not in resource_paths:
-                print('Extra file: "{}'.format(rel_path))
-                dest = os.path.join(EXTRA_FILE_LOC, rel_path)
-                #os.makedirs(os.path.dirname(dest), exist_ok=True)
-                #shutil.copy(full_path, dest)
+            if os.path.join(set_prefix, rel_path).casefold() not in resource_paths:
+                print('Extra file: "{}"'.format(
+                    os.path.join(set_prefix, rel_path)
+                ))
+                dest = os.path.join(EXTRA_FILE_LOC, set_prefix, rel_path)
+                os.makedirs(os.path.dirname(dest), exist_ok=True)
+                shutil.copy(full_path, dest)
 
 if __name__ == '__main__':
-    do_folder(os.path.join(os.getcwd(), 'packages\\'))
-    check_extra('bee2_dev\\models\\', 'models\\')
-    check_extra('bee2_dev\\materials\\', 'materials\\')
-    check_extra('bee2_dev\\sounds\\', 'sounds\\')
-    check_extra('bee2_dev\\scripts\\', 'scripts\\')
-    check_extra('sdk_content\\maps\\instances\\bee2', 'instances\\')
+    do_folder(os.path.join(os.getcwd(), 'packages'))
+    print('Cleaning extra_files\\!')
+    shutil.rmtree(EXTRA_FILE_LOC + '/', ignore_errors=True)
+    print('Done!')
+    check_extra('bee2_dev\\models\\', 'models')
+    check_extra('bee2_dev\\materials\\', 'materials')
+    check_extra('bee2_dev\\sounds\\', 'sounds')
+    check_extra('bee2_dev\\scripts\\', 'scripts')
+    check_extra('sdk_content\\maps\\instances\\bee2', 'instances')
+    print('Complete!')
