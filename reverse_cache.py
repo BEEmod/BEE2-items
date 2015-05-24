@@ -13,20 +13,22 @@ EXTRA_FILE_LOC = r'extra_files\\'
 resource_paths = set()
 
 def check_file(pack_path, rel_path):
-    game_path = os.path.join(GAME_FOLDER, rel_path)
+    if rel_path.startswith('sdk_content'):
+        game_path = os.path.join(GAME_FOLDER, rel_path)
+    else:
+        game_path = os.path.join(GAME_FOLDER, 'bee2_dev', rel_path)
     if os.path.isfile(game_path):
         print('Applying changes to "{}"'.format(rel_path))
-        #shutil.copyfile(game_path, pack_path)
+        shutil.copyfile(game_path, pack_path)
     else:
         print('Removing "{}"'.format(rel_path))
-        #os.remove(pack_path)
+        os.remove(pack_path)
 
 def do_folder(path):
     """Check a folder to see if it's a package.
 
     If it is, check any resources.
     """
-    print(path)
     for package in os.listdir(path):
         package_path = os.path.join(path, package)
         if os.path.isdir(package_path):
@@ -34,7 +36,7 @@ def do_folder(path):
                 res_folder = os.path.join(package_path, 'resources')
                 if not os.path.isdir(res_folder):
                     print('Package has no resources!')
-                for base, dirs, files in os.walk(package_path):
+                for base, dirs, files in os.walk(res_folder):
                     if base == res_folder:
                         # For the root, stop us from looking in the BEE2 folder
                         for ind, folder in enumerate(dirs):
@@ -43,15 +45,18 @@ def do_folder(path):
                                 break
                         continue
                     for file in files:
-
                         full_path = os.path.normpath(os.path.join(base, file))
-                        rel_path = os.path.relpath(full_path, package_path)
+                        rel_path = os.path.relpath(full_path, res_folder)
+                        if rel_path.startswith('instances'):
+                            rel_path = (
+                                'sdk_content\\maps\\instances\\bee2\\' + rel_path[10:]
+                            )
+                        full_path = os.path.join(package_path, rel_path)
                         resource_paths.add(rel_path)
                         check_file(
                             full_path,
                             rel_path,
                         )
-
             else:
                 do_folder(package_path)
 
