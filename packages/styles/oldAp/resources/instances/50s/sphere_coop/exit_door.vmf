@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "204"
+	"mapversion" "211"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,13 +26,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "204"
+	"mapversion" "211"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -48,6 +48,58 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "7474"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "relay_open"
+	connections
+	{
+		"OnTrigger" "@exit_doorSetAnimationopen0-1"
+		"OnTrigger" "brush_blockerDisable0-1"
+		"OnTrigger" "portalOpen0-1"
+		"OnTrigger" "brush_blockerDisable0-1"
+		"OnTrigger" "relay_openDisable0-1"
+		"OnTrigger" "relay_closeEnable0-1"
+		"OnTrigger" "relay_closeCancelPending0-1"
+	}
+	"origin" "-8 24 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 4500]"
+	}
+}
+entity
+{
+	"id" "7490"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "1"
+	"targetname" "relay_close"
+	connections
+	{
+		"OnTrigger" "relay_leaving_levelTrigger2-1"
+		"OnTrigger" "@exit_doorSetAnimationclose0-1"
+		"OnTrigger" "brush_blockerEnable0-1"
+		"OnTrigger" "portalClose2-1"
+		"OnTrigger" "relay_closeDisable0-1"
+		"OnTrigger" "relay_openEnable0-1"
+		"OnTrigger" "relay_openCancelPending0-1"
+	}
+	"origin" "-24 24 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 4500]"
 	}
 }
 entity
@@ -316,19 +368,6 @@ entity
 	"StartDisabled" "0"
 	"SuppressAnimSounds" "0"
 	"targetname" "@exit_door"
-	connections
-	{
-		"OnClose" "brush_blockerEnable0-1"
-		"OnFullyClosed" "relay_leaving_levelTrigger0-1"
-		"OnOpen" "brush_blockerDisable0-1"
-		"OnOpen" "door_areaportalOpen0-1"
-		"OnFullyClosed" "door_areaportalClose0-1"
-		"OnUser1" "brush_blockerEnable0-1"
-		"OnUser1" "relay_leaving_levelTrigger2-1"
-		"OnUser2" "brush_blockerDisable0-1"
-		"OnUser2" "@exit_doorSetAnimationopen0-1"
-		"OnUser1" "@exit_doorSetAnimationclose0-1"
-	}
 	"origin" "-64 0 -67"
 	editor
 	{
@@ -342,7 +381,7 @@ entity
 {
 	"id" "4850"
 	"classname" "trigger_once"
-	"origin" "0 0.01 -309"
+	"origin" "0 0.03 -309"
 	"spawnflags" "4097"
 	"StartDisabled" "1"
 	"targetname" "restart_trigger"
@@ -356,7 +395,7 @@ entity
 		side
 		{
 			"id" "628"
-			"plane" "(64 -64 -96) (64 -64 -522) (-64 -64 -522)"
+			"plane" "(64 -176 -96) (64 -176 -522) (-64 -176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -32] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -367,7 +406,7 @@ entity
 		side
 		{
 			"id" "627"
-			"plane" "(-64 64 -96) (-64 64 -522) (64 64 -522)"
+			"plane" "(-64 176 -96) (-64 176 -522) (64 176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -378,7 +417,7 @@ entity
 		side
 		{
 			"id" "626"
-			"plane" "(64 64 -96) (64 64 -522) (64 -64 -522)"
+			"plane" "(64 176 -96) (64 176 -522) (64 -176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[0 1 0 -0.1465] 0.25"
@@ -389,7 +428,7 @@ entity
 		side
 		{
 			"id" "625"
-			"plane" "(-64 -64 -96) (-64 -64 -522) (-64 64 -522)"
+			"plane" "(-64 -176 -96) (-64 -176 -522) (-64 176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[0 1 0 -0.1465] 0.25"
@@ -400,7 +439,7 @@ entity
 		side
 		{
 			"id" "624"
-			"plane" "(64 -64 -96) (-64 -64 -96) (-64 64 -96)"
+			"plane" "(64 -176 -96) (-64 -176 -96) (-64 176 -96)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 63.8555] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -411,7 +450,7 @@ entity
 		side
 		{
 			"id" "623"
-			"plane" "(64 64 -522) (-64 64 -522) (-64 -64 -522)"
+			"plane" "(64 176 -522) (-64 176 -522) (-64 -176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 32] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -446,7 +485,7 @@ entity
 		"OnChangeToAllTrue" "open_listenerKill0.1-1"
 		"OnChangeToAllTrue" "in_triggerKill0-1"
 		"OnChangeToAllTrue" "restart_triggerEnable1-1"
-		"OnChangeToAllTrue" "@exit_doorFireUser10-1"
+		"OnChangeToAllTrue" "relay_closeTrigger0-1"
 	}
 	"origin" "40 8 -56"
 	editor
@@ -479,7 +518,7 @@ entity
 		side
 		{
 			"id" "616"
-			"plane" "(128 -128 -160) (128 -128 -522) (-128 -128 -522)"
+			"plane" "(128 -176 -160) (128 -176 -522) (-128 -176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -32] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -490,7 +529,7 @@ entity
 		side
 		{
 			"id" "615"
-			"plane" "(-128 128 -160) (-128 128 -522) (128 128 -522)"
+			"plane" "(-128 176 -160) (-128 176 -522) (128 176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -501,7 +540,7 @@ entity
 		side
 		{
 			"id" "614"
-			"plane" "(128 128 -160) (128 128 -522) (128 -128 -522)"
+			"plane" "(128 176 -160) (128 176 -522) (128 -176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[0 1 0 63.8535] 0.25"
@@ -512,7 +551,7 @@ entity
 		side
 		{
 			"id" "613"
-			"plane" "(-128 -128 -160) (-128 -128 -522) (-128 128 -522)"
+			"plane" "(-128 -176 -160) (-128 -176 -522) (-128 176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[0 1 0 63.8535] 0.25"
@@ -523,7 +562,7 @@ entity
 		side
 		{
 			"id" "612"
-			"plane" "(128 -128 -160) (-128 -128 -160) (-128 128 -160)"
+			"plane" "(128 -176 -160) (-128 -176 -160) (-128 176 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 63.8555] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -534,7 +573,7 @@ entity
 		side
 		{
 			"id" "611"
-			"plane" "(128 128 -522) (-128 128 -522) (-128 -128 -522)"
+			"plane" "(128 176 -522) (-128 176 -522) (-128 -176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 32] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -588,7 +627,7 @@ entity
 	"targetname" "close_man"
 	connections
 	{
-		"OnChangeToAllTrue" "@exit_doorFireUser10-1"
+		"OnChangeToAllTrue" "relay_closeTrigger0-1"
 	}
 	"origin" "-8 -8 -56"
 	editor
@@ -711,7 +750,7 @@ hidden
 				editor
 				{
 					"color" "199 100 0"
-					"visgroupshown" "1"
+					"visgroupshown" "0"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -871,7 +910,7 @@ hidden
 				editor
 				{
 					"color" "199 100 0"
-					"visgroupshown" "1"
+					"visgroupshown" "0"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -923,7 +962,7 @@ entity
 {
 	"id" "3157"
 	"classname" "trigger_playerteam"
-	"origin" "0 0 -229"
+	"origin" "0 0 -300"
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"target_team" "0"
@@ -961,7 +1000,7 @@ entity
 		side
 		{
 			"id" "591"
-			"plane" "(-64 64 -522) (-64 -64 -522) (64 -64 -522)"
+			"plane" "(-64 64 -80) (-64 -64 -80) (64 -64 -80)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -972,7 +1011,7 @@ entity
 		side
 		{
 			"id" "590"
-			"plane" "(-64 -64 -522) (-64 64 -522) (-64 64 64)"
+			"plane" "(-64 -64 -80) (-64 64 -80) (-64 64 64)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 56] 0.25"
@@ -983,7 +1022,7 @@ entity
 		side
 		{
 			"id" "589"
-			"plane" "(64 64 -522) (64 -64 -522) (64 -64 64)"
+			"plane" "(64 64 -80) (64 -64 -80) (64 -64 64)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 56] 0.25"
@@ -994,7 +1033,7 @@ entity
 		side
 		{
 			"id" "588"
-			"plane" "(-64 64 -522) (64 64 -522) (64 64 64)"
+			"plane" "(-64 64 -80) (64 64 -80) (64 64 64)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 56] 0.25"
@@ -1005,10 +1044,86 @@ entity
 		side
 		{
 			"id" "587"
-			"plane" "(64 -64 -522) (-64 -64 -522) (-64 -64 64)"
+			"plane" "(64 -64 -80) (-64 -64 -80) (-64 -64 64)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 56] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	solid
+	{
+		"id" "7446"
+		side
+		{
+			"id" "670"
+			"plane" "(-64 176 -520) (-64 176 -80) (-64 -176 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "669"
+			"plane" "(64 -176 -520) (64 -176 -80) (64 176 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "668"
+			"plane" "(-64 176 -520) (-64 -176 -520) (64 -176 -520)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "667"
+			"plane" "(64 176 -80) (64 -176 -80) (-64 -176 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "666"
+			"plane" "(-64 176 -80) (-64 176 -520) (64 176 -520)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "665"
+			"plane" "(64 -176 -80) (64 -176 -520) (-64 -176 -520)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1047,7 +1162,7 @@ entity
 {
 	"id" "84"
 	"classname" "trigger_multiple"
-	"origin" "0 0.03 -309"
+	"origin" "0 0.05 -309"
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"wait" "1"
@@ -1055,7 +1170,7 @@ entity
 	{
 		"OnStartTouch" "relay_leaving_levelEnable0-1"
 		"OnEndTouch" "relay_leaving_levelDisable0-1"
-		"OnStartTouch" "@cave_exitTrigger01"
+		"OnStartTouch" "@voice_exitTrigger01"
 	}
 	solid
 	{
@@ -1063,7 +1178,7 @@ entity
 		side
 		{
 			"id" "30"
-			"plane" "(128 -128 -96) (128 -128 -522) (-128 -128 -522)"
+			"plane" "(128 -176 -96) (128 -176 -522) (-128 -176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -32] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -1074,7 +1189,7 @@ entity
 		side
 		{
 			"id" "29"
-			"plane" "(-128 128 -96) (-128 128 -522) (128 128 -522)"
+			"plane" "(-128 176 -96) (-128 176 -522) (128 176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -1085,7 +1200,7 @@ entity
 		side
 		{
 			"id" "28"
-			"plane" "(128 128 -96) (128 128 -522) (128 -128 -522)"
+			"plane" "(128 176 -96) (128 176 -522) (128 -176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[0 1 0 63.8535] 0.25"
@@ -1096,7 +1211,7 @@ entity
 		side
 		{
 			"id" "27"
-			"plane" "(-128 -128 -96) (-128 -128 -522) (-128 128 -522)"
+			"plane" "(-128 -176 -96) (-128 -176 -522) (-128 176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[0 1 0 63.8535] 0.25"
@@ -1107,7 +1222,7 @@ entity
 		side
 		{
 			"id" "26"
-			"plane" "(128 -128 -96) (-128 -128 -96) (-128 128 -96)"
+			"plane" "(128 -176 -96) (-128 -176 -96) (-128 176 -96)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 63.8555] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -1118,7 +1233,7 @@ entity
 		side
 		{
 			"id" "25"
-			"plane" "(128 128 -522) (-128 128 -522) (-128 -128 -522)"
+			"plane" "(128 176 -522) (-128 176 -522) (-128 -176 -522)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 32] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -1141,110 +1256,180 @@ entity
 		"logicalpos" "[0 5500]"
 	}
 }
-hidden
+entity
 {
-	entity
+	"id" "105"
+	"classname" "trigger_playerteam"
+	"origin" "0 0 -60"
+	"spawnflags" "4097"
+	"StartDisabled" "0"
+	"target_team" "0"
+	"trigger_once" "0"
+	connections
 	{
-		"id" "105"
-		"classname" "trigger_playerteam"
-		"origin" "0 0 -281"
-		"spawnflags" "4097"
-		"StartDisabled" "0"
-		"target_team" "0"
-		"trigger_once" "0"
-		connections
+		"OnStartTouchOrangePlayer" "lock_door_manSetStateBTrue0-1"
+		"OnEndTouchOrangePlayer" "lock_door_manSetStateBFalse0-1"
+		"OnStartTouchBluePlayer" "lock_door_manSetStateATrue0-1"
+		"OnEndTouchBluePlayer" "lock_door_manSetStateAFalse0-1"
+	}
+	solid
+	{
+		"id" "106"
+		side
 		{
-			"OnStartTouchOrangePlayer" "lock_door_manSetStateBTrue0-1"
-			"OnEndTouchOrangePlayer" "lock_door_manSetStateBFalse0-1"
-			"OnStartTouchBluePlayer" "lock_door_manSetStateATrue0-1"
-			"OnEndTouchBluePlayer" "lock_door_manSetStateAFalse0-1"
+			"id" "42"
+			"plane" "(64 -64 -40) (64 -64 -80) (-64 -64 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 -32] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
 		}
-		hidden
+		side
 		{
-			solid
-			{
-				"id" "106"
-				side
-				{
-					"id" "42"
-					"plane" "(64 -64 -40) (64 -64 -522) (-64 -64 -522)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 0 1 -32] 0.25"
-					"vaxis" "[-1 0 0 0] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "41"
-					"plane" "(-64 63.9999 -40) (-64 64 -522) (64 64 -522)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 0 1 -31.9961] 0.25"
-					"vaxis" "[-1 0 0 0] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "40"
-					"plane" "(64 63.9995 -40) (64 63.9996 -522) (64 -64 -522)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 0 1 -31.9961] 0.25"
-					"vaxis" "[0 1 0 63.8535] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "39"
-					"plane" "(-64 -64 -40) (-64 -64 -522) (-64 63.9995 -522)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 0 1 -31.9961] 0.25"
-					"vaxis" "[0 1 0 63.8535] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "38"
-					"plane" "(64 -64 -40) (-64 -64 -40) (-64 63.9995 -40)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 63.8555] 0.25"
-					"vaxis" "[-1 0 0 0] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "37"
-					"plane" "(64 63.9995 -522) (-64 63.9995 -522) (-64 -64 -522)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 32] 0.25"
-					"vaxis" "[-1 0 0 0] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				editor
-				{
-					"color" "220 30 220"
-					"visgroupshown" "1"
-					"visgroupautoshown" "1"
-				}
-			}
+			"id" "41"
+			"plane" "(-64 64 -40) (-64 64 -80) (64 64 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 -31.9961] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "40"
+			"plane" "(64 64 -40) (64 64 -80) (64 -64 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 -31.9961] 0.25"
+			"vaxis" "[0 1 0 63.8535] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "39"
+			"plane" "(-64 -64 -40) (-64 -64 -80) (-64 64 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 -31.9961] 0.25"
+			"vaxis" "[0 1 0 63.8535] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "38"
+			"plane" "(64 -64 -40) (-64 -64 -40) (-64 64 -40)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 63.8555] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "37"
+			"plane" "(64 64 -80) (-64 64 -80) (-64 -64 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 32] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
 		}
 		editor
 		{
 			"color" "220 30 220"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
-			"logicalpos" "[0 5500]"
 		}
+	}
+	solid
+	{
+		"id" "7432"
+		side
+		{
+			"id" "653"
+			"plane" "(-64 176 -520) (-64 176 -80) (-64 -176 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "654"
+			"plane" "(64 -176 -520) (64 -176 -80) (64 176 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "655"
+			"plane" "(-64 176 -520) (-64 -176 -520) (64 -176 -520)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "656"
+			"plane" "(64 176 -80) (64 -176 -80) (-64 -176 -80)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "657"
+			"plane" "(-64 176 -80) (-64 176 -520) (64 176 -520)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "658"
+			"plane" "(64 -176 -80) (64 -176 -520) (-64 -176 -520)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 5500]"
 	}
 }
 entity
@@ -1259,7 +1444,7 @@ entity
 	{
 		"OnMixed" "close_manSetStateATrue0-1"
 		"OnAllTrue" "close_manSetStateAFalse0-1"
-		"OnAllTrue" "@exit_doorFireUser20-1"
+		"OnAllTrue" "relay_openTrigger0-1"
 	}
 	"origin" "8 8 -56"
 	editor
@@ -1397,14 +1582,15 @@ entity
 	"id" "7"
 	"classname" "func_areaportal"
 	"PortalVersion" "1"
-	"StartOpen" "1"
+	"StartOpen" "0"
+	"targetname" "portal"
 	solid
 	{
 		"id" "8"
 		side
 		{
 			"id" "18"
-			"plane" "(-64 -64 -80) (-64 64 -80) (64 64 -80)"
+			"plane" "(-64 -48 -66) (-64 48 -66) (64 48 -66)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -1415,7 +1601,7 @@ entity
 		side
 		{
 			"id" "17"
-			"plane" "(-64 64 -82) (-64 -64 -82) (64 -64 -82)"
+			"plane" "(-64 48 -68) (-64 -48 -68) (64 -48 -68)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -1426,10 +1612,10 @@ entity
 		side
 		{
 			"id" "16"
-			"plane" "(-64 -64 -82) (-64 64 -82) (-64 64 -80)"
+			"plane" "(-64 -48 -68) (-64 48 -68) (-64 48 -66)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
 			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 -16] 0.25"
+			"vaxis" "[0 0 -1 40] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1437,10 +1623,10 @@ entity
 		side
 		{
 			"id" "15"
-			"plane" "(64 64 -82) (64 -64 -82) (64 -64 -80)"
+			"plane" "(64 48 -68) (64 -48 -68) (64 -48 -66)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
 			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 -16] 0.25"
+			"vaxis" "[0 0 -1 40] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1448,10 +1634,10 @@ entity
 		side
 		{
 			"id" "14"
-			"plane" "(-64 64 -82) (64 64 -82) (64 64 -80)"
+			"plane" "(-64 48 -68) (64 48 -68) (64 48 -66)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
 			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -16] 0.25"
+			"vaxis" "[0 0 -1 40] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1459,10 +1645,10 @@ entity
 		side
 		{
 			"id" "13"
-			"plane" "(64 -64 -82) (-64 -64 -82) (-64 -64 -80)"
+			"plane" "(64 -48 -68) (-64 -48 -68) (-64 -48 -66)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
 			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -16] 0.25"
+			"vaxis" "[0 0 -1 40] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1509,8 +1695,4 @@ cameras
 cordons
 {
 	"active" "0"
-}
-quickhide
-{
-	"count" "3"
 }
