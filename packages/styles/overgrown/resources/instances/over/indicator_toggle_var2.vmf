@@ -1,0 +1,159 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "5685"
+	"mapversion" "22"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "22"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "281"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "rl"
+	connections
+	{
+		"OnTrigger" "brTest0-1"
+		"OnSpawn" "brTest01"
+	}
+	"origin" "0 -16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 2000]"
+	}
+}
+entity
+{
+	"id" "100"
+	"classname" "logic_timer"
+	"LowerRandomBound" "1"
+	"spawnflags" "1"
+	"StartDisabled" "0"
+	"targetname" "ti"
+	"UpperRandomBound" "10"
+	"UseRandomTime" "1"
+	connections
+	{
+		"OnTimerHigh" "tSetTextureIndex00-1"
+		"OnTimerLow" "brTest0-1"
+		"OnTimerHigh" "@sparkPlaySound0-1"
+		"OnTimerLow" "@sparkPlaySound0-1"
+		"OnTimerHigh" "rlDisable0-1"
+		"OnTimerLow" "rlEnable0-1"
+	}
+	"origin" "-32 16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 2000]"
+	}
+}
+entity
+{
+	"id" "153"
+	"classname" "logic_branch"
+	"InitialValue" "0"
+	"targetname" "br"
+	connections
+	{
+		"OnFalse" "tSetTextureIndex10-1"
+		"OnTrue" "tSetTextureIndex20-1"
+		"OnUser2" "brSetValue10-1"
+		"OnUser1" "brSetValue00-1"
+		"OnUser1" "rlTrigger0-1"
+		"OnUser2" "rlTrigger0-1"
+	}
+	"origin" "32 16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 2000]"
+	}
+}
+entity
+{
+	"id" "2"
+	"classname" "env_texturetoggle"
+	"target" "$indicator_name"
+	"targetname" "t"
+	"origin" "0 16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "8"
+	"classname" "func_instance_parms"
+	"parm1" "$indicator_name string"
+	"origin" "-32 -16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "10"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	connections
+	{
+		"OnProxyRelay" "brFireUser10-1"
+		"OnProxyRelay" "brFireUser20-1"
+	}
+	"origin" "32 -16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
