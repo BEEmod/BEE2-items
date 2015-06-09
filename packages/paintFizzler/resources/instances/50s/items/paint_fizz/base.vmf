@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "34"
+	"mapversion" "36"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "34"
+	"mapversion" "36"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -36,10 +36,10 @@ entity
 	"targetname" "counter"
 	connections
 	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
+		"OnHitMax" "branchToggleTest0-1"
+		"OnChangedFromMax" "branchToggleTest0-1"
 	}
-	"origin" "0 32 32"
+	"origin" "0 16 32"
 	editor
 	{
 		"color" "220 30 220"
@@ -53,13 +53,15 @@ entity
 	"id" "615"
 	"classname" "logic_branch"
 	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
+	"targetname" "branch"
 	connections
 	{
-		"OnTrue" "proxyProxyRelay0-1"
-		"OnFalse" "proxyProxyRelay0-1"
+		"OnTrue" "mdl*Start0-1"
+		"OnFalse" "mdl*Stop0-1"
+		"OnTrue" "br_*Enable0-1"
+		"OnFalse" "br_*Disable0-1"
 	}
-	"origin" "0 -32 32"
+	"origin" "0 0 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -94,9 +96,9 @@ entity
 	"spawnflags" "1"
 	connections
 	{
-		"OnMapSpawn" "branch_toggleTest0-1"
+		"OnMapSpawn" "branchTest0-1"
 	}
-	"origin" "0 0 32"
+	"origin" "0 -16 32"
 	editor
 	{
 		"color" "220 30 220"

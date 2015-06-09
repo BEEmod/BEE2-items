@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "5685"
-	"mapversion" "22"
+	"editorbuild" "6432"
+	"mapversion" "23"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "22"
+	"mapversion" "23"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -85,12 +85,8 @@ entity
 	"targetname" "br"
 	connections
 	{
-		"OnFalse" "tSetTextureIndex10-1"
-		"OnTrue" "tSetTextureIndex20-1"
-		"OnUser2" "brSetValue10-1"
-		"OnUser1" "brSetValue00-1"
-		"OnUser1" "rlTrigger0-1"
-		"OnUser2" "rlTrigger0-1"
+		"OnFalse" "togSetTextureIndex10-1"
+		"OnTrue" "togSetTextureIndex20-1"
 	}
 	"origin" "32 16 0"
 	editor
@@ -106,7 +102,14 @@ entity
 	"id" "2"
 	"classname" "env_texturetoggle"
 	"target" "$indicator_name"
-	"targetname" "t"
+	"targetname" "tog"
+	connections
+	{
+		"OnUser2" "rlTrigger0-1"
+		"OnUser2" "brSetValue10-1"
+		"OnUser1" "rlTrigger0-1"
+		"OnUser1" "brSetValue00-1"
+	}
 	"origin" "0 16 0"
 	editor
 	{
@@ -137,8 +140,8 @@ entity
 	"targetname" "proxy"
 	connections
 	{
-		"OnProxyRelay" "brFireUser10-1"
-		"OnProxyRelay" "brFireUser20-1"
+		"OnProxyRelay" "togFireUser10-1"
+		"OnProxyRelay" "togFireUser20-1"
 	}
 	"origin" "32 -16 0"
 	editor

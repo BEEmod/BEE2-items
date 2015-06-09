@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "23"
+	"mapversion" "26"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "23"
+	"mapversion" "26"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,14 +30,32 @@ world
 }
 entity
 {
+	"id" "26"
+	"classname" "logic_auto"
+	"spawnflags" "1"
+	connections
+	{
+		"OnMapSpawn" "togSetTextureIndex10-1"
+	}
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "2"
 	"classname" "env_texturetoggle"
 	"target" "$indicator_name"
-	"targetname" "br"
+	"targetname" "tog"
 	connections
 	{
-		"OnUser2" "tSetTextureIndex20-1"
-		"OnUser1" "tSetTextureIndex10-1"
+		"OnUser2" "!selfSetTextureIndex20-1"
+		"OnUser1" "!selfSetTextureIndex10-1"
 	}
 	"origin" "0 16 0"
 	editor
@@ -69,8 +87,8 @@ entity
 	"targetname" "proxy"
 	connections
 	{
-		"OnProxyRelay" "brFireUser10-1"
-		"OnProxyRelay" "brFireUser20-1"
+		"OnProxyRelay" "togFireUser10-1"
+		"OnProxyRelay" "togFireUser20-1"
 	}
 	"origin" "32 16 0"
 	editor
