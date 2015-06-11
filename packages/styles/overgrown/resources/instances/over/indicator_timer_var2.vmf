@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "120"
+	"mapversion" "121"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "120"
+	"mapversion" "121"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -757,8 +757,8 @@ entity
 		"OnTimer" "@sparkPlaySound0-1"
 		"OnTimer" "screenEnable0-1"
 		"OnTimer" "screenDisable0.11-1"
-		"OnTimer" "panelSetLocalAngles90 180 00.01-1"
-		"OnTimer" "panelSetLocalAngles-90 180 00.1-1"
+		"OnTimer" "panSetLocalAngles90 180 00.01-1"
+		"OnTimer" "panSetLocalAngles-90 180 00.1-1"
 	}
 	"origin" "0 0 -32"
 	editor
@@ -957,7 +957,7 @@ entity
 	"Enabled" "1"
 	"IsTimer" "$is_timer"
 	"parentname" "t"
-	"targetname" "panel"
+	"targetname" "pan"
 	"TimerDuration" "$timer_delay"
 	"origin" "0 0 -62"
 	editor
@@ -991,14 +991,8 @@ entity
 	"targetname" "proxy"
 	connections
 	{
-		"OnProxyRelay" "indicator_on_rlTrigger0-1"
-		"OnProxyRelay" "indicator_off_rlTrigger0-1"
-		"OnProxyRelay" "indicator_timer_start_rlTrigger0-1"
-		"OnProxyRelay" "indicator_timer_stop_rlTrigger0-1"
-		"OnProxyRelay" "panelCheck0-1"
-		"OnProxyRelay" "panelUncheck0-1"
-		"OnProxyRelay" "panelStart0-1"
-		"OnProxyRelay" "panelStop0-1"
+		"OnProxyRelay" "panStart0-1"
+		"OnProxyRelay" "panStop0-1"
 	}
 	"origin" "8 0 -48"
 	editor
@@ -1014,8 +1008,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[16.4243 -28.4284 -30.5855]"
-		"look" "[35.1448 177.316 -191.995]"
+		"position" "[-3.74525 -22.1056 -26.6156]"
+		"look" "[-4.98863 156.021 -218.979]"
 	}
 	camera
 	{

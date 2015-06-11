@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "118"
+	"mapversion" "119"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "118"
+	"mapversion" "119"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -568,9 +568,9 @@ entity
 	"classname" "prop_indicator_panel"
 	"angles" "-90 180 0"
 	"Enabled" "1"
-	"IsTimer" "$is_timer"
-	"parentname" "t"
-	"targetname" "panel"
+	"IsTimer" "1"
+	"skin" "2"
+	"targetname" "pan"
 	"TimerDuration" "$timer_delay"
 	"origin" "0 0 -62"
 	editor
@@ -603,14 +603,8 @@ entity
 	"targetname" "proxy"
 	connections
 	{
-		"OnProxyRelay" "indicator_on_rlTrigger0-1"
-		"OnProxyRelay" "indicator_off_rlTrigger0-1"
-		"OnProxyRelay" "indicator_timer_start_rlTrigger0-1"
-		"OnProxyRelay" "indicator_timer_stop_rlTrigger0-1"
-		"OnProxyRelay" "panelCheck0-1"
-		"OnProxyRelay" "panelUncheck0-1"
-		"OnProxyRelay" "panelStart0-1"
-		"OnProxyRelay" "panelStop0-1"
+		"OnProxyRelay" "panStart0-1"
+		"OnProxyRelay" "panStop0-1"
 	}
 	"origin" "8 0 -48"
 	editor
@@ -626,8 +620,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-36.7971 26.5829 -51.1887]"
-		"look" "[165.251 -97.7135 -162.816]"
+		"position" "[2.89183 17.3159 -30.7672]"
+		"look" "[1.96512 -115.348 -256.894]"
 	}
 	camera
 	{
