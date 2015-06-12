@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "35"
+	"mapversion" "40"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "35"
+	"mapversion" "40"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -56,8 +56,10 @@ entity
 	"targetname" "branch_toggle"
 	connections
 	{
-		"OnTrue" "proxyProxyRelay0-1"
-		"OnFalse" "proxyProxyRelay0-1"
+		"OnTrue" "br_*Enable0-1"
+		"OnFalse" "br_*Disable0-1"
+		"OnTrue" "mdlSetAnimationopen0-1"
+		"OnFalse" "mdlSetAnimationclose0-1"
 	}
 	"origin" "0 -32 32"
 	editor
