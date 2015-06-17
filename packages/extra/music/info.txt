@@ -20,7 +20,7 @@
 	"Icon"			"music/frankenturrets.png"
 	"Authors"		"Valve"
 	"Description"	"The basic music beat played in many of the Wheatley Tests."
-	"Instance"		"BEE2/music/a4_franken.vmf"
+	"Instance"		"music.sp_a4_tb_wall_button_b1"
 	}
 	
 "Music"
@@ -30,7 +30,7 @@
 	"Icon"			"music/test.png"
 	"Authors"		"Valve"
 	"Description"	"The music beat played in the Excursion Funnel Intro Test."
-	"Instance"		"BEE2/music/a4_tbeam_intro.vmf"
+	"SoundScript"	"music.sp_a4_tb_intro_b1"
 	}
 	
 "Music"
@@ -57,28 +57,6 @@
 	
 "Music"
 	{
-	"ID"			"VALVE_FUTURE_STARTER"
-	"Name"			"The Future Starts With You"
-	"ShortName"		"Future Starter"
-	"Icon"			"music/future_starter.png"
-	"Authors"		"Valve"
-	"Description"	"The music played in the 6th Overgrown Test, where a Panel Arm is used to block a Cube from being flung into Goo."
-	"SoundScript"	"music.sp_a1_intro6"
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_TECHNICAL_DIFFICULTIES"
-	"Name"			"Technical Difficulties"
-	"ShortName"		"Tech Difficulties"
-	"Icon"			"music/technical_difficulties.png"
-	"Authors"		"Valve"
-	"Description"	"The music played in the first few Overgrown Test Chambers."
-	"SoundScript"	"music.sp_a1_intro3_b1"
-	}
-	
-"Music"
-	{
 	"ID"			"VALVE_LOVE_CONSTRUCT"
 	"Name"			"Love As A Construct"
 	"ShortName"		"Love As Construct"
@@ -96,6 +74,20 @@
 	"Authors"		"Valve"
 	"Description"	"The music played in Sentry Turret introduction map. Features extra music beats whenever Turrets are defeated."
 	"Instance"		"instances/BEE2/music/valve_turret_intro.vmf"
+	"Config"
+		{
+		"Condition"
+			{
+			"instance" "<ITEM_TURRET>"
+			"Result"
+				{
+				"addOverlay"
+					{
+					"File" "instances/BEE2/music/valve_turret_intro_turret.vmf"
+					}
+				}
+			}
+		}
 	}
 	
 "Music"
