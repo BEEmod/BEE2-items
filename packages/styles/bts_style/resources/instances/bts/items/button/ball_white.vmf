@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "34"
+	"mapversion" "36"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "34"
+	"mapversion" "36"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -118,7 +118,7 @@ entity
 {
 	"id" "1825"
 	"classname" "trigger_multiple"
-	"filtername" "is_ball"
+	"filtername" "@is_ball"
 	"origin" "0 0 -48"
 	"spawnflags" "4104"
 	"StartDisabled" "0"
@@ -138,7 +138,7 @@ entity
 		side
 		{
 			"id" "258"
-			"plane" "(0 -42.4264 -48) (-42.4264 0 -48) (0 42.4264 -48)"
+			"plane" "(-16 0 -48) (0 16 -48) (16 0 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0.707107 0.707107 0 0] 0.25"
 			"vaxis" "[0.707107 -0.707107 0 0] 0.25"
@@ -149,7 +149,7 @@ entity
 		side
 		{
 			"id" "257"
-			"plane" "(-42.4264 0 -64) (0 -42.4264 -64) (42.4264 0 -64)"
+			"plane" "(0 16.0039 -64) (-15.9961 0 -64) (0 -16.0003 -64)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0.707107 0.707107 0 0] 0.25"
 			"vaxis" "[0.707107 -0.707107 0 0] 0.25"
@@ -160,7 +160,7 @@ entity
 		side
 		{
 			"id" "256"
-			"plane" "(0 -42.4264 -64) (-42.4264 0 -64) (-42.4264 0 -48)"
+			"plane" "(-15.9961 0 -64) (-16 0 -48) (0 -16 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-0.707107 0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -171,7 +171,7 @@ entity
 		side
 		{
 			"id" "255"
-			"plane" "(0 42.4264 -64) (42.4264 0 -64) (42.4264 0 -48)"
+			"plane" "(15.9997 0 -64) (16 0 -48) (0 16 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-0.707107 0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -182,7 +182,7 @@ entity
 		side
 		{
 			"id" "254"
-			"plane" "(-42.4264 0 -64) (0 42.4264 -64) (0 42.4264 -48)"
+			"plane" "(0 16.0039 -64) (0 16 -48) (-16 0 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0.707107 0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -193,7 +193,7 @@ entity
 		side
 		{
 			"id" "253"
-			"plane" "(42.4264 0 -64) (0 -42.4264 -64) (0 -42.4264 -48)"
+			"plane" "(0 -16.0003 -64) (0 -16 -48) (16 0 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0.707107 0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -215,22 +215,6 @@ entity
 		"visgroupautoshown" "1"
 		"comments" "Not parented to prevent some bugs with frankenturrets"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "1868"
-	"classname" "filter_activator_model"
-	"model" "models/props_gameplay/mp_ball.mdl"
-	"Negated" "0"
-	"targetname" "is_ball"
-	"origin" "0 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
 	}
 }
 entity
@@ -303,7 +287,7 @@ entity
 	"classname" "info_overlay"
 	"angles" "0 90 0"
 	"BasisNormal" "6.35783e-008 2.7791e-015 1"
-	"BasisOrigin" "44 0 -52"
+	"BasisOrigin" "44 -16 -52"
 	"BasisU" "-4.37114e-008 1 0"
 	"BasisV" "-1 -4.37114e-008 6.35783e-008"
 	"EndU" "1"
@@ -317,7 +301,7 @@ entity
 	"uv1" "-16 16 0"
 	"uv2" "16 16 0"
 	"uv3" "16 -16 0"
-	"origin" "44 0 -52"
+	"origin" "44 -16 -52"
 	editor
 	{
 		"color" "80 150 225"
@@ -332,7 +316,7 @@ entity
 	"classname" "info_overlay"
 	"angles" "0 270 0"
 	"BasisNormal" "-6.35783e-008 2.77909e-015 1"
-	"BasisOrigin" "-44 0 -52"
+	"BasisOrigin" "-44 16 -52"
 	"BasisU" "-4.37114e-008 -1 0"
 	"BasisV" "1 -4.37114e-008 6.35783e-008"
 	"EndU" "1"
@@ -346,7 +330,7 @@ entity
 	"uv1" "-16 16 0"
 	"uv2" "16 16 0"
 	"uv3" "16 -16 0"
-	"origin" "-44 0 -52"
+	"origin" "-44 16 -52"
 	editor
 	{
 		"color" "80 150 225"
