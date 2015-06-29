@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "155"
+	"mapversion" "156"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "155"
+	"mapversion" "156"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -3276,22 +3276,6 @@ world
 }
 entity
 {
-	"id" "8002"
-	"classname" "func_instance"
-	"angles" "-0 0 0"
-	"file" "instances/bee2/clean/elevator_sp/exit_door.vmf"
-	"fixup_style" "0"
-	"origin" "64 0 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 6000]"
-	}
-}
-entity
-{
 	"id" "7635"
 	"classname" "prop_static"
 	"angles" "0 90 90"
@@ -3894,223 +3878,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6850"
-	"classname" "trigger_multiple"
-	"origin" "64 -0.02 -308"
-	"spawnflags" "4097"
-	"StartDisabled" "0"
-	"wait" "1"
-	connections
-	{
-		"OnStartTouch" "@relay_leaving_levelEnable0-1"
-		"OnEndTouch" "@relay_leaving_levelDisable0-1"
-	}
-	solid
-	{
-		"id" "6851"
-		side
-		{
-			"id" "1920"
-			"plane" "(128 -64.0362 -88) (128 -64.0362 -528) (0 -64.0362 -528)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 -32] 0.25"
-			"vaxis" "[-1 0 0 -4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1919"
-			"plane" "(0 64 -88) (0 64 -528) (128 64 -528)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 -31.9961] 0.25"
-			"vaxis" "[-1 0 0 -4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1918"
-			"plane" "(128 64 -88) (128 64 -528) (128 -64.0371 -528)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 -31.9961] 0.25"
-			"vaxis" "[0 1 0 63.9984] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1917"
-			"plane" "(0 -64.0371 -88) (0 -64.0371 -528) (0 64 -528)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 -31.9961] 0.25"
-			"vaxis" "[0 1 0 63.9984] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1916"
-			"plane" "(128 -64.0371 -88) (0 -64.0371 -88) (0 64 -88)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 3.8555] 0.25"
-			"vaxis" "[0 -1 0 -0.144897] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1915"
-			"plane" "(128 64 -528) (0 64 -528) (0 -64.0371 -528)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 36] 0.25"
-			"vaxis" "[0 -1 0 -0.144897] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 5500]"
-	}
-}
-entity
-{
-	"id" "7074"
-	"classname" "logic_branch"
-	"InitialValue" "$start_open"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "@door_wants_closeSetValue00-1"
-		"OnFalse" "@door_wants_closeSetValue10-1"
-		"OnTrue" "@exit_doorOpen0-1"
-	}
-	"origin" "64 32 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6483"
-	"classname" "trigger_multiple"
-	"origin" "64 0 -168"
-	"spawnflags" "4097"
-	"StartDisabled" "1"
-	"targetname" "@preview_restart_trigger"
-	"wait" "3"
-	connections
-	{
-		"OnTrigger" "@clientcommandCommandrestart_level2-1"
-		"OnTrigger" "@preview_complete_messageDisplay0-1"
-		"OnTrigger" "@screenshot2Trigger01"
-	}
-	solid
-	{
-		"id" "6468"
-		side
-		{
-			"id" "1908"
-			"plane" "(0 -64 -160) (0 64 -160) (128 64 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1907"
-			"plane" "(0 64 -176) (0 -64 -176) (128 -64 -176)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1906"
-			"plane" "(0 -64 -176) (0 64 -176) (0 64 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1905"
-			"plane" "(128 64 -176) (128 -64 -176) (128 -64 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1904"
-			"plane" "(0 64 -176) (128 64 -176) (128 64 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1903"
-			"plane" "(128 -64 -176) (0 -64 -176) (0 -64 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
 	}
 }
 entity
@@ -5895,24 +5662,6 @@ entity
 }
 entity
 {
-	"id" "6022"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest1-1"
-	}
-	"origin" "32 0 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "6010"
 	"classname" "linked_portal_door"
 	"angles" "-90 180 0"
@@ -5929,60 +5678,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 -15768]"
-	}
-}
-entity
-{
-	"id" "5983"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "64 -32 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6002"
-	"classname" "func_instance_parms"
-	"parm1" "$connectioncount integer 1"
-	"parm2" "$start_open integer 0"
-	"origin" "32 -32 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 8000]"
-	}
-}
-entity
-{
-	"id" "1439"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "32 32 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 6000]"
 	}
 }
 cameras

@@ -1,0 +1,162 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "49"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "49"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "629"
+	"classname" "logic_timer"
+	"LowerRandomBound" "10"
+	"spawnflags" "0"
+	"StartDisabled" "1"
+	"targetname" "flicker_tim"
+	"UpperRandomBound" "50"
+	"UseRandomTime" "1"
+	connections
+	{
+		"OnTimer" "model*TurnOn0.1-1"
+		"OnTimer" "model*TurnOff0-1"
+	}
+	"origin" "0 0 48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "613"
+	"classname" "math_counter"
+	"max" "$connectioncount"
+	"targetname" "counter"
+	connections
+	{
+		"OnHitMax" "brToggleTest0-1"
+		"OnChangedFromMax" "brToggleTest0-1"
+	}
+	"origin" "0 32 32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "615"
+	"classname" "logic_branch"
+	"InitialValue" "$start_enabled"
+	"targetname" "br"
+	connections
+	{
+		"OnTrue" "model*TurnOn0.15-1"
+		"OnFalse" "model*TurnOff0.15-1"
+		"OnTrue" "br_*Enable0-1"
+		"OnFalse" "br_*Disable0-1"
+		"OnTrue" "model*Start0-1"
+		"OnFalse" "model*Stop0-1"
+		"OnTrue" "model*StartSpark0-1"
+		"OnTrue" "flicker_timEnable0-1"
+		"OnTrue" "flicker_timResetTimer0-1"
+		"OnFalse" "flicker_timDisable0-1"
+	}
+	"origin" "0 -32 32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "617"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	connections
+	{
+		"OnProxyRelay" "counterAdd10-1"
+		"OnProxyRelay" "counterSubtract10-1"
+	}
+	"origin" "0 -16 48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 9000]"
+	}
+}
+entity
+{
+	"id" "619"
+	"classname" "logic_auto"
+	"spawnflags" "1"
+	connections
+	{
+		"OnMapSpawn" "branch_toggleTest0.1-1"
+	}
+	"origin" "0 0 32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "623"
+	"classname" "func_instance_parms"
+	"parm1" "$connectioncount integer"
+	"parm2" "$start_enabled integer"
+	"origin" "0 16 48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}

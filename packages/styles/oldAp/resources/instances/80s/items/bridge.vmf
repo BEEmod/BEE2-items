@@ -1,0 +1,145 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "5685"
+	"mapversion" "39"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "4"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "39"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "677"
+	"classname" "infodecal"
+	"angles" "0 0 0"
+	"LowPriority" "0"
+	"texture" "decals/decalstain011a"
+	"origin" "12.8815 94.682 -55.8817"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "621"
+	"classname" "math_counter"
+	"max" "$connectioncount"
+	"targetname" "counter"
+	connections
+	{
+		"OnHitMax" "branch_toggleToggleTest0-1"
+		"OnChangedFromMax" "branch_toggleToggleTest0-1"
+	}
+	"origin" "32 -32 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "669"
+	"classname" "logic_branch"
+	"InitialValue" "$start_enabled"
+	"targetname" "branch_toggle"
+	connections
+	{
+		"OnTrue" "bridgeEnable0-1"
+		"OnFalse" "bridgeDisable0-1"
+	}
+	"origin" "1.13687e-013 3.8147e-006 -24"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "613"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	connections
+	{
+		"OnProxyRelay" "counterAdd10-1"
+		"OnProxyRelay" "counterSubtract10-1"
+	}
+	"origin" "32 32 -54"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "615"
+	"classname" "func_instance_parms"
+	"parm1" "$connectioncount integer 1"
+	"parm2" "$start_enabled integer 1"
+	"origin" "32 -1.39876e-006 -54"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "617"
+	"classname" "prop_wall_projector"
+	"angles" "-90 180 0"
+	"skin" "1"
+	"StartEnabled" "$start_enabled"
+	"targetname" "bridge"
+	"origin" "-5.30589e-014 0 -64"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
