@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "324"
+	"mapversion" "328"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,13 +32,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "324"
+	"mapversion" "328"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -124,6 +124,128 @@ world
 }
 entity
 {
+	"id" "4127"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "$disable_autodrop"
+	"targetname" "auto_relay"
+	connections
+	{
+		"OnTrigger" "auto_triggerKill0-1"
+		"OnTrigger" "managerSetStateBTrue0-1"
+		"OnSpawn" "!selfTrigger0.111"
+		"OnSpawn" "branch_starting_stateTest0.11"
+	}
+	"origin" "0 32 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 11500]"
+	}
+}
+entity
+{
+	"id" "4129"
+	"classname" "trigger_multiple"
+	"origin" "0 0 -16"
+	"parentname" "lift_platform"
+	"spawnflags" "4097"
+	"StartDisabled" "$disable_autodrop"
+	"targetname" "auto_trigger"
+	"wait" "1"
+	connections
+	{
+		"OnStartTouch" "managerSetStateBTrue0-1"
+		"OnEndTouchAll" "managerSetStateBFalse0-1"
+	}
+	solid
+	{
+		"id" "4130"
+		side
+		{
+			"id" "464"
+			"plane" "(-48 -48 16) (-48 48 16) (48 48 16)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "463"
+			"plane" "(-48 48 -48) (-48 -48 -48) (48 -48 -48)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "462"
+			"plane" "(-48 -48 -48) (-48 48 -48) (-48 48 16)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "461"
+			"plane" "(48 48 -48) (48 -48 -48) (48 -48 16)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "460"
+			"plane" "(-48 48 -48) (48 48 -48) (48 48 16)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "459"
+			"plane" "(48 -48 -48) (-48 -48 -48) (-48 -48 16)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
 	"id" "3975"
 	"classname" "logic_coop_manager"
 	"DefaultPlayerStateA" "$manager_a"
@@ -149,7 +271,7 @@ entity
 	"id" "3199"
 	"classname" "trigger_portal_cleanser"
 	"drawinfastreflection" "0"
-	"origin" "0 -0 -94"
+	"origin" "0 0 -94"
 	"parentname" "lift_platform"
 	"spawnflags" "10"
 	"StartDisabled" "1"
@@ -254,7 +376,7 @@ entity
 	"damagemodel" "0"
 	"damagetype" "1"
 	"nodmgforce" "0"
-	"origin" "0 -0 -86"
+	"origin" "0 0 -86"
 	"parentname" "lift_platform"
 	"spawnflags" "1"
 	"StartDisabled" "1"
@@ -446,106 +568,6 @@ entity
 }
 entity
 {
-	"id" "2997"
-	"classname" "trigger_multiple"
-	"origin" "0 0 -16"
-	"parentname" "lift_platform"
-	"spawnflags" "4097"
-	"StartDisabled" "$disable_autodrop"
-	"targetname" "auto_trigger"
-	"wait" "1"
-	connections
-	{
-		"OnStartTouch" "managerSetStateBTrue0-1"
-		"OnEndTouchAll" "managerSetStateBFalse0-1"
-	}
-	solid
-	{
-		"id" "2995"
-		side
-		{
-			"id" "326"
-			"plane" "(-48 48 16) (48 48 16) (48 -48 16)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "325"
-			"plane" "(-48 -48 -48) (48 -48 -48) (48 48 -48)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "324"
-			"plane" "(-48 48 16) (-48 -48 16) (-48 -48 -48)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "323"
-			"plane" "(48 48 -48) (48 -48 -48) (48 -48 16)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "322"
-			"plane" "(48 48 16) (-48 48 16) (-48 48 -48)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "321"
-			"plane" "(48 -48 -48) (-48 -48 -48) (-48 -48 16)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "7"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "2029"
 	"classname" "logic_case"
 	"Case01" "1"
@@ -606,26 +628,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 11000]"
-	}
-}
-entity
-{
-	"id" "2274"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_starting_stateTest0.1-1"
-		"OnMapSpawn" "auto_triggerToggle0-1"
-	}
-	"origin" "0 32 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "28"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 11500]"
 	}
 }
 entity

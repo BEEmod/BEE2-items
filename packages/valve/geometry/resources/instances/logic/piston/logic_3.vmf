@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "322"
+	"mapversion" "326"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,13 +32,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "322"
+	"mapversion" "326"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -124,6 +124,29 @@ world
 }
 entity
 {
+	"id" "3999"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "$disable_autodrop"
+	"targetname" "auto_relay"
+	connections
+	{
+		"OnTrigger" "auto_triggerKill0-1"
+		"OnTrigger" "managerSetStateBTrue0-1"
+		"OnSpawn" "!selfTrigger0.111"
+		"OnSpawn" "branch_starting_stateTest0.11"
+	}
+	"origin" "0 32 384"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 11500]"
+	}
+}
+entity
+{
 	"id" "3975"
 	"classname" "logic_coop_manager"
 	"DefaultPlayerStateA" "$manager_a"
@@ -134,7 +157,7 @@ entity
 		"OnChangeToAllTrue" "branch_toggleToggleTest0-1"
 		"OnChangeToAnyFalse" "branch_toggleToggleTest0-1"
 	}
-	"origin" "-32 -32 0"
+	"origin" "-32 -32 384"
 	editor
 	{
 		"color" "220 30 220"
@@ -560,7 +583,7 @@ entity
 		"OnFalse" "lift_platformSetSpeed1500-1"
 		"OnTrue" "branch_toggleTest0.01-1"
 	}
-	"origin" "32 32 0"
+	"origin" "32 32 384"
 	editor
 	{
 		"color" "220 30 220"
@@ -568,26 +591,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 11000]"
-	}
-}
-entity
-{
-	"id" "2274"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_starting_stateTest0.1-1"
-		"OnMapSpawn" "auto_triggerToggle0-1"
-	}
-	"origin" "0 32 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "28"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 11500]"
 	}
 }
 entity
@@ -600,7 +603,7 @@ entity
 	"parm4" "$connectioncount boolean 0"
 	"parm5" "$disable_autodrop boolean 1"
 	"parm6" "$manager_a boolean 0"
-	"origin" "32 0 0"
+	"origin" "32 0 384"
 	editor
 	{
 		"color" "220 30 220"
@@ -627,7 +630,7 @@ entity
 		"OnTrue" "lift_platformSetPosition10-1"
 		"OnFalse" "lift_platformSetPosition00-1"
 	}
-	"origin" "-32 32 0"
+	"origin" "-32 32 384"
 	editor
 	{
 		"color" "220 30 220"
@@ -648,7 +651,7 @@ entity
 		"OnHitMax" "managerSetStateATrue0-1"
 		"OnChangedFromMax" "managerSetStateAFalse0-1"
 	}
-	"origin" "32 -32 0"
+	"origin" "32 -32 384"
 	editor
 	{
 		"color" "220 30 220"
@@ -668,7 +671,7 @@ entity
 		"OnProxyRelay" "counterAdd10-1"
 		"OnProxyRelay" "counterSubtract10-1"
 	}
-	"origin" "-32 0 0"
+	"origin" "-32 0 384"
 	editor
 	{
 		"color" "220 30 220"
