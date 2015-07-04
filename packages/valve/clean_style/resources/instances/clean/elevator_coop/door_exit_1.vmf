@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "202"
+	"mapversion" "204"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "202"
+	"mapversion" "204"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2670,45 +2670,6 @@ entity
 }
 entity
 {
-	"id" "8755"
-	"classname" "logic_branch"
-	"InitialValue" "$no_player_start"
-	"targetname" "restart_relay_test"
-	connections
-	{
-		"OnFalse" "@restart_relayEnable0-1"
-	}
-	"origin" "24 -40 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "8771"
-	"classname" "logic_relay"
-	"StartDisabled" "1"
-	"targetname" "@restart_relay"
-	connections
-	{
-		"OnTrigger" "@clientcommandCommandrestart_level2-1"
-		"OnTrigger" "@preview_complete_messageDisplay0-1"
-	}
-	"origin" "8 0 -216"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "8486"
 	"classname" "trigger_portal_cleanser"
 	"origin" "64 2 -103.5"
@@ -2808,21 +2769,6 @@ entity
 		"visgroupautoshown" "1"
 		"comments" "DO NOT REMOVE the OnUser1 outputs on this trigger, they are required for a special case choreo scene in the pit_flings map!"
 		"logicalpos" "[1000 -6268]"
-	}
-}
-entity
-{
-	"id" "8442"
-	"classname" "func_instance"
-	"angles" "-0 0 0"
-	"file" "instances/bee2/clean/elevator_coop/exit_door.vmf"
-	"origin" "64 0 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -4697,45 +4643,6 @@ entity
 }
 entity
 {
-	"id" "6020"
-	"classname" "logic_branch"
-	"InitialValue" "$start_locked"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "@door_unlockedSetValue00-1"
-		"OnFalse" "@door_unlockedSetValue10-1"
-	}
-	"origin" "40 -40 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6022"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest1-1"
-		"OnMapSpawn" "restart_relay_testTest0-1"
-	}
-	"origin" "64 -40 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "6010"
 	"classname" "linked_portal_door"
 	"angles" "-90 180 0"
@@ -4752,61 +4659,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 -15768]"
-	}
-}
-entity
-{
-	"id" "5983"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "64 -1.75721e-006 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6002"
-	"classname" "func_instance_parms"
-	"parm1" "$connectioncount integer 1"
-	"parm2" "$start_locked integer 1"
-	"parm3" "$no_player_start integer 0"
-	"origin" "96 -3.60106e-006 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 8000]"
-	}
-}
-entity
-{
-	"id" "1439"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "24 -1.67647e-007 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 6000]"
 	}
 }
 cameras

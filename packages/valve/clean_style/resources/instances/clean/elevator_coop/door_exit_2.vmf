@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "127"
+	"mapversion" "130"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,89 +20,13 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "127"
+	"mapversion" "130"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
-	solid
-	{
-		"id" "6521"
-		side
-		{
-			"id" "1920"
-			"plane" "(-1024 -1024 1024) (-1024 1024 1024) (1024 1024 1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1919"
-			"plane" "(-1024 1024 -1024) (-1024 -1024 -1024) (1024 -1024 -1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1918"
-			"plane" "(-1024 -1024 -1024) (-1024 1024 -1024) (-1024 1024 1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1917"
-			"plane" "(1024 1024 -1024) (1024 -1024 -1024) (1024 -1024 1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1916"
-			"plane" "(-1024 1024 -1024) (1024 1024 -1024) (1024 1024 1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1915"
-			"plane" "(1024 -1024 -1024) (-1024 -1024 -1024) (-1024 -1024 1024)"
-			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 186 127"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
 	solid
 	{
 		"id" "6823"
@@ -1398,45 +1322,6 @@ world
 }
 entity
 {
-	"id" "8181"
-	"classname" "logic_branch"
-	"InitialValue" "$no_player_start"
-	"targetname" "restart_relay_test"
-	connections
-	{
-		"OnFalse" "@restart_relayEnable0-1"
-	}
-	"origin" "24 -40 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "8183"
-	"classname" "logic_relay"
-	"StartDisabled" "1"
-	"targetname" "@restart_relay"
-	connections
-	{
-		"OnTrigger" "clientcommandCommandrestart_level2-1"
-		"OnTrigger" "@preview_complete_messageDisplay0-1"
-	}
-	"origin" "8 0 -216"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "8185"
 	"classname" "trigger_portal_cleanser"
 	"origin" "64 2 -103.5"
@@ -1554,45 +1439,6 @@ entity
 }
 entity
 {
-	"id" "8190"
-	"classname" "logic_branch"
-	"InitialValue" "$start_locked"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "@door_unlockedSetValue00-1"
-		"OnFalse" "@door_unlockedSetValue10-1"
-	}
-	"origin" "40 -40 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "8192"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest1-1"
-		"OnMapSpawn" "restart_relay_testTest0-1"
-	}
-	"origin" "64 -40 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "8194"
 	"classname" "linked_portal_door"
 	"angles" "-90 180 0"
@@ -1609,76 +1455,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 -15768]"
-	}
-}
-entity
-{
-	"id" "8197"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "64 -1.75721e-006 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "8199"
-	"classname" "func_instance_parms"
-	"parm1" "$connectioncount integer 1"
-	"parm2" "$start_locked integer 1"
-	"parm3" "$no_player_start integer 0"
-	"origin" "96 -3.60106e-006 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 8000]"
-	}
-}
-entity
-{
-	"id" "8201"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "24 -1.67647e-007 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 6000]"
-	}
-}
-entity
-{
-	"id" "7915"
-	"classname" "func_instance"
-	"angles" "-0 0 0"
-	"file" "instances/bee2/clean/elevator_coop/exit_door.vmf"
-	"origin" "64 0 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
