@@ -1,41 +1,37 @@
-"VertexLitGeneric"
+LightmappedGeneric
 {
-
 	"$basetexture" "BEE2/p1/goo/p1_goo"
-
-	"$selfillum" 1
 	"$surfaceprop" "slime"
 	"$envmap" "env_cubemap"
 	"$envmaptint" "[ .50 .45 .45 ]"
 	"$envmapcontrast" 0
 
 	"%keywords" "BEE2"
-	"%compileWater" 0
-	"%compileSlime" 0
+	"%compileSlime" 1
 	
-	"$bottommaterial" "BEE2/p1_goo/beneath"
+	"$bottommaterial" "BEE2/p1/goo/beneath"
 	
 	"$fogenable" 1
 	"$fogcolor" "{72 70 10}"
 	"$fogstart" 1.00
 	"$fogend" 100.00
 
-	// Use scrolling animated textures on DX9 hardware
+	//Use scrolling animated textures on DX9 hardware
 	">=DX90"
 	{
-		"$bumpmap"  "BEE2/p1_goo/waterA_normal"			// These two slide...
-		"$bumpmap2" "BEE2/p1_goo/waterB_normal"			// ...against each other
-		"$bumpmask" "BEE2/p1_goo/p1_flat_normal"		// This holds still and alpha masks to get final normal
+		"$bumpmap"  "BEE2/p1/goo/waterA_normal"			// These two slide...
+		"$bumpmap2" "BEE2/p1/goo/waterB_normal"			// ...against each other
+		"$bumpmask" "BEE2/p1/goo/p1_flat_normal"		// This holds still and alpha masks to get final normal
 	}
 
 	"<DX90"
 	{
-		"$bumpmap" "BEE2/p1_goo/goo_normal"
+		"$bumpmap" "BEE2/p1/goo/goo_normal"
 	}
 	
 	"LightmappedGeneric_NoBump_DX8"
 	{
-		"$basetexture" "BEE2/p1_goo/p1_goo"
+		"$basetexture" "BEE2/p1/goo/p1_goo"
 		"$basealphaenvmapmask" 1
 		"$envmaptint" "[ 0.1 0.08 0.08 ]"
 	}
@@ -57,5 +53,3 @@
 		}
 	}
 }
-
-
