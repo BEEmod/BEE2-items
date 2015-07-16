@@ -2,12 +2,18 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "980"
+	"mapversion" "993"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
+	visgroup
+	{
+		"name" "Squarebeams"
+		"visgroupid" "34"
+		"color" "172 253 242"
+	}
 }
 viewsettings
 {
@@ -20,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "980"
+	"mapversion" "993"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -3489,33 +3495,6 @@ entity
 }
 entity
 {
-	"id" "133361"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/glados/sp_a2_ricochet01.vcd"
-	"targetname" "@glados_exit_bridge"
-	connections
-	{
-		"OnUser2" "!selfStart0-1"
-		"OnUser1" "@glados_exit_genericKill0-1"
-		"OnUser1" "@glados_exit_faithKill0-1"
-		"OnUser1" "@glados_exit_deadlyKill0-1"
-		"OnUser1" "@glados_exit_momentumKill0-1"
-		"OnUser1" "@glados_exit_gelKill0-1"
-	}
-	"origin" "221.516 68.602 87.2195"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "Yesterday I saw a dear"
-		"logicalpos" "[1500 5500]"
-	}
-}
-entity
-{
 	"id" "132911"
 	"classname" "logic_relay"
 	"spawnflags" "1"
@@ -3537,52 +3516,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "132987"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/glados/prehub35.vcd"
-	"targetname" "@glados_exit_momentum"
-	connections
-	{
-		"OnUser2" "!selfStart0-1"
-		"OnUser1" "@glados_exit_genericKill0-1"
-		"OnUser1" "@glados_exit_faithKill0-1"
-		"OnUser1" "@glados_exit_deadlyKill0-1"
-		"OnUser1" "@glados_exit_gelKill0-1"
-		"OnCompletion" "@glados_exit_momentum2Start0-1"
-		"OnUser1" "@glados_exit_bridgeKill0-1"
-	}
-	"origin" "211.671 94.867 89.8704"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "This prerecorded message assumes you have mastered momentum..."
-		"logicalpos" "[1500 5500]"
-	}
-}
-entity
-{
-	"id" "133021"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/glados/prehub36.vcd"
-	"targetname" "@glados_exit_momentum2"
-	"origin" "211.484 95.196 71.6011"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "if you have not..."
-		"logicalpos" "[1500 5500]"
 	}
 }
 entity
@@ -4007,24 +3940,6 @@ entity
 }
 entity
 {
-	"id" "128634"
-	"classname" "light"
-	"_constant_attn" "10000"
-	"_light" "255 255 255 20"
-	"_lightHDR" "-1 -1 -1 1"
-	"_lightscaleHDR" "1"
-	"_quadratic_attn" "1"
-	"origin" "-120 96 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "126070"
 	"classname" "logic_relay"
 	"spawnflags" "0"
@@ -4300,7 +4215,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 180 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4319,6 +4235,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4330,7 +4247,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 180 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4349,6 +4267,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4360,7 +4279,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 195 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4379,6 +4299,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4390,7 +4311,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 195 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4409,6 +4331,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4420,7 +4343,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 195 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4439,6 +4363,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4450,7 +4375,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 195 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4469,6 +4395,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4480,7 +4407,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 195 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4499,6 +4427,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4510,7 +4439,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 195 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4529,6 +4459,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4540,7 +4471,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 165 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4559,6 +4491,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4570,7 +4503,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 165 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4589,6 +4523,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4644,7 +4579,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 195 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4663,6 +4599,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -4674,7 +4611,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 195 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -4693,6 +4631,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -5518,7 +5457,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 180 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -5537,6 +5477,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -5644,7 +5585,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 165 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -5663,6 +5605,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -5674,7 +5617,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 165 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -5693,6 +5637,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -5704,7 +5649,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 165 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -5723,6 +5669,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -5734,7 +5681,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 165 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -5753,6 +5701,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -6320,7 +6269,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 165 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -6339,6 +6289,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -19284,7 +19235,7 @@ entity
 	"rendercolor" "255 255 255"
 	"screenspacefade" "0"
 	"skin" "0"
-	"solid" "6"
+	"solid" "0"
 	"origin" "0 0 -144"
 	editor
 	{
@@ -19369,7 +19320,7 @@ entity
 	"rendercolor" "255 255 255"
 	"screenspacefade" "0"
 	"skin" "0"
-	"solid" "6"
+	"solid" "0"
 	"origin" "0 0 -198.551"
 	editor
 	{
@@ -19606,7 +19557,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 165 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -19625,6 +19577,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -19711,7 +19664,8 @@ entity
 	"classname" "prop_static"
 	"angles" "0 180 90"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -19730,6 +19684,7 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupid" "34"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8500]"
@@ -24372,8 +24327,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-35.5163 172.12 34.0721]"
-		"look" "[-3.96629 224.219 17.524]"
+		"position" "[102.924 577.286 603.812]"
+		"look" "[99.8129 536.836 555.463]"
 	}
 	camera
 	{
