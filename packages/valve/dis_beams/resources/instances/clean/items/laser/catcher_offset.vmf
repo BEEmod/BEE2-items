@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "51"
+	"mapversion" "53"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "51"
+	"mapversion" "53"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -483,6 +483,12 @@ entity
 	"id" "418"
 	"classname" "func_noportal_volume"
 	"spawnflags" "0"
+	"targetname" "output"
+	connections
+	{
+		"OnUser2" "proxyProxyRelay0-1"
+		"OnUser1" "proxyProxyRelay0-1"
+	}
 	solid
 	{
 		"id" "419"
@@ -594,8 +600,10 @@ entity
 	"targetname" "laser_catcher"
 	connections
 	{
-		"OnPowered" "proxyProxyRelay0-1"
-		"OnUnpowered" "proxyProxyRelay0-1"
+		"OnPowered" "outputFireUser20-1"
+		"OnUnpowered" "outputFireUser10-1"
+		"OnPowered" "!selfSkin10-1"
+		"OnUnpowered" "!selfSkin00-1"
 	}
 	"origin" "-32 0 -80"
 	editor

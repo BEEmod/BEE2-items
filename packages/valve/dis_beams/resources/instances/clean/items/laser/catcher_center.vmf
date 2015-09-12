@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "5685"
-	"mapversion" "41"
+	"editorbuild" "6432"
+	"mapversion" "42"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "41"
+	"mapversion" "42"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -413,6 +413,12 @@ entity
 	"id" "242"
 	"classname" "func_noportal_volume"
 	"spawnflags" "0"
+	"targetname" "output"
+	connections
+	{
+		"OnUser1" "proxyProxyRelay0-1"
+		"OnUser2" "proxyProxyRelay0-1"
+	}
 	solid
 	{
 		"id" "243"
@@ -510,8 +516,10 @@ entity
 	"targetname" "laser_catcher"
 	connections
 	{
-		"OnPowered" "proxyProxyRelay0-1"
-		"OnUnpowered" "proxyProxyRelay0-1"
+		"OnUnpowered" "!selfSkin00-1"
+		"OnUnpowered" "outputFireUser10-1"
+		"OnPowered" "!selfSkin10-1"
+		"OnPowered" "outputFireUser20-1"
 	}
 	"origin" "0 0 -80"
 	editor
@@ -527,7 +535,7 @@ entity
 	"id" "137"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
-	"origin" "48 16 -48"
+	"origin" "0 0 -48"
 	editor
 	{
 		"color" "220 30 220"
