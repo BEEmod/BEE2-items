@@ -1,43 +1,42 @@
-// --------------------------------------------------------
-// StartVideo
-// --------------------------------------------------------
+// Gutted and modified video_splitter script, designed to be controlled by the BEE2 compiler.
+// This is used to choose a random video.
 
 RandomVideos <-
 [
-	"animalking.bik",
-	"aperture_appear_horiz.bik",
-	"bluescreen.bik",
-	"coop_bluebot_load.bik",
-	"coop_bots_load.bik",
-	"coop_bots_load_wave.bik",
-	"coop_orangebot_load.bik",
-	"exercises_horiz.bik",
-	"faithplate.bik",
-	"fizzler.bik",
-	"hard_light.bik",
-	"laser_danger_horiz.bik",
-	"laser_portal.bik",
-	"plc_blue_horiz.bik",
-	"turret_colours_type.bik",
-	"turret_dropin.bik",
-	"turret_exploded_grey.bik",
-	"community_bg1.bik"
+	"animalking",
+	"aperture_appear_horiz",
+	"bluescreen",
+	"coop_bluebot_load",
+	"coop_bots_load",
+	"coop_bots_load_wave",
+	"coop_orangebot_load",
+	"exercises_horiz",
+	"faithplate",
+	"fizzler",
+	"hard_light",
+	"laser_danger_horiz",
+	"laser_portal",
+	"plc_blue_horiz",
+	"turret_colours_type",
+	"turret_dropin",
+	"turret_exploded_grey",
+	"community_bg1"
 ]
 
 ARRIVAL_VIDEO <- 0
 DEPARTURE_VIDEO <- 1
 
-chosenVideo <- ''
+chosenVideo <- ""
 
 function Precache()
 {
 	if( "PrecachedVideos" in this )
 	{
-		// don't do anything
+		// don"t do anything
 	}
 	else
 	{
-		// If we're in a community map, pick a random one
+		// If we"re in a community map, pick a random one
 		local communityMapIndex = GetMapIndexInPlayOrder();
 		if ( communityMapIndex != -2 )
 		{
@@ -46,7 +45,7 @@ function Precache()
 				communityMapIndex = GetNumMapsPlayed()
 			}
 			
-			chosenVideo = "media\\" + RandomVideos[communityMapIndex % RandomVideos.len()];
+			chosenVideo = "media\\" + RandomVideos[communityMapIndex % RandomVideos.len()] + ".bik";
 			printl( "Preching movie: " + chosenVideo )
 			PrecacheMovie( movieName )		
 		}
@@ -95,7 +94,7 @@ function StopVideo(videoType, width, height)
 	}
 }
 
-function StartArrivalVideo(width,height)
+function StartArrivalVideo(width,height, use_destructed)
 {
 	
 	// If we have something to play, do so
@@ -105,11 +104,11 @@ function StartArrivalVideo(width,height)
 		EntFire("@arrival_video_master_horiz", "SetMovie", chosenVideo, 0)
 	
 		EntFire("@arrival_video_master_horiz", "Enable", "", 0.1)
-		StartVideo(ARRIVAL_VIDEO, width, height
+		StartVideo(ARRIVAL_VIDEO, width, height, use_destructed)
 	}
 }
 
-function StartDepartureVideo(width,height)
+function StartDepartureVideo(width,height, use_destructed)
 {
 	if ( chosenVideo != "" )
 	{
@@ -117,19 +116,28 @@ function StartDepartureVideo(width,height)
 		EntFire("@departure_video_master_horiz", "SetMovie", chosenVideo, 0)
 		
 		EntFire("@departure_video_master_horiz", "Enable", "", 0.1)
-		StartVideo(DEPARTURE_VIDEO, width, height)
+		StartVideo(DEPARTURE_VIDEO, width, height, use_destructed)
 	}
 }
 
-function StartVideo(videoType,width,height)
+function StartVideo(videoType, width, height, use_destructed)
 {
-	if (chosenVideo == 'bluescreen.bik')
+	local videoScaleType = 0
+	local randomDestructChance = 0
+	
+	if (use_destructed == 1)
 	{
-	videoScaleType = 14
+		videoScaleType = RandomInt(1,5)
+		randomDestructChance = RandomInt(30, 70)
 	}
 	else
 	{
-	local videoScaleType = RandomInt(1,13)
+		videoScaleType = RandomInt(6,13)
+	}
+	
+	if (chosenVideo == "media\\bluescreen.bik")
+	{
+	videoScaleType = 14
 	}
 	
 	for(local i=0;i<width;i+=1)
@@ -148,11 +156,11 @@ function StartVideo(videoType,width,height)
 				signName = "@arrival_sign_" + panelNum
 			}		
 					
-			// if( randomDestructChance > RandomInt(0,100) )
-			// {
-				// EntFire(signName, "Kill", "", 0)
-				// continue
-			// }
+			if( randomDestructChance > RandomInt(0,100) )
+			{
+				EntFire(signName, "Kill", "", 0)
+				continue
+			}
 			
 			EntFire(signName, "SetUseCustomUVs", 1, 0)
 			
@@ -160,7 +168,12 @@ function StartVideo(videoType,width,height)
 			local uMax = (i+1.0001)/(width)
 			local vMin = (j+0.0001)/(height)
 			local vMax = (j+1.0001)/(height)
-							
+				
+				
+			if( videoScaleType == 0 /*full elevator*/ ) 				
+			{
+			
+			}
 			else if( videoScaleType == 1 /*stretch*/ ) 
 			{
 				uMin = 1.0 - (1.0-uMin)*(1.0-uMin)*(1.0-uMin)
