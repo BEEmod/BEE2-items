@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "15"
+	"mapversion" "18"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "15"
+	"mapversion" "18"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -33,7 +33,7 @@ world
 		side
 		{
 			"id" "107"
-			"plane" "(-16 16 2) (16 16 2) (16 -16 2)"
+			"plane" "(-16 16 1) (16 16 1) (16 -16 1)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -55,7 +55,7 @@ world
 		side
 		{
 			"id" "105"
-			"plane" "(-18 18 0) (-16 16 2) (-16 -16 2)"
+			"plane" "(-18 18 0) (-16 16 1) (-16 -16 1)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
 			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[-0.707107 0 -0.707107 13] 0.25"
@@ -66,7 +66,7 @@ world
 		side
 		{
 			"id" "104"
-			"plane" "(18 -18 0) (16 -16 2) (16 16 2)"
+			"plane" "(18 -18 0) (16 -16 1) (16 16 1)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0.707107 0 -0.707107 13] 0.25"
@@ -110,7 +110,7 @@ world
 		side
 		{
 			"id" "100"
-			"plane" "(-16 16 2) (-18 18 0) (18 18 0)"
+			"plane" "(16 16 1) (-16 16 1) (-18 18 0)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0.707107 -0.707107 13.0883] 0.25"
@@ -121,7 +121,7 @@ world
 		side
 		{
 			"id" "99"
-			"plane" "(-16 -16 2) (16 -16 2) (18 -18 0)"
+			"plane" "(-16 -16 1) (16 -16 1) (18 -18 0)"
 			"material" "TOOLS/TOOLSPLAYERCLIP"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -0.707107 -0.707107 13] 0.25"
@@ -163,7 +163,7 @@ entity
 		side
 		{
 			"id" "174"
-			"plane" "(16 16 0) (16 16 2) (-16 16 2)"
+			"plane" "(-16 16 1) (-16 16 -2) (16 16 -2)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[0 0 1 8] 0.25"
 			"vaxis" "[1 0 0 -16] 0.25"
@@ -174,7 +174,7 @@ entity
 		side
 		{
 			"id" "173"
-			"plane" "(-14 14 0) (-14 14 2) (14 14 2)"
+			"plane" "(14 14 1) (14 14 -2) (-14 14 -2)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[0 0 1 8] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
@@ -185,7 +185,7 @@ entity
 		side
 		{
 			"id" "172"
-			"plane" "(-16 16 0) (-16 16 2) (-14 14 2)"
+			"plane" "(-14 14 1) (-14 14 -2) (-16 16 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0.707107 -0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 -8] 0.25"
@@ -196,7 +196,7 @@ entity
 		side
 		{
 			"id" "171"
-			"plane" "(14 14 0) (14 14 2) (16 16 2)"
+			"plane" "(16 16 1) (16 16 -2) (14 14 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0.707107 0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 -8] 0.25"
@@ -207,7 +207,7 @@ entity
 		side
 		{
 			"id" "170"
-			"plane" "(-16 16 2) (16 16 2) (14 14 2)"
+			"plane" "(14 14 1) (-14 14 1) (-16 16 1)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[1 0 0 -16] 0.25"
@@ -218,7 +218,7 @@ entity
 		side
 		{
 			"id" "169"
-			"plane" "(-14 14 0) (14 14 0) (16 16 0)"
+			"plane" "(16 16 -2) (-16 16 -2) (-14 14 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -239,7 +239,7 @@ entity
 		side
 		{
 			"id" "36"
-			"plane" "(-16 -16 0) (-16 -16 2) (16 -16 2)"
+			"plane" "(16 -16 1) (16 -16 -2) (-16 -16 -2)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[0 0 1 8] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -250,7 +250,7 @@ entity
 		side
 		{
 			"id" "35"
-			"plane" "(14 -14 0) (14 -14 2) (-14 -14 2)"
+			"plane" "(-14 -14 1) (-14 -14 -2) (14 -14 -2)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[0 0 1 8] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -261,7 +261,7 @@ entity
 		side
 		{
 			"id" "34"
-			"plane" "(16 -16 0) (16 -16 2) (14 -14 2)"
+			"plane" "(14 -14 1) (14 -14 -2) (16 -16 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-0.707107 0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 -8] 0.25"
@@ -272,7 +272,7 @@ entity
 		side
 		{
 			"id" "33"
-			"plane" "(-14 -14 0) (-14 -14 2) (-16 -16 2)"
+			"plane" "(-16 -16 1) (-16 -16 -2) (-14 -14 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-0.707107 -0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 -8] 0.25"
@@ -283,7 +283,7 @@ entity
 		side
 		{
 			"id" "32"
-			"plane" "(-14 -14 2) (14 -14 2) (16 -16 2)"
+			"plane" "(16 -16 1) (-16 -16 1) (-14 -14 1)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[-1 0 0 16] 0.25"
@@ -294,7 +294,7 @@ entity
 		side
 		{
 			"id" "31"
-			"plane" "(-16 -16 0) (16 -16 0) (14 -14 0)"
+			"plane" "(14 -14 -2) (-14 -14 -2) (-16 -16 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -315,7 +315,7 @@ entity
 		side
 		{
 			"id" "42"
-			"plane" "(-16 16 0) (-16 16 2) (-16 -16 2)"
+			"plane" "(-16 -16 1) (-16 -16 -2) (-16 16 -2)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[0 0 1 8] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -326,7 +326,7 @@ entity
 		side
 		{
 			"id" "41"
-			"plane" "(-14 -14 0) (-14 -14 2) (-14 14 2)"
+			"plane" "(-14 14 1) (-14 14 -2) (-14 -14 -2)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[0 0 1 8] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -337,7 +337,7 @@ entity
 		side
 		{
 			"id" "40"
-			"plane" "(-16 -16 0) (-16 -16 2) (-14 -14 2)"
+			"plane" "(-14 -14 1) (-14 -14 -2) (-16 -16 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0.707107 0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 -8] 0.25"
@@ -348,7 +348,7 @@ entity
 		side
 		{
 			"id" "39"
-			"plane" "(-14 14 0) (-14 14 2) (-16 16 2)"
+			"plane" "(-16 16 1) (-16 16 -2) (-14 14 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-0.707107 0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 -8] 0.25"
@@ -359,7 +359,7 @@ entity
 		side
 		{
 			"id" "38"
-			"plane" "(-14 14 2) (-14 -14 2) (-16 -16 2)"
+			"plane" "(-16 -16 1) (-16 16 1) (-14 14 1)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -370,7 +370,7 @@ entity
 		side
 		{
 			"id" "37"
-			"plane" "(-14 -14 0) (-14 14 0) (-16 16 0)"
+			"plane" "(-16 16 -2) (-16 -16 -2) (-14 -14 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -391,7 +391,7 @@ entity
 		side
 		{
 			"id" "48"
-			"plane" "(16 -16 0) (16 -16 2) (16 16 2)"
+			"plane" "(16 16 1) (16 16 -2) (16 -16 -2)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[0 0 1 8] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -402,7 +402,7 @@ entity
 		side
 		{
 			"id" "47"
-			"plane" "(14 14 0) (14 14 2) (14 -14 2)"
+			"plane" "(14 -14 1) (14 -14 -2) (14 14 -2)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[0 0 1 8] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -413,7 +413,7 @@ entity
 		side
 		{
 			"id" "46"
-			"plane" "(16 16 0) (16 16 2) (14 14 2)"
+			"plane" "(14 14 1) (14 14 -2) (16 16 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-0.707107 -0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 -8] 0.25"
@@ -424,7 +424,7 @@ entity
 		side
 		{
 			"id" "45"
-			"plane" "(14 -14 0) (14 -14 2) (16 -16 2)"
+			"plane" "(16 -16 1) (16 -16 -2) (14 -14 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0.707107 -0.707107 0 0] 0.25"
 			"vaxis" "[0 0 -1 -8] 0.25"
@@ -435,7 +435,7 @@ entity
 		side
 		{
 			"id" "44"
-			"plane" "(16 16 2) (16 -16 2) (14 -14 2)"
+			"plane" "(14 -14 1) (14 14 1) (16 16 1)"
 			"material" "SIGNAGE/SIGNAGE_BORDER"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -446,7 +446,7 @@ entity
 		side
 		{
 			"id" "43"
-			"plane" "(16 -16 0) (16 16 0) (14 14 0)"
+			"plane" "(14 14 -2) (14 -14 -2) (16 -16 -2)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"

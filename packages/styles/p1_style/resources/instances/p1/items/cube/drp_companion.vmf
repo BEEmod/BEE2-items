@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "5"
+	"mapversion" "7"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "5"
+	"mapversion" "7"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -33,7 +33,7 @@ entity
 	"id" "5"
 	"classname" "prop_weighted_cube"
 	"allowfunnel" "0"
-	"angles" "0 270 180"
+	"angles" "-90 0 0"
 	"CubeType" "1"
 	"model" "models/props/metal_box.mdl"
 	"NewSkins" "1"
@@ -43,11 +43,14 @@ entity
 	"skin" "1"
 	"SkinType" "0"
 	"targetname" "box"
+	"vscripts" "bee2/change_models.nut"
 	connections
 	{
 		"OnFizzled" "cube_dropper_autorespawn_relayTrigger0-1"
 		"OnUser2" "glados_sentientTrigger01"
 		"OnPlayerPickup" "glados_wh_companionFireUser101"
+		"OnUser4" "!selfAddOutputRenderMode 00.011"
+		"OnUser4" "!selfRunScriptCodep1_cube()01"
 	}
 	"origin" "-6.8662e-006 -5.72205e-006 -164"
 	editor
