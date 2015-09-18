@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "3"
+	"mapversion" "12"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "3"
+	"mapversion" "12"
 	"classname" "worldspawn"
-	"maxblobcount" "250"
-	"skyname" "sky_black_nofog"
-	"maxpropscreenwidth" "-1"
-	"detailvbsp" "detail.vbsp"
 	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
 }
 entity
 {
@@ -37,7 +37,7 @@ entity
 	"targetname" "@map_won"
 	connections
 	{
-		"OnTrigger" "@commandCommandcl_screenshotname previewcomplete0-1"
+		"OnTrigger" "@commandCommandcl_screenshotname bee2_playtest_flag0-1"
 		"OnTrigger" "@commandCommandscreenshot0.05-1"
 	}
 	"origin" "16 0 -0.625977"
@@ -58,7 +58,9 @@ entity
 	"targetname" "@relay_spawn_on_entrance"
 	connections
 	{
-		"OnTrigger" "@commandCommandjpeg0-1"
+		"OnTrigger" "@commandCommandjpeg0.01-1"
+		"OnTrigger" "@commandCommandcl_drawhud 10.02-1"
+		"OnTrigger" "@commandCommandcl_drawhud 00-1"
 	}
 	"origin" "-16 0 0.625977"
 	editor

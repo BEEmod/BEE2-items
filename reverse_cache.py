@@ -90,7 +90,7 @@ if __name__ == '__main__':
     print('Done!')
     check_extra('bee2_dev\\models\\', 'models')
     check_extra('bee2_dev\\materials\\', 'materials')
-    check_extra('bee2_dev\\sounds\\', 'sounds')
+    check_extra('bee2_dev\\sound\\', 'sound')
     check_extra('bee2_dev\\scripts\\', 'scripts')
     check_extra('bee2_dev\\particles\\', 'particles')
     check_extra('sdk_content\\maps\\instances\\bee2', 'instances')

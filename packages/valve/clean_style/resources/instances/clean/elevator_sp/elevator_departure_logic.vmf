@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "281"
+	"mapversion" "283"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -38,7 +38,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "281"
+	"mapversion" "283"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -350,22 +350,6 @@ entity
 	editor
 	{
 		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "2352"
-	"classname" "logic_script"
-	"targetname" "video_script"
-	"vscripts" "videos/video_splitter.nut"
-	"origin" "16 -128 33"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "21"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1764,7 +1748,7 @@ entity
 	"targetname" "signs_off"
 	connections
 	{
-		"OnTrigger" "video_scriptRunScriptCodeStopDepartureVideo(23,2)0-1"
+		"OnTrigger" "@video_splitterRunScriptCodeStopDepartureVideo(23,2)0-1"
 	}
 	"origin" "48 -128 33"
 	editor
@@ -2869,7 +2853,7 @@ entity
 	"targetname" "signs_on"
 	connections
 	{
-		"OnTrigger" "video_scriptRunScriptCodeStartDestructedDepartureVideo(23,2)0-1"
+		"OnTrigger" "@video_splitterRunScriptCodeStartDepartureVideo(23,2,0)0-1"
 	}
 	"origin" "32 -128 33"
 	editor
@@ -3117,8 +3101,8 @@ cameras
 	}
 	camera
 	{
-		"position" "[8.7748 -96.3939 92.1119]"
-		"look" "[10.7786 -24.6664 -118.667]"
+		"position" "[11.4176 -189.879 198.491]"
+		"look" "[8.6771 -59.0315 18.3569]"
 	}
 	camera
 	{

@@ -62,6 +62,131 @@
 	"Description"	"GLaDOS with adjusted audio intended for Portal 1 chambers."
 	}
 	
+"PackList"
+	{
+	"ID"     "PACK_P1_CUBE"
+	"Config" "cube"
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_P1_BALL"
+	"Config" "ball"
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_P1_LASERFIELD"
+	"Config" "laserfield"
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_P1_OBS_ROOM"
+	"Config" "obs_room"
+	}
+
+"PackList"
+	{
+	"ID"     "PACK_P1_ORANGE_NOGLOW"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/orange_noglow"
+		}
+	}
+	
+"PackList
+	{
+	"ID" "PACK_P1_PANEL_SOUNDS"
+	"Config"
+		{
+		"File" "sound/BEE2/p1/stair_stop.wav"
+		"File" "sound/BEE2/p1/panel_turn.wav"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_P1_ANTLINES"
+	"Config"
+		{
+		"File" "materials/BEE2/ind_p1/corner_floor.vmt"
+		"File" "materials/BEE2/ind_p1/corner_wall.vmt"
+		"File" "materials/BEE2/ind_p1/straight_floor.vmt"
+		"File" "materials/BEE2/ind_p1/straight_wall.vmt"
+		"File" "materials/BEE2/ind_p1/p1_antline_floor_double.vtf"
+		"File" "materials/BEE2/ind_p1/p1_antline_wall_double.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_P1_FLOOR_BUTTON"
+	"Config"
+		{
+		"File" "floor_button_just_top.mdl"
+		"File" "floor_button_just_top.vvd"
+		"File" "floor_button_just_top.phy"
+		"File" "floor_button_just_top.dx90.vtx"
+		
+		"File" "sound/BEE2/p1/btn_down.wav"
+		"File" "sound/BEE2/p1/btn_up.wav"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_P1_BTS_WALLS"
+	"PackIfMat" "BEE2/p1/metalwall_bts_006a"
+	"PackIfMat" "BEE2/p1/metalwall_bts_006b"
+	"PackIfMat" "BEE2/p1/metalwall_bts_006c_gradient"
+	"PackIfMat" "BEE2/p1/metalwall_bts_006d_gradient"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall_bts_006a.vmt"
+		"File" "materials/BEE2/p1/metalwall_bts_006a_gradient.vmt"
+		"File" "materials/BEE2/p1/metalwall_bts_006b.vmt"
+		"File" "materials/BEE2/p1/metalwall_bts_006c_gradient.vmt"
+		"File" "materials/BEE2/p1/metalwall_bts_006d_gradient.vmt"
+		
+		"File" "materials/BEE2/p1/metalwall_bts_006a.vtf"
+		"File" "materials/BEE2/p1/metalwall_bts_006a_gradient.vtf"
+		"File" "materials/BEE2/p1/metalwall_bts_006a_normal.vtf"
+		"File" "materials/BEE2/p1/metalwall_bts_006b.vtf"
+		"File" "materials/BEE2/p1/metalwall_bts_006c_gradient.vtf"
+		"File" "materials/BEE2/p1/metalwall_bts_006d_gradient.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_P1_BLACK_WALL_LARGE"
+	"PackIfMat" "BEE2/p1/metalwall048b_lrg"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall048b_lrg.vmt"
+		"File" "materials/BEE2/p1/metalwall048b_lrg.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_lrg_dx8.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_lrg_height-ssbump.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_lrg_normal.vtf"
+		}
+	}
+
+"PackList"
+	{
+	"ID"        "PACK_P1_BLACK_WALL_MED"
+	"PackIfMat" "BEE2/p1/metalwall048b_med"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall048b_med.vmt"
+		"File" "materials/BEE2/p1/metalwall048b_med.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_med_dx8.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_med_height-ssbump.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_med_normal.vtf"
+		}
+	}
+	
+	
 "Overrides"
 	{
 	"StyleVar"
@@ -304,7 +429,6 @@
 	"Item"
 		{
 		"ID" "ITEM_LASER_EMITTER_CENTER"
-		"all_conf"	"laser_emitter"
 		"Version"
 			{
 			"Styles"
@@ -316,7 +440,6 @@
 	"Item"
 		{
 		"ID" "ITEM_LASER_CATCHER_CENTER"
-		"all_conf"	"laser_catcher"
 		"Version"
 			{
 			"Styles"
@@ -328,12 +451,22 @@
 	"Item"
 		{
 		"ID" "ITEM_LASER_RELAY_CENTER"
-		"all_conf"	"laser_relay"
 		"Version"
 			{
 			"Styles"
 				{
 				"BEE2_PORTAL_1"	"laser/relay"
+				}
+			}
+		}
+	"Item"
+		{
+		"ID" "ITEM_PANEL_FLIP"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_PORTAL_1"	"flip_pan"
 				}
 			}
 		}

@@ -1,7 +1,7 @@
 ''' This converts each folder in packages/ into a zip, saving the zips into zips/. This way it's easy to edit them.'''
 import os
 import os.path
-from zipfile import ZipFile, ZIP_DEFLATED
+from zipfile import ZipFile, ZIP_LZMA
 
 # Skip these files, if they exist in the source folders.
 # Users won't need them.
@@ -14,7 +14,7 @@ def do_folder(path):
             if 'info.txt' in os.listdir(package_path):
                 print('| ' + package + '.zip')
                 pack_zip_path = os.path.join(zip_path, package)
-                zip = ZipFile(pack_zip_path + '.zip', 'w', compression=ZIP_DEFLATED)
+                zip = ZipFile(pack_zip_path + '.zip', 'w', compression=ZIP_LZMA)
                 for base, dirs, files in os.walk(package_path):
                     for file in files:
                         full_path = os.path.normpath(os.path.join(base, file))
@@ -23,14 +23,18 @@ def do_folder(path):
                             print('X   \\' + rel_path)
                             continue
                         print('    \\' +rel_path)
-                        
+
                         zip.write(full_path, rel_path)
                 print('')
             else:
                 do_folder(package_path)
-            
+
 zip_path = os.path.join(os.getcwd(), 'zips/')
-if not os.path.isdir(zip_path):
+if os.path.isdir(zip_path):
+    for file in os.listdir(zip_path):
+        print('Deleting', file)
+        os.remove(os.path.join(zip_path, file))
+else:
     os.makedirs(zip_path)
 
 path = os.path.join(os.getcwd(), 'packages\\')
