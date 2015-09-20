@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "130"
+	"mapversion" "146"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "130"
+	"mapversion" "146"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -535,21 +535,6 @@ world
 			"visgroupautoshown" "1"
 		}
 	}
-	group
-	{
-		"id" "5033"
-		editor
-		{
-			"color" "210 191 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-}
-entity
-{
-	"id" "3292"
-	"classname" "func_detail"
 	solid
 	{
 		"id" "3293"
@@ -621,17 +606,41 @@ entity
 		}
 		editor
 		{
-			"color" "0 180 0"
+			"color" "0 155 220"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
+}
+entity
+{
+	"id" "5191"
+	"classname" "env_sprite"
+	"disablereceiveshadows" "0"
+	"disableX360" "0"
+	"framerate" "30"
+	"GlowProxySize" "8"
+	"HDRColorScale" "1.0"
+	"maxcpulevel" "0"
+	"maxgpulevel" "0"
+	"mincpulevel" "0"
+	"mingpulevel" "0"
+	"model" "bee2/p1/physring.vmt"
+	"parentname" "CatcherProp"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"renderfx" "0"
+	"rendermode" "5"
+	"scale" "1.5"
+	"spawnflags" "1"
+	"targetname" "spr"
+	"origin" "-48 0 -48"
 	editor
 	{
-		"color" "0 180 0"
+		"color" "20 140 20"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 6500]"
+		"logicalpos" "[0 3500]"
 	}
 }
 entity
@@ -924,7 +933,7 @@ entity
 		}
 		editor
 		{
-			"color" "210 191 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1000,7 +1009,7 @@ entity
 		}
 		editor
 		{
-			"color" "210 191 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1076,7 +1085,7 @@ entity
 		}
 		editor
 		{
-			"color" "210 191 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1152,15 +1161,14 @@ entity
 		}
 		editor
 		{
-			"color" "210 191 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "210 191 0"
-		"groupid" "5033"
+		"color" "0 180 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 6500]"
@@ -1191,6 +1199,7 @@ entity
 {
 	"id" "1186"
 	"classname" "func_noportal_volume"
+	"origin" "0 0 -56"
 	"spawnflags" "0"
 	solid
 	{
