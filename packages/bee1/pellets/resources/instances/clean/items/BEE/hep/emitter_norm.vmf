@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "118"
+	"mapversion" "120"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "118"
+	"mapversion" "120"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -31,17 +31,48 @@ world
 }
 entity
 {
+	"id" "3566"
+	"classname" "point_energy_ball_launcher"
+	"angles" "-90 0 0"
+	"ballcount" "1"
+	"BallLifetime" "$timer_delay"
+	"ballradius" "20.0"
+	"ballrespawntime" "1"
+	"balltype" "Combine Energy Ball 1"
+	"maxspeed" "500"
+	"MinLifeAfterPortal" "6"
+	"minspeed" "500"
+	"origin" "0 0 -16"
+	"spawnflags" "4096"
+	"targetname" "launcher"
+	connections
+	{
+		"OnPostSpawnBall" "mdlSetAnimationclose0-1"
+		"OnPostSpawnBall" "launch_fxStart0-1"
+		"OnPostSpawnBall" "launch_fxStop0.9-1"
+		"OnBallCaught" "branch_respawnTest0-1"
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "3307"
 	"classname" "logic_branch"
 	"InitialValue" "$disable_autorespawn"
 	"targetname" "branch_respawn"
 	connections
 	{
-		"OnFalse" "launcherinstance:BallLauncher;Kill01"
+		"OnFalse" "launcherKill01"
 		"OnFalse" "counterKill01"
 		"OnFalse" "branch_toggleKill01"
-		"OnTrue" "launcherinstance:BallLauncher;Enable0-1"
-		"OnTrue" "launcherinstance:BallLauncher;LaunchBall1-1"
+		"OnTrue" "launcherEnable0-1"
+		"OnTrue" "launcherLaunchBall1-1"
 	}
 	"origin" "-48 16 -32"
 	editor
@@ -60,42 +91,10 @@ entity
 	"targetname" "branch_toggle"
 	connections
 	{
-		"OnTrue" "launcherinstance:BallLauncher;Enable0-1"
-		"OnFalse" "launcherinstance:BallLauncher;Disable0-1"
+		"OnTrue" "launcherEnable0-1"
+		"OnFalse" "launcherDisable0-1"
 	}
 	"origin" "-48 48 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "2346"
-	"classname" "func_instance"
-	"$life_after_portaltransition" "6"
-	"$lifetime" "$timer_delay"
-	"$respawntime" "1"
-	"$speed" "500"
-	"angles" "-90 -0 0"
-	"file" "instances/bee2/clean/items/bee/hep.vmf"
-	"fixup_style" "0"
-	"replace01" "$lifetime $timer_delay"
-	"replace02" "$respawntime 1"
-	"replace03" "$speed 500"
-	"replace04" "$life_after_portaltransition 6"
-	"targetname" "launcher"
-	connections
-	{
-		"instance:BallLauncher;OnPostSpawnBall" "mdlSetAnimationclose0-1"
-		"instance:BallLauncher;OnPostSpawnBall" "launch_fxStart0-1"
-		"instance:BallLauncher;OnPostSpawnBall" "launch_fxStop0.9-1"
-		"instance:BallLauncher;OnBallCaught" "branch_respawnTest0-1"
-	}
-	"origin" "0 0 -16"
 	editor
 	{
 		"color" "220 30 220"

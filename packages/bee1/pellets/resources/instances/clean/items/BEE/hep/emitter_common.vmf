@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "169"
+	"mapversion" "171"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "169"
+	"mapversion" "171"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -34,7 +34,7 @@ entity
 	"id" "3573"
 	"classname" "func_clip_vphysics"
 	"filtername" "@filter_pellet"
-	"origin" "-0 0 -34.5"
+	"origin" "0 0 -34.5"
 	"StartDisabled" "0"
 	"targetname" "pellet_clip"
 	solid
@@ -120,94 +120,6 @@ entity
 		"visgroupautoshown" "1"
 		"comments" "Make pellets bounce off at right-angles."
 		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "671"
-	"classname" "func_detail"
-	solid
-	{
-		"id" "636"
-		side
-		{
-			"id" "100"
-			"plane" "(64 64 -64) (-64 64 -64) (-64 -64 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "99"
-			"plane" "(-64 64 -56) (64 64 -56) (64 -64 -56)"
-			"material" "METAL/BLACK_WALL_METAL_002B"
-			"uaxis" "[-1 0 0 256] 0.25"
-			"vaxis" "[0 1 0 256] 0.25"
-			"rotation" "270"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "98"
-			"plane" "(64 -64 -64) (-64 -64 -64) (-64 -64 -56)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS"
-			"uaxis" "[0 0 -1 -210] 0.25"
-			"vaxis" "[-1 0 0 256] 0.25"
-			"rotation" "90"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "97"
-			"plane" "(-64 64 -64) (64 64 -64) (64 64 -56)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS"
-			"uaxis" "[0 0 -1 -210] 0.25"
-			"vaxis" "[1 0 0 256] 0.25"
-			"rotation" "90"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "96"
-			"plane" "(64 64 -64) (64 -64 -64) (64 -64 -56)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS"
-			"uaxis" "[0 0 -1 -210] 0.25"
-			"vaxis" "[0 -1 0 256] 0.25"
-			"rotation" "90"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "95"
-			"plane" "(-64 -64 -64) (-64 64 -64) (-64 64 -56)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS"
-			"uaxis" "[0 0 -1 -210] 0.25"
-			"vaxis" "[0 1 0 256] 0.25"
-			"rotation" "90"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 180 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "0 180 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -365,6 +277,13 @@ entity
 	"id" "488"
 	"classname" "info_particle_system"
 	"angles" "-90 270 0"
+	"cpoint1_parent" "0 0 -44"
+	"cpoint2_parent" "0 0 -44"
+	"cpoint3_parent" "0 0 -44"
+	"cpoint4_parent" "0 0 -44"
+	"cpoint5_parent" "0 0 -44"
+	"cpoint6_parent" "0 0 -44"
+	"cpoint7_parent" "0 0 -44"
 	"effect_name" "laser_relay_powered"
 	"start_active" "1"
 	"targetname" "launch_fx"
@@ -381,6 +300,7 @@ entity
 {
 	"id" "341"
 	"classname" "func_portal_bumper"
+	"origin" "0 0 -52"
 	"spawnflags" "0"
 	solid
 	{
@@ -388,7 +308,7 @@ entity
 		side
 		{
 			"id" "72"
-			"plane" "(40 40 -56) (-40 40 -56) (-40 -40 -56)"
+			"plane" "(64 64 -56) (-64 64 -56) (-64 -64 -56)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 -32] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -399,7 +319,7 @@ entity
 		side
 		{
 			"id" "71"
-			"plane" "(-40 40 -48) (40 40 -48) (40 -40 -48)"
+			"plane" "(64 -64 -48) (-64 -64 -48) (-64 64 -48)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 32] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -410,7 +330,7 @@ entity
 		side
 		{
 			"id" "70"
-			"plane" "(40 -40 -56) (-40 -40 -56) (-40 -40 -48)"
+			"plane" "(64 -64 -56) (-64 -64 -56) (-64 -64 -48)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 1 0] 0.25"
@@ -421,7 +341,7 @@ entity
 		side
 		{
 			"id" "69"
-			"plane" "(-40 40 -56) (40 40 -56) (40 40 -48)"
+			"plane" "(-64 64 -56) (64 64 -56) (64 64 -48)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 1 0] 0.25"
@@ -432,7 +352,7 @@ entity
 		side
 		{
 			"id" "68"
-			"plane" "(40 40 -56) (40 -40 -56) (40 -40 -48)"
+			"plane" "(64 64 -56) (64 -64 -56) (64 -64 -48)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 32] 0.25"
 			"vaxis" "[0 0 1 0] 0.25"
@@ -443,7 +363,7 @@ entity
 		side
 		{
 			"id" "67"
-			"plane" "(-40 -40 -56) (-40 40 -56) (-40 40 -48)"
+			"plane" "(-64 -64 -56) (-64 64 -56) (-64 64 -48)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 -32] 0.25"
 			"vaxis" "[0 0 1 0] 0.25"
