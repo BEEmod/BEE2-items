@@ -330,6 +330,129 @@
 		}
 	}
 	
+	
+"EditorSound"
+	{
+	"ID" "Under_Ped_Button_Press"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"buttons/og_switch_press_01.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Ped_Button_Release"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"buttons/og_switch_release_01.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Floor_Button_Press"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave" "buttons/og_button_down_01.wav"
+			"wave" "buttons/og_button_down_02.wav"
+			"wave" "buttons/og_button_down_03.wav"
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Floor_Button_Release"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave" "buttons/og_button_up_01.wav"
+			"wave" "buttons/og_button_up_02.wav"
+			"wave" "buttons/og_button_up_03.wav"
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Door_Open"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"plats/test_chamberdoor_old_open.wav"
+		"soundentry_version" "2"
+
+		"operator_stacks"
+			{
+			"start_stack"
+				{			
+				"limit_sound"
+					{
+					"operator" "sys_stop_entries"
+					"input_max_entries" "1"
+					"match_entity" "false"	
+					"match_substring" "true"
+					// Stop the closing sound from playing
+					"match_entry" "BEE2_Editor.Under_Door_Close"	
+					}
+				}
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Door_Close"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.4"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"plats/test_chamberdoor_old_close.wav"
+		"soundentry_version" "2"
+		
+		"operator_stacks"
+			{
+			"start_stack"
+				{			
+				"limit_sound"
+					{
+					"operator" "sys_stop_entries"
+					"input_max_entries" "1"
+					"match_entity" "false"	
+					"match_substring" "true"
+					// Only play 1 door sound at a time
+					"match_entry" "BEE2_Editor.Under_Door_Close"	
+					}
+				}
+			}
+		}
+	}
+	
 "Overrides"
 	{
 	"Item"
