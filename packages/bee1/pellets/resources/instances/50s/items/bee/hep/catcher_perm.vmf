@@ -2,12 +2,18 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "139"
+	"mapversion" "140"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
+	visgroup
+	{
+		"name" "Core"
+		"visgroupid" "20"
+		"color" "136 105 254"
+	}
 }
 viewsettings
 {
@@ -20,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "139"
+	"mapversion" "140"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -28,6 +34,27 @@ world
 	"maxpropscreenwidth" "-1"
 	"paintinmap" "1"
 	"skyname" "sky_black_nofog"
+}
+hidden
+{
+	entity
+	{
+		"id" "9418"
+		"classname" "env_citadel_energy_core"
+		"angles" "-90 270 0"
+		"scale" "1"
+		"spawnflags" "0"
+		"targetname" "fx_waiting"
+		"origin" "0 24 -73"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "20"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 3500]"
+		}
+	}
 }
 entity
 {
@@ -155,7 +182,7 @@ entity
 		"OnStartTouch" "trigger_balltrapDisable0.1-1"
 		"OnStartTouch" "stop_emEnable0.1-1"
 		"OnStartTouch" "outFireUser20.1-1"
-		"OnStartTouch" "fx_waitingStop0.1-1"
+		"OnStartTouch" "fx_waitingStop0.50.1-1"
 		"OnStartTouch" "snd_onPlaySound0.1-1"
 		"OnStartTouch" "fx_pellet_catchStart0.1-1"
 		"OnStartTouch" "fx_pellet_catchStop0.6-1"
