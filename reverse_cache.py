@@ -19,7 +19,6 @@ resource_paths = set()
 
 IGNORE_PROPS = [
     '"mapversion"',
-    '"activecamera"',
     '"bsnaptogrid"',
     '"bshowgrid"',
     '"bshowlogicalgrid"',
@@ -35,30 +34,27 @@ def check_vmf_modified(file1, file2):
     with open(file1) as f1:
         with open(file2) as f2:
             for line1, line2 in zip(f1, f2):
+                line1 = line1.casefold()
+                line2 = line2.casefold()
+                if (
+                        line1.strip() == 'camera'  or 
+                        line2.strip() == 'camera'
+                        ):
+                    # We got to the camera block, abort checking now
+                    # We just ignore this entire section; since it's the last,
+                    # the files must be identical
+                    return False
                 if line1 == line2:
                     continue
-                folded_line1 = line1.casefold()
-                folded_line2 = line2.casefold()
-                result = True
+                    
                 for ignore_text in IGNORE_PROPS:
                     if (
-                            ignore_text in folded_line1 or 
-                            ignore_text in folded_line2
+                            ignore_text in line1 or 
+                            ignore_text in line2
                             ):
-                        result = False # We ignore this line!
-                        break
+                        break 
                 else:
-                    if (
-                            folded_line1.strip() == 'camera'  or 
-                            folded_line2.strip() == 'camera'
-                            ):
-                        # We got to the camera block, abort checking now
-                        # We just ignore this entire section; since it's the last,
-                        # the files must be identical
-                        return False
-                        
-                if result:
-                    return result
+                    return True # The line is different!
             else:
                 return False # No modification
 
@@ -84,7 +80,7 @@ def check_file(pack_path, rel_path):
             return # Never copy this!
         else:
             # Assume everything else is changed!
-            print('Applying changes to "{}"'.format(rel_path))
+            #print('Applying changes to "{}"'.format(rel_path))
             shutil.copyfile(game_path, pack_path)
     else:
         print('Removing "{}"'.format(rel_path), file=sys.stderr)
