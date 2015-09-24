@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "55"
+	"mapversion" "59"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "55"
+	"mapversion" "59"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -40,13 +40,13 @@ entity
 	"lfomodvol" "0"
 	"lforate" "0"
 	"lfotype" "0"
-	"message" "ambient/machines/ticktock1.wav"
+	"message" "bee2/p1/ticktock_lp.wav"
 	"pitch" "100"
 	"pitchstart" "100"
 	"preset" "0"
 	"radius" "1250"
 	"SourceEntityName" "model"
-	"spawnflags" "49"
+	"spawnflags" "17"
 	"spindown" "0"
 	"spinup" "0"
 	"targetname" "snd_tick"
@@ -59,28 +59,6 @@ entity
 		"visgroupautoshown" "1"
 		"comments" "P1 ticktock sound"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "109"
-	"classname" "logic_timer"
-	"RefireTime" "1"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "tim"
-	"UseRandomTime" "0"
-	connections
-	{
-		"OnTimer" "snd_tickPlaySound0-1"
-	}
-	"origin" "-16 -32 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
 	}
 }
 entity
@@ -107,9 +85,7 @@ entity
 	connections
 	{
 		"OnPressed" "tim_delayEnable0-1"
-		"OnPressed" "timResetTimer0-1"
 		"OnPressed" "outputSetValue10.01-1"
-		"OnPressed" "timEnable0-1"
 		"OnPressed" "outputTest0-1"
 		"OnPressed" "tim_delayResetTimer0-1"
 		"OnPressed" "snd_tickPlaySound0-1"
@@ -211,7 +187,6 @@ entity
 	"UseRandomTime" "0"
 	connections
 	{
-		"OnTimer" "timDisable0-1"
 		"OnTimer" "outputSetValue00-1"
 		"OnTimer" "outputFireUser10-1"
 		"OnTimer" "snd_relPlaySound0-1"
@@ -397,7 +372,6 @@ entity
 		"OnFalse" "!selfFireUser20-1"
 		"OnUser1" "proxyProxyRelay0-1"
 		"OnUser2" "proxyProxyRelay0-1"
-		"OnTrue" "timResetTimer0-1"
 		"OnTrue" "snd_tickStopSound0-1"
 	}
 	"origin" "-16 0 -48"
@@ -413,6 +387,7 @@ entity
 {
 	"id" "36"
 	"classname" "func_noportal_volume"
+	"origin" "-48 0 -60"
 	"spawnflags" "0"
 	solid
 	{
