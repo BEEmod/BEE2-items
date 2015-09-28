@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "240"
+	"mapversion" "247"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "240"
+	"mapversion" "247"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -185,7 +185,7 @@ entity
 	"id" "3704"
 	"classname" "trigger_multiple"
 	"origin" "0 0 -81"
-	"parentname" "model_arms"
+	"parentname" "model_arms,panel_attach"
 	"spawnflags" "4104"
 	"targetname" "underside_fizzler"
 	"wait" "1"
@@ -284,7 +284,7 @@ entity
 	"classname" "info_placement_helper"
 	"angles" "-90 0 0"
 	"force_placement" "1"
-	"parentname" "model_arms"
+	"parentname" "model_arms,panel_attach"
 	"radius" "64"
 	"targetname" "placement_helper"
 	"origin" "0 0 -64"
@@ -499,10 +499,6 @@ entity
 		"OnTrigger" "underside_fizzlerEnable0-1"
 		"OnTrigger" "underside_fizzlerDisable1.5-1"
 		"OnSpawn" "branch_toggleTest0.151"
-		"OnSpawn" "brushSetParentAttachmentMaintainOffsetpanel_attach01"
-		"OnSpawn" "panel_clipsSetParentAttachmentMaintainOffsetpanel_attach01"
-		"OnSpawn" "underside_fizzlerSetParentAttachmentMaintainOffsetpanel_attach01"
-		"OnSpawn" "placement_helperSetParentAttachmentMaintainOffsetpanel_attach01"
 		"OnSpawn" "model_armsSetAnimation$animation0.11"
 	}
 	"origin" "0 0 -32"
@@ -546,7 +542,7 @@ entity
 	"InputFilter" "0"
 	"invert_exclusion" "0"
 	"origin" "0 0 -72"
-	"parentname" "model_arms"
+	"parentname" "model_arms,panel_attach"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"

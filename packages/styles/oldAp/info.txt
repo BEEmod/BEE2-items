@@ -135,6 +135,7 @@
 	"File"			"cave_generic"
 	"ShortName"		"Cave (All)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_50s"
 	"Name"			"Cave Johnson (Generic)"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -147,6 +148,7 @@
 	"File"			"cave_50s"
 	"ShortName"		"Cave (50s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_50s"
 	"Name"			"Cave Johnson (50s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -159,6 +161,7 @@
 	"File"			"cave_60s"
 	"ShortName"		"Cave (60s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_60s"
 	"Name"			"Cave Johnson (60s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -170,6 +173,7 @@
 	"File"			"cave_70s"
 	"ShortName"		"Cave (70s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson, Caroline"
 	"Icon"			"voices/cave_70s"
 	"Name"			"Cave Johnson (70s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -182,6 +186,7 @@
 	"File"			"cave_80s"
 	"ShortName"		"Cave (80s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_80s"
 	"Name"			"Cave Johnson (80s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -194,6 +199,7 @@
 	"File"			"caroline_80s"
 	"Icon"			"voices/caroline"
 	"Group"			"Caroline"
+	"Characters"    "Caroline"
 	"Name"			"Caroline (80s)"
 	"ShortName"		"Caroline"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -324,6 +330,129 @@
 		}
 	}
 	
+	
+"EditorSound"
+	{
+	"ID" "Under_Ped_Button_Press"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"buttons/og_switch_press_01.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Ped_Button_Release"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"buttons/og_switch_release_01.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Floor_Button_Press"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave" "buttons/og_button_down_01.wav"
+			"wave" "buttons/og_button_down_02.wav"
+			"wave" "buttons/og_button_down_03.wav"
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Floor_Button_Release"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave" "buttons/og_button_up_01.wav"
+			"wave" "buttons/og_button_up_02.wav"
+			"wave" "buttons/og_button_up_03.wav"
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Door_Open"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"plats/test_chamberdoor_old_open.wav"
+		"soundentry_version" "2"
+
+		"operator_stacks"
+			{
+			"start_stack"
+				{			
+				"limit_sound"
+					{
+					"operator" "sys_stop_entries"
+					"input_max_entries" "1"
+					"match_entity" "false"	
+					"match_substring" "true"
+					// Stop the closing sound from playing
+					"match_entry" "BEE2_Editor.Under_Door_Close"	
+					}
+				}
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Door_Close"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.4"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"plats/test_chamberdoor_old_close.wav"
+		"soundentry_version" "2"
+		
+		"operator_stacks"
+			{
+			"start_stack"
+				{			
+				"limit_sound"
+					{
+					"operator" "sys_stop_entries"
+					"input_max_entries" "1"
+					"match_entity" "false"	
+					"match_substring" "true"
+					// Only play 1 door sound at a time
+					"match_entry" "BEE2_Editor.Under_Door_Close"	
+					}
+				}
+			}
+		}
+	}
+	
 "Overrides"
 	{
 	"Item"
@@ -442,6 +571,8 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"floor_flat"
+				"BEE2_1970s"		"floor_flat"
+				"BEE2_1980s"		"floor_prototype"
 				}
 			}
 		}
@@ -595,12 +726,88 @@
 		
 	"Item"
 		{
+		"ID" "ITEM_LASER_EMITTER_CENTER"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"		"las_emitter_50s"
+				}
+			}
+		}
+		
+		
+	"Item"
+		{
+		"ID" "ITEM_LASER_CATCHER_CENTER"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s" "las_catcher_50s"
+				}
+			}
+		}
+		
+	"Item"
+		{
 		"ID" "ITEM_PISTON_PLATFORM"
 		"Version"
 			{
 			"Styles"
 				{
 				"BEE2_1950s"		"piston_plat_50s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_TURRET"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"		"turret_50s"
+				"BEE2_1980s"		"turret_80s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_TBEAM"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"		"funnel_50s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_BARRIER"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"  "glass"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_PANEL_ANGLED"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"  "angled_pan_50s"
+				"BEE2_1970s"  "angled_pan_70s"
+				"BEE2_1980s"  "angled_pan_80s"
 				}
 			}
 		}
