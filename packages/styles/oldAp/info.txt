@@ -98,6 +98,13 @@
 		"Music"		"VALVE_REUNION"
 		"Skybox"	"VALVE_BLACK"
 		}
+	"Corridors"
+		{
+		"coop"
+			{
+			"2"	"Office"
+			}
+		}
 	}
 "Style"
 	{
@@ -135,6 +142,7 @@
 	"File"			"cave_generic"
 	"ShortName"		"Cave (All)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_50s"
 	"Name"			"Cave Johnson (Generic)"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -147,6 +155,7 @@
 	"File"			"cave_50s"
 	"ShortName"		"Cave (50s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_50s"
 	"Name"			"Cave Johnson (50s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -159,6 +168,7 @@
 	"File"			"cave_60s"
 	"ShortName"		"Cave (60s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_60s"
 	"Name"			"Cave Johnson (60s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -170,6 +180,7 @@
 	"File"			"cave_70s"
 	"ShortName"		"Cave (70s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson, Caroline"
 	"Icon"			"voices/cave_70s"
 	"Name"			"Cave Johnson (70s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -182,6 +193,7 @@
 	"File"			"cave_80s"
 	"ShortName"		"Cave (80s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_80s"
 	"Name"			"Cave Johnson (80s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -194,6 +206,7 @@
 	"File"			"caroline_80s"
 	"Icon"			"voices/caroline"
 	"Group"			"Caroline"
+	"Characters"    "Caroline"
 	"Name"			"Caroline (80s)"
 	"ShortName"		"Caroline"
 	"Authors"		"Carl Kenner, TeamSpen210"
@@ -295,6 +308,17 @@
 	
 "PackList"
 	{
+	// Fixed version of this texture with correct surfaceprop
+	"ID"       "PACK_BEE_WOODWALL_003C"
+	"AddIfMat" "BEE2/underground_woodwall003c"
+	"Config" 
+		{
+		"File" "materials/BEE2/underground_woodwall003c.vmt"
+		}
+	}
+	
+"PackList"
+	{
 	"ID" "PACK_REFLECTION_DROPPER_RETRO"
 	"Config"
 		{
@@ -321,6 +345,189 @@
 		"File" "models/BEE2/props_ingame/floor_button_prototype_2.phy"
 		"File" "models/BEE2/props_ingame/floor_button_prototype_2.vvf"
 		"File" "models/BEE2/props_ingame/floor_button_prototype_2.dx0.vtx"
+		}
+	}
+	
+// There are 10 shapes, used in this order.
+// Pack them in these sets, so only the used ones are added.
+// It's not common to need more than 5, so in that case pack them all.
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SHAPE_1"
+	"AddIfMat" "BEE2/70s/signage_shape_cross"
+	"AddIfMat" "BEE2/70s/signage_shape_square"
+	"AddIfMat" "BEE2/70s/signage_shape_dot"
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_shape_cross.vmt"
+		"File" "materials/BEE2/70s/signage_shape_square.vmt"
+		"File" "materials/BEE2/70s/signage_shape_dot.vmt"
+		
+		"File" "materials/BEE2/70s/signage_shape_cross.vtf"
+		"File" "materials/BEE2/70s/signage_shape_square.vtf"
+		"File" "materials/BEE2/70s/signage_shape_dot.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BEE2_70S_SHAPE_2"
+	"AddIfMat" "BEE2/70s/signage_shape_moon"
+	"AddIfMat" "BEE2/70s/signage_shape_slash"
+	
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_shape_moon.vmt"
+		"File" "materials/BEE2/70s/signage_shape_slash.vmt"
+		
+		"File" "materials/BEE2/70s/signage_shape_moon.vtf"
+		"File" "materials/BEE2/70s/signage_shape_slash.vtf"
+		}
+	}
+	
+"PackList"
+	{	
+	"ID" "PACK_BEE2_70S_SHAPE_3"
+	"AddIfMat" "BEE2/70s/signage_shape_triangle"
+	"AddIfMat" "BEE2/70s/signage_shape_sine"
+	"AddIfMat" "BEE2/70s/signage_shape_star"
+	"AddIfMat" "BEE2/70s/signage_shape_wavy"
+	"AddIfMat" "BEE2/70s/signage_shape_circle"
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_shape_triangle.vmt"
+		"File" "materials/BEE2/70s/signage_shape_sine.vmt"
+		"File" "materials/BEE2/70s/signage_shape_star.vmt"
+		"File" "materials/BEE2/70s/signage_shape_wavy.vmt"
+		"File" "materials/BEE2/70s/signage_shape_circle.vmt"
+		
+		"File" "materials/BEE2/70s/signage_shape_sine.vtf"
+		"File" "materials/BEE2/70s/signage_shape_triangle.vtf"
+		"File" "materials/BEE2/70s/signage_shape_star.vtf"
+		"File" "materials/BEE2/70s/signage_shape_wavy.vtf"
+		"File" "materials/BEE2/70s/signage_shape_circle.vtf"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Ped_Button_Press"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"buttons/og_switch_press_01.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Ped_Button_Release"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"buttons/og_switch_release_01.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Floor_Button_Press"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave" "buttons/og_button_down_01.wav"
+			"wave" "buttons/og_button_down_02.wav"
+			"wave" "buttons/og_button_down_03.wav"
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Floor_Button_Release"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave" "buttons/og_button_up_01.wav"
+			"wave" "buttons/og_button_up_02.wav"
+			"wave" "buttons/og_button_up_03.wav"
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Door_Open"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"plats/test_chamberdoor_old_open.wav"
+		"soundentry_version" "2"
+
+		"operator_stacks"
+			{
+			"start_stack"
+				{			
+				"limit_sound"
+					{
+					"operator" "sys_stop_entries"
+					"input_max_entries" "1"
+					"match_entity" "false"	
+					"match_substring" "true"
+					// Stop the closing sound from playing
+					"match_entry" "BEE2_Editor.Under_Door_Close"	
+					}
+				}
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Door_Close"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.4"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"plats/test_chamberdoor_old_close.wav"
+		"soundentry_version" "2"
+		
+		"operator_stacks"
+			{
+			"start_stack"
+				{			
+				"limit_sound"
+					{
+					"operator" "sys_stop_entries"
+					"input_max_entries" "1"
+					"match_entity" "false"	
+					"match_substring" "true"
+					// Only play 1 door sound at a time
+					"match_entry" "BEE2_Editor.Under_Door_Close"	
+					}
+				}
+			}
 		}
 	}
 	
@@ -442,6 +649,8 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"floor_flat"
+				"BEE2_1970s"		"floor_flat"
+				"BEE2_1980s"		"floor_prototype"
 				}
 			}
 		}
@@ -595,12 +804,88 @@
 		
 	"Item"
 		{
+		"ID" "ITEM_LASER_EMITTER_CENTER"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"		"las_emitter_50s"
+				}
+			}
+		}
+		
+		
+	"Item"
+		{
+		"ID" "ITEM_LASER_CATCHER_CENTER"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s" "las_catcher_50s"
+				}
+			}
+		}
+		
+	"Item"
+		{
 		"ID" "ITEM_PISTON_PLATFORM"
 		"Version"
 			{
 			"Styles"
 				{
 				"BEE2_1950s"		"piston_plat_50s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_TURRET"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"		"turret_50s"
+				"BEE2_1980s"		"turret_80s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_TBEAM"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"		"funnel_50s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_BARRIER"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"  "glass"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_PANEL_ANGLED"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"  "angled_pan_50s"
+				"BEE2_1970s"  "angled_pan_70s"
+				"BEE2_1980s"  "angled_pan_80s"
 				}
 			}
 		}
