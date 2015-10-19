@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "134"
+	"mapversion" "145"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,13 +26,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "134"
+	"mapversion" "145"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -41,13 +41,39 @@ world
 	"skyname" "sky_black_nofog"
 	group
 	{
-		"id" "8693"
+		"id" "9044"
 		editor
 		{
-			"color" "170 175 0"
+			"color" "129 130 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "8673"
+	"classname" "math_counter"
+	"max" "$connectioncount"
+	"targetname" "counter"
+	connections
+	{
+		"OnHitMax" "trainFireUser30-1"
+		"OnChangedFromMax" "trainFireUser30-1"
+		"OnHitMax" "trainStartForward0-1"
+		"OnChangedFromMax" "trainStartBackward0-1"
+		"OnHitMax" "spinnerStartForward0-1"
+		"OnChangedFromMax" "spinnerStartBackward0-1"
+		"OnHitMax" "$all_beamsFireUser20-1"
+		"OnChangedFromMax" "$all_beamsFireUser30-1"
+	}
+	"origin" "32 32 48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -3460,7 +3486,7 @@ entity
 	"parentname" "train"
 	"Radius" "0"
 	"renderamt" "200"
-	"rendercolor" "255 255 255"
+	"rendercolor" "30 80 0"
 	"renderfx" "15"
 	"spawnflags" "129"
 	"StrikeTime" "1"
@@ -3472,8 +3498,8 @@ entity
 	"origin" "-2.66639e-006 61 22"
 	editor
 	{
-		"color" "170 175 0"
-		"groupid" "8693"
+		"color" "129 130 0"
+		"groupid" "9044"
 		"visgroupid" "14"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -3498,7 +3524,7 @@ entity
 	"parentname" "train"
 	"Radius" "0"
 	"renderamt" "200"
-	"rendercolor" "255 255 255"
+	"rendercolor" "30 80 0"
 	"renderfx" "15"
 	"spawnflags" "129"
 	"StrikeTime" "1"
@@ -3510,8 +3536,8 @@ entity
 	"origin" "2.66639e-006 -61 22"
 	editor
 	{
-		"color" "170 175 0"
-		"groupid" "8693"
+		"color" "129 130 0"
+		"groupid" "9044"
 		"visgroupid" "14"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -3536,7 +3562,7 @@ entity
 	"parentname" "train"
 	"Radius" "0"
 	"renderamt" "200"
-	"rendercolor" "255 255 255"
+	"rendercolor" "30 80 0"
 	"renderfx" "15"
 	"spawnflags" "129"
 	"StrikeTime" "1"
@@ -3548,8 +3574,8 @@ entity
 	"origin" "-61 0 22"
 	editor
 	{
-		"color" "170 175 0"
-		"groupid" "8693"
+		"color" "129 130 0"
+		"groupid" "9044"
 		"visgroupid" "14"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -3574,7 +3600,7 @@ entity
 	"parentname" "train"
 	"Radius" "0"
 	"renderamt" "200"
-	"rendercolor" "255 255 255"
+	"rendercolor" "30 80 0"
 	"renderfx" "15"
 	"spawnflags" "129"
 	"StrikeTime" "1"
@@ -3586,8 +3612,8 @@ entity
 	"origin" "61 0 22"
 	editor
 	{
-		"color" "170 175 0"
-		"groupid" "8693"
+		"color" "129 130 0"
+		"groupid" "9044"
 		"visgroupid" "14"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -4064,72 +4090,13 @@ entity
 	"spinup" "0"
 	"targetname" "beam_sound"
 	"volstart" "0"
-	"origin" "0 0 51"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "The stock sound doesn't loop, so we need a custom one!"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "995"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "on_branchToggleTest0-1"
-		"OnChangedFromMax" "on_branchToggleTest0-1"
-	}
-	"origin" "-32 0 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "997"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "on_branch"
-	connections
-	{
-		"OnFalse" "trainStop0-1"
-		"OnTrue" "dir_branchTest0-1"
-		"OnTrue" "reverse_rlEnable0-1"
-		"OnFalse" "reverse_rlDisable0-1"
-		"OnFalse" "$all_beamsFireUser10-1"
-		"OnTrue" "$all_beamsWidth20-1"
-		"OnFalse" "$all_beamsWidth10-1"
-		"OnTrue" "$all_beamsColor50 200 200-1"
-		"OnFalse" "$all_beamsColor30 80 00-1"
-		"OnTrue" "beam_soundPlaySound0-1"
-		"OnFalse" "beam_soundStopSound0-1"
-		"OnFalse" "reverse_rlCancelPending0-1"
-		"OnTrue" "train_coreStartDischarge0-1"
-		"OnFalse" "train_coreStop10-1"
-		"OnTrue" "las*ScrollSpeed100-1"
-		"OnFalse" "las*ScrollSpeed40-1"
-		"OnFalse" "spinnerStop0-1"
-		"OnFalse" "train_pfxStop0-1"
-		"OnTrue" "train_pfxStart0-1"
-		"OnFalse" "las*Color30 80 00-1"
-		"OnTrue" "las*Color50 200 200-1"
-	}
 	"origin" "-32 32 48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "The stock sound doesn't loop, so we need a custom one!"
 		"logicalpos" "[0 0]"
 	}
 }
@@ -4174,58 +4141,6 @@ entity
 }
 entity
 {
-	"id" "1050"
-	"classname" "logic_branch"
-	"InitialValue" "1"
-	"targetname" "dir_branch"
-	connections
-	{
-		"OnTrue" "trainStartForward0-1"
-		"OnFalse" "trainStartBackward0-1"
-		"OnFalse" "spinnerStartForward0-1"
-		"OnTrue" "spinnerStartBackward0-1"
-		"OnTrue" "$all_beamsFireUser20-1"
-		"OnFalse" "$all_beamsFireUser30-1"
-	}
-	"origin" "32 32 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1111"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "reverse_rl"
-	connections
-	{
-		"OnTrigger" "dir_branchTest3-1"
-		"OnSpawn" "on_branchTest2.21"
-		"OnTrigger" "trainStop0-1"
-		"OnTrigger" "beam_soundPlaySound3-1"
-		"OnTrigger" "beam_soundStopSound0-1"
-		"OnTrigger" "spinnerStop0-1"
-		"OnTrigger" "las*ScrollSpeed103-1"
-		"OnTrigger" "las*ScrollSpeed40-1"
-		"OnTrigger" "$all_beamsFireUser40-1"
-	}
-	"origin" "32 0 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "684"
 	"classname" "func_tracktrain"
 	"bank" "0"
@@ -4259,8 +4174,20 @@ entity
 	"wheels" "50"
 	connections
 	{
-		"OnUser4" "dir_branchSetValue00-1"
-		"OnUser4" "reverse_rlTrigger0-1"
+		"OnUser3" "las*Color50 200 200-1"
+		"OnUser3" "las*ScrollSpeed100-1"
+		"OnUser3" "train_coreStartDischarge0-1"
+		"OnUser3" "beam_soundPlaySound0-1"
+		"OnUser3" "$all_beamsColor50 200 200-1"
+		"OnUser3" "$all_beamsWidth20-1"
+		"OnUser4" "las*Color30 80 00-1"
+		"OnUser4" "spinnerStop0-1"
+		"OnUser4" "las*ScrollSpeed40-1"
+		"OnUser4" "train_coreStop10-1"
+		"OnUser4" "beam_soundStopSound0-1"
+		"OnUser4" "$all_beamsColor30 80 00-1"
+		"OnUser4" "$all_beamsWidth10-1"
+		"OnUser4" "$all_beamsFireUser10-1"
 	}
 	solid
 	{
@@ -4803,8 +4730,7 @@ entity
 	"targetname" "$track_name"
 	connections
 	{
-		"OnPass" "reverse_rlTrigger0-1"
-		"OnPass" "dir_branchSetValue10-1"
+		"OnPass" "trainFireUser40-1"
 	}
 	"origin" "0 0 0"
 	editor
@@ -4843,12 +4769,11 @@ entity
 	"TouchType" "0"
 	connections
 	{
-		"OnUser1" "coreStop0-1"
+		"OnUser1" "coreStop10-1"
 		"OnUser2" "coreStartDischarge0-1"
 		"OnUser1" "coreFireUser10-1"
 		"OnUser2" "coreFireUser20-1"
 		"OnUser3" "coreFireUser30-1"
-		"OnUser4" "coreFireUser40-1"
 		"OnUser3" "coreStartDischarge0-1"
 	}
 	"origin" "0 0 0"
