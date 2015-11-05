@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "42"
+	"mapversion" "44"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "42"
+	"mapversion" "44"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -56,16 +56,14 @@ entity
 	"targetname" "branch_toggle"
 	connections
 	{
-		"OnTrue" "trig_posEnable0-1"
-		"OnFalse" "trig_posDisable0-1"
-		"OnTrue" "trig_negEnable0-1"
-		"OnFalse" "trig_negDisable0-1"
-		"OnTrue" "br_fizzEnable0-1"
-		"OnFalse" "br_fizzDisable0-1"
-		"OnTrue" "br_brushEnable0-1"
-		"OnFalse" "br_brushDisable0-1"
+		"OnTrue" "trig_*Enable0-1"
+		"OnFalse" "trig_*Disable0-1"
+		"OnTrue" "br_*Activate0-1"
+		"OnFalse" "br_*Disable0-1"
 		"OnTrue" "pfizzEnable0-1"
 		"OnFalse" "pfizzDisable0-1"
+		"OnTrue" "br_*Enable0-1"
+		"OnFalse" "br_*Deactivate0-1"
 	}
 	"origin" "0 -32 32"
 	editor
