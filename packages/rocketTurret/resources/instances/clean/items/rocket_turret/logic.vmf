@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "61"
+	"mapversion" "69"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "61"
+	"mapversion" "69"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -492,6 +492,22 @@ world
 }
 entity
 {
+	"id" "1903"
+	"classname" "filter_activator_name"
+	"filtername" "@rocket_turret_missile*"
+	"Negated" "1"
+	"targetname" "not_new_rocket_filter"
+	"origin" "-24 -24 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 3500]"
+	}
+}
+entity
+{
 	"id" "995"
 	"classname" "trigger_multiple"
 	"filtername" "turr_filter"
@@ -745,13 +761,13 @@ entity
 {
 	"id" "935"
 	"classname" "env_explosion"
-	"fireballsprite" "sprites/zerogxplode.spr"
+	"fireballsprite" "sprites/zerogxplode.vmt"
 	"ignoredEntity" "@rocket_turret_missile"
-	"iMagnitude" "999"
-	"iRadiusOverride" "64"
+	"iMagnitude" "900"
+	"iRadiusOverride" "128"
 	"parentname" "@rocket_turret_missile"
 	"rendermode" "5"
-	"spawnflags" "128"
+	"spawnflags" "16512"
 	"targetname" "explosion"
 	"origin" "0 0 0"
 	editor
@@ -766,10 +782,8 @@ entity
 entity
 {
 	"id" "644"
-	"classname" "filter_multi"
-	"Filter01" "@new_rocket_filter"
-	"Filter02" "@old_rocket_filter"
-	"filtertype" "1"
+	"classname" "filter_activator_class"
+	"filterclass" "rocket_turret_projectile"
 	"Negated" "Allow entities that match criteria"
 	"targetname" "@rocket_filter"
 	"origin" "0 -24 0"
@@ -784,11 +798,9 @@ entity
 entity
 {
 	"id" "727"
-	"classname" "filter_multi"
-	"Filter01" "@new_rocket_filter"
-	"Filter02" "@old_rocket_filter"
-	"filtertype" "1"
-	"Negated" "Allow entities that match criteria"
+	"classname" "filter_activator_class"
+	"filterclass" "rocket_turret_projectile"
+	"Negated" "1"
 	"targetname" "@not_rocket_filter"
 	"origin" "0 -24 -16"
 	editor
@@ -810,7 +822,7 @@ entity
 	"targetname" "player_trig"
 	connections
 	{
-		"OnTrigger" "player_expExplode0-1"
+		"OnTrigger" "explosionExplode0-1"
 		"OnTrigger" "@rocket_turret_missileKill0.01-1"
 	}
 	solid
@@ -1034,8 +1046,8 @@ entity
 entity
 {
 	"id" "184"
-	"classname" "filter_activator_class"
-	"filterclass" "real_rocket_turret_projectile"
+	"classname" "filter_activator_name"
+	"filtername" "@rocket_turret_missile*"
 	"Negated" "Allow entities that match criteria"
 	"targetname" "@new_rocket_filter"
 	"origin" "24 -24 0"
@@ -1050,8 +1062,10 @@ entity
 entity
 {
 	"id" "158"
-	"classname" "filter_activator_class"
-	"filterclass" "rocket_turret_projectile"
+	"classname" "filter_multi"
+	"Filter01" "@rocket_filter"
+	"Filter02" "not_new_rocket_filter"
+	"filtertype" "0"
 	"Negated" "Allow entities that match criteria"
 	"targetname" "@old_rocket_filter"
 	"origin" "-24 -24 0"
