@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "245"
+	"mapversion" "246"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "245"
+	"mapversion" "246"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -4764,29 +4764,6 @@ entity
 }
 entity
 {
-	"id" "29384"
-	"classname" "weapon_portalgun"
-	"angles" "0 270 -90"
-	"CanFirePortal1" "0"
-	"CanFirePortal2" "1"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"targetname" "@orange_gun"
-	connections
-	{
-		"OnPlayerPickup" "@orange_gun0-1"
-	}
-	"origin" "8.00001 12.372 -102.745"
-	editor
-	{
-		"color" "0 0 200"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "29212"
 	"classname" "prop_dynamic_override"
 	"angles" "-90 180 0"
@@ -5284,27 +5261,6 @@ entity
 }
 entity
 {
-	"id" "12367"
-	"classname" "logic_timer"
-	"RefireTime" "5"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "portal_cycle_timer"
-	connections
-	{
-		"OnTimer" "count_portal_chambersAdd10-1"
-	}
-	"origin" "9.00001 36.13 -90.821"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 4000]"
-	}
-}
-entity
-{
 	"id" "12369"
 	"classname" "env_cubemap"
 	"cubemapsize" "0"
@@ -5316,51 +5272,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[6000 1000]"
-	}
-}
-entity
-{
-	"id" "12376"
-	"classname" "logic_case"
-	"Case01" "1"
-	"Case02" "2"
-	"Case03" "3"
-	"targetname" "case_spawn_portals"
-	connections
-	{
-		"OnCase03" "logic_make_blue_3Trigger0-1"
-		"OnCase02" "logic_make_blue_2Trigger0-1"
-		"OnCase01" "logic_make_blue_1Trigger0-1"
-	}
-	"origin" "9.00001 -41.3001 -88.119"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 5000]"
-	}
-}
-entity
-{
-	"id" "12378"
-	"classname" "math_counter"
-	"max" "4"
-	"min" "1"
-	"startvalue" "1"
-	"targetname" "count_portal_chambers"
-	connections
-	{
-		"OutValue" "case_spawn_portalsInValue0-1"
-		"OnHitMax" "!selfSetValue10-1"
-	}
-	"origin" "9.00001 -2.05006 -92.615"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 5500]"
 	}
 }
 entity
@@ -5854,16 +5765,17 @@ entity
 	"id" "27918"
 	"classname" "info_particle_system"
 	"angles" "0 90 -90"
-	"cpoint1_parent" "0"
-	"cpoint2_parent" "0"
-	"cpoint3_parent" "0"
-	"cpoint4_parent" "0"
-	"cpoint5_parent" "0"
-	"cpoint6_parent" "0"
-	"cpoint7_parent" "0"
+	"cpoint1_parent" "0 0 -108.08"
+	"cpoint2_parent" "0 0 -108.08"
+	"cpoint3_parent" "0 0 -108.08"
+	"cpoint4_parent" "0 0 -108.08"
+	"cpoint5_parent" "0 0 -108.08"
+	"cpoint6_parent" "0 0 -108.08"
+	"cpoint7_parent" "0 0 -108.08"
 	"drawinfastreflection" "0"
 	"effect_name" "portal_cleanser"
 	"start_active" "1"
+	"targetname" "pfx"
 	"origin" "65.8297 0 -108.077"
 	editor
 	{
@@ -6008,6 +5920,7 @@ entity
 		"OnTrigger" "@entrance_doorSetAnimationclose0-1"
 		"OnTrigger" "info_signinstance:info_panel;SetInactive2-1"
 		"OnTrigger" "info_signinstance:fluro_snd;StopSound2-1"
+		"OnTrigger" "pfxStop2-1"
 	}
 	solid
 	{
@@ -6612,26 +6525,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "7738"
-	"classname" "point_template"
-	"spawnflags" "2"
-	"targetname" "@player_start_template"
-	"Template01" "@player_start_teleport"
-	connections
-	{
-		"OnEntitySpawned" "@preview_restart_triggerEnable0-1"
-	}
-	"origin" "40 0 -130.745"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
 	}
 }
 entity
