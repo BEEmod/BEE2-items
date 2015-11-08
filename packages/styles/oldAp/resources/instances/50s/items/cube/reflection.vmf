@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "9"
+	"mapversion" "11"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "9"
+	"mapversion" "11"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -35,6 +35,10 @@ entity
 	"spawnflags" "2"
 	"targetname" "@template_spawn_3"
 	"Template01" "cube"
+	connections
+	{
+		"OnEntitySpawned" "cubeRunScriptCoderusty_reflect()0-1"
+	}
 	"origin" "0 0 0"
 	editor
 	{
@@ -49,15 +53,16 @@ entity
 	"id" "2"
 	"classname" "prop_weighted_cube"
 	"allowfunnel" "1"
-	"angles" "0 0 0"
+	"angles" "0 180 0"
 	"CubeType" "2"
-	"model" "models/props/reflection_cube.mdl"
+	"model" "models/BEE2/props_ingame/reflection_cube_rusty.mdl"
 	"NewSkins" "1"
 	"PaintPower" "4"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"targetname" "cube"
+	"vscripts" "bee2/change_models.nut"
 	"origin" "0 0 -24"
 	editor
 	{

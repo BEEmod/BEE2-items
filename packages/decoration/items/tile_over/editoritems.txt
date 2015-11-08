@@ -1,0 +1,149 @@
+"Item"
+	{
+	"Type"      "ITEM_BEE2_CUTOUT_TILE"
+	"Editor"
+		{
+		"SubTypeProperty"		"ButtonType"
+		"SubType"
+			{
+			"Name"			"Cutout Tile"
+			"Model"
+				{
+				"ModelName"	"bee2_block_4x2x2.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"		"CUTOUT TILE"
+				"Image"			"palette/logic/blocks/4x2x2.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceButton"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.DropperDisabled"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.DropperEnabled"
+				"SOUND_DELETED"					"P2Editor.RemoveButton"
+				}
+			}
+		"MovementHandle"    "HANDLE_NONE"
+		"InvalidSurface"    "WALL"
+		}
+	"Properties"
+		{
+		"ConnectionCount"
+			{
+			"DefaultValue"	"0"
+			"Index"			"1"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"				"instances/BEE2/logic/blocks/cutout_tile.vmf"
+				"EntityCount"		"0"
+				"BrushCount"		"1"
+				"BrushSideCount"	"6"
+				}
+			}
+
+		"TargetName"		"htil"
+		"Inputs"
+		{
+			"CONNECTION_STANDARD"
+			{
+				"Activate"      "IN_ACT"
+				"Deactivate"    "IN_DEACT"
+			}
+		}
+		"Outputs"
+		{
+			"CONNECTION_STANDARD"
+			{
+				"Activate"		"OUT_ACT"
+				"Deactivate"    "OUT_DEACT"
+			}
+		}
+		"OccupiedVoxels"
+			{
+			"Voxel"
+				{
+				"Pos"		"0 0 0"
+				"CollideType"		"COLLIDE_NOTHING"
+				"CollideAgainst"	"COLLIDE_NOTHING"
+				"Surface"
+					{
+					"Normal"	"0 0 1"
+					}
+				}
+			}
+		"ConnectionPoints"
+		{
+			// left
+			"Point"
+			{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 3 0"
+				"SignageOffset"		"-2 2 0"
+				"Priority"  "0"
+			}
+			"Point"
+			{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 4 0"
+				"SignageOffset"		"-2 5 0"
+				"Priority"  "0"
+			}
+
+			// right
+			"Point"
+			{
+				"Dir"				"-1 0 0"
+				"Pos"				"8 3 0"
+				"SignageOffset"		"9 2 0"
+				"Priority"  "0"
+			}
+			"Point"
+			{
+				"Dir"				"-1 0 0"
+				"Pos"				"8 4 0"
+				"SignageOffset"		"9 5 0"
+				"Priority"  "0"
+			}
+
+			// up
+			"Point"
+			{
+				"Dir"				"0 1 0"
+				"Pos"				"3 -1 0"
+				"SignageOffset"		"2 -2 0"
+				"Priority"  "0"
+			}
+			"Point"
+			{
+				"Dir"				"0 1 0"
+				"Pos"				"4 -1 0"
+				"SignageOffset"		"5 -2 0"
+				"Priority"  "0"
+			}
+
+			// down
+			"Point"
+			{
+				"Dir"				"0 -1 0"
+				"Pos"				"3 8 0"
+				"SignageOffset"		"2 9 0"
+				"Priority"  "0"
+			}
+			"Point"
+			{
+				"Dir"				"0 -1 0"
+				"Pos"				"4 8 0"
+				"SignageOffset"		"5 9 0"
+				"Priority"  "0"
+			}
+		}
+		"Offset"	"64 64 64"
+		}
+	}

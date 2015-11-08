@@ -1,0 +1,166 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "35"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "2"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "35"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "885"
+	"classname" "env_beam"
+	"BoltWidth" "3"
+	"ClipStyle" "0"
+	"damage" "0"
+	"decalname" "Bigshot"
+	"framerate" "0"
+	"framestart" "2"
+	"HDRColorScale" "1.0"
+	"life" "0"
+	"LightningEnd" "beam_end"
+	"LightningStart" "$beam_name"
+	"NoiseAmplitude" "0"
+	"Radius" "0"
+	"renderamt" "128"
+	"rendercolor" "30 80 0"
+	"renderfx" "0"
+	"spawnflags" "257"
+	"StrikeTime" "1"
+	"targetname" "$beam_name"
+	"targetpoint" "-32 0 0"
+	"texture" "sprites/laserbeam.vmt"
+	"TextureScroll" "0"
+	"TouchType" "0"
+	"origin" "-32 3.8147e-006 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "892"
+	"classname" "path_track"
+	"angles" "0 0 0"
+	"orientationtype" "0"
+	"radius" "0"
+	"spawnflags" "0"
+	"speed" "30"
+	"target" "t1"
+	"targetname" "$track_name"
+	"origin" "-26 3.8147e-006 0"
+	editor
+	{
+		"color" "255 192 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "1383"
+	"classname" "info_target"
+	"angles" "0 0 0"
+	"spawnflags" "1"
+	"targetname" "beam_end"
+	connections
+	{
+		"OnUser1" "coreStop10-1"
+		"OnUser2" "coreStartDischarge0-1"
+		"OnUser1" "coreFireUser10-1"
+		"OnUser2" "coreFireUser20-1"
+	}
+	"origin" "-26 3.8147e-006 -315"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "1809"
+	"classname" "path_track"
+	"angles" "0 0 0"
+	"orientationtype" "1"
+	"Radius" "0"
+	"spawnflags" "0"
+	"speed" "0"
+	"targetname" "t2"
+	connections
+	{
+		"OnPass" "!activatorFireUser40-1"
+	}
+	"origin" "-21 0 -252"
+	editor
+	{
+		"color" "255 192 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "2324"
+	"classname" "path_track"
+	"angles" "0 0 0"
+	"orientationtype" "1"
+	"Radius" "0"
+	"spawnflags" "0"
+	"speed" "30"
+	"target" "t2"
+	"targetname" "t1"
+	connections
+	{
+		"OnUser1" "coreStop10-1"
+		"OnUser2" "coreStartDischarge0-1"
+		"OnUser1" "coreFireUser10-1"
+		"OnUser2" "coreFireUser20-1"
+	}
+	"origin" "-21 3.8147e-006 -88"
+	editor
+	{
+		"color" "255 192 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}

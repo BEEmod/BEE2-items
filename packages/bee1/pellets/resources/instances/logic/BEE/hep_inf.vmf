@@ -1,0 +1,86 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "2"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "32"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "2"
+	"classname" "worldspawn"
+	"maxblobcount" "250"
+	"skyname" "sky_black_nofog"
+	"maxpropscreenwidth" "-1"
+	"detailvbsp" "detail.vbsp"
+	"detailmaterial" "detail/detailsprites"
+}
+entity
+{
+	"id" "2"
+	"classname" "point_energy_ball_launcher"
+	"angles" "-90 0 0"
+	"ballcount" "1"
+	"BallLifetime" "-1"
+	"ballradius" "20.0"
+	"ballrespawntime" "0.5"
+	"balltype" "Combine Energy Ball 1"
+	"maxspeed" "450"
+	"MinLifeAfterPortal" "-1"
+	"minspeed" "450"
+	"origin" "0 0 -48"
+	"spawnflags" "4096"
+	"targetname" "hep"
+	connections
+	{
+		"OnPostSpawnBall" "hepKill0-1"
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "73"
+	"classname" "logic_relay"
+	"spawnflags" "1"
+	"StartDisabled" "0"
+	"targetname" "@relay_spawn_3"
+	connections
+	{
+		"OnTrigger" "hepLaunchBall0-1"
+	}
+	"origin" "0 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}

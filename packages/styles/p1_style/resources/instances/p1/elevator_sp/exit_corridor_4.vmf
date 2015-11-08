@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "200"
+	"mapversion" "201"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "200"
+	"mapversion" "201"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -3936,30 +3936,6 @@ entity
 }
 entity
 {
-	"id" "63211"
-	"classname" "info_particle_system"
-	"angles" "0 90 -90"
-	"cpoint1_parent" "0 126 -112"
-	"cpoint2_parent" "0 126 -112"
-	"cpoint3_parent" "0 126 -112"
-	"cpoint4_parent" "0 126 -112"
-	"cpoint5_parent" "0 126 -112"
-	"cpoint6_parent" "0 126 -112"
-	"cpoint7_parent" "0 126 -112"
-	"drawinfastreflection" "0"
-	"effect_name" "Cleanser_edge_1"
-	"start_active" "1"
-	"origin" "65 126 -112"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 5500]"
-	}
-}
-entity
-{
 	"id" "64316"
 	"classname" "info_particle_system"
 	"angles" "0 270 90"
@@ -6122,30 +6098,6 @@ entity
 }
 entity
 {
-	"id" "7108"
-	"classname" "info_particle_system"
-	"angles" "0 90 -90"
-	"cpoint1_parent" "0 0 -112"
-	"cpoint2_parent" "0 0 -112"
-	"cpoint3_parent" "0 0 -112"
-	"cpoint4_parent" "0 0 -112"
-	"cpoint5_parent" "0 0 -112"
-	"cpoint6_parent" "0 0 -112"
-	"cpoint7_parent" "0 0 -112"
-	"drawinfastreflection" "0"
-	"effect_name" "portal_cleanser"
-	"start_active" "1"
-	"origin" "65 0 -112"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 5500]"
-	}
-}
-entity
-{
 	"id" "6850"
 	"classname" "trigger_multiple"
 	"origin" "64 0.02 -284"
@@ -6362,233 +6314,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "6430"
-	"classname" "trigger_portal_cleanser"
-	"origin" "64 0 -111.5"
-	"spawnflags" "9"
-	"StartDisabled" "0"
-	"targetname" "AutoInstance1-AutoInstance1-@exit_elevator_cleanser"
-	"UseScanline" "1"
-	"Visible" "1"
-	connections
-	{
-		"OnUser1" "AutoInstance1-AutoInstance1-fizzler_modelsDisable0-1"
-		"OnUser1" "!selfDisable0-1"
-		"OnUser2" "!selfEnable0-1"
-		"OnUser2" "AutoInstance1-AutoInstance1-fizzler_modelsEnable0-1"
-		"OnDissolve" "!activatorFireUser20-1"
-	}
-	solid
-	{
-		"id" "6431"
-		side
-		{
-			"id" "1896"
-			"plane" "(0 -128 -111) (0 -128 -112) (0 128 -112)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 -1 0 3.9961] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1895"
-			"plane" "(128 128 -111) (128 128 -112) (128 -128 -112)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 -1 0 3.9961] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1894"
-			"plane" "(0 128 -111) (0 128 -112) (128 128 -112)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[1 0 0 63.2422] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1893"
-			"plane" "(128 -128 -111) (128 -128 -112) (0 -128 -112)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[1 0 0 63.2422] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1892"
-			"plane" "(0 -128 -111) (0 128 -111) (128 128 -111)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[1 0 0 0] 0.125"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1891"
-			"plane" "(0 128 -112) (0 -128 -112) (128 -128 -112)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[1 0 0 0] 0.125"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	solid
-	{
-		"id" "62861"
-		side
-		{
-			"id" "3711"
-			"plane" "(126 -128 -96) (128 -128 -96) (128 -128 -111)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -30] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3712"
-			"plane" "(126 128 -111) (128 128 -111) (128 128 -96)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -30] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3713"
-			"plane" "(126 -128 -96) (126 -128 -111) (126 128 -111)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 0 -1 -30] 0.25"
-			"vaxis" "[0 1 0 30] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3714"
-			"plane" "(128 128 -96) (128 128 -111) (128 -128 -111)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 0 1 30] 0.25"
-			"vaxis" "[0 1 0 30] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3715"
-			"plane" "(128 -128 -96) (126 -128 -96) (126 128 -96)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 1 0 30] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3716"
-			"plane" "(128 128 -111) (126 128 -111) (126 -128 -111)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 1 0 30] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "DO NOT REMOVE the OnUser1 outputs on this trigger, they are required for a special case choreo scene in the pit_flings map!"
-		"logicalpos" "[1000 -6268]"
-	}
-}
-entity
-{
-	"id" "6433"
-	"classname" "prop_dynamic"
-	"angles" "-90 0 0"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"MaxAnimTime" "10"
-	"MinAnimTime" "5"
-	"model" "models/props/portal_cleanser_1.mdl"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"skin" "0"
-	"solid" "6"
-	"targetname" "AutoInstance1-AutoInstance1-fizzler_models"
-	"origin" "64 -118 -112"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6437"
-	"classname" "prop_dynamic"
-	"angles" "90 180 0"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"MaxAnimTime" "10"
-	"MinAnimTime" "5"
-	"model" "models/props/portal_cleanser_1.mdl"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"skin" "0"
-	"solid" "6"
-	"targetname" "AutoInstance1-AutoInstance1-fizzler_models"
-	"origin" "64 118 -112"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
