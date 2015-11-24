@@ -1,5 +1,7 @@
 "ID"		"BEE2_PORTAL_1"
 "Name"		"Portal 1"
+"Desc"      "A recreation of the original Portal 1 chambers."
+
 "Style"
 	{
 	"ID"		"BEE2_PORTAL_1"
@@ -113,8 +115,15 @@
 	
 "PackList"
 	{
+	// Wall textures for P1 obs room
 	"ID"     "PACK_P1_OBS_ROOM"
 	"Config" "obs_room"
+	}
+
+"PackList"
+	{
+	"ID"    "PACK_P1_OBS_LIGHT"
+	"Config" "obs_light"
 	}
 	
 "PackList"
@@ -262,6 +271,31 @@
 		"File" "materials/BEE2/p1/metal_lift_cube.hdr.vtf"
 		}
 	}
+
+"PackList"
+	{
+	// Versions of the signs with a back section, so they work on corners
+	"ID" "PACK_SIGN_SINGLE_WBACK"
+	"Config"
+		{
+		"File" "models/BEE2/props_ingame/sign_frame_1_wback.mdl"
+		"File" "models/BEE2/props_ingame/sign_frame_1_wback.vvd"
+		"File" "models/BEE2/props_ingame/sign_frame_1_wback.phy"
+		"File" "models/BEE2/props_ingame/sign_frame_1_wback.dx90.vtx"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_SIGN_DOUBLE_WBACK"
+	"Config"
+		{
+		"File" "models/BEE2/props_ingame/sign_frame_2_wback.mdl"
+		"File" "models/BEE2/props_ingame/sign_frame_2_wback.vvd"
+		"File" "models/BEE2/props_ingame/sign_frame_2_wback.phy"
+		"File" "models/BEE2/props_ingame/sign_frame_2_wback.dx90.vtx"
+		}
+	}
 	
 	
 "Overrides"
@@ -331,7 +365,6 @@
 		"NeedsUnlock"	"1"
 		"Version"
 			{
-			"Name"			"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1"	"obs_room_large"
@@ -344,7 +377,6 @@
 		"ID" "ITEM_PANEL_STAIRS"
 		"Version"
 			{
-			"Name"			"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1"	"stairs"
@@ -357,7 +389,6 @@
 		"ID" "ITEM_SECONDARY_OBSERVATION_ROOM"
 		"Version"
 			{
-			"Name"			"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1"	"obs_room"
@@ -370,7 +401,6 @@
 		"ID" "ITEM_PAINT_SPLAT"
 		"Version"
 			{
-			"Name"		"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1" "gel"
@@ -382,7 +412,6 @@
 		"ID" "ITEM_CUBE"
 		"Version"
 			{
-			"Name"		"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1" "cube"
@@ -394,7 +423,6 @@
 		"ID" "ITEM_PISTON_PLATFORM"
 		"Version"
 			{
-			"Name"		"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1" "piston_plat"
@@ -406,7 +434,6 @@
 		"ID" "ITEM_LIGHT_PANEL"
 		"Version"
 			{
-			"Name"		"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1" "light_strip_cool"
@@ -418,7 +445,6 @@
 		"ID" "ITEM_LIGHT_PANEL_WARM"
 		"Version"
 			{
-			"Name"		"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1" "light_strip_warm"
@@ -431,7 +457,6 @@
 		"ID" "ITEM_BARRIER_HAZARD"
 		"Version"
 			{
-			"Name"		"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1" "fizz"
@@ -444,7 +469,6 @@
 		"ID" "ITEM_PANEL_ANGLED"
 		"Version"
 			{
-			"Name"		"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1" "angled_pan"
@@ -457,7 +481,6 @@
 		"ID" "ITEM_RAIL_PLATFORM"
 		"Version"
 			{
-			"Name"		"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1" "track_plat"
@@ -470,7 +493,6 @@
 		"ID" "ITEM_BUTTON_FLOOR"
 		"Version"
 			{
-			"Name"			"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1"		"floor_button"
@@ -483,7 +505,6 @@
 		"ID" "ITEM_BUTTON_PEDESTAL"
 		"Version"
 			{
-			"Name"			"Regular"
 			"Styles"
 				{
 				"BEE2_PORTAL_1"		"ped_button"
@@ -556,6 +577,18 @@
 			"Styles"
 				{
 				"BEE2_PORTAL_1"		"funnel"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_CATAPULT"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_PORTAL_1"	"faith"
 				}
 			}
 		}
