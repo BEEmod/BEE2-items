@@ -1,5 +1,7 @@
 "ID"		"BEE2_OLD_AP"
 "Name"		"Old Aperture"
+"Desc"      "Adds styles, voice lines and music for the 1950s, 1960s, 1970s and 1980s eras of Aperture."
+
 "Style"
 	{
 	"ID"			"BEE2_1950s"
@@ -35,7 +37,7 @@
 			}
 		"sp_exit"
 			{
-			"1"	"Lobby"
+			"2"	"Lobby"
 			"4"	"Right Turn"
 			}
 		"coop"
@@ -44,6 +46,7 @@
 			}
 		}
 	}
+
 "Style"
 	{
 	"ID"			"BEE2_1960s"
@@ -72,6 +75,7 @@
 		"Skybox"	"VALVE_BLACK"
 		}
 	}
+
 "Style"
 	{
 	"ID"			"BEE2_1970s"
@@ -98,7 +102,23 @@
 		"Music"		"VALVE_REUNION"
 		"Skybox"	"VALVE_BLACK"
 		}
+	"Corridors"
+		{
+		"sp_entry"
+			{
+			"1"	"Lobby"
+			}
+		"sp_exit"
+			{
+			"2"	"Lobby"
+			}
+		"coop"
+			{
+			"2"	"Office"
+			}
+		}
 	}
+
 "Style"
 	{
 	"ID"			"BEE2_1980s"
@@ -127,6 +147,14 @@
 		"Music"		"VALVE_MUSIC_SPHERES_2"
 		"Skybox"	"VALVE_BLACK"
 		}
+	"Corridors"
+		{
+		"sp_entry"
+			{
+			"1"	"Lobby"
+			"3"	"Office"
+			}
+		}
 	}
 	
 "QuotePack"
@@ -135,10 +163,13 @@
 	"File"			"cave_generic"
 	"ShortName"		"Cave (All)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_50s"
 	"Name"			"Cave Johnson (Generic)"
 	"Authors"		"Carl Kenner, TeamSpen210"
 	"Description"	"A mix of the various Cave lines, for styles without a specific decade focus. Test subjects are still Astronauts, War Heroes and Olympians."
+	
+	"CaveSkin"      "0"
 	}
 	
 "QuotePack"
@@ -147,10 +178,13 @@
 	"File"			"cave_50s"
 	"ShortName"		"Cave (50s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_50s"
 	"Name"			"Cave Johnson (50s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
 	"Description"	"Aperture's best times, just after founding. Cave is testing on Astronauts, War Heroes and Olympians, focused mainly on Repulsion Gel."
+	
+	"CaveSkin"      "0"
 	}
 	
 "QuotePack"
@@ -159,33 +193,43 @@
 	"File"			"cave_60s"
 	"ShortName"		"Cave (60s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_60s"
 	"Name"			"Cave Johnson (60s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
 	"Description"	"In this era, all chambers were sealed off, and Cave's lines mention a variety of different dangerous experiments that were conducted. They still test Astronauts, War Heroes and Olympians in this era."
+	
+	"CaveSkin"      "0"
 	}
+
 "QuotePack"
 	{
 	"ID"			"BEE2_CAVE_70s"
 	"File"			"cave_70s"
 	"ShortName"		"Cave (70s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson, Caroline"
 	"Icon"			"voices/cave_70s"
 	"Name"			"Cave Johnson (70s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
 	"Description"	"Due to monetary issues Aperture has been forced to test on homeless people, promising 60 dollars for completing a test. Caroline sometimes appears in recordings."
-	}
 	
+	"CaveSkin"      "2"
+	}
+
 "QuotePack"
 	{
 	"ID"			"BEE2_CAVE_80s"
 	"File"			"cave_80s"
 	"ShortName"		"Cave (80s)"
 	"Group"			"Cave Johnson"
+	"Characters"    "Cave Johnson"
 	"Icon"			"voices/cave_80s"
 	"Name"			"Cave Johnson (80s)"
 	"Authors"		"Carl Kenner, TeamSpen210"
 	"Description"	"After drinking Conversion Gel, Cave is deathly ill. Aperture has resorted to forcing employees to test."
+	
+	"CaveSkin"      "1"
 	}
 	
 "QuotePack"
@@ -194,17 +238,21 @@
 	"File"			"caroline_80s"
 	"Icon"			"voices/caroline"
 	"Group"			"Caroline"
+	"Characters"    "Caroline"
 	"Name"			"Caroline (80s)"
 	"ShortName"		"Caroline"
 	"Authors"		"Carl Kenner, TeamSpen210"
 	"Description"	"Due to Cave's sickness, Caroline sometimes supervises tests instead. This quote pack is relatively sparse due to the limited number of Caroline lines."
+	
+	"CaveSkin"      "3"
 	}
 
 "StyleVar"
 	{
-	"ID"		"80s_OpenSphere"
-	"Enabled"	"0"
+	"ID"		"OpenSphere"
 	"Name"		"Opened Enrichment Sphere"
+	"Description"	"Use an alternate enrichment sphere map with a damaged/incomplete sphere, showing the Test Shaft surrounding the map. The added complexity of the map greatly increases compile times, however."
+	"Enabled"	"0"
 	"Style"		"BEE2_1980s"
 	}
 	
@@ -292,6 +340,343 @@
 	"SoundScript"	"music.sp_a3_portal_intro_b1"
 	}
 	
+"PackList"
+	{
+	// Fixed version of this texture with correct surfaceprop
+	"ID"       "PACK_BEE_WOODWALL_003C"
+	"AddIfMat" "BEE2/underground_woodwall003c"
+	"Config" 
+		{
+		"File" "materials/BEE2/underground_woodwall003c.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	// World-brush version of repulsion gel.
+	"ID" "PACK_BRUSH_BOUNCE"
+	"Config"
+		{
+		"File" "materials/BEE2/blob_surface_bounce.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	// Used on an 80s computer screen
+	"ID" "PACK_BEE2_AP_LOGO"
+	"Config"
+		{
+		"File" "materials/BEE2/world/aperture_labs.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_REFLECTION_DROPPER_RETRO"
+	"Config"
+		{
+		"File" "models/BEE2/props_ingame/dropper_grey_retro.mdl"
+		"File" "models/BEE2/props_ingame/dropper_grey_retro.phy"
+		"File" "models/BEE2/props_ingame/dropper_grey_retro.vvd"
+		"File" "models/BEE2/props_ingame/dropper_grey_retro.dx90.vtx"
+		"File" "materials/BEE2/models/props_ingame/under_dropper_grey.vtf"
+		"File" "materials/BEE2/models/props_ingame/under_dropper_grey.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	// 80s floor buttons - the destroyed models, but using clean skins.
+	"ID" "PACK_FLOOR_BUTTON_PROTOTYPE"
+	"Config"
+		{
+		"File" "models/BEE2/props_ingame/floor_button_prototype_1.mdl"
+		"File" "models/BEE2/props_ingame/floor_button_prototype_1.phy"
+		"File" "models/BEE2/props_ingame/floor_button_prototype_1.vvd"
+		"File" "models/BEE2/props_ingame/floor_button_prototype_1.dx90.vtx"
+		
+		"File" "models/BEE2/props_ingame/floor_button_prototype_2.mdl"
+		"File" "models/BEE2/props_ingame/floor_button_prototype_2.phy"
+		"File" "models/BEE2/props_ingame/floor_button_prototype_2.vvd"
+		"File" "models/BEE2/props_ingame/floor_button_prototype_2.dx90.vtx"
+		}
+	}
+	
+// There are 10 shapes, used in this order.
+// Pack them in these sets, so only the used ones are added.
+// It's not common to need more than 5, so in that case pack them all.
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SHAPE_1"
+	"AddIfMat" "BEE2/70s/signage_shape_cross"
+	"AddIfMat" "BEE2/70s/signage_shape_square"
+	"AddIfMat" "BEE2/70s/signage_shape_dot"
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_shape_cross.vmt"
+		"File" "materials/BEE2/70s/signage_shape_square.vmt"
+		"File" "materials/BEE2/70s/signage_shape_dot.vmt"
+		
+		"File" "materials/BEE2/70s/signage_shape_cross.vtf"
+		"File" "materials/BEE2/70s/signage_shape_square.vtf"
+		"File" "materials/BEE2/70s/signage_shape_dot.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BEE2_70S_SHAPE_2"
+	"AddIfMat" "BEE2/70s/signage_shape_moon"
+	"AddIfMat" "BEE2/70s/signage_shape_slash"
+	
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_shape_moon.vmt"
+		"File" "materials/BEE2/70s/signage_shape_slash.vmt"
+		
+		"File" "materials/BEE2/70s/signage_shape_moon.vtf"
+		"File" "materials/BEE2/70s/signage_shape_slash.vtf"
+		}
+	}
+	
+"PackList"
+	{	
+	"ID" "PACK_BEE2_70S_SHAPE_3"
+	"AddIfMat" "BEE2/70s/signage_shape_triangle"
+	"AddIfMat" "BEE2/70s/signage_shape_sine"
+	"AddIfMat" "BEE2/70s/signage_shape_star"
+	"AddIfMat" "BEE2/70s/signage_shape_wavy"
+	"AddIfMat" "BEE2/70s/signage_shape_circle"
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_shape_triangle.vmt"
+		"File" "materials/BEE2/70s/signage_shape_sine.vmt"
+		"File" "materials/BEE2/70s/signage_shape_star.vmt"
+		"File" "materials/BEE2/70s/signage_shape_wavy.vmt"
+		"File" "materials/BEE2/70s/signage_shape_circle.vmt"
+		
+		"File" "materials/BEE2/70s/signage_shape_sine.vtf"
+		"File" "materials/BEE2/70s/signage_shape_triangle.vtf"
+		"File" "materials/BEE2/70s/signage_shape_star.vtf"
+		"File" "materials/BEE2/70s/signage_shape_wavy.vtf"
+		"File" "materials/BEE2/70s/signage_shape_circle.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_CRUSHER"
+	"AddIfMat" "BEE2/70s/signage_crusher"
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_crusher.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_PELLET"
+	"AddIfMat" "BEE2/70s/signage_pellet"
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_pellet.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_WORLD_SIGN_PELLET"
+	"AddIfMat" "BEE2/70s/signage_pellet"
+	"Config"
+		{
+		"File" "materials/BEE2/world/signage_pellet.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_WORLD_SIGN_PAINT_JUMP"
+	"Config"
+		{
+		"File" "materials/BEE2/world/signage_paint_jump.vmt"
+		"File" "materials/BEE2/world/signage_paint_jump.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_WORLD_SIGN_PAINT_SPEED"
+	"Config"
+		{
+		"File" "materials/BEE2/world/signage_paint_jump.vmt"
+		"File" "materials/BEE2/world/signage_paint_jump.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_WORLD_SIGN_BRIDGE"
+	"Config"
+		{
+		"File" "materials/BEE2/world/signage_bridge.vmt"
+		"File" "materials/BEE2/world/signage_bridge.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_BEE2_RETRO_COMPANION"
+	"Config" "comp_cube"
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_RUSTY_REFLECT"
+	"Config" "reflect"
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_RUSTY_CUBE"
+	"Config" "rusty_cube"
+	}
+	
+"PackList"
+	{
+	// The track-platform track model, but resized to 128.
+	"ID"       "PACK_BEE2_RETRO_TRACK"
+	"Config"
+		{
+		"File" "retro_track_128.mdl"
+		"File" "retro_track_128.phy"
+		"File" "retro_track_128.vvd"
+		"File" "retro_track_128.dx90.vtx"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Ped_Button_Press"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"buttons/og_switch_press_01.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Ped_Button_Release"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"buttons/og_switch_release_01.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Floor_Button_Press"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave" "buttons/og_button_down_01.wav"
+			"wave" "buttons/og_button_down_02.wav"
+			"wave" "buttons/og_button_down_03.wav"
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Floor_Button_Release"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave" "buttons/og_button_up_01.wav"
+			"wave" "buttons/og_button_up_02.wav"
+			"wave" "buttons/og_button_up_03.wav"
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Door_Open"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.5"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"plats/test_chamberdoor_old_open.wav"
+		"soundentry_version" "2"
+
+		"operator_stacks"
+			{
+			"start_stack"
+				{			
+				"limit_sound"
+					{
+					"operator" "sys_stop_entries"
+					"input_max_entries" "1"
+					"match_entity" "false"	
+					"match_substring" "true"
+					// Stop the closing sound from playing
+					"match_entry" "BEE2_Editor.Under_Door_Close"	
+					}
+				}
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Under_Door_Close"
+	"Keys"
+		{
+		"channel"		"CHAN_AUTO"
+		"volume"		"0.4"
+		"pitch"			"100"
+		"soundlevel"	"SNDLVL_NONE"
+		"wave"			"plats/test_chamberdoor_old_close.wav"
+		"soundentry_version" "2"
+		
+		"operator_stacks"
+			{
+			"start_stack"
+				{			
+				"limit_sound"
+					{
+					"operator" "sys_stop_entries"
+					"input_max_entries" "1"
+					"match_entity" "false"	
+					"match_substring" "true"
+					// Only play 1 door sound at a time
+					"match_entry" "BEE2_Editor.Under_Door_Close"	
+					}
+				}
+			}
+		}
+	}
+	
 "Overrides"
 	{
 	"Item"
@@ -305,6 +690,7 @@
 			"Styles"
 				{
 				"BEE2_1950s"	"mandatory/50s/obs_grate"
+				"BEE2_1950s"	"mandatory/60s/obs_grate"
 				"BEE2_1970s"	"mandatory/70s/obs_grate"
 				"BEE2_1980s"	"mandatory/80s/obs_grate"
 				}
@@ -398,9 +784,9 @@
 			"Name"					"Regular"
 			"Styles"
 				{
-				"BEE2_1950s"			"floor_recessed"
-				"BEE2_1970s"			"floor_flat"
-				"BEE2_1980s"			"floor_prototype"
+				"BEE2_1950s"        "floor_recessed"
+				"BEE2_1970s"        "floor_flat"
+				"BEE2_1980s"        "floor_prototype"
 				}
 			}
 		"Version"
@@ -409,9 +795,40 @@
 			"Name"					"Non-Recessed"
 			"Styles"
 				{
-				"BEE2_1950s"		"floor_flat"
+				"BEE2_1950s"        "floor_flat"
+				"BEE2_1970s"        "floor_flat"
+				"BEE2_1980s"        "floor_prototype"
 				}
 			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_SECONDARY_OBSERVATION_ROOM"
+		"Version"
+			{
+			"ID"		"VER_DEFAULT"
+			"Name"		"Grating"
+			"Styles"
+				{
+				"BEE2_1950s"	"small_obs_grate/50s"
+				"BEE2_1970s"	"small_obs_grate/70s"
+				"BEE2_1980s"	"small_obs_grate/80s"
+				}
+			}
+			
+		// "Version"
+			// {
+			// "ID"		"VER_REAL_OBS"
+			// "Name"		"Obs. Room"
+			// "Styles"
+				// {
+				// "BEE2_1950s"	"small_obs_room_50s"
+				// "BEE2_1960s"	"small_obs_room_50s"
+				// "BEE2_1970s"	"small_obs_room_50s"
+				// "BEE2_1980s"	"small_obs_room_50s"
+				// }
+			// }
 		}
 		
 	"Item"
@@ -493,6 +910,7 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"gel_plate_50s"
+				"BEE2_1970s"		"gel_plate_70s"
 				}
 			}
 		"Version"
@@ -528,6 +946,32 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"cube_50s"
+				"BEE2_1980s"		"cube_80s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_LASER_EMITTER_CENTER"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"		"las_emitter_50s"
+				}
+			}
+		}
+		
+		
+	"Item"
+		{
+		"ID" "ITEM_LASER_CATCHER_CENTER"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s" "las_catcher_50s"
 				}
 			}
 		}
@@ -540,6 +984,98 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"piston_plat_50s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_TURRET"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"		"turret_50s"
+				"BEE2_1980s"		"turret_80s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_TBEAM"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"		"funnel_50s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_BARRIER"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"  "glass"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_PANEL_ANGLED"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"  "angled_pan_50s"
+				"BEE2_1970s"  "angled_pan_70s"
+				"BEE2_1980s"  "angled_pan_80s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_RAIL_PLATFORM"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"  "track_plat/50s"
+				"BEE2_1970s"  "track_plat/70s"
+				"BEE2_1980s"  "track_plat/80s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_PANEL_STAIRS"
+		"Version"
+			{
+			"ID"        "VER_DEFAULT"
+			"Name"      "Grating"
+			"Styles"
+				{
+				"BEE2_1950s"  "stairs/grate"
+				"BEE2_1970s"  "stairs/70s"
+				"BEE2_1980s"  "stairs/80s"
+				}
+			}
+		"Version"
+			{
+			"ID"        "VER_SOLID_STAIR"
+			"Name"      "Solid"
+			"Styles"
+				{
+					"BEE2_1950s"  "stairs/50s"
+					"BEE2_1970s"  "stairs/70s"
+					"BEE2_1980s"  "stairs/80s"
 				}
 			}
 		}

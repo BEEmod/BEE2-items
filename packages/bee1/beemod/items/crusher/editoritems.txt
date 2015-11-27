@@ -19,8 +19,8 @@
 			"Sounds"
 			{
 				"SOUND_CREATED"					"P2Editor.PlaceOther"
-				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
-				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_EDITING_ACTIVATE"		"BEE2_Editor.Expand_Crusher"
+				"SOUND_EDITING_DEACTIVATE"		"BEE2_Editor.Collapse_Crusher"
 				"SOUND_DELETED"					"P2Editor.RemoveOther"
 			}
 		}
@@ -107,28 +107,57 @@
 		}
 		"EmbedFace"
 		{
+			// Split them across the 128 grid, so they match
+			// the portalability of the original surfaces.
 			"Solid"
 			{
-				"Center"		"0 -112 128"
-				"Dimensions"	"256 32 4"
+				"Center"		"64 -112 128"
+				"Dimensions"	"128 32 4"
 				"Grid"			"4x4"
 			}
 			"Solid"
 			{
-				"Center"		"0 112 128"
-				"Dimensions"	"256 32 4"
+				"Center"		"-64 -112 128"
+				"Dimensions"	"128 32 4"
+				"Grid"			"4x4"
+			}
+			
+			"Solid"
+			{
+				"Center"		"64 112 128"
+				"Dimensions"	"128 32 4"
 				"Grid"			"4x4"
 			}
 			"Solid"
 			{
-				"Center"		"-112 0 128"
-				"Dimensions"	"32 192 4"
+				"Center"		"-64 112 128"
+				"Dimensions"	"128 32 4"
+				"Grid"			"4x4"
+			}
+			
+			"Solid"
+			{
+				"Center"		"-112 -48 128"
+				"Dimensions"	"32 96 4"
 				"Grid"			"4x4"
 			}
 			"Solid"
 			{
-				"Center"		"112 0 128"
-				"Dimensions"	"32 192 4"
+				"Center"		"-112 48 128"
+				"Dimensions"	"32 96 4"
+				"Grid"			"4x4"
+			}
+			
+			"Solid"
+			{
+				"Center"		"112 48 128"
+				"Dimensions"	"32 96 4"
+				"Grid"			"4x4"
+			}
+			"Solid"
+			{
+				"Center"		"112 -48 128"
+				"Dimensions"	"32 96 4"
 				"Grid"			"4x4"
 			}
 		}

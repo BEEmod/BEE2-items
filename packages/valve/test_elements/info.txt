@@ -1,5 +1,12 @@
 "ID"		"VALVE_TEST_ELEM"
 "Name"		"Test Elements"
+ "Desc"      "The various Aperture Science inventions interacted with in chambers. Includes:
+- Cubes
+- Excursion Funnels
+- Light Bridges
+- Gel
+This also includes Reflection Gel."
+
 "Prerequisites"
 	{
 	"Package"	"BEE2_CLEAN_STYLE"
@@ -16,9 +23,16 @@
 			}
 		}
 	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_CUBE_DROPPER_CLEAN_CAP"
+	"file" "cube_dropper_cap.vmf"
+	}
+	
 "Item"
 	{
-	"ID" "ITEM_TBEAM"
+	"ID"       "ITEM_TBEAM"
+	"all_conf" "funnel"
 	"Version"
 		{
 		"Styles"
@@ -29,8 +43,8 @@
 	}
 "Item"
 	{
-	"ID" "ITEM_CATAPULT"
-	"all_conf"	"faith"
+	"ID"       "ITEM_CATAPULT"
+	"all_conf" "faith"
 	"Version"
 		{
 		"Styles"
@@ -41,7 +55,7 @@
 	}
 "Item"
 	{
-	"ID" "ITEM_LIGHT_BRIDGE"
+	"ID"        "ITEM_LIGHT_BRIDGE"
 	"all_conf"	"bridge"
 	"Version"
 		{
@@ -53,8 +67,8 @@
 	}
 "Item"
 	{
-	"ID" "ITEM_PAINT_SPLAT"
-	"all_conf"	"gel"
+	"ID"       "ITEM_PAINT_SPLAT"
+	"all_conf" "gel"
 	"Version"
 		{
 		"Styles"
@@ -67,6 +81,9 @@
 "Item"
 	{
 	"ID" "ITEM_PAINT_SPLAT_REFLECTION"
+	// Reflection gel uses the regular dropper instance,
+	// so it doesn't actually have a style.
+	"Unstyled" "1"
 	"Version"
 		{
 		"Styles"
@@ -74,4 +91,22 @@
 			"BEE2_CLEAN"	"gel_reflect"
 			}
 		}
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_REFLECTION_GEL"
+	"Config" "reflection_gel"
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_REFLECTION_DROPPER_CLEAN"
+	"Config" "reflection_dropper"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_TBEAM_FRAME"
+	"file" "tbeam_frame.vmf"
 	}

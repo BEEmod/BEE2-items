@@ -2,23 +2,23 @@
 
 ARRIVAL_VIDEO <- 0
 DEPARTURE_VIDEO <- 1
-
-scaleOverride = -1
-
-
-//============================
+video_shape <- "horiz" // The video shape we want (horiz/vert)
 
 function StopArrivalVideo(width,height)
 {
 	EntFire("@arrival_video_master_horiz", "Disable", "", 0)
+	EntFire("@arrival_video_master_vert", "Disable", "", 0)
 	EntFire("@arrival_video_master_horiz", "killhierarchy", "", 1.0)
+	EntFire("@arrival_video_master_vert", "killhierarchy", "", 1.0)
 	StopVideo(ARRIVAL_VIDEO,width,height)
 }
 
 function StopDepartureVideo(width,height)
 {
 	EntFire("@departure_video_master_horiz", "Disable", "", 0)
+	EntFire("@departure_video_master_vert", "Disable", "", 0)
 	EntFire("@departure_video_master_horiz", "killhierarchy", "", 1.0)
+	EntFire("@departure_video_master_vert", "killhierarchy", "", 1.0)
 	StopVideo(DEPARTURE_VIDEO,width,height)
 }
 
@@ -31,7 +31,7 @@ function StopVideo(videoType,width,height)
 			local panelNum = 1 + width*j + i
 			local signName
 			
-			if (videoType == DEPARTURE_VIDEO || videoType == DEPARTURE_DESTRUCTED_VIDEO )
+			if (videoType == DEPARTURE_VIDEO)
 			{
 				signName = "@departure_sign_" + panelNum
 			}
@@ -48,14 +48,14 @@ function StopVideo(videoType,width,height)
 
 function StartArrivalVideo(width, height, use_destructed)
 {
-	EntFire("@arrival_video_master_horiz", "Enable", "", 0.1)
-	StartVideo(ARRIVAL_VIDEO, width, height)
+	StartVideo(ARRIVAL_VIDEO, width, height, use_destructed)
+	EntFire("@arrival_video_master_" + video_shape, "Enable", "", 0.1)
 }
 
 function StartDepartureVideo(width, height, use_destructed)
 {
-	EntFire("@departure_video_master_horiz", "Enable", "", 0.1)
-	StartVideo(DEPARTURE_VIDEO, width, height)
+	StartVideo(DEPARTURE_VIDEO, width, height, use_destructed)
+	EntFire("@departure_video_master_" + video_shape, "Enable", "", 0.1)
 }
 
 function StartVideo(videoType, width, height, use_destructed)
@@ -70,15 +70,8 @@ function StartVideo(videoType, width, height, use_destructed)
 	}
 	else
 	{
-		videoScaleType = RandomInt(6,14)
+		videoScaleType = RandomInt(6,13)
 	}
-	
-	if (scale_override > -1)
-	{
-		videoScaleType = scale_override
-	}
-	
-		
 	
 	for(local i=0;i<width;i+=1)
 	{
@@ -117,12 +110,13 @@ function StartVideo(videoType, width, height, use_destructed)
 			{
 				uMin = 1.0 - (1.0-uMin)*(1.0-uMin)*(1.0-uMin)
 				uMax = 1.0 - (1.0-uMax)*(1.0-uMax)*(1.0-uMax)
+				video_shape = "horiz"
 			}				
 
 			else if( videoScaleType == 2 /*Mirror*/ ) 
 			{					
 				uMin = 4*(1.0-uMin)*uMin
-				uMax = 4*(1.0-uMax)*uMax					
+				uMax = 4*(1.0-uMax)*uMax				
 			}				
 			
 			else if( videoScaleType == 3 /*Ouroboros*/ )
@@ -144,7 +138,8 @@ function StartVideo(videoType, width, height, use_destructed)
 				vMax = 0.00001
 				
 				uMin = ((i%3)+0.0001)/3
-				uMax = ((i%3)+1.0001)/3					
+				uMax = ((i%3)+1.0001)/3
+				video_shape = "horiz"			
 			}
 			
 			else if( videoScaleType == 5 /*Tiled*/ )
@@ -155,11 +150,13 @@ function StartVideo(videoType, width, height, use_destructed)
 				uMin = ((i%3)+0.0001)/3
 				uMax = ((i%3)+1.0001)/3
 			}
-
+			
+			// Destroyed videos
 			else if( videoScaleType == 6 /*Tiled Really Big*/ )
 			{
 				uMin = ((i%8)+0.0001)/8
 				uMax = ((i%8)+1.0001)/8
+				video_shape = "horiz"
 			}
 
 			else if( videoScaleType == 7 /*Tiled Big*/ )
@@ -180,6 +177,7 @@ function StartVideo(videoType, width, height, use_destructed)
 			{
 				uMin = ((i%2)+0.0001)/2
 				uMax = ((i%2)+1.0001)/2
+				video_shape = "vert"
 			}
 
 			else if( videoScaleType == 10 /*Two by two*/ )
@@ -189,6 +187,7 @@ function StartVideo(videoType, width, height, use_destructed)
 				
 				uMin = ((i%2)+0.0001)/2
 				uMax = ((i%2)+1.0001)/2
+				video_shape = "horiz"
 			}
 
 			else if( videoScaleType == 11 /*Tiled off 1*/ )
@@ -219,7 +218,7 @@ function StartVideo(videoType, width, height, use_destructed)
 					uMax = 0.97
 				}
 			}
-
+			
 			else if( videoScaleType == 14 /*bluescreen*/ )
 			{
 				if( (i%8) >= 1 &&  
@@ -234,13 +233,13 @@ function StartVideo(videoType, width, height, use_destructed)
 					uMax = 0.97
 				}
 			}
-							 
+			
 			EntFire(signName, "SetUMin", uMin, 0)
 			EntFire(signName, "SetUMax", uMax, 0)
 			EntFire(signName, "SetVMin", vMin, 0)
 			EntFire(signName, "SetVMax", vMax, 0)
-
-			EntFire(signName, "Enable", "", 0.1)
+			
+			EntFire(signName, "Enable", "", 0.2)
 		}
 	}
 }

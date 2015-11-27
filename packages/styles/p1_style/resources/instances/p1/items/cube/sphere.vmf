@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "10"
+	"mapversion" "11"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "10"
+	"mapversion" "11"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -34,7 +34,11 @@ entity
 	"classname" "point_template"
 	"spawnflags" "2"
 	"targetname" "@template_spawn_3"
-	"Template01" "cube"
+	"Template01" "ball"
+	connections
+	{
+		"OnEntitySpawned" "ballRunScriptCodep1_ball()01"
+	}
 	"origin" "0 0 0"
 	editor
 	{
@@ -57,7 +61,8 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
-	"targetname" "cube"
+	"targetname" "ball"
+	"vscripts" "bee2/change_models.nut"
 	"origin" "0 0 -24"
 	editor
 	{

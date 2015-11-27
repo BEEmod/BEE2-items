@@ -1,0 +1,102 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "25"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "32"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "25"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2"
+	"classname" "path_track"
+	"angles" "0 0 0"
+	"orientationtype" "0"
+	"radius" "0"
+	"spawnflags" "0"
+	"speed" "30"
+	"target" "$next_track"
+	"targetname" "$track_name"
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "255 192 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "39"
+	"classname" "env_beam"
+	"BoltWidth" "3"
+	"ClipStyle" "0"
+	"damage" "0"
+	"decalname" "Bigshot"
+	"framerate" "0"
+	"framestart" "2"
+	"HDRColorScale" "1.0"
+	"life" "0"
+	"LightningEnd" "$next_beam"
+	"LightningStart" "$beam_name"
+	"NoiseAmplitude" "0"
+	"Radius" "0"
+	"renderamt" "128"
+	"rendercolor" "30 80 0"
+	"renderfx" "0"
+	"spawnflags" "1"
+	"StrikeTime" "1"
+	"targetname" "$beam_name"
+	"targetpoint" "0 0 0"
+	"texture" "sprites/laserbeam.vmt"
+	"TextureScroll" "0"
+	"TouchType" "0"
+	connections
+	{
+		"OnUser1" "coreStop0-1"
+		"OnUser2" "coreStartDischarge0-1"
+		"OnUser2" "coreFireUser20-1"
+		"OnUser1" "coreFireUser10-1"
+		"OnUser3" "coreFireUser30-1"
+		"OnUser3" "coreStartDischarge0-1"
+	}
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}

@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "8"
+	"mapversion" "10"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "8"
+	"mapversion" "10"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -35,6 +35,10 @@ entity
 	"spawnflags" "2"
 	"targetname" "@template_spawn_3"
 	"Template01" "cube"
+	connections
+	{
+		"OnEntitySpawned" "cubeRunScriptCodep1_cube()01"
+	}
 	"origin" "0 0 0"
 	editor
 	{
@@ -49,7 +53,7 @@ entity
 	"id" "2"
 	"classname" "prop_weighted_cube"
 	"allowfunnel" "1"
-	"angles" "0 0 0"
+	"angles" "90 0 0"
 	"CubeType" "1"
 	"model" "models/props/metal_box.mdl"
 	"NewSkins" "1"
@@ -58,10 +62,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "1"
 	"targetname" "cube"
-	connections
-	{
-		"OnFizzled" "proxyProxyRelay0-1"
-	}
+	"vscripts" "bee2/change_models.nut"
 	"origin" "0 0 -24"
 	editor
 	{

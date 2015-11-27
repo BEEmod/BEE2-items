@@ -1,5 +1,7 @@
 "ID"		"BEEMOD_1"
 "Name"		"BEEMOD 1"
+"Desc"      "Items added in the original BEEMOD 1. This includes Crushers, Triggers, Logic Gates, Diversity Vents, Drawbridges, and Doors."
+
 "Item"
 	{
 	"ID" "ITEM_BEE_LOGIC"
@@ -28,9 +30,20 @@
 "StyleVar"
 	{
 	"ID"	"BEE_SHOW_TRIGGER"
-	"Name"	"Show BEE Triggers ingame (preview only)"
+	"Name"	"Show BEE Triggers ingame"
+	"Description" "Show transparent overlays of triggers when in preview mode. These never appear in the published maps."
 	"Unstyled"	"1"
 	"Enabled"	"0"
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_UNDER_HOTSURFACE_WORLD"
+	"AddIfMat" "BEE2/underground_woodwall003c"
+	"Config" 
+		{
+		"File" "materials/BEE2/world/underground_hotsurface.vmt"
+		}
 	}
 	
 "Item"
@@ -38,7 +51,6 @@
 	"ID" "ITEM_DRAW_BRIDGE"
 	"Version"
 		{
-		"Name"			"Regular"
 		"Styles"
 			{
 			"BEE2_CLEAN"	"drawbridge"
@@ -48,13 +60,13 @@
 	
 "Item"
 	{
-	"ID" "ITEM_LIGHT_PANEL_WARM"
+	"ID"       "ITEM_LIGHT_PANEL_WARM"
+	"all_conf" "strip_warm"
 	"Version"
 		{
-		"Name"			"Regular"
 		"Styles"
 			{
-			"BEE2_CLEAN"	"strip"
+			"BEE2_CLEAN" "strip"
 			}
 		}
 	}
@@ -63,19 +75,24 @@
 	"ID" "ITEM_VENT"
 	"Version"
 		{
-		"Name"			"Regular"
 		"Styles"
 			{
-			"BEE2_CLEAN"	"vent"
+			"BEE2_CLEAN" "vent"
+			"BEE2_1950s" "vent_50s"
 			}
 		}
 	}
+"BrushTemplate"
+	{
+	"ID"   "BEE_VENT_BASE_50S"
+	"file" "vent_base_50s.vmf"
+	}
+	
 "Item"
 	{
 	"ID" "ITEM_CRUSHER"
 	"Version"
 		{
-		"Name"			"Regular"
 		"Styles"
 			{
 			"BEE2_CLEAN"	"crusher"
@@ -83,15 +100,150 @@
 			}
 		}
 	}
+	
+	
 "Item"
 	{
 	"ID" "DOOR"
 	"Version"
 		{
-		"Name"			"Regular"
 		"Styles"
 			{
 			"BEE2_CLEAN"	"door"
+			}
+		}
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE_DOOR_COWL_CLEAN"
+	"file" "bee_door_clean.vmf"
+	}
+	
+"EditorSound"
+	{
+	"ID" "Expand_Crusher"
+	// Play the regular expand sound, and in addition play crusher impacts
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"volume"	"0.9, 0.95"
+		"pitch"		"90, 100"
+		"rndwave"
+		{
+			"wave"	"world/crusher_impact_01.wav"
+			"wave"	"world/crusher_impact_02.wav"
+			"wave"	"world/crusher_impact_03.wav"
+		}
+		"soundentry_version" "2"
+		"operator_stacks"
+			{
+			"start_stack"
+				{
+				"play_entry"
+					{
+					"operator" "sys_start_entry"
+					"input_execute"	"1"
+					"input_start" "1"
+					"entry_name" "P2Editor.ExpandOther"
+					}
+				}
+			}
+		}
+	}
+		
+"EditorSound"
+	{
+	"ID" "Collapse_Crusher"
+	// Play the regular expand sound, and in addition play crusher impacts
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"pitch"		"95,105"
+		"rndwave"
+		{
+			"wave"		"world\crusher_separate_01.wav"
+			"wave"		"world\crusher_separate_02.wav"
+		}
+		"soundentry_version" "2"
+		"operator_stacks"
+			{
+			"start_stack"
+				{
+				"play_entry"
+					{
+					"operator" "sys_start_entry"
+					"input_execute"	"1"
+					"input_start" "1"
+					"entry_name" "P2Editor.CollapseOther"
+					}
+				}
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Expand_Suction"
+	// Play regular expand/contract sounds, but also play suction loop when open
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"volume" "0.5"
+		"pitch" "100"
+		"soundlevel" "SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave" "ui/p2_editor_other_explo_01.wav"
+			"wave" "ui/p2_editor_other_explo_02.wav"
+			}
+		"soundentry_version" "2"
+		"operator_stacks"
+			{
+			"start_stack"
+				{
+				"play_entry"
+					{
+					"operator" "sys_start_entry"
+					"execute_once" "true"
+					"input_execute"	"1"
+					"input_start" "1"
+					"entry_name" "Portal.tube_suck"
+					}
+				}
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Collapse_Suction"
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"volume" "0.5"
+		"pitch" "100"
+		"soundlevel" "SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave" "ui/p2_editor_other_collapse_01.wav"
+			"wave" "ui/p2_editor_other_collapse_02.wav"
+			}
+		"soundentry_version" "2"
+		"operator_stacks"
+			{
+			"start_stack"
+				{
+				"stop_suction"
+					{
+					"operator" "sys_stop_entries"
+					"input_max_entries" "0"
+					"match_entity" "false"
+					"match_substring" "true"
+					"match_entry" "Portal.tube_suck"
+					}
+				}
 			}
 		}
 	}

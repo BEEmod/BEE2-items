@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "232"
+	"mapversion" "233"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "232"
+	"mapversion" "233"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -291,21 +291,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "15337"
-	"classname" "logic_script"
-	"targetname" "@elev_new_script"
-	"vscripts" "pti_dest_video_splitter.nut"
-	"origin" "0 -128 24"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -793,8 +778,7 @@ entity
 	"targetname" "signs_off"
 	connections
 	{
-		"OnTrigger" "@elev_arrival_scriptRunScriptCodeStopArrivalVideo(23,2)0-1"
-		"OnTrigger" "@elev_new_scriptRunScriptCodeStopArrivalVideo(23,2)0-1"
+		"OnTrigger" "@video_splitterRunScriptCodeStopArrivalVideo(23,2)0-1"
 	}
 	"origin" "48 -128 24"
 	editor
@@ -880,21 +864,6 @@ entity
 }
 entity
 {
-	"id" "10651"
-	"classname" "logic_script"
-	"targetname" "@elev_arrival_script"
-	"vscripts" "videos/video_splitter.nut"
-	"origin" "16 -128 24"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "10327"
 	"classname" "light_spot"
 	"_cone" "45"
@@ -951,8 +920,7 @@ entity
 	"targetname" "signs_on"
 	connections
 	{
-		"OnTrigger" "@elev_arrival_scriptRunScriptCodeStartDestructedArrivalVideo(23,2)0-1"
-		"OnTrigger" "@elev_new_scriptRunScriptCodeStartDestructedArrivalVideo(23,2)0-1"
+		"OnTrigger" "@video_splitterRunScriptCodeStartArrivalVideo(23,2,1)0-1"
 	}
 	"origin" "32 -128 24"
 	editor
@@ -1381,8 +1349,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-180.309 278.953 679.185]"
-		"look" "[-83.5443 149.609 591.844]"
+		"position" "[10.5318 -162.727 88.9944]"
+		"look" "[13.3671 -61.1447 -63.9589]"
 	}
 	camera
 	{
