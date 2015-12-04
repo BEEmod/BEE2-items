@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "138"
+	"mapversion" "140"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "138"
+	"mapversion" "140"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -230,7 +230,7 @@ world
 		}
 		editor
 		{
-			"color" "0 180 0"
+			"color" "0 127 148"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1974,13 +1974,13 @@ entity
 	"AllowSilentDissolve" "1"
 	"angles" "0 180 0"
 	"BombType" "0"
-	"PaintType" "1"
+	"PaintType" "$paint_type"
 	"playspawnsound" "1"
-	"targetname" "rgb"
+	"targetname" "bmb"
 	connections
 	{
-		"OnExploded" "paint_bomb_rlTrigger0-1"
-		"OnFizzled" "paint_bomb_rlTrigger0-1"
+		"OnExploded" "rlTrigger0-1"
+		"OnFizzled" "rlTrigger0-1"
 	}
 	"origin" "0 0 -16"
 	editor
@@ -2262,8 +2262,8 @@ entity
 	"id" "1117"
 	"classname" "point_template"
 	"spawnflags" "2"
-	"targetname" "paint_bomb_template"
-	"Template01" "paint_bomb"
+	"targetname" "t"
+	"Template01" "bmb"
 	"origin" "0 -16 32"
 	editor
 	{
@@ -2277,10 +2277,10 @@ entity
 {
 	"id" "1137"
 	"classname" "logic_relay"
-	"targetname" "paint_bomb_rl"
+	"targetname" "rl"
 	connections
 	{
-		"OnTrigger" "paint_bomb_templateForceSpawn0.5-1"
+		"OnTrigger" "tForceSpawn0.5-1"
 		"OnSpawn" "branch_toggleTest01"
 	}
 	"origin" "0 16 32"
@@ -2300,9 +2300,9 @@ entity
 	"targetname" "branch_toggle"
 	connections
 	{
-		"OnTrue" "paint_bomb_rlEnable0-1"
-		"OnFalse" "paint_bomb_rlDisable0-1"
-		"OnTrue" "paint_bomb_rlTrigger0.01-1"
+		"OnTrue" "rlEnable0-1"
+		"OnFalse" "rlDisable0-1"
+		"OnTrue" "rlTrigger0.01-1"
 	}
 	"origin" "32 -16 32"
 	editor

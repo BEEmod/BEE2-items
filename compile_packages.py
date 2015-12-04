@@ -29,7 +29,7 @@ def do_folder(path):
             else:
                 do_folder(package_path)
 
-zip_path = os.path.join(os.getcwd(), 'zips/')
+zip_path = os.path.join(os.getcwd(), 'zips/packages/')
 if os.path.isdir(zip_path):
     for file in os.listdir(zip_path):
         print('Deleting', file)
