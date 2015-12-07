@@ -2,18 +2,12 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "1017"
+	"mapversion" "1027"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
-	visgroup
-	{
-		"name" "3 objects"
-		"visgroupid" "17"
-		"color" "220 205 178"
-	}
 	visgroup
 	{
 		"name" "Dynamic"
@@ -32,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "1017"
+	"mapversion" "1027"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1508,6 +1502,45 @@ world
 }
 entity
 {
+	"id" "271396"
+	"classname" "env_soundscape_proxy"
+	"MainSoundscapeName" "ext_scape"
+	"radius" "128"
+	"targetname" "@arrival_teleport"
+	"origin" "-825.984 -568.177 -1377.17"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "271472"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "$no_player_start"
+	"targetname" "player_start_rl"
+	connections
+	{
+		"OnTrigger" "@player_start_teleportTeleport0.5-1"
+		"OnTrigger" "@entrance_door_open_rlTrigger1.51"
+		"OnTrigger" "pre_paint_rlTrigger0-1"
+		"OnTrigger" "player_door_triggerKill0-1"
+	}
+	"origin" "-1074.53 120 -952.832"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
 	"id" "270399"
 	"classname" "light"
 	"_constant_attn" "0"
@@ -1908,52 +1941,6 @@ entity
 }
 entity
 {
-	"id" "263504"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@normal_gun"
-	connections
-	{
-		"OnTrigger" "@orange_gunKill0-1"
-		"OnUser2" "!selfKill0.01-1"
-		"OnUser1" "!selfRunScriptCodeGivePlayerPortalgun()0-1"
-		"OnUser2" "!selfDisable0-1"
-	}
-	"origin" "-817.916 -254.812 -958.792"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "263506"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@is_one_portal_test"
-	connections
-	{
-		"OnTrigger" "@nogunEnable0-1"
-		"OnUser2" "@nogunEnable0-1"
-		"OnUser2" "@normal_gunFireUser20-1"
-		"OnTrigger" "@orange_gunKill0-1"
-	}
-	"origin" "-843.053 -249.524 -958.792"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "262289"
 	"classname" "prop_static"
 	"angles" "0 288 0"
@@ -2205,7 +2192,7 @@ entity
 	"disableselfshadowing" "0"
 	"disableshadows" "0"
 	"disablevertexlighting" "0"
-	"drawinfastreflection" "0"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0"
 	"fademindist" "-1"
 	"fadescale" "1"
@@ -4824,23 +4811,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "262513"
-	"classname" "point_teleport"
-	"angles" "0 90 0"
-	"spawnflags" "0"
-	"target" "!player"
-	"targetname" "@test_dome_lift_entry_teleport"
-	"origin" "-825.414 -568.721 -1391.3"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -8398,6 +8368,7 @@ entity
 	"id" "262577"
 	"classname" "prop_static"
 	"angles" "0 0 0"
+	"drawinfastreflection" "1"
 	"fademindist" "-1"
 	"fadescale" "1"
 	"model" "models/props_underground/walkway_64a.mdl"
@@ -9405,41 +9376,6 @@ entity
 }
 entity
 {
-	"id" "251940"
-	"classname" "point_teleport"
-	"angles" "0 90 0"
-	"target" "!player"
-	"targetname" "player_start_teleport"
-	"origin" "-840.104 -484.871 -1003.57"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "251942"
-	"classname" "weapon_portalgun"
-	"angles" "0 90 0"
-	"CanFirePortal1" "1"
-	"CanFirePortal2" "1"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"targetname" "player_start_portalgun"
-	"origin" "-840.104 -492.871 -1003.57"
-	editor
-	{
-		"color" "0 0 200"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "251944"
 	"classname" "trigger_weapon_strip"
 	"KillWeapons" "1"
@@ -9574,19 +9510,6 @@ entity
 	{
 		"OnMapSpawn" "player_start_rlTrigger0-1"
 		"OnMapSpawn" "fade_spawnFade0-1"
-		"OnMapSpawn" "@cave_enter_genericFireUser10.85-1"
-		"OnMapSpawn" "@cave_exit_genericFireUser10.85-1"
-		"OnMapSpawn" "@pipes_purpleTrigger0.35-1"
-		"OnMapSpawn" "@pipes_greyTrigger0.4-1"
-		"OnMapSpawn" "@pipes_orangeTrigger0.8-1"
-		"OnMapSpawn" "@has_deadlyTrigger0.75-1"
-		"OnMapSpawn" "@pipes_blueTrigger0.7-1"
-		"OnMapSpawn" "@has_laserTrigger0.6-1"
-		"OnMapSpawn" "@pipes_whiteTrigger0.55-1"
-		"OnMapSpawn" "@has_funnelTrigger0.5-1"
-		"OnMapSpawn" "@has_carolineTrigger0.45-1"
-		"OnMapSpawn" "@has_glassTrigger0.65-1"
-		"OnMapSpawn" "@normal_gunTrigger0.15-1"
 	}
 	"origin" "-801.916 -250.434 -963.794"
 	editor
@@ -10388,7 +10311,8 @@ entity
 	"id" "221516"
 	"classname" "env_soundscape"
 	"radius" "512"
-	"soundscape" "ug_sphere_water_01"
+	"soundscape" "ug_portal_int_03"
+	"targetname" "ext_scape"
 	"origin" "-1136.91 37.2949 -1025.6"
 	editor
 	{
@@ -10401,9 +10325,9 @@ entity
 entity
 {
 	"id" "221560"
-	"classname" "env_soundscape"
+	"classname" "env_soundscape_proxy"
+	"MainSoundscapeName" "ext_scape"
 	"radius" "512"
-	"soundscape" "ug_sphere_water_01"
 	"origin" "-1110.2 1619 -971.423"
 	editor
 	{
@@ -11520,6 +11444,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -11551,6 +11476,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -11582,6 +11508,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -11602,37 +11529,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[7500 500]"
-	}
-}
-entity
-{
-	"id" "201559"
-	"classname" "prop_static"
-	"angles" "0 270 0"
-	"disableselfshadowing" "false"
-	"disableshadows" "false"
-	"disablevertexlighting" "false"
-	"disableX360" "false"
-	"fademaxdist" "0.0"
-	"fademindist" "-1.0"
-	"fadescale" "1.0"
-	"maxcpulevel" "0"
-	"maxgpulevel" "0"
-	"mincpulevel" "0"
-	"mingpulevel" "0"
-	"model" "models/props_underground/gantry_256_a.mdl"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"skin" "0"
-	"solid" "6"
-	"origin" "-125.956 777.654 -1932.1"
-	editor
-	{
-		"color" "223 220 0"
-		"groupid" "203675"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[7500 1000]"
 	}
 }
 entity
@@ -12056,6 +11952,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -12086,6 +11983,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -12116,6 +12014,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -13985,6 +13884,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14015,6 +13915,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14045,6 +13946,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14075,6 +13977,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14105,6 +14008,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14129,8 +14033,7 @@ entity
 entity
 {
 	"id" "172690"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14152,8 +14055,7 @@ entity
 entity
 {
 	"id" "172693"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14175,8 +14077,7 @@ entity
 entity
 {
 	"id" "172696"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14198,8 +14099,7 @@ entity
 entity
 {
 	"id" "172699"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14208,6 +14108,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
+	"spawnflags" "1"
 	"origin" "399.004 650.043 -1230.83"
 	editor
 	{
@@ -14258,8 +14159,7 @@ entity
 entity
 {
 	"id" "172706"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14269,7 +14169,6 @@ entity
 	"rendermode" "5"
 	"scale" "0.9"
 	"spawnflags" "1"
-	"targetname" "InstanceAuto40-column_flicker_sprites_4"
 	"origin" "359.929 571.25 -1233.81"
 	editor
 	{
@@ -14328,6 +14227,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14358,6 +14258,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14388,6 +14289,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14418,6 +14320,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14448,6 +14351,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14500,6 +14404,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14530,6 +14435,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14560,6 +14466,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14590,6 +14497,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14620,6 +14528,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14650,6 +14559,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14674,8 +14584,7 @@ entity
 entity
 {
 	"id" "172762"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14697,8 +14606,7 @@ entity
 entity
 {
 	"id" "172765"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14707,6 +14615,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
+	"spawnflags" "1"
 	"origin" "421.881 684.817 -1269.14"
 	editor
 	{
@@ -14719,8 +14628,7 @@ entity
 entity
 {
 	"id" "172768"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14729,6 +14637,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
+	"spawnflags" "1"
 	"origin" "404.12 649.002 -1270.49"
 	editor
 	{
@@ -14741,8 +14650,7 @@ entity
 entity
 {
 	"id" "172771"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14764,8 +14672,7 @@ entity
 entity
 {
 	"id" "172774"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14774,6 +14681,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
+	"spawnflags" "1"
 	"origin" "365.046 570.209 -1273.47"
 	editor
 	{
@@ -14786,8 +14694,7 @@ entity
 entity
 {
 	"id" "172777"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14796,6 +14703,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
+	"spawnflags" "1"
 	"origin" "347.285 534.394 -1274.82"
 	editor
 	{
@@ -14808,8 +14716,7 @@ entity
 entity
 {
 	"id" "172780"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14818,6 +14725,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
+	"spawnflags" "1"
 	"origin" "352.401 533.353 -1314.47"
 	editor
 	{
@@ -14830,8 +14738,7 @@ entity
 entity
 {
 	"id" "172783"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14853,8 +14760,7 @@ entity
 entity
 {
 	"id" "172786"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14863,6 +14769,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
+	"spawnflags" "1"
 	"origin" "387.923 604.983 -1311.77"
 	editor
 	{
@@ -14875,8 +14782,7 @@ entity
 entity
 {
 	"id" "172789"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14898,8 +14804,7 @@ entity
 entity
 {
 	"id" "172792"
-	"classname" "env_sprite"
-	"angles" "-1.93597 -26.3774 -7.24721"
+	"classname" "env_sprite_clientside"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -14916,26 +14821,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[3500 -7768]"
-	}
-}
-entity
-{
-	"id" "172795"
-	"classname" "ambient_generic"
-	"health" "10"
-	"message" "World.LightPowerOnLg"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"spawnflags" "48"
-	"targetname" "startup_lighting_audio"
-	"origin" "196.008 705.54 -1342.82"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 -6268]"
 	}
 }
 entity
@@ -14965,6 +14850,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -14995,6 +14881,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -15025,6 +14912,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -15055,6 +14943,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -15085,6 +14974,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -15132,7 +15022,6 @@ entity
 {
 	"id" "172828"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15141,7 +15030,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "269.193 363.76 -1327.17"
 	editor
 	{
@@ -15155,7 +15044,6 @@ entity
 {
 	"id" "172831"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15164,7 +15052,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "253.361 328.9 -1338.74"
 	editor
 	{
@@ -15178,7 +15066,6 @@ entity
 {
 	"id" "172834"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15187,7 +15074,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "237.53 294.03 -1350.31"
 	editor
 	{
@@ -15201,7 +15088,6 @@ entity
 {
 	"id" "172837"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15210,7 +15096,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "247.069 302.3 -1388.27"
 	editor
 	{
@@ -15224,7 +15110,6 @@ entity
 {
 	"id" "172840"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15233,7 +15118,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "262.9 337.16 -1376.7"
 	editor
 	{
@@ -15247,7 +15132,6 @@ entity
 {
 	"id" "172843"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15256,7 +15140,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "278.732 372.03 -1365.13"
 	editor
 	{
@@ -15270,7 +15154,6 @@ entity
 {
 	"id" "172846"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15279,7 +15162,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "288.271 380.29 -1403.08"
 	editor
 	{
@@ -15293,7 +15176,6 @@ entity
 {
 	"id" "172849"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15302,7 +15184,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "272.439 345.43 -1414.65"
 	editor
 	{
@@ -15316,7 +15198,6 @@ entity
 {
 	"id" "172852"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15325,7 +15206,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "256.607 310.56 -1426.22"
 	editor
 	{
@@ -15339,7 +15220,6 @@ entity
 {
 	"id" "172855"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15348,7 +15228,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "237.61 268.72 -1440.11"
 	editor
 	{
@@ -15362,7 +15242,6 @@ entity
 {
 	"id" "172858"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15371,7 +15250,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "228.071 260.46 -1402.15"
 	editor
 	{
@@ -15385,7 +15264,6 @@ entity
 {
 	"id" "172861"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15394,7 +15272,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "218.532 252.2 -1364.19"
 	editor
 	{
@@ -15408,7 +15286,6 @@ entity
 {
 	"id" "172864"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15417,7 +15294,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "202.7 217.33 -1375.76"
 	editor
 	{
@@ -15431,7 +15308,6 @@ entity
 {
 	"id" "172867"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15440,7 +15316,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "212.239 225.6 -1413.72"
 	editor
 	{
@@ -15454,7 +15330,6 @@ entity
 {
 	"id" "172870"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15463,7 +15338,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "221.778 233.86 -1451.68"
 	editor
 	{
@@ -15477,7 +15352,6 @@ entity
 {
 	"id" "172873"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15486,7 +15360,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "205.946 199 -1463.24"
 	editor
 	{
@@ -15500,7 +15374,6 @@ entity
 {
 	"id" "172876"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15509,7 +15382,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "196.407 190.73 -1425.29"
 	editor
 	{
@@ -15523,7 +15396,6 @@ entity
 {
 	"id" "172879"
 	"classname" "env_sprite_clientside"
-	"angles" "-16.8122 -24.4228 -7.56831"
 	"framerate" "10.0"
 	"GlowProxySize" "4"
 	"HDRColorScale" "1.0"
@@ -15532,7 +15404,7 @@ entity
 	"rendercolor" "247 228 170"
 	"rendermode" "5"
 	"scale" "0.9"
-	"spawnflags" "0"
+	"spawnflags" "1"
 	"origin" "186.868 182.47 -1387.33"
 	editor
 	{
@@ -15803,6 +15675,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -15833,6 +15706,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -15863,6 +15737,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -16094,6 +15969,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -16124,6 +16000,7 @@ entity
 	"disableshadows" "false"
 	"disablevertexlighting" "false"
 	"disableX360" "false"
+	"drawinfastreflection" "1"
 	"fademaxdist" "0.0"
 	"fademindist" "-1.0"
 	"fadescale" "1.0"
@@ -16558,49 +16435,6 @@ entity
 }
 entity
 {
-	"id" "125446"
-	"classname" "point_template"
-	"spawnflags" "2"
-	"targetname" "player_start_template"
-	"Template01" "player_start_teleport"
-	"Template02" "player_start_portalgun"
-	"origin" "96 792 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "17"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "125480"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "$no_player_start"
-	"targetname" "player_start_rl"
-	connections
-	{
-		"OnTrigger" "@player_start_templateForceSpawn0-1"
-		"OnTrigger" "@player_start_teleportTeleport0.5-1"
-		"OnTrigger" "@entrance_door_open_rlTrigger1.51"
-		"OnTrigger" "pre_paint_rlTrigger0-1"
-		"OnTrigger" "player_door_triggerKill0-1"
-		"OnTrigger" "@preview_restart_triggerEnable0-1"
-	}
-	"origin" "72 792 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "125568"
 	"classname" "func_instance_parms"
 	"parm1" "$no_player_start string"
@@ -16702,8 +16536,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-1310.35 1488.56 -873.686]"
-		"look" "[-1267.17 1486.75 -919.704]"
+		"position" "[-213.076 467.239 -375.159]"
+		"look" "[-175.629 468.285 -425.97]"
 	}
 	camera
 	{

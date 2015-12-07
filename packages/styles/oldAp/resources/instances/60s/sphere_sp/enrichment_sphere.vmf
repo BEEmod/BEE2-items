@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "984"
+	"mapversion" "989"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,13 +32,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "984"
+	"mapversion" "989"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1297,6 +1297,69 @@ world
 }
 entity
 {
+	"id" "302892"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "$no_player_start"
+	"targetname" "player_start_rl"
+	connections
+	{
+		"OnTrigger" "@player_start_teleportTeleport0.5-1"
+		"OnTrigger" "@entrance_door_open_rlTrigger1.51"
+		"OnTrigger" "player_door_triggerKill0-1"
+	}
+	"origin" "-2072 1144 -864"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "302894"
+	"classname" "game_text"
+	"channel" "3"
+	"color" "255 255 255"
+	"color2" "205 205 205"
+	"effect" "2"
+	"fadein" ".06"
+	"fadeout" "0.5"
+	"fxtime" ".5"
+	"holdtime" "5"
+	"message" "PORTAL2_PuzzleEditor_Preview_Complete"
+	"spawnflags" "1"
+	"targetname" "@preview_complete_message"
+	"x" "-1"
+	"y" ".6"
+	"origin" "-2056 1144 -864"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
+	"id" "301842"
+	"classname" "env_soundscape"
+	"radius" "128"
+	"soundscape" "ug_sphere_water_01"
+	"origin" "-1860 456 -1376.17"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[500 -7768]"
+	}
+}
+entity
+{
 	"id" "300798"
 	"classname" "light"
 	"_constant_attn" "0"
@@ -1318,52 +1381,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[1000 9500]"
-	}
-}
-entity
-{
-	"id" "299750"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@normal_gun"
-	connections
-	{
-		"OnTrigger" "@orange_gunKill0-1"
-		"OnUser2" "!selfKill0.01-1"
-		"OnUser1" "!selfRunScriptCodeGivePlayerPortalgun()0-1"
-		"OnUser2" "!selfDisable0-1"
-	}
-	"origin" "-1873.18 746.785 -964.38"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "299752"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@is_one_portal_test"
-	connections
-	{
-		"OnTrigger" "@nogunEnable0-1"
-		"OnUser2" "@nogunEnable0-1"
-		"OnUser2" "@normal_gunFireUser20-1"
-		"OnTrigger" "@orange_gunKill0-1"
-	}
-	"origin" "-1898.32 752.073 -964.38"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -2666,23 +2683,6 @@ entity
 }
 entity
 {
-	"id" "284281"
-	"classname" "point_teleport"
-	"angles" "0 90 0"
-	"spawnflags" "0"
-	"target" "!player"
-	"targetname" "@test_dome_lift_entry_teleport"
-	"origin" "-1858.41 455.279 -1390.3"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "284283"
 	"classname" "trigger_once"
 	"origin" "-1858.41 455.28 -1346.3"
@@ -3510,47 +3510,6 @@ entity
 }
 entity
 {
-	"id" "283113"
-	"classname" "logic_relay"
-	"spawnflags" "1"
-	"StartDisabled" "$no_player_start"
-	"targetname" "@relay_spawn_on_entrance"
-	connections
-	{
-		"OnTrigger" "@commandCommandjpeg0-1"
-	}
-	"origin" "-2277.67 1144 -885.19"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "283147"
-	"classname" "logic_relay"
-	"spawnflags" "1"
-	"StartDisabled" "$no_player_start"
-	"targetname" "@screenshot2"
-	connections
-	{
-		"OnTrigger" "@commandCommandcl_screenshotname previewcomplete0-1"
-		"OnTrigger" "@commandCommandscreenshot0.05-1"
-	}
-	"origin" "-2257.14 1144 -886.442"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "279983"
 	"classname" "prop_dynamic"
 	"angles" "90 270 0"
@@ -3757,142 +3716,6 @@ entity
 }
 entity
 {
-	"id" "278869"
-	"classname" "point_teleport"
-	"angles" "0 90 0"
-	"target" "!player"
-	"targetname" "player_start_teleport"
-	"origin" "-1881.8 545.673 -1003.3"
-	editor
-	{
-		"color" "209 126 0"
-		"groupid" "279097"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "278871"
-	"classname" "weapon_portalgun"
-	"angles" "0 90 0"
-	"CanFirePortal1" "1"
-	"CanFirePortal2" "1"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"targetname" "player_start_portalgun"
-	"origin" "-1881.8 537.673 -1003.3"
-	editor
-	{
-		"color" "209 126 0"
-		"groupid" "279097"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "278873"
-	"classname" "trigger_weapon_strip"
-	"KillWeapons" "1"
-	"origin" "-1855.64 457.99 -1135.02"
-	"spawnflags" "4097"
-	"StartDisabled" "1"
-	"targetname" "@nogun"
-	connections
-	{
-		"OnStartTouch" "@normal_gunFireUser10.1-1"
-		"OnStartTouch" "@nogunDisable0.01-1"
-	}
-	solid
-	{
-		"id" "278874"
-		side
-		{
-			"id" "26096"
-			"plane" "(-1983.64 346 -783) (-1983.64 570 -783) (-1727.64 570 -783)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 62.5444] 0.25"
-			"vaxis" "[0 -1 0 24.1223] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26095"
-			"plane" "(-1983.64 570 -1487) (-1983.64 346 -1487) (-1727.64 346 -1487)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 62.5444] 0.25"
-			"vaxis" "[0 -1 0 24.1223] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26094"
-			"plane" "(-1983.64 346 -1487) (-1983.64 570 -1487) (-1983.64 570 -783)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 -24.1223] 0.25"
-			"vaxis" "[0 0 -1 61.2471] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26093"
-			"plane" "(-1727.64 570 -1487) (-1727.64 346 -1487) (-1727.64 346 -783)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 -24.1223] 0.25"
-			"vaxis" "[0 0 -1 61.2471] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26092"
-			"plane" "(-1983.64 570 -1487) (-1727.64 570 -1487) (-1727.64 570 -783)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 62.5444] 0.25"
-			"vaxis" "[0 0 -1 61.2471] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26091"
-			"plane" "(-1727.64 346 -1487) (-1983.64 346 -1487) (-1983.64 346 -783)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 62.5444] 0.25"
-			"vaxis" "[0 0 -1 61.2471] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "209 126 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "209 126 0"
-		"groupid" "279097"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "241705"
 	"classname" "logic_auto"
 	"spawnflags" "1"
@@ -3900,20 +3723,7 @@ entity
 	{
 		"OnMapSpawn" "player_start_rlTrigger0-1"
 		"OnMapSpawn" "fade_spawnFade0-1"
-		"OnMapSpawn" "@cave_enter_genericFireUser10.9-1"
-		"OnMapSpawn" "@cave_exit_genericFireUser10.9-1"
-		"OnMapSpawn" "@pipes_purpleTrigger0.85-1"
-		"OnMapSpawn" "@pipes_greyTrigger0.8-1"
-		"OnMapSpawn" "@pipes_orangeTrigger0.75-1"
-		"OnMapSpawn" "@has_deadlyTrigger0.7-1"
-		"OnMapSpawn" "@pipes_blueTrigger0.65-1"
-		"OnMapSpawn" "@has_laserTrigger0.6-1"
-		"OnMapSpawn" "@pipes_whiteTrigger0.55-1"
-		"OnMapSpawn" "@has_funnelTrigger0.5-1"
-		"OnMapSpawn" "@glassFireUser30-1"
 		"OnMapSpawn" "global_entsinstance:environment_underground;Trigger0-1"
-		"OnMapSpawn" "@cave_exit_lobbyFireUser10.45-1"
-		"OnMapSpawn" "@normal_gunTrigger0.15-1"
 	}
 	"origin" "-1852.17 799.606 -965.38"
 	editor
@@ -4722,9 +4532,9 @@ entity
 {
 	"id" "240155"
 	"classname" "info_overlay"
-	"angles" "-0.839982 90.7 0"
+	"angles" "-1.10059 90.9172 0"
 	"BasisNormal" "-0.999925 -0.012217 0"
-	"BasisOrigin" "-1828.26 734.796 -964.671"
+	"BasisOrigin" "-1828.26 727.851 -964.671"
 	"BasisU" "-0.0122161 0.999851 0.012217"
 	"BasisV" "-0.000149256 0.0122161 -0.999925"
 	"EndU" "0"
@@ -4734,11 +4544,11 @@ entity
 	"sides" "26057"
 	"StartU" "1"
 	"StartV" "0"
-	"uv0" "-62.6452 -37.4778 0"
-	"uv1" "-62.7985 37.7843 0"
-	"uv2" "62.6452 37.4778 0"
-	"uv3" "62.7985 -37.7843 0"
-	"origin" "-1828.26 734.796 -964.671"
+	"uv0" "-47.7026 -37.2952 0"
+	"uv1" "-48.0373 37.9646 0"
+	"uv2" "47.7026 37.2952 0"
+	"uv3" "48.0373 -37.9646 0"
+	"origin" "-1828.26 727.851 -964.671"
 	editor
 	{
 		"color" "80 150 225"
@@ -4793,7 +4603,7 @@ entity
 		side
 		{
 			"id" "26059"
-			"plane" "(-1824 784.071 -927.902) (-1824 784.071 -975.902) (-1822 784.071 -975.902)"
+			"plane" "(-1824 768 -927.902) (-1824 768 -975.902) (-1822 768 -975.902)"
 			"material" "METAL/UNDERGROUND_METAL_CEILING001"
 			"uaxis" "[-1 0 0 -200.864] 0.25"
 			"vaxis" "[0 0 -1 505.906] 0.25"
@@ -4804,7 +4614,7 @@ entity
 		side
 		{
 			"id" "26058"
-			"plane" "(-1822 784.071 -927.902) (-1822 784.071 -975.902) (-1822 688.07 -975.902)"
+			"plane" "(-1822 768 -927.902) (-1822 768 -975.902) (-1822 688.07 -975.902)"
 			"material" "METAL/UNDERGROUND_METAL_CEILING001"
 			"uaxis" "[0 1 0 -228.884] 0.25"
 			"vaxis" "[0 0 -1 505.906] 0.25"
@@ -4815,7 +4625,7 @@ entity
 		side
 		{
 			"id" "26057"
-			"plane" "(-1824 688.07 -927.902) (-1824 688.07 -975.902) (-1824 784.071 -975.902)"
+			"plane" "(-1824 688.07 -927.902) (-1824 688.07 -975.902) (-1824 768 -975.902)"
 			"material" "METAL/UNDERGROUND_METAL_CEILING001"
 			"uaxis" "[0 1 0 -228.884] 0.25"
 			"vaxis" "[0 0 -1 505.906] 0.25"
@@ -4826,7 +4636,7 @@ entity
 		side
 		{
 			"id" "26056"
-			"plane" "(-1822 784.071 -975.903) (-1824 784.071 -975.903) (-1824 688.07 -975.903)"
+			"plane" "(-1822 768 -975.903) (-1824 768 -975.903) (-1824 688.07 -975.903)"
 			"material" "METAL/UNDERGROUND_METAL_CEILING001"
 			"uaxis" "[0 1 0 -228.884] 0.25"
 			"vaxis" "[1 0 0 200.864] 0.25"
@@ -4837,7 +4647,7 @@ entity
 		side
 		{
 			"id" "26055"
-			"plane" "(-1822 688.07 -927.901) (-1824 688.07 -927.901) (-1824 784.071 -927.901)"
+			"plane" "(-1822 688.07 -927.901) (-1824 688.07 -927.901) (-1824 768 -927.901)"
 			"material" "METAL/UNDERGROUND_METAL_CEILING001"
 			"uaxis" "[0 1 0 -228.884] 0.25"
 			"vaxis" "[1 0 0 200.864] 0.25"
@@ -7118,7 +6928,7 @@ entity
 		side
 		{
 			"id" "26066"
-			"plane" "(-1820 772.071 -935.902) (-1820 772.071 -1023.9) (-1822 772.071 -1023.9)"
+			"plane" "(-1820 756.071 -935.902) (-1820 756.071 -1023.9) (-1822 756.071 -1023.9)"
 			"material" "METAL/UNDERGROUND_METAL_CEILING001"
 			"uaxis" "[-1 0 0 -232.864] 0.25"
 			"vaxis" "[0 0 -1 40.9063] 0.25"
@@ -7129,7 +6939,7 @@ entity
 		side
 		{
 			"id" "26065"
-			"plane" "(-1822 774.071 -935.902) (-1822 774.071 -1023.9) (-1820 774.071 -1023.9)"
+			"plane" "(-1822 758.071 -935.902) (-1822 758.071 -1023.9) (-1820 758.071 -1023.9)"
 			"material" "METAL/UNDERGROUND_METAL_CEILING001"
 			"uaxis" "[-1 0 0 -232.864] 0.25"
 			"vaxis" "[0 0 -1 40.9063] 0.25"
@@ -7140,9 +6950,9 @@ entity
 		side
 		{
 			"id" "26064"
-			"plane" "(-1820 774.071 -935.902) (-1820 774.071 -1023.9) (-1820 772.068 -1023.9)"
+			"plane" "(-1820 758.071 -935.902) (-1820 758.071 -1023.9) (-1820 756.068 -1023.9)"
 			"material" "METAL/UNDERGROUND_METAL_CEILING001"
-			"uaxis" "[0 1 0 -468.884] 0.25"
+			"uaxis" "[0 1 0 -404.884] 0.25"
 			"vaxis" "[0 0 -1 40.9063] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -7151,9 +6961,9 @@ entity
 		side
 		{
 			"id" "26063"
-			"plane" "(-1822 772.068 -935.902) (-1822 772.068 -1023.9) (-1822 774.071 -1023.9)"
+			"plane" "(-1822 756.068 -935.902) (-1822 756.068 -1023.9) (-1822 758.071 -1023.9)"
 			"material" "METAL/UNDERGROUND_METAL_CEILING001"
-			"uaxis" "[0 1 0 -468.884] 0.25"
+			"uaxis" "[0 1 0 -404.884] 0.25"
 			"vaxis" "[0 0 -1 40.9063] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -7162,10 +6972,10 @@ entity
 		side
 		{
 			"id" "26062"
-			"plane" "(-1820 774.071 -1023.9) (-1822 774.071 -1023.9) (-1822 772.068 -1023.9)"
+			"plane" "(-1820 758.071 -1023.9) (-1822 758.071 -1023.9) (-1822 756.068 -1023.9)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 4.86426] 0.25"
-			"vaxis" "[0 -1 0 36.884] 0.25"
+			"vaxis" "[0 -1 0 -27.116] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -7173,9 +6983,9 @@ entity
 		side
 		{
 			"id" "26061"
-			"plane" "(-1820 772.068 -935.901) (-1822 772.068 -935.901) (-1822 774.071 -935.901)"
+			"plane" "(-1820 756.068 -935.901) (-1822 756.068 -935.901) (-1822 758.071 -935.901)"
 			"material" "METAL/UNDERGROUND_METAL_CEILING001"
-			"uaxis" "[0 1 0 -468.884] 0.25"
+			"uaxis" "[0 1 0 -404.884] 0.25"
 			"vaxis" "[1 0 0 232.864] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -16596,7 +16406,7 @@ entity
 	"spawnflags" "0"
 	"target" "!player"
 	"targetname" "@arrival_teleport"
-	"origin" "-1858.98 455.823 -1392.17"
+	"origin" "-1860 456 -1392.17"
 	editor
 	{
 		"color" "220 30 220"
@@ -17243,12 +17053,8 @@ entity
 	"targetname" "player_start_rl"
 	connections
 	{
-		"OnTrigger" "@player_start_templateForceSpawn0-1"
-		"OnTrigger" "@player_start_teleportTeleport0.5-1"
 		"OnTrigger" "@entrance_door_open_rlTrigger1.51"
-		"OnTrigger" "pre_paint_rlTrigger0-1"
-		"OnTrigger" "player_door_triggerKill0-1"
-		"OnTrigger" "@preview_restart_triggerEnable0-1"
+		"OnTrigger" "j0-1"
 	}
 	"origin" "-952 1816 48"
 	editor
@@ -17330,8 +17136,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-1899.68 1011.12 -639.842]"
-		"look" "[-1901.02 1049.61 -689.851]"
+		"position" "[-2752.43 1018.32 -657.338]"
+		"look" "[-2709.52 1062.17 -672.18]"
 	}
 	camera
 	{
