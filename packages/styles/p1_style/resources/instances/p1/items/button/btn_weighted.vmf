@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "56"
+	"mapversion" "57"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,111 +14,26 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "56"
+	"mapversion" "57"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
-	solid
-	{
-		"id" "1525"
-		side
-		{
-			"id" "512"
-			"plane" "(-64 64 -56) (64 64 -56) (64 -64 -56)"
-			"material" "METAL/METALWALL048B"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "511"
-			"plane" "(-64 -64 -64) (64 -64 -64) (64 64 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "510"
-			"plane" "(-64 64 -56) (-64 -64 -56) (-64 -64 -64)"
-			"material" "METAL/METALWALL048B"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.0625"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "509"
-			"plane" "(64 64 -64) (64 -64 -64) (64 -64 -56)"
-			"material" "METAL/METALWALL048B"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.0625"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "508"
-			"plane" "(64 64 -56) (-64 64 -56) (-64 64 -64)"
-			"material" "METAL/METALWALL048B"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.0625"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "507"
-			"plane" "(64 -64 -64) (-64 -64 -64) (-64 -64 -56)"
-			"material" "METAL/METALWALL048B"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.0625"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 235 132"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	group
-	{
-		"id" "1597"
-		editor
-		{
-			"color" "176 145 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
 }
 entity
 {
-	"id" "1568"
+	"id" "5547"
 	"classname" "prop_static"
 	"angles" "0 180 0"
+	"drawinfastreflection" "1"
 	"fademindist" "-1"
 	"fadescale" "1"
 	"model" "models/bee2/props_ingame/p1_button_base.mdl"
@@ -126,7 +41,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "0 0 -55.9957"
+	"origin" "0 0 -56"
 	editor
 	{
 		"color" "255 255 0"
@@ -137,7 +52,7 @@ entity
 }
 entity
 {
-	"id" "1536"
+	"id" "5419"
 	"classname" "logic_relay"
 	"StartDisabled" "0"
 	"targetname" "p"
@@ -146,7 +61,7 @@ entity
 		"OnTrigger" "proxyProxyRelay0-1"
 		"OnUser1" "proxyProxyRelay0-1"
 	}
-	"origin" "-48 -48 -48"
+	"origin" "0 48 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -157,7 +72,7 @@ entity
 }
 entity
 {
-	"id" "431"
+	"id" "109"
 	"classname" "light"
 	"_constant_attn" "0"
 	"_distance" "0"
@@ -169,8 +84,9 @@ entity
 	"_linear_attn" "0"
 	"_quadratic_attn" "1"
 	"_zero_percent_distance" "0"
+	"spawnflags" "0"
 	"style" "0"
-	"origin" "1.07889 -0.604305 -32"
+	"origin" "-0.770093 9.53674e-007 -39.7465"
 	editor
 	{
 		"color" "220 30 220"
@@ -187,19 +103,21 @@ entity
 	"model" "models/bee2/props_ingame/floor_button_just_top.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
+	"skin" "0"
 	"SuppressAnimSounds" "0"
 	"targetname" "button"
 	connections
 	{
 		"OnPressed" "pTrigger0-1"
 		"OnUnPressed" "pFireUser10-1"
-		"OnPressed" "@floor_button_pressedTrigger0-1"
+		"OnPressed" "@glados_buttonStart0-1"
+		"OnUnPressed" "suPlaySound0-1"
+		"OnPressed" "sdPlaySound0-1"
 	}
-	"origin" "0 0 -57"
+	"origin" "0 0 -58"
 	editor
 	{
-		"color" "176 145 0"
-		"groupid" "1597"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -210,7 +128,7 @@ entity
 	"id" "53"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
-	"origin" "48 48 -43"
+	"origin" "0 -48 -32"
 	editor
 	{
 		"color" "220 30 220"
