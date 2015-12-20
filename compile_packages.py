@@ -3,9 +3,9 @@ import os
 import os.path
 from zipfile import ZipFile, ZIP_LZMA
 
-# Skip these files, if they exist in the source folders.
+# Delete these files, if they exist in the source folders.
 # Users won't need them.
-SKIPPED_EXTENSIONS = ('vmx', 'log', 'bsp', 'prt', 'lin')
+DELETE_EXTENSIONS = ('vmx', 'log', 'bsp', 'prt', 'lin')
 
 def do_folder(path):
     for package in os.listdir(path):
@@ -19,8 +19,9 @@ def do_folder(path):
                     for file in files:
                         full_path = os.path.normpath(os.path.join(base, file))
                         rel_path = os.path.relpath(full_path, package_path)
-                        if file[-3:] in SKIPPED_EXTENSIONS:
+                        if file[-3:] in DELETE_EXTENSIONS:
                             print('X   \\' + rel_path)
+                            os.remove(rel_path)
                             continue
                         print('    \\' +rel_path)
 
