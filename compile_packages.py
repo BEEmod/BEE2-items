@@ -20,10 +20,10 @@ def do_folder(path):
                         full_path = os.path.normpath(os.path.join(base, file))
                         rel_path = os.path.relpath(full_path, package_path)
                         if file[-3:] in DELETE_EXTENSIONS:
-                            print('X   \\' + rel_path)
-                            os.remove(rel_path)
+                            print('\nX   \\' + rel_path)
+                            os.remove(os.path.join(package_path, rel_path))
                             continue
-                        print('    \\' +rel_path)
+                        print('.', end='', flush=True)
 
                         zip.write(full_path, rel_path)
                 print('')
