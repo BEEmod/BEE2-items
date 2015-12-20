@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "432"
+	"mapversion" "513"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "432"
+	"mapversion" "513"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,22 +30,25 @@ world
 }
 entity
 {
-	"id" "28833"
-	"classname" "logic_relay"
+	"id" "36347"
+	"classname" "env_shake"
+	"amplitude" "4"
+	"duration" "1"
+	"frequency" "2.5"
+	"radius" "500"
 	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@voice_enter_portal"
+	"targetname" "port_shake"
 	connections
 	{
-		"OnUser1" "@open_entry_autoportTrigger0.2-1"
+		"OnUser1" "!selfStartShake01"
 	}
-	"origin" "0 0 0"
+	"origin" "40 -48 -296"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
+		"logicalpos" "[0 0]"
 	}
 }
 cameras
