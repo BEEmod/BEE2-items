@@ -30,13 +30,17 @@ def do_folder(path):
             else:
                 do_folder(package_path)
 
-zip_path = os.path.join(os.getcwd(), 'zips/packages/')
-if os.path.isdir(zip_path):
-    for file in os.listdir(zip_path):
-        print('Deleting', file)
-        os.remove(os.path.join(zip_path, file))
-else:
-    os.makedirs(zip_path)
+def main():
+    zip_path = os.path.join(os.getcwd(), 'zips/packages/')
+    if os.path.isdir(zip_path):
+        for file in os.listdir(zip_path):
+            print('Deleting', file)
+            os.remove(os.path.join(zip_path, file))
+    else:
+        os.makedirs(zip_path)
 
-path = os.path.join(os.getcwd(), 'packages\\')
-do_folder(path)
+    path = os.path.join(os.getcwd(), 'packages\\')
+    do_folder(zip_path, path)
+
+if __name__ == '__main__':
+    main()
