@@ -73,6 +73,15 @@
 	"Enabled"       "1"
 	"Style"         "BEE2_PORTAL_1"
 	}
+
+"StyleVar"
+	{
+	"ID"            "P1_WPORTAL_STRIPS"
+	"Name"          "Use WorldPortal Light Strips"
+	"Description"   "Use worldportals for the light strip tunnel. This looks really good, but can lower FPS. If many lights are used, disable this."
+	"Enabled"       "1"
+	"Style"         "BEE2_PORTAL_1"
+	}
 	
 "PackList"
 	{
@@ -140,7 +149,7 @@
 	"ID"     "PACK_P1_ORANGE_NOGLOW"
 	"Config"
 		{
-		"File" "materials/BEE2/p1/orange_noglow"
+		"File" "materials/BEE2/p1/orange_noglow.vmt"
 		}
 	}
 	
@@ -157,10 +166,10 @@
 "PackList"
 	{
 	"ID"        "PACK_P1_ANTLINES"
-	"PackIfMat" "BEE2/ind_p1/corner_floor"
-	"PackIfMat" "BEE2/ind_p1/corner_wall"
-	"PackIfMat" "BEE2/ind_p1/straight_floor"
-	"PackIfMat" "BEE2/ind_p1/straight_wall"
+	"AddIfMat"  "BEE2/ind_p1/corner_floor"
+	"AddIfMat"  "BEE2/ind_p1/corner_wall"
+	"AddIfMat"  "BEE2/ind_p1/straight_floor"
+	"AddIfMat"  "BEE2/ind_p1/straight_wall"
 	"Config"
 		{
 		"File" "materials/BEE2/ind_p1/corner_floor.vmt"
@@ -175,7 +184,7 @@
 "PackList"
 	{
 	"ID"        "PACK_P1_GOO"
-	"PackIfMat" "BEE2/p1/goo/p1_goo"
+	"AddIfMat"  "BEE2/p1/goo/p1_goo"
 	"Config"
 		{
 		"File" "materials/BEE2/p1/goo/p1_goo.vmt"
@@ -195,10 +204,10 @@
 	"ID" "PACK_P1_FLOOR_BUTTON"
 	"Config"
 		{
-		"File" "floor_button_just_top.mdl"
-		"File" "floor_button_just_top.vvd"
-		"File" "floor_button_just_top.phy"
-		"File" "floor_button_just_top.dx90.vtx"
+		"File" "models/BEE2/props_ingame/floor_button_just_top.mdl"
+		"File" "models/BEE2/props_ingame/floor_button_just_top.vvd"
+		"File" "models/BEE2/props_ingame/floor_button_just_top.phy"
+		"File" "models/BEE2/props_ingame/floor_button_just_top.dx90.vtx"
 		
 		"File" "sound/BEE2/p1/btn_down.wav"
 		"File" "sound/BEE2/p1/btn_up.wav"
@@ -207,11 +216,31 @@
 	
 "PackList"
 	{
+	"ID"        "PACK_P1_GEL_DROPPER"
+	"Config"
+		{
+		"File"  "models/BEE2/props_ingame/p1_gel_dropper.mdl"
+		"File"  "models/BEE2/props_ingame/p1_gel_dropper.vvd"
+		"File"  "models/BEE2/props_ingame/p1_gel_dropper.phy"
+		"File"  "models/BEE2/props_ingame/p1_gel_dropper.dx90.vtx"
+		
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_grey.vmt"
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_white.vmt"
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_water.vmt"
+		
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_grey.vtf"
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_white.vtf"
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_water.vtf"
+		}
+	}
+	
+"PackList"
+	{
 	"ID"        "PACK_P1_BTS_WALLS"
-	"PackIfMat" "BEE2/p1/metalwall_bts_006a"
-	"PackIfMat" "BEE2/p1/metalwall_bts_006b"
-	"PackIfMat" "BEE2/p1/metalwall_bts_006c_gradient"
-	"PackIfMat" "BEE2/p1/metalwall_bts_006d_gradient"
+	"AddIfMat"  "BEE2/p1/metalwall_bts_006a"
+	"AddIfMat"  "BEE2/p1/metalwall_bts_006b"
+	"AddIfMat"  "BEE2/p1/metalwall_bts_006c_gradient"
+	"AddIfMat"  "BEE2/p1/metalwall_bts_006d_gradient"
 	"Config"
 		{
 		"File" "materials/BEE2/p1/metalwall_bts_006a.vmt"
@@ -232,7 +261,7 @@
 "PackList"
 	{
 	"ID"        "PACK_P1_BLACK_WALL_LARGE"
-	"PackIfMat" "BEE2/p1/metalwall048b_lrg"
+	"AddIfMat"  "BEE2/p1/metalwall048b_lrg"
 	"Config"
 		{
 		"File" "materials/BEE2/p1/metalwall048b_lrg.vmt"
@@ -242,11 +271,25 @@
 		"File" "materials/BEE2/p1/metalwall048b_lrg_normal.vtf"
 		}
 	}
+	
+"PackList"
+	{
+	// Large tile with white fade out
+	"ID"        "PACK_P1_BLACK_WALL_LARGE_FADE"
+	"AddIfMat"  "BEE2/p1/metalwall048b_lrg_fade"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall048b_lrg_fade.vmt"
+		"File" "materials/BEE2/p1/metalwall048b_lrg_fade.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_lrg_height-ssbump.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_lrg_normal.vtf"
+		}
+	}
 
 "PackList"
 	{
 	"ID"        "PACK_P1_BLACK_WALL_MED"
-	"PackIfMat" "BEE2/p1/metalwall048b_med"
+	"AddIfMat"  "BEE2/p1/metalwall048b_med"
 	"Config"
 		{
 		"File" "materials/BEE2/p1/metalwall048b_med.vmt"
@@ -297,6 +340,79 @@
 		}
 	}
 	
+"PackList"
+	{
+	// Model which creates an illusuary hole, similar to clean lights.
+	"ID"    "BEE2_P1_LIGHT_HOLE_MODEL"
+	"Config"
+		{
+		"File"  "models/BEE2/props_p1/fake_light_hole.mdl"
+		"File"  "models/BEE2/props_p1/fake_light_hole.phy"
+		"File"  "models/BEE2/props_p1/fake_light_hole.vvd"
+		"File"  "models/BEE2/props_p1/fake_light_hole.dx90.vtx"
+		
+		"File"  "materials/BEE2/models/props_p1/fake_light_hole/white.vmt"
+		"File"  "materials/BEE2/models/props_p1/fake_light_hole/white.vtf"
+		"File"  "materials/BEE2/models/props_p1/fake_light_hole/orange.vtf"
+		"File"  "materials/BEE2/models/props_p1/fake_light_hole/orange.vmt"
+		"File"  "materials/BEE2/models/props_p1/fake_light_hole/normal.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_P1_CONC_WALL"
+	"AddIfMat"  "BEE2/bullseye/concrete_modular_wall"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/concrete_modular_wall.vmt"
+		"File" "materials/BEE2/bullseye/concrete_modular_wall.vtf"
+		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_P1_CONC_FLOOR"
+	"AddIfMat"  "BEE2/bullseye/concrete_modular_floor"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/concrete_modular_floor.vmt"
+		"File" "materials/BEE2/bullseye/concrete_modular_floor.vtf"
+		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_P1_METALWALL"
+	"AddIfMat"  "BEE2/bullseye/metalwall48"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/metalwall48.vmt"
+		"File" "materials/BEE2/bullseye/metalwall48.vtf"
+		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_med_height-ssbump.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_med_normal.vtf"
+		}
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_STATIC_PAN_FLAT_P1"
+	"File"  "static_pan_flat.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_STATIC_PAN_ANGLED_P1"
+	"File"  "static_pan_angled.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_FLOOR_BUTTON_BASE_P1_WHITE"
+	"File"  "button_base_white.vmf"
+	}
 	
 "Overrides"
 	{
