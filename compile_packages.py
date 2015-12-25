@@ -11,9 +11,9 @@ import utils
 from property_parser import Property
 import vmfLib as VLib
 
-OPTIMISE_VMF = utils.conv_bool(input('Optimise zips? '))
+OPTIMISE = utils.conv_bool(input('Optimise zips? '))
 
-print('Optimising: ', OPTIMISE_VMF)
+print('Optimising: ', OPTIMISE)
 
 
 def clean_vmf(vmf_path):
@@ -51,6 +51,24 @@ def clean_vmf(vmf_path):
                 continue
 
     return inst.export(inc_version=False, minimal=True)
+    
+    
+# Text files we should clean up.
+PROP_EXT = ('.cfg', '.txt', '.vmt', '.nut')
+def clean_text(file_path):
+    with open(file_path, 'r') as f:
+        for line in f:
+	        if line.isspace():
+	            continue
+	        if line.lstrip().startswith('//'):
+	            continue
+	        # Remove // comments, but only if the comment doesn't have a quote char after it -
+	        # in prop files that's allowed, so leave it just to be safe.
+	        if '//' in line and line.rfind('"') < line.index('//'):
+	            yield line.split('//')[0] + '\n'
+	        else:
+	            yield line
+
 
 
 # Delete these files, if they exist in the source folders.
@@ -87,9 +105,12 @@ def do_folder(zip_path, path):
                     continue
                 print('.', end='', flush=True)
 
-                if OPTIMISE_VMF and file.endswith('.vmf'):
+                if OPTIMISE and file.endswith('.vmf'):
                     print(rel_path)
                     zip_file.writestr(rel_path, clean_vmf(full_path))
+                elif OPTIMISE and file.endswith(PROP_EXT):
+                    print(rel_path)
+                    zip_file.writestr(rel_path, ''.join(clean_text(full_path)))
                 else:
                     zip_file.write(full_path, rel_path)
         print('')
