@@ -50,9 +50,24 @@ def clean_vmf(vmf_path):
                 ent.solids.remove(solid)
                 continue
 
+    for detail in inst.by_class['func_detail']:
+        # Remove several unused default options from func_detail.
+        # We're not on xbox!
+        del detail['disableX360']
+        # These aren't used in any instances, and it doesn't seem as if
+        # VBSP preserves these values anyway.
+        del detail['maxcpulevel'], detail['mincpulevel']
+        del detail['maxgpulevel'], detail['mingpulevel']
+
+    # Since all VMFs are instances or similar (not complete maps), we'll never
+    # use worldspawn's settings. Keep mapversion though.
+    del inst.spawn['maxblobcount'], inst.spawn['maxpropscreenwidth']
+    del inst.spawn['maxblobcount'],
+    del inst.spawn['detailvbsp'], inst.spawn['detailmaterial']
+
     return inst.export(inc_version=False, minimal=True)
-    
-    
+
+
 # Text files we should clean up.
 PROP_EXT = ('.cfg', '.txt', '.vmt', '.nut')
 def clean_text(file_path):
