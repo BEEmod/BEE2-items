@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "439"
+	"mapversion" "444"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "439"
+	"mapversion" "444"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -870,7 +870,7 @@ world
 		side
 		{
 			"id" "6076"
-			"plane" "(0 32 -160) (0 0 -160) (0 0 -128)"
+			"plane" "(0 64 -192) (0 -32 -192) (0 -32 -96)"
 			"material" "TOOLS/TOOLSHINT"
 			"uaxis" "[0 1 0 0.0905762] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -881,7 +881,7 @@ world
 		side
 		{
 			"id" "6075"
-			"plane" "(-4 0 -160) (-4 32 -160) (-4 32 -128)"
+			"plane" "(-4 -32 -192) (-4 64 -192) (-4 64 -96)"
 			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -892,7 +892,7 @@ world
 		side
 		{
 			"id" "6074"
-			"plane" "(-4 0 -128) (-4 32 -128) (0 32 -128)"
+			"plane" "(-4 -32 -96) (-4 64 -96) (0 64 -96)"
 			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -903,9 +903,9 @@ world
 		side
 		{
 			"id" "6073"
-			"plane" "(-4 32 -160) (-4 0 -160) (0 0 -160)"
+			"plane" "(-4 64 -192) (-4 -32 -192) (0 -32 -192)"
 			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[-1 0 0 0] 0.25"
+			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -914,7 +914,7 @@ world
 		side
 		{
 			"id" "6072"
-			"plane" "(0 0 -128) (0 0 -160) (-4 0 -160)"
+			"plane" "(0 -32 -96) (0 -32 -192) (-4 -32 -192)"
 			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -925,9 +925,9 @@ world
 		side
 		{
 			"id" "6071"
-			"plane" "(-4 32 -128) (-4 32 -160) (0 32 -160)"
+			"plane" "(-4 64 -96) (-4 64 -192) (0 64 -192)"
 			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[-1 0 0 0] 0.25"
+			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -4725,7 +4725,7 @@ entity
 	"classname" "func_instance"
 	"$dropper_skin" "1"
 	"angles" "90 -9.5 0"
-	"file" "instances/p2editor_overgrown/coop_dropper.vmf"
+	"file" "instances/bee2/over/elevator_coop/coop_dropper.vmf"
 	"replace02" "$dropper_skin 1"
 	"targetname" "drop_oran"
 	"origin" "304 68 -360"
@@ -4742,8 +4742,8 @@ entity
 	"id" "19631"
 	"classname" "func_instance"
 	"$dropper_skin" "1"
-	"angles" "90 6 0"
-	"file" "instances/p2editor_overgrown/coop_dropper.vmf"
+	"angles" "0 -84 -90"
+	"file" "instances/bee2/over/elevator_coop/coop_dropper.vmf"
 	"replace02" "$dropper_skin 0"
 	"targetname" "drop_blue"
 	"origin" "296 -64 -360"
@@ -8167,102 +8167,6 @@ entity
 }
 entity
 {
-	"id" "13808"
-	"classname" "trigger_once"
-	"origin" "432 -56 -360"
-	"spawnflags" "4097"
-	"StartDisabled" "0"
-	connections
-	{
-		"OnTrigger" "@pre_paint_sprayerStop1.5-1"
-		"OnTrigger" "@pre_paint_sprayerStart0.5-1"
-	}
-	solid
-	{
-		"id" "13803"
-		side
-		{
-			"id" "4752"
-			"plane" "(368 -24 -392) (368 -88 -392) (496 -88 -392)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-1 0 0 -32] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4751"
-			"plane" "(368 -88 -328) (368 -24 -328) (496 -24 -328)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 -32] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4750"
-			"plane" "(496 -24 -392) (496 -88 -392) (496 -88 -328)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 32] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4749"
-			"plane" "(368 -88 -392) (368 -24 -392) (368 -24 -328)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[0 0 -1 32] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4748"
-			"plane" "(496 -88 -392) (368 -88 -392) (368 -88 -328)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4747"
-			"plane" "(368 -24 -392) (496 -24 -392) (496 -24 -328)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "11088"
 	"classname" "logic_script"
 	"targetname" "@script_mp_coop_lobby"
@@ -8354,7 +8258,7 @@ entity
 	"id" "8074"
 	"classname" "func_instance"
 	"angles" "-90 -173.5 0"
-	"file" "instances/p2editor_overgrown/info_sign_wback.vmf"
+	"file" "instances/bee2/over/info_sign_wback.vmf"
 	"targetname" "info_sign"
 	"origin" "0 -176 -336"
 	editor
