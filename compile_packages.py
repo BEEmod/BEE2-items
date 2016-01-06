@@ -11,9 +11,9 @@ import utils
 from property_parser import Property
 import vmfLib as VLib
 
-OPTIMISE_VMF = utils.conv_bool(input('Optimise zips? '))
+OPTIMISE = utils.conv_bool(input('Optimise zips? '))
 
-print('Optimising: ', OPTIMISE_VMF)
+print('Optimising: ', OPTIMISE)
 
 
 def clean_vmf(vmf_path):
@@ -50,7 +50,40 @@ def clean_vmf(vmf_path):
                 ent.solids.remove(solid)
                 continue
 
+    for detail in inst.by_class['func_detail']:
+        # Remove several unused default options from func_detail.
+        # We're not on xbox!
+        del detail['disableX360']
+        # These aren't used in any instances, and it doesn't seem as if
+        # VBSP preserves these values anyway.
+        del detail['maxcpulevel'], detail['mincpulevel']
+        del detail['maxgpulevel'], detail['mingpulevel']
+
+    # Since all VMFs are instances or similar (not complete maps), we'll never
+    # use worldspawn's settings. Keep mapversion though.
+    del inst.spawn['maxblobcount'], inst.spawn['maxpropscreenwidth']
+    del inst.spawn['maxblobcount'],
+    del inst.spawn['detailvbsp'], inst.spawn['detailmaterial']
+
     return inst.export(inc_version=False, minimal=True)
+
+
+# Text files we should clean up.
+PROP_EXT = ('.cfg', '.txt', '.vmt', '.nut')
+def clean_text(file_path):
+    with open(file_path, 'r') as f:
+        for line in f:
+            if line.isspace():
+                continue
+            if line.lstrip().startswith('//'):
+                continue
+            # Remove // comments, but only if the comment doesn't have
+            # a quote char after it - in prop files that's allowed,
+            # so leave it just to be safe.
+            if '//' in line and line.rfind('"') < line.index('//'):
+                yield line.split('//')[0] + '\n'
+            else:
+                yield line
 
 
 # Delete these files, if they exist in the source folders.
@@ -58,19 +91,21 @@ def clean_vmf(vmf_path):
 DELETE_EXTENSIONS = ['vmx', 'log', 'bsp', 'prt', 'lin']
 
 
-def do_folder(zip_path, path):
+def do_folder(zip_path, path, pack_list):
     for package in os.listdir(path):
         package_path = os.path.join(path, package)
         if not os.path.isdir(package_path):
             continue
 
         if 'info.txt' not in os.listdir(package_path):
-            do_folder(zip_path, package_path)
+            do_folder(zip_path, package_path, pack_list)
             continue
 
         print('| ' + package + '.zip')
         pack_zip_path = os.path.join(zip_path, package)
-
+        
+        pack_list.append(pack_zip_path + '.zip')
+        
         zip_file = ZipFile(
             pack_zip_path + '.zip',
             'w',
@@ -87,16 +122,23 @@ def do_folder(zip_path, path):
                     continue
                 print('.', end='', flush=True)
 
-                if OPTIMISE_VMF and file.endswith('.vmf'):
+                if OPTIMISE and file.endswith('.vmf'):
                     print(rel_path)
                     zip_file.writestr(rel_path, clean_vmf(full_path))
+                elif OPTIMISE and file.endswith(PROP_EXT):
+                    print(rel_path)
+                    zip_file.writestr(rel_path, ''.join(clean_text(full_path)))
                 else:
                     zip_file.write(full_path, rel_path)
         print('')
 
 
 def main():
-    zip_path = os.path.join(os.getcwd(), 'zips/packages/')
+    zip_path = os.path.join(
+        os.getcwd(),
+        'zips',
+        'sml' if OPTIMISE else 'lrg',
+    )
     if os.path.isdir(zip_path):
         for file in os.listdir(zip_path):
             print('Deleting', file)
@@ -104,8 +146,19 @@ def main():
     else:
         os.makedirs(zip_path)
 
-    path = os.path.join(os.getcwd(), 'packages\\')
-    do_folder(zip_path, path)
+    path = os.path.join(os.getcwd(), 'packages\\', )
+    
+    packages = []  # A list of all the package zips.
+    
+    do_folder(zip_path, path, packages)
+    
+    print('Building main zip...')
+ 
+    with ZipFile(os.path.join('zips', 'packages.zip'), 'w', compression=ZIP_LZMA,) as zip_file:
+        for file in os.listdir(zip_path):
+            zip_file.write(os.path.join(zip_path, file), os.path.join('packages/', file))
+            print('.', end='', flush=True)
+    print('Done!')
 
 if __name__ == '__main__':
     main()
