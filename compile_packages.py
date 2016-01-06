@@ -91,19 +91,21 @@ def clean_text(file_path):
 DELETE_EXTENSIONS = ['vmx', 'log', 'bsp', 'prt', 'lin']
 
 
-def do_folder(zip_path, path):
+def do_folder(zip_path, path, pack_list):
     for package in os.listdir(path):
         package_path = os.path.join(path, package)
         if not os.path.isdir(package_path):
             continue
 
         if 'info.txt' not in os.listdir(package_path):
-            do_folder(zip_path, package_path)
+            do_folder(zip_path, package_path, pack_list)
             continue
 
         print('| ' + package + '.zip')
         pack_zip_path = os.path.join(zip_path, package)
-
+        
+        pack_list.append(pack_zip_path + '.zip')
+        
         zip_file = ZipFile(
             pack_zip_path + '.zip',
             'w',
@@ -136,7 +138,6 @@ def main():
         os.getcwd(),
         'zips',
         'sml' if OPTIMISE else 'lrg',
-        'packages/',
     )
     if os.path.isdir(zip_path):
         for file in os.listdir(zip_path):
@@ -146,7 +147,18 @@ def main():
         os.makedirs(zip_path)
 
     path = os.path.join(os.getcwd(), 'packages\\', )
-    do_folder(zip_path, path)
+    
+    packages = []  # A list of all the package zips.
+    
+    do_folder(zip_path, path, packages)
+    
+    print('Building main zip...')
+ 
+    with ZipFile(os.path.join('zips', 'packages.zip'), 'w', compression=ZIP_LZMA,) as zip_file:
+        for file in os.listdir(zip_path):
+            zip_file.write(os.path.join(zip_path, file), os.path.join('packages/', file))
+            print('.', end='', flush=True)
+    print('Done!')
 
 if __name__ == '__main__':
     main()
