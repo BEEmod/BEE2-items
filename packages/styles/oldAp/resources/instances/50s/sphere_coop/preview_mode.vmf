@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "3"
+	"mapversion" "204"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "3"
+	"mapversion" "204"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,7 +30,7 @@ world
 }
 entity
 {
-	"id" "4"
+	"id" "4867"
 	"classname" "game_text"
 	"channel" "3"
 	"color" "255 255 255"
@@ -45,7 +45,12 @@ entity
 	"targetname" "@preview_complete_message"
 	"x" "-1"
 	"y" ".6"
-	"origin" "0 0 16"
+	connections
+	{
+		"OnUser1" "@clientcommandCommandrestart_level2-1"
+		"OnUser1" "!selfDisplay0-1"
+	}
+	"origin" "0 0 -120"
 	editor
 	{
 		"color" "220 30 220"
@@ -56,25 +61,98 @@ entity
 }
 entity
 {
-	"id" "2"
-	"classname" "logic_relay"
-	"spawnflags" "0"
+	"id" "4850"
+	"classname" "trigger_once"
+	"origin" "0 0.01 -309"
+	"spawnflags" "4097"
 	"StartDisabled" "1"
-	"targetname" "@restart_relay"
+	"targetname" "restart_trigger"
 	connections
 	{
-		"OnTrigger" "@clientcommandCommandrestart_level2-1"
-		"OnTrigger" "@preview_complete_messageDisplay0-1"
-		"OnTrigger" "@commandCommandscreenshot0.05-1"
-		"OnTrigger" "@commandCommandcl_screenshotname previewcomplete0-1"
+		"OnStartTouch" "@preview_complete_messageFireUser10-1"
 	}
-	"origin" "0 0 0"
+	solid
+	{
+		"id" "4851"
+		side
+		{
+			"id" "628"
+			"plane" "(64 -64 -96) (64 -64 -522) (-64 -64 -522)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 -32] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "627"
+			"plane" "(-64 64 -96) (-64 64 -522) (64 64 -522)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 -31.9961] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "626"
+			"plane" "(64 64 -96) (64 64 -522) (64 -64 -522)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 -31.9961] 0.25"
+			"vaxis" "[0 1 0 -0.1465] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "625"
+			"plane" "(-64 -64 -96) (-64 -64 -522) (-64 64 -522)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 -31.9961] 0.25"
+			"vaxis" "[0 1 0 -0.1465] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "624"
+			"plane" "(64 -64 -96) (-64 -64 -96) (-64 64 -96)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 63.8555] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "623"
+			"plane" "(64 64 -522) (-64 64 -522) (-64 -64 -522)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 32] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"logicalpos" "[0 5500]"
 	}
 }
 cameras

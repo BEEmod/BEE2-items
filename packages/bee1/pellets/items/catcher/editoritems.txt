@@ -1,6 +1,7 @@
 "Item"
 {
 	"Type"		"ITEM_HIGH_ENERGY_PELLET_CATCHER"
+	"ItemClass" "ItemButtonFloor"
 	"Editor"
 	{
 		"SubType"
@@ -24,7 +25,8 @@
 				"SOUND_DELETED"					"P2Editor.RemoveOther"
 			}
 		}
-		"MovementHandle"		"HANDLE_NONE"
+		"MovementHandle"  "HANDLE_NONE"
+		"DesiredFacing"   "DESIRES_UP"
 	}
 	"Properties"
 	{
@@ -40,10 +42,18 @@
 		{
 			"0"
 			{
-				"Name"				"instances/BEE2/clean/items/bee/hep_catcher.vmf"
-				"EntityCount"		"20"
-				"BrushCount"		"20"
-				"BrushSideCount"	"20"
+				"Name"            "instances/BEE2/clean/items/BEE/hep/catcher_white.vmf"
+				                       // white/black, common, perm | timed
+				"EntityCount"     "13" // 0 + 7 + 6 | 8
+				"BrushCount"      "15"  // 4 + 10 + 1 | 1
+				"BrushSideCount"  "98" // 4*6 + (9*6 + 10) + 10 | 10  
+			}
+			"1"
+			{
+				"Name"            "instances/BEE2/clean/items/BEE/hep/catcher_black.vmf"
+				"EntityCount"     "12"
+				"BrushCount"      "5"
+				"BrushSideCount"  "34"
 			}
 		}
 		"TargetName"		"pc"

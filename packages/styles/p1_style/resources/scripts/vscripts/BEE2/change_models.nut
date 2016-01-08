@@ -20,7 +20,7 @@ self.SetModel("models/BEE2/props_ingame/p1_ball.mdl");
 
 function under_ccube() // underground old aperture cube with hearts. Applied to old cube.
 {
-self.SetModel("models/BEE2/props_underground/underground_cmpanion_cube.mdl");
+self.SetModel("models/BEE2/props_ingame/retro_companion.mdl");
 }
 
 function rusty_cube() // Rusty cube like normal one, but using clean skin slots instead to allow showing gels.

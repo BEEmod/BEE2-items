@@ -1,5 +1,7 @@
 "ID"		"BEE2_PORTALS"
 "Name"		"Portal Spawners"
+"Desc"      "Items related to the player's Portal Gun. Includes Autoportals (wall-mounted portal spawners), and a Portal Gun pedestal."
+
 "Prerequisites"
 	{
 	"Package"	"BEE2_CLEAN_STYLE"
@@ -22,10 +24,30 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"			"spawner"
+			"BEE2_CLEAN"    "spawner"
+			"BEE2_PORTAL_1" "spawner_p1"
 			}
 		}
 	}
+"PackList"
+	{
+	"ID" "PACK_P1_AUTOPORT_FRAME"
+	"Config"
+		{
+		"File"  "models/props/autoportal_frame/autoportal_frame.mdl"
+		"File"  "models/props/autoportal_frame/autoportal_frame.vvd"
+		"File"  "models/props/autoportal_frame/autoportal_frame.phy"
+		"File"  "models/props/autoportal_frame/autoportal_frame.dx90.vtx"
+		"File"  "models/props/autoportal_frame/autoportal_frame.dx80.vtx"
+		"File"  "models/props/autoportal_frame/autoportal_frame.sw.vtx"
+		
+		"File"  "materials/models/props/autoportal_frame/autoportal_frame.vmt"
+		"File"  "materials/models/props/autoportal_frame/autoportal_frame.vtf"
+		"File"  "materials/models/props/autoportal_frame/autoportal_frame_exp.vtf"
+		"File"  "materials/models/props/autoportal_frame/autoportal_frame_n.vtf"
+		}
+	}
+	
 "Item"
 	{
 	"ID" "ITEM_BEE2_PORTALGUN"
@@ -38,4 +60,10 @@
 			"BEE2_CLEAN"		"pedestal"
 			}
 		}
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE_PGUN_BASE"
+	"file"  "pgun_base.vmf"
 	}
