@@ -2,7 +2,7 @@
 import os
 import sys
 import itertools
-from zipfile import ZipFile, ZIP_LZMA
+from zipfile import ZipFile, ZIP_LZMA, ZIP_DEFLATED
 
 BEE2_LOCATION = '../BEE2.4/src'
 sys.path.append(BEE2_LOCATION)
@@ -103,9 +103,9 @@ def do_folder(zip_path, path, pack_list):
 
         print('| ' + package + '.zip')
         pack_zip_path = os.path.join(zip_path, package)
-        
+
         pack_list.append(pack_zip_path + '.zip')
-        
+
         zip_file = ZipFile(
             pack_zip_path + '.zip',
             'w',
@@ -147,14 +147,14 @@ def main():
         os.makedirs(zip_path)
 
     path = os.path.join(os.getcwd(), 'packages\\', )
-    
+
     packages = []  # A list of all the package zips.
-    
+
     do_folder(zip_path, path, packages)
-    
+
     print('Building main zip...')
- 
-    with ZipFile(os.path.join('zips', 'packages.zip'), 'w', compression=ZIP_LZMA,) as zip_file:
+
+    with ZipFile(os.path.join('zips', 'packages.zip'), 'w', compression=ZIP_DEFLATED) as zip_file:
         for file in os.listdir(zip_path):
             zip_file.write(os.path.join(zip_path, file), os.path.join('packages/', file))
             print('.', end='', flush=True)
