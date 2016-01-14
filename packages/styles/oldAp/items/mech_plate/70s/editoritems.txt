@@ -1,0 +1,154 @@
+"Item"
+{
+	"Type"			"ITEM_CATAPULT"
+	"ItemClass"		"ItemCatapult"
+	"Editor"
+	{
+		"SubType"
+		{
+			"Name"		"PORTAL2_PuzzleEditor_Item_faith_plate"
+			"Model"
+			{
+				"ModelName"		"faithplate.3ds"
+			}
+			"Palette"
+			{
+				"Tooltip"	"FAITH PLATE"
+				"Image"		"palette/faithplate.png"
+			}
+			"Sounds"
+			{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+			}
+		}
+		"MovementHandle"		"HANDLE_CATAPULT"
+	}
+	"Properties"
+	{
+		"CatapultSpeed"
+		{
+			"DefaultValue"		"500"
+			"Index"				"1"
+		}
+		"TargetName"
+		{
+			"DefaultValue"		"target"
+			"Index"				"2"
+		}
+		"VerticalAlignment"
+		{
+			"DefaultValue"		"0"
+			"Index"				"0"
+		}
+	}
+	"Exporting"
+	{
+		"Instances"
+		{
+			"0"
+			{
+				"Name"				"instances/BEE2/50s/items/mech_plate/plate.vmf"
+				"EntityCount"		"8"
+				"BrushCount"		"3"
+				"BrushSideCount"	"22"
+			}
+		}
+
+		"TargetName"		"fp"
+		"Offset"		"64 64 64"
+		"OccupiedVoxels"
+		{
+			"Voxel"
+			{
+				"Pos"		"0 0 0"
+				"CollideType"		"COLLIDE_SOLID"
+				"CollideAgainst"	"COLLIDE_SOLID COLLIDE_GLASS COLLIDE_GRATING COLLIDE_ANTLINES"
+
+				"Surface"
+				{
+					"Normal"	"0 0 1"
+				}
+			}
+		}
+		"EmbeddedVoxels"
+		{
+			"Voxel"
+			{
+				"Pos"		"0 0 0"
+			}
+		}
+		"EmbedFace"
+		{
+			// Use this to determine the color of the floor.
+			"Solid"
+			{
+				"Center"        "64 64 128"
+				"Dimensions"	"64 64 4"
+				"Grid"			"4x4"
+			}
+		}
+		
+	}
+}
+
+"Item"
+{
+	"Type"		"ITEM_CATAPULT_TARGET"
+	"ItemClass"		"ItemCatapultTarget"
+	"Editor"
+	{
+		"SubType"
+		{
+			"Name"			"PORTAL2_PuzzleEditor_Item_catapult_target"
+			"Model"
+			{
+				"ModelName"			"ts_under_sel_targ.3ds"
+				"TextureName"		"buttonweight.png"
+			}
+		}
+		"MovementHandle"		"HANDLE_CATAPULT"
+		"OccupiesVoxel"			"0"
+		"CanAnchorOnBarriers"	"1"
+		"CanAnchorOnGoo"		"1"
+	}
+	"Properties"
+	{
+		"VerticalAlignment"
+		{
+			"DefaultValue"		"0"
+			"Index"		"0"
+		}
+	}
+	"Exporting"
+	{
+		"Instances"
+		{
+			"0"
+			{
+				"Name"			"instances/BEE2/50s/items/faith_plate_target.vmf"
+				"EntityCount"	"2"
+			}
+		}
+
+		"TargetName"		"fpt"
+		"Offset"		"64 64 64"
+
+		"OccupiedVoxels"
+		{
+			"Voxel"
+			{
+				"Pos"				"0 0 0"
+				"CollideType"		"COLLIDE_NOTHING"
+				"CollideAgainst"	"COLLIDE_NOTHING"
+
+				"Surface"
+				{
+					"Normal"	"0 0 1"
+				}
+			}
+		}
+	}
+}
