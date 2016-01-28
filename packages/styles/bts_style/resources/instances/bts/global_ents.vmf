@@ -2,18 +2,12 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "250"
+	"mapversion" "252"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
-	visgroup
-	{
-		"name" "_post_Fx"
-		"visgroupid" "7"
-		"color" "184 201 206"
-	}
 	visgroup
 	{
 		"name" "Filter"
@@ -38,7 +32,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "250"
+	"mapversion" "252"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -526,44 +520,6 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
-	}
-}
-entity
-{
-	"id" "8908"
-	"classname" "env_fog_controller"
-	"angles" "90 0 0"
-	"farz" "-1"
-	"fogblend" "1"
-	"fogcolor" "23 38 57"
-	"fogcolor2" "12 20 31"
-	"fogdir" "1 0 0"
-	"fogenable" "1"
-	"fogend" "5000"
-	"foglerptime" "2"
-	"fogmaxdensity" "1"
-	"fogstart" "512"
-	"HDRColorScale" "1"
-	"heightFogDensity" "0.0"
-	"heightFogMaxDensity" "1.0"
-	"heightFogStart" "0.0"
-	"maxcpulevel" "0"
-	"maxdxlevel" "0"
-	"maxgpulevel" "0"
-	"mincpulevel" "0"
-	"mindxlevel" "0"
-	"mingpulevel" "0"
-	"spawnflags" "0"
-	"targetname" "@environment_bts_fog"
-	"use_angles" "1"
-	"origin" "-160 80 40.1102"
-	editor
-	{
-		"color" "255 255 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "208 185 151"
-		"logicalpos" "[0 0]"
 	}
 }
 hidden
@@ -1213,35 +1169,6 @@ entity
 }
 entity
 {
-	"id" "8"
-	"classname" "env_tonemap_controller"
-	"spawnflags" "1"
-	"targetname" "@tonemapper"
-	"origin" "-96 -48 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[7500 -14768]"
-	}
-}
-entity
-{
-	"id" "237"
-	"classname" "point_clientcommand"
-	"targetname" "@clientcommand"
-	"origin" "-80 -64 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "4"
 	"classname" "info_node"
 	"angles" "0 0 0"
@@ -1254,113 +1181,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-hidden
-{
-	entity
-	{
-		"id" "23"
-		"classname" "color_correction"
-		"fadeInDuration" "2"
-		"fadeOutDuration" "2"
-		"filename" "materials/correction/cc_testchamber_1.rawx"
-		"maxfalloff" "-1"
-		"maxweight" "1.0"
-		"minfalloff" "0.0"
-		"spawnflags" "2"
-		"StartDisabled" "0"
-		"targetname" "environment_testchamber_colourcorrection"
-		"origin" "-176 96 64"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "7"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 0]"
-		}
-	}
-}
-entity
-{
-	"id" "747"
-	"classname" "logic_auto"
-	"spawnflags" "0"
-	connections
-	{
-		"OnMapSpawn" "@clientcommandCommandr_flashlightbrightness 10-1"
-		"OnMapSpawn" "@portal_deflect_x_scriptRunScriptCodeinitialize(16);1-1"
-		"OnMapSpawn" "@cube_makerForceSpawn1.51"
-		"OnMapSpawn" "c_franken*BecomeMonster1.511"
-		"OnMapSpawn" "@tonemapperSetTonemapPercentBrightPixels50-1"
-		"OnMapSpawn" "@tonemapperSetTonemapRate.250-1"
-		"OnMapSpawn" "@tonemapperSetAutoExposureMin10-1"
-		"OnMapSpawn" "@tonemapperSetAutoExposureMax50-1"
-		"OnMapSpawn" "!playerSetFogController@environment_bts_fog0-1"
-	}
-	"origin" "-64 -64 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "2"
-	"classname" "logic_autosave"
-	"targetname" "@autosave"
-	"origin" "-96 -80 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6"
-	"classname" "point_servercommand"
-	"targetname" "@command"
-	"origin" "-96 -64 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-hidden
-{
-	entity
-	{
-		"id" "21"
-		"classname" "postprocess_controller"
-		"fadetime" "2"
-		"fadetoblackstrength" "0"
-		"grainstrength" "1"
-		"localcontrastedgestrength" "0"
-		"spawnflags" "0"
-		"targetname" "environment_testchamber_postfx"
-		"topvignettestrength" "1"
-		"vignetteblurstrength" "0"
-		"vignetteend" "2"
-		"vignettestart" "1"
-		"origin" "-176 64 64"
-		editor
-		{
-			"color" "255 255 255"
-			"visgroupid" "7"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 0]"
-		}
 	}
 }
 entity
@@ -1386,8 +1206,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[97.5602 17.0942 116.138]"
-		"look" "[70.9697 -11.222 66.4199]"
+		"position" "[-80.3191 -71.7959 120]"
+		"look" "[-88.2503 -34.4834 69.744]"
 	}
 	camera
 	{
