@@ -28,14 +28,59 @@
 	
 "SkyBox"
 	{
+	"ID"			"VALVE_2D_BTS"
+	"Name"			"2D - Behind The Scenes"
+	"ShortName"     "2D BTS"
+	"Group"			"2D"
+	"Icon"			"skies/neurotoxin.png"
+	"Material"		"sky_black"
+	"Config"		"bts_factory"
+	"Authors"		"TeamSpen210"
+	"Description"	"A 2D version of the BTS skybox, which uses slightly different colors compared to Clean maps."
+	
+	"Fog"
+		{
+		"start"     "512"
+        "end"       "5000"
+        "density"   "0.95"
+        
+        "primaryColor"      "23 38 57"
+        "secondaryColor"    "12 20 31"
+        "direction"         "90 0 0" // Down
+        
+        "tonemap_rate"          "0.25"
+        "tonemap_brightpixels"  "5"
+        "tonemap_exposure_min"  "1"
+        "tonemap_exposure_max"  "5"
+		}
+	}
+	
+"SkyBox"
+	{
 	"ID"			"VALVE_3D_FACTORY"
 	"Name"			"3D - Factory"
 	"Group"			"3D"
-	"Icon"			"BEE2/black_96.png"
+	"Icon"			"skies/bottomless_pit.png"
 	"Material"		"sky_black"
 	"Config"		"bts_factory"
 	"Authors"		"TeamSpen210"
 	"Description"	"The cramped spaces surrounding the factory BTS areas."
+	
+	"Fog"
+		{
+		"start"     "512"
+        "end"       "5000"
+        "density"   "0.95"
+        
+        "primaryColor"      "23 38 57"
+        "secondaryColor"    "12 20 31"
+        "direction"         "90 0 0" // Down
+        
+        "tonemap_rate"          "0.25"
+        "tonemap_brightpixels"  "5"
+        "tonemap_exposure_min"  "1"
+        "tonemap_exposure_max"  "5"
+		}
 	}
 
 "QuotePack"
@@ -55,6 +100,12 @@
 	{
 	"ID"    "BEE2_STATIC_PAN_ANGLED_BTS"
 	"File"  "static_pan_angled.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_BTS_GRATING_TEMPLATE"
+	"File"  "grating_template.vmf"
 	}
 	
 "BrushTemplate"
@@ -146,16 +197,6 @@
 		"File"  "materials/BEE2/bullseye/backpanels_yellow_bts.vmt"
 		"File"  "materials/BEE2/bullseye/backpanels_yellow_bts.vtf"
 		"File"  "materials/BEE2/bullseye/command_target.vtf"
-		}
-	}
-
-"PackList"
-	{
-	"ID"       "PACK_BTS_GRATING"
-	"AddIfMat" "BEE2/bts_grate"
-	"Config"
-		{
-		"File" "materials/BEE2/bts_grate.vmt"
 		}
 	}
 	

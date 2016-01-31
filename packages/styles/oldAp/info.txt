@@ -26,7 +26,7 @@
 		{
 		"Quote"		"BEE2_CAVE_50s"
 		"Music"		"VALVE_CONTROL_GROUP"
-		"Skybox"	"VALVE_BLACK"
+		"Skybox"	"BEE2_SPHERE_INTERIOR"
 		}
 	"Corridors"
 		{
@@ -72,7 +72,7 @@
 		{
 		"Quote"		"BEE2_CAVE_60s"
 		"Music"		"VALVE_VIT_ORDER_2"
-		"Skybox"	"VALVE_BLACK"
+		"Skybox"	"BEE2_SPHERE_INTERIOR"
 		}
 	}
 
@@ -100,7 +100,7 @@
 		{
 		"Quote"		"BEE2_CAVE_70s"
 		"Music"		"VALVE_REUNION"
-		"Skybox"	"VALVE_BLACK"
+		"Skybox"	"BEE2_SPHERE_INTERIOR"
 		}
 	"Corridors"
 		{
@@ -145,7 +145,7 @@
 		{
 		"Quote"		"BEE2_CAVE_80s"
 		"Music"		"VALVE_MUSIC_SPHERES_2"
-		"Skybox"	"VALVE_BLACK"
+		"Skybox"	"BEE2_SPHERE_EXTERIOR"
 		}
 	"Corridors"
 		{
@@ -154,6 +154,59 @@
 			"1"	"Lobby"
 			"3"	"Office"
 			}
+		}
+	}
+	
+
+"SkyBox"
+	{
+	"ID"            "BEE2_SPHERE_INTERIOR"
+	"Name"          "Enrichment Sphere Interior"
+	"ShortName"     "Sphere Interior"
+	"Group"         "2D"
+	"Icon"          "styles/aperture_60s.png" // Includes an enrichment sphere icon to show 'vitrified'
+	"Material"      "sky_black"
+	"Authors"       "Valve"
+	"Description"   "The fog used for the interior of Enrichment Spheres."
+	
+	"Fog"
+		{
+		"start"     "0"
+        "end"       "4500"
+        "density"   "0.95"
+        
+        "primaryColor"      "37 35 33"
+        
+        "tonemap_rate"          "0.25"
+        "tonemap_brightpixels"  "5"
+        "tonemap_exposure_min"  ".5"
+        "tonemap_exposure_max"  "3"
+		}
+	}
+
+"SkyBox"
+	{
+	"ID"            "BEE2_SPHERE_EXTERIOR"
+	"Name"          "Enrichment Sphere Exterior"
+	"ShortName"     "Sphere Exterior"
+	"Group"         "2D"
+	"Icon"          "skies/sphere_exterior.png"
+	"Material"      "sky_black"
+	"Authors"       "Valve"
+	"Description"   "The fog used for the exterior of Enrichment Spheres, or the partially-constructed 80s style."
+	
+	"Fog"
+		{
+		"start"     "0"
+        "end"       "6000"
+        "density"   "0.95"
+        
+        "primaryColor"      "70 85 100"
+        
+        "tonemap_rate"          "0.25"
+        "tonemap_brightpixels"  "5"
+        "tonemap_exposure_min"  ".5"
+        "tonemap_exposure_max"  "3"
 		}
 	}
 	
@@ -612,6 +665,26 @@
 	
 "PackList"
 	{
+	"ID"       "PACK_BEE2_70S_SIGN_CATAPULT"
+	"AddIfMat" "BEE2/70s/signage_catapult"
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_catapult.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_ARROW"
+	"AddIfMat" "BEE2/70s/signage_arrow"
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_arrow.vmt"
+		}
+	}
+	
+"PackList"
+	{
 	"ID"       "PACK_BEE2_80S_SIGN_PAINT_JUMP"
 	"AddIfMat" "BEE2/80s/signage_paint_jump"
 	"Config"
@@ -689,6 +762,18 @@
 		"File" "models/BEE2/props_ingame/retro_track_128.vvd"
 		"File" "models/BEE2/props_ingame/retro_track_128.dx90.vtx"
 		}
+	}
+	
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_RETRO_MECH_PLATE_ANGLED"
+	"File"  "mech_plate_angled.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_RETRO_MECH_PLATE_STRAIGHT"
+	"File"  "mech_plate_straight.vmf"
 	}
 	
 "EditorSound"
@@ -1045,9 +1130,9 @@
 			"Name"		"Gel-Plate"
 			"Styles"
 				{
-				"BEE2_1950s"		"gel_plate_50s"
-				"BEE2_1970s"		"gel_plate_70s"
-				"BEE2_1980s"		"gel_plate_80s"
+				"BEE2_1950s"		"gel_plate/50s"
+				"BEE2_1970s"		"gel_plate/70s"
+				"BEE2_1980s"		"gel_plate/80s"
 				}
 			}
 		"Version"
@@ -1056,7 +1141,9 @@
 			"Name"		"Mechanical Plate"
 			"Styles"
 				{
-				"BEE2_1950s"		"mech_plate_50s"
+				"BEE2_1950s"		"mech_plate/50s"
+				"BEE2_1970s"		"mech_plate/70s"
+				"BEE2_1980s"		"mech_plate/80s"
 				}
 			}
 		}
@@ -1146,6 +1233,7 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"funnel_50s"
+				"BEE2_1970s"		"funnel_70s"
 				}
 			}
 		}

@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "146"
+	"mapversion" "148"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "146"
+	"mapversion" "148"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -693,35 +693,6 @@ entity
 }
 entity
 {
-	"id" "8"
-	"classname" "env_tonemap_controller"
-	"spawnflags" "1"
-	"targetname" "@tonemapper"
-	"origin" "48 0 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[7500 -14768]"
-	}
-}
-entity
-{
-	"id" "237"
-	"classname" "point_clientcommand"
-	"targetname" "@clientcommand"
-	"origin" "64 -16 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "4"
 	"classname" "info_node"
 	"angles" "0 0 0"
@@ -730,24 +701,6 @@ entity
 	editor
 	{
 		"color" "232 219 8"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "747"
-	"classname" "logic_auto"
-	"spawnflags" "0"
-	connections
-	{
-		"OnMapSpawn" "@clientcommandCommandr_flashlightbrightness 10-1"
-	}
-	"origin" "80 -16 64"
-	editor
-	{
-		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -780,44 +733,6 @@ hidden
 		}
 	}
 }
-entity
-{
-	"id" "787"
-	"classname" "env_fog_controller"
-	"angles" "0 0 0"
-	"farz" "-1"
-	"fogblend" "0"
-	"fogcolor" "37 35 33"
-	"fogcolor2" "255 255 255"
-	"fogdir" "1 0 0"
-	"fogenable" "1"
-	"fogend" "4500"
-	"foglerptime" "2"
-	"fogmaxdensity" "0.95"
-	"fogstart" "0"
-	"HDRColorScale" "1"
-	"heightFogDensity" "0.0"
-	"heightFogMaxDensity" "1.0"
-	"heightFogStart" "0.0"
-	"maxcpulevel" "0"
-	"maxdxlevel" "0"
-	"maxgpulevel" "0"
-	"mincpulevel" "0"
-	"mindxlevel" "0"
-	"mingpulevel" "0"
-	"spawnflags" "0"
-	"targetname" "@environment_underground_fog"
-	"use_angles" "1"
-	"origin" "48 64 64"
-	editor
-	{
-		"color" "255 255 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "50 66 71"
-		"logicalpos" "[0 0]"
-	}
-}
 hidden
 {
 	entity
@@ -843,34 +758,6 @@ hidden
 		}
 	}
 }
-entity
-{
-	"id" "2"
-	"classname" "logic_autosave"
-	"targetname" "@autosave"
-	"origin" "48 -32 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6"
-	"classname" "point_servercommand"
-	"targetname" "@command"
-	"origin" "48 -16 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
 hidden
 {
 	entity
@@ -894,29 +781,6 @@ hidden
 			"visgroupautoshown" "1"
 			"logicalpos" "[0 -13768]"
 		}
-	}
-}
-entity
-{
-	"id" "781"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "environment_underground"
-	connections
-	{
-		"OnTrigger" "!playerSetFogController@environment_underground_fog0-1"
-		"OnTrigger" "@tonemapperSetAutoExposureMin0.50-1"
-		"OnTrigger" "@tonemapperSetTonemapRate.250-1"
-		"OnTrigger" "@tonemapperSetTonemapPercentBrightPixels50-1"
-		"OnTrigger" "@tonemapperSetAutoExposureMax30-1"
-	}
-	"origin" "80 64 80"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
 	}
 }
 entity
@@ -964,29 +828,13 @@ hidden
 		}
 	}
 }
-entity
-{
-	"id" "29"
-	"classname" "logic_script"
-	"targetname" "vscript_debug-noclip_door_open"
-	"thinkfunction" "Think"
-	"vscripts" "debug_scripts/noclip_door_open_sensor.nut"
-	"origin" "48 -48 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
 cameras
 {
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-61.8579 -50.0624 69.5051]"
-		"look" "[-21.6454 -1.45672 68.6242]"
+		"position" "[80.8346 -37.2747 91.9883]"
+		"look" "[27.1001 -16.4313 66.3272]"
 	}
 	camera
 	{

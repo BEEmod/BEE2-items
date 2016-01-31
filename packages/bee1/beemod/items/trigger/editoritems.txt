@@ -76,6 +76,11 @@
 			"DefaultValue"	"0"
 			"Index"			"0"
 		}
+		"ConnectionCount"
+		{
+			"DefaultValue"	"0"
+			"Index"			"1"
+		}
 	}
 	"Exporting"
 	{
@@ -131,8 +136,16 @@
 		{
 			"CONNECTION_STANDARD"
 			{
-				"Activate"		"instance:trigger;OnStartTouch"
-				"Deactivate"	"instance:trigger;OnEndTouchAll"
+				"Activate"		"instance:trigger;OutActivate"
+				"Deactivate"	"instance:trigger;OutDeactivate"
+			}
+		}
+		"Inputs"
+		{
+			"CONNECTION_STANDARD"
+			{
+				"Activate"		"instance:trigger;InActivate"
+				"Deactivate"	"instance:trigger;InDeactivate"
 			}
 		}
 		"ConnectionPoints"
