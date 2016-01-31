@@ -63,7 +63,9 @@ def clean_vmf(vmf_path):
     del inst.spawn['maxblobcount'],
     del inst.spawn['detailvbsp'], inst.spawn['detailmaterial']
 
-    return inst.export(inc_version=False, minimal=True)
+    lines = inst.export(inc_version=False, minimal=True).splitlines()
+    for line in lines:
+        yield line.lstrip()
 
 
 # Text files we should clean up.
@@ -81,7 +83,7 @@ def clean_text(file_path):
             if '//' in line and line.rfind('"') < line.index('//'):
                 yield line.split('//')[0] + '\n'
             else:
-                yield line
+                yield line.lstrip()
 
 
 # Delete these files, if they exist in the source folders.
@@ -133,7 +135,7 @@ def build_package(data):
                 
                 if OPTIMISE and file.endswith('.vmf'):
                     print(rel_path)
-                    zip_file.writestr(rel_path, clean_vmf(full_path))
+                    zip_file.writestr(rel_path, '\r\n'.join(clean_vmf(full_path)))
                 elif OPTIMISE and file.endswith(PROP_EXT):
                     print(rel_path)
                     zip_file.writestr(rel_path, ''.join(clean_text(full_path)))
