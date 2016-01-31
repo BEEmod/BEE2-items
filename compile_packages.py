@@ -3,6 +3,7 @@ import os
 import sys
 import itertools
 from zipfile import ZipFile, ZIP_LZMA, ZIP_DEFLATED
+from concurrent import futures
 
 BEE2_LOCATION = '../BEE2.4/src'
 sys.path.append(BEE2_LOCATION)
@@ -11,10 +12,7 @@ import utils
 from property_parser import Property
 import vmfLib as VLib
 
-OPTIMISE = utils.conv_bool(input('Optimise zips? '))
-
-print('Optimising: ', OPTIMISE)
-
+OPTIMISE = False
 
 def clean_vmf(vmf_path):
     """Optimise the VMFs, removing unneeded entities or objects."""
@@ -91,27 +89,38 @@ def clean_text(file_path):
 DELETE_EXTENSIONS = ['vmx', 'log', 'bsp', 'prt', 'lin']
 
 
-def do_folder(zip_path, path, pack_list):
+def search_folder(zip_path, path):
+    """Search the given folder for packages.
+    
+    zip_path is the folder the zips will be saved in, 
+    and path is the location to search.
+    """
     for package in os.listdir(path):
         package_path = os.path.join(path, package)
         if not os.path.isdir(package_path):
             continue
-
         if 'info.txt' not in os.listdir(package_path):
-            do_folder(zip_path, package_path, pack_list)
+            yield from search_folder(zip_path, package_path)
             continue
 
         print('| ' + package + '.zip')
-        pack_zip_path = os.path.join(zip_path, package)
+        pack_zip_path = os.path.join(zip_path, package) + '.zip'
 
-        pack_list.append(pack_zip_path + '.zip')
+        yield package_path, pack_zip_path, zip_path
 
-        zip_file = ZipFile(
-            pack_zip_path + '.zip',
-            'w',
-            compression=ZIP_LZMA,
-        )
+        
+def build_package(data):
+    """Build the packages in a given folder."""
+    package_path, pack_zip_path, zip_path = data
+    
+    zip_file = ZipFile(
+        pack_zip_path,
+        'w',
+        compression=ZIP_LZMA,
+    )
 
+    print('Starting on "{}"'.format(package_path))
+    with zip_file:
         for base, dirs, files in os.walk(package_path):
             for file in files:
                 full_path = os.path.normpath(os.path.join(base, file))
@@ -121,7 +130,7 @@ def do_folder(zip_path, path, pack_list):
                     os.remove(full_path)
                     continue
                 print('.', end='', flush=True)
-
+                
                 if OPTIMISE and file.endswith('.vmf'):
                     print(rel_path)
                     zip_file.writestr(rel_path, clean_vmf(full_path))
@@ -131,9 +140,16 @@ def do_folder(zip_path, path, pack_list):
                 else:
                     zip_file.write(full_path, rel_path)
         print('')
+    print('Finished "{}"'.format(package_path))
 
 
 def main():
+    global OPTIMISE
+    
+    OPTIMISE = utils.conv_bool(input('Optimise zips? '))
+    
+    print('Optimising: ', OPTIMISE)
+
     zip_path = os.path.join(
         os.getcwd(),
         'zips',
@@ -147,10 +163,12 @@ def main():
         os.makedirs(zip_path)
 
     path = os.path.join(os.getcwd(), 'packages\\', )
-
-    packages = []  # A list of all the package zips.
-
-    do_folder(zip_path, path, packages)
+    
+    # A list of all the package zips.
+    packages = list(search_folder(zip_path, path))
+    
+    with futures.ThreadPoolExecutor(10) as future:
+        list(future.map(build_package, packages))
 
     print('Building main zip...')
 
