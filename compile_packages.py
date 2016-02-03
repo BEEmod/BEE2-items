@@ -158,7 +158,7 @@ def gen_vpks():
         
     for prop in config:
         src = os.path.join('vpk', prop.real_name)
-        dest = os.path.abspath('packages/{}.vpk'.format(prop.value))
+        dest = os.path.abspath('packages/{}/{}.vpk'.format(prop.value, src))
         
         subprocess.call([
             VPK_BIN_LOC,
@@ -168,7 +168,7 @@ def gen_vpks():
         if os.path.isfile(dest):
             os.remove(dest)
         os.rename(src + '.vpk', dest)
-        print('Processed "{}.vpk"'.format(src))
+        print('Processed "{}"'.format(dest))
 
 
 def main():
