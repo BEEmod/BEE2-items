@@ -1,0 +1,113 @@
+// A version of the ticktock sound, which loops.
+
+"BEE2.p1.tick_tock"
+	{
+	"channel"	"CHAN_STATIC"
+	"volume"	"0.8"
+	"soundlevel"  "SNDLVL_75dB"
+	"wave"	"BEE2/p1/ticktock_lp.wav"
+	}
+
+"BEE2.p1.scaffold_move"
+	{
+	"channel"       "CHAN_ITEM"
+	"volume"        "0.8"
+	"pitch"         "100"
+	"soundlevel"    "SNDLVL_80DB"
+	"wave"          "BEE2/p1/scaffold_loop.wav"
+	}
+
+"BEE2.p1.panel_turn"
+	{
+	"channel"       "CHAN_ITEM"
+	"volume"        "0.8"
+	"pitch"         "100"
+	"soundlevel"    "SNDLVL_80DB"
+	"wave"          "BEE2/p1/panel_turn.wav"
+	}
+	
+// Originally doors/door_metal_medium_open1.wav
+"BEE2.P1.stair_clack"
+	{
+	"channel"	"CHAN_BODY"
+	"volume"	"0.85"
+	"soundlevel"  "SNDLVL_90dB"
+	"pitch"		"90,110"
+	"wave"	"BEE2/p1/stair_stop.wav"
+	
+	"operator_stacks"
+		{
+		"start_stack"
+			{
+			"stop_others"
+				{   
+				"input_duration" "0.5"
+				"input_execute" "1"	
+				"operator" "sys_block_entries"
+				"match_entity" "false"
+				"match_substring" "false"
+				
+				"match_entry" "BEE2.P1.stair_stop"
+				}
+			}
+		}
+	}
+
+
+"BEE2.P1.elevator"
+{
+	"channel"	"CHAN_AUTO"
+	"volume"	"0.9"
+	"soundlevel"  "SNDLVL_85dB"
+	"pitch"		"100"
+	"wave"	"doors/doormove1.wav"
+}
+
+// P1 cubedropper sounds
+"Doors.Move14"
+{
+	"channel"	"CHAN_ITEM"
+	"volume"	"0.7"
+	"soundlevel"  "SNDLVL_75dB"
+	"pitch"		"100"
+	"wave"	"doors/doormove2.wav"
+}
+"Doors.FullOpen14"
+{
+	"channel"	"CHAN_ITEM"
+	"volume"	"0.7"
+	"soundlevel"  "SNDLVL_75dB"
+	"pitch"		"100"
+	"wave"	"doors/doorstop1.wav"
+}
+
+
+"BEE2.P1.button_down"
+{
+	"channel"       "CHAN_ITEM"
+	"volume"        "0.7"
+	"soundlevel"    "SNDLVL_75dB"
+	"pitch"         "90"
+	"wave"          "BEE2/p1/btn_down.wav"
+}
+
+"BEE2.P1.button_up"
+{
+	"channel"       "CHAN_ITEM"
+	"volume"        "0.9"
+	"soundlevel"    "SNDLVL_75dB"
+	"pitch"         "80"
+	"wave"          "BEE2/p1/btn_up.wav"
+}
+
+
+"BEE2.P1.Pellet_Catcher"
+{
+	"channel"	"CHAN_ITEM"
+	"volume"	"0.65"
+	"soundlevel"  	"SNDLVL_90dB"
+	"pitch"		"100,120"
+	"wave"		"BEE2/p1/alyx_stunner2.wav"
+}
+
+
