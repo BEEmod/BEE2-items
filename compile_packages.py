@@ -2,8 +2,12 @@
 import os
 import sys
 import itertools
+import subprocess
 from zipfile import ZipFile, ZIP_LZMA, ZIP_DEFLATED
 from concurrent import futures
+
+# The location of the VPK.exe executable - if not found, this will be skipped.
+VPK_BIN_LOC = r'F:\SteamLibrary\SteamApps\common\Portal 2\bin\vpk.exe'
 
 BEE2_LOCATION = '../BEE2.4/src'
 sys.path.append(BEE2_LOCATION)
@@ -143,10 +147,34 @@ def build_package(data):
                     zip_file.write(full_path, rel_path)
         print('')
     print('Finished "{}"'.format(package_path))
+    
+def gen_vpks():
+    with open('vpk/vpk_dest.cfg') as f:
+        config = Property.parse(f, 'vpk/vpk_dest.cfg').find_key("VPKDest", [])
+        
+    if not os.path.isfile(VPK_BIN_LOC):
+        print('VPK.exe not present, skipping VPK generation.')
+        return
+        
+    for prop in config:
+        src = os.path.join('vpk', prop.real_name)
+        dest = os.path.abspath('packages/{}/{}.vpk'.format(prop.value, src))
+        
+        subprocess.call([
+            VPK_BIN_LOC,
+            src,
+        ])
+        
+        if os.path.isfile(dest):
+            os.remove(dest)
+        os.rename(src + '.vpk', dest)
+        print('Processed "{}"'.format(dest))
 
 
 def main():
     global OPTIMISE
+    
+    gen_vpks()
     
     OPTIMISE = utils.conv_bool(input('Optimise zips? '))
     
