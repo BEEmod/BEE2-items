@@ -207,3 +207,68 @@
 	"ID"   "BEE2_WALL_PLUS"
 	"file" "wall_plus.vmf"
 	}
+	
+// Sign slots:
+// 0 = None
+// 3 = Dots #1
+// 4 = Dots #2
+// 5 = Dots #3
+// 6 = Dots #4
+
+// 7 = Exit
+// 8 = Cube Dropper
+// 9 = Ball Dropper
+// 10 = Reflection Cube
+
+// 11 = Toxic Goo (50s = goo standing sign)
+// 12 = Funnel
+// 13 = Funnel Polarity
+// 14 = Laser Relay
+
+// 15 = Turret (Danger in others)
+// 16 = Light Bridge
+// 17 = Repulsion Gel
+// 18 = Propulsion Gel
+	
+"Item"
+	{
+	"ID"    "ITEM_BEE2_SIGNAGE"
+	"Description"
+		{
+		"Line"		"Signage helps indicate unseen elements or hint to solutions for puzzles."
+		"Bullet"	"Set Start Enabled to add an arrow pointing in a direction."
+		"Bullet"	"The timer widget chooses which sign should be used. Infinite uses no sign."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN" "signage/clean"
+			}
+		}
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_ARROW"
+	"file" "signage/arrow_floor.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN_FLOOR"
+	"file" "signage/sign_floor.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN_WALL"
+	"file" "signage/sign_wall.vmf"
+	}
+"PackList"
+	{
+	// Valve didn't include the VMT, but they did include the VTF.
+	"ID"        "BEE2_PACK_SIGNAGE_TURRET"
+	"AddIfMat"  "BEE2/signage_turret"
+	"Config"
+		{
+		"File" "materials/BEE2/signage_turret.vmt"
+		}
+	}
