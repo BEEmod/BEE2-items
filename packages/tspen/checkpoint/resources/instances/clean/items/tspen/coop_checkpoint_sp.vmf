@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "138"
+	"mapversion" "140"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "64"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "138"
+	"mapversion" "140"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -84,14 +84,14 @@ entity
 {
 	"id" "7895"
 	"classname" "trigger_once"
-	"origin" "48 0 128"
+	"origin" "0 0 192"
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "tr_sp"
 	connections
 	{
-		"OnStartTouch" "switch_relayTrigger0-1"
-		"OnStartTouch" "sp_textDisplay0-1"
+		"OnTrigger" "switch_relayTrigger0-1"
+		"OnTrigger" "sp_textDisplay0-1"
 	}
 	solid
 	{
@@ -99,7 +99,7 @@ entity
 		side
 		{
 			"id" "1521"
-			"plane" "(-32 -256 0) (-32 256 0) (-32 256 256)"
+			"plane" "(-64 -256 0) (-64 256 0) (-64 256 256)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -110,7 +110,7 @@ entity
 		side
 		{
 			"id" "1520"
-			"plane" "(128 256 0) (128 -256 0) (128 -256 256)"
+			"plane" "(192 256 0) (192 -256 0) (192 -256 256)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -121,7 +121,7 @@ entity
 		side
 		{
 			"id" "1519"
-			"plane" "(-32 256 0) (-32 -256 0) (128 -256 0)"
+			"plane" "(-64 256 0) (-64 -256 0) (192 -256 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
@@ -132,7 +132,7 @@ entity
 		side
 		{
 			"id" "1518"
-			"plane" "(-32 -256 256) (-32 256 256) (128 256 256)"
+			"plane" "(-64 -256 256) (-64 256 256) (192 256 256)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
@@ -143,7 +143,7 @@ entity
 		side
 		{
 			"id" "1517"
-			"plane" "(-32 256 256) (-32 256 0) (128 256 0)"
+			"plane" "(-64 256 256) (-64 256 0) (192 256 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
@@ -154,7 +154,7 @@ entity
 		side
 		{
 			"id" "1516"
-			"plane" "(128 -256 256) (128 -256 0) (-32 -256 0)"
+			"plane" "(192 -256 256) (192 -256 0) (-64 -256 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
