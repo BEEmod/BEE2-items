@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "277"
+	"mapversion" "278"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -86,7 +86,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "277"
+	"mapversion" "278"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -6318,7 +6318,12 @@ entity
 	"spawnflags" "0"
 	"targetname" "cube_template"
 	"Template01" "box"
-	"Template02" "rex_pellet_trig"
+	"Template02" "cube_ents_*"
+	connections
+	{
+		"OnEntitySpawned" "cube_ents_*FireUser10-1"
+		"OnEntitySpawned" "box*FireUser40-1"
+	}
 	"origin" "0 0 -32"
 	editor
 	{
