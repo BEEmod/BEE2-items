@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "54"
+	"mapversion" "73"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,118 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "54"
+	"mapversion" "73"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "490"
+	"classname" "trigger_multiple"
+	"origin" "0 0 1"
+	"spawnflags" "4104"
+	"StartDisabled" "0"
+	"wait" "1"
+	connections
+	{
+		"OnEndTouchAll" "cam_clipKill01"
+		"OnEndTouchAll" "cameraRunScriptCodekill_cam_spr()01"
+		"OnEndTouchAll" "!selfKill11"
+		"OnEndTouchAll" "cameraRunScriptCodekill_cam_spr()1.51"
+	}
+	solid
+	{
+		"id" "485"
+		side
+		{
+			"id" "18"
+			"plane" "(-2 2 4) (2 2 4) (2 -2 4)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "17"
+			"plane" "(-2 -2 -2) (2 -2 -2) (2 2 -2)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "16"
+			"plane" "(-2 2 4) (-2 -2 4) (-2 -2 -2)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "15"
+			"plane" "(2 2 -2) (2 -2 -2) (2 -2 4)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "14"
+			"plane" "(2 2 4) (-2 2 4) (-2 2 -2)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "13"
+			"plane" "(2 -2 -2) (-2 -2 -2) (-2 -2 4)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
 }
 entity
 {
@@ -50,6 +149,7 @@ entity
 	"Solidity" "0"
 	"spawnflags" "2"
 	"StartDisabled" "0"
+	"targetname" "cam_clip"
 	"vrad_brush_cast_shadows" "0"
 	solid
 	{
@@ -203,7 +303,6 @@ entity
 	"mincpulevel" "0"
 	"mingpulevel" "0"
 	"MoveSpeed" "64"
-	"NextKey" "r1_b1"
 	"parentname" "camera"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "25"
@@ -318,6 +417,7 @@ entity
 		"color" "20 140 20"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "Make sure thiis is >32 units away from the camera origin - that ensures the script doesn't remove this!"
 		"logicalpos" "[0 0]"
 	}
 }

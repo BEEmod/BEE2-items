@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "57"
+	"mapversion" "61"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "57"
+	"mapversion" "61"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -33,12 +33,16 @@ entity
 	"id" "5547"
 	"classname" "prop_static"
 	"angles" "0 180 0"
+	"disableselfshadowing" "0"
+	"disablevertexlighting" "0"
 	"drawinfastreflection" "1"
 	"fademindist" "-1"
 	"fadescale" "1"
-	"model" "models/bee2/props_ingame/p1_button_base.mdl"
+	"ignorenormals" "0"
+	"model" "models/bee2/props_p1/floor_button_base.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
+	"screenspacefade" "0"
 	"skin" "0"
 	"solid" "6"
 	"origin" "0 0 -56"
@@ -100,7 +104,7 @@ entity
 	"id" "51"
 	"classname" "prop_floor_button"
 	"angles" "0 0 0"
-	"model" "models/bee2/props_ingame/floor_button_just_top.mdl"
+	"model" "models/bee2/props_p1/floor_button_just_top.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
@@ -111,8 +115,6 @@ entity
 		"OnPressed" "pTrigger0-1"
 		"OnUnPressed" "pFireUser10-1"
 		"OnPressed" "@glados_buttonStart0-1"
-		"OnUnPressed" "suPlaySound0-1"
-		"OnPressed" "sdPlaySound0-1"
 	}
 	"origin" "0 0 -58"
 	editor

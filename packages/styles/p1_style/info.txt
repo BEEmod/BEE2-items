@@ -104,7 +104,7 @@
 	{
 	"ID"            "P1_PORTED_PGUN"
 	"Name"          "Use P1 Portal Gun"
-	"Description"   "Use a ported version of the Portal 1 Portal gun in SP mode. It's clean, and has different grabbing animations."
+	"Description"   "Use a ported version of the Portal 1 Portal gun in SP mode. It's clean, and has different grabbing animations. This also adds the original P1 sound effects."
 	"Enabled"       "1"
 	"Style"         "BEE2_PORTAL_1"
 	}
@@ -124,11 +124,19 @@
 	"Config" "pgun"
 	}
 	
+// When added, this overrides the sound FX used for portals and the player to match P1.
+"PackList"
+	{
+	"ID"     "BEE2_P1_PORTED_PGUN_SND"
+	"Config" "pgun_snd"
+	}
+	
 "PackList"
 	{
 	"ID"     "PACK_P1_TIM_SOUND"
 	"Config"
 		{
+		"File" "#scripts/bee2_snd/portal_sounds.txt"
 		"File" "sound/BEE2/p1/ticktock_lp.wav"
 		}
 	}
@@ -192,6 +200,13 @@
 	"Config" "obs_key_mouse"
 	}
 	
+// The non-dirty version of the radio
+"PackList"
+	{
+	"ID" "PACK_P1_RADIO_CLEAN"
+	"Config" "radio"
+	}
+	
 "PackList"
 	{
 	// The recessed lights at the top/bottom of white
@@ -211,7 +226,19 @@
 	"ID"    "PACK_P1_ELEV_SOUND"
 	"Config"
 		{
-		"File" "sound/ambient/machines/wall_move5.wav"
+		"File" "#scripts/bee2_snd/portal_sounds.txt"
+		"File" "sound/BEE2/p1/wall_move5.wav"
+		"File" "sound/BEE2/p1/garage_stop1.wav"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_P1_CUBE_SND"
+	"Config"
+		{
+		"File" "#scripts/bee2_snd/portal_sounds.txt"
+		"File" "sound/BEE2/p1/doorstop1.wav"
 		}
 	}
 
@@ -229,6 +256,7 @@
 	"ID" "PACK_P1_PANEL_SOUNDS"
 	"Config"
 		{
+		"File" "#scripts/bee2_snd/portal_sounds.txt"
 		"File" "sound/BEE2/p1/stair_stop.wav"
 		"File" "sound/BEE2/p1/panel_turn.wav"
 		}
@@ -287,11 +315,36 @@
 	"ID" "PACK_P1_FLOOR_BUTTON"
 	"Config"
 		{
-		"File" "models/BEE2/props_ingame/floor_button_just_top.mdl"
-		"File" "models/BEE2/props_ingame/floor_button_just_top.vvd"
-		"File" "models/BEE2/props_ingame/floor_button_just_top.phy"
-		"File" "models/BEE2/props_ingame/floor_button_just_top.dx90.vtx"
+		"File" "models/BEE2/props_p1/floor_button_just_top.mdl"
+		"File" "models/BEE2/props_p1/floor_button_just_top.vvd"
+		"File" "models/BEE2/props_p1/floor_button_just_top.phy"
+		"File" "models/BEE2/props_p1/floor_button_just_top.dx90.vtx"
 		
+		"File" "models/BEE2/props_p1/floor_button_base.mdl"
+		"File" "models/BEE2/props_p1/floor_button_base.vvd"
+		"File" "models/BEE2/props_p1/floor_button_base.phy"
+		"File" "models/BEE2/props_p1/floor_button_base.dx90.vtx"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_P1_FLOOR_BUTTON_NOBASE"
+	"Config"
+		{
+		"File" "models/BEE2/props_p1/floor_button_nobase.mdl"
+		"File" "models/BEE2/props_p1/floor_button_nobase.vvd"
+		"File" "models/BEE2/props_p1/floor_button_nobase.phy"
+		"File" "models/BEE2/props_p1/floor_button_nobase.dx90.vtx"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_P1_FLOOR_BUTTON_SND"
+	"Config"
+		{
+		"File" "#scripts/bee2_snd/portal_sounds.txt"
 		"File" "sound/BEE2/p1/btn_down.wav"
 		"File" "sound/BEE2/p1/btn_up.wav"
 		}

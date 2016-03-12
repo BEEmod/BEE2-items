@@ -76,11 +76,11 @@ def check_file(pack_path, rel_path):
             if check_vmf_modified(game_path, pack_path):
                 print('Applying changes to "{}"'.format(rel_path))
                 shutil.copyfile(game_path, pack_path)
-        elif rel_path.endswith('.vmx'):
-            return # Never copy this!
+        elif rel_path[:-3].casefold() in SKIPPED_EXTENSIONS:
+            return # Never copy .log, .vmx, etc!
         else:
             # Assume everything else is changed!
-            #print('Applying changes to "{}"'.format(rel_path))
+            print('Applying changes to "{}"'.format(rel_path))
             shutil.copyfile(game_path, pack_path)
     else:
         print('Removing "{}"'.format(rel_path), file=sys.stderr)
@@ -99,13 +99,12 @@ def do_folder(path):
                 if not os.path.isdir(res_folder):
                     print('Package has no resources!')
                 for base, dirs, files in os.walk(res_folder):
-                    if base == res_folder:
-                        # For the root, stop us from looking in the BEE2 folder
-                        for ind, folder in enumerate(dirs):
-                            if folder.casefold() == 'bee2':
-                                del dirs[ind]
-                                break
-                        continue
+                    if base.casefold() == res_folder.casefold():
+                        # For the root, stop us from looking in the BEE2 or music_samp folder
+                        for ind, folder in enumerate(dirs[:]):
+                            if folder.casefold() in ('bee2', 'music_samp'):
+                                dirs.remove(folder)
+                        continue # There aren't any resources in the package/resources/ folder itself
                     for file in files:
                         full_path = os.path.normpath(os.path.join(base, file))
                         rel_path = os.path.relpath(full_path, res_folder)
