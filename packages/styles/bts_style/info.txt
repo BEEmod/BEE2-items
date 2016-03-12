@@ -10,6 +10,7 @@
 	"ShortName"	"BTS"
 	"Folder"	"bts"
 	"Icon"		"styles/BTS.png"
+	"VPK_Name"  "VPK_BEE2_BTS"
 	"Has_Video"	"0"
 	"Base"		""
 	"Description"
@@ -24,6 +25,12 @@
 		"Music"		"VALVE_ROBO_GHOST"
 		"Skybox"	"VALVE_3D_FACTORY"
 		}
+	}
+	
+"StyleVPK"
+	{
+	"ID"       "VPK_BEE2_BTS"
+	"Filename" "bts"
 	}
 	
 "SkyBox"
@@ -251,6 +258,61 @@
 		}
 	}
 	
+"PackList"
+	{
+	"ID" "PACK_BTS_SIGN_EXIT"
+	"AddIfMat" "BEE2/bts/sign_exit"
+	"Config"
+		{
+		"File" "materials/BEE2/bts/sign_exit.vmt"
+		"File" "materials/BEE2/bts/sign_exit.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BTS_SIGN_FUNNEL"
+	"AddIfMat" "BEE2/bts/sign_funnel"
+	"Config"
+		{
+		"File" "materials/BEE2/bts/sign_funnel.vmt"
+		"File" "materials/BEE2/bts/sign_funnel.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BTS_SIGN_FUNNEL_POLARITY"
+	"AddIfMat" "BEE2/bts/sign_polarity"
+	"Config"
+		{
+		"File" "materials/BEE2/bts/sign_polarity.vmt"
+		"File" "materials/BEE2/bts/sign_polarity.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BTS_SIGN_GEL_SPEED"
+	"AddIfMat" "BEE2/bts/sign_gel_speed"
+	"Config"
+		{
+		"File" "materials/BEE2/bts/sign_gel_speed.vmt"
+		"File" "materials/BEE2/bts/sign_gel_speed.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BTS_SIGN_GEL_BOUNCE"
+	"AddIfMat" "BEE2/bts/sign_gel_bounce"
+	"Config"
+		{
+		"File" "materials/BEE2/bts/sign_gel_bounce.vmt"
+		"File" "materials/BEE2/bts/sign_gel_bounce.vtf"
+		}
+	}
+	
 "Overrides"
 	{
 	"Item"
@@ -470,19 +532,20 @@
 	"Icon"			"music/50_percent.png"
 	"Authors"		"Valve"
 	"Description"	"The music played in Neurotoxin Sabotage level."
-	"SoundScript"	"music.sp_a2_bts5_b0"
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_50_PERC_FAST"
-	"Name"			"Almost at Fifty Percent (Fast)"
-	"ShortName"		"Fast 50%"
-	"Group"			"BTS"
-	"Icon"			"music/50_percent.png"
-	"Authors"		"Valve"
-	"Description"	"A slightly faster / more tense version of the music played in the Neurotoxin Sabotage level."
-	"SoundScript"	"music.sp_a2_bts5_b0"
+	"Sample"        "p2/sp_a2_bts5_b0.ogg"
+	"SoundScript"
+		{
+		"Base" "music/sp_a2_bts5_b0.wav"
+		"tbeam" "music/sp_a4_tb_intro_tbin.wav"
+		"SpeedGel" "music/sp_a2_bts5_x2.wav"
+		"BounceGel"
+			{
+			"snd" "music/ctc_z1_001.wav"
+			"snd" "music/ctc_z1_002.wav"
+			"snd" "music/ctc_z1_003.wav"
+			"snd" "music/ctc_z1_006.wav"
+			}
+		}
 	}
 	
 "Music"
@@ -493,7 +556,14 @@
 	"Icon"			"music/accent_beyond.png"
 	"Authors"		"Valve"
 	"Description"	"The music played during Chapter 5's Escape sequence with Wheatley."
-	"SoundScript"	"music.sp_a2_bts2_b1"
+	"Sample"        "p2/sp_a2_bts1_b1.ogg"
+	"SoundScript"
+		{
+		"Base" "music/sp_a2_bts1_b1.wav"
+		"tbeam" "music/sp_a4_tb_wall_button_tbin.wav"
+		"BounceGel" "BEE2/music/sp_a2_bts1_x1_looped.wav" // We need a looping version...
+		"SpeedGel" "music/sp_a2_bts2_x1.wav"
+		}
 	}
 	
 "Music"
@@ -505,7 +575,19 @@
 	"Icon"			"music/daughter_to_work.png"
 	"Authors"		"Valve"
 	"Description"	"The music played when examining the various childen's science experiments and potato batteries."
-	"SoundScript"	"music.sp_a2_bts4_b2"
+	"Sample"        "p2/sp_a2_bts4_b2.ogg"
+	"SoundScript"
+		{
+		"Base" "music/sp_a2_bts4_b2.wav"
+		"SpeedGel" "music/sp_a2_bts4_b3.wav"
+		"BounceGel"
+			{
+			"snd" "music/sp_a3_speed_ramp_z1.wav"
+			"snd" "music/sp_a3_speed_ramp_z1b.wav"
+			"snd" "music/sp_a3_speed_ramp_z1c.wav"
+			"snd" "music/sp_a3_speed_ramp_z1d.wav"
+			}
+		}
 	}
 	
 "Music"
@@ -517,6 +599,7 @@
 	"Icon"			"music/ghost_story.png"
 	"Authors"		"Valve"
 	"Description"	"Music played during the blackout BTS level, where Wheatley guides you with his flashlight."
+	"Sample"        "p2/sp_a2_bts3_b1.ogg"
 	"SoundScript"	"music.sp_a2_bts3_b1"
 	}
 	
@@ -529,6 +612,7 @@
 	"Icon"			"music/redemption_line.png"
 	"Authors"		"Valve"
 	"Description"	"Somewhat spooky tracks played during BTS sections. Extra parts of the track are played from turrets."
+	"Sample"        "p2/sp_a2_bts3_x1.ogg"
 	"Instance"		"instances/BEE2/music/valve_turret_line.vmf"
 	}
 	
@@ -541,8 +625,20 @@
 	"Icon"			"music/die_cut_laser_dance.png"
 	"Authors"		"Valve"
 	"Description"	"The music played near some of the laser cutting machinery during The Escape."
-	"SoundScript"	"*#music/sp_a2_bts3_b2.wav" // The ingame soundscript only plays near a location,
-	// so use the raw music file. # makes it affected by player's music setting.
+	"Sample"        "p2/sp_a2_bts3_b2.ogg"
+	"SoundScript"	
+		{
+		"Base" "music/sp_a2_bts3_b2.wav"
+		"tBeam" "music/sp_a4_tb_wall_button_tbin.wav"
+		"SpeedGel" "music/sp_a2_bts2_x1.wav"
+		"BounceGel"
+			{
+			"snd" "music/sp_a3_speed_ramp_z1.wav"
+			"snd" "music/sp_a3_speed_ramp_z1b.wav"
+			"snd" "music/sp_a3_speed_ramp_z1c.wav"
+			"snd" "music/sp_a3_speed_ramp_z1d.wav"
+			}
+		}
 	}
 	
 "Music"
@@ -555,6 +651,7 @@
 	"Authors"		"Valve"
 	"Description"	"The earlier parts of the 9999999 track, played most prominently on the main menu for Act 1."
 	"SoundScript"	"music.sp_a2_core_b1"
+	"Sample"        "p2/sp_a2_core_b1.ogg"
 	}
 	
 "Music"
@@ -566,5 +663,6 @@
 	"Icon"			"music/nines.png"
 	"Authors"		"Valve"
 	"Description"	"The latter parts of the 9999999 track, used in the last level of Chapter 6: The Escape just before GLaDOS recaptures you."
-	"SoundScript"	"music.sp_a2_core_b1"
+	"SoundScript"	"music.sp_a2_core_b2"
+	"Sample"        "p2/sp_a2_core_b2.ogg"
 	}
