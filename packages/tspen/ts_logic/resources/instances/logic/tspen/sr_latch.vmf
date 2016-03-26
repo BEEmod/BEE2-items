@@ -1,0 +1,203 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "51"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "51"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "907"
+	"classname" "logic_branch"
+	"InitialValue" "0"
+	"targetname" "br_add"
+	connections
+	{
+		"OnTrue" "managerSetStateATrue0-1"
+	}
+	"origin" "0 16 16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Keeps track of input state, ensures it only fires on leading edge"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "922"
+	"classname" "logic_branch"
+	"InitialValue" "0"
+	"targetname" "br_sub"
+	connections
+	{
+		"OnTrue" "managerSetStateAFalse0-1"
+	}
+	"origin" "0 -16 16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Keeps track of input state, ensures it only fires on leading edge"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "789"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "$start_enabled"
+	"targetname" "auto"
+	connections
+	{
+		"OnTrigger" "rl_outFireUser101"
+		"OnSpawn" "autoToggle01"
+		"OnSpawn" "autoTrigger0.11"
+		"OnSpawn" "managerToggleStateB01"
+	}
+	"origin" "0 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Triggers activate if it should be on."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "831"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"targetname" "rl_in"
+	connections
+	{
+		"OnUser1" "br_addToggleTest0-1"
+		"OnUser2" "br_subToggleTest0-1"
+	}
+	"origin" "0 16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "1=act, 2=deact"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "886"
+	"classname" "logic_coop_manager"
+	"DefaultPlayerStateA" "$start_enabled"
+	"DefaultPlayerStateB" "$start_enabled"
+	"targetname" "manager"
+	connections
+	{
+		"OnChangeToAllTrue" "rl_outFireUser10-1"
+		"OnChangeToAllFalse" "rl_outFireUser20-1"
+		"OnChangeToAllTrue" "managerSetStateBFalse0-1"
+		"OnChangeToAllFalse" "managerSetStateBTrue0-1"
+	}
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "A=wanted state, B=inverted current state. When both match (In wrong state and needing to switch), manager outputs and changes B to the other state to allow it to trigger that way. This prevents double-outputs."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "615"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "rl_out"
+	connections
+	{
+		"OnUser1" "proxyProxyRelay0-1"
+		"OnUser2" "proxyProxyRelay0-1"
+	}
+	"origin" "0 -16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "1=act, 2=deact"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "617"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	connections
+	{
+		"OnProxyRelay" "rl_inFireUser20-1"
+		"OnProxyRelay" "rl_inFireUser10-1"
+	}
+	"origin" "0 16 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 9000]"
+	}
+}
+entity
+{
+	"id" "623"
+	"classname" "func_instance_parms"
+	"parm1" "$connectioncount integer"
+	"parm2" "$start_enabled string"
+	"origin" "0 -16 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}

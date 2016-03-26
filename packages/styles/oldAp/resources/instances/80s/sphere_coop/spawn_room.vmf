@@ -2,31 +2,25 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "485"
+	"mapversion" "487"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
-	visgroup
-	{
-		"name" "old_entry"
-		"visgroupid" "14"
-		"color" "227 112 145"
-	}
 }
 viewsettings
 {
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "485"
+	"mapversion" "487"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -4131,10 +4125,10 @@ world
 		side
 		{
 			"id" "2331"
-			"plane" "(512 -192 -64) (512 192 -64) (512 192 -576)"
+			"plane" "(510 190 -574) (510 -188 -574) (510 -188 -66)"
 			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
+			"uaxis" "[0 0 -1 -8] 0.25"
+			"vaxis" "[0 -1 0 16] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -4142,10 +4136,10 @@ world
 		side
 		{
 			"id" "2332"
-			"plane" "(-128 192 -64) (-128 -192 -64) (-128 -192 -576)"
+			"plane" "(-126 -188 -574) (-126 190 -574) (-126 190 -66)"
 			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
+			"uaxis" "[0 0 -1 -8] 0.25"
+			"vaxis" "[0 -1 0 16] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -4153,10 +4147,10 @@ world
 		side
 		{
 			"id" "2333"
-			"plane" "(512 192 -64) (512 -192 -64) (-128 -192 -64)"
+			"plane" "(-126 -188 -66) (-126 190 -66) (510 190 -66)"
 			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
+			"uaxis" "[0 1 0 -16] 0.25"
+			"vaxis" "[-1 0 0 -8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -4164,10 +4158,10 @@ world
 		side
 		{
 			"id" "2334"
-			"plane" "(512 -192 -576) (512 192 -576) (-128 192 -576)"
+			"plane" "(-126 190 -574) (-126 -188 -574) (510 -188 -574)"
 			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
+			"uaxis" "[0 1 0 -16] 0.25"
+			"vaxis" "[-1 0 0 -8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -4175,10 +4169,10 @@ world
 		side
 		{
 			"id" "2335"
-			"plane" "(512 192 -576) (512 192 -64) (-128 192 -64)"
+			"plane" "(-126 190 -66) (-126 190 -574) (510 190 -574)"
 			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
+			"uaxis" "[0 0 -1 -8] 0.25"
+			"vaxis" "[-1 0 0 -8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -4186,10 +4180,10 @@ world
 		side
 		{
 			"id" "2336"
-			"plane" "(-128 -192 -576) (-128 -192 -64) (512 -192 -64)"
+			"plane" "(510 -188 -66) (510 -188 -574) (-126 -188 -574)"
 			"material" "TOOLS/TOOLSSKIP"
-			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
+			"uaxis" "[0 0 -1 -8] 0.25"
+			"vaxis" "[-1 0 0 -8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -4197,7 +4191,6 @@ world
 		editor
 		{
 			"color" "0 236 205"
-			"visgroupid" "14"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -8445,7 +8438,7 @@ entity
 	connections
 	{
 		"OnTrigger" "@relay_lights_onTrigger1-1"
-		"OnTrigger" "@musicPlaySound01"
+		"OnTrigger" "@musicFireUser101"
 		"OnTrigger" "@relay_spawn_on_entranceTrigger0-1"
 	}
 	solid
@@ -8831,7 +8824,6 @@ entity
 	editor
 	{
 		"color" "220 30 220"
-		"visgroupid" "14"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 2500]"

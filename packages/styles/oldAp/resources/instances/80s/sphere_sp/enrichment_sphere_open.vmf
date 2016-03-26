@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "1431"
+	"mapversion" "1445"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -56,13 +56,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "512"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "1431"
+	"mapversion" "1445"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2509,6 +2509,45 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "368989"
+	"classname" "info_lighting"
+	"targetname" "sphere_lighting"
+	"origin" "-4696 -1416 -1280"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "363021"
+	"classname" "light"
+	"_constant_attn" "0"
+	"_distance" "0"
+	"_fifty_percent_distance" "0"
+	"_hardfalloff" "0"
+	"_light" "235 245 255 20"
+	"_lightHDR" "235 245 255 20"
+	"_lightscaleHDR" "1"
+	"_linear_attn" "0"
+	"_quadratic_attn" "1"
+	"_zero_percent_distance" "0"
+	"spawnflags" "0"
+	"style" "0"
+	"origin" "-5312 -1880 -960"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 3500]"
 	}
 }
 entity
@@ -8582,6 +8621,7 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightingorigin" "sphere_lighting"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_underground/geodome_interior_destroyed.mdl"
@@ -8614,6 +8654,7 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightingorigin" "sphere_lighting"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_underground/geodome_interior_destroyed.mdl"
@@ -8646,6 +8687,7 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"ignorenormals" "0"
+	"lightingorigin" "sphere_lighting"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
 	"model" "models/props_underground/geodome_exterior_destroyed.mdl"
@@ -8723,7 +8765,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
-	"origin" "-4661.65 -448 -771.75"
+	"origin" "-4662 -448 -772"
 	editor
 	{
 		"color" "255 255 0"
@@ -8759,7 +8801,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
-	"origin" "-4613.65 -448 -771.75"
+	"origin" "-4614 -448 -772"
 	editor
 	{
 		"color" "255 255 0"
@@ -11786,12 +11828,10 @@ entity
 entity
 {
 	"id" "262513"
-	"classname" "point_teleport"
-	"angles" "0 180 0"
-	"spawnflags" "0"
-	"target" "!player"
-	"targetname" "@test_dome_lift_entry_teleport"
-	"origin" "-4376.64 -2220.99 -1391.3"
+	"classname" "env_soundscape_proxy"
+	"MainSoundscapeName" "ext_scape"
+	"radius" "128"
+	"origin" "-4376.64 -2220.99 -1375.3"
 	editor
 	{
 		"color" "220 30 220"
@@ -16022,7 +16062,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
-	"origin" "-5332 -448 -1027.75"
+	"origin" "-5332 -448 -1028"
 	editor
 	{
 		"color" "255 255 0"
@@ -16058,7 +16098,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
-	"origin" "-5044.67 -448 -899.75"
+	"origin" "-5045 -448 -900"
 	editor
 	{
 		"color" "255 255 0"
@@ -16094,7 +16134,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
-	"origin" "-4757.65 -448 -771.75"
+	"origin" "-4758 -448 -772"
 	editor
 	{
 		"color" "255 255 0"
@@ -16108,10 +16148,10 @@ entity
 	"id" "256550"
 	"classname" "func_instance"
 	"angles" "-0 -90 0"
-	"file" "instances/p2editor_old/test_dome_exit_lift_01.vmf"
+	"file" "instances/bee2/80s/sphere_sp/exit_lift_long.vmf"
 	"fixup_style" "0"
 	"targetname" "exit_elev"
-	"origin" "-4086 -448 -659.75"
+	"origin" "-4086 -448 -660"
 	editor
 	{
 		"color" "153 226 0"
@@ -16119,105 +16159,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 2500]"
-	}
-}
-entity
-{
-	"id" "256553"
-	"classname" "trigger_once"
-	"origin" "-4080 -448 466.65"
-	"spawnflags" "4097"
-	"StartDisabled" "0"
-	"targetname" "endlevel_trigger"
-	connections
-	{
-		"OnStartTouch" "global_pti_entsinstance:@relay_pti_level_end;Trigger0-1"
-		"OnStartTouch" "@clientcommandCommandrestart_level2-1"
-		"OnStartTouch" "@preview_complete_messageDisplay0.1-1"
-	}
-	solid
-	{
-		"id" "256554"
-		side
-		{
-			"id" "26144"
-			"plane" "(-4016 -512 553.051) (-4016 -512 380.25) (-4144 -512 380.254)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.5"
-			"vaxis" "[0 0 -1 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26143"
-			"plane" "(-4144 -384 553.051) (-4144 -384 380.25) (-4016 -384 380.254)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-1 0 0 0] 0.5"
-			"vaxis" "[0 0 -1 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26142"
-			"plane" "(-4016 -384 553.051) (-4016 -384 380.25) (-4016 -512 380.254)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.5"
-			"vaxis" "[0 0 -1 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26141"
-			"plane" "(-4144 -512 553.051) (-4144 -512 380.25) (-4144 -384 380.254)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 0] 0.5"
-			"vaxis" "[0 0 -1 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26140"
-			"plane" "(-4016 -384 380.25) (-4144 -384 380.25) (-4144 -512 380.25)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-1 0 0 0] 0.5"
-			"vaxis" "[0 -1 0 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26139"
-			"plane" "(-4016 -512 553.051) (-4144 -512 553.051) (-4144 -384 553.051)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.5"
-			"vaxis" "[0 -1 0 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "153 226 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "153 226 0"
-		"groupid" "256545"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[3500 -10268]"
 	}
 }
 entity
@@ -16247,7 +16188,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
-	"origin" "-4486 -448 -707.75"
+	"origin" "-4486 -448 -708"
 	editor
 	{
 		"color" "153 226 0"
@@ -17191,8 +17132,9 @@ entity
 	"id" "221516"
 	"classname" "env_soundscape"
 	"radius" "512"
-	"soundscape" "ug_sphere_water_01"
-	"origin" "-5232.91 -2010.71 -1025.6"
+	"soundscape" "ug_portal_int_03"
+	"targetname" "ext_scape"
+	"origin" "-5304.91 -2010.71 -1013.6"
 	editor
 	{
 		"color" "220 30 220"
@@ -17204,10 +17146,10 @@ entity
 entity
 {
 	"id" "221560"
-	"classname" "env_soundscape"
+	"classname" "env_soundscape_proxy"
+	"MainSoundscapeName" "ext_scape"
 	"radius" "512"
-	"soundscape" "ug_sphere_water_01"
-	"origin" "-5206.2 -429 -971.423"
+	"origin" "-5206.2 -453 -971.423"
 	editor
 	{
 		"color" "220 30 220"
@@ -17226,6 +17168,10 @@ entity
 	connections
 	{
 		"OnTrigger" "@musicStopSound0-1"
+		"OnTrigger" "@close_exit_doorTrigger0.1-1"
+		"OnTrigger" "@musicKill0.01-1"
+		"OnTrigger" "@close_exit_portalDisable0-1"
+		"OnTrigger" "@close_exit_portalCancelPending0-1"
 	}
 	solid
 	{
@@ -18103,6 +18049,11 @@ entity
 	"startactive" "1"
 	"targetname" "@exit_portal_outside"
 	"width" "64"
+	connections
+	{
+		"OnPlayerTeleportToMe" "@close_exit_portalKill0.011"
+		"OnPlayerTeleportToMe" "@close_exit_portalCancelPending01"
+	}
 	"origin" "-5312 -640 -960"
 	editor
 	{
@@ -21553,27 +21504,6 @@ entity
 }
 entity
 {
-	"id" "172795"
-	"classname" "ambient_generic"
-	"health" "10"
-	"message" "World.LightPowerOnLg"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"spawnflags" "48"
-	"targetname" "startup_lighting_audio"
-	"origin" "-4091.99 -1406.46 -1278.82"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "22"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 -6268]"
-	}
-}
-entity
-{
 	"id" "172798"
 	"classname" "light"
 	"_constant_attn" "1000000"
@@ -22688,31 +22618,6 @@ entity
 }
 entity
 {
-	"id" "143355"
-	"classname" "light"
-	"_constant_attn" "0"
-	"_distance" "0"
-	"_fifty_percent_distance" "0"
-	"_hardfalloff" "0"
-	"_light" "181 67 34 10"
-	"_lightHDR" "-1 -1 -1 1"
-	"_lightscaleHDR" "1"
-	"_linear_attn" "0"
-	"_quadratic_attn" "1"
-	"_zero_percent_distance" "0"
-	"spawnflags" "0"
-	"style" "0"
-	"origin" "-5312 -1896 -960"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 -9768]"
-	}
-}
-entity
-{
 	"id" "143361"
 	"classname" "env_soundscape"
 	"radius" "128"
@@ -23201,8 +23106,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-4391.49 -2257.15 -1563.71]"
-		"look" "[-4391.83 -2259.32 -1626.78]"
+		"position" "[-5329.61 -478.399 -883.485]"
+		"look" "[-5325.76 -535.18 -910.752]"
 	}
 	camera
 	{

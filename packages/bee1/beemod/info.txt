@@ -30,7 +30,7 @@
 "StyleVar"
 	{
 	"ID"	"BEE_SHOW_TRIGGER"
-	"Name"	"Show BEE Triggers ingame"
+	"Name"	"Show Triggers ingame"
 	"Description" "Show transparent overlays of triggers when in preview mode. These never appear in the published maps."
 	"Unstyled"	"1"
 	"Enabled"	"0"
@@ -53,9 +53,23 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"	"drawbridge"
+			"BEE2_CLEAN"    "drawbridge"
+			"BEE2_1950s"    "drawbridge_50s"
+			"BEE2_1970s"    "drawbridge_70s"
+			"BEE2_1980s"    "drawbridge_80s"
+			"BEE2_PORTAL_1" "drawbridge_p1"
 			}
 		}
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_P1_DRAWBRIDGE_DOWN"
+	"file" "drawbridge_p1_down.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_P1_DRAWBRIDGE_UP"
+	"file" "drawbridge_p1_up.vmf"
 	}
 	
 "Item"
@@ -84,6 +98,11 @@
 	}
 "BrushTemplate"
 	{
+	"ID"    "BEE_VENT_BASE_CLEAN"
+	"file"  "vent_base_clean.vmf"
+	}
+"BrushTemplate"
+	{
 	"ID"    "BEE_VENT_BASE_50S"
 	"file"  "vent_base_50s.vmf"
 	}
@@ -95,13 +114,54 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"    "crusher"
-			"BEE2_1950s"    "crusher_50s"
-			"BEE2_1960s"    "60s_flamethrower"
+			"BEE2_CLEAN"        "crusher"
+			"BEE2_OVERGROWN"    "crusher_over"
+			"BEE2_PORTAL_1"     "crusher_p1"
+			"BEE2_1950s"        "crusher_50s"
+			"BEE2_1960s"        "60s_flamethrower"
 			}
 		}
 	}
 
+"PackList"
+	{
+	// An enhanced version of the crusher model, with dirty skins and better sound FX.
+	"ID"  "PACK_BEE_CRUSHER"
+	"Config"
+		{
+		"File" "models/BEE2/props_ingame/crusher.mdl"
+		"File" "models/BEE2/props_ingame/crusher.vvd"
+		"File" "models/BEE2/props_ingame/crusher.dx90.vtx"
+		
+		"File" "materials/BEE2/models/props_ingame/crusher_rusty.vmt"
+		"File" "materials/BEE2/models/props_ingame/arm_interior_192_bose_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	// A version of the crusher head with a better origin, and dirty skins.
+	"ID"  "PACK_BEE_CRUSHER_HEAD"
+	"Config"
+		{
+		"File" "models/BEE2/props_ingame/crusher_head.mdl"
+		"File" "models/BEE2/props_ingame/crusher_head.vvd"
+		"File" "models/BEE2/props_ingame/crusher_head.dx90.vtx"
+		
+		"File" "materials/BEE2/models/props_ingame/crusher_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	//The P1 soundscript for above
+	"ID"  "PACK_BEE_CRUSHER_P1_SND"
+	"Config"
+		{
+		"File" "#scripts/bee2_snd/p1_crusher_sounds.txt"
+		"File" "sound/BEE2/p1/hall_elev_move_short.wav"
+		}
+	}
 	
 "Item"
 	{

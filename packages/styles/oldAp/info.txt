@@ -12,6 +12,7 @@
 	"Group"			"Old Aperture"
 	"Icon"			"styles/aperture_50s"
 	"Has_Video"		"0"
+	"VPK_Name"      "VPK_BEE2_1950S"
 	"Description"
 		{
 			"Line"		"Underground 1955 blue gel enrichment sphere."
@@ -26,7 +27,7 @@
 		{
 		"Quote"		"BEE2_CAVE_50s"
 		"Music"		"VALVE_CONTROL_GROUP"
-		"Skybox"	"VALVE_BLACK"
+		"Skybox"	"BEE2_SPHERE_INTERIOR"
 		}
 	"Corridors"
 		{
@@ -57,6 +58,7 @@
 	"Icon"			"styles/aperture_60s"
 	"Folder"		"1960s"
 	"Base"			"BEE2_1950s"
+	"VPK_Name"      "VPK_BEE2_1950S" // The style has mostly the same textures..
 	"Has_Video"		"0"
 	"Description"
 		{
@@ -72,7 +74,7 @@
 		{
 		"Quote"		"BEE2_CAVE_60s"
 		"Music"		"VALVE_VIT_ORDER_2"
-		"Skybox"	"VALVE_BLACK"
+		"Skybox"	"BEE2_SPHERE_INTERIOR"
 		}
 	}
 
@@ -86,6 +88,7 @@
 	"Icon"			"styles/aperture_70s"
 	"Folder"		"1970s"
 	"Base"			"BEE2_1950s"
+	"VPK_Name"      "VPK_BEE2_1970S"
 	"Has_Video"		"0"
 	"Description"
 		{
@@ -100,7 +103,7 @@
 		{
 		"Quote"		"BEE2_CAVE_70s"
 		"Music"		"VALVE_REUNION"
-		"Skybox"	"VALVE_BLACK"
+		"Skybox"	"BEE2_SPHERE_INTERIOR"
 		}
 	"Corridors"
 		{
@@ -127,6 +130,7 @@
 	"ShortName"		"1980s"
 	"Group"			"Old Aperture"
 	"Icon"			"styles/aperture_80s"
+	"VPK_Name"      "VPK_BEE2_1980S"
 	"Folder"		"1980s"
 	"Base"			"BEE2_1970s"
 	"Has_Video"		"0"
@@ -145,7 +149,7 @@
 		{
 		"Quote"		"BEE2_CAVE_80s"
 		"Music"		"VALVE_MUSIC_SPHERES_2"
-		"Skybox"	"VALVE_BLACK"
+		"Skybox"	"BEE2_SPHERE_EXTERIOR"
 		}
 	"Corridors"
 		{
@@ -154,6 +158,59 @@
 			"1"	"Lobby"
 			"3"	"Office"
 			}
+		}
+	}
+	
+
+"SkyBox"
+	{
+	"ID"            "BEE2_SPHERE_INTERIOR"
+	"Name"          "Enrichment Sphere Interior"
+	"ShortName"     "Sphere Interior"
+	"Group"         "2D"
+	"Icon"          "styles/aperture_60s.png" // Includes an enrichment sphere icon to show 'vitrified'
+	"Material"      "sky_black"
+	"Authors"       "Valve"
+	"Description"   "The fog used for the interior of Enrichment Spheres."
+	
+	"Fog"
+		{
+		"start"     "0"
+        "end"       "4500"
+        "density"   "0.95"
+        
+        "primaryColor"      "37 35 33"
+        
+        "tonemap_rate"          "0.25"
+        "tonemap_brightpixels"  "5"
+        "tonemap_exposure_min"  ".5"
+        "tonemap_exposure_max"  "3"
+		}
+	}
+
+"SkyBox"
+	{
+	"ID"            "BEE2_SPHERE_EXTERIOR"
+	"Name"          "Enrichment Sphere Exterior"
+	"ShortName"     "Sphere Exterior"
+	"Group"         "2D"
+	"Icon"          "skies/sphere_exterior.png"
+	"Material"      "sky_black"
+	"Authors"       "Valve"
+	"Description"   "The fog used for the exterior of Enrichment Spheres, or the partially-constructed 80s style."
+	
+	"Fog"
+		{
+		"start"     "0"
+        "end"       "6000"
+        "density"   "0.95"
+        
+        "primaryColor"      "70 85 100"
+        
+        "tonemap_rate"          "0.25"
+        "tonemap_brightpixels"  "5"
+        "tonemap_exposure_min"  ".5"
+        "tonemap_exposure_max"  "3"
 		}
 	}
 	
@@ -256,6 +313,21 @@
 	"Style"		"BEE2_1980s"
 	}
 	
+"StyleVPK"
+	{
+	"ID"       "VPK_BEE2_1950S"
+	"Filename" "1950s"
+	}
+"StyleVPK"
+	{
+	"ID"       "VPK_BEE2_1970S"
+	"Filename" "1970s"
+	}
+"StyleVPK"
+	{
+	"ID"       "VPK_BEE2_1980S"
+	"Filename" "1980s"
+	}
 	
 "Music"
 	{
@@ -266,7 +338,27 @@
 	"Icon"			"music/vitrification_order_1.png"
 	"Authors"		"Valve"
 	"Description"	"The music played during the trek through the base of Test Shaft 09."
-	"SoundScript"	"music.sp_a3_01_b2"
+	"Sample"        "p2/sp_a3_01_b2.ogg"
+	"SoundScript"
+		{
+		"Base" "music/sp_a3_01_b2.wav"
+		"SpeedGel" 
+			{
+			"snd" "music/sp_a3_speed_ramp_z1.wav"
+			"snd" "music/sp_a3_speed_ramp_z1b.wav"
+			"snd" "music/sp_a3_speed_ramp_z1c.wav"
+			"snd" "music/sp_a3_speed_ramp_z1d.wav"
+			}
+		"Tbeam" "music/sp_a3_01_b3.wav"
+		"BounceGel"
+			{
+			"snd" "music/sp_a3_bomb_flings_z1.wav"
+			"snd" "music/sp_a3_bomb_flings_z1b.wav"
+			"snd" "music/sp_a3_bomb_flings_z1c.wav"
+			"snd" "music/sp_a3_bomb_flings_z1d.wav"
+			"snd" "music/sp_a3_bomb_flings_z1e.wav"
+			}
+		}
 	}
 	
 "Music"
@@ -278,7 +370,27 @@
 	"Icon"			"music/vitrification_order_2.png"
 	"Authors"		"Valve"
 	"Description"	"The second half of the music played during the trek through the base of Test Shaft 09."
-	"SoundScript"	"music.sp_a3_01_b4"
+	"Sample"        "p2/sp_a3_01_b4.ogg"
+	"SoundScript"
+		{
+		"Base" "music/sp_a3_01_b4.wav"
+		"SpeedGel" 
+			{
+			"snd" "music/sp_a3_speed_ramp_z1.wav"
+			"snd" "music/sp_a3_speed_ramp_z1b.wav"
+			"snd" "music/sp_a3_speed_ramp_z1c.wav"
+			"snd" "music/sp_a3_speed_ramp_z1d.wav"
+			}
+		"Tbeam" "music/sp_a3_01_b3.wav"
+		"BounceGel"
+			{
+			"snd" "music/sp_a3_bomb_flings_z1.wav"
+			"snd" "music/sp_a3_bomb_flings_z1b.wav"
+			"snd" "music/sp_a3_bomb_flings_z1c.wav"
+			"snd" "music/sp_a3_bomb_flings_z1d.wav"
+			"snd" "music/sp_a3_bomb_flings_z1e.wav"
+			}
+		}
 	}
 	
 "Music"
@@ -289,8 +401,27 @@
 	"Group"			"Old Aperture"
 	"Icon"			"music/cause_of_science.png"
 	"Authors"		"Valve"
-	"Description"	"The music for the second 1950s Repulsion Gel Test. Features additional beats when jumping."
-	"SoundScript"	"music.sp_a3_bomb_flings_b1"
+	"Description"	"The music for the second 1950s Repulsion Gel Test."
+	"Sample"        "p2/sp_a3_bomb_flings_b1.ogg"
+	"SoundScript"
+		{
+		"Base" "music/sp_a3_bomb_flings_b1.wav"
+		"SpeedGel" 
+			{
+			"snd" "music/sp_a3_bomb_flings_z2.wav"
+			"snd" "music/sp_a3_bomb_flings_z2b.wav"
+			"snd" "music/sp_a3_bomb_flings_z2c.wav"
+			}
+		"Tbeam" "music/ctc_tbeam.wav"
+		"BounceGel"
+			{
+			"snd" "music/sp_a3_bomb_flings_z1.wav"
+			"snd" "music/sp_a3_bomb_flings_z1b.wav"
+			"snd" "music/sp_a3_bomb_flings_z1c.wav"
+			"snd" "music/sp_a3_bomb_flings_z1d.wav"
+			"snd" "music/sp_a3_bomb_flings_z1e.wav"
+			}
+		}
 	}
 	
 "Music"
@@ -301,8 +432,30 @@
 	"Group"			"Old Aperture"
 	"Icon"			"music/control_group.png"
 	"Authors"		"Valve"
-	"Description"	"The music for the first 1950s Repulsion Gel Test. Has additional Repulsion Gel beats that mix in dynamically."
-	"SoundScript"	"music.sp_a3_jump_intro_b1"
+	"Description"	"The music for the first 1950s Repulsion Gel Test."
+	"Sample"        "p2/sp_a3_jump_intro_b1.ogg"
+	"SoundScript"
+		{
+		"Base" 
+			{
+			"snd" "music/sp_a3_jump_intro_b1.wav"
+			"snd" "music/sp_a3_jump_intro_b2.wav"
+			}
+		"SpeedGel" 
+			{
+			// Higher pitched sounds
+			"snd" "music/sp_a3_jump_intro_z1b.wav"
+			"snd" "music/sp_a3_jump_intro_z2b.wav"
+			}
+		"Tbeam" "music/ctc_tbeam.wav"
+		"BounceGel"
+			{
+			"snd" "music/sp_a3_jump_intro_z1.wav"
+			"snd" "music/sp_a3_jump_intro_z1c.wav"
+			"snd" "music/sp_a3_jump_intro_z2.wav"
+			"snd" "music/sp_a3_jump_intro_z2c.wav"
+			}
+		}
 	}
 	
 "Music"
@@ -314,7 +467,30 @@
 	"Icon"			"music/music_of_spheres_1.png"
 	"Authors"		"Valve"
 	"Description"	"The music played around the exterior of the 1950s Enrichment Spheres."
-	"SoundScript"	"music.sp_a3_03_b1"
+	"Sample"        "p2/sp_a3_03_b1.ogg"
+	"SoundScript"
+		{
+		"Base" "music/sp_a3_03_b1.wav"
+		"Tbeam" "music/sp_a3_03_b2.wav"
+		"BounceGel"
+			{
+			"snd" "music/sp_a3_jump_intro_z1.wav"
+			"snd" "music/sp_a3_jump_intro_z1b.wav"
+			"snd" "music/sp_a3_jump_intro_z1c.wav"
+			
+			"snd" "music/sp_a3_jump_intro_z2.wav"
+			"snd" "music/sp_a3_jump_intro_z2b.wav"
+			"snd" "music/sp_a3_jump_intro_z2c.wav"
+			}
+		"SpeedGel"
+			{
+			"snd" "music/sp_a3_bomb_flings_z1.wav"
+			"snd" "music/sp_a3_bomb_flings_z1b.wav"
+			"snd" "music/sp_a3_bomb_flings_z1c.wav"
+			"snd" "music/sp_a3_bomb_flings_z1d.wav"
+			"snd" "music/sp_a3_bomb_flings_z1e.wav"
+			}
+		}
 	}
 	
 "Music"
@@ -324,9 +500,34 @@
 	"Group"			"Old Aperture"
 	"Icon"			"music/the_reunion.png"
 	"Authors"		"Valve"
-	"Description"	"The music for the first 1970s Propulsion Gel Test. Features additional Propulsion Gel beats."
-	"SoundScript"	"music.sp_a3_speed_ramp_b1"
-	}	
+	"Description"	"The music for the first 1970s Propulsion Gel Test."
+	"Sample"        "p2/sp_a3_speed_ramp_b1.ogg"
+	"SoundScript"
+		{
+		"Base"
+			{
+			"snd" "music/sp_a3_speed_ramp_b1.wav"
+			"snd" "music/sp_a3_speed_ramp_b2.wav"
+			}
+		"Tbeam" "music/sp_a4_tb_intro_tbin.wav"
+		"BounceGel"
+			{
+			"snd" "music/sp_a3_speed_ramp_z1.wav"
+			"snd" "music/sp_a3_speed_ramp_z1b.wav"
+			"snd" "music/sp_a3_speed_ramp_z1c.wav"
+			"snd" "music/sp_a3_speed_ramp_z1d.wav"
+			}
+		"SpeedGel"
+			{
+			"snd" "music/sp_a3_speed_ramp_c1.wav"
+			"snd" "music/sp_a3_speed_ramp_c2.wav"
+			"snd" "music/sp_a3_speed_ramp_c1.wav"
+			"snd" "music/sp_a3_speed_ramp_c2.wav"
+			// This one sounds a little different, so make it less common.
+			"snd" "music/sp_a3_speed_ramp_c3.wav"
+			}
+		}
+	}
 	
 "Music"
 	{
@@ -337,7 +538,120 @@
 	"Icon"			"music/music_of_spheres_2.png"
 	"Authors"		"Valve"
 	"Description"	"The music played in the first and only proper 1980s Conversion Gel Test."
-	"SoundScript"	"music.sp_a3_portal_intro_b1"
+	"Sample"        "p2/sp_a3_portal_intro_b1.ogg"
+	"SoundScript"
+		{
+		"Base" "music/sp_a3_portal_intro_b1.wav"
+		"Tbeam" "music/sp_a3_portal_intro_b4_2.wav"
+		"BounceGel"
+			{
+			"snd" "music/sp_a3_jump_intro_z1.wav"
+			"snd" "music/sp_a3_jump_intro_z1c.wav"
+			"snd" "music/sp_a3_jump_intro_z2.wav"
+			"snd" "music/sp_a3_jump_intro_z2c.wav"
+			}
+		"SpeedGel"
+			{
+			"snd" "music/sp_a3_speed_ramp_c1.wav"
+			"snd" "music/sp_a3_speed_ramp_c2.wav"
+			}
+		}
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_STATIC_PAN_FLAT_RETRO"
+	"File"  "static_pan_flat.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_STATIC_PAN_ANGLED_WHITE_50S"
+	"File"  "static_pan_angled_white.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_STATIC_PAN_ANGLED_WHITE_80S"
+	"File"  "static_pan_angled_white_80s.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_STATIC_PAN_ANGLED_BLACK_50S"
+	"File"  "static_pan_angled_black.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_STATIC_PAN_ANGLED_BLACK_70S"
+	"File"  "static_pan_angled_black_70s.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_STATIC_PAN_ANGLED_BLACK_80S"
+	"File"  "static_pan_angled_black_80s.vmf"
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_RETRO_WOOD_WHITE"
+	"AddIfMat"  "BEE2/bullseye/under_wood_003a"
+	"AddIfMat"  "BEE2/bullseye/under_wood_003d"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/under_wood_003a.vmt"
+		"File" "materials/BEE2/bullseye/under_wood_003d.vmt"
+		"File" "materials/BEE2/bullseye/testchamber_mark.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_RETRO_50S_BLACK"
+	"AddIfMat"  "BEE2/bullseye/under_metal_wall"
+	"AddIfMat"  "BEE2/bullseye/under_plywood"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/under_plywood.vmt"
+		"File" "materials/BEE2/bullseye/under_metal_wall.vmt"
+		"File" "materials/BEE2/bullseye/testchamber_mark.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_RETRO_70S_BLACK"
+	"AddIfMat"  "BEE2/bullseye/under_conc_ceil2"
+	"AddIfMat"  "BEE2/bullseye/under_plywood_bottom"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/under_conc_ceil2.vmt"
+		"File" "materials/BEE2/bullseye/under_plywood_bottom.vmt"
+		"File" "materials/BEE2/bullseye/testchamber_mark.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_RETRO_80S_BLACK"
+	"AddIfMat"  "BEE2/bullseye/under_metal_ceil_80s"
+	"AddIfMat"  "BEE2/bullseye/under_conc_tile_80s"
+	"AddIfMat"  "BEE2/bullseye/under_metal_wall_80s"
+	"AddIfMat"  "BEE2/bullseye/under_white_tile"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/under_metal_ceil_80s.vmt"
+		"File" "materials/BEE2/bullseye/under_conc_tile_80s.vmt"
+		"File" "materials/BEE2/bullseye/under_metal_wall_80s.vmt"
+		"File" "materials/BEE2/bullseye/under_white_tile.vmt"
+		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_RETRO_80S_DECAL"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/80s_bullseye.vmt"
+		}
 	}
 	
 "PackList"
@@ -353,11 +667,169 @@
 	
 "PackList"
 	{
+	// Fixed version of the broken neon signs using UnLitGeneric
+	// The original was too dark to see clearly.
+	
+	// There are versions of the working ones two, all are rotated 90/270 degrees.
+	// This makes the antlines align to the direction of the line, slightly randomised.
+	"ID"       "PACK_BEE_RETRO_INDICATOR_LIGHT"
+	"AddIfMat" "BEE2/50s/indicator_norm_1"
+	"AddIfMat" "BEE2/50s/indicator_norm_2"
+	"AddIfMat" "BEE2/50s/indicator_broken_1"
+	"AddIfMat" "BEE2/50s/indicator_broken_2"
+	"Config" 
+		{
+		"File" "materials/BEE2/50s/indicator_norm_1.vmt"
+		"File" "materials/BEE2/50s/indicator_norm_2.vmt"
+		"File" "materials/BEE2/50s/indicator_broken_1.vmt"
+		"File" "materials/BEE2/50s/indicator_broken_2.vmt"
+		}
+	}	
+
+"PackList"
+	{
 	// World-brush version of repulsion gel.
 	"ID" "PACK_BRUSH_BOUNCE"
 	"Config"
 		{
 		"File" "materials/BEE2/blob_surface_bounce.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_SIGN_50s_TURRET"
+	"AddIfMat" "BEE2/50s/turret"
+	"Config" 
+		{
+		"File" "materials/BEE2/turret.vmt"
+		"File" "materials/BEE2/turret.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_SIGN_50S_GOO"
+	"AddIfMat" "BEE2/50s/toxic_goo"
+	"Config" 
+		{
+		"File" "materials/BEE2/toxic_goo.vmt"
+		"File" "materials/BEE2/toxic_goo.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_SIGN_50s_LBRIDGE"
+	"AddIfMat" "BEE2/50s/light_bridge"
+	"Config" 
+		{
+		"File" "materials/BEE2/light_bridge.vmt"
+		"File" "materials/BEE2/light_bridge.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_SIGN_50s_SPEED_GEL"
+	"AddIfMat" "BEE2/50s/paint_speed"
+	"Config" 
+		{
+		"File" "materials/BEE2/paint_speed.vmt"
+		"File" "materials/BEE2/paint_speed.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_SIGN_50s_LASER_RELAY"
+	"AddIfMat" "BEE2/50s/laser_relay"
+	"Config" 
+		{
+		"File" "materials/BEE2/laser_relay.vmt"
+		"File" "materials/BEE2/laser_relay.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_SIGN_50s_LASER_CUBE"
+	"AddIfMat" "BEE2/50s/laser_cube"
+	"Config" 
+		{
+		"File" "materials/BEE2/laser_cube.vmt"
+		"File" "materials/BEE2/laser_cube.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_SIGN_50s_FUNNEL"
+	"AddIfMat" "BEE2/50s/funnel"
+	"Config" 
+		{
+		"File" "materials/BEE2/funnel.vmt"
+		"File" "materials/BEE2/funnel.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_SIGN_50s_FUNNEL_POLARITY"
+	"AddIfMat" "BEE2/50s/funnel_polarity"
+	"Config" 
+		{
+		"File" "materials/BEE2/funnel_polarity.vmt"
+		"File" "materials/BEE2/funnel_polarity.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_SIGN_50s_BOX_DROPPER"
+	"AddIfMat" "BEE2/50s/box_dropper"
+	"Config" 
+		{
+		"File" "materials/BEE2/box_dropper.vmt"
+		"File" "materials/BEE2/box_dropper.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_SIGN_50s_BALL_DROPPER"
+	"AddIfMat" "BEE2/50s/ball_dropper"
+	"Config" 
+		{
+		"File" "materials/BEE2/ball_dropper.vmt"
+		"File" "materials/BEE2/ball_dropper.vtf"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_NOPAINT_METAL_CORRUGATED"
+	"Config"
+		{
+		"File" "materials/BEE2/no_paint/underground_metal_corrugated001.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BEE2_NOPAINT_PLYWOOD"
+	"Config"
+		{
+		"File" "materials/BEE2/no_paint/underground_plywood_01a_bottom.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BEE2_NOPAINT_SQUAREBEAMS_RUSTY"
+	"Config"
+		{
+		"File" "materials/BEE2/no_paint/squarebeams_rusty_01.vmt"
 		}
 	}
 	
@@ -486,11 +958,195 @@
 	
 "PackList"
 	{
-	"ID"       "PACK_BEE2_WORLD_SIGN_PELLET"
-	"AddIfMat" "BEE2/70s/signage_pellet"
+	"ID"       "PACK_BEE2_70S_SIGN_CATAPULT"
+	"AddIfMat" "BEE2/70s/signage_catapult"
 	"Config"
 		{
-		"File" "materials/BEE2/world/signage_pellet.vmt"
+		"File" "materials/BEE2/70s/signage_catapult.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_ARROW"
+	"AddIfMat" "BEE2/70s/signage_arrow"
+	"Config"
+		{
+		"File" "materials/BEE2/70s/signage_arrow.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_BALL_DROPPER"
+	"AddIfMat" "BEE2/70s/signage_ball_dispenser"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_ball_dispenser.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_BRIDGE"
+	"AddIfMat" "BEE2/70s/signage_bridge"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_bridge.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_EXIT"
+	"AddIfMat" "BEE2/70s/signage_exit"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_exit.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_LASER_CATCHER"
+	"AddIfMat" "BEE2/70s/signage_laser_catcher"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_laser_catcher.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_LASER_RELAY"
+	"AddIfMat" "BEE2/70s/signage_laser_relay"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_laser_relay.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_BOX_DROPPER"
+	"AddIfMat" "BEE2/70s/signage_overlay_boxdispenser"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_overlay_boxdispenser.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_BOX_HURT"
+	"AddIfMat" "BEE2/70s/signage_overlay_boxhurt"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_overlay_boxhurt.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_DOTS_1"
+	"AddIfMat" "BEE2/70s/signage_overlay_dots1"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_overlay_dots1.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_DOTS_1"
+	"AddIfMat" "BEE2/70s/signage_overlay_dots1"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_overlay_dots1.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_DOTS_2"
+	"AddIfMat" "BEE2/70s/signage_overlay_dots2"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_overlay_dots2.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_DOTS_3"
+	"AddIfMat" "BEE2/70s/signage_overlay_dots3"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_overlay_dots3.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_DOTS_4"
+	"AddIfMat" "BEE2/70s/signage_overlay_dots4"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_overlay_dots4.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_GOO"
+	"AddIfMat" "BEE2/70s/signage_overlay_fountain"
+	"AddIfMat" "BEE2/70s/signage_overlay_toxic"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_overlay_fountain.vmt"
+		"File" "materials/BEE2/signage_overlay_toxic.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_TBEAM"
+	"AddIfMat" "BEE2/70s/signage_tractor_beam"
+	"AddIfMat" "BEE2/70s/signage_tractor_polarity"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_tractor_beam.vmt"
+		"File" "materials/BEE2/signage_tractor_polarity.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_70S_SIGN_GEL_DROPPER"
+	"AddIfMat" "BEE2/70s/signage_paint_dispenser"
+	"Config" 
+		{
+		"File" "materials/BEE2/signage_paint_dispenser.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_80S_SIGN_PAINT_JUMP"
+	"AddIfMat" "BEE2/80s/signage_paint_jump"
+	"Config"
+		{
+		"File" "materials/BEE2/80s/signage_paint_jump.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_WORLD_SIGN_PELLET"
+	"AddIfMat" "BEE2/70s/signage_overlay_energyball"
+	"Config"
+		{
+		"File" "materials/BEE2/world/signage_overlay_energyball.vmt"
 		}
 	}
 	
@@ -548,11 +1204,23 @@
 	"ID"       "PACK_BEE2_RETRO_TRACK"
 	"Config"
 		{
-		"File" "retro_track_128.mdl"
-		"File" "retro_track_128.phy"
-		"File" "retro_track_128.vvd"
-		"File" "retro_track_128.dx90.vtx"
+		"File" "models/BEE2/props_ingame/retro_track_128.mdl"
+		"File" "models/BEE2/props_ingame/retro_track_128.phy"
+		"File" "models/BEE2/props_ingame/retro_track_128.vvd"
+		"File" "models/BEE2/props_ingame/retro_track_128.dx90.vtx"
 		}
+	}
+	
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_RETRO_MECH_PLATE_ANGLED"
+	"File"  "mech_plate_angled.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_RETRO_MECH_PLATE_STRAIGHT"
+	"File"  "mech_plate_straight.vmf"
 	}
 	
 "EditorSound"
@@ -690,7 +1358,7 @@
 			"Styles"
 				{
 				"BEE2_1950s"	"mandatory/50s/obs_grate"
-				"BEE2_1950s"	"mandatory/60s/obs_grate"
+				"BEE2_1960s"	"mandatory/60s/obs_grate"
 				"BEE2_1970s"	"mandatory/70s/obs_grate"
 				"BEE2_1980s"	"mandatory/80s/obs_grate"
 				}
@@ -838,7 +1506,9 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"pedestal_50s"
+				"BEE2_1950s"		"pedestal/50s"
+				"BEE2_1970s"		"pedestal/70s"
+				"BEE2_1980s"		"pedestal/80s"
 				}
 			}
 		}
@@ -851,7 +1521,7 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"light_warm"
-				"BEE2_1960s"		"light_cool"
+				"BEE2_1960s"		"light_cool_caged"
 				"BEE2_1970s"		"light_cool"
 				"BEE2_1980s"		"light_cool_noback"
 				}
@@ -866,7 +1536,7 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"light_cool"
-				"BEE2_1960s"		"light_warm"
+				"BEE2_1960s"		"light_warm_caged"
 				"BEE2_1970s"		"light_warm"
 				"BEE2_1980s"		"light_warm_noback"
 				}
@@ -909,8 +1579,9 @@
 			"Name"		"Gel-Plate"
 			"Styles"
 				{
-				"BEE2_1950s"		"gel_plate_50s"
-				"BEE2_1970s"		"gel_plate_70s"
+				"BEE2_1950s"		"gel_plate/50s"
+				"BEE2_1970s"		"gel_plate/70s"
+				"BEE2_1980s"		"gel_plate/80s"
 				}
 			}
 		"Version"
@@ -919,7 +1590,9 @@
 			"Name"		"Mechanical Plate"
 			"Styles"
 				{
-				"BEE2_1950s"		"mech_plate_50s"
+				"BEE2_1950s"		"mech_plate/50s"
+				"BEE2_1970s"		"mech_plate/70s"
+				"BEE2_1980s"		"mech_plate/80s"
 				}
 			}
 		}
@@ -978,6 +1651,18 @@
 		
 	"Item"
 		{
+		"ID" "ITEM_LASER_RELAY_CENTER"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"		"las_relay_50s"
+				}
+			}
+		}
+		
+	"Item"
+		{
 		"ID" "ITEM_PISTON_PLATFORM"
 		"Version"
 			{
@@ -1009,6 +1694,7 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"funnel_50s"
+				"BEE2_1970s"		"funnel_70s"
 				}
 			}
 		}
@@ -1035,6 +1721,20 @@
 				"BEE2_1950s"  "angled_pan_50s"
 				"BEE2_1970s"  "angled_pan_70s"
 				"BEE2_1980s"  "angled_pan_80s"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_PANEL_CLEAR"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"  "glass_pan_50s"
+				"BEE2_1970s"  "glass_pan_70s"
+				"BEE2_1980s"  "glass_pan_80s"
 				}
 			}
 		}

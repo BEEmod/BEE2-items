@@ -9,6 +9,7 @@
 	"Name"		"Portal 1 Style"
 	"ShortName"	"P1"
 	"Folder"	"p1"
+	"VPK_Name"  "VPK_BEE2_PORTAL_1"
 	"Icon"		"styles/portal1.png"
 	"Has_Video"	"0"
 	"Base"		""
@@ -29,11 +30,14 @@
 		{
 		"Quote"		"BEE2_GLADOS_P1"
 		"Music"		"<None>"
-		"Skybox"	"VALVE_BLACK"
-		"Goo"		"GOO_NORM"
+		"Skybox"	"BEE2_PORTAL_1"
 		}
 	"Corridors"
 		{
+		"Sp_entry"
+			{
+			"7" "Right Straight"
+			}
 		"Sp_exit"
 			{
 			"1"	"Black Straight"
@@ -51,6 +55,37 @@
 		}
 	}
 	
+"StyleVPK"
+	{
+	"ID"       "VPK_BEE2_PORTAL_1"
+	"Filename" "p1"
+	}
+	
+"SkyBox"
+	{
+	"ID"            "BEE2_PORTAL_1"
+	"Name"          "Portal 1"
+	"Group"         "2D"
+	"Icon"          "skies/p1_conc_wall.png"
+	"Material"      "sky_black"
+	"Authors"       "Valve"
+	"Description"   "The fog and skybox used in the original Portal 1."
+	
+	"Fog"
+		{
+		"start"     "64"
+        "end"       "3500"
+        "density"   "1"
+        
+        "primaryColor"      "58 82 101"
+        
+        "tonemap_rate"          "0.25"
+        "tonemap_brightpixels"  "5"
+        "tonemap_exposure_min"  "0.75"
+        "tonemap_exposure_max"  "1.3"
+        "tonemap_bloom_scale"   "0.2"
+		}
+	}
 
 "QuotePack"
 	{
@@ -69,8 +104,17 @@
 	{
 	"ID"            "P1_PORTED_PGUN"
 	"Name"          "Use P1 Portal Gun"
-	"Description"   "Use a ported version of the Portal 1 Portal gun in SP mode. It's clean, and has different grabbing animations."
+	"Description"   "Use a ported version of the Portal 1 Portal gun in SP mode. It's clean, and has different grabbing animations. This also adds the original P1 sound effects."
 	"Enabled"       "1"
+	"Style"         "BEE2_PORTAL_1"
+	}
+
+"StyleVar"
+	{
+	"ID"            "P1_WPORTAL_STRIPS"
+	"Name"          "Use WorldPortal Light Strips"
+	"Description"   "Use worldportals for the light strip tunnel. This looks really good, but can lower FPS. If many lights are used, disable this."
+	"Enabled"       "0"
 	"Style"         "BEE2_PORTAL_1"
 	}
 	
@@ -80,11 +124,19 @@
 	"Config" "pgun"
 	}
 	
+// When added, this overrides the sound FX used for portals and the player to match P1.
+"PackList"
+	{
+	"ID"     "BEE2_P1_PORTED_PGUN_SND"
+	"Config" "pgun_snd"
+	}
+	
 "PackList"
 	{
 	"ID"     "PACK_P1_TIM_SOUND"
 	"Config"
 		{
+		"File" "#scripts/bee2_snd/portal_sounds.txt"
 		"File" "sound/BEE2/p1/ticktock_lp.wav"
 		}
 	}
@@ -112,6 +164,12 @@
 	"ID"     "PACK_P1_LASERFIELD"
 	"Config" "laserfield"
 	}
+
+"PackList"
+	{
+	"ID"     "PACK_P1_CAMERA"
+	"Config" "camera"
+	}
 	
 "PackList"
 	{
@@ -122,8 +180,45 @@
 
 "PackList"
 	{
+	// A HL2 model used in obs rooms
 	"ID"    "PACK_P1_OBS_LIGHT"
 	"Config" "obs_light"
+	}
+
+"PackList"
+	{
+	// A shelf computer towers are often placed on.
+	"ID"    "PACK_P1_OBS_SHELF"
+	"Config" "obs_shelf"
+	}
+
+"PackList"
+	{
+	// The keyboard and mouse models.
+	// They share a material, so they also are packed together.
+	"ID"    "PACK_P1_OBS_KEYBOARD_MOUSE"
+	"Config" "obs_key_mouse"
+	}
+	
+// The non-dirty version of the radio
+"PackList"
+	{
+	"ID" "PACK_P1_RADIO_CLEAN"
+	"Config" "radio"
+	}
+	
+"PackList"
+	{
+	// The recessed lights at the top/bottom of white
+	// chambers.
+	"ID"    "PACK_P1_CONC_RECESSED_LIGHTS"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/light_recessedcool_glow.vmt"
+		
+		"File" "materials/BEE2/p1/modular_wall_light.vmt"
+		"File" "materials/BEE2/p1/overlay_light_gradient.vtf"
+		}
 	}
 	
 "PackList"
@@ -131,7 +226,19 @@
 	"ID"    "PACK_P1_ELEV_SOUND"
 	"Config"
 		{
-		"File" "sound/ambient/machines/wall_move5.wav"
+		"File" "#scripts/bee2_snd/portal_sounds.txt"
+		"File" "sound/BEE2/p1/wall_move5.wav"
+		"File" "sound/BEE2/p1/garage_stop1.wav"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_P1_CUBE_SND"
+	"Config"
+		{
+		"File" "#scripts/bee2_snd/portal_sounds.txt"
+		"File" "sound/BEE2/p1/doorstop1.wav"
 		}
 	}
 
@@ -140,7 +247,7 @@
 	"ID"     "PACK_P1_ORANGE_NOGLOW"
 	"Config"
 		{
-		"File" "materials/BEE2/p1/orange_noglow"
+		"File" "materials/BEE2/p1/orange_noglow.vmt"
 		}
 	}
 	
@@ -149,6 +256,7 @@
 	"ID" "PACK_P1_PANEL_SOUNDS"
 	"Config"
 		{
+		"File" "#scripts/bee2_snd/portal_sounds.txt"
 		"File" "sound/BEE2/p1/stair_stop.wav"
 		"File" "sound/BEE2/p1/panel_turn.wav"
 		}
@@ -157,10 +265,10 @@
 "PackList"
 	{
 	"ID"        "PACK_P1_ANTLINES"
-	"PackIfMat" "BEE2/ind_p1/corner_floor"
-	"PackIfMat" "BEE2/ind_p1/corner_wall"
-	"PackIfMat" "BEE2/ind_p1/straight_floor"
-	"PackIfMat" "BEE2/ind_p1/straight_wall"
+	"AddIfMat"  "BEE2/ind_p1/corner_floor"
+	"AddIfMat"  "BEE2/ind_p1/corner_wall"
+	"AddIfMat"  "BEE2/ind_p1/straight_floor"
+	"AddIfMat"  "BEE2/ind_p1/straight_wall"
 	"Config"
 		{
 		"File" "materials/BEE2/ind_p1/corner_floor.vmt"
@@ -175,7 +283,7 @@
 "PackList"
 	{
 	"ID"        "PACK_P1_GOO"
-	"PackIfMat" "BEE2/p1/goo/p1_goo"
+	"AddIfMat"  "BEE2/p1/goo/p1_goo"
 	"Config"
 		{
 		"File" "materials/BEE2/p1/goo/p1_goo.vmt"
@@ -189,17 +297,64 @@
 		"File" "materials/BEE2/p1/goo/waterb_normal.vtf"
 		}
 	}
+
+"PackList"
+	{
+	"ID" "PACK_P1_DOOR_FRAME"
+	"Config"
+		{
+		"File" "models/BEE2/props_p1/door_frame_thick.mdl"
+		"File" "models/BEE2/props_p1/door_frame_thick.phy"
+		"File" "models/BEE2/props_p1/door_frame_thick.vvd"
+		"File" "models/BEE2/props_p1/door_frame_thick.dx90.vtx"
+		}
+	}
 	
 "PackList"
 	{
 	"ID" "PACK_P1_FLOOR_BUTTON"
 	"Config"
 		{
-		"File" "floor_button_just_top.mdl"
-		"File" "floor_button_just_top.vvd"
-		"File" "floor_button_just_top.phy"
-		"File" "floor_button_just_top.dx90.vtx"
+		"File" "models/BEE2/props_p1/floor_button_top.mdl"
+		"File" "models/BEE2/props_p1/floor_button_top.vvd"
+		"File" "models/BEE2/props_p1/floor_button_top.phy"
+		"File" "models/BEE2/props_p1/floor_button_top.dx90.vtx"
 		
+		"File" "models/BEE2/props_p1/floor_button_base.mdl"
+		"File" "models/BEE2/props_p1/floor_button_base.vvd"
+		"File" "models/BEE2/props_p1/floor_button_base.phy"
+		"File" "models/BEE2/props_p1/floor_button_base.dx90.vtx"
+		
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vmt"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_exponent.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_normal.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_P1_FLOOR_BUTTON_NOBASE"
+	"Config"
+		{
+		"File" "models/BEE2/props_p1/floor_button_nobase.mdl"
+		"File" "models/BEE2/props_p1/floor_button_nobase.vvd"
+		"File" "models/BEE2/props_p1/floor_button_nobase.phy"
+		"File" "models/BEE2/props_p1/floor_button_nobase.dx90.vtx"
+		
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vmt"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_exponent.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_normal.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_P1_FLOOR_BUTTON_SND"
+	"Config"
+		{
+		"File" "#scripts/bee2_snd/portal_sounds.txt"
 		"File" "sound/BEE2/p1/btn_down.wav"
 		"File" "sound/BEE2/p1/btn_up.wav"
 		}
@@ -207,11 +362,31 @@
 	
 "PackList"
 	{
+	"ID"        "PACK_P1_GEL_DROPPER"
+	"Config"
+		{
+		"File"  "models/BEE2/props_ingame/p1_gel_dropper.mdl"
+		"File"  "models/BEE2/props_ingame/p1_gel_dropper.vvd"
+		"File"  "models/BEE2/props_ingame/p1_gel_dropper.phy"
+		"File"  "models/BEE2/props_ingame/p1_gel_dropper.dx90.vtx"
+		
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_grey.vmt"
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_white.vmt"
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_water.vmt"
+		
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_grey.vtf"
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_white.vtf"
+		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_water.vtf"
+		}
+	}
+	
+"PackList"
+	{
 	"ID"        "PACK_P1_BTS_WALLS"
-	"PackIfMat" "BEE2/p1/metalwall_bts_006a"
-	"PackIfMat" "BEE2/p1/metalwall_bts_006b"
-	"PackIfMat" "BEE2/p1/metalwall_bts_006c_gradient"
-	"PackIfMat" "BEE2/p1/metalwall_bts_006d_gradient"
+	"AddIfMat"  "BEE2/p1/metalwall_bts_006a"
+	"AddIfMat"  "BEE2/p1/metalwall_bts_006b"
+	"AddIfMat"  "BEE2/p1/metalwall_bts_006c_gradient"
+	"AddIfMat"  "BEE2/p1/metalwall_bts_006d_gradient"
 	"Config"
 		{
 		"File" "materials/BEE2/p1/metalwall_bts_006a.vmt"
@@ -232,7 +407,7 @@
 "PackList"
 	{
 	"ID"        "PACK_P1_BLACK_WALL_LARGE"
-	"PackIfMat" "BEE2/p1/metalwall048b_lrg"
+	"AddIfMat"  "BEE2/p1/metalwall048b_lrg"
 	"Config"
 		{
 		"File" "materials/BEE2/p1/metalwall048b_lrg.vmt"
@@ -242,11 +417,25 @@
 		"File" "materials/BEE2/p1/metalwall048b_lrg_normal.vtf"
 		}
 	}
+	
+"PackList"
+	{
+	// Large tile with white fade out
+	"ID"        "PACK_P1_BLACK_WALL_LARGE_FADE"
+	"AddIfMat"  "BEE2/p1/metalwall048b_lrg_fade"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall048b_lrg_fade.vmt"
+		"File" "materials/BEE2/p1/metalwall048b_lrg_fade.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_lrg_height-ssbump.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_lrg_normal.vtf"
+		}
+	}
 
 "PackList"
 	{
 	"ID"        "PACK_P1_BLACK_WALL_MED"
-	"PackIfMat" "BEE2/p1/metalwall048b_med"
+	"AddIfMat"  "BEE2/p1/metalwall048b_med"
 	"Config"
 		{
 		"File" "materials/BEE2/p1/metalwall048b_med.vmt"
@@ -297,6 +486,101 @@
 		}
 	}
 	
+"PackList"
+	{
+	// Model which creates an illusuary hole, similar to clean lights.
+	"ID"    "BEE2_P1_LIGHT_HOLE_MODEL"
+	"Config"
+		{
+		"File"  "models/BEE2/props_p1/light_hole_small.mdl"
+		"File"  "models/BEE2/props_p1/light_hole_small.phy"
+		"File"  "models/BEE2/props_p1/light_hole_small.vvd"
+		"File"  "models/BEE2/props_p1/light_hole_small.dx90.vtx"
+		
+		"File"  "materials/BEE2/models/props_p1/light_hole/wall_white.vmt"
+		"File"  "materials/BEE2/models/props_p1/light_hole/wall_orange.vmt"
+		"File"  "materials/BEE2/models/props_p1/light_hole/wall_black.vmt"
+		"File"  "materials/BEE2/models/props_p1/light_hole/wall_blue.vmt"
+		
+		"File"  "materials/BEE2/models/props_p1/light_hole/light_white.vmt"
+		"File"  "materials/BEE2/models/props_p1/light_hole/light_orange.vmt"
+		"File"  "materials/BEE2/models/props_p1/light_hole/light_black.vmt"
+		"File"  "materials/BEE2/models/props_p1/light_hole/light_blue.vmt"
+		
+		"File"  "materials/BEE2/models/props_p1/light_hole/glow_white.vtf"
+		"File"  "materials/BEE2/models/props_p1/light_hole/glow_orange.vtf"
+		"File"  "materials/BEE2/models/props_p1/light_hole/glow_blue.vtf"
+		"File"  "materials/BEE2/models/props_p1/light_hole/glow_black.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_P1_CONC_WALL"
+	"AddIfMat"  "BEE2/bullseye/concrete_modular_wall"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/concrete_modular_wall.vmt"
+		"File" "materials/BEE2/bullseye/concrete_modular_wall.vtf"
+		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_P1_CONC_FLOOR"
+	"AddIfMat"  "BEE2/bullseye/concrete_modular_floor"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/concrete_modular_floor.vmt"
+		"File" "materials/BEE2/bullseye/concrete_modular_floor.vtf"
+		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_BULLSEYE_P1_METALWALL"
+	"AddIfMat"  "BEE2/bullseye/metalwall48"
+	"Config"
+		{
+		"File" "materials/BEE2/bullseye/metalwall48.vmt"
+		"File" "materials/BEE2/bullseye/metalwall48.vtf"
+		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_med_height-ssbump.vtf"
+		"File" "materials/BEE2/p1/metalwall048b_med_normal.vtf"
+		}
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_STATIC_PAN_FLAT_P1"
+	"File"  "static_pan_flat.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_STATIC_PAN_ANGLED_P1"
+	"File"  "static_pan_angled.vmf"
+	}
+	
+// The UV axis data from these brushes are used to define the
+// rotation of brushes.
+"BrushTemplate"
+	{
+	"ID"    "BEE2_P1_GLASS_TEMPLATE"
+	"File"  "glass_template.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_P1_GRATING_TEMPLATE"
+	"File"  "grating_template.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_FLOOR_BUTTON_BASE_P1_WHITE"
+	"File"  "button_base_white.vmf"
+	}
 	
 "Overrides"
 	{

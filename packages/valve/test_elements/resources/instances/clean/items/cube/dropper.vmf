@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "250"
+	"mapversion" "261"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -74,7 +74,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "250"
+	"mapversion" "261"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1678,8 +1678,13 @@ entity
 	"classname" "point_template"
 	"spawnflags" "0"
 	"targetname" "cube_template"
-	"Template01" "box"
-	"Template02" "rex_pellet_trig"
+	"Template01" "cube_ents_*"
+	"Template02" "box"
+	connections
+	{
+		"OnEntitySpawned" "cube_ents_*FireUser10-1"
+		"OnEntitySpawned" "box*FireUser40-1"
+	}
 	"origin" "0 0 -32"
 	editor
 	{
@@ -1688,30 +1693,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 15500]"
-	}
-}
-entity
-{
-	"id" "38"
-	"classname" "env_entity_maker"
-	"angles" "0 0 0"
-	"EntityTemplate" "cube_dropper_box_template"
-	"PostSpawnDirection" "0 0 0"
-	"PostSpawnDirectionVariance" "0"
-	"spawnflags" "0"
-	"targetname" "cube_dropper_box_spawner"
-	connections
-	{
-		"OnEntitySpawned" "rex_pellet_trig*FireUser10-1"
-	}
-	"origin" "0 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "17"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 16000]"
 	}
 }
 entity

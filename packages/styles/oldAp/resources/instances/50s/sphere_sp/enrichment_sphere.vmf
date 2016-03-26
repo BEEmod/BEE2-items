@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "1146"
+	"mapversion" "1158"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -44,13 +44,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "256"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "1146"
+	"mapversion" "1158"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -3405,7 +3405,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
-	"origin" "-1234.35 2044 -1024"
+	"origin" "-1234 2044 -1024"
 	editor
 	{
 		"color" "255 255 0"
@@ -7520,24 +7520,6 @@ entity
 }
 entity
 {
-	"id" "248700"
-	"classname" "point_teleport"
-	"angles" "0 90 0"
-	"spawnflags" "0"
-	"target" "!player"
-	"targetname" "@test_dome_lift_entry_teleport"
-	"origin" "-825.005 -56.9944 -1391.3"
-	editor
-	{
-		"color" "126 155 0"
-		"groupid" "248955"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "248702"
 	"classname" "trigger_once"
 	"origin" "-825 -56.99 -1347.3"
@@ -11618,8 +11600,9 @@ entity
 	"StartDisabled" "0"
 	connections
 	{
-		"OnTrigger" "@exit_door_closeTrigger0-1"
+		"OnTrigger" "@exit_door_closeTrigger0.1-1"
 		"OnTrigger" "@musicStopSound0-1"
+		"OnTrigger" "@musicKill0.01-1"
 	}
 	solid
 	{
@@ -12908,6 +12891,11 @@ entity
 	"startactive" "1"
 	"targetname" "@exit_portal_outside"
 	"width" "64"
+	connections
+	{
+		"OnPlayerTeleportToMe" "@close_exit_portalCancelPending01"
+		"OnPlayerTeleportToMe" "@close_exit_portalKill0.011"
+	}
 	"origin" "-1216 1920 -960"
 	editor
 	{
@@ -12944,7 +12932,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
-	"origin" "-1234.35 2112 -1024"
+	"origin" "-1234 2112 -1024"
 	editor
 	{
 		"color" "255 255 0"
@@ -12981,7 +12969,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
-	"origin" "-947.015 2112 -896"
+	"origin" "-948 2112 -896"
 	editor
 	{
 		"color" "255 255 0"
@@ -17576,7 +17564,7 @@ entity
 	"spawnflags" "0"
 	"target" "!player"
 	"targetname" "@arrival_teleport"
-	"origin" "-825.575 -56.4504 -1393.17"
+	"origin" "-824 -56 -1392"
 	editor
 	{
 		"color" "220 30 220"
@@ -18624,7 +18612,6 @@ entity
 	{
 		"OnTrigger" "@player_start_teleportTeleport0.5-1"
 		"OnTrigger" "@entrance_door_open_rlTrigger1.51"
-		"OnTrigger" "pre_paint_rlTrigger0-1"
 		"OnTrigger" "player_door_triggerKill0-1"
 		"OnTrigger" "@preview_restart_triggerEnable0-1"
 	}
@@ -18682,8 +18669,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-655.088 2064.7 518.426]"
-		"look" "[-671.788 2061.63 457.614]"
+		"position" "[-1366.05 2093.89 -860.756]"
+		"look" "[-1320.84 2071.82 -898.93]"
 	}
 	camera
 	{

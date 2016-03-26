@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "266"
+	"mapversion" "269"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -80,7 +80,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "266"
+	"mapversion" "269"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -5994,6 +5994,7 @@ entity
 	{
 		"OnStartTouch" "cube_dropper_box_drop_clipEnable0-1"
 		"OnStartTouch" "spawn_manSetStateBTrue0.1-1"
+		"OnStartTouch" "cube_dropper_box_settle_triggerDisable0-1"
 	}
 	solid
 	{
@@ -6128,6 +6129,7 @@ entity
 		"OnEndTouchAll" "cube_dropper_close_triggerDisable0.2-1"
 		"OnEndTouchAll" "cube_dropper_modelSetAnimationitem_dropper_close0.1-1"
 		"OnEndTouchAll" "cube_dropper_box_reenter_clipEnable0-1"
+		"OnEndTouchAll" "cube_dropper_box_settle_triggerEnable0-1"
 	}
 	solid
 	{
@@ -6239,9 +6241,10 @@ entity
 	"spawnflags" "0"
 	"targetname" "cube_template"
 	"Template01" "box"
-	"Template02" "rex_pellet_trig"
+	"Template02" "cube_ents_*"
 	connections
 	{
+		"OnEntitySpawned" "cube_ents_*FireUser10-1"
 		"OnEntitySpawned" "box*FireUser40-1"
 	}
 	"origin" "0 0 -32"
@@ -6671,6 +6674,7 @@ entity
 	connections
 	{
 		"OnEndTouchAll" "!activatorEnablePortalFunnel0-1"
+		"OnEndTouchAll" "cube_dropper_box_settle_triggerEnable0-1"
 	}
 	solid
 	{

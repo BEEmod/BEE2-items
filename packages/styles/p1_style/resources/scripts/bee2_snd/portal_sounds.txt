@@ -1,0 +1,112 @@
+// A version of the ticktock sound, which loops.
+
+"BEE2.p1.tick_tock"
+	{
+	"channel"	  "CHAN_STATIC"
+	"volume"	  "0.8"
+	"soundlevel"  "SNDLVL_NONE"
+	"wave"        "BEE2/p1/ticktock_lp.wav"
+	}
+
+"BEE2.p1.panel_turn"
+	{
+	"channel"       "CHAN_ITEM"
+	"volume"        "0.8"
+	"pitch"         "100"
+	"soundlevel"    "SNDLVL_80DB"
+	"wave"          "BEE2/p1/panel_turn.wav"
+	}
+	
+// Originally doors/door_metal_medium_open1.wav
+"BEE2.P1.stair_clack"
+	{
+	"channel"	"CHAN_ITEM"
+	"volume"	"0.85"
+	"soundlevel"  "SNDLVL_90dB"
+	"pitch"		"90,110"
+	"wave"	"BEE2/p1/stair_stop.wav"
+	
+	"soundentry_version" "2"
+	"operator_stacks"
+		{
+		"start_stack"
+			{
+			// Prevent multiple versions of this from playing at the same time..
+			"stop_others"
+				{   
+				"input_duration" "0.5"
+				"input_execute" "1"	
+				"operator" "sys_block_entries"
+				"match_entity" "false"
+				"match_substring" "false"
+				
+				"match_entry" "BEE2.P1.stair_stop"
+				}
+			}
+		}
+	}
+
+
+"BEE2.P1.elev_start"
+{
+	"channel"	"CHAN_AUTO"
+	"volume"	"0.9"
+	"soundlevel"  "SNDLVL_85dB"
+	"pitch"		"100"
+	"wave"	"BEE2/p1/wall_move5.wav"
+}
+
+"BEE2.P1.elev_stop"
+{
+	"channel"	"CHAN_BODY"
+	"volume"	"1"
+	"soundlevel"  "SNDLVL_100dB"
+	"pitch"		"90,110"
+	"wave"	"BEE2/p1/garage_stop1.wav"
+}
+
+
+"BEE2.P1.cdrop_open"
+{
+	"channel" "CHAN_ITEM"
+	"volume" "1"
+	"soundlevel" "SNDLVL_100dB"
+	"wave" "machines/doormove2.wav"
+}
+
+"BEE2.P1.cdrop_close"
+{
+	"channel"	"CHAN_ITEM"
+	"volume"	"1.5"
+	"soundlevel"  "SNDLVL_100dB"
+	"wave" "BEE2/p1/doorstop1.wav"
+}
+
+
+"BEE2.P1.button_down"
+{
+	"channel"       "CHAN_ITEM"
+	"volume"        "0.7"
+	"soundlevel"    "SNDLVL_75dB"
+	"pitch"         "90"
+	"wave"          "BEE2/p1/btn_down.wav"
+}
+
+"BEE2.P1.button_up"
+{
+	"channel"       "CHAN_ITEM"
+	"volume"        "0.9"
+	"soundlevel"    "SNDLVL_75dB"
+	"pitch"         "80"
+	"wave"          "BEE2/p1/btn_up.wav"
+}
+
+"BEE2.p1.scaffold_move"
+	{
+	"channel"       "CHAN_ITEM"
+	"volume"        "0.8"
+	"pitch"         "100"
+	"soundlevel"    "SNDLVL_80DB"
+	"wave"          "BEE2/p1/scaffold_loop.wav"
+	}
+

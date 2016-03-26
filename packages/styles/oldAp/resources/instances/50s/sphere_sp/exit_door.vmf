@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "181"
+	"mapversion" "188"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,34 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "181"
+	"mapversion" "188"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
+}
+entity
+{
+	"id" "8799"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "@close_exit_portal"
+	connections
+	{
+		"OnSpawn" "branch_toggleTest11"
+		"OnTrigger" "@exit_portal_insideClose1.7-1"
+	}
+	"origin" "56 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
@@ -370,6 +391,7 @@ entity
 		"OnTrigger" "door_hurterDisable2-1"
 		"OnTrigger" "@exit_areaportalClose2.2-1"
 		"OnTrigger" "clipEnable0-1"
+		"OnTrigger" "in_exit_doorTouchTest0.5-1"
 	}
 	"origin" "56 -16 0"
 	editor
@@ -395,6 +417,8 @@ entity
 		"OnTrigger" "door_hurterDisable0-1"
 		"OnTrigger" "@exit_areaportalOpen0-1"
 		"OnTrigger" "clipDisable0-1"
+		"OnTrigger" "@exit_portal_insideOpen0-1"
+		"OnTrigger" "@close_exit_portalCancelPending0-1"
 	}
 	"origin" "56 16 0"
 	editor
@@ -595,9 +619,10 @@ entity
 {
 	"id" "6850"
 	"classname" "trigger_multiple"
-	"origin" "64 0 -308"
+	"origin" "64 0 -300"
 	"spawnflags" "4097"
 	"StartDisabled" "0"
+	"targetname" "in_exit_door"
 	"wait" "1"
 	connections
 	{
@@ -605,6 +630,7 @@ entity
 		"OnEndTouch" "@relay_leaving_levelDisable0-1"
 		"OnStartTouch" "@voice_exitTrigger01"
 		"OnStartTouch" "@autosaveSave01"
+		"OnNotTouching" "@close_exit_portalTrigger0-1"
 	}
 	solid
 	{
@@ -612,7 +638,7 @@ entity
 		side
 		{
 			"id" "1920"
-			"plane" "(248 -184 -88) (248 -184 -528) (-120 -184 -528)"
+			"plane" "(248 -184 -72) (248 -184 -528) (-120 -184 -528)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -32] 0.25"
 			"vaxis" "[-1 0 0 -4] 0.25"
@@ -623,7 +649,7 @@ entity
 		side
 		{
 			"id" "1919"
-			"plane" "(-120 183.999 -88) (-120 184 -528) (248 184 -528)"
+			"plane" "(-120 184 -72) (-120 184 -528) (248 184 -528)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[-1 0 0 -4] 0.25"
@@ -634,7 +660,7 @@ entity
 		side
 		{
 			"id" "1918"
-			"plane" "(248 183.997 -88) (248 183.997 -528) (248 -184 -528)"
+			"plane" "(248 184 -72) (248 184 -528) (248 -184 -528)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[0 1 0 63.8535] 0.25"
@@ -645,7 +671,7 @@ entity
 		side
 		{
 			"id" "1917"
-			"plane" "(-120 -184 -88) (-120 -184 -528) (-120 184 -528)"
+			"plane" "(-120 -184 -72) (-120 -184 -528) (-120 184 -528)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[0 1 0 63.8535] 0.25"
@@ -656,7 +682,7 @@ entity
 		side
 		{
 			"id" "1916"
-			"plane" "(248 -184 -88) (-120 -184 -88) (-120 183.998 -88)"
+			"plane" "(248 -184 -72) (-120 -184 -72) (-120 184 -72)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 3.8555] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -667,7 +693,7 @@ entity
 		side
 		{
 			"id" "1915"
-			"plane" "(248 183.998 -528) (-120 183.998 -528) (-120 -184 -528)"
+			"plane" "(248 184 -528) (-120 184 -528) (-120 -184 -528)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 36] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -708,24 +734,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6022"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest1-1"
-	}
-	"origin" "56 0 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
 	}
 }
 entity
