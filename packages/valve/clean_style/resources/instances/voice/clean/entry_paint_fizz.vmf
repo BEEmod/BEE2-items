@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "1"
+	"mapversion" "3"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,19 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "1"
+	"mapversion" "3"
 	"classname" "worldspawn"
-	"maxblobcount" "250"
-	"skyname" "sky_black_nofog"
-	"maxpropscreenwidth" "-1"
-	"detailvbsp" "detail.vbsp"
 	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
 }
 entity
 {
@@ -39,8 +39,9 @@ entity
 	connections
 	{
 		"OnCompletion" "@glados_enter_2Start0-1"
+		"OnUser1" "!selfStart0-1"
 	}
-	"origin" "0 0 32"
+	"origin" "-16 0 16"
 	editor
 	{
 		"color" "0 0 255"
@@ -57,7 +58,7 @@ entity
 	"onplayerdeath" "0"
 	"SceneFile" "scenes/npc/glados/sp_paint_jump_trampoline_entry01.vcd"
 	"targetname" "@glados_enter_2"
-	"origin" "0 0 -32"
+	"origin" "-16 0 -16"
 	editor
 	{
 		"color" "0 0 255"
