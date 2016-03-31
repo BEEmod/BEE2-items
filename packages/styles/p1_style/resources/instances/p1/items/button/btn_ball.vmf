@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "54"
+	"mapversion" "69"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "54"
+	"mapversion" "69"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -150,12 +150,40 @@ world
 }
 entity
 {
-	"id" "683"
-	"classname" "prop_floor_ball_button"
+	"id" "732"
+	"classname" "prop_dynamic"
 	"angles" "0 0 0"
+	"DisableBoneFollowers" "0"
+	"disableflashlight" "0"
+	"disableshadowdepth" "0"
+	"disableshadows" "0"
+	"disableX360" "0"
+	"drawinfastreflection" "0"
+	"ExplodeDamage" "0"
+	"ExplodeRadius" "0"
+	"fademaxdist" "0"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"HoldAnimation" "0"
+	"MaxAnimTime" "10"
+	"maxcpulevel" "0"
+	"maxgpulevel" "0"
+	"MinAnimTime" "5"
+	"mincpulevel" "0"
+	"mingpulevel" "0"
+	"model" "models/bee2/props_ingame/ball_button_just_top.mdl"
+	"PerformanceMode" "0"
+	"pressuredelay" "0"
+	"RandomAnimation" "0"
 	"renderamt" "255"
-	"rendercolor" "214 214 214"
-	"targetname" "button"
+	"rendercolor" "214 214 198"
+	"SetBodyGroup" "0"
+	"shadowdepthnocache" "0"
+	"skin" "0"
+	"solid" "0"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "top_mdl"
 	connections
 	{
 		"OnPressed" "pTrigger0-1"
@@ -164,7 +192,7 @@ entity
 		"OnUnPressed" "suPlaySound0-1"
 		"OnPressed" "sdPlaySound0-1"
 	}
-	"origin" "0 0 -61"
+	"origin" "0 0 -64"
 	editor
 	{
 		"color" "220 30 220"
@@ -175,13 +203,13 @@ entity
 }
 entity
 {
-	"id" "644"
+	"id" "706"
 	"classname" "prop_static"
 	"angles" "0 180 0"
 	"drawinfastreflection" "1"
 	"fademindist" "-1"
 	"fadescale" "1"
-	"model" "models/bee2/props_p1/floor_button_nobase.mdl"
+	"model" "models/bee2/props_p1/sphere_button_base.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
@@ -190,6 +218,34 @@ entity
 	editor
 	{
 		"color" "255 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "683"
+	"classname" "prop_floor_ball_button"
+	"angles" "0 0 0"
+	"renderamt" "255"
+	"rendercolor" "128 128 128"
+	"rendermode" "10"
+	"targetname" "button"
+	connections
+	{
+		"OnPressed" "pTrigger0-1"
+		"OnUnPressed" "pFireUser10-1"
+		"OnPressed" "@glados_ballStart0-1"
+		"OnUnPressed" "suPlaySound0-1"
+		"OnPressed" "sdPlaySound0-1"
+		"OnPressed" "top_mdlSetPlaybackRate10-1"
+		"OnUnPressed" "top_mdlSetPlaybackRate-10-1"
+	}
+	"origin" "0 0 -64"
+	editor
+	{
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -247,6 +303,8 @@ entity
 	{
 		"OnTrigger" "proxyProxyRelay0-1"
 		"OnUser1" "proxyProxyRelay0-1"
+		"OnSpawn" "top_mdlSetPlaybackRate-10.011"
+		"OnSpawn" "top_mdlSetAnimationdown01"
 	}
 	"origin" "-57.0676 -35.094 -55"
 	editor
