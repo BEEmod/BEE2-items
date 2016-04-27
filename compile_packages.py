@@ -40,6 +40,11 @@ def clean_vmf(vmf_path):
             print('Removing info_null...')
             inst.remove_ent(ent)
             continue
+            
+        # All instances must be in bee2/, so any reference outside there is a map error!
+        if ent['classname'] == 'func_instance':
+            if not ent['file'].casefold().replace('\\','/').startswith('instances/bee2/'):
+                raise Exception('Invalid instance path "{}" in\n"{}"!'.format(ent['file'], vmf_path))
 
         for solid in ent.solids[:]:
             if all(face.mat.casefold() == 'tools/toolsskip' for face in solid):
