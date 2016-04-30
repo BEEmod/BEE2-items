@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "8"
+	"mapversion" "267"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,47 +14,38 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "8"
+	"mapversion" "267"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
-	"skyname" "sky_black_nofog"
+	"skyname" "sky_day01_01"
 }
 entity
 {
-	"id" "5"
-	"classname" "prop_weighted_cube"
-	"allowfunnel" "0"
-	"angles" "0 270 -180"
-	"CubeType" "$cube_type"
-	"model" "models/props/metal_box.mdl"
-	"NewSkins" "1"
-	"PaintPower" "4"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"skin" "0"
-	"SkinType" "0"
-	"targetname" "box"
+	"id" "22"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "voice_rl"
 	connections
 	{
-		"OnFizzled" "voice_rlTrigger0-1"
-		"OnFizzled" "voice_rlFireUser10-1"
+		"OnTrigger" "@voice_cube_redropFireUser10-1"
 	}
-	"origin" "-6.8662e-006 -5.72205e-006 -148"
+	"origin" "16 48 48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 15000]"
+		"logicalpos" "[500 2000]"
 	}
 }
 cameras

@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "4"
+	"mapversion" "7"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "4"
+	"mapversion" "7"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -42,8 +42,11 @@ entity
 	"targetname" "box"
 	connections
 	{
-		"OnFizzled" "cube_dropper_autorespawn_relayTrigger0-1"
-		"OnPlayerPickup" "@franken_cube_picked_upStart01"
+		"OnPlayerPickup" "@voice_franken_pickupFireUser101"
+		"OnFizzled" "voice_rlFireUser10-1"
+		"OnFizzled" "voice_rlTrigger0-1"
+		"OnPhysGunPickup" "@voice_franken_pickupFireUser101"
+		"OnPlayerUse" "@voice_franken_pickupFireUser101"
 	}
 	"origin" "-6.8662e-006 -5.72205e-006 -146"
 	editor
