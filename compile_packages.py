@@ -13,7 +13,7 @@ BEE2_LOCATION = '../BEE2.4/src'
 sys.path.append(BEE2_LOCATION)
 
 import utils
-from property_parser import Property
+from property_parser import Property, KeyValError
 import vmfLib as VLib
 
 OPTIMISE = False
@@ -40,6 +40,11 @@ def clean_vmf(vmf_path):
             print('Removing info_null...')
             inst.remove_ent(ent)
             continue
+            
+        # All instances must be in bee2/, so any reference outside there is a map error!
+        if ent['classname'] == 'func_instance':
+            if not ent['file'].casefold().replace('\\','/').startswith('instances/bee2/'):
+                raise Exception('Invalid instance path "{}" in\n"{}"!'.format(ent['file'], vmf_path))
 
         for solid in ent.solids[:]:
             if all(face.mat.casefold() == 'tools/toolsskip' for face in solid):
@@ -75,6 +80,18 @@ def clean_vmf(vmf_path):
 # Text files we should clean up.
 PROP_EXT = ('.cfg', '.txt', '.vmt', '.nut')
 def clean_text(file_path):
+    # Try and parse as a property file. If it succeeds,
+    # write that out - it removes excess whitespace between lines
+    with open(file_path, 'r') as f:
+        try: 
+            props = Property.parse(f)
+        except KeyValError:
+            pass
+        else:
+            for line in props.export():
+                yield line.lstrip()
+            return
+    
     with open(file_path, 'r') as f:
         for line in f:
             if line.isspace():
@@ -82,9 +99,9 @@ def clean_text(file_path):
             if line.lstrip().startswith('//'):
                 continue
             # Remove // comments, but only if the comment doesn't have
-            # a quote char after it - in prop files that's allowed,
+            # a quote char after it - it could be part of the string,
             # so leave it just to be safe.
-            if '//' in line and line.rfind('"') < line.index('//'):
+            if '//' in line and '"' not in line:
                 yield line.split('//')[0] + '\n'
             else:
                 yield line.lstrip()

@@ -1,6 +1,10 @@
 // Play voicelines in Coop when players do various events.
 // Based off of code in glados_coop.nut
+
+// Time since last death - we only trigger once every 10 seconds.
 BEE2_LastDeathTime <- -100;
+
+BEE2_PLAY_DING <- false; //Play ding_on and off before/after lines.
 
 // Include the data script
 DoIncludeScript("BEE2/coop_response_data", self.GetScriptScope())
@@ -19,13 +23,13 @@ function BEE2_play_line(channel, ch_arg) {
 	// Play a voiceline. Channel is the type (death, taunt), 
 	// and ch_arg is the subcatagory (damage type, animation)
 	if (!ch_arg) {
-		ch_arg = "generic"
+		ch_arg = "generic";
 	}
 	local line_key = channel + "_" + ch_arg;
 	if (!(line_key in BEE2_RESPONSES)) {
 	
 		if (ch_arg != "generic") {
-			BEE2_play_line(channel, "generic");
+			BEE2_play_line(channel, null);
 		} else {
 			printl("Invalid channel: " + channel);
 		}
@@ -43,8 +47,15 @@ function BEE2_play_line(channel, ch_arg) {
 	printl("Playing " + line_key + " #" + line_index);
 	
 	BEE2_VOICE = lines[line_index];
-
-	EntFireByHandle(BEE2_VOICE, "Start", "", 0.00, null, null)
+	
+	if (BEE2_PLAY_DING) {
+		EntFire("@ding_on", "Start", "", 0.00);
+		// ding_on lasts about 0.2 seconds.
+		EntFireByHandle(BEE2_VOICE, "Start", "", 0.20, null, null)
+		EntFireByHandle(BEE2_VOICE, "AddOutput", "OnCompletion @ding_off,Start,,0,-1", 0.00, null, null)
+	} else {
+		EntFireByHandle(BEE2_VOICE, "Start", "", 0.00, null, null)
+	}
 	EntFireByHandle(BEE2_VOICE, "AddOutput", "OnCompletion !self,Kill,,0,-1", 0.00, null, null)
 
 	// Don't play this again.
