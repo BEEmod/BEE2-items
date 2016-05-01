@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "12"
+	"mapversion" "13"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "12"
+	"mapversion" "13"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -48,14 +48,19 @@ entity
 {
 	"id" "2"
 	"classname" "prop_monster_box"
-	"AllowSilentDissolve" "0"
+	"AllowSilentDissolve" "1"
 	"angles" "0 0 0"
 	"BoxSwitchSpeed" "400"
 	"model" "models/npcs/monsters/monster_a.mdl"
 	"renderamt" "255"
-	"rendercolor" "255 255 255"
+	"rendercolor" "200 200 200"
 	"StartAsBox" "0"
 	"targetname" "cube"
+	connections
+	{
+		"OnPlayerPickup" "@voice_franken_pickupFireUser101"
+		"OnFizzled" "@voice_cube_destFireUser101"
+	}
 	"origin" "0 0 -24"
 	editor
 	{

@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "299"
+	"mapversion" "301"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -68,13 +68,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "299"
+	"mapversion" "301"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -4585,29 +4585,6 @@ entity
 }
 entity
 {
-	"id" "22"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "$disable_autorespawn"
-	"targetname" "cube_dropper_autorespawn_relay"
-	connections
-	{
-		"OnTrigger" "cube_dropper_gate_relayTrigger0-1"
-		"OnTrigger" "glados_wh_companionTrigger0.1-1"
-		"OnTrigger" "glados_wh_cubeTrigger0.1-1"
-	}
-	"origin" "16 48 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "16"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 2000]"
-	}
-}
-entity
-{
 	"id" "24"
 	"classname" "trigger_multiple"
 	"filtername" "cube_dropper_box_filter"
@@ -4717,7 +4694,7 @@ entity
 	{
 		"OnTrigger" "cube_dropper_box_drop_clipDisable1.1-1"
 		"OnTrigger" "cube_dropper_close_triggerEnable0-1"
-		"OnTrigger" "box*FireUser10-1"
+		"OnTrigger" "box*FireUser10.01-1"
 		"OnTrigger" "spawn_manSetStateBFalse0-1"
 		"OnTrigger" "cube_dropper_gate_relayDisable0-1"
 		"OnTrigger" "cube_dropper_gate_relayEnable1-1"
@@ -4725,6 +4702,8 @@ entity
 		"OnTrigger" "cube_dropper_box_reenter_clipDisable0-1"
 		"OnTrigger" "snd_openPlaySound0.45-1"
 		"OnTrigger" "cover_clipDisable0-1"
+		"OnTrigger" "voice_rlDisable0-1"
+		"OnTrigger" "voice_rlEnable0.02-1"
 	}
 	"origin" "16 -48 48"
 	editor
@@ -4873,7 +4852,7 @@ entity
 	{
 		"OnEntitySpawned" "box*FireUser40-1"
 	}
-	"origin" "-48 48 48"
+	"origin" "16 48 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -4895,7 +4874,7 @@ entity
 		"OnChangeToAllTrue" "cube_dropper_drop_relayTrigger0-1"
 		"OnChangeToAllTrue" "spawn_manSetStateAFalse0-1"
 	}
-	"origin" "48 48 48"
+	"origin" "0 0 48"
 	editor
 	{
 		"color" "220 30 220"
