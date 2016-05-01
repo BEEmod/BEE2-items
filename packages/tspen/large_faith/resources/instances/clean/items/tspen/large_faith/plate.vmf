@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "119"
+	"mapversion" "121"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "119"
+	"mapversion" "121"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -109,27 +109,6 @@ entity
 	"id" "1190"
 	"classname" "func_instance_parms"
 	"parm1" "$start_skin integer 0"
-	"origin" "0 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1025"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "anim_rl"
-	connections
-	{
-		"OnTrigger" "catapult_armSetAnimationcatapult0-1"
-		"OnTrigger" "@voice_faith_triggerFireUser10.31"
-		"OnTrigger" "@music_faith_playTrigger0-1"
-	}
 	"origin" "0 0 -48"
 	editor
 	{
@@ -154,7 +133,13 @@ entity
 	"skin" "$start_skin"
 	"solid" "6"
 	"spawnflags" "0"
-	"targetname" "catapult_arm"
+	"targetname" "arm"
+	connections
+	{
+		"OnUser1" "@voice_faith_triggerFireUser10.31"
+		"OnUser1" "@music_faith_playTrigger0-1"
+		"OnUser1" "armSetAnimationcatapult0-1"
+	}
 	"origin" "0 0 -64"
 	editor
 	{
