@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "17"
+	"mapversion" "20"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,55 +20,13 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "17"
+	"mapversion" "20"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
-}
-entity
-{
-	"id" "42"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/cavejohnson/fifties_intro03.vcd"
-	"targetname" "pre_enter_1"
-	connections
-	{
-		"OnCompletion" "pre_enter_2Start0.1-1"
-	}
-	"origin" "-16 8 -32"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "92"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/cavejohnson/fifties_intro04.vcd"
-	"targetname" "pre_enter_2"
-	connections
-	{
-		"OnCompletion" "@cave_enterStart0.1-1"
-	}
-	"origin" "-16 -8 -32"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
 }
 entity
 {
@@ -79,7 +37,7 @@ entity
 	"targetname" "@relay_spawn_on_entrance"
 	connections
 	{
-		"OnTrigger" "pre_enter_1Start0-1"
+		"OnTrigger" "@cave_pre_enterStart0-1"
 	}
 	"origin" "-32 32 -32"
 	editor
