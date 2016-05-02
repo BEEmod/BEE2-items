@@ -209,19 +209,21 @@ def main():
             print('Deleting', file)
             os.remove(os.path.join(zip_path, file))
     else:
-        os.makedirs(zip_path)
+        os.makedirs(zip_path, exist_ok=True)
 
     path = os.path.join(os.getcwd(), 'packages\\', )
     
     # A list of all the package zips.
     packages = list(search_folder(zip_path, path))
-    
+
     with futures.ThreadPoolExecutor(10) as future:
         list(future.map(build_package, packages))
 
     print('Building main zip...')
 
-    with ZipFile(os.path.join('zips', 'packages.zip'), 'w', compression=ZIP_DEFLATED) as zip_file:
+    pack_name = 'BEE{}_packages.zip'.format(input('Version: '))
+    
+    with ZipFile(os.path.join('zips', pack_name), 'w', compression=ZIP_DEFLATED) as zip_file:
         for file in os.listdir(zip_path):
             zip_file.write(os.path.join(zip_path, file), os.path.join('packages/', file))
             print('.', end='', flush=True)
