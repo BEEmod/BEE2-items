@@ -43,10 +43,12 @@ def clean_vmf(vmf_path):
             
         # All instances must be in bee2/, so any reference outside there is a map error!
         # It's ok if it's in p2editor and not in a subfolder though.
+        # There's also an exception needed for the Tag gun instance.
         if ent['classname'] == 'func_instance':
             inst_loc = ent['file'].casefold().replace('\\','/')
-            if not inst_loc.startswith('instances/bee2/') and not (inst_loc.startswith('instances/p2editor/') and inst_loc.count('/') == 2):
-                raise Exception('Invalid instance path "{}" in\n"{}"!'.format(ent['file'], vmf_path))
+            if not inst_loc.startswith('instances/bee2/') and not (inst_loc.startswith('instances/p2editor/') and inst_loc.count('/') == 2) and 'alatag' not in inst_loc:
+                input('Invalid instance path "{}" in\n"{}"! Press Enter to continue..'.format(ent['file'], vmf_path))
+                yield from clean_vmf(vmf_path) # Re-run so we check again..
 
         for solid in ent.solids[:]:
             if all(face.mat.casefold() == 'tools/toolsskip' for face in solid):
