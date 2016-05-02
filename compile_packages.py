@@ -42,8 +42,10 @@ def clean_vmf(vmf_path):
             continue
             
         # All instances must be in bee2/, so any reference outside there is a map error!
+        # It's ok if it's in p2editor and not in a subfolder though.
         if ent['classname'] == 'func_instance':
-            if not ent['file'].casefold().replace('\\','/').startswith('instances/bee2/'):
+            inst_loc = ent['file'].casefold().replace('\\','/')
+            if not inst_loc.startswith('instances/bee2/') and not (inst_loc.startswith('instances/p2editor/') and inst_loc.count('/') == 2):
                 raise Exception('Invalid instance path "{}" in\n"{}"!'.format(ent['file'], vmf_path))
 
         for solid in ent.solids[:]:
