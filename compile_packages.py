@@ -5,18 +5,27 @@ import itertools
 import subprocess
 from zipfile import ZipFile, ZIP_LZMA, ZIP_DEFLATED
 from concurrent import futures
-
-# The location of the VPK.exe executable - if not found, this will be skipped.
-VPK_BIN_LOC = r'F:\SteamLibrary\SteamApps\common\Portal 2\bin\vpk.exe'
-
-BEE2_LOCATION = '../BEE2.4/src'
-sys.path.append(BEE2_LOCATION)
+try:
+    BEE2_LOCATION = os.environ['BEE2_LOC']
+except KeyError:
+    raise Exception('Set the BEE2_LOC environment variable to the location of the BEE2 repro.') from None
+sys.path.append(os.path.join(BEE2_LOCATION, 'src'))
 
 import utils
 from property_parser import Property, KeyValError
 import vmfLib as VLib
+# The location of the VPK.exe executable - if not found, this will be skipped.
+try:
+	GAME_FOLDER = os.environ['PORTAL_2_LOC']
+except KeyError:
+    print('Set the PORTAL_2_LOC environment variable to the location of Portal 2 to allow VPK generating.')
+    GAME_FOLDER = ''
+
+VPK_BIN_LOC = os.path.join(GAME_FOLDER, 'bin', 'vpk.exe')
 
 OPTIMISE = False
+
+
 
 def clean_vmf(vmf_path):
     """Optimise the VMFs, removing unneeded entities or objects."""
