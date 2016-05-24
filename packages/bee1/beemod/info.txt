@@ -166,11 +166,22 @@
 "Item"
 	{
 	"ID" "DOOR"
+	"Description"	
+		{
+		"Line"		"A placeable mid-chamber door."
+		"Bullet"		"Cubes and players are able to obstruct the door, preventing it from closing."
+		"Bullet"		"Set Start Reversed to True to reverse the orientation of the door."
+		"Bullet"		"Players always go from the Portal-figure side to the blank side!"
+		}
 	"Version"
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"	"door"
+			"BEE2_CLEAN"        "door"
+			"BEE2_PORTAL_1"     "door_p1"
+			"BEE2_1950s"        "door_50s"
+			"BEE2_1970s"        "door_70s"
+			"BEE2_1980s"        "door_80s"
 			}
 		}
 	}
@@ -238,71 +249,6 @@
 					"input_execute"	"1"
 					"input_start" "1"
 					"entry_name" "P2Editor.CollapseOther"
-					}
-				}
-			}
-		}
-	}
-	
-"EditorSound"
-	{
-	"ID" "Expand_Suction"
-	// Play regular expand/contract sounds, but also play suction loop when open
-	"Keys"
-		{
-		"channel" "CHAN_AUTO"
-		"volume" "0.5"
-		"pitch" "100"
-		"soundlevel" "SNDLVL_NONE"
-		"rndwave"
-			{
-			"wave" "ui/p2_editor_other_explo_01.wav"
-			"wave" "ui/p2_editor_other_explo_02.wav"
-			}
-		"soundentry_version" "2"
-		"operator_stacks"
-			{
-			"start_stack"
-				{
-				"play_entry"
-					{
-					"operator" "sys_start_entry"
-					"execute_once" "true"
-					"input_execute"	"1"
-					"input_start" "1"
-					"entry_name" "Portal.tube_suck"
-					}
-				}
-			}
-		}
-	}
-	
-"EditorSound"
-	{
-	"ID" "Collapse_Suction"
-	"Keys"
-		{
-		"channel" "CHAN_AUTO"
-		"volume" "0.5"
-		"pitch" "100"
-		"soundlevel" "SNDLVL_NONE"
-		"rndwave"
-			{
-			"wave" "ui/p2_editor_other_collapse_01.wav"
-			"wave" "ui/p2_editor_other_collapse_02.wav"
-			}
-		"soundentry_version" "2"
-		"operator_stacks"
-			{
-			"start_stack"
-				{
-				"stop_suction"
-					{
-					"operator" "sys_stop_entries"
-					"input_max_entries" "0"
-					"match_entity" "false"
-					"match_substring" "true"
-					"match_entry" "Portal.tube_suck"
 					}
 				}
 			}

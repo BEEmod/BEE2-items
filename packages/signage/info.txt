@@ -1,0 +1,301 @@
+"ID"		"BEE2_SIGNAGE"
+"Name"		"Signage"
+"Desc"      "Signage items which indicate unseen elements or other information."
+
+// Sign slots:
+// 0 = None
+// 3 = Dots #1
+// 4 = Dots #2
+// 5 = Dots #3
+// 6 = Dots #4
+
+// 7 = Exit
+// 8 = Cube Dropper
+// 9 = Ball Dropper
+// 10 = Reflection Cube
+
+// 11 = Toxic Goo
+// 12 = Funnel
+// 13 = Funnel Polarity
+// 14 = Laser Relay
+
+// 15 = Turret (Danger in others)
+// 16 = Light Bridge
+// 17 = Repulsion Gel
+// 18 = Propulsion Gel
+	
+"Item"
+	{
+	"ID"    "ITEM_BEE2_SIGNAGE"
+	"Description"
+		{
+		"Line"      "Signage helps indicate unseen elements or hint to solutions for puzzles."
+		"Bullet"    "The timer widget chooses which sign should be used. Infinite uses no sign."
+		"Bullet"    "Set Start Enabled to add an arrow pointing in a direction."
+		"Bullet"    "Set Start Reversed to point towards the center of the block instead."
+		"Line"      "The signage blocks portal placement as well."
+		}
+	"AllDescLast" "1"
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"     "sign_clean"
+			"BEE2_BTS"       "sign_bts"
+			"BEE2_PORTAL_1"  "sign_p1"
+			"BEE2_OVERGROWN" "sign_over"
+			"BEE2_1950s"     "sign_50s"
+			"BEE2_1970s"     "sign_70s"
+			"BEE2_1980s"     "sign_clean" // 1980s style uses modern signs..
+			}
+		}
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_ARROW"
+	"file" "arrow_floor.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN_FLOOR"
+	"file" "sign_floor.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN2_FLOOR"
+	"file" "sign2_floor.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN_WALL"
+	"file" "sign_wall.vmf"
+	"keep_brushes" "0"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_ARROW_REV"
+	"file" "arrow_floor_rev.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN_REV"
+	"file" "sign_floor_rev.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN2_FLOOR_REV"
+	"file" "sign2_floor_rev.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN_ARROW_WALL_REV"
+	"File" "arrow_wall_rev.vmf"
+	"keep_brushes" "0"
+	}
+	
+"PackList"
+	{
+	// Valve didn't include the VMT, but they did include the VTF.
+	"ID"        "BEE2_PACK_SIGNAGE_TURRET"
+	"AddIfMat"  "BEE2/signage_turret"
+	"Config"
+		{
+		"File" "materials/BEE2/signage_turret.vmt"
+		}
+	}
+	
+// Needed for clean signage..
+"PackList"
+	{
+	"ID"       "PACK_BEE2_80S_SIGN_PAINT_JUMP"
+	"AddIfMat" "BEE2/80s/signage_paint_jump"
+	"Config"
+		{
+		"File" "materials/BEE2/80s/signage_paint_jump.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_80S_SIGN_PAINT_JUMP"
+	"AddIfMat" "BEE2/80s/signage_paint_jump"
+	"Config"
+		{
+		"File" "materials/BEE2/80s/signage_paint_jump.vmt"
+		}
+	}
+	
+// BTS:
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_BTS_ARROW"
+	"File" "bts/arrow.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_BTS_ARROW_REV"
+	"File" "bts/arrow_rev.vmf"
+	"keep_brushes" "0"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_BTS_RECT"
+	"File" "bts/sign_rect.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_BTS_RECT_REV"
+	"File" "bts/sign_rect_inv.vmf"
+	"keep_brushes" "0"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_BTS_LONG"
+	"File" "bts/sign_long.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_BTS_LONG_REV"
+	"File" "bts/sign_long_inv.vmf"
+	"keep_brushes" "0"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_BTS_NUM"
+	"File" "bts/sign_num.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_BTS_NUM_REV"
+	"File" "bts/sign_num_inv.vmf"
+	"keep_brushes" "0"
+	}
+	
+// 1950s:
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_ARROW"
+	"file" "50s/arrow_floor.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_ARROW_REV"
+	"file" "50s/arrow_floor_rev.vmf"
+	"keep_brushes" "0"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_SIGN"
+	"file" "50s/sign_floor.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_SIGN_REV"
+	"file" "50s/sign_floor_rev.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_SIGN_WALL"
+	"file" "50s/sign_wall.vmf"
+	"keep_brushes" "0"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_EXIT"
+	"file" "50s/exit_floor.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_EXIT_REV"
+	"file" "50s/exit_floor_rev.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_EXIT_WALL"
+	"file" "50s/exit_wall.vmf"
+	"keep_brushes" "0"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_NUM"
+	"file" "50s/num_floor.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_NUM_REV"
+	"file" "50s/num_floor_rev.vmf"
+	"keep_brushes" "0"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_50S_NUM_WALL"
+	"file" "50s/num_wall.vmf"
+	"keep_brushes" "0"
+	}
+	
+// 70s
+// Keep the brushes, since these are mounted on a small section of plywood.
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_70s_ARROW"
+	"file" "70s/arrow_floor.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_70s_SIGN_FLOOR"
+	"file" "70s/sign_floor.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_70s_SIGN2_FLOOR"
+	"file" "70s/sign2_floor.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_70s_SIGN_WALL"
+	"file" "70s/sign_wall.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_70s_ARROW_REV"
+	"file" "70s/arrow_floor_rev.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_70s_SIGN_REV"
+	"file" "70s/sign_floor_rev.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_70s_SIGN2_FLOOR_REV"
+	"file" "70s/sign2_floor_rev.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_70s_ARROW_WALL_REV"
+	"File" "70s/arrow_wall_rev.vmf"
+	}

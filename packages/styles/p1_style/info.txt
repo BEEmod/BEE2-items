@@ -166,6 +166,18 @@
 	"ID"     "PACK_P1_LASERFIELD"
 	"Config" "laserfield"
 	}
+	
+"PackList"
+	{
+	"ID"     "PACK_P1_CUST_LASERFIELD"
+	"Config" "cust_laserfield"
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_P1_CUST_FIZZLER"
+	"Config" "cust_fizzler"
+	}
 
 "PackList"
 	{
@@ -292,11 +304,8 @@
 		"File" "materials/BEE2/p1/goo/beneath.vmt"
 		
 		"File" "materials/BEE2/p1/goo/p1_goo.vtf"
-		"File" "materials/BEE2/p1/goo/beneath.vtf"
 		"File" "materials/BEE2/p1/goo/goo_normal.vtf"
-		"File" "materials/BEE2/p1/goo/p1_flat_normal.vtf"
-		"File" "materials/BEE2/p1/goo/watera_normal.vtf"
-		"File" "materials/BEE2/p1/goo/waterb_normal.vtf"
+		"File" "materials/BEE2/p1/goo/toxic_rep_flowmapr.vtf"
 		}
 	}
 
@@ -317,27 +326,45 @@
 	"ID" "PACK_P1_FLOOR_BUTTON"
 	"Config"
 		{
-		"File" "models/BEE2/props_p1/floor_button_just_top.mdl"
-		"File" "models/BEE2/props_p1/floor_button_just_top.vvd"
-		"File" "models/BEE2/props_p1/floor_button_just_top.phy"
-		"File" "models/BEE2/props_p1/floor_button_just_top.dx90.vtx"
+		"File" "models/BEE2/props_p1/floor_button_top.mdl"
+		"File" "models/BEE2/props_p1/floor_button_top.vvd"
+		"File" "models/BEE2/props_p1/floor_button_top.phy"
+		"File" "models/BEE2/props_p1/floor_button_top.dx90.vtx"
 		
 		"File" "models/BEE2/props_p1/floor_button_base.mdl"
 		"File" "models/BEE2/props_p1/floor_button_base.vvd"
 		"File" "models/BEE2/props_p1/floor_button_base.phy"
 		"File" "models/BEE2/props_p1/floor_button_base.dx90.vtx"
+		
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vmt"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_exponent.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_normal.vtf"
 		}
 	}
 	
 "PackList"
 	{
-	"ID" "PACK_P1_FLOOR_BUTTON_NOBASE"
+	"ID" "PACK_P1_BALL_BUTTON"
 	"Config"
 		{
-		"File" "models/BEE2/props_p1/floor_button_nobase.mdl"
-		"File" "models/BEE2/props_p1/floor_button_nobase.vvd"
-		"File" "models/BEE2/props_p1/floor_button_nobase.phy"
-		"File" "models/BEE2/props_p1/floor_button_nobase.dx90.vtx"
+		// A version of the button base scaled to fit the size of ball buttons, plus with no bottom
+		// so the button can stick through (it's very deep).
+		"File" "models/BEE2/props_p1/sphere_button_base.mdl"
+		"File" "models/BEE2/props_p1/sphere_button_base.vvd"
+		"File" "models/BEE2/props_p1/sphere_button_base.phy"
+		"File" "models/BEE2/props_p1/sphere_button_base.dx90.vtx"
+		
+		// Just the moving part of sphere buttons, which fits in the above model
+		"File" "models/BEE2/props_ingame/ball_button_just_top.mdl"
+		"File" "models/BEE2/props_ingame/ball_button_just_top.vvd"
+		"File" "models/BEE2/props_ingame/ball_button_just_top.phy"
+		"File" "models/BEE2/props_ingame/ball_button_just_top.dx90.vtx"
+		
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vmt"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_exponent.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_normal.vtf"
 		}
 	}
 	
@@ -572,6 +599,12 @@
 	{
 	"ID"    "BEE2_FLOOR_BUTTON_BASE_P1_WHITE"
 	"File"  "button_base_white.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_BALL_BUTTON_BASE_P1_WHITE"
+	"File"  "ball_base_white.vmf"
 	}
 	
 "Overrides"
