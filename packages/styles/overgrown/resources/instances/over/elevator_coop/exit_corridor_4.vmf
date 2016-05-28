@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "246"
+	"mapversion" "248"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,7 +32,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "246"
+	"mapversion" "248"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -7844,104 +7844,6 @@ entity
 }
 entity
 {
-	"id" "8700"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/announcer/prehub17.vcd"
-	"targetname" "@ann_entry_generic"
-	connections
-	{
-		"OnUser1" "@ann_enter_deadlyKill0-1"
-		"OnUser1" "@ann_enter_turretKill0-1"
-		"OnUser1" "@ann_enter_pelletKill0-1"
-		"OnUser1" "@ann_enter_whitegelKill0-1"
-		"OnUser1" "@ann_enter_orangegelKill0-1"
-		"OnUser2" "!selfStart0.21"
-		"OnUser2" "@ding_onStart01"
-		"OnCompletion" "@ding_offStart01"
-	}
-	"origin" "64 48 -448"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "If you are a non-employee who has discovered this facillity, then welcome"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "8702"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/announcer/mp_hub_return06.vcd"
-	"targetname" "@ann_exit_generic"
-	connections
-	{
-		"OnUser1" "@ann_exit_bluegelKill0-1"
-		"OnUser1" "@ann_exit_turretKill0-1"
-		"OnUser1" "@ann_exit_laserKill0-1"
-		"OnUser2" "!selfStart0.21"
-		"OnUser2" "@ding_onStart01"
-		"OnCompletion" "@ding_offStart01"
-	}
-	"origin" "64 16 -448"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "Thank you for completing the test course. You may now reenter the course of your choice."
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "8624"
-	"classname" "logic_branch"
-	"InitialValue" "$no_player_start"
-	"targetname" "restart_relay_test"
-	connections
-	{
-		"OnFalse" "@restart_relayEnable0-1"
-		"OnFalse" "@preview_modeEnable0-1"
-	}
-	"origin" "96 16 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "8626"
-	"classname" "logic_relay"
-	"StartDisabled" "1"
-	"targetname" "@restart_relay"
-	connections
-	{
-		"OnTrigger" "@clientcommandCommandrestart_level2-1"
-		"OnTrigger" "@preview_complete_messageDisplay0-1"
-		"OnSpawn" "branch_toggleTest11"
-		"OnSpawn" "restart_relay_testTest01"
-	}
-	"origin" "64 -16 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "8628"
 	"classname" "trigger_portal_cleanser"
 	"origin" "64 2 -104"
@@ -8045,26 +7947,6 @@ entity
 }
 entity
 {
-	"id" "8633"
-	"classname" "logic_branch"
-	"InitialValue" "$start_locked"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "@door_unlockedSetValue00-1"
-		"OnFalse" "@door_unlockedSetValue10-1"
-	}
-	"origin" "96 -16 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "8637"
 	"classname" "linked_portal_door"
 	"angles" "-90 180 0"
@@ -8081,76 +7963,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 -15768]"
-	}
-}
-entity
-{
-	"id" "8640"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "64 16 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "8642"
-	"classname" "func_instance_parms"
-	"parm1" "$connectioncount integer 1"
-	"parm2" "$start_locked integer 1"
-	"parm3" "$no_player_start integer 0"
-	"origin" "32 -16 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 8000]"
-	}
-}
-entity
-{
-	"id" "8644"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "32 16 7.62939e-006"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 6000]"
-	}
-}
-entity
-{
-	"id" "8442"
-	"classname" "func_instance"
-	"angles" "-0 0 0"
-	"file" "instances/bee2/over/elevator_coop/exit_door.vmf"
-	"origin" "64 0 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity

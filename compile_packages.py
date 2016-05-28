@@ -5,18 +5,27 @@ import itertools
 import subprocess
 from zipfile import ZipFile, ZIP_LZMA, ZIP_DEFLATED
 from concurrent import futures
-
-# The location of the VPK.exe executable - if not found, this will be skipped.
-VPK_BIN_LOC = r'F:\SteamLibrary\SteamApps\common\Portal 2\bin\vpk.exe'
-
-BEE2_LOCATION = '../BEE2.4/src'
-sys.path.append(BEE2_LOCATION)
+try:
+    BEE2_LOCATION = os.environ['BEE2_LOC']
+except KeyError:
+    raise Exception('Set the BEE2_LOC environment variable to the location of the BEE2 repro.') from None
+sys.path.append(os.path.join(BEE2_LOCATION, 'src'))
 
 import utils
 from property_parser import Property, KeyValError
 import vmfLib as VLib
+# The location of the VPK.exe executable - if not found, this will be skipped.
+try:
+	GAME_FOLDER = os.environ['PORTAL_2_LOC']
+except KeyError:
+    print('Set the PORTAL_2_LOC environment variable to the location of Portal 2 to allow VPK generating.')
+    GAME_FOLDER = ''
+
+VPK_BIN_LOC = os.path.join(GAME_FOLDER, 'bin', 'vpk.exe')
 
 OPTIMISE = False
+
+
 
 def clean_vmf(vmf_path):
     """Optimise the VMFs, removing unneeded entities or objects."""
@@ -42,9 +51,13 @@ def clean_vmf(vmf_path):
             continue
             
         # All instances must be in bee2/, so any reference outside there is a map error!
+        # It's ok if it's in p2editor and not in a subfolder though.
+        # There's also an exception needed for the Tag gun instance.
         if ent['classname'] == 'func_instance':
-            if not ent['file'].casefold().replace('\\','/').startswith('instances/bee2/'):
-                raise Exception('Invalid instance path "{}" in\n"{}"!'.format(ent['file'], vmf_path))
+            inst_loc = ent['file'].casefold().replace('\\','/')
+            if not inst_loc.startswith('instances/bee2/') and not (inst_loc.startswith('instances/p2editor/') and inst_loc.count('/') == 2) and 'alatag' not in inst_loc:
+                input('Invalid instance path "{}" in\n"{}"! Press Enter to continue..'.format(ent['file'], vmf_path))
+                yield from clean_vmf(vmf_path) # Re-run so we check again..
 
         for solid in ent.solids[:]:
             if all(face.mat.casefold() == 'tools/toolsskip' for face in solid):
@@ -207,19 +220,21 @@ def main():
             print('Deleting', file)
             os.remove(os.path.join(zip_path, file))
     else:
-        os.makedirs(zip_path)
+        os.makedirs(zip_path, exist_ok=True)
 
     path = os.path.join(os.getcwd(), 'packages\\', )
     
     # A list of all the package zips.
     packages = list(search_folder(zip_path, path))
-    
+
     with futures.ThreadPoolExecutor(10) as future:
         list(future.map(build_package, packages))
 
     print('Building main zip...')
 
-    with ZipFile(os.path.join('zips', 'packages.zip'), 'w', compression=ZIP_DEFLATED) as zip_file:
+    pack_name = 'BEE{}_packages.zip'.format(input('Version: '))
+    
+    with ZipFile(os.path.join('zips', pack_name), 'w', compression=ZIP_DEFLATED) as zip_file:
         for file in os.listdir(zip_path):
             zip_file.write(os.path.join(zip_path, file), os.path.join('packages/', file))
             print('.', end='', flush=True)
