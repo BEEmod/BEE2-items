@@ -1,6 +1,6 @@
 "Item"
 	{
-	"Type"		"ITEM_TSPEN_FUTBOL"
+	"Type"		"ITEM_BEE2_FUTBOL"
 	"Editor"
 		{
 		"SubType"
@@ -13,14 +13,14 @@
 			"Palette"
 				{
 				"Tooltip"   "FUTBOL"
-				"Image"     "palette/tSpen/futbol.png"
+				"Image"     "palette/clean/BEE2/futbol.vtf"
 				"Position"  "2 2 0"
 				}
 			"Sounds"
 				{
 				"SOUND_CREATED"             "P2Editor.PlaceOther"
-				"SOUND_EDITING_ACTIVATE"    "P2Editor.ExpandOther"
-				"SOUND_EDITING_DEACTIVATE"  "P2Editor.CollapseOther"
+				"SOUND_EDITING_ACTIVATE"    "BEE2_Editor.Expand_Futbol"
+				"SOUND_EDITING_DEACTIVATE"  "BEE2_Editor.Collapse_Futbol"
 				"SOUND_DELETED"             "P2Editor.RemoveOther"
 				}
 			}
@@ -51,9 +51,16 @@
 			{
 			"0"
 				{
-				"Name"			"instances/BEE2/clean/items/bee2/futbol/futbol.vmf"
+				"Name"			"instances/BEE2/clean/items/futbol/futbol.vmf"
 				"EntityCount"	"5"
 				}
+			"common"        "instances/BEE2/clean/items/futbol/common.vmf"
+			"respawn"       "instances/BEE2/clean/items/futbol/respawn.vmf"
+			"no_respawn"    "instances/BEE2/clean/items/futbol/no_respawn.vmf"
+			"autospawn"     "instances/BEE2/clean/items/futbol/autospawn.vmf"
+			"no_autospawn"  "instances/BEE2/clean/items/futbol/no_autospawn.vmf"
+			"no_input"      "instances/BEE2/clean/items/futbol/no_input.vmf"
+			"input"         "instances/BEE2/clean/items/futbol/has_input.vmf"
 			}
 
 		"TargetName"		"futbol"
@@ -69,8 +76,8 @@
 			{
 			"CONNECTION_STANDARD"
 				{
-				"Activate"		"instance:rl_activate;OnTrigger"
-				"Deactivate"	"instance:rl_deactivate;OnTrigger"
+				"Activate"		"instance:trig;OnUser2"
+				"Deactivate"	"instance:trig;OnUser1"
 				}
 			}
 		"OccupiedVoxels"

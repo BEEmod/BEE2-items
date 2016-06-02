@@ -33,3 +33,57 @@
 	"ID"   "BEE2_FUTBOL_SURF_BACK"
 	"file" "surf_clean.vmf"
 	}
+	
+"EditorSound"
+	{
+	"ID" "Expand_Futbol"
+	// Play the regular expand sound, and in addition play the caught/uncaught sound
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"volume"	"0.5"
+		"wave"	"npc/sphere/sphere_rail_start_01.wav"
+		"soundentry_version" "2"
+		"operator_stacks"
+			{
+			"start_stack"
+				{
+				"play_entry"
+					{
+					"operator" "sys_start_entry"
+					"input_execute"	"1"
+					"input_start" "1"
+					"entry_name" "P2Editor.ExpandOther"
+					}
+				}
+			}
+		}
+	}
+		
+"EditorSound"
+	{
+	"ID" "Collapse_Futbol"
+	// Play the regular expand sound, and in addition play crusher impacts
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"volume" "0.5"
+		"wave" "npc/sphere/sphere_rail_stop_01.wav"
+		"soundentry_version" "2"
+		"operator_stacks"
+			{
+			"start_stack"
+				{
+				"play_entry"
+					{
+					"operator" "sys_start_entry"
+					"input_execute"	"1"
+					"input_start" "1"
+					"entry_name" "P2Editor.CollapseOther"
+					}
+				}
+			}
+		}
+	}
