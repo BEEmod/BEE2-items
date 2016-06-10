@@ -1,0 +1,62 @@
+VertexLitGeneric
+{
+$baseTexture "models/props/futbol_dispenser"
+
+$bumpmap "models/props/futbol_dispenser_normal"
+
+$color "{240 230 210}"
+$selfillum 1
+$selfillumtint "[1 1 1]"
+
+$detail "detail/metal_detail_01"
+$detailscale 8
+$detailblendfactor 0.8
+$detailblendmode 0
+
+$illum_mean 1
+$illum_out 1
+$offset 0
+Proxies
+	{
+	// Produces a random value, so multiple models aren't syncronised.
+	EntityRandom
+		{		
+		scale       5
+		resultVar   $offset
+		}
+	Sine
+		{
+		resultVar   $illum_mean
+		timeoffset  5
+		sinemin     0.7
+		sinemax     1.3
+		sineperiod  $offset
+		}
+	// Sticks close to the sine curve, with minor fluctuations.
+	GaussianNoise
+		{
+		resultVar   $illum_out
+		mean        $illum_mean
+		halfWidth   0.2
+		minVal      0.2
+		maxVal      1
+		}
+	// Copy the produced value to the 3 indexes in the tint
+	// That makes it greyscale.
+	Equals
+		{
+		srcVar1     "$illum_out"
+		resultVar   "$selfillumtint[0]"
+		}
+	Equals
+		{
+		srcVar1     "$illum_out"
+		resultVar   "$selfillumtint[1]"
+		}
+	Equals
+		{
+		srcVar1     "$illum_out"
+		resultVar   "$selfillumtint[2]"
+		}
+	}
+}
