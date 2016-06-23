@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "288"
+	"mapversion" "293"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -56,12 +56,6 @@ visgroups
 			"color" "115 208 161"
 		}
 	}
-	visgroup
-	{
-		"name" "Rex trigger"
-		"visgroupid" "35"
-		"color" "120 217 254"
-	}
 }
 viewsettings
 {
@@ -74,7 +68,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "288"
+	"mapversion" "293"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1785,112 +1779,6 @@ entity
 		"logicalpos" "[0 7500]"
 	}
 }
-hidden
-{
-	entity
-	{
-		"id" "4093"
-		"classname" "trigger_multiple"
-		"filtername" "@filter_pellet"
-		"origin" "0 0 -140"
-		"parentname" "box"
-		"spawnflags" "8"
-		"StartDisabled" "0"
-		"targetname" "rex_pellet_trig"
-		"wait" "1"
-		connections
-		{
-			"OnTrigger" "boxFireUser10.2-1"
-		}
-		hidden
-		{
-			solid
-			{
-				"id" "4094"
-				side
-				{
-					"id" "875"
-					"plane" "(-28 -28 -120) (-28 28 -120) (28 28 -120)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 0] 0.25"
-					"vaxis" "[0 -1 0 0] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "874"
-					"plane" "(-28 28 -176) (-28 -28 -176) (28 -28 -176)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 0] 0.25"
-					"vaxis" "[0 -1 0 0] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "873"
-					"plane" "(-28 -28 -176) (-28 28 -176) (-28 28 -120)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 0] 0.25"
-					"vaxis" "[0 0 -1 -48] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "872"
-					"plane" "(28 28 -176) (28 -28 -176) (28 -28 -120)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 0] 0.25"
-					"vaxis" "[0 0 -1 -48] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "871"
-					"plane" "(-28 28 -176) (28 28 -176) (28 28 -120)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -48] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "870"
-					"plane" "(28 -28 -176) (-28 -28 -176) (-28 -28 -120)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -48] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				editor
-				{
-					"color" "220 30 220"
-					"visgroupshown" "1"
-					"visgroupautoshown" "1"
-				}
-			}
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "35"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 0]"
-		}
-	}
-}
 entity
 {
 	"id" "1458"
@@ -2295,11 +2183,11 @@ entity
 	"classname" "point_template"
 	"spawnflags" "0"
 	"targetname" "cube_template"
-	"Template01" "cube_ents_*"
+	"Template01" "box_ents_*"
 	"Template02" "box"
 	connections
 	{
-		"OnEntitySpawned" "cube_ents_*FireUser10-1"
+		"OnEntitySpawned" "box_ents_*FireUser40-1"
 		"OnEntitySpawned" "box*FireUser40-1"
 	}
 	"origin" "16 48 48"

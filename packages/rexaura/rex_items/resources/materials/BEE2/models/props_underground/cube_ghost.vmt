@@ -1,0 +1,62 @@
+UnlitGeneric
+	{
+	$basetexture "dev/dev_scanline"
+	$color2 "{0 192 0}" // Color is set by rendercolor on models..
+	$Additive 1
+	$alpha 0.2
+	$nocull 1
+	$model 1
+	
+	$timeoff 0
+	$alphaoff 0
+	Proxies
+		{
+		// Desysncs multiple models
+		EntityRandom
+			{
+			scale 7
+			resultVar $timeoff
+			}
+			
+		Sine
+			{
+			sineperiod 4
+			timeoffset $timeoff
+			sinemin 0.1
+			sinemax 0.6
+			resultVar $alpha
+			}
+			
+		Sine
+			{
+			sineperiod 0.6
+			timeoffset $timeoff
+			sinemin -0.02
+			sinemax 0.02
+			resultVar $alphaoff
+			}
+			
+		Add
+			{
+			srcVar1 $alpha
+			srcVar2 $alphaoff
+			resultVar $alpha
+			}
+			
+		GaussianNoise
+			{
+			mean 192
+			halfWidth 20
+			minVal 144
+			maxVal 240
+			resultVar "$color2[1]"
+			}
+
+		TextureScroll
+			{
+			textureScrollVar $basetexturetransform
+			textureScrollRate 0.2
+			textureScrollAngle -90
+			}
+		}
+	}

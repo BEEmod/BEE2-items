@@ -114,6 +114,109 @@
 	
 "PackList"
 	{
+	"ID"     "PACK_PELLET_LAUNCHER_INF_CLEAN"
+	"Config" "launcher_inf"
+	}
+	
+"PackList"
+	{
 	"ID"     "PACK_PELLET_CATCHER_CLEAN"
 	"Config" "catcher"
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_PELLET_CATCHER_TIM_CLEAN"
+	"Config" "catcher_timed"
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_PELLET_LAUNCHER_INF_DIRTY"
+	"Config" "launcher_inf_dirty"
+	}
+	
+"PackList"
+	{
+	"ID"     "PACK_PELLET_CATCHER_TIM_DIRTY"
+	"Config" "catcher_timed_dirty"
+	}
+
+"EditorSound"
+	{
+	"ID" "Create_HEP"
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"wave"	"weapons/physcannon/energy_sing_flyby1.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "HEP_Flyby"
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave"	"weapons/physcannon/energy_sing_flyby1.wav"
+			"wave"	"weapons/physcannon/energy_sing_flyby2.wav"
+			}
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "HEP_Bounce"
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"rndwave"
+			{
+			"wave"	"weapons/physcannon/energy_bounce1.wav"
+			"wave"	"weapons/physcannon/energy_bounce2.wav"
+			}
+		}
+	}
+	
+	
+"EditorSound"
+	{
+	"ID" "HEP_Catcher"
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"wave"	"bee2/p1/alyx_stunner2.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Delete_HEP"
+	// Play the regular delete sound, and in addition play pellet-explosion sound
+	"Keys"
+		{
+		"channel" "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"wave"	"weapons/physcannon/energy_sing_explosion2.wav"
+		"soundentry_version" "2"
+		"operator_stacks"
+			{
+			"start_stack"
+				{
+				"play_entry"
+					{
+					"operator" "sys_start_entry"
+					"input_execute"	"1"
+					"input_start" "1"
+					"entry_name" "P2Editor.RemoveOther"
+					}
+				}
+			}
+		}
 	}

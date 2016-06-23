@@ -1,0 +1,249 @@
+"ID"		"REX_ITEMS"
+"Name"		"Rexaura Items"
+"Desc"      "Adds items from Rexaura Portal 1 mod, focused around Energy Pellets.
+* Adds Pellet Destroyers.
+* Adds Cube Deflectors.
+* Pellets can optionally vaporise storage cubes.
+"
+
+"Prerequisites"
+	{
+	"Package" "BEE_PELLETS"
+	}
+
+// Used to append aditional configs to the cube item based on style.
+"ItemConfig"
+	{
+	"ID"        "ITEM_CUBE"
+	"All_conf"  "cube_fizz.cfg"
+	}
+	
+"StyleVar"
+	{
+	"ID"		"RexCubePelletFizzle"
+	"Name"		"Pellets Destroy Cubes"
+	"Description"	"When struck by pellets cubes will dissolve after deflecting the pellet, like in Rexaura. This behaviour is needed for Rexaura Cube Deflectors."
+	"Enabled"	"0"
+	"Style"		"BEE2_CLEAN"
+	"Style"		"BEE2_1950s"
+	"Style"		"BEE2_BTS"
+	"Style"		"BEE2_OVERGROWN"
+	"Style"		"BEE2_PORTAL_1"
+	}
+	
+"Item"
+	{
+	"ID"        "ITEM_REX_CUBE_DEFLECTOR"
+	"Description"
+		{
+		"" "Cube holder from the mod Rexaura for Portal 1."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"        "cube_def_clean"
+			"BEE2_PORTAL_1"     "cube_def_p1"
+			"BEE2_OVERGROWN"    "cube_def_over"
+			"BEE2_1950s"        "cube_def_50s"
+			"BEE2_1980s"        "cube_def_80s"
+			}
+		}
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "REX_CUBE_DEFLECTOR_TEMP_CLEAN"
+	"file" "cube_holder.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "REX_CUBE_DEFLECTOR_TEMP_P1"
+	"file" "cube_holder_p1.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "REX_CUBE_DEFLECTOR_TEMP_RETRO_WOOD"
+	"file" "cube_holder_retro_wood.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "REX_CUBE_DEFLECTOR_TEMP_RETRO_METAL"
+	"file" "cube_holder_retro_metal.vmf"
+	}
+	
+	
+"PackList"
+	{
+	"ID" "REX_CUBE_DEFLECTOR_SOUNDS"
+	"Config"
+		{
+		"" "#scripts/bee2_snd/rex_sounds.txt"
+		"" "sound/BEE2/p1/button19.wav"
+		"" "sound/BEE2/p1/scanner_electric1.wav"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "REX_CUBE_DEFLECTOR_FX"
+	"Config"
+		{
+		"" "materials/BEE2/models/props_p1/rex/holder_side_beam.vmt"
+		"" "materials/BEE2/models/props_p1/rex/holder_side_beam.vtf"
+		"" "materials/BEE2/models/props_p1/rex/holder_base_beam.vmt"
+		
+		"" "models/BEE2/props_p1/rex/cube_holder_beam.mdl"
+		"" "models/BEE2/props_p1/rex/cube_holder_beam.vvd"
+		"" "models/BEE2/props_p1/rex/cube_holder_beam.dx90.vtx"
+		
+		"" "models/BEE2/props_p1/rex/cube_holder_center_beam.mdl"
+		"" "models/BEE2/props_p1/rex/cube_holder_center_beam.vvd"
+		"" "models/BEE2/props_p1/rex/cube_holder_center_beam.dx90.vtx"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "REX_CUBE_DEFLECTOR_FX_P1"
+	// A slightly different size for the cube effect - that ensures it fits
+	// around the larger P1 cube model.
+	"Config"
+		{
+		"" "materials/BEE2/models/props_p1/rex/holder_side_beam.vmt"
+		"" "materials/BEE2/models/props_p1/rex/holder_side_beam.vtf"
+		"" "materials/BEE2/models/props_p1/rex/holder_base_beam.vmt"
+		
+		"" "models/BEE2/props_p1/rex/cube_holder_beam_p1.mdl"
+		"" "models/BEE2/props_p1/rex/cube_holder_beam_p1.vvd"
+		"" "models/BEE2/props_p1/rex/cube_holder_beam_p1.dx90.vtx"
+		
+		"" "models/BEE2/props_p1/rex/cube_holder_center_beam.mdl"
+		"" "models/BEE2/props_p1/rex/cube_holder_center_beam.vvd"
+		"" "models/BEE2/props_p1/rex/cube_holder_center_beam.dx90.vtx"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "REX_CUBE_DEFLECTOR_SIDE_EMITTER"
+	"Config"
+		{
+		"" "materials/BEE2/models/props_p1/rex/side_emitter.vmt"
+		"" "materials/BEE2/models/props_p1/rex/side_emitter_dirty.vmt"
+		"" "materials/BEE2/models/props_p1/rex/side_emitter.vtf"
+		"" "models/BEE2/props_p1/rex/side_emitter.mdl"
+		"" "models/BEE2/props_p1/rex/side_emitter.phy"
+		"" "models/BEE2/props_p1/rex/side_emitter.vvd"
+		"" "models/BEE2/props_p1/rex/side_emitter.dx90.vtx"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "P1_LAB_FLOORLIGHT_LRG"
+	"Config"
+		{
+		"" "materials/BEE2/models/props_p1/lab_floorlight_dirty.vmt"
+		"" "materials/BEE2/models/props_p1/lab_floorlight_glass_dirty.vmt"
+		
+		"" "models/BEE2/props_p1/lab_floorlight_lrg.mdl"
+		"" "models/BEE2/props_p1/lab_floorlight_lrg.phy"
+		"" "models/BEE2/props_p1/lab_floorlight_lrg.vvd"
+		"" "models/BEE2/props_p1/lab_floorlight_lrg.dx90.vtx"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Expand_Rex_Cube_Holder"
+	"Keys"
+		{
+		"channel"    "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"volume"	  "0.9, 0.95"
+		"pitch"		  "90, 100"
+		"wave"        "BEE2/p1/button19.wav"
+		}
+	}
+	
+"EditorSound"
+	{
+	"ID" "Collapse_Rex_Cube_Holder"
+	"Keys"
+		{
+		"channel"    "CHAN_AUTO"
+		"soundlevel" "SNDLVL_NONE"
+		"volume"	 "0.9, 0.95"
+		"pitch"		 "90, 100"
+		"wave"       "BEE2/p1/scanner_electric1.wav"
+		}
+	}
+	
+"Item"
+	{
+	"ID"        "ITEM_REX_PELLET_DESTROYER"
+	"Description"
+		{
+		"" "A sphere of energy on a piston arm which destroys pellets on contact. "
+		"" "It is also hazardous to players, and fizzles cubes."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"        "pellet_killer_clean"
+			"BEE2_PORTAL_1"     "pellet_killer_p1"
+			"BEE2_OVERGROWN"    "pellet_killer_over"
+			"BEE2_1950s"        "pellet_killer_50s"
+			//"BEE2_1980s"        "pellet_killer_80s"
+			}
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "REX_PELLET_DESTROYER_FX"
+	"Config"
+		{
+		// Provided by the BEE pellet package
+		"" "materials/BEE2/p1/physring.vmt"
+		"" "materials/BEE2/p1/physring.vtf"
+		
+		"" "materials/BEE2/p1/strider_blackball.vmt"
+		"" "materials/BEE2/p1/strider_blackball.vtf"
+		}
+	}
+		
+"PackList"
+	{
+	"ID" "REX_PELLET_DESTROYER_SOUND"
+	"Config"
+		{
+		"" "#scripts/bee2_snd/rex_sounds.txt"
+		"" "sound/BEE2/p1/electric_explosion1.wav"
+		}
+	}
+		
+"PackList"
+	{
+	"ID" "REX_P1_PIST_MOVE"
+	"Config"
+		{
+		"" "#scripts/bee2_snd/rex_sounds.txt"
+		"" "sound/BEE2/p1/stair_stop.wav"
+		"" "sound/BEE2/p1/doormove3.wav"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "BEE2_BTS_BEAM_YELLOW"
+	"Config"
+		{
+		"" "materials/BEE2/no_paint/metalbeam_bts_001c.vmt"
+		}
+	}
