@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "4"
+	"mapversion" "5"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "4"
+	"mapversion" "5"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,12 +30,28 @@ world
 }
 entity
 {
+	"id" "10"
+	"classname" "filter_activator_class"
+	"filterclass" "prop_glass_futbol"
+	"Negated" "Allow entities that match criteria"
+	"targetname" "@filter_no_futbol"
+	"origin" "0 -3.61513e-008 -8"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
 	"id" "6"
 	"classname" "filter_activator_class"
 	"filterclass" "prop_glass_futbol"
 	"Negated" "Allow entities that match criteria"
 	"targetname" "@filter_futbol"
-	"origin" "0 -3.61513e-008 0"
+	"origin" "0 -3.61513e-008 8"
 	editor
 	{
 		"color" "220 30 220"
