@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "100"
+	"mapversion" "103"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -10,9 +10,9 @@ visgroups
 {
 	visgroup
 	{
-		"name" "1 object"
+		"name" "globals"
 		"visgroupid" "7"
-		"color" "80 113 230"
+		"color" "89 110 87"
 	}
 }
 viewsettings
@@ -26,22 +26,35 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "100"
+	"mapversion" "103"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
-	group
+}
+entity
+{
+	"id" "1987"
+	"classname" "logic_coop_manager"
+	"DefaultPlayerStateA" "$start_enabled"
+	"DefaultPlayerStateB" "0"
+	"targetname" "man"
+	connections
 	{
-		"id" "1806"
-		editor
-		{
-			"color" "161 198 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
+		"OnChangeToAllTrue" "openTrigger0-1"
+		"OnChangeToAllTrue" "closeCancelPending0-1"
+		"OnChangeToAnyFalse" "openCancelPending0-1"
+		"OnChangeToAnyFalse" "closeTrigger0-1"
+	}
+	"origin" "24 0 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -51,7 +64,7 @@ entity
 	"spawnflags" "2"
 	"targetname" "temp"
 	"Template01" "portal"
-	"origin" "24 0 -56"
+	"origin" "8 0 -56"
 	editor
 	{
 		"color" "220 30 220"
@@ -64,47 +77,24 @@ hidden
 {
 	entity
 	{
-		"id" "1807"
+		"id" "1788"
 		"classname" "logic_relay"
 		"spawnflags" "0"
 		"StartDisabled" "0"
-		"targetname" "@autoport"
-		"origin" "-32 -16 -54"
+		"targetname" "@close_blue_autoportals"
+		connections
+		{
+			"OnTrigger" "closeTrigger0-1"
+		}
+		"origin" "-32 0 -56"
 		editor
 		{
-			"color" "161 198 0"
-			"groupid" "1806"
+			"color" "220 30 220"
 			"visgroupid" "7"
 			"visgroupshown" "0"
 			"visgroupautoshown" "1"
 			"logicalpos" "[0 0]"
 		}
-	}
-}
-entity
-{
-	"id" "1788"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@close_blue_autoportals"
-	connections
-	{
-		"OnTrigger" "closeTrigger0-1"
-		"OnUser4" "portalFizzle01"
-		"OnUser4" "openKill01"
-		"OnUser4" "modelSkin001"
-		"OnUser4" "detKill01"
-		"OnUser4" "portalKill0.11"
-		"OnUser4" "tempKill0.11"
-	}
-	"origin" "-32 16 -56"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -134,8 +124,8 @@ entity
 	"targetname" "counter"
 	connections
 	{
-		"OnHitMax" "openTrigger0-1"
-		"OnChangedFromMax" "closeTrigger0-1"
+		"OnHitMax" "manToggleStateA0-1"
+		"OnChangedFromMax" "manToggleStateA0-1"
 	}
 	"origin" "40 0 -56"
 	editor
@@ -203,8 +193,8 @@ entity
 	"HalfHeight" "0"
 	"HalfWidth" "0"
 	"LinkageGroupID" "0"
-	"PortalTwo" "0"
-	"skin" "0"
+	"PortalTwo" "$portal_num"
+	"skin" "2"
 	"targetname" "portal"
 	connections
 	{
@@ -225,6 +215,10 @@ entity
 	"id" "71"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 0"
+	"parm2" "$portal_num integer 0"
+	"parm3" "$start_enabled boolean 0"
+	"parm4" "$skin integer 1"
+	"parm5" "$glob_relay target_name_or_class @close_autoportal"
 	"origin" "40 -16 -56"
 	editor
 	{
@@ -344,6 +338,12 @@ entity
 	{
 		"OnTrigger" "portalFireUser10-1"
 		"OnTrigger" "modelSkin00-1"
+		"OnUser4" "tempKill0.11"
+		"OnUser4" "portalKill0.11"
+		"OnUser4" "detKill01"
+		"OnUser4" "modelSkin001"
+		"OnUser4" "openKill01"
+		"OnUser4" "portalFizzle01"
 	}
 	"origin" "24 16 -56"
 	editor
@@ -364,9 +364,9 @@ entity
 	connections
 	{
 		"OnTrigger" "portalSetActivatedState10.02-1"
-		"OnTrigger" "@close_blue_autoportalsTrigger0-1"
+		"OnTrigger" "$glob_relayTrigger0-1"
 		"OnTrigger" "tempForceSpawn0.01-1"
-		"OnTrigger" "modelSkin10-1"
+		"OnTrigger" "modelSkin$skin0-1"
 	}
 	"origin" "24 -16 -56"
 	editor
