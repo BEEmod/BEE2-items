@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "374"
+	"mapversion" "379"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,7 +32,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "374"
+	"mapversion" "379"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -198,6 +198,10 @@ entity
 	"targetname" "fizz"
 	"UseScanline" "0"
 	"Visible" "0"
+	connections
+	{
+		"OnDissolve" "tes_activeDoSpark0-1"
+	}
 	solid
 	{
 		"id" "4179"
@@ -827,6 +831,10 @@ entity
 	"parentname" "$parent"
 	"spawnflags" "1"
 	"StartDisabled" "0"
+	connections
+	{
+		"OnHurtPlayer" "tes_activeDoSpark0-1"
+	}
 	solid
 	{
 		"id" "4222"
@@ -949,10 +957,10 @@ entity
 	"wait" "1"
 	connections
 	{
-		"OnStartTouch" "!activatorExplode0-1"
-		"OnStartTouch" "tes_activeTurnOn0-1"
-		"OnStartTouch" "tes_activeTurnOff0.75-1"
-		"OnStartTouch" "sndPlaySound0-1"
+		"OnStartTouch" "!activatorExplode0.1-1"
+		"OnStartTouch" "tes_activeTurnOn0.1-1"
+		"OnStartTouch" "tes_activeTurnOff0.85-1"
+		"OnStartTouch" "sndPlaySound0.1-1"
 	}
 	solid
 	{
@@ -1082,7 +1090,7 @@ entity
 	"lifetime_min" "0.1"
 	"m_Color" "191 21 255"
 	"m_flRadius" "64"
-	"m_SoundName" "VFX.LightFlickerAlt"
+	"m_SoundName" "Default.Null"
 	"m_SourceEntityName" "beam_start"
 	"targetname" "tes_norm"
 	"texture" "sprites/laserbeam.spr"
