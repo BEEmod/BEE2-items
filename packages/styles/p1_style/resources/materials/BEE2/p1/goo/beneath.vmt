@@ -1,27 +1,13 @@
-"LightmappedGeneric"
-{
-
-	$basetexture "BEE2/p1/goo/beneath"
-	$bumpmap "BEE2/p1/goo/goo_normal"
-	$abovewater 0
-
-	$surfaceprop "slime"
-
-	"%keywords" "BEE2"
-	"%compileSlime" 1
-
-	$fogenable 1
-	$fogcolor "{72 70 10}"
-	$fogstart 1
-	$fogend 100
-	
-	"Proxies"
+Patch
 	{
-		"AnimatedTexture"
+	include "materials/BEE2/p1/goo/p1_goo.vmt"
+	insert 
 		{
-			animatedtexturevar "$bumpmap"
-			animatedtextureframenumvar "$bumpframe"
-			animatedtextureframerate 21.00
+		$lightmapwaterfog 0
+		$flashlighttint 200
+		}
+	replace
+		{
+		$abovewater 0
 		}
 	}
-}

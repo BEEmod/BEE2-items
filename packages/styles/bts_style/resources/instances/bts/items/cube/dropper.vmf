@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "278"
+	"mapversion" "281"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -86,7 +86,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "278"
+	"mapversion" "281"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -6143,27 +6143,6 @@ entity
 }
 entity
 {
-	"id" "22"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "$disable_autorespawn"
-	"targetname" "cube_dropper_autorespawn_relay"
-	connections
-	{
-		"OnTrigger" "cube_dropper_gate_relayTrigger0-1"
-	}
-	"origin" "16 48 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "16"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 2000]"
-	}
-}
-entity
-{
 	"id" "29"
 	"classname" "logic_relay"
 	"spawnflags" "2"
@@ -6171,7 +6150,7 @@ entity
 	connections
 	{
 		"OnTrigger" "cube_dropper_close_triggerEnable0.1-1"
-		"OnTrigger" "boxDissolve0-1"
+		"OnTrigger" "boxDissolve0.01-1"
 		"OnTrigger" "spawn_manSetStateBFalse0-1"
 		"OnTrigger" "cube_dropper_gate_relayDisable0-1"
 		"OnTrigger" "cube_dropper_gate_relayEnable1-1"
@@ -6180,6 +6159,8 @@ entity
 		"OnTrigger" "spritesColor0 255 00-1"
 		"OnTrigger" "drop_clipDisable0-1"
 		"OnTrigger" "snd_start_dropPlaySound0-1"
+		"OnTrigger" "voice_rlDisable0-1"
+		"OnTrigger" "voice_rlEnable0.02-1"
 	}
 	"origin" "-2.60992e-005 16 48"
 	editor
@@ -6318,10 +6299,10 @@ entity
 	"spawnflags" "0"
 	"targetname" "cube_template"
 	"Template01" "box"
-	"Template02" "cube_ents_*"
+	"Template02" "box_ents_*"
 	connections
 	{
-		"OnEntitySpawned" "cube_ents_*FireUser10-1"
+		"OnEntitySpawned" "box_ents_*FireUser40-1"
 		"OnEntitySpawned" "box*FireUser40-1"
 	}
 	"origin" "0 0 -32"

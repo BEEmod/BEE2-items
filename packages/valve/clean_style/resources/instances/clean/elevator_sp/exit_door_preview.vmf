@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "62"
+	"mapversion" "64"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "62"
+	"mapversion" "64"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,9 +30,35 @@ world
 }
 entity
 {
+	"id" "390"
+	"classname" "game_text"
+	"channel" "3"
+	"color" "255 255 255"
+	"color2" "205 205 205"
+	"effect" "2"
+	"fadein" ".06"
+	"fadeout" "0.5"
+	"fxtime" ".5"
+	"holdtime" "5"
+	"message" "PORTAL2_PuzzleEditor_Preview_Complete"
+	"spawnflags" "1"
+	"targetname" "@preview_complete_message"
+	"x" "-1"
+	"y" ".6"
+	"origin" "64 0 -192"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
 	"id" "386"
 	"classname" "trigger_multiple"
-	"origin" "64 0 -168"
+	"origin" "64 0 -256"
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "@preview_restart_trigger"
@@ -49,7 +75,7 @@ entity
 		side
 		{
 			"id" "90"
-			"plane" "(-124 -187.994 -160) (-124 188 -160) (252 187.989 -160)"
+			"plane" "(-124 -188 -160) (-124 188 -160) (252 188 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0.14851] 0.25"
@@ -60,7 +86,7 @@ entity
 		side
 		{
 			"id" "89"
-			"plane" "(-124 187.989 -176) (-124 -188 -176) (252 -187.994 -176)"
+			"plane" "(-124 188 -352) (-124 -188 -352) (252 -188 -352)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0.14851] 0.25"
@@ -71,7 +97,7 @@ entity
 		side
 		{
 			"id" "88"
-			"plane" "(-124 -187.994 -176) (-124 188 -176) (-124 187.989 -160)"
+			"plane" "(-124 -188 -352) (-124 188 -352) (-124 188 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 -0.14851] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -82,7 +108,7 @@ entity
 		side
 		{
 			"id" "87"
-			"plane" "(252 187.989 -176) (252 -188 -176) (252 -187.994 -160)"
+			"plane" "(252 188 -352) (252 -188 -352) (252 -188 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 -0.14851] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -93,7 +119,7 @@ entity
 		side
 		{
 			"id" "86"
-			"plane" "(-124 187.994 -176) (252 187.994 -176) (252 187.994 -160)"
+			"plane" "(-124 188 -352) (252 188 -352) (252 188 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -104,7 +130,7 @@ entity
 		side
 		{
 			"id" "85"
-			"plane" "(252 -188 -176) (-124 -188 -176) (-124 -188 -160)"
+			"plane" "(252 -188 -352) (-124 -188 -352) (-124 -188 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
