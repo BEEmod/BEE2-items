@@ -7,9 +7,12 @@ import os
 import shutil
 import sys
 
-# Location of Portal 2
-GAME_FOLDER = r'F:\SteamLibrary\SteamApps\common\Portal 2'
 EXTRA_FILE_LOC = 'extra_files'
+
+try:
+	GAME_FOLDER = os.environ['PORTAL_2_LOC']
+except KeyError:
+    raise Exception('Set the PORTAL_2_LOC environment variable to the location of Portal 2.') from None
 
 # Skip these files, if they exist in the source folders.
 # Users won't need them.

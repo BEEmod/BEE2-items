@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "269"
+	"mapversion" "276"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -62,12 +62,6 @@ visgroups
 			"color" "166 223 236"
 		}
 	}
-	visgroup
-	{
-		"name" "Rex trigger"
-		"visgroupid" "35"
-		"color" "120 217 254"
-	}
 }
 viewsettings
 {
@@ -80,7 +74,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "269"
+	"mapversion" "276"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -5703,112 +5697,6 @@ entity
 		"logicalpos" "[0 7500]"
 	}
 }
-hidden
-{
-	entity
-	{
-		"id" "4093"
-		"classname" "trigger_multiple"
-		"filtername" "@filter_pellet"
-		"origin" "0 0 -140"
-		"parentname" "box"
-		"spawnflags" "8"
-		"StartDisabled" "0"
-		"targetname" "rex_pellet_trig"
-		"wait" "1"
-		connections
-		{
-			"OnTrigger" "boxFireUser10.2-1"
-		}
-		hidden
-		{
-			solid
-			{
-				"id" "4094"
-				side
-				{
-					"id" "875"
-					"plane" "(-28 -28 -120) (-28 28 -120) (28 28 -120)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 0] 0.25"
-					"vaxis" "[0 -1 0 0] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "874"
-					"plane" "(-28 28 -176) (-28 -28 -176) (28 -28 -176)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 0] 0.25"
-					"vaxis" "[0 -1 0 0] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "873"
-					"plane" "(-28 -28 -176) (-28 28 -176) (-28 28 -120)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 0] 0.25"
-					"vaxis" "[0 0 -1 -48] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "872"
-					"plane" "(28 28 -176) (28 -28 -176) (28 -28 -120)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 0] 0.25"
-					"vaxis" "[0 0 -1 -48] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "871"
-					"plane" "(-28 28 -176) (28 28 -176) (28 28 -120)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -48] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "870"
-					"plane" "(28 -28 -176) (-28 -28 -176) (-28 -28 -120)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -48] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				editor
-				{
-					"color" "220 30 220"
-					"visgroupshown" "1"
-					"visgroupautoshown" "1"
-				}
-			}
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "35"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 0]"
-		}
-	}
-}
 entity
 {
 	"id" "1458"
@@ -5959,29 +5847,6 @@ entity
 }
 entity
 {
-	"id" "22"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "$disable_autorespawn"
-	"targetname" "cube_dropper_autorespawn_relay"
-	connections
-	{
-		"OnTrigger" "cube_dropper_gate_relayTrigger0-1"
-		"OnTrigger" "glados_wh_companionTrigger0.1-1"
-		"OnTrigger" "glados_wh_cubeTrigger0.1-1"
-	}
-	"origin" "16 48 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "16"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 2000]"
-	}
-}
-entity
-{
 	"id" "24"
 	"classname" "trigger_multiple"
 	"filtername" "cube_dropper_box_filter"
@@ -6079,36 +5944,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 -15768]"
-	}
-}
-entity
-{
-	"id" "29"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "cube_dropper_drop_relay"
-	connections
-	{
-		"OnTrigger" "cube_dropper_box_drop_clipDisable1.1-1"
-		"OnTrigger" "cube_dropper_close_triggerEnable0-1"
-		"OnTrigger" "box*FireUser10-1"
-		"OnTrigger" "spawn_manSetStateBFalse0-1"
-		"OnTrigger" "cube_dropper_gate_relayDisable0-1"
-		"OnTrigger" "cube_dropper_gate_relayEnable1-1"
-		"OnTrigger" "cube_dropper_modelSkin02-1"
-		"OnTrigger" "cube_dropper_modelSetDefaultAnimationitem_dropper_idle0.2-1"
-		"OnTrigger" "cube_dropper_modelSetAnimationitem_dropper_open0.1-1"
-		"OnTrigger" "cube_dropper_modelSkin10-1"
-		"OnTrigger" "cube_dropper_box_reenter_clipDisable0-1"
-	}
-	"origin" "-2.60992e-005 16 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "16"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 2000]"
 	}
 }
 entity
@@ -6240,11 +6075,11 @@ entity
 	"classname" "point_template"
 	"spawnflags" "0"
 	"targetname" "cube_template"
-	"Template01" "box"
-	"Template02" "cube_ents_*"
+	"Template01" "box_ents_*"
+	"Template02" "box"
 	connections
 	{
-		"OnEntitySpawned" "cube_ents_*FireUser10-1"
+		"OnEntitySpawned" "box_ents_*FireUser40-1"
 		"OnEntitySpawned" "box*FireUser40-1"
 	}
 	"origin" "0 0 -32"
@@ -6266,8 +6101,20 @@ entity
 	"targetname" "spawn_man"
 	connections
 	{
-		"OnChangeToAllTrue" "cube_dropper_drop_relayTrigger0-1"
 		"OnChangeToAllTrue" "spawn_manSetStateAFalse0-1"
+		"OnChangeToAllTrue" "cube_dropper_modelSkin02-1"
+		"OnChangeToAllTrue" "cube_dropper_box_drop_clipDisable1.1-1"
+		"OnChangeToAllTrue" "cube_dropper_gate_relayEnable1-1"
+		"OnChangeToAllTrue" "cube_dropper_modelSetDefaultAnimationitem_dropper_idle0.2-1"
+		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationitem_dropper_open0.1-1"
+		"OnChangeToAllTrue" "voice_rlEnable0.02-1"
+		"OnChangeToAllTrue" "voice_rlDisable0-1"
+		"OnChangeToAllTrue" "cube_dropper_box_reenter_clipDisable0-1"
+		"OnChangeToAllTrue" "cube_dropper_modelSkin10-1"
+		"OnChangeToAllTrue" "cube_dropper_gate_relayDisable0-1"
+		"OnChangeToAllTrue" "spawn_manSetStateBFalse0-1"
+		"OnChangeToAllTrue" "box*FireUser10-1"
+		"OnChangeToAllTrue" "cube_dropper_close_triggerEnable0-1"
 	}
 	"origin" "0 -16 48"
 	editor

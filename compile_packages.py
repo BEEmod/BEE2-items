@@ -6,21 +6,24 @@ import subprocess
 from zipfile import ZipFile, ZIP_LZMA, ZIP_DEFLATED
 from concurrent import futures
 
+from srctools import Property, KeyValError, VMF, conv_bool
+
 # The location of the VPK.exe executable - if not found, this will be skipped.
-VPK_BIN_LOC = r'F:\SteamLibrary\SteamApps\common\Portal 2\bin\vpk.exe'
+try:
+	GAME_FOLDER = os.environ['PORTAL_2_LOC']
+except KeyError:
+    print('Set the PORTAL_2_LOC environment variable to the location of Portal 2 to allow VPK generating.')
+    GAME_FOLDER = ''
 
-BEE2_LOCATION = '../BEE2.4/src'
-sys.path.append(BEE2_LOCATION)
-
-import utils
-from property_parser import Property, KeyValError
-import vmfLib as VLib
+VPK_BIN_LOC = os.path.join(GAME_FOLDER, 'bin', 'vpk.exe')
 
 OPTIMISE = False
 
+
+
 def clean_vmf(vmf_path):
     """Optimise the VMFs, removing unneeded entities or objects."""
-    inst = VLib.VMF.parse(vmf_path)
+    inst = VMF.parse(vmf_path)
 
     for ent in itertools.chain([inst.spawn], inst.entities[:]):
         editor = ent.editor
@@ -30,7 +33,7 @@ def clean_vmf(vmf_path):
                 del editor[cat]
 
         # Remove entities that have their visgroups hidden.
-        if ent.hidden or not utils.conv_bool(editor.get('visgroupshown', '1'), True):
+        if ent.hidden or not conv_bool(editor.get('visgroupshown', '1'), True):
             print('Removing hidden ent')
             inst.remove_ent(ent)
             continue
@@ -56,7 +59,7 @@ def clean_vmf(vmf_path):
                 ent.solids.remove(solid)
                 continue
 
-            if solid.hidden or not utils.conv_bool(solid.editor.get('visgroupshown', '1'), True):
+            if solid.hidden or not conv_bool(solid.editor.get('visgroupshown', '1'), True):
                 print('Removing hidden brush')
                 ent.solids.remove(solid)
                 continue
@@ -197,7 +200,7 @@ def main():
     
     gen_vpks()
     
-    OPTIMISE = utils.conv_bool(input('Optimise zips? '))
+    OPTIMISE = conv_bool(input('Optimise zips? '))
     
     print('Optimising: ', OPTIMISE)
 
