@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "160"
+	"mapversion" "177"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "160"
+	"mapversion" "177"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -393,23 +393,6 @@ world
 }
 entity
 {
-	"id" "6771"
-	"classname" "info_camera_link"
-	"PointCamera" "@mon_camera"
-	"target" "wheatley_monitor_frame"
-	"targetname" "cam_link"
-	"origin" "88 0 -31"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "8"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "6722"
 	"classname" "func_instance_parms"
 	"parm1" "$anim string"
@@ -446,8 +429,8 @@ entity
 	{
 		"OnFullyOpen" "plat_topOpen0-1"
 		"OnFullyOpen" "plat_bottomOpen0-1"
-		"OnFullyOpen" "wheatley_monitor_screenEnable0.8-1"
-		"OnFullyOpen" "monitor_armSetAnimation$anim0.8-1"
+		"OnFullyOpen" "scrEnable1.5-1"
+		"OnFullyOpen" "monitor_armSetAnimation$anim1.5-1"
 	}
 	solid
 	{
@@ -699,6 +682,7 @@ entity
 		"OnBreak" "laser_expExplode0-1"
 		"OnHealthChanged" "laser_sparkRunScriptCodespark()0-1"
 		"OnHealthChanged" "@voice_mon_laserTrigger01"
+		"OnBreak" "laser_sparkRunScriptCodescreen_broken()0-1"
 	}
 	solid
 	{
@@ -816,7 +800,7 @@ entity
 	"angles" "-90 90 0"
 	"Magnitude" "2"
 	"MaxDelay" "0"
-	"parentname" "laser_sensor"
+	"parentname" "wheatley_monitor_frame"
 	"spawnflags" "512"
 	"targetname" "laser_spark"
 	"TrailLength" "1"
@@ -968,23 +952,27 @@ entity
 entity
 {
 	"id" "11"
-	"classname" "func_brush"
+	"classname" "func_monitor"
+	"disableflashlight" "0"
 	"disablereceiveshadows" "1"
+	"disableshadowdepth" "0"
 	"disableshadows" "1"
 	"drawinfastreflection" "0"
 	"InputFilter" "0"
 	"invert_exclusion" "0"
-	"origin" "63.1 2 -86.62"
+	"origin" "64 2 -86.5"
 	"parentname" "wheatley_monitor_frame"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "0"
+	"shadowdepthnocache" "0"
 	"solidbsp" "0"
 	"Solidity" "1"
 	"spawnflags" "2"
-	"StartDisabled" "1"
-	"targetname" "wheatley_monitor_screen"
+	"StartDisabled" "0"
+	"target" "@camera"
+	"targetname" "scr"
 	"vrad_brush_cast_shadows" "0"
 	solid
 	{
@@ -995,7 +983,7 @@ entity
 			"plane" "(158 48 -86) (158 48 -87) (158 -44 -87)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 -16] 0.25"
-			"vaxis" "[0 0 -1 56] 0.25"
+			"vaxis" "[0 0 -1 -8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1006,7 +994,7 @@ entity
 			"plane" "(-30 -44 -86) (-30 -44 -87) (-30 48 -87)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 -16] 0.25"
-			"vaxis" "[0 0 -1 56] 0.25"
+			"vaxis" "[0 0 -1 -8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1017,7 +1005,7 @@ entity
 			"plane" "(158 -44 -86) (158 -44 -87) (-30 -44 -87)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 -28.3474] 0.25"
-			"vaxis" "[0 0 -1 56] 0.25"
+			"vaxis" "[0 0 -1 -8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1028,7 +1016,7 @@ entity
 			"plane" "(-30 48 -86) (-30 48 -87) (158 48 -87)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 28.3521] 0.25"
-			"vaxis" "[0 0 -1 56] 0.25"
+			"vaxis" "[0 0 -1 -8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1036,18 +1024,18 @@ entity
 		side
 		{
 			"id" "26"
-			"plane" "(158 48 -86) (158 -44 -86) (-30 -44 -86)"
+			"plane" "(-30 -44 -86) (-30 48 -86) (158 48 -86)"
 			"material" "DEV/DEV_TVMONITOR1A"
-			"uaxis" "[0 1 0 -130.667] 0.75"
-			"vaxis" "[-1 0 0 -40.3288] 0.73"
-			"rotation" "0"
+			"uaxis" "[0 -1 0 133.565] 0.359375"
+			"vaxis" "[-1 0 0 215.149] 0.734375"
+			"rotation" "270"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
 			"id" "25"
-			"plane" "(158 -44 -87) (158 48 -87) (-30 48 -87)"
+			"plane" "(-30 48 -87) (-30 -44 -87) (158 -44 -87)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 -16.0854] 0.25"
 			"vaxis" "[-1 0 0 44.3644] 0.25"
@@ -1188,12 +1176,12 @@ entity
 	"DisableBoneFollowers" "0"
 	"disablereceiveshadows" "0"
 	"disableshadows" "1"
+	"drawinfastreflection" "1"
 	"ExplodeDamage" "0"
 	"ExplodeRadius" "0"
 	"fademindist" "-1"
 	"fadescale" "1"
 	"HoldAnimation" "0"
-	"lightingorigin" "monitor_lighting_origin"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props_bts/glados_screenborder_curve.mdl"
@@ -1239,22 +1227,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 4500]"
-	}
-}
-entity
-{
-	"id" "2447"
-	"classname" "path_track"
-	"angles" "0 90 90"
-	"orientationtype" "1"
-	"targetname" "monitor_lighting_origin"
-	"origin" "64 3.8147e-006 -128"
-	editor
-	{
-		"color" "255 192 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 6000]"
 	}
 }
 entity
