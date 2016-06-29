@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "114"
+	"mapversion" "124"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "114"
+	"mapversion" "124"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -810,35 +810,20 @@ entity
 	"GlowProxySize" "2.0"
 	"HDRColorScale" "1.0"
 	"model" "sprites/glow01.spr"
-	"parentname" "model"
+	"parentname" "model,spark_eye"
 	"renderamt" "255"
 	"rendercolor" "220 180 8"
 	"renderfx" "0"
 	"rendermode" "9"
-	"scale" "0.2"
-	"spawnflags" "0"
-	"targetname" "eye"
-	"origin" "-16 192 -208"
+	"scale" "0.5"
+	"spawnflags" "1"
+	"origin" "2 96 -135"
 	editor
 	{
 		"color" "20 140 20"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "5426"
-	"classname" "func_instance_parms"
-	"parm1" "$disable_choreo boolean false"
-	"origin" "0 192 -160"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
 	}
 }
 entity
@@ -1037,60 +1022,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 7000]"
-	}
-}
-entity
-{
-	"id" "5070"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/glados/taunt_highfive01.vcd"
-	"targetname" "choreo2"
-	"origin" "16 192 -176"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "Glados complains when player starts burning screen - That is not part of the test."
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "377"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "eyeSetParentAttachmentspark_eye01"
-	}
-	"origin" "-16 192 -144"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
-	"id" "405"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/glados/anti_taunt14.vcd"
-	"targetname" "choreo1"
-	"origin" "-16 192 -176"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "Glados complains about breaking monitors - You really aren`t getting tired of that!"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
