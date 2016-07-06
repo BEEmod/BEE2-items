@@ -1,0 +1,231 @@
+"ID"		"BEE2_ART_THERAPY"
+"Name"		"Art Therapy Style"
+"Style"
+	{
+	"ID"		"BEE2_ART_THERAPY"
+	"Authors"	"Carl Kenner, TeamSpen210"
+	"Name"		"Art Therapy"
+	"ShortName"	"Art"
+	"Folder"	"art"
+	"Icon"		"styles/art_therapy.png"
+	"Base"		"Clean"
+	"Description"
+		{
+			"Line"		"Like the Art Therapy DLC coop course."
+			"Line"		"Abandoned 1980s ground-level half-constructed, almost behind the scenes, chambers."
+		}
+	"Has_Video" "0"
+	"Suggested"
+		{
+		"Quote"		"BEE2_GLADOS_ART"
+		"Music"		"VALVE_PETI"
+		"Skybox"	"BEE2_SKY_ART_THERAPY_3D"
+		}
+	}
+	
+"SkyBox"
+	{
+	"ID"			"BEE2_SKY_ART_THERAPY_2D"
+	"Name"			"2D - Art Therapy"
+	"Group"			"2D"
+	"Icon"			"styles/art_therapy.png"
+	"Material"		"sky_fog"
+	"Config"		"reservoir"
+	"Authors"		"TeamSpen210"
+	"Description"	"The 2D version of the 1980s reservoirs surrounding Art Therapy chambers."
+	
+	"Fog"
+		{
+		"start"     "0"
+        "end"       "5500"
+        "density"   "0.9"
+        
+        "primaryColor"      "100 120 140"
+        
+        "tonemap_rate"          "0.25"
+        "tonemap_brightpixels"  "3"
+        "tonemap_bloom_scale"   "1"
+        "tonemap_exposure_min"  "0.5"
+        "tonemap_exposure_max"  "1.5"
+		}
+	}
+	
+"SkyBox"
+	{
+	"ID"			"BEE2_SKY_ART_THERAPY_3D"
+	"Name"			"3D - Art Therapy Reservoir"
+	"ShortName"		"3D - Art Reservoir"
+	"Group"			"3D"
+	"Icon"			"styles/art_therapy.png"
+	"Material"		"sky_fog"
+	"Config"		"reservoir"
+	"Authors"		"TeamSpen210"
+	"Description"	"The 1980s reservoirs surrounding Art Therapy chambers. The bottom may be partially filled with toxic goo."
+	
+	"Fog"
+		{
+		"start"     "0"
+        "end"       "5500"
+        "density"   "0.9"
+        
+        "primaryColor"      "100 120 140"
+        
+        "tonemap_rate"          "0.25"
+        "tonemap_brightpixels"  "3"
+        "tonemap_bloom_scale"   "1"
+        "tonemap_exposure_min"  "0.5"
+        "tonemap_exposure_max"  "1.5"
+		}
+	}
+
+"QuotePack"
+	{
+	"ID"			"BEE2_GLADOS_ART"
+	"File"			"art"
+	"Name"			"GLaDOS (Art Therapy)"
+	"ShortName"		"GLaDOS (Art)"
+	"Group"			"GLaDOS"
+	"Icon"			"voices/glados.png"
+	"Authors"		"Carl Kenner, TeamSpen210"
+	"Description"	"GLaDOS describing 'Art Appreciation'."
+	}
+	
+"BrushTemplate"
+	{
+	"ID" "BEE2_ART_GOO_WALL_SCALE"
+	"File" "goo_wall_temp.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID" "BEE2_FLOOR_BUTTON_ART_WEIGHTED_BASE"
+	"File" "floor_button_base.vmf"
+	}
+	
+"Overrides"
+	{
+	"Item"
+		{
+		"ID" "ITEM_ENTRY_DOOR"
+		"NeedsUnlock"	"1"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_ART_THERAPY"	"mandatory/entry_door"
+				}
+			}
+		}
+	
+	"Item"
+		{
+		"ID" "ITEM_EXIT_DOOR"
+		"NeedsUnlock"	"1"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_ART_THERAPY"	"mandatory/exit_door"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_COOP_ENTRY_DOOR"
+		"NeedsUnlock"	"1"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_ART_THERAPY"	"mandatory/coop_spawn"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_COOP_EXIT_DOOR"
+		"NeedsUnlock"	"1"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_ART_THERAPY"	"mandatory/coop_exit"
+				}
+			}
+		}
+	"Item"
+		{
+		"ID" "ITEM_OBSERVATION_ROOM"
+		"NeedsUnlock"	"1"
+		"Version"
+			{
+			"Name"			"Regular"
+			"Styles"
+				{
+				"BEE2_ART_THERAPY"	"mandatory/obs_room"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_SECONDARY_OBSERVATION_ROOM"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_ART_THERAPY"		"obs_room"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_PANEL_ANGLED"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_ART_THERAPY"      "angled_pan"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_PANEL_CLEAR"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_ART_THERAPY"      "glass_pan"
+				}
+			}
+		}
+		
+	"Item"
+		{
+		"ID" "ITEM_BUTTON_FLOOR"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_ART_THERAPY"      "floor_button"
+				}
+			}
+		}
+	}
+	
+"PackList"
+	{
+	// A version of the angled panel item with only the two hinge-side arms.
+	"ID" "PACK_ART_HALF_ANGLED_PAN"
+	"Config"
+		{
+		"" "models/BEE2/panels/arm_2panel_hinge.mdl"
+		"" "models/BEE2/panels/arm_2panel_hinge.vvd"
+		"" "models/BEE2/panels/arm_2panel_hinge.dx90.vtx"
+		}
+	}
