@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "45"
+	"mapversion" "40"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
-	"bShow3DGrid" "1"
+	"nGridSpacing" "4"
+	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "45"
+	"mapversion" "40"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,82 +30,18 @@ world
 }
 entity
 {
-	"id" "335"
-	"classname" "infodecal"
-	"angles" "0 0 0"
-	"texture" "decals/decalstain001a"
-	"origin" "-64 0 8"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "377"
-	"classname" "infodecal"
-	"angles" "0 0 0"
-	"texture" "decals/decalstain011a"
-	"origin" "0 -8 -64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
-	"id" "42"
-	"classname" "logic_relay"
-	"targetname" "relay_activated"
-	connections
-	{
-		"OnTrigger" "proxyProxyRelay0-1"
-	}
-	"origin" "-32 -8 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "44"
-	"classname" "logic_relay"
-	"targetname" "relay_deactivated"
-	connections
-	{
-		"OnTrigger" "proxyProxyRelay0-1"
-	}
-	"origin" "-32 8 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "52"
 	"classname" "logic_branch"
-	"targetname" "branch_pressed"
+	"targetname" "output"
 	connections
 	{
-		"OnTrue" "relay_deactivatedTrigger0-1"
-		"OnTrue" "relay_activatedTrigger0.01-1"
-		"OnFalse" "relay_activatedTrigger0-1"
+		"OnTrue" "!selfFireUser10-1"
+		"OnTrue" "!selfFireUser20.01-1"
+		"OnFalse" "!selfFireUser20-1"
+		"OnUser1" "proxyProxyRelay0-1"
+		"OnUser2" "proxyProxyRelay0-1"
 	}
-	"origin" "-16 0 -32"
+	"origin" "-32 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -118,6 +54,7 @@ entity
 {
 	"id" "36"
 	"classname" "func_noportal_volume"
+	"origin" "-48 0 -62"
 	"spawnflags" "0"
 	solid
 	{
@@ -125,7 +62,7 @@ entity
 		side
 		{
 			"id" "1"
-			"plane" "(-32 -48 -56) (-64 -48 -56) (-64 48 -56)"
+			"plane" "(-32 -48 -60) (-64 -48 -60) (-64 48 -60)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -147,7 +84,7 @@ entity
 		side
 		{
 			"id" "3"
-			"plane" "(-64 48 -64) (-32 48 -64) (-32 48 -56)"
+			"plane" "(-64 48 -64) (-32 48 -64) (-32 48 -60)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -158,7 +95,7 @@ entity
 		side
 		{
 			"id" "4"
-			"plane" "(-32 -48 -64) (-64 -48 -64) (-64 -48 -56)"
+			"plane" "(-32 -48 -64) (-64 -48 -64) (-64 -48 -60)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -169,7 +106,7 @@ entity
 		side
 		{
 			"id" "5"
-			"plane" "(-32 48 -64) (-32 -48 -64) (-32 -48 -56)"
+			"plane" "(-32 48 -64) (-32 -48 -64) (-32 -48 -60)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -180,7 +117,7 @@ entity
 		side
 		{
 			"id" "6"
-			"plane" "(-64 -48 -64) (-64 48 -64) (-64 48 -56)"
+			"plane" "(-64 -48 -64) (-64 48 -64) (-64 48 -60)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -209,7 +146,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$timer_delay float 3"
 	"parm2" "$timer_sound integer 0"
-	"origin" "-16 -16 -32"
+	"origin" "-48 -32 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -234,14 +171,13 @@ entity
 	"targetname" "button"
 	connections
 	{
-		"OnPressed" "branch_pressedTest0-1"
-		"OnButtonReset" "branch_pressedSetValue00-1"
-		"OnButtonReset" "relay_deactivatedTrigger0-1"
-		"OnPressed" "branch_pressedSetValue10.01-1"
+		"OnPressed" "outputTest0-1"
+		"OnButtonReset" "outputSetValue00-1"
+		"OnButtonReset" "outputFireUser10-1"
+		"OnPressed" "outputSetValue10.01-1"
 		"OnPressed" "spSparkOnce0-1"
-		"OnButtonReset" "spSparkOnce0-1"
 	}
-	"origin" "-48 0 -57"
+	"origin" "-48 0 -60"
 	editor
 	{
 		"color" "220 30 220"
@@ -255,7 +191,7 @@ entity
 	"id" "22"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
-	"origin" "-16 16 -32"
+	"origin" "-48 32 -48"
 	editor
 	{
 		"color" "220 30 220"
