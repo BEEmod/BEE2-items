@@ -74,17 +74,18 @@ def check_file(pack_path, rel_path):
     else:
         game_path = os.path.join(GAME_FOLDER, 'bee2_dev', rel_path)
     if os.path.isfile(game_path):
-        # Backup the current version of the file
+        if os.path.getmtime(game_path) == os.path.getmtime(pack_path):
+            return # Same mod times = same file...
         if rel_path.endswith('.vmf'):
             if check_vmf_modified(game_path, pack_path):
                 print('Applying changes to "{}"'.format(rel_path))
-                shutil.copyfile(game_path, pack_path)
+                shutil.copy(game_path, pack_path)
         elif rel_path[:-3].casefold() in SKIPPED_EXTENSIONS:
             return # Never copy .log, .vmx, etc!
         else:
             # Assume everything else is changed!
             print('Applying changes to "{}"'.format(rel_path))
-            shutil.copyfile(game_path, pack_path)
+            shutil.copy(game_path, pack_path)
     else:
         print('Removing "{}"'.format(rel_path), file=sys.stderr)
         os.remove(pack_path)
