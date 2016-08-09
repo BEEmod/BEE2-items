@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "283"
+	"mapversion" "285"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,13 +32,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "128"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "283"
+	"mapversion" "285"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -312,11 +312,12 @@ entity
 	{
 		"OnChangeToAllTrue" "elevator_doorclose_playerclipEnable01"
 		"OnChangeToAllTrue" "@gladosRunScriptCodeExitStarted()01"
-		"OnChangeToAllTrue" "closeTrigger01"
-		"OnChangeToAllTrue" "@relay_pti_level_endTrigger1.5-1"
-		"OnChangeToAllTrue" "elevator_doorOpen1-1"
+		"OnChangeToAllTrue" "@relay_pti_level_endTrigger41"
+		"OnChangeToAllTrue" "elevator_doorOpen11"
+		"OnChangeToAllTrue" "elevator_tube_openerSetAnimationclose01"
+		"OnChangeToAllTrue" "elevator_modelSetAnimationdoorclose01"
 	}
-	"origin" "0 0 48"
+	"origin" "16 -16 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -450,26 +451,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 6500]"
-	}
-}
-entity
-{
-	"id" "9"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "close"
-	connections
-	{
-		"OnTrigger" "elevator_modelSetAnimationdoorclose0-1"
-		"OnTrigger" "elevator_tube_openerSetAnimationclose0-1"
-	}
-	"origin" "16 -32 17"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -1736,7 +1717,7 @@ entity
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "prevents entry until elevator arrives"
+		"comments" "Prevents entry until elevator arrives"
 		"logicalpos" "[0 1500]"
 	}
 }
@@ -3047,7 +3028,7 @@ entity
 		"OnTrigger" "elevator_tube_openerSetAnimationopen2-1"
 		"OnTrigger" "elevator_playerclipKill3.5-1"
 	}
-	"origin" "-16 -32 17"
+	"origin" "-16 -16 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -3101,8 +3082,8 @@ cameras
 	}
 	camera
 	{
-		"position" "[11.4176 -189.879 198.491]"
-		"look" "[8.6771 -59.0315 18.3569]"
+		"position" "[11.5855 0.709657 124.275]"
+		"look" "[12.0626 -16.3659 -97.7278]"
 	}
 	camera
 	{
