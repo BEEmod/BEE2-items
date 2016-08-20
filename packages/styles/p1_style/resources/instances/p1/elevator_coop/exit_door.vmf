@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "228"
+	"mapversion" "233"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,19 +26,128 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "228"
+	"mapversion" "233"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "7594"
+	"classname" "func_noportal_volume"
+	"origin" "112 -48 -62.01"
+	"spawnflags" "0"
+	solid
+	{
+		"id" "7592"
+		side
+		{
+			"id" "718"
+			"plane" "(96 -32 -56) (128 -32 -56) (128 -64 -56)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "717"
+			"plane" "(96 -64 -68.0192) (128 -64 -68.0192) (128 -32 -68.0192)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "716"
+			"plane" "(96 -32 -56) (96 -64 -56) (96 -64 -68.0192)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 32] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "715"
+			"plane" "(128 -32 -68.0192) (128 -64 -68.0192) (128 -64 -56)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 32] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "714"
+			"plane" "(128 -32 -56) (96 -32 -56) (96 -32 -68.0192)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 32] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "713"
+			"plane" "(128 -64 -68.0192) (96 -64 -68.0192) (96 -64 -56)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 32] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "7624"
+	"classname" "path_corner"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"speed" "0"
+	"targetname" "door_lighting"
+	"wait" "0"
+	"yaw_speed" "0"
+	"origin" "44 0 -64"
+	editor
+	{
+		"color" "247 181 82"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
 }
 entity
 {
@@ -658,14 +767,14 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"HoldAnimation" "0"
-	"lightingorigin" "@exit_door"
+	"lightingorigin" "door_lighting"
 	"MaxAnimTime" "10"
 	"maxcpulevel" "0"
 	"maxgpulevel" "0"
 	"MinAnimTime" "5"
 	"mincpulevel" "0"
 	"mingpulevel" "0"
-	"model" "models/props/door_01_rtdoor_reference.mdl"
+	"model" "models/bee2/props_p1/door_right.mdl"
 	"parentname" "door_right"
 	"PerformanceMode" "0"
 	"pressuredelay" "0"
@@ -676,7 +785,7 @@ entity
 	"rendermode" "0"
 	"SetBodyGroup" "0"
 	"shadowdepthnocache" "0"
-	"skin" "1"
+	"skin" "0"
 	"solid" "0"
 	"spawnflags" "0"
 	"StartDisabled" "0"
@@ -708,14 +817,14 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"HoldAnimation" "0"
-	"lightingorigin" "@exit_door"
+	"lightingorigin" "door_lighting"
 	"MaxAnimTime" "10"
 	"maxcpulevel" "0"
 	"maxgpulevel" "0"
 	"MinAnimTime" "5"
 	"mincpulevel" "0"
 	"mingpulevel" "0"
-	"model" "models/props/door_01_lftdoor_reference.mdl"
+	"model" "models/bee2/props_p1/door_left.mdl"
 	"parentname" "door_left"
 	"PerformanceMode" "0"
 	"pressuredelay" "0"
@@ -726,7 +835,7 @@ entity
 	"rendermode" "0"
 	"SetBodyGroup" "0"
 	"shadowdepthnocache" "0"
-	"skin" "1"
+	"skin" "0"
 	"solid" "0"
 	"spawnflags" "0"
 	"StartDisabled" "0"
@@ -912,7 +1021,7 @@ entity
 {
 	"id" "4010"
 	"classname" "logic_coop_manager"
-	"DefaultPlayerStateA" "$start_open"
+	"DefaultPlayerStateA" "$start_closed"
 	"DefaultPlayerStateB" "1"
 	"targetname" "close_man"
 	connections
@@ -1879,7 +1988,7 @@ entity
 {
 	"id" "227"
 	"classname" "logic_coop_manager"
-	"DefaultPlayerStateA" "$start_closed"
+	"DefaultPlayerStateA" "$start_open"
 	"DefaultPlayerStateB" "0"
 	"targetname" "open_man"
 	connections
