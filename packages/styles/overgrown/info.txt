@@ -67,6 +67,15 @@
 	"Style" "BEE2_OVERGROWN"
 	}
 	
+"StyleVar"
+	{
+	"ID"          "RestartOnExit"
+	"Enabled"     "1"
+	"Name"        "Resart When Reaching Exit"
+	"Description" "Automatically restart the map once the player(s) have reached the exit."
+	"Style"       "BEE2_OVERGROWN"
+	}
+	
 "QuotePack"
 	{
 	"ID"			"BEE2_ANNOUNCER_APOC"
@@ -103,6 +112,16 @@
 	{
 	"ID"     "PACK_RUSTY_REFLECT"
 	"Config" "reflect"
+	}
+	
+"PackList"
+	{
+	//  Dirty dropper, but shrunk to 128 size.
+	"ID" "PACK_BEE2_MODERN_DROPPER_WRECKED"
+	"Config"
+		{
+		"" "models/BEE2/props_overgrown/wrecked_dropper_128.mdl"
+		}
 	}
 	
 "PackList"
@@ -210,7 +229,7 @@
 		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_slash.vmt"
 		
 		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape2.vtf"
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape__slash.vtf"
+		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_slash.vtf"
 		}
 	}
 	
@@ -232,7 +251,7 @@
 		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_circle.vmt"
 		
 		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape3.vtf"
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_triangle.vtf"
+		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_sine.vtf"
 		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_star.vtf"
 		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_wavy.vtf"
 		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_circle.vtf"
@@ -251,8 +270,8 @@
 		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2_world.vmt"
 		
 		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_arrow.vtf"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catpult1.vtf"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catpult2.vtf"
+		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult1.vtf"
+		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2.vtf"
 		}
 	}
 	
@@ -266,8 +285,8 @@
 		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult1.vmt"
 		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2.vmt"
 		
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catpult1.vtf"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catpult2.vtf"
+		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult1.vtf"
+		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2.vtf"
 		}
 	}
 	
@@ -535,6 +554,53 @@
 		}
 	}
 	
+"Overrides"
+	{
+	"Item"
+		{
+		"ID" "ITEM_BUTTON_PEDESTAL"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_OVERGROWN"    "ped_button"
+				}
+			}
+		}
+	}
+// The overgrown pedestal base is 4-units, to match P1 bases.
+// It has a hole in it if the pedestal is hanging down, and the sides 
+// may have missing tiles.
+"BrushTemplate"
+	{
+	"ID" "BEE2_OVER_PED_BASE_NOHOLE"
+	"File" "pedestal_base_nohole.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID" "BEE2_OVER_PED_BASE_HOLE"
+	"File" "pedestal_base_hole.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID" "BEE2_OVER_PED_BASE_LEFT"
+	"File" "pedestal_base_left.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID" "BEE2_OVER_PED_BASE_RIGHT"
+	"File" "pedestal_base_right.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID" "BEE2_OVER_PED_BASE_LEFT_BROKEN"
+	"File" "pedestal_base_left_broken.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID" "BEE2_OVER_PED_BASE_RIGHT_BROKEN"
+	"File" "pedestal_base_right_broken.vmf"
+	}
 
 "Overrides"
 	{

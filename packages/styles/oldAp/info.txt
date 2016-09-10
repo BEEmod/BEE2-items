@@ -97,7 +97,7 @@
 		"" "Underground orange gel enrichment sphere from 1975, now for testing homeless people in exchange for $60.  "
 		"" "This is when they started using more random colours and materials on their walls, and ceilings are different."
 		"" ""
-		"" "Buttons are no longer recessed into holes in the floor."
+		"" "* Buttons are no longer recessed into holes in the floor."
 		"" "* Modern white indicator signs are now used, in the form of semi-transparent stencils."
 		"" "* Lights are now white, and the fog is grey."
 		"" "* The glass looks better, and stairs are no longer made of grating."
@@ -105,7 +105,7 @@
 	"Suggested"
 		{
 		"Quote"		"BEE2_CAVE_70s"
-		"Music"		"VALVE_REUNION"
+		"Music"		"VALVE_REUNION_PART_1"
 		"Skybox"	"BEE2_SPHERE_INTERIOR"
 		}
 	"Corridors"
@@ -306,13 +306,22 @@
 	
 	"CaveSkin"      "3"
 	}
+	
+"StyleVar"
+	{
+	"ID"          "RestartOnExit"
+	"Enabled"     "1"
+	"Name"        "Resart When Reaching Exit"
+	"Description" "Automatically restart the map once the player(s) have reached the exit."
+	"Style"       "BEE2_1950s"
+	}
 
 "StyleVar"
 	{
 	"ID"		"OpenSphere"
 	"Name"		"Opened Enrichment Sphere"
 	"Description"	"Use an alternate enrichment sphere map with a damaged/incomplete sphere, showing the Test Shaft surrounding the map. The added complexity of the map greatly increases compile times, however."
-	"Enabled"	"0"
+	"Enabled"	"1"
 	"Style"		"BEE2_1980s"
 	}
 	
@@ -698,6 +707,18 @@
 		}
 	}
 	
+// Fixed Salt Mine textures with non-broken cubemap
+"PackList"
+	{
+	"ID" "BEE2_SALT_MINES_DISP"
+	"AddIfMat" "BEE2/cave_blend_white"
+	"AddIfMat" "BEE2/cave_blend_brown"
+	"Config"
+		{
+		"" "materials/BEE2/cubemap_cave01.vtf"		
+		}
+	}
+	
 "PackList"
 	{
 	// Fixed version of the broken neon signs using UnLitGeneric
@@ -884,6 +905,19 @@
 	"Config"
 		{
 		"File" "materials/BEE2/world/aperture_labs.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	// Old Aperture fizzler model designed to use rendercolor.
+	"ID" "PACK_CUST_FIZZLER_RETRO"
+	"Config"
+		{
+		"File" "models/BEE2/props_ingame/retro_cust_fizz.mdl"
+		"File" "materials/BEE2/models/props_ingame/under_cust_fizz/light.vmt"
+		"File" "materials/BEE2/models/props_ingame/under_cust_fizz/frame.vmt"
+		"File" "materials/BEE2/models/props_ingame/under_cust_fizz/coils.vtf"
 		}
 	}
 	

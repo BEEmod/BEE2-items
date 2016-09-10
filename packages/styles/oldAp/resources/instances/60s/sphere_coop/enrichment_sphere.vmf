@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "122"
+	"mapversion" "123"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "122"
+	"mapversion" "123"
 	"classname" "worldspawn"
 	"comment" "Decompiled by BSPSource v1.3.3 from mp_coop_paint_come_along.bsp"
 	"detailmaterial" "detail/detailsprites"
@@ -7992,9 +7992,11 @@ entity
 		"OnTrigger" "blue_floorDisable0.1-1"
 		"OnTrigger" "orange_floor_rotOpen0-1"
 		"OnTrigger" "blue_floor_rotOpen0-1"
-		"OnTrigger" "transition_fadeout_1Fade0.51"
-		"OnTrigger" "rl_start_exit_finishedTrigger1.6-1"
+		"OnTrigger" "fade_exit_levelFade0.51"
 		"OnTrigger" "door_shifterOpen0-1"
+		"OnTrigger" "@commandCommandrestart_level1.8-1"
+		"OnTrigger" "@restart_relayEnable0.1-1"
+		"OnTrigger" "@relay_pti_level_endTrigger1.6-1"
 	}
 	"origin" "720 384 -3120"
 	editor
@@ -8448,30 +8450,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[1000 12500]"
-	}
-}
-entity
-{
-	"id" "568"
-	"classname" "logic_relay"
-	"spawnflags" "1"
-	"StartDisabled" "0"
-	"targetname" "rl_start_exit_finished"
-	connections
-	{
-		"OnTrigger" "@relay_pti_level_endTrigger0-1"
-		"OnTrigger" "@restart_relayEnable0.1-1"
-		"OnTrigger" "@restart_relayTrigger0.15-1"
-		"OnTrigger" "transition_fadeout_1FadeReverse0.1-1"
-		"OnTrigger" "@clientcommandCommandrestart_level0.2-1"
-	}
-	"origin" "720 384 -3088"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 13000]"
 	}
 }
 entity
@@ -11237,10 +11215,9 @@ entity
 	"targetname" "coop_man_start_transition"
 	connections
 	{
-		"OnChangeToAllTrue" "timer_try_exitEnable0-1"
 		"OnChangeToAllTrue" "orange_trigger_closeKill0-1"
 		"OnChangeToAllTrue" "blue_trigger_closeKill0-1"
-		"OnChangeToAllTrue" "@relay_enable_exitTrigger20-1"
+		"OnChangeToAllTrue" "rl_start_exitTrigger0-1"
 	}
 	"origin" "720 384 -3072"
 	editor
@@ -13616,237 +13593,17 @@ entity
 }
 entity
 {
-	"id" "678"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "debug_change_to_next_map"
-	connections
-	{
-		"OnTrigger" "debug_exit_level_relayTrigger0-1"
-	}
-	"origin" "648 364 -3448.52"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 7500]"
-	}
-}
-entity
-{
-	"id" "680"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@relay_disable_exit"
-	connections
-	{
-		"OnTrigger" "relay_exit_succeedDisable0-1"
-	}
-	"origin" "758 330 -3502"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 8500]"
-	}
-}
-entity
-{
-	"id" "681"
-	"classname" "game_end"
-	"targetname" "game_end"
-	"origin" "676 332 -3501.83"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 9000]"
-	}
-}
-entity
-{
-	"id" "682"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "debug_exit_level_relay"
-	connections
-	{
-		"OnTrigger" "rl_start_exitTrigger01"
-	}
-	"origin" "648 332 -3448.52"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 9500]"
-	}
-}
-entity
-{
-	"id" "683"
-	"classname" "logic_playmovie"
-	"allowskip" "0"
-	"fadeintime" "1"
-	"loopvideo" "1"
-	"MovieFilename" "p2_menu01"
-	"targetname" "playmovie_level_transition"
-	"origin" "646 392 -3524"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 10000]"
-	}
-}
-entity
-{
-	"id" "684"
-	"classname" "env_fade"
-	"duration" "1"
-	"renderamt" "255"
-	"rendercolor" "0 0 0"
-	"ReverseFadeDuration" "2"
-	"spawnflags" "8"
-	"targetname" "transition_fadeout_1"
-	"origin" "696 392 -3454.26"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 10500]"
-	}
-}
-entity
-{
-	"id" "685"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@relay_enable_exit"
-	connections
-	{
-		"OnTrigger" "relay_exit_succeedEnable0-1"
-	}
-	"origin" "742 330 -3502"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 11000]"
-	}
-}
-entity
-{
 	"id" "686"
 	"classname" "logic_script"
 	"targetname" "transition_script"
 	"vscripts" "debug_scripts/mp_coop_transition_list.nut"
-	"origin" "648 408 -3452"
+	"origin" "720 384 -3088"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[1500 11500]"
-	}
-}
-entity
-{
-	"id" "687"
-	"classname" "game_text"
-	"channel" "1"
-	"color" "0 128 255"
-	"color2" "255 128 0"
-	"effect" "2"
-	"fadein" ".05"
-	"fadeout" "0.5"
-	"fxtime" ".1"
-	"holdtime" "999"
-	"message" "End of Playtest"
-	"spawnflags" "1"
-	"targetname" "end_of_playtest_text"
-	"x" "-1"
-	"y" ".6"
-	"origin" "714.55 355.074 -3524"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 12000]"
-	}
-}
-entity
-{
-	"id" "688"
-	"classname" "logic_timer"
-	"RefireTime" "1"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "timer_try_exit"
-	"UseRandomTime" "0"
-	connections
-	{
-		"OnTimer" "relay_exit_succeedTrigger0-1"
-	}
-	"origin" "768 330 -3481.02"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 12500]"
-	}
-}
-entity
-{
-	"id" "689"
-	"classname" "logic_relay"
-	"spawnflags" "2"
-	"StartDisabled" "0"
-	"targetname" "relay_exit_succeed"
-	connections
-	{
-		"OnTrigger" "timer_try_exitKill0-1"
-		"OnTrigger" "@gladosRunScriptCodeGladosEndLevelRequest()01"
-		"OnTrigger" "rl_start_exitTrigger01"
-	}
-	"origin" "750 330 -3481.02"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 13000]"
-	}
-}
-entity
-{
-	"id" "690"
-	"classname" "point_template"
-	"spawnflags" "2"
-	"targetname" "template_movie_level_transition"
-	"Template01" "playmovie_level_transition"
-	"vscripts" "coop/mp_coop_movie_level_transition.nut"
-	connections
-	{
-		"OnEntitySpawned" "playmovie_level_transitionPlayLevelTransitionMovie0-1"
-	}
-	"origin" "649 390.269 -3501.24"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 13500]"
 	}
 }
 entity
@@ -36184,8 +35941,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[675.675 258.215 -2822.58]"
-		"look" "[684.825 296.04 -3086.12]"
+		"position" "[762.72 378.554 -2752.92]"
+		"look" "[712.949 374.722 -3014.6]"
 	}
 }
 cordons

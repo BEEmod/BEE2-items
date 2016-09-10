@@ -120,6 +120,15 @@
 	"Style"         "BEE2_PORTAL_1"
 	}
 	
+"StyleVar"
+	{
+	"ID"          "RestartOnExit"
+	"Enabled"     "1"
+	"Name"        "Resart When Reaching Exit"
+	"Description" "Automatically restart the map once the player(s) have reached the exit."
+	"Style"       "BEE2_PORTAL_1"
+	}
+	
 "PackList"
 	{
 	"ID"     "BEE2_P1_PORTED_PGUN"
@@ -275,6 +284,17 @@
 		"File" "sound/BEE2/p1/panel_turn.wav"
 		}
 	}
+		
+"PackList"
+	{
+	"ID" "PACK_P1_PIST_MOVE_SOUNDS"
+	"Config"
+		{
+		"" "#scripts/bee2_snd/portal_sounds.txt"
+		"" "sound/BEE2/p1/doormove3.wav"
+		"" "sound/BEE2/p1/stair_stop.wav"
+		}
+	}
 	
 "PackList"
 	{
@@ -311,13 +331,16 @@
 
 "PackList"
 	{
-	"ID" "PACK_P1_DOOR_FRAME"
+	"ID" "PACK_P1_DOOR"
 	"Config"
 		{
 		"File" "models/BEE2/props_p1/door_frame_thick.mdl"
-		"File" "models/BEE2/props_p1/door_frame_thick.phy"
-		"File" "models/BEE2/props_p1/door_frame_thick.vvd"
-		"File" "models/BEE2/props_p1/door_frame_thick.dx90.vtx"
+		"File" "models/BEE2/props_p1/door_left.mdl"
+		"File" "models/BEE2/props_p1/door_right.mdl"
+		
+		// Fixed version with blue lights.
+		"File" "materials/BEE2/props_p1/door_01.vmt"
+		"File" "materials/BEE2/props_p1/door_01.vtf"
 		}
 	}
 	
@@ -431,9 +454,7 @@
 		{
 		"File" "materials/BEE2/p1/metalwall048b_lrg.vmt"
 		"File" "materials/BEE2/p1/metalwall048b_lrg.vtf"
-		"File" "materials/BEE2/p1/metalwall048b_lrg_dx8.vtf"
 		"File" "materials/BEE2/p1/metalwall048b_lrg_height-ssbump.vtf"
-		"File" "materials/BEE2/p1/metalwall048b_lrg_normal.vtf"
 		}
 	}
 	
@@ -447,7 +468,6 @@
 		"File" "materials/BEE2/p1/metalwall048b_lrg_fade.vmt"
 		"File" "materials/BEE2/p1/metalwall048b_lrg_fade.vtf"
 		"File" "materials/BEE2/p1/metalwall048b_lrg_height-ssbump.vtf"
-		"File" "materials/BEE2/p1/metalwall048b_lrg_normal.vtf"
 		}
 	}
 
@@ -459,9 +479,7 @@
 		{
 		"File" "materials/BEE2/p1/metalwall048b_med.vmt"
 		"File" "materials/BEE2/p1/metalwall048b_med.vtf"
-		"File" "materials/BEE2/p1/metalwall048b_med_dx8.vtf"
 		"File" "materials/BEE2/p1/metalwall048b_med_height-ssbump.vtf"
-		"File" "materials/BEE2/p1/metalwall048b_med_normal.vtf"
 		}
 	}
 	
@@ -571,6 +589,27 @@
 		}
 	}
 	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_P1_PLASTIC_NOPAINT"
+	
+	"AddIfMat" "BEE2/no_paint/plasticwall001a"
+	"AddIfMat" "BEE2/no_paint/plasticwall001b"
+	"AddIfMat" "BEE2/no_paint/plasticwall002a"
+	"AddIfMat" "BEE2/no_paint/plasticwall003a"
+	"AddIfMat" "BEE2/no_paint/plasticwall004a"
+	
+	"Config"
+		{
+		"File" "materials/BEE2/no_paint/plasticwall001a.vmt"
+		"File" "materials/BEE2/no_paint/plasticwall001b.vmt"
+		"File" "materials/BEE2/no_paint/plasticwall002a.vmt"
+		"File" "materials/BEE2/no_paint/plasticwall003a.vmt"
+		"File" "materials/BEE2/no_paint/plasticwall004a.vmt"
+		}
+	}
+	
+	
 "BrushTemplate"
 	{
 	"ID"    "BEE2_STATIC_PAN_FLAT_P1"
@@ -582,6 +621,14 @@
 	"File"  "static_pan_angled.vmf"
 	}
 	
+// The moving brush for panels..
+"BrushTemplate"
+	{
+	"ID"    "BEE2_DYNAMIC_PAN_ANGLED_P1"
+	"File"  "angled_pan_dynamic.vmf"
+	}
+	
+
 // The UV axis data from these brushes are used to define the
 // rotation of brushes.
 "BrushTemplate"
@@ -593,6 +640,12 @@
 	{
 	"ID"    "BEE2_P1_GRATING_TEMPLATE"
 	"File"  "grating_template.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_P1_GLASS_BEAM"
+	"File"  "glass_floor_beam.vmf"
 	}
 	
 "BrushTemplate"
@@ -781,6 +834,18 @@
 			"Styles"
 				{
 				"BEE2_PORTAL_1" "angled_pan"
+				}
+			}
+		}
+		
+	"ITEM"
+		{
+		"ID" "ITEM_PANEL_CLEAR"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_PORTAL_1" "glass_pan"
 				}
 			}
 		}
