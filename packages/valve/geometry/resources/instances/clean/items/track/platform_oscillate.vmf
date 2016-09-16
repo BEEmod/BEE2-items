@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "178"
+	"mapversion" "182"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "178"
+	"mapversion" "182"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -154,7 +154,7 @@ entity
 	{
 		"OnTrigger" "branch_activeTest0-1"
 	}
-	"origin" "48 0 32"
+	"origin" "48 16 32"
 	editor
 	{
 		"color" "220 30 220"
@@ -166,13 +166,15 @@ entity
 entity
 {
 	"id" "2426"
-	"classname" "math_counter"
-	"max" "1"
-	"startvalue" "1"
-	"targetname" "counter_desired_position"
+	"classname" "logic_branch"
+	"InitialValue" "1"
+	"targetname" "branch_pos"
 	connections
 	{
-		"OnGetValue" "track_lift_movelinearSetPosition0-1"
+		"OnFalse" "track_lift_modelSetPlaybackRate-10-1"
+		"OnFalse" "track_lift_movelinearSetPosition00-1"
+		"OnTrue" "track_lift_modelSetPlaybackRate10-1"
+		"OnTrue" "track_lift_movelinearSetPosition10-1"
 	}
 	"origin" "48 -16 48"
 	editor
@@ -190,10 +192,11 @@ entity
 	"targetname" "relay_start_moving"
 	connections
 	{
-		"OnTrigger" "counter_desired_positionGetValue0.05-1"
+		"OnTrigger" "branch_posTest0.05-1"
 		"OnTrigger" "cube_enable_motion_triggerEnable0-1"
 		"OnTrigger" "cube_enable_motion_triggerDisable0.01-1"
 		"OnTrigger" "track_lift_movelinearSetSpeed$speed0-1"
+		"OnTrigger" "track_lift_modelSetAnimation$anim01"
 	}
 	"origin" "48 -16 32"
 	editor
@@ -206,34 +209,17 @@ entity
 }
 entity
 {
-	"id" "1980"
-	"classname" "logic_relay"
-	"targetname" "relay_stop_moving"
-	connections
-	{
-		"OnTrigger" "track_lift_movelinearSetSpeed00-1"
-		"OnTrigger" "cube_enable_motion_triggerDisable0.01-1"
-		"OnTrigger" "cube_enable_motion_triggerEnable0-1"
-	}
-	"origin" "48 16 32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
 	"id" "2067"
 	"classname" "logic_branch"
 	"InitialValue" "$start_active"
 	"targetname" "branch_active"
 	connections
 	{
-		"OnFalse" "relay_stop_movingTrigger0-1"
 		"OnTrue" "relay_start_movingTrigger0-1"
+		"OnFalse" "cube_enable_motion_triggerDisable0.01-1"
+		"OnFalse" "cube_enable_motion_triggerEnable0-1"
+		"OnFalse" "track_lift_movelinearSetSpeed00-1"
+		"OnFalse" "track_lift_modelSetPlaybackRate00-1"
 	}
 	"origin" "48 0 16"
 	editor
@@ -274,6 +260,7 @@ entity
 	"parm4" "$travel_direction angle 0 90 0"
 	"parm5" "$starting_position float 0"
 	"parm6" "$start_active float 0"
+	"parm7" "$anim string horiz"
 	"origin" "48 16 16"
 	editor
 	{
@@ -325,8 +312,10 @@ entity
 	{
 		"OnFullyOpen" "track_lift_movelinearSetPosition00-1"
 		"OnFullyClosed" "track_lift_movelinearSetPosition10-1"
-		"OnFullyOpen" "counter_desired_positionSetValueNoFire00-1"
-		"OnFullyClosed" "counter_desired_positionSetValueNoFire10-1"
+		"OnFullyOpen" "branch_posSetValue00-1"
+		"OnFullyClosed" "branch_posSetValue10-1"
+		"OnFullyClosed" "track_lift_modelSetPlaybackRate10-1"
+		"OnFullyOpen" "track_lift_modelSetPlaybackRate-10-1"
 	}
 	solid
 	{
@@ -560,7 +549,7 @@ entity
 	"HoldAnimation" "1"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
-	"model" "models/anim_wp/arm_interior_192/arm_interior_128.mdl"
+	"model" "models/bee2/props_ingame/track_plat_anim.mdl"
 	"parentname" "track_lift_movelinear"
 	"PerformanceMode" "0"
 	"pressuredelay" "0"
