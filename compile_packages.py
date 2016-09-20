@@ -8,15 +8,6 @@ from concurrent import futures
 
 from srctools import Property, KeyValError, VMF, conv_bool
 
-# The location of the VPK.exe executable - if not found, this will be skipped.
-try:
-	GAME_FOLDER = os.environ['PORTAL_2_LOC']
-except KeyError:
-    print('Set the PORTAL_2_LOC environment variable to the location of Portal 2 to allow VPK generating.')
-    GAME_FOLDER = ''
-
-VPK_BIN_LOC = os.path.join(GAME_FOLDER, 'bin', 'vpk.exe')
-
 OPTIMISE = False
 
 
@@ -171,34 +162,9 @@ def build_package(data):
                     zip_file.write(full_path, rel_path)
         print('')
     print('Finished "{}"'.format(package_path))
-    
-def gen_vpks():
-    with open('vpk/vpk_dest.cfg') as f:
-        config = Property.parse(f, 'vpk/vpk_dest.cfg').find_key("VPKDest", [])
-        
-    if not os.path.isfile(VPK_BIN_LOC):
-        print('VPK.exe not present, skipping VPK generation.')
-        return
-        
-    for prop in config:
-        src = os.path.join('vpk', prop.real_name)
-        dest = os.path.abspath('packages/{}/{}.vpk'.format(prop.value, src))
-        
-        subprocess.call([
-            VPK_BIN_LOC,
-            src,
-        ])
-        
-        if os.path.isfile(dest):
-            os.remove(dest)
-        os.rename(src + '.vpk', dest)
-        print('Processed "{}"'.format(dest))
-
 
 def main():
     global OPTIMISE
-    
-    gen_vpks()
     
     OPTIMISE = conv_bool(input('Optimise zips? '))
     
