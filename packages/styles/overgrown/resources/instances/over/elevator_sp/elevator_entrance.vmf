@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "1806"
+	"mapversion" "1807"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -38,13 +38,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "1806"
+	"mapversion" "1807"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -8420,6 +8420,35 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "223206"
+	"classname" "info_overlay"
+	"angles" "0 330 0"
+	"BasisNormal" "0 0 1"
+	"BasisOrigin" "176 256 -128"
+	"BasisU" "0.866025 -0.5 0"
+	"BasisV" "0.5 0.866025 0"
+	"EndU" "1"
+	"EndV" "0"
+	"fademindist" "-1"
+	"material" "overlays/overlay_moss01"
+	"sides" "23008 22996 23002 23134"
+	"StartU" "0"
+	"StartV" "1"
+	"uv0" "-128 -128 0"
+	"uv1" "-128 128 0"
+	"uv2" "128 128 0"
+	"uv3" "128 -128 0"
+	"origin" "176 256 -128"
+	editor
+	{
+		"color" "80 150 225"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -25401,7 +25430,7 @@ entity
 	"angles" "0 270 0"
 	"DisableBoneFollowers" "0"
 	"disablereceiveshadows" "0"
-	"disableshadows" "0"
+	"disableshadows" "1"
 	"drawinfastreflection" "0"
 	"ExplodeDamage" "0"
 	"ExplodeRadius" "0"
@@ -25540,7 +25569,7 @@ entity
 	"classname" "prop_static"
 	"angles" "0 90 -180"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -25570,7 +25599,7 @@ entity
 	"classname" "prop_static"
 	"angles" "0 90 180"
 	"disableselfshadowing" "0"
-	"disableshadows" "0"
+	"disableshadows" "1"
 	"disablevertexlighting" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
@@ -25654,7 +25683,7 @@ entity
 	"angles" "0 270 0"
 	"DisableBoneFollowers" "0"
 	"disablereceiveshadows" "0"
-	"disableshadows" "0"
+	"disableshadows" "1"
 	"drawinfastreflection" "0"
 	"ExplodeDamage" "0"
 	"ExplodeRadius" "0"
@@ -27917,20 +27946,23 @@ entity
 		"logicalpos" "[500 -7768]"
 	}
 }
-entity
+hidden
 {
-	"id" "101899"
-	"classname" "func_instance"
-	"angles" "-0 180 0"
-	"file" "instances/bee2/over/elevator_sp/elevator_arrival_logic.vmf"
-	"targetname" "arrival_elevator"
-	"origin" "96 96 -144"
-	editor
+	entity
 	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
+		"id" "101899"
+		"classname" "func_instance"
+		"angles" "-0 180 0"
+		"file" "instances/bee2/over/elevator_sp/elevator_arrival_logic.vmf"
+		"targetname" "arrival_elevator"
+		"origin" "96 96 -144"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 1500]"
+		}
 	}
 }
 cameras
@@ -27938,8 +27970,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[118.573 162.435 122.697]"
-		"look" "[120.334 193.96 68.0106]"
+		"position" "[219.501 222.883 47.367]"
+		"look" "[193.493 231.132 -9.58085]"
 	}
 	camera
 	{
@@ -28070,4 +28102,8 @@ cordons
 			"maxs" "(-10240 1216 1024)"
 		}
 	}
+}
+quickhide
+{
+	"count" "3"
 }
