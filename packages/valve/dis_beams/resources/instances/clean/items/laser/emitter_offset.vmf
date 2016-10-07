@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "92"
+	"mapversion" "95"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "92"
+	"mapversion" "95"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -480,33 +480,22 @@ world
 }
 entity
 {
-	"id" "585"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest2.21"
-	}
-	"origin" "-32 0 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "574"
+	"id" "660"
 	"classname" "light"
-	"_light" "255 106 106 10"
+	"_constant_attn" "0"
+	"_distance" "0"
+	"_fifty_percent_distance" "48"
+	"_hardfalloff" "0"
+	"_light" "255 106 106 50"
 	"_lightHDR" "-1 -1 -1 1"
 	"_lightscaleHDR" "1"
+	"_linear_attn" "0"
 	"_quadratic_attn" "1"
+	"_zero_percent_distance" "72"
 	"spawnflags" "1"
-	"targetname" "light"
-	"origin" "-32 0 -24"
+	"style" "5"
+	"targetname" "$name"
+	"origin" "-32 0 -40"
 	editor
 	{
 		"color" "220 30 220"
@@ -517,8 +506,27 @@ entity
 }
 entity
 {
+	"id" "585"
+	"classname" "logic_auto"
+	"spawnflags" "1"
+	connections
+	{
+		"OnMapSpawn" "branch_toggleTest2.21"
+	}
+	"origin" "-32 0 -24"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
 	"id" "562"
 	"classname" "func_noportal_volume"
+	"origin" "-32 0 -79.5"
 	"spawnflags" "0"
 	solid
 	{
