@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "10"
+	"mapversion" "11"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "10"
+	"mapversion" "11"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -163,14 +163,32 @@ entity
 entity
 {
 	"id" "204"
-	"classname" "func_detail"
+	"classname" "func_brush"
+	"disableflashlight" "1"
+	"disablereceiveshadows" "0"
+	"disableshadowdepth" "1"
+	"disableshadows" "1"
+	"drawinfastreflection" "0"
+	"InputFilter" "0"
+	"invert_exclusion" "0"
+	"origin" "0 0 -64"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"renderfx" "0"
+	"rendermode" "0"
+	"shadowdepthnocache" "0"
+	"solidbsp" "1"
+	"Solidity" "2"
+	"spawnflags" "2"
+	"StartDisabled" "0"
+	"vrad_brush_cast_shadows" "0"
 	solid
 	{
 		"id" "201"
 		side
 		{
 			"id" "59"
-			"plane" "(64 -64 -128) (-64 -64 -128) (-64 -64 -64)"
+			"plane" "(60 -60 -128) (-60 -60 -128) (-64 -64 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -181,7 +199,7 @@ entity
 		side
 		{
 			"id" "58"
-			"plane" "(-64 64 -128) (64 64 -128) (64 64 -64)"
+			"plane" "(-60 60 -128) (60 60 -128) (64 64 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -192,7 +210,7 @@ entity
 		side
 		{
 			"id" "57"
-			"plane" "(-64 -64 -128) (-64 64 -128) (-64 64 -64)"
+			"plane" "(-60 -60 -128) (-60 60 -128) (-64 64 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -203,7 +221,7 @@ entity
 		side
 		{
 			"id" "56"
-			"plane" "(64 64 -128) (64 -64 -128) (64 -64 -64)"
+			"plane" "(60 60 -128) (60 -60 -128) (64 -64 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -225,7 +243,7 @@ entity
 		side
 		{
 			"id" "54"
-			"plane" "(-64 64 -128) (-64 -64 -128) (64 -64 -128)"
+			"plane" "(-60 60 -128) (-60 -60 -128) (60 -60 -128)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -235,7 +253,7 @@ entity
 		}
 		editor
 		{
-			"color" "0 180 0"
+			"color" "220 30 220"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -300,14 +318,14 @@ entity
 		}
 		editor
 		{
-			"color" "0 180 0"
+			"color" "220 30 220"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "0 180 0"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 4500]"
