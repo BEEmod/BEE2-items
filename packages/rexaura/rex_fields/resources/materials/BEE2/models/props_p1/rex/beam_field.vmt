@@ -1,0 +1,29 @@
+UnlitGeneric
+	{
+	$basetexture "BEE2/models/props_p1/rex/beam_field"
+	$model 1
+	$additive 1
+	$nocull 1
+	// Cloudy effect
+	$detail "BEE2/models/props_p1/rex/beam_field_fx"
+	//$detail "effects/laserplane_atmosphere"
+	$detailscale 8//5
+ 	$detailblendmode 8
+ 	$detailblendscale 0.4
+	Proxies
+		{
+		Sine
+			{
+			sineMin 0.7
+			sineMax 0.9
+			sinePeriod 0.18
+			resultVar $alpha
+			}
+		TextureScroll
+			{
+			textureScrollRate 0.4
+			textureScrollAngle 0
+			textureScrollVar $detailtexturetransform 
+			}
+		}
+	}
