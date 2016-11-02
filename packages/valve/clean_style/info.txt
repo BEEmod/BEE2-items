@@ -36,7 +36,7 @@
 	"Description" 
 		{
 		"" "A version of Clean style which uses the original wall textures. Items still use the BEE2-enhanced versions."
-		"" " [More info](https://github.com/TeamSpen210/BEE2-items/wiki/Clean)"
+		"" " [More info](https://github.com/TeamSpen210/BEE2-items/wiki/Original-Clean)"
 		}
 	"Suggested"
 		{
@@ -58,6 +58,14 @@
 	"Icon"        "voices/glados.png"
 	"Authors"     "Carl Kenner, TeamSpen210"
 	"Description" "GLaDOS narrating test subject's trips through fully-modern and pristine test environments."
+	
+	"Monitor"
+		{
+		"Studio"            "instances/BEE2/voice/clean/monitor_studio.vmf"
+		"Interrupt_chance"  "0"
+		"Cam_loc"           "0 254 -124"
+		"Cam_angles"        "0 270 0"
+		}
 	}
 
 "StyleVar"
@@ -68,6 +76,15 @@
 	"Description" "Automatically add cameras around the entry and exit doors."
 	"Style"       "BEE2_CLEAN"
 	}
+
+"StyleVar"
+	{
+	"ID"          "RestartOnExit"
+	"Enabled"     "1"
+	"Name"        "Resart When Reaching Exit"
+	"Description" "Automatically restart the map once the player(s) have reached the exit."
+	"Style"       "BEE2_CLEAN"
+	}
 	
 
 "BrushTemplate"
@@ -75,6 +92,14 @@
 	// Allows us to generate EmbeddedVoxel-style brushes.
 	"ID"   "BEE2_EMBEDDED_VOXEL"
 	"file" "embedded_voxel_side.vmf"
+	}
+	
+
+"BrushTemplate"
+	{
+	// Template for 4-unit brushes of various kinds.
+	"ID"   "__TILING_TEMPLATE__"
+	"file" "tiling_template.vmf"
 	}
 	
 "Item"
@@ -192,6 +217,13 @@
 	"ID"     "PACK_BEE2_CUST_FIZZ_MDL"
 	"Config" "cust_fizz"
 	}
+	
+"PackList"
+	{
+	"ID"     "PACK_BEE2_CUST_FIZZ_MDL_STATIC"
+	"Config" "cust_fizz_static"
+	}
+	
 	
 "PackList"
 	{

@@ -35,7 +35,7 @@ teleport_dest_offset <- 32;
 teleport_dest_offset_mon <- 64;
 // Ditto for frankencubes.
 
-glass_thickness <- 2;
+glass_thickness <- 2.5;
 // Barriers that are thinner than this threshold but otherwise solid,
 // are treated as glass.
 // This distance is measured in the direction of the incoming beam.

@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "402"
+	"mapversion" "404"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -62,13 +62,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "402"
+	"mapversion" "404"
 	"classname" "worldspawn"
 	"comment" "Decompiled by BSPSource v1.3.3 from mp_coop_paint_come_along.bsp"
 	"detailmaterial" "detail/detailsprites"
@@ -106,7 +106,7 @@ world
 		{
 			"id" "33169"
 			"plane" "(-768 -768 2560) (-768 -7424 2560) (-768 -7424 -3584)"
-			"material" "NATURE/BLENDROCKDIRT_TUNNEL03A"
+			"material" "BEE2/CAVE_BLEND_WHITE"
 			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -276,7 +276,7 @@ world
 		{
 			"id" "33181"
 			"plane" "(-6912 -768 -3584) (-6912 -7424 -3584) (-6912 -7424 2560)"
-			"material" "NATURE/BLENDROCKDIRT_TUNNEL03A"
+			"material" "BEE2/CAVE_BLEND_WHITE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -435,7 +435,7 @@ world
 		{
 			"id" "33593"
 			"plane" "(-6912 -7424 -3584) (-768 -7424 -3584) (-768 -7424 2560)"
-			"material" "NATURE/BLENDROCKDIRT_TUNNEL03A"
+			"material" "BEE2/CAVE_BLEND_WHITE"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -583,7 +583,7 @@ world
 		{
 			"id" "33206"
 			"plane" "(-768 -768 -3584) (-6912 -768 -3584) (-6912 -768 2560)"
-			"material" "NATURE/BLENDROCKDIRT_TUNNEL03A"
+			"material" "BEE2/CAVE_BLEND_WHITE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3419,6 +3419,89 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "214799"
+	"classname" "logic_relay"
+	"spawnflags" "1"
+	"StartDisabled" "0"
+	"targetname" "rl_start_exit"
+	connections
+	{
+		"OnTrigger" "orange_floorDisable0.1-1"
+		"OnTrigger" "blue_floorDisable0.1-1"
+		"OnTrigger" "orange_floor_rotOpen0-1"
+		"OnTrigger" "blue_floor_rotOpen0-1"
+		"OnTrigger" "fade_exit_levelFade0.51"
+		"OnTrigger" "door_shifterOpen0-1"
+		"OnTrigger" "@commandCommandrestart_level1.8-1"
+		"OnTrigger" "@restart_relayEnable0.1-1"
+		"OnTrigger" "@relay_pti_level_endTrigger1.6-1"
+	}
+	"origin" "-3376 -3200 -3088"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1000 10500]"
+	}
+}
+entity
+{
+	"id" "214801"
+	"classname" "env_fade"
+	"duration" "1"
+	"holdtime" "10"
+	"renderamt" "255"
+	"rendercolor" "0 0 0"
+	"ReverseFadeDuration" "2"
+	"spawnflags" "8"
+	"targetname" "fade_exit_level"
+	"origin" "-3376 -3200 -3072"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1000 13500]"
+	}
+}
+entity
+{
+	"id" "214803"
+	"classname" "logic_script"
+	"targetname" "transition_script"
+	"vscripts" "debug_scripts/mp_coop_transition_list.nut"
+	"origin" "-3376 -3200 -3056"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1500 11500]"
+	}
+}
+entity
+{
+	"id" "214821"
+	"classname" "logic_coop_manager"
+	"targetname" "coop_man_start_transition"
+	connections
+	{
+		"OnChangeToAllTrue" "orange_trigger_closeKill0-1"
+		"OnChangeToAllTrue" "blue_trigger_closeKill0-1"
+		"OnChangeToAllTrue" "rl_start_exitTrigger0-1"
+	}
+	"origin" "-3376 -3200 -3040"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1500 2500]"
 	}
 }
 entity
@@ -12828,31 +12911,6 @@ entity
 }
 entity
 {
-	"id" "558"
-	"classname" "logic_relay"
-	"spawnflags" "1"
-	"StartDisabled" "0"
-	"targetname" "rl_start_exit"
-	connections
-	{
-		"OnTrigger" "orange_floorDisable0.1-1"
-		"OnTrigger" "blue_floorDisable0.1-1"
-		"OnTrigger" "orange_floor_rotOpen0-1"
-		"OnTrigger" "blue_floor_rotOpen0-1"
-		"OnTrigger" "transition_fadeout_1Fade0.51"
-		"OnTrigger" "rl_start_exit_finishedTrigger1.6-1"
-	}
-	"origin" "-3376 -3200 -3120"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 10500]"
-	}
-}
-entity
-{
 	"id" "560"
 	"classname" "func_brush"
 	"disableflashlight" "0"
@@ -13294,50 +13352,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[1000 12500]"
-	}
-}
-entity
-{
-	"id" "568"
-	"classname" "logic_relay"
-	"spawnflags" "1"
-	"StartDisabled" "0"
-	"targetname" "rl_start_exit_finished"
-	connections
-	{
-		"OnTrigger" "@relay_pti_level_endTrigger0-1"
-		"OnTrigger" "@restart_relayEnable0.1-1"
-		"OnTrigger" "@restart_relayTrigger0.15-1"
-		"OnTrigger" "transition_fadeout_1FadeReverse0.1-1"
-		"OnTrigger" "@clientcommandCommandrestart_level0.2-1"
-	}
-	"origin" "-3376 -3200 -3088"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 13000]"
-	}
-}
-entity
-{
-	"id" "569"
-	"classname" "env_fade"
-	"duration" "1"
-	"holdtime" "10"
-	"renderamt" "255"
-	"rendercolor" "0 0 0"
-	"ReverseFadeDuration" "2"
-	"spawnflags" "8"
-	"targetname" "fade_exit_level"
-	"origin" "-3376 -3200 -3104"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 13500]"
 	}
 }
 entity
@@ -16145,27 +16159,6 @@ entity
 }
 entity
 {
-	"id" "641"
-	"classname" "logic_coop_manager"
-	"targetname" "coop_man_start_transition"
-	connections
-	{
-		"OnChangeToAllTrue" "timer_try_exitEnable0-1"
-		"OnChangeToAllTrue" "orange_trigger_closeKill0-1"
-		"OnChangeToAllTrue" "blue_trigger_closeKill0-1"
-		"OnChangeToAllTrue" "@relay_enable_exitTrigger20-1"
-	}
-	"origin" "-3376 -3200 -3072"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 2500]"
-	}
-}
-entity
-{
 	"id" "642"
 	"classname" "func_brush"
 	"disableflashlight" "0"
@@ -18525,222 +18518,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[1500 7000]"
-	}
-}
-entity
-{
-	"id" "678"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "debug_change_to_next_map"
-	connections
-	{
-		"OnTrigger" "debug_exit_level_relayTrigger0-1"
-	}
-	"origin" "-3448 -3220 -3448.52"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 7500]"
-	}
-}
-entity
-{
-	"id" "679"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "gladosendoflevelrelay"
-	connections
-	{
-		"OnTrigger" "???Trigger01"
-	}
-	"origin" "-3368 -3176 -3507.33"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 8000]"
-	}
-}
-entity
-{
-	"id" "680"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@relay_disable_exit"
-	connections
-	{
-		"OnTrigger" "relay_exit_succeedDisable0-1"
-	}
-	"origin" "-3338 -3254 -3502"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 8500]"
-	}
-}
-entity
-{
-	"id" "681"
-	"classname" "game_end"
-	"targetname" "game_end"
-	"origin" "-3420 -3252 -3501.83"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 9000]"
-	}
-}
-entity
-{
-	"id" "682"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "debug_exit_level_relay"
-	connections
-	{
-		"OnTrigger" "rl_start_exitTrigger01"
-	}
-	"origin" "-3448 -3252 -3448.52"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 9500]"
-	}
-}
-entity
-{
-	"id" "684"
-	"classname" "env_fade"
-	"duration" "1"
-	"renderamt" "255"
-	"rendercolor" "0 0 0"
-	"ReverseFadeDuration" "2"
-	"spawnflags" "8"
-	"targetname" "transition_fadeout_1"
-	"origin" "-3400 -3192 -3454.26"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 10500]"
-	}
-}
-entity
-{
-	"id" "685"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@relay_enable_exit"
-	connections
-	{
-		"OnTrigger" "relay_exit_succeedEnable0-1"
-	}
-	"origin" "-3354 -3254 -3502"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 11000]"
-	}
-}
-entity
-{
-	"id" "686"
-	"classname" "logic_script"
-	"targetname" "transition_script"
-	"vscripts" "debug_scripts/mp_coop_transition_list.nut"
-	"origin" "-3448 -3176 -3452"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 11500]"
-	}
-}
-entity
-{
-	"id" "687"
-	"classname" "game_text"
-	"channel" "1"
-	"color" "0 128 255"
-	"color2" "255 128 0"
-	"effect" "2"
-	"fadein" ".05"
-	"fadeout" "0.5"
-	"fxtime" ".1"
-	"holdtime" "999"
-	"message" "End of Playtest"
-	"spawnflags" "1"
-	"targetname" "end_of_playtest_text"
-	"x" "-1"
-	"y" ".6"
-	"origin" "-3381.45 -3228.93 -3524"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 12000]"
-	}
-}
-entity
-{
-	"id" "688"
-	"classname" "logic_timer"
-	"RefireTime" "1"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "timer_try_exit"
-	"UseRandomTime" "0"
-	connections
-	{
-		"OnTimer" "relay_exit_succeedTrigger0-1"
-	}
-	"origin" "-3328 -3254 -3481.02"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 12500]"
-	}
-}
-entity
-{
-	"id" "689"
-	"classname" "logic_relay"
-	"spawnflags" "2"
-	"StartDisabled" "0"
-	"targetname" "relay_exit_succeed"
-	connections
-	{
-		"OnTrigger" "timer_try_exitKill0-1"
-		"OnTrigger" "gladosendoflevelrelayTrigger0.11"
-		"OnTrigger" "@gladosRunScriptCodeGladosEndLevelRequest()01"
-		"OnTrigger" "rl_start_exitTrigger01"
-	}
-	"origin" "-3346 -3254 -3481.02"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 13000]"
 	}
 }
 entity
@@ -40423,8 +40200,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-5481 -3655.49 -1504.68]"
-		"look" "[-5721.97 -3694.51 -1611.32]"
+		"position" "[-3517.9 -5701.96 -3273.18]"
+		"look" "[-3609.57 -5948.43 -3315.76]"
 	}
 }
 cordons
