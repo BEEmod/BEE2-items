@@ -1,11 +1,11 @@
 "ID"		"VALVE_TEST_ELEM"
 "Name"		"Test Elements"
- "Desc"      "The various Aperture Science inventions interacted with in chambers. Includes:
+"Desc"      "The various Aperture Science inventions interacted with in chambers. Includes:
 - Cubes
 - Excursion Funnels
 - Light Bridges
 - Gel
-This also includes Reflection Gel."
+This also includes Reflection Gel (since this is implemented in the original Gel item)."
 
 "Prerequisites"
 	{
@@ -16,12 +16,16 @@ This also includes Reflection Gel."
 	"ID" "ITEM_CUBE"	
 	"Description"
 		{
-		"" "Various types of cubes. All cubes will be replaced by the cube dropper when destroyed."
+		"" "Various types of cubes. All cubes will be replaced by the Cube Dropper when destroyed."
 		"" ""
 		"" "* Companion Cubes have hearts on the side."
 		"" "* Reflector cubes redirect lasers."
 		"" "* Edgeless Safety cubes are big spheres."
 		"" "* Franken-turrets hop around when rightside up."
+		"" ""
+		"" "* Set the `Timer Delay` on a dropperless Cube and Dropper to the same value to link them together."
+		"" "  The cube will then respawn from the dropper. This is useful to precisely position cubes, or respawn at a"
+		"" "  convenient location."
 		}
 	"all_conf"	"cube"
 	"Version"
@@ -37,7 +41,7 @@ This also includes Reflection Gel."
 	"ID"   "BEE2_CUBE_DROPPER_CLEAN_CAP"
 	"file" "cube_dropper_cap.vmf"
 	}
-	
+
 "Item"
 	{
 	"ID"       "ITEM_TBEAM"
@@ -133,7 +137,7 @@ This also includes Reflection Gel."
 	"ID"     "PACK_REFLECTION_DROPPER_CLEAN"
 	"Config" "reflection_dropper"
 	}
-	
+
 "BrushTemplate"
 	{
 	"ID"   "BEE2_TBEAM_FRAME"
