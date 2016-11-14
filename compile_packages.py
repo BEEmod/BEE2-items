@@ -6,25 +6,21 @@ import subprocess
 from zipfile import ZipFile, ZIP_LZMA, ZIP_DEFLATED
 from concurrent import futures
 
-from srctools import Property, KeyValError, VMF, conv_bool
+from srctools import Property, KeyValError, VMF, Entity, conv_bool
 
 OPTIMISE = False
-
 
 
 def clean_vmf(vmf_path):
     """Optimise the VMFs, removing unneeded entities or objects."""
     inst = VMF.parse(vmf_path)
 
-    for ent in itertools.chain([inst.spawn], inst.entities[:]):
-        editor = ent.editor
-        # Remove useless metadata
-        for cat in ('comments', 'color', 'logicalpos'):
-            if cat in editor:
-                del editor[cat]
+    for ent in itertools.chain([inst.spawn], inst.entities[:]):  # type: Entity
+        # Remove comments
+        ent.comments = ''
 
         # Remove entities that have their visgroups hidden.
-        if ent.hidden or not conv_bool(editor.get('visgroupshown', '1'), True):
+        if ent.hidden or not ent.vis_shown:
             print('Removing hidden ent')
             inst.remove_ent(ent)
             continue
@@ -50,7 +46,7 @@ def clean_vmf(vmf_path):
                 ent.solids.remove(solid)
                 continue
 
-            if solid.hidden or not conv_bool(solid.editor.get('visgroupshown', '1'), True):
+            if solid.hidden or not solid.vis_shown:
                 print('Removing hidden brush')
                 ent.solids.remove(solid)
                 continue
