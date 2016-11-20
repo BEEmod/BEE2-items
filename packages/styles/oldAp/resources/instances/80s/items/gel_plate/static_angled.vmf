@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "229"
+	"mapversion" "231"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "229"
+	"mapversion" "231"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -120,7 +120,7 @@ world
 		side
 		{
 			"id" "1100"
-			"plane" "(-52 32 -80) (-52 -32 -80) (48 -32 -80)"
+			"plane" "(-60 32 -80) (-60 -32 -80) (48 -32 -80)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -131,7 +131,7 @@ world
 		side
 		{
 			"id" "1099"
-			"plane" "(-52 32 -80) (-56 32 -76) (-56 -32 -76)"
+			"plane" "(-60 32 -80) (-56 32 -76) (-56 -32 -76)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 -17] 0.25"
@@ -142,7 +142,7 @@ world
 		side
 		{
 			"id" "1098"
-			"plane" "(48 32 -80) (48 32 -68) (-56 32 -76)"
+			"plane" "(-56 32 -76) (-60 32 -80) (48 32 -80)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -153,7 +153,7 @@ world
 		side
 		{
 			"id" "1097"
-			"plane" "(-52 -32 -80) (-56 -32 -76) (48 -32 -68)"
+			"plane" "(-60 -32 -80) (-56 -32 -76) (48 -32 -68)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -315,7 +315,7 @@ world
 		side
 		{
 			"id" "1118"
-			"plane" "(-60 32 -68) (-60 32 -76) (-56 32 -76)"
+			"plane" "(-60 32 -80) (-56 32 -76) (-60 32 -68)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -326,7 +326,7 @@ world
 		side
 		{
 			"id" "1119"
-			"plane" "(-60 -32 -76) (-60 -32 -68) (-56 -32 -76)"
+			"plane" "(-60 -32 -68) (-56 -32 -76) (-60 -32 -80)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -337,7 +337,7 @@ world
 		side
 		{
 			"id" "1121"
-			"plane" "(-60 -32 -76) (-60 32 -76) (-60 32 -68)"
+			"plane" "(-60 -32 -80) (-60 32 -80) (-60 32 -68)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -359,7 +359,7 @@ world
 		side
 		{
 			"id" "1123"
-			"plane" "(-56 -32 -76) (-56 32 -76) (-60 32 -76)"
+			"plane" "(-60 32 -80) (-60 -32 -80) (-56 -32 -76)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -757,11 +757,51 @@ world
 }
 entity
 {
+	"id" "5940"
+	"classname" "ambient_generic"
+	"health" "10"
+	"message" "Player.ExitBouncePaint"
+	"pitch" "100"
+	"pitchstart" "100"
+	"radius" "1250"
+	"spawnflags" "48"
+	"targetname" "catapult_sound"
+	"origin" "-16 -16 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1000 -11768]"
+	}
+}
+entity
+{
+	"id" "5944"
+	"classname" "ambient_generic"
+	"health" "10"
+	"message" "Player.JumpPowerUse"
+	"pitch" "100"
+	"pitchstart" "100"
+	"radius" "1250"
+	"spawnflags" "48"
+	"targetname" "catapult_sound"
+	"origin" "-16 16 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1000 -11768]"
+	}
+}
+entity
+{
 	"id" "5485"
 	"classname" "info_overlay"
 	"angles" "0 90 0"
 	"BasisNormal" "0 0 1"
-	"BasisOrigin" "-16 -48 -44"
+	"BasisOrigin" "-16 -48 -60"
 	"BasisU" "-4.37114e-008 1 0"
 	"BasisV" "-1 -4.37114e-008 0"
 	"EndU" "1"
@@ -775,7 +815,7 @@ entity
 	"uv1" "-16 16 0"
 	"uv2" "16 16 0"
 	"uv3" "16 -16 0"
-	"origin" "-16 -48 -44"
+	"origin" "-16 -48 -60"
 	editor
 	{
 		"color" "80 150 225"
@@ -790,7 +830,7 @@ entity
 	"classname" "info_overlay"
 	"angles" "0 90 0"
 	"BasisNormal" "0 0 1"
-	"BasisOrigin" "-16 48 -44"
+	"BasisOrigin" "-16 48 -60"
 	"BasisU" "-4.37114e-008 1 0"
 	"BasisV" "-1 -4.37114e-008 0"
 	"EndU" "1"
@@ -804,7 +844,7 @@ entity
 	"uv1" "-16 16 0"
 	"uv2" "16 16 0"
 	"uv3" "16 -16 0"
-	"origin" "-16 48 -44"
+	"origin" "-16 48 -60"
 	editor
 	{
 		"color" "80 150 225"
@@ -826,7 +866,7 @@ entity
 		"OnTrigger" "mistStop1-1"
 		"OnTrigger" "mistStart0-1"
 	}
-	"origin" "24 20 -40"
+	"origin" "16 16 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -868,33 +908,13 @@ entity
 	{
 		"OnProxyRelay" "anim_relayTrigger0-1"
 	}
-	"origin" "24 0 -40"
+	"origin" "16 -16 -48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "604"
-	"classname" "ambient_generic"
-	"health" "10"
-	"message" "Player.JumpPowerUse"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"spawnflags" "48"
-	"targetname" "catapult_sound"
-	"origin" "-24 -8 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 -11768]"
 	}
 }
 cameras

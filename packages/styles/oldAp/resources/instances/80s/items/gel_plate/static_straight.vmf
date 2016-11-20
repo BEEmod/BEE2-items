@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "221"
+	"mapversion" "223"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "221"
+	"mapversion" "223"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -486,11 +486,91 @@ world
 }
 entity
 {
+	"id" "5997"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	connections
+	{
+		"OnProxyRelay" "anim_relayTrigger0-1"
+	}
+	"origin" "16 -16 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "5999"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"targetname" "anim_relay"
+	connections
+	{
+		"OnTrigger" "catapult_soundPlaySound0.1-1"
+		"OnTrigger" "@music_faith_playTrigger0-1"
+		"OnTrigger" "mistStop1-1"
+		"OnTrigger" "mistStart0-1"
+	}
+	"origin" "16 16 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "6001"
+	"classname" "ambient_generic"
+	"health" "10"
+	"message" "Player.JumpPowerUse"
+	"pitch" "100"
+	"pitchstart" "100"
+	"radius" "1250"
+	"spawnflags" "48"
+	"targetname" "catapult_sound"
+	"origin" "-16 16 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1000 -11768]"
+	}
+}
+entity
+{
+	"id" "6005"
+	"classname" "ambient_generic"
+	"health" "10"
+	"message" "Player.ExitBouncePaint"
+	"pitch" "100"
+	"pitchstart" "100"
+	"radius" "1250"
+	"spawnflags" "48"
+	"targetname" "catapult_sound"
+	"origin" "-16 -16 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1000 -11768]"
+	}
+}
+entity
+{
 	"id" "5739"
 	"classname" "info_overlay"
 	"angles" "0 90 0"
 	"BasisNormal" "0 0 1"
-	"BasisOrigin" "16 48 -48"
+	"BasisOrigin" "16 48 -60"
 	"BasisU" "-4.37114e-008 1 0"
 	"BasisV" "-1 -4.37114e-008 0"
 	"EndU" "1"
@@ -504,7 +584,7 @@ entity
 	"uv1" "-16 16 0"
 	"uv2" "16 16 0"
 	"uv3" "16 -16 0"
-	"origin" "16 48 -48"
+	"origin" "16 48 -60"
 	editor
 	{
 		"color" "80 150 225"
@@ -519,7 +599,7 @@ entity
 	"classname" "info_overlay"
 	"angles" "0 270 0"
 	"BasisNormal" "0 0 1"
-	"BasisOrigin" "-16 -48 -48"
+	"BasisOrigin" "-16 -48 -60"
 	"BasisU" "-4.37114e-008 -1 0"
 	"BasisV" "1 -4.37114e-008 0"
 	"EndU" "1"
@@ -533,53 +613,13 @@ entity
 	"uv1" "-16 16 0"
 	"uv2" "16 16 0"
 	"uv3" "16 -16 0"
-	"origin" "-16 -48 -48"
+	"origin" "-16 -48 -60"
 	editor
 	{
 		"color" "80 150 225"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 10000]"
-	}
-}
-entity
-{
-	"id" "5545"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "anim_relayTrigger0-1"
-	}
-	"origin" "16.1819 -8 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "5547"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "anim_relay"
-	connections
-	{
-		"OnTrigger" "catapult_soundPlaySound0.1-1"
-		"OnTrigger" "@music_faith_playTrigger0-1"
-		"OnTrigger" "mistStop1-1"
-		"OnTrigger" "mistStart0-1"
-	}
-	"origin" "16.1819 12 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -604,26 +644,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "604"
-	"classname" "ambient_generic"
-	"health" "10"
-	"message" "Player.JumpPowerUse"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"spawnflags" "48"
-	"targetname" "catapult_sound"
-	"origin" "-24 0 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 -11768]"
 	}
 }
 cameras
