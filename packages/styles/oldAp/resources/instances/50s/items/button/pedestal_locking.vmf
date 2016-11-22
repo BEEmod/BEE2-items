@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "66"
+	"mapversion" "69"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,66 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "66"
+	"mapversion" "69"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
+}
+entity
+{
+	"id" "32"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "out"
+	connections
+	{
+		"OnUser2" "proxyProxyRelay0-1"
+		"OnUser1" "proxyProxyRelay0-1"
+		"OnTrigger" "outFireUser20-1"
+		"OnTrigger" "outDisable0-1"
+		"OnTrigger" "reset_rlEnable0-1"
+	}
+	"origin" "-48 16 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "38"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "1"
+	"targetname" "reset_rl"
+	connections
+	{
+		"OnTrigger" "outFireUser10.1-1"
+		"OnTrigger" "reset_rlDisable0-1"
+		"OnTrigger" "reset_rlEnable0-1"
+		"OnTrigger" "outEnable0-1"
+	}
+	"origin" "-48 -16 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
 }
 entity
 {
@@ -55,13 +102,10 @@ entity
 	"rendercolor" "255 255 255"
 	"rendermode" "0"
 	"solid" "1"
-	"targetname" "out"
+	"targetname" "mdl"
 	connections
 	{
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnPressed" "outFireUser201"
-		"OnPressed" "!selfLock01"
+		"OnPressed" "outTrigger0-1"
 	}
 	"origin" "-48 0 -56"
 	editor
@@ -78,6 +122,10 @@ entity
 	"id" "22"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
+	connections
+	{
+		"OnProxyRelay" "reset_rlTrigger0-1"
+	}
 	"origin" "-48 32 -48"
 	editor
 	{
