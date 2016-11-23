@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "171"
+	"mapversion" "172"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "171"
+	"mapversion" "172"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2842,6 +2842,27 @@ world
 }
 entity
 {
+	"id" "34536"
+	"classname" "ambient_generic"
+	"health" "100"
+	"message" "BEE2.p1.fizzle_radio"
+	"pitch" "100"
+	"pitchstart" "100"
+	"radius" "1250"
+	"spawnflags" "49"
+	"targetname" "radio_fizz_sound"
+	"origin" "98.44 -56 -262.883"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "The player must be nearby, so it's fine to be infinite range. Playing from the dead object doesn't work right..."
+		"logicalpos" "[500 10500]"
+	}
+}
+entity
+{
 	"id" "34183"
 	"classname" "ambient_generic"
 	"health" "100"
@@ -2885,6 +2906,9 @@ entity
 		"OnHealthChanged" "radio_soundVolume00-1"
 		"OnBreak" "radio_soundVolume00-1"
 		"OnFizzled" "radio_soundVolume00-1"
+		"OnHealthChanged" "radio_fizz_soundPlaySound0-1"
+		"OnFizzled" "radio_fizz_soundPlaySound0-1"
+		"OnBreak" "radio_fizz_soundPlaySound0-1"
 	}
 	"origin" "64.344 -56.7464 -280.552"
 	editor

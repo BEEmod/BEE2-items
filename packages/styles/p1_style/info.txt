@@ -110,15 +110,6 @@
 	"Enabled"       "1"
 	"Style"         "BEE2_PORTAL_1"
 	}
-
-"StyleVar"
-	{
-	"ID"            "P1_WPORTAL_STRIPS"
-	"Name"          "Use WorldPortal Light Strips"
-	"Description"   "Use worldportals for the light strip tunnel. This looks really good, but can lower FPS. If many lights are used, disable this."
-	"Enabled"       "0"
-	"Style"         "BEE2_PORTAL_1"
-	}
 	
 "StyleVar"
 	{
@@ -230,6 +221,13 @@
 	"Config" "radio"
 	}
 	
+// Breakable mug from the Relaxation Vault - mug and gibs.
+"PackList"
+	{
+	"ID" "PACK_P1_MUG"
+	"Config" "mug"
+	}
+	
 "PackList"
 	{
 	// The recessed lights at the top/bottom of white
@@ -305,10 +303,6 @@
 	"AddIfMat"  "BEE2/ind_p1/straight_wall"
 	"Config"
 		{
-		"File" "materials/BEE2/ind_p1/corner_floor.vmt"
-		"File" "materials/BEE2/ind_p1/corner_wall.vmt"
-		"File" "materials/BEE2/ind_p1/straight_floor.vmt"
-		"File" "materials/BEE2/ind_p1/straight_wall.vmt"
 		"File" "materials/BEE2/ind_p1/p1_antline_floor_double.vtf"
 		"File" "materials/BEE2/ind_p1/p1_antline_wall_double.vtf"
 		}
@@ -320,7 +314,6 @@
 	"AddIfMat"  "BEE2/p1/goo/p1_goo"
 	"Config"
 		{
-		"File" "materials/BEE2/p1/goo/p1_goo.vmt"
 		"File" "materials/BEE2/p1/goo/beneath.vmt"
 		
 		"File" "materials/BEE2/p1/goo/p1_goo.vtf"
@@ -339,8 +332,8 @@
 		"File" "models/BEE2/props_p1/door_right.mdl"
 		
 		// Fixed version with blue lights.
-		"File" "materials/BEE2/props_p1/door_01.vmt"
-		"File" "materials/BEE2/props_p1/door_01.vtf"
+		"File" "materials/BEE2/models/props_p1/door_01.vmt"
+		"File" "materials/BEE2/models/props_p1/door_01.vtf"
 		}
 	}
 	
@@ -350,19 +343,12 @@
 	"Config"
 		{
 		"File" "models/BEE2/props_p1/floor_button_top.mdl"
-		"File" "models/BEE2/props_p1/floor_button_top.vvd"
-		"File" "models/BEE2/props_p1/floor_button_top.phy"
-		"File" "models/BEE2/props_p1/floor_button_top.dx90.vtx"
-		
 		"File" "models/BEE2/props_p1/floor_button_base.mdl"
-		"File" "models/BEE2/props_p1/floor_button_base.vvd"
-		"File" "models/BEE2/props_p1/floor_button_base.phy"
-		"File" "models/BEE2/props_p1/floor_button_base.dx90.vtx"
 		
 		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vmt"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vtf"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_exponent.vtf"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_normal.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/base.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/exponent.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/normal.vtf"
 		}
 	}
 	
@@ -374,20 +360,14 @@
 		// A version of the button base scaled to fit the size of ball buttons, plus with no bottom
 		// so the button can stick through (it's very deep).
 		"File" "models/BEE2/props_p1/sphere_button_base.mdl"
-		"File" "models/BEE2/props_p1/sphere_button_base.vvd"
-		"File" "models/BEE2/props_p1/sphere_button_base.phy"
-		"File" "models/BEE2/props_p1/sphere_button_base.dx90.vtx"
 		
 		// Just the moving part of sphere buttons, which fits in the above model
 		"File" "models/BEE2/props_ingame/ball_button_just_top.mdl"
-		"File" "models/BEE2/props_ingame/ball_button_just_top.vvd"
-		"File" "models/BEE2/props_ingame/ball_button_just_top.phy"
-		"File" "models/BEE2/props_ingame/ball_button_just_top.dx90.vtx"
 		
 		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vmt"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vtf"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_exponent.vtf"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_normal.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/base.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/exponent.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/normal.vtf"
 		}
 	}
 	
@@ -408,9 +388,6 @@
 	"Config"
 		{
 		"File"  "models/BEE2/props_ingame/p1_gel_dropper.mdl"
-		"File"  "models/BEE2/props_ingame/p1_gel_dropper.vvd"
-		"File"  "models/BEE2/props_ingame/p1_gel_dropper.phy"
-		"File"  "models/BEE2/props_ingame/p1_gel_dropper.dx90.vtx"
 		
 		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_grey.vmt"
 		"File"  "materials/BEE2/models/props_ingame/p1_gel_drop/gel_drop_white.vmt"
@@ -427,16 +404,11 @@
 	"ID"        "PACK_P1_BTS_WALLS"
 	"AddIfMat"  "BEE2/p1/metalwall_bts_006a"
 	"AddIfMat"  "BEE2/p1/metalwall_bts_006b"
+	"AddIfMat"  "BEE2/p1/metalwall_bts_006a_gradient"
 	"AddIfMat"  "BEE2/p1/metalwall_bts_006c_gradient"
 	"AddIfMat"  "BEE2/p1/metalwall_bts_006d_gradient"
 	"Config"
-		{
-		"File" "materials/BEE2/p1/metalwall_bts_006a.vmt"
-		"File" "materials/BEE2/p1/metalwall_bts_006a_gradient.vmt"
-		"File" "materials/BEE2/p1/metalwall_bts_006b.vmt"
-		"File" "materials/BEE2/p1/metalwall_bts_006c_gradient.vmt"
-		"File" "materials/BEE2/p1/metalwall_bts_006d_gradient.vmt"
-		
+		{		
 		"File" "materials/BEE2/p1/metalwall_bts_006a.vtf"
 		"File" "materials/BEE2/p1/metalwall_bts_006a_gradient.vtf"
 		"File" "materials/BEE2/p1/metalwall_bts_006a_normal.vtf"
@@ -452,7 +424,6 @@
 	"AddIfMat"  "BEE2/p1/metalwall048b_lrg"
 	"Config"
 		{
-		"File" "materials/BEE2/p1/metalwall048b_lrg.vmt"
 		"File" "materials/BEE2/p1/metalwall048b_lrg.vtf"
 		"File" "materials/BEE2/p1/metalwall048b_lrg_height-ssbump.vtf"
 		}
@@ -465,7 +436,6 @@
 	"AddIfMat"  "BEE2/p1/metalwall048b_lrg_fade"
 	"Config"
 		{
-		"File" "materials/BEE2/p1/metalwall048b_lrg_fade.vmt"
 		"File" "materials/BEE2/p1/metalwall048b_lrg_fade.vtf"
 		"File" "materials/BEE2/p1/metalwall048b_lrg_height-ssbump.vtf"
 		}
@@ -477,9 +447,39 @@
 	"AddIfMat"  "BEE2/p1/metalwall048b_med"
 	"Config"
 		{
-		"File" "materials/BEE2/p1/metalwall048b_med.vmt"
 		"File" "materials/BEE2/p1/metalwall048b_med.vtf"
 		"File" "materials/BEE2/p1/metalwall048b_med_height-ssbump.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_P1_BLACK_WALL_SML_FADE_WHITE"
+	"AddIfMat"  "BEE2/p1/metalwall048b_fade_white"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall_fade_white.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_P1_BLACK_WALL_SML_FADE_ORANGE"
+	"AddIfMat"  "BEE2/p1/metalwall048b_fade_orange"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall_fade_orange.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_P1_BLACK_WALL_SML_FADE_BLUE"
+	"AddIfMat"  "BEE2/p1/metalwall048b_fade_blue"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall_fade_blue.vtf"
+		"File" "materials/BEE2/light_blue.vmt"
 		}
 	}
 	
@@ -505,9 +505,6 @@
 	"Config"
 		{
 		"File" "models/BEE2/props_ingame/sign_frame_1_wback.mdl"
-		"File" "models/BEE2/props_ingame/sign_frame_1_wback.vvd"
-		"File" "models/BEE2/props_ingame/sign_frame_1_wback.phy"
-		"File" "models/BEE2/props_ingame/sign_frame_1_wback.dx90.vtx"
 		}
 	}
 	
@@ -517,9 +514,6 @@
 	"Config"
 		{
 		"File" "models/BEE2/props_ingame/sign_frame_2_wback.mdl"
-		"File" "models/BEE2/props_ingame/sign_frame_2_wback.vvd"
-		"File" "models/BEE2/props_ingame/sign_frame_2_wback.phy"
-		"File" "models/BEE2/props_ingame/sign_frame_2_wback.dx90.vtx"
 		}
 	}
 	
@@ -530,9 +524,8 @@
 	"Config"
 		{
 		"File"  "models/BEE2/props_p1/light_hole_small.mdl"
-		"File"  "models/BEE2/props_p1/light_hole_small.phy"
-		"File"  "models/BEE2/props_p1/light_hole_small.vvd"
-		"File"  "models/BEE2/props_p1/light_hole_small.dx90.vtx"
+		
+		"File"  "materials/BEE2/models/props_p1/light_hole/invis.vmt"
 		
 		"File"  "materials/BEE2/models/props_p1/light_hole/wall_white.vmt"
 		"File"  "materials/BEE2/models/props_p1/light_hole/wall_orange.vmt"
@@ -557,7 +550,6 @@
 	"AddIfMat"  "BEE2/bullseye/concrete_modular_wall"
 	"Config"
 		{
-		"File" "materials/BEE2/bullseye/concrete_modular_wall.vmt"
 		"File" "materials/BEE2/bullseye/concrete_modular_wall.vtf"
 		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
 		}
@@ -569,7 +561,6 @@
 	"AddIfMat"  "BEE2/bullseye/concrete_modular_floor"
 	"Config"
 		{
-		"File" "materials/BEE2/bullseye/concrete_modular_floor.vmt"
 		"File" "materials/BEE2/bullseye/concrete_modular_floor.vtf"
 		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
 		}
@@ -581,11 +572,9 @@
 	"AddIfMat"  "BEE2/bullseye/metalwall48"
 	"Config"
 		{
-		"File" "materials/BEE2/bullseye/metalwall48.vmt"
 		"File" "materials/BEE2/bullseye/metalwall48.vtf"
 		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
 		"File" "materials/BEE2/p1/metalwall048b_med_height-ssbump.vtf"
-		"File" "materials/BEE2/p1/metalwall048b_med_normal.vtf"
 		}
 	}
 	
@@ -598,15 +587,6 @@
 	"AddIfMat" "BEE2/no_paint/plasticwall002a"
 	"AddIfMat" "BEE2/no_paint/plasticwall003a"
 	"AddIfMat" "BEE2/no_paint/plasticwall004a"
-	
-	"Config"
-		{
-		"File" "materials/BEE2/no_paint/plasticwall001a.vmt"
-		"File" "materials/BEE2/no_paint/plasticwall001b.vmt"
-		"File" "materials/BEE2/no_paint/plasticwall002a.vmt"
-		"File" "materials/BEE2/no_paint/plasticwall003a.vmt"
-		"File" "materials/BEE2/no_paint/plasticwall004a.vmt"
-		}
 	}
 	
 	
