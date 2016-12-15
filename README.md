@@ -41,6 +41,11 @@ Packages can contain multiple items/styles, so do not worry. A package can also 
 
 # Additional Information
 
+* If you are editing on Hammer, anything that is placed in the folder `sdk_content\maps\instances\bee2` will be deleted if you export the BEE2.4 pallete without enabling the setting `Preserve Game Directories`. If you are editing any package, after you have finished, do not forget to save it inside the packages, by replacing the old files inside.
+* BEE2.4 will crash if you are exporting while another folder or file is open that is important to the BEE2.4 compilation process.
+* If you are having problems using BEE2.4, make sure to verify the game cache files of Portal 2 before using a new BEE2.4 Default Pack release. **The issue also could be from another BEE2.4 pack, not just the BEE2.4 Default Pack**
+* It is recommended to have backups from the following Portal 2 folders: `sdk_content`, `portal2_dlc2`, and `bin`, just in case you need to restore your Portal 2 files.
+
 If you need more in-depth explanation of items and styles, or development guides, you may view this on the [BEE2.4 Default Pack wiki](https://github.com/TeamSpen210/BEE2-items/wiki).
 You can also look at the [BEE2.4 wiki](https://github.com/BenVlodgi/BEE2.4/wiki) for information on the program itself.
 
