@@ -65,13 +65,17 @@ function StartVideo(videoType, width, height, use_destructed)
 	
 	if (use_destructed == 1)
 	{
-		videoScaleType = RandomInt(1,5)
+		videoScaleType = RandomInt(1,4)
 		randomDestructChance = RandomInt(30, 70)
 	}
 	else
 	{
-		videoScaleType = RandomInt(6,13)
+		videoScaleType = RandomInt(5,13)
 	}
+	
+	printl("-------")
+	printl("Scaling type: " + videoScaleType)
+	printl("-------")
 	
 	for(local i=0;i<width;i+=1)
 	{
@@ -142,6 +146,8 @@ function StartVideo(videoType, width, height, use_destructed)
 				video_shape = "horiz"			
 			}
 			
+			// Clean below 
+			
 			else if( videoScaleType == 5 /*Tiled*/ )
 			{
 				vMin = 0.00001
@@ -151,7 +157,6 @@ function StartVideo(videoType, width, height, use_destructed)
 				uMax = ((i%3)+1.0001)/3
 			}
 			
-			// Destroyed videos
 			else if( videoScaleType == 6 /*Tiled Really Big*/ )
 			{
 				uMin = ((i%8)+0.0001)/8
@@ -214,8 +219,14 @@ function StartVideo(videoType, width, height, use_destructed)
 				}
 				else
 				{
-					uMin = 0.97
-					uMax = 0.97
+					// Addition, Valve only does horizontal, but some
+					// videos go all the way to the border.
+					// Use lower-left since there's often the test-element
+					// name there, it won't have other stuff appearing.
+					vMin = 0.97  
+					vMax = 0.97
+					uMin = 0.01
+					uMax = 0.01
 				}
 			}
 			
