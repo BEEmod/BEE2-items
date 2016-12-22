@@ -1,0 +1,111 @@
+"ID"		"BEE2_MONITORS"
+"Name"		"Monitors and Cameras"
+"Desc"      "Adds Monitors to show the character overseeing chambers, or other areas of the map."
+
+"Item"
+	{
+	"ID"       "ITEM_BEE2_MONITOR"
+	"Description"	
+		{
+		"" "Monitors display the character set in Voice Lines."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"        "mon_clean"
+			"BEE2_PORTAL_1"     "mon_p1"
+			// "BEE2_1950s"        "mon_50s"
+			"BEE2_OVERGROWN"    "mon_over"
+			}
+		}
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_MONITOR_COVER_TOP"
+	"file" "cover_clean_top.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_MONITOR_COVER_TOP_P1"
+	"file" "cover_clean_top_p1.vmf"
+	}
+
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_MONITOR_COVER_BOTTOM"
+	"file" "cover_clean_bottom.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_MONITOR_COVER_BOTTOM_P1"
+	"file" "cover_clean_bottom_p1.vmf"
+	}
+	
+"PackList"
+	{
+	"ID" "BEE2_MON_LAS_SCRIPT"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/mon_las_spark.nut"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "BEE2_MON_SCREEN_DIRTY"
+	"Config"
+		{
+		"" "models/bee2/props_overgrown/glados_screen_curve.mdl"
+		"" "materials/BEE2/models/props_overgrown/glados_screen_dirty.vmt"
+		}
+	}
+	
+
+"Item"
+	{
+	"ID"       "ITEM_BEE2_CAMERA"
+	"Description"	
+		{
+		"" "Cameras transmit video to Monitors. The target will not appear - this is the location the camera will point at.  "
+		"" ""
+		"" "* Inputs allow turning the camera on and off. If multiple are enabled, the screen will cycle through all cameras."
+		"" "* The camera cannot be knocked off the wall."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"        "cam_clean"
+			"BEE2_PORTAL_1"     "cam_p1"
+			// "BEE2_1950s"        "cam_50s"
+			"BEE2_OVERGROWN"    "cam_over"
+			}
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "BEE2_MON_CAM_STATIC_CLEAN"
+	"Config"
+		{
+		"" "models/bee2/cam_parts/cam_lens_clean.mdl"
+		"" "models/bee2/cam_parts/cam_base_clean.mdl"
+		"" "models/bee2/cam_parts/cam_shaft_clean.mdl"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "BEE2_MON_CAM_STATIC_P1"
+	"Config"
+		{
+		"" "models/bee2/cam_parts/cam_lens_p1.mdl"
+		"" "models/bee2/cam_parts/cam_base_p1.mdl"
+		"" "models/bee2/cam_parts/cam_mount_p1.mdl"
+		}
+	}

@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "299"
+	"mapversion" "304"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -62,7 +62,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "299"
+	"mapversion" "304"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -229,7 +229,7 @@ entity
 	"id" "6012"
 	"classname" "logic_relay"
 	"spawnflags" "0"
-	"StartDisabled" "1"
+	"StartDisabled" "0"
 	"targetname" "cube_dropper_gate_relay"
 	connections
 	{
@@ -1232,6 +1232,8 @@ entity
 		"OnChangeToAllTrue" "voice_rlDisable0-1"
 		"OnChangeToAllTrue" "cube_dropper_gate_relayEnable0.5-1"
 		"OnChangeToAllTrue" "cube_dropper_gate_relayDisable0-1"
+		"OnChangeToAllTrue" "spawn_manFireUser101"
+		"OnUser1" "proxyProxyRelay0-1"
 	}
 	"origin" "0 32 48"
 	editor
@@ -1252,6 +1254,7 @@ entity
 	{
 		"OnProxyRelay" "counterAdd10-1"
 		"OnProxyRelay" "counterSubtract10-1"
+		"OnProxyRelay" "cube_dropper_gate_relayTrigger0-1"
 	}
 	"origin" "16 16 48"
 	editor

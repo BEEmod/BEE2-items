@@ -1,0 +1,80 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "2"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "2"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "72"
+	"classname" "logic_relay"
+	"spawnflags" "1"
+	"StartDisabled" "0"
+	"targetname" "@voice_mon_laser"
+	connections
+	{
+		"OnTrigger" "mon_laserStart01"
+	}
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "2"
+	"classname" "logic_choreographed_scene"
+	"busyactor" "1"
+	"onplayerdeath" "0"
+	"SceneFile" "scenes/npc/glados/taunt_highfive01.vcd"
+	"targetname" "mon_laser"
+	connections
+	{
+		"OnUser1" "!selfStart01"
+	}
+	"origin" "0 0 -16"
+	editor
+	{
+		"color" "0 0 255"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Glados complains when player starts burning screen - That is not part of the test."
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
