@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "140"
+	"mapversion" "141"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,7 +32,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "140"
+	"mapversion" "141"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -6516,6 +6516,40 @@ world
 }
 entity
 {
+	"id" "9497"
+	"classname" "info_coop_spawn"
+	"angles" "-90 180 0"
+	"Enabled" "0"
+	"StartingTeam" "2"
+	"targetname" "spawn_oran"
+	"origin" "336 -160 -384"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "9531"
+	"classname" "info_coop_spawn"
+	"angles" "-90 180 0"
+	"Enabled" "0"
+	"StartingTeam" "2"
+	"targetname" "spawn_blue"
+	"origin" "336 160 -384"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "9245"
 	"classname" "prop_static"
 	"angles" "-90 270 0"
@@ -8765,8 +8799,8 @@ entity
 		"OnTrigger" "branch_toggleSetValueTest00.1-1"
 		"OnTrigger" "fizzEnable0-1"
 		"OnTrigger" "fizz_mdlSetAnimationopen0-1"
-		"OnTrigger" "drp_binstance:initial_spawn;SetAsActiveSpawn0.1-1"
-		"OnTrigger" "drp_oinstance:initial_spawn;SetAsActiveSpawn0.1-1"
+		"OnTrigger" "spawn_blueSetAsActiveSpawn0.1-1"
+		"OnTrigger" "spawn_oranSetAsActiveSpawn0.1-1"
 		"OnTrigger" "fizz_invisEnable0-1"
 		"OnTrigger" "fizz_invisDisable0.2-1"
 		"OnTrigger" "port_exitSetFadeStartDistance20980-1"
@@ -10133,8 +10167,6 @@ entity
 	connections
 	{
 		"OnMapSpawn" "branch_toggleTest0.1-1"
-		"OnMapSpawn" "drp_oinstance:initial_spawn;Disable0-1"
-		"OnMapSpawn" "drp_binstance:initial_spawn;Disable0-1"
 		"OnMapSpawn" "cam_spr_blueSetParentAttachmentlight0.1-1"
 		"OnMapSpawn" "cam_spr_oranSetParentAttachmentlight0.1-1"
 		"OnMapSpawn" "entry_arm*SetAnimation90degup0.1-1"
