@@ -65,6 +65,6 @@ You can also look at the [BEE2.4 wiki](https://github.com/BenVlodgi/BEE2.4/wiki)
 You may post issues on either the [BEE2.4 repository](https://github.com/BenVlodgi/BEE2.4/issues) or the [BEE2.4 Default Pack repository](https://github.com/TeamSpen210/BEE2-items/issues).
 For the [BEE2.4 repository](https://github.com/BenVlodgi/BEE2.4/issues), you should only post issues about the compiler itself.
 For the [BEE2.4 Default Pack repository](https://github.com/TeamSpen210/BEE2-items/issues), you should only post issues about packages and items.
-Remember, issues don't have to be bugs. They can be suggestions as well!
+Remember, issues don't have to be bugs. They can be questions and suggestions as well!
 
 Happy map-making!
