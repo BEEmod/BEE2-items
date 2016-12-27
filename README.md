@@ -1,3 +1,5 @@
+[![Join the chat at https://gitter.im/BenVlodgi/BEE2.4](https://badges.gitter.im/BenVlodgi/BEE2.4.svg)]  (https://gitter.im/BenVlodgi/BEE2.4?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
+
 # BEE2.4 Default Pack
  This pack for BEE2.4 contains the standard packages. A package can be either an item or a style.
 
@@ -61,10 +63,11 @@ Packages can contain multiple items/styles, so do not worry. A package can also 
 
 If you need more in-depth explanation of items and styles, or development guides, you may view this on the [BEE2.4 Default Pack wiki](https://github.com/TeamSpen210/BEE2-items/wiki).
 You can also look at the [BEE2.4 wiki](https://github.com/BenVlodgi/BEE2.4/wiki) for information on the program itself.
+And if you have any questions, you can ask them on [Gitter](https://gitter.im/BenVlodgi/BEE2.4).
 
 You may post issues on either the [BEE2.4 repository](https://github.com/BenVlodgi/BEE2.4/issues) or the [BEE2.4 Default Pack repository](https://github.com/TeamSpen210/BEE2-items/issues).
 For the [BEE2.4 repository](https://github.com/BenVlodgi/BEE2.4/issues), you should only post issues about the compiler itself.
 For the [BEE2.4 Default Pack repository](https://github.com/TeamSpen210/BEE2-items/issues), you should only post issues about packages and items.
-Remember, issues don't have to be bugs. They can be questions and suggestions as well!
+Remember, issues don't have to be bugs. They can be suggestions as well!
 
 Happy map-making!
