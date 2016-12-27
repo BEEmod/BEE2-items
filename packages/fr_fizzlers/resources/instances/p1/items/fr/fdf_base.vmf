@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "36"
+	"mapversion" "38"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "36"
+	"mapversion" "38"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -39,7 +39,7 @@ entity
 		"OnHitMax" "branch_toggleToggleTest0-1"
 		"OnChangedFromMax" "branch_toggleToggleTest0-1"
 	}
-	"origin" "0 32 32"
+	"origin" "0 16 32"
 	editor
 	{
 		"color" "220 30 220"
@@ -56,12 +56,12 @@ entity
 	"targetname" "branch_toggle"
 	connections
 	{
-		"OnTrue" "modelTurnOn0-1"
-		"OnFalse" "modelTurnOff0-1"
-		"OnTrue" "brushEnable0-1"
-		"OnFalse" "brushDisable0-1"
+		"OnTrue" "clipEnable0-1"
+		"OnFalse" "clipDisable0-1"
+		"OnTrue" "mat_modStartFloatLerp0 1.7 0.75 00-1"
+		"OnFalse" "mat_modStartFloatLerp1.7 0 0.75 00-1"
 	}
-	"origin" "0 -32 32"
+	"origin" "0 -16 32"
 	editor
 	{
 		"color" "220 30 220"
@@ -80,7 +80,7 @@ entity
 		"OnProxyRelay" "counterAdd10-1"
 		"OnProxyRelay" "counterSubtract10-1"
 	}
-	"origin" "0 -16 48"
+	"origin" "0 -8 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -113,7 +113,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer"
 	"parm2" "$start_enabled integer"
-	"origin" "0 16 48"
+	"origin" "0 8 48"
 	editor
 	{
 		"color" "220 30 220"
