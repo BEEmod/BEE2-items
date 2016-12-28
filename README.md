@@ -63,7 +63,7 @@ Packages can contain multiple items/styles, so do not worry. A package can also 
 
 If you need more in-depth explanation of items and styles, or development guides, you may view this on the [BEE2.4 Default Pack wiki](https://github.com/TeamSpen210/BEE2-items/wiki).
 You can also look at the [BEE2.4 wiki](https://github.com/BenVlodgi/BEE2.4/wiki) for information on the program itself.
-And if you have any questions, you can ask them on [Gitter](https://gitter.im/BenVlodgi/BEE2.4).
+And if you have any questions, you can check the [FAQ](https://github.com/BEEmod/BEE2-items/wiki/FAQ) or ask them on [Gitter](https://gitter.im/BenVlodgi/BEE2.4).
 
 You may post issues on either the [BEE2.4 repository](https://github.com/BenVlodgi/BEE2.4/issues) or the [BEE2.4 Default Pack repository](https://github.com/TeamSpen210/BEE2-items/issues).
 For the [BEE2.4 repository](https://github.com/BenVlodgi/BEE2.4/issues), you should only post issues about the compiler itself.
