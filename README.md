@@ -5,9 +5,9 @@
 
 # Installation Instructions
 
-* First, you should download the [standard BEE2.4 compiler from here](https://github.com/BenVlodgi/BEE2.4/releases)
+* First, you should download the [standard BEE2.4 compiler from here](https://github.com/BEEmod/BEE2.4/releases)
 * You will need to extract the zip file to anywhere on your computer. **_You should not launch the program yet!_**
-* After that, you must go to the [releases page](https://github.com/TeamSpen210/BEE2-items/releases) to download the BEE2.4 Default Pack. **_The releases must match!_**
+* After that, you must go to the [releases page](https://github.com/BEEmod/BEE2-items/releases) to download the BEE2.4 Default Pack. **_The releases must match!_**
 * Next, you must extract the contents of the zip file to your **BEE2.4 compiler folder**.
 * Finally, in order to launch BEE2.4, you must go to the `bin` folder and select `BEE2.exe` and open it. Once opened, you must select the game you want BEE2.4 to modify.
 
@@ -19,7 +19,7 @@
 * After installation, you must clone this repository. **_It must be done on [GitHub Desktop](https://desktop.github.com/)!_**
 * After cloning, you need to select the `dev` branch and _NOT_ the `master` branch.
 * Next, click the `Sync` button.
-* Now you must go to the BEE2.4 config folder and open `config.cfg`. **_You must use the latest release of the [BEE2.4 Compiler](https://github.com/BenVlodgi/BEE2.4/releases)!_**
+* Now you must go to the BEE2.4 config folder and open `config.cfg`. **_You must use the latest release of the [BEE2.4 Compiler](https://github.com/BEEmod/BEE2.4/releases)!_**
 * You must set the package directory to your cloned repository folder. (e.g. `C:\Users\User\Documents\GitHub\BEE2-items`)
 * Now open your BEE2.4 application. If it works, your files will be equal to the files of the `dev` branch.
 
@@ -61,13 +61,13 @@ Packages can contain multiple items/styles, so do not worry. A package can also 
 * It is recommended to have backups from the following Portal 2 folders: `sdk_content`, `portal2_dlc2`, and `bin`, just in case you need to restore your Portal 2 files.
 * You can use the Development Version for other branches, but not at the same time.
 
-If you need more in-depth explanation of items and styles, or development guides, you may view this on the [BEE2.4 Default Pack wiki](https://github.com/TeamSpen210/BEE2-items/wiki).
-You can also look at the [BEE2.4 wiki](https://github.com/BenVlodgi/BEE2.4/wiki) for information on the program itself.
+If you need more in-depth explanation of items and styles, or development guides, you may view this on the [BEE2.4 Default Pack wiki](https://github.com/BEEmod/BEE2-items/wiki).
+You can also look at the [BEE2.4 wiki](https://github.com/BEEmod/BEE2.4/wiki) for information on the program itself.
 And if you have any questions, you can check the [FAQ](https://github.com/BEEmod/BEE2-items/wiki/FAQ) or ask them on [Gitter](https://gitter.im/BenVlodgi/BEE2.4).
 
-You may post issues on either the [BEE2.4 repository](https://github.com/BenVlodgi/BEE2.4/issues) or the [BEE2.4 Default Pack repository](https://github.com/TeamSpen210/BEE2-items/issues).
-For the [BEE2.4 repository](https://github.com/BenVlodgi/BEE2.4/issues), you should only post issues about the compiler itself.
-For the [BEE2.4 Default Pack repository](https://github.com/TeamSpen210/BEE2-items/issues), you should only post issues about packages and items.
+You may post issues on either the [BEE2.4 repository](https://github.com/BEEmod/BEE2.4/issues) or the [BEE2.4 Default Pack repository](https://github.com/BEEmod/BEE2-items/issues).
+For the [BEE2.4 repository](https://github.com/BEEmod/BEE2.4/issues), you should only post issues about the compiler itself.
+For the [BEE2.4 Default Pack repository](https://github.com/BEEmod/BEE2-items/issues), you should only post issues about packages and items.
 Remember, issues don't have to be bugs. They can be suggestions as well!
 
 Happy map-making!
