@@ -1,5 +1,10 @@
 [![Join the chat at https://gitter.im/BenVlodgi/BEE2.4](https://badges.gitter.im/BenVlodgi/BEE2.4.svg)]  (https://gitter.im/BenVlodgi/BEE2.4?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
 
+This is a fork by Byzarru to host signage changes as suggested in #1093.
+* Standard signage gets two new rows.
+* BEESigns add 5 more rows of custom signage for BEE exclusive items.
+* Connection signs add manually placable connection signage to supplement antlines or to avoid clutter.
+
 # BEE2.4 Default Pack
  This pack for BEE2.4 contains the standard packages. Packages contain resources for BEE2.4 - items, styles, music, elevator videos, etc.
 
