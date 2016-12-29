@@ -28,30 +28,54 @@
 This is a list of packages in the BEE2.4 Default Pack as of Pre-release 23. The BEE2.4 Default Pack has 23 packages.
 Packages can contain multiple items/styles, so do not worry. A package can also contain music, or elevator videos.
 
-* `apTag`
-* `bee1`
-* `blocks`
-* `catwalk`
-* `conveyor`
-* `deathfizzler`
-* `extra`
-* `fr_fizzlers`
-* `futbol`
-* `hmw`
-* `melMusic`
-* `monitors`
-* `p1_music`
-* `paintFizzler`
-* `rexaura`
-* `rocketTurret`
-* `scaffold`
-* `sendificator`
-* `signage`
-* `styles`
-* `tspen`
-* `vactubes`
-* `valve`
-* `wom_plates`
+* Aperture Tag Items (`APERTURE_TAG_ITEMS`)
+* Aperture Tag Voicelines (`APERTURE_TAG_VOICE`)
+* Block items (`BEE2_BLOCKS`)
+* BTS Style (`BEE2_BTS`)
+* Catwalk (`BEE2_CATWALK`)
+* Clean Style (`BEE2_CLEAN_STYLE`)
+* Conveyor (`BEE2_CONVEYOR`)
+* Cube Coloriser (`BEE2_CUBE_COLORISER`)
+* Elevator Videos (`BEE2_ELEV_VIDEO`)
+* Monitors and Cameras (`BEE2_MONITORS`)
+* Music (`BEE2_MUSIC`)
+* Old Aperture (`BEE2_OLD_AP`)
+* Overgrown Style (`BEE2_OVERGROWN`)
+* Portal 1 Music (`BEE2_P1_MUSIC`)
+* Paint Fizzler (`BEE2_PAINT_FIZZLER`)
+* Portal Spawners (`BEE2_PORTALS`)
+* Portal 1 (`BEE2_PORTAL_1`)
+* Rocket Turret (`BEE2_ROCKET_TURRET`)
+* Signage (`BEE2_SIGNAGE`)
+* Unstationary Scaffold (`BEE2_UNST_SCAFFOLD`)
+* Vactubes (`BEE2_VACTUBES`)
+* Extra Voice Lines (`BEE2_VOICE_LINE`)
+* BEEMOD 1 (`BEEMOD_1`)
+* High Energy Pellets (`BEE_PELLETS`)
+* ForthReaper's Fizzlers (`FR_FIZZ`)
+* HMW's Pack (`HMW_MOD`)
+* Sendificator (`HMW_SENDIFICATOR`)
+* Lautaro - Modified Pedestal Buttons (`LAUTARO_MODIFIED_PED_BTN`)
+* Death Fizzler (`LP_DEATH_FIZZ`)
+* Futbol (`PACK_BEE2_FUTBOL`)
+* Conductive Plates (`PACK_WOM_CONDUCTOR`)
+* Portal Stories: Mel Music (`PS_MEL_MUSIC`)
+* Rexaura Items (`REX_ITEMS`)
+* Rexaura Music (`REX_MUSIC`)
+* Aperture Tag Music (`TAG_MUSIC`)
+* TSpen - Checkpoints (`TSPEN_CHECKPOINT`)
+* TSpen - Ditch (`TSPEN_DITCH`)
+* TSpen - Large Faith Plate (`TSPEN_LARGE_FAITH`)
+* TSpen - Logic (`TSPEN_LOGIC`)
+* TSpen - Paint Cleaner (`TSPEN_PAINT_CLEANER`)
+* TSpen - Retractable Button (`TSPEN_RET_BUTTON`)
+* TSpen - Timers (`TSPEN_TIMERS`)
+* Buttons (`VALVE_BUTTONS`)
+* Test Chamber Parts (`VALVE_GEOMETRY`)
+* Hazards (`VALVE_HAZARDS`)
+* Discouragement Beams (`VALVE_LASERS`)
+* Test Elements (`VALVE_TEST_ELEM`)
+
 
 # Additional Information
 
