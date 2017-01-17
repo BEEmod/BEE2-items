@@ -1,0 +1,112 @@
+"ID"		"BEE2_CONVEYOR"
+"Name"		"Conveyor"
+"Desc"      "Adds various conveyor items."
+
+"Item"
+	{
+	"ID"        "ITEM_BEE2_CONVEYOR"
+	"Description"
+		{
+		"" "A continuous belt moving from one end of the track to the other. The first and last sections of belt track are covered."
+		"" ""
+		"" "* Setting it to reversed will increase the speed, preventing the player from walking in the wrong direction."
+		"" "* The conveyor surface is positioned one block above the surface it is placed on - it should be recessed into the floor for best effect."
+		"" "* Extend the start/end of the conveyor back a number of blocks if possible behind the map, so the player can't see the belt disappearing."
+		}
+	"All_conf" "conveyor.cfg"
+	
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"        "conveyor_clean"
+			//"BEE2_BTS"          "conveyor_bts"
+			"BEE2_PORTAL_1"     "conveyor_p1"
+			"BEE2_OVERGROWN"    "conveyor_over"
+			"BEE2_1950s"        "conveyor_50s"
+			}
+		}
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CONVEYOR_COVER_BOTTOM_CLEAN"
+	"File"  "cover_bottom_clean.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CONVEYOR_COVER_TOP_CLEAN"
+	"File"  "cover_top_clean.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CONVEYOR_TUNNEL_TILE_CLEAN"
+	"File"  "tunnel_tile_clean.vmf"
+	}
+
+"PackList"
+	{
+	"ID"    "PACK_CONVEYOR_TRACK_BTS"
+	"Config"
+		{
+		"" "models/BEE2/props_bts/conveyor_track_128.mdl"
+		}
+	}
+
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CONVEYOR_COVER_BOTTOM_OVER"
+	"File"  "cover_bottom_over.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CONVEYOR_COVER_TOP_OVER"
+	"File"  "cover_top_over.vmf"
+	}
+"PackList"
+	{
+	"ID"    "PACK_CONVEYOR_OVERGROWN"
+	"Config"
+		{
+		"" "models/BEE2/props_bts/conveyor_track_128.mdl"
+		"" "materials/BEE2/models/props_overgrown/conveyor_belt_rusty.vmt"
+		"" "materials/BEE2/overgrown/conveyor_belt.vmt"
+		}
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CONVEYOR_COVER_BOTTOM_PORTAL_1"
+	"File"  "cover_bottom_p1.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CONVEYOR_COVER_TOP_PORTAL_1"
+	"File"  "cover_top_p1.vmf"
+	}
+	
+// Used in P1 conveyors, but borrowed from scaffolds.
+// We include the resources here to allow not having that.
+"PackList"
+	{
+	"ID"     "PACK_UNST_SCAFFOLD_WALL"
+	"Config"
+		{
+		"" "models/props/Light_Rail_wall_emitter.mdl"
+		"" "materials/models/props/light_rail_wall_emitter.vmt"
+		"" "materials/models/props/light_rail_wall_emitter.vtf"
+		}
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CONVEYOR_RAIL_RETRO"
+	"File"  "retro_rails.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CONVEYOR_COVER_RETRO"
+	"File"  "cover_retro.vmf"
+	}

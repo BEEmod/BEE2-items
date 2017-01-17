@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "111"
+	"mapversion" "114"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "111"
+	"mapversion" "114"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -431,32 +431,9 @@ entity
 		"OnFalse" "hurtDisable0-1"
 		"OnTrue" "mdlColor255 0 00-1"
 		"OnFalse" "laserDisable0-1"
-		"OnFalse" "manSetStateAFalse0-1"
-		"OnTrue" "manSetStateATrue0-1"
+		"OnFalse" "blue_rlTrigger0-1"
 	}
 	"origin" "0 -16 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "678"
-	"classname" "logic_coop_manager"
-	"DefaultPlayerStateA" "0"
-	"DefaultPlayerStateB" "0"
-	"targetname" "man"
-	connections
-	{
-		"OnChangeToAnyFalse" "branch_fizzTest0-1"
-		"OnChangeToAllTrue" "mdlColor128 0 1280-1"
-		"OnChangeToAnyFalse" "branch_lasTest0-1"
-	}
-	"origin" "0 -9.53674e-007 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -510,11 +487,12 @@ entity
 	{
 		"OnFalse" "fizzDisable0-1"
 		"OnTrue" "fizzEnable0-1"
-		"OnTrue" "mdlColor50 150 2300-1"
-		"OnTrue" "manSetStateBTrue0-1"
-		"OnFalse" "manSetStateBFalse0-1"
 		"OnTrue" "pfx*Start0-1"
 		"OnFalse" "pfx*Stop0-1"
+		"OnTrue" "blue_rlEnable0-1"
+		"OnFalse" "blue_rlDisable0-1"
+		"OnTrue" "mdlColor50 150 2300-1"
+		"OnTrue" "branch_lasTest0.01-1"
 	}
 	"origin" "0 16 0"
 	editor
@@ -547,14 +525,17 @@ entity
 entity
 {
 	"id" "619"
-	"classname" "logic_auto"
-	"spawnflags" "1"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "1"
+	"targetname" "blue_rl"
 	connections
 	{
-		"OnMapSpawn" "branch_lasTest0.11-1"
-		"OnMapSpawn" "branch_fizzTest0.1-1"
+		"OnSpawn" "branch_lasTest0.111"
+		"OnSpawn" "branch_fizzTest0.11"
+		"OnTrigger" "mdlColor50 150 2300-1"
 	}
-	"origin" "0 4.76837e-007 16"
+	"origin" "0 4.76837e-007 0"
 	editor
 	{
 		"color" "220 30 220"

@@ -1,0 +1,105 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "220"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "8"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "220"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_day01_01"
+}
+entity
+{
+	"id" "7990"
+	"classname" "func_instance_parms"
+	"parm1" "$start_disabled string"
+	"origin" "16 0 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 3000]"
+	}
+}
+entity
+{
+	"id" "1602"
+	"classname" "weapon_portalgun"
+	"angles" "0 180 0"
+	"CanFirePortal1" "$fire_blue"
+	"CanFirePortal2" "$fire_orange"
+	"fademaxdist" "0"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"parentname" "pedestal"
+	"ShowingPotatos" "0"
+	"spawnflags" "3"
+	"StartingTeamNum" "1"
+	"targetname" "gun"
+	connections
+	{
+		"OnPlayerPickup" "pedestalSetParentdoor01"
+		"OnPlayerPickup" "timerKill01"
+		"OnPlayerPickup" "doorOpen0.81"
+		"OnPlayerPickup" "open_trigKill01"
+		"OnPlayerPickup" "sprKill0-1"
+		"OnPlayerPickup" "fxKill0-1"
+		"OnPlayerPickup" "spr_frontKill0-1"
+		"OnPlayerPickup" "@close_orange_autoportalsFireUser40-1"
+		"OnPlayerPickup" "@voice_oran_pgunTrigger0.81"
+		"OnPlayerPickup" "@player_has_oranTrigger0-1"
+		"OnPlayerPickup" "pedestalFireUser10-1"
+	}
+	"origin" "12 -1.04907e-006 -18"
+	editor
+	{
+		"color" "0 0 200"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 2500]"
+	}
+}
+cameras
+{
+	"activecamera" "0"
+	camera
+	{
+		"position" "[-13.2849 50.017 29.9083]"
+		"look" "[9.23288 -150.733 -137.207]"
+	}
+}
+cordons
+{
+	"active" "0"
+	cordon
+	{
+		"name" "cordon"
+		"active" "1"
+		box
+		{
+			"mins" "(-1024 -1024 -1024)"
+			"maxs" "(1024 1024 1024)"
+		}
+	}
+}

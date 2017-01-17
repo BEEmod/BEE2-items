@@ -6,34 +6,21 @@ import subprocess
 from zipfile import ZipFile, ZIP_LZMA, ZIP_DEFLATED
 from concurrent import futures
 
-from srctools import Property, KeyValError, VMF, conv_bool
-
-# The location of the VPK.exe executable - if not found, this will be skipped.
-try:
-	GAME_FOLDER = os.environ['PORTAL_2_LOC']
-except KeyError:
-    print('Set the PORTAL_2_LOC environment variable to the location of Portal 2 to allow VPK generating.')
-    GAME_FOLDER = ''
-
-VPK_BIN_LOC = os.path.join(GAME_FOLDER, 'bin', 'vpk.exe')
+from srctools import Property, KeyValError, VMF, Entity, conv_bool
 
 OPTIMISE = False
-
 
 
 def clean_vmf(vmf_path):
     """Optimise the VMFs, removing unneeded entities or objects."""
     inst = VMF.parse(vmf_path)
 
-    for ent in itertools.chain([inst.spawn], inst.entities[:]):
-        editor = ent.editor
-        # Remove useless metadata
-        for cat in ('comments', 'color', 'logicalpos'):
-            if cat in editor:
-                del editor[cat]
+    for ent in itertools.chain([inst.spawn], inst.entities[:]):  # type: Entity
+        # Remove comments
+        ent.comments = ''
 
         # Remove entities that have their visgroups hidden.
-        if ent.hidden or not conv_bool(editor.get('visgroupshown', '1'), True):
+        if ent.hidden or not ent.vis_shown:
             print('Removing hidden ent')
             inst.remove_ent(ent)
             continue
@@ -59,7 +46,7 @@ def clean_vmf(vmf_path):
                 ent.solids.remove(solid)
                 continue
 
-            if solid.hidden or not conv_bool(solid.editor.get('visgroupshown', '1'), True):
+            if solid.hidden or not solid.vis_shown:
                 print('Removing hidden brush')
                 ent.solids.remove(solid)
                 continue
@@ -171,34 +158,9 @@ def build_package(data):
                     zip_file.write(full_path, rel_path)
         print('')
     print('Finished "{}"'.format(package_path))
-    
-def gen_vpks():
-    with open('vpk/vpk_dest.cfg') as f:
-        config = Property.parse(f, 'vpk/vpk_dest.cfg').find_key("VPKDest", [])
-        
-    if not os.path.isfile(VPK_BIN_LOC):
-        print('VPK.exe not present, skipping VPK generation.')
-        return
-        
-    for prop in config:
-        src = os.path.join('vpk', prop.real_name)
-        dest = os.path.abspath('packages/{}/{}.vpk'.format(prop.value, src))
-        
-        subprocess.call([
-            VPK_BIN_LOC,
-            src,
-        ])
-        
-        if os.path.isfile(dest):
-            os.remove(dest)
-        os.rename(src + '.vpk', dest)
-        print('Processed "{}"'.format(dest))
-
 
 def main():
     global OPTIMISE
-    
-    gen_vpks()
     
     OPTIMISE = conv_bool(input('Optimise zips? '))
     

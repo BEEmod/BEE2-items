@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "100"
+	"mapversion" "107"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "100"
+	"mapversion" "107"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -195,6 +195,7 @@ entity
 	"parm2" "$travel_distance integer 128"
 	"parm3" "$speed integer 100"
 	"parm4" "$travel_direction angle -90 0 0"
+	"parm5" "$anim string anim_horiz"
 	"origin" "32 32 0"
 	editor
 	{
@@ -242,11 +243,6 @@ entity
 	"startsound" "World.PlatformStart"
 	"stopsound" "World.PlatformStop"
 	"targetname" "track_lift_movelinear"
-	connections
-	{
-		"OnFullyOpen" "proxyProxyRelay0-1"
-		"OnFullyClosed" "proxyProxyRelay0-1"
-	}
 	solid
 	{
 		"id" "3"
@@ -476,7 +472,7 @@ entity
 	"fademaxdist" "0"
 	"fademindist" "-1"
 	"fadescale" "1"
-	"HoldAnimation" "1"
+	"HoldAnimation" "0"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/anim_wp/arm_interior_192/arm_interior_128.mdl"

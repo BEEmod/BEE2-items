@@ -53,3 +53,8 @@ function rusty_cube() // Rusty cube like normal one, but using clean skin slots 
 {
 self.SetModel("models/BEE2/props_ingame/metal_box_rusty.mdl");
 }
+
+function rusty_ball()
+{
+self.SetModel("models/BEE2/props_overgrown/rusty_ball.mdl");
+}
