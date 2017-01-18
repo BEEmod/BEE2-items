@@ -10,6 +10,8 @@
 // CAM_STUDIO_LOC = Vector
 // CAM_STUDIO_PITCH = float
 // CAM_STUDIO_YAW = float
+// This is also always defined
+// CAM_STUDIO_TURRET = bool (If true, an ai_relationship should make turrets shoot.)
 
 cur_ind <- 0;
 is_studio <- 0;
@@ -78,10 +80,16 @@ function set_camera() {
 	local ang = CAM_ANGLES[cur_ind];
 	self.SetAngles(ang.x, ang.y, 0);
 	is_studio = 0;
+	if (CAM_STUDIO_TURRET) {
+		EntFire("@monitor_turr_hate", "RevertToDefaultRelationship", "", 0);
+	}
 }
 
 function set_camera_studio() {
 	self.SetAbsOrigin(CAM_STUDIO_LOC);
 	self.SetAngles(CAM_STUDIO_PITCH, CAM_STUDIO_YAW, 0);
 	is_studio = 1;
+	if (CAM_STUDIO_TURRET) {
+		EntFire("@monitor_turr_hate", "ApplyRelationship", "", 0);
+	}
 }

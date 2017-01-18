@@ -1,0 +1,261 @@
+"ID"		"BEE2_CUBE_COLORISER"
+"Name"		"Cube Coloriser"
+"Desc"      "Place on a dropper or cube to change its colour."
+
+"Item"
+	{
+	"ID" "ITEM_BEE2_CUBE_COLORISER"
+	"Description"
+		{
+		"" "Place on top of a dropper or cube to add a colored marker.  "
+		"" "This helps distinguish multiple cubes, in puzzles where certain ones "
+		"" "may need to be respawned.  "
+		"" "The timer option chooses the color."
+		}
+	"Unstyled" "1" // The dropper does styling.
+	"Version"
+		{
+		"Styles"
+			{
+			"ANY" "coloriser"
+			}
+		}
+	}
+	
+// Modify the original item to allow this feature
+"ItemConfig"
+	{
+	"ID"        "ITEM_CUBE"
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"        "cube_clean"
+			"BEE2_OVERGROWN"    "cube_over"
+			//"BEE2_BTS"          "cube_bts"
+			
+			"BEE2_1950s"        "cube_50s"
+			"BEE2_1980s"        "cube_80s"
+			"BEE2_PORTAL_1"     "cube_p1"
+			}
+		}
+	}
+
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_STANDARD_CLEAN"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/cube_color.nut"
+		"" "models/BEE2/cube_color/clean_standard.mdl"
+		"" "materials/models/BEE2/cube_color/tint.vmt"
+		
+		"" "materials/models/BEE2/cube_color/clean_cube/stan_off.vmt"
+		"" "materials/models/BEE2/cube_color/clean_cube/stan_off_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/clean_cube/stan_off_speed.vmt"
+		"" "materials/models/BEE2/cube_color/clean_cube/stan_on.vmt"
+		"" "materials/models/BEE2/cube_color/clean_cube/stan_on_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/clean_cube/stan_on_speed.vmt"
+		
+		"" "materials/models/BEE2/cube_color/clean_cube/comp_off.vmt"
+		"" "materials/models/BEE2/cube_color/clean_cube/comp_on.vmt"
+		"" "materials/models/BEE2/cube_color/clean_cube/comp_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/clean_cube/comp_speed.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_REFLECT_CLEAN"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/cube_color.nut"
+		"" "models/BEE2/cube_color/clean_reflect.mdl"
+		"" "materials/models/BEE2/cube_color/reflect_clean/shell.vtf"
+		
+		"" "materials/models/BEE2/cube_color/reflect_clean/frame.vmt"
+		"" "materials/models/BEE2/cube_color/reflect_clean/frame_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/reflect_clean/frame_speed.vmt"
+		
+		"" "materials/models/BEE2/cube_color/tint_noglow.vmt"
+		"" "materials/models/BEE2/cube_color/tint_noglow_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/tint_noglow_speed.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_SPHERE_CLEAN"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/cube_color.nut"
+		"" "models/BEE2/cube_color/clean_sphere.mdl"
+		"" "materials/models/BEE2/cube_color/tint.vmt"
+		
+		"" "materials/models/BEE2/cube_color/clean_ball/ball_off.vmt"
+		"" "materials/models/BEE2/cube_color/clean_ball/ball_on.vmt"
+		"" "materials/models/BEE2/cube_color/clean_ball/ball_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/clean_ball/ball_speed.vmt"
+		}
+	}
+	
+// Old Aperture
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_RETRO_COMMON"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/cube_color.nut"
+		"" "materials/models/BEE2/cube_color/tint_noglow.vmt"
+		// Needed to create a tintable stripe around the dropper, so you can see
+		// what cubes are being dropped.
+		"" "models/BEE2/props_underground/dropper_color_stripe.mdl"
+		"" "materials/models/BEE2/props_underground/plasticwall001d.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_STANDARD_RETRO"
+	"Config"
+		{
+		"" "models/BEE2/cube_color/retro_standard.mdl"
+		"" "materials/models/BEE2/cube_color/retro/cube_standard.vtf"
+		
+		"" "materials/models/BEE2/cube_color/retro/standard.vmt"
+		"" "materials/models/BEE2/cube_color/retro/standard_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/retro/standard_speed.vmt"
+
+		"" "materials/models/BEE2/cube_color/tint_noglow.vmt"
+		"" "materials/models/BEE2/cube_color/tint_noglow_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/tint_noglow_speed.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_COMPANION_RETRO"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/cube_color.nut"
+		"" "models/BEE2/cube_color/retro_companion.mdl"
+		"" "materials/models/BEE2/cube_color/retro/cube_companion.vtf"
+		
+		"" "materials/models/BEE2/cube_color/retro/companion.vmt"
+		"" "materials/models/BEE2/cube_color/retro/companion_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/retro/companion_speed.vmt"
+		
+		"" "materials/models/BEE2/cube_color/tint_noglow.vmt"
+		"" "materials/models/BEE2/cube_color/tint_noglow_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/tint_noglow_speed.vmt"
+		}
+	}
+	
+
+// Rusty Clean
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_STANDARD_RUSTY"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/cube_color.nut"
+		"" "models/BEE2/cube_color/rusty_standard.mdl"
+		"" "materials/models/BEE2/cube_color/tint.vmt"
+		
+		"" "materials/models/BEE2/cube_color/rusty_cube/stan_off.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_cube/stan_off_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_cube/stan_off_speed.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_cube/stan_on.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_cube/stan_on_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_cube/stan_on_speed.vmt"
+		
+		"" "materials/models/BEE2/cube_color/rusty_cube/comp_off.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_cube/comp_on.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_cube/comp_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_cube/comp_speed.vmt"
+		
+		// Overgrown Companion Cube textures, also needed...
+		// Also in 50s styles.
+		"" "materials/BEE2/models/props_ingame/metal_box_rusty/comp_rusty.vtf"
+		"" "materials/BEE2/models/props_ingame/metal_box_rusty/comp_rusty_on.vtf"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_REFLECT_RUSTY"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/cube_color.nut"
+		"" "models/BEE2/cube_color/rusty_reflect.mdl"
+		"" "materials/models/BEE2/cube_color/reflect_rusty/shell.vtf"
+		
+		"" "materials/models/BEE2/cube_color/reflect_rusty/frame.vmt"
+		"" "materials/models/BEE2/cube_color/reflect_rusty/frame_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/reflect_rusty/frame_speed.vmt"
+		
+		"" "materials/models/BEE2/cube_color/tint_noglow.vmt"
+		"" "materials/models/BEE2/cube_color/tint_noglow_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/tint_noglow_speed.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_SPHERE_RUSTY"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/cube_color.nut"
+		"" "models/BEE2/cube_color/rusty_sphere.mdl"
+		"" "materials/models/BEE2/cube_color/tint.vmt"
+		
+		"" "materials/models/BEE2/cube_color/rusty_ball/ball_off.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_ball/ball_on.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_ball/ball_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/rusty_ball/ball_speed.vmt"
+		}
+	}
+	
+// Portal 1 style
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_STANDARD_P1"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/cube_color.nut"
+		"" "models/BEE2/cube_color/p1_standard.mdl"
+		
+		"" "materials/BEE2/models/props_ingame/p1_metal_box/metal_box.vtf"
+		"" "materials/BEE2/models/props_ingame/p1_metal_box/metal_box_comp.vtf"
+		"" "materials/BEE2/models/props_ingame/p1_metal_box/metal_box_exponent.vtf"
+		"" "materials/BEE2/models/props_ingame/p1_metal_box/box_paint_blue.vtf"
+		"" "materials/BEE2/models/props_ingame/p1_metal_box/box_paint_orange.vtf"
+		
+		"" "materials/models/BEE2/cube_color/tint_noglow.vmt"
+		"" "materials/models/BEE2/cube_color/tint_noglow_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/tint_noglow_speed.vmt"
+		
+		"" "materials/models/BEE2/cube_color/p1_cube/metal_box.vmt"
+		"" "materials/models/BEE2/cube_color/p1_cube/metal_box_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/p1_cube/metal_box_speed.vmt"
+		
+		"" "materials/models/BEE2/cube_color/p1_cube/metal_box_comp.vmt"
+		"" "materials/models/BEE2/cube_color/p1_cube/metal_box_comp_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/p1_cube/metal_box_comp_speed.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "BEE2_COLOR_CUBE_SPHERE_P1"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/cube_color.nut"
+		"" "models/BEE2/cube_color/p1_ball.mdl"
+		
+		"" "materials/models/BEE2/cube_color/p1_ball/sphere.vtf"
+		"" "materials/models/BEE2/cube_color/p1_ball/sphere.vmt"
+		"" "materials/models/BEE2/cube_color/p1_ball/sphere_bounce.vmt"
+		"" "materials/models/BEE2/cube_color/p1_ball/sphere_speed.vmt"
+		}
+	}
