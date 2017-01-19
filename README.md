@@ -4,10 +4,10 @@
 This is a pack for BEE2.4 that will include the Blue Portals items.
 
 ### Packages included:
-* 'bpMusic' by @Byzarru - The complete soundtrack.
+* `bpMusic` by @Byzarru - The complete soundtrack.
 
 ### Features:
-* All the items from the mod!
+* Most of the items from the mod!
 * A new style based on the Blue Portals Development Center.
 * The complete soundtrack.
 * Custom elements based on easter eggs from the mod and the cut sequel.
