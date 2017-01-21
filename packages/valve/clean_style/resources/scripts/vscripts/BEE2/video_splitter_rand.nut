@@ -127,18 +127,22 @@ function StartVideo(videoType, width, height, use_destructed)
 	
 	if (use_destructed == 1)
 	{
-		videoScaleType = RandomInt(1,5)
+		videoScaleType = RandomInt(1,4)
 		randomDestructChance = RandomInt(30, 70)
 	}
 	else
 	{
-		videoScaleType = RandomInt(6,13)
+		videoScaleType = RandomInt(5,13)
 	}
 	
 	if (chosenVideo == "media\\bluescreen.bik")
 	{
 	videoScaleType = 14
 	}
+	
+	printl("-------")
+	printl("Scaling type: " + videoScaleType)
+	printl("-------")
 	
 	for(local i=0;i<width;i+=1)
 	{
@@ -169,21 +173,21 @@ function StartVideo(videoType, width, height, use_destructed)
 			local vMin = (j+0.0001)/(height)
 			local vMax = (j+1.0001)/(height)
 				
-				
 			if( videoScaleType == 0 /*full elevator*/ ) 				
 			{
 			
-			}
+			}				
 			else if( videoScaleType == 1 /*stretch*/ ) 
 			{
 				uMin = 1.0 - (1.0-uMin)*(1.0-uMin)*(1.0-uMin)
 				uMax = 1.0 - (1.0-uMax)*(1.0-uMax)*(1.0-uMax)
+				video_shape = "horiz"
 			}				
 
 			else if( videoScaleType == 2 /*Mirror*/ ) 
 			{					
 				uMin = 4*(1.0-uMin)*uMin
-				uMax = 4*(1.0-uMax)*uMax					
+				uMax = 4*(1.0-uMax)*uMax				
 			}				
 			
 			else if( videoScaleType == 3 /*Ouroboros*/ )
@@ -205,8 +209,11 @@ function StartVideo(videoType, width, height, use_destructed)
 				vMax = 0.00001
 				
 				uMin = ((i%3)+0.0001)/3
-				uMax = ((i%3)+1.0001)/3					
+				uMax = ((i%3)+1.0001)/3
+				video_shape = "horiz"			
 			}
+			
+			// Clean below 
 			
 			else if( videoScaleType == 5 /*Tiled*/ )
 			{
@@ -216,11 +223,12 @@ function StartVideo(videoType, width, height, use_destructed)
 				uMin = ((i%3)+0.0001)/3
 				uMax = ((i%3)+1.0001)/3
 			}
-
+			
 			else if( videoScaleType == 6 /*Tiled Really Big*/ )
 			{
 				uMin = ((i%8)+0.0001)/8
 				uMax = ((i%8)+1.0001)/8
+				video_shape = "horiz"
 			}
 
 			else if( videoScaleType == 7 /*Tiled Big*/ )
@@ -241,6 +249,7 @@ function StartVideo(videoType, width, height, use_destructed)
 			{
 				uMin = ((i%2)+0.0001)/2
 				uMax = ((i%2)+1.0001)/2
+				video_shape = "vert"
 			}
 
 			else if( videoScaleType == 10 /*Two by two*/ )
@@ -250,6 +259,7 @@ function StartVideo(videoType, width, height, use_destructed)
 				
 				uMin = ((i%2)+0.0001)/2
 				uMax = ((i%2)+1.0001)/2
+				video_shape = "horiz"
 			}
 
 			else if( videoScaleType == 11 /*Tiled off 1*/ )
@@ -276,11 +286,17 @@ function StartVideo(videoType, width, height, use_destructed)
 				}
 				else
 				{
-					uMin = 0.97
-					uMax = 0.97
+					// Addition, Valve only does horizontal, but some
+					// videos go all the way to the border.
+					// Use lower-left since there's often the test-element
+					// name there, it won't have other stuff appearing.
+					vMin = 0.97  
+					vMax = 0.97
+					uMin = 0.01
+					uMax = 0.01
 				}
 			}
-
+			
 			else if( videoScaleType == 14 /*bluescreen*/ )
 			{
 				if( (i%8) >= 1 &&  

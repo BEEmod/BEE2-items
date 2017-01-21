@@ -71,8 +71,17 @@
 	{
 	"ID"          "RestartOnExit"
 	"Enabled"     "1"
-	"Name"        "Resart When Reaching Exit"
+	"Name"        "Restart When Reaching Exit"
 	"Description" "Automatically restart the map once the player(s) have reached the exit."
+	"Style"       "BEE2_OVERGROWN"
+	}
+	
+"StyleVar"
+	{
+	"ID"          "OverFunnelFlicker"
+	"Enabled"     "1"
+	"Name"        "Flickering Overgrown Funnel"
+	"Description" "Allow the Overgrown Excursion Funnel to randomly shut off briefly. Objects or players travelling in the funnel will not fall out when this occurs."
 	"Style"       "BEE2_OVERGROWN"
 	}
 	
@@ -201,14 +210,35 @@
 	
 "PackList"
 	{
-	"ID"        "PACK_BEE2_OVER_CATWALK_ELEVATOR"
+	"ID"        "PACK_BEE2_OVER_CATWALK_SP_ELEVATOR"
 	// Models used in SP elevators...
 	"Config"
 		{
 		"" "models/BEE2/catwalk/overgrown/hanging_stair_128.mdl"
 		"" "models/BEE2/catwalk/overgrown/hanging_walkway_end_cap.mdl"
 		"" "models/BEE2/catwalk/overgrown/hanging_walkway_32b.mdl"
+		"" "materials/BEE2/models/props_overgrown/catwalk_rusty.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_OVER_CATWALK_DESTROYED_64"
+	// Models used in the BTS exit corridor
+	"Config"
+		{
 		"" "models/BEE2/catwalk/overgrown/walkway_destroyed_64a.mdl"
+		"" "materials/BEE2/models/props_overgrown/catwalk_rusty.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_BEE2_OVER_CATWALK_COOP_EXIT"
+	// Models used in Coop Exit...
+	"Config"
+		{
+		"" "models/BEE2/catwalk/overgrown/hanging_stair_64.mdl"
 		"" "materials/BEE2/models/props_overgrown/catwalk_rusty.vmt"
 		}
 	}
@@ -245,10 +275,19 @@
 	"AddIfMat" "BEE2/overgrown/broken_indicator_corner"
 	"Config" 
 		{
-		"File" "materials/BEE2/overgrown/broken_indicator.vmt"
-		"File" "materials/BEE2/overgrown/broken_indicator.vtf"
-		"File" "materials/BEE2/overgrown/broken_indicator_corner.vmt"
-		"File" "materials/BEE2/overgrown/broken_indicator_corner.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_JOSE_WASTED_COOP_EXIT"
+	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_coop_teamdoor_blue"
+	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_coop_teamdoor_orange"
+	// We can't use Patch with a proxy...
+	"Config"
+		{
+		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_coop_teamdoor_blue.vtf"
+		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_coop_teamdoor_orange.vtf"
 		}
 	}
 	
@@ -424,6 +463,28 @@
 	
 "PackList"
 	{
+	"ID"        "PACK_JOSE_WASTED_LASER_RELAY"
+	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_relay"
+	"Config"
+		{
+		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
+		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_relay.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_JOSE_WASTED_LASER_CUBE"
+	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_cube"
+	"Config"
+		{
+		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
+		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_cube.vtf"
+		}
+	}
+	
+"PackList"
+	{
 	"ID"        "PACK_JOSE_WASTED_BOX_DROPPER"
 	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_dropper"
 	"Config"
@@ -489,6 +550,28 @@
 		{
 		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
 		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_bounce_gel.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_JOSE_WASTED_SPEED_GEL"
+	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_speed_gel"
+	"Config"
+		{
+		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
+		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_speed_gel.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_JOSE_WASTED_WASH_CUBE"
+	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_wash_cube"
+	"Config"
+		{
+		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
+		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_wash_cube.vtf"
 		}
 	}
 	
@@ -587,21 +670,191 @@
 
 "PackList"
 	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_NOCULL_STRAIGHT_B"
+	"ID" "PACK_BEE2_RUSTY_TRUSS"
 	"Config"
 		{
-		"" "models/BEE2/triple_wallpipe_nocull/straight_b.mdl"
+		"" "models/BEE2/props_overgrown/truss_512.mdl"
+		"" "models/BEE2/props_overgrown/truss_1024.mdl"
+		"" "materials/BEE2/models/props_overgrown/truss_rusty.vmt"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BEE2_ELEVATOR_DIRTY"
+	"Config"
+		{
+		"" "models/elevator/elevator_b_skins.mdl"
+		"" "materials/models/elevator/elevator_main_c_overgrown.vtf"
+		"" "materials/models/elevator/elevator_main_b_overgrown.vtf
+		"" "materials/models/elevator/elevator_main_aoff.vtf"
+		"" "materials/models/elevator/elevator_main_a_overgrown_off.vtf"		
+		"" "materials/models/elevator/elevator_main_a_overgrown.vtf"		
+		"" "materials/models/elevator/elevator_main_coff.vmt"		
+		"" "materials/models/elevator/elevator_main_c_overgrown_off.vmt"		
+		"" "materials/models/elevator/elevator_main_c_overgrown.vmt"		
+		"" "materials/models/elevator/elevator_main_boff.vmt"		
+		"" "materials/models/elevator/elevator_main_b_overgrown_off.vmt"		
+		"" "materials/models/elevator/elevator_main_b_overgrown.vmt"		
+		"" "materials/models/elevator/elevator_main_aoff.vmt"		
+		"" "materials/models/elevator/elevator_main_a_overgrown_off.vmt"		
+		"" "materials/models/elevator/elevator_main_a_overgrown.vmt"		
+		}
+	}	
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_A"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/corner_a.mdl"
 		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
 		}
 	}
 
 "PackList"
 	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_NOCULL_STRAIGHT_C"
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_B"
 	"Config"
 		{
-		"" "models/BEE2/triple_wallpipe_nocull/straight_c.mdl"
+		"" "models/BEE2/triple_wallpipe/corner_b.mdl"
 		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_C"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/corner_c.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_D"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/corner_d.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_E"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/corner_e.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_ENTRANCE_A"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/entrance_a.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_ENTRANCE_B"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/entrance_b.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_A"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/straight_a.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_B"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/straight_b.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_C"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/straight_c.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_D"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/straight_b.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_E"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/straight_e.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_F"
+	"Config"
+		{
+		"" "models/BEE2/triple_wallpipe/straight_f.mdl"
+		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
+		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
 		}
 	}
 	
@@ -672,6 +925,16 @@
 	{
 	"ID"   "BEE2_OVER_FLOOR_BUTTON_BASE"
 	"File" "floor_base.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_BALL_BUTTON_BASE"
+	"File" "ball_btn_base.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_CUBE_BUTTON_BASE"
+	"File" "cube_btn_base.vmf"
 	}
 
 "Overrides"
@@ -907,6 +1170,44 @@
 				}
 			}
 		}
+		
+	"Item"
+		{
+		"ID" "ITEM_TURRET"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0" "instances/BEE2/over/items/turret.vmf"
+						}
+					"Config"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance" "<ITEM_TURRET>"
+								"Result"
+									{
+									"Variant"
+										{
+										"Number" "3"
+										// normal, dirty, dirty & spark
+										"Weight" "1, 4, 3"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 "SkyBox"
@@ -942,7 +1243,8 @@
 	"Name"			"The Future Starts With You"
 	"ShortName"		"Future Starter"
 	"Group"			"Overgrown"
-	"Icon"			"music/future_starter.png"
+	"Icon"          "music/future_starter"
+	"IconLarge"     "music_lrg/future_starter"
 	"Authors"		"Valve"
 	"Description"	"The music played in the 6th Overgrown Test, where Flinging is first introduced."
 	"Sample"        "p2/sp_a1_intro6.ogg"
@@ -973,7 +1275,8 @@
 	"Name"			"Technical Difficulties"
 	"ShortName"		"Tech Difficulties"
 	"Group"			"Overgrown"
-	"Icon"			"music/technical_difficulties.png"
+	"Icon"			"music/technical_difficulties"
+	"IconLarge"     "music_lrg/technical_difficulties"
 	"Authors"		"Valve"
 	"Description"	"The music played in the first few Overgrown Test Chambers."
 	"Sample"        "p2/sp_a1_intro3_b1.ogg"
@@ -1002,7 +1305,8 @@
 	"ID"			"VALVE_THERE_SHE_IS"
 	"Name"		    "There She Is"
 	"Group"			"Overgrown"
-	"Icon"			"music/there_she_is.png"
+	"Icon"			"music/there_she_is"
+	"IconLarge"     "music_lrg/there_she_is"
 	"Authors"		"Valve"
 	"Description"	"The music played when first seeing the deactivated GLaDOS."
 	"Sample"        "p2/sp_a1_wakeup_b1.ogg"
@@ -1029,9 +1333,10 @@
 "Music"
 	{
 	"ID"			"VALVE_HAUNTED_PANELS"
-	"Name"		    "Haunted Panels"
-	"Group"			"Overgrown"
-	"Icon"			"music/haunted_panels.png"
+	"Name"          "Haunted Panels"
+	"Group"         "Overgrown"
+	"Icon"          "music/haunted_panels"
+	"IconLarge"     "music_lrg/haunted_panels"
 	"Authors"		"Valve"
 	"Description"	"The music played in the 5th Overgrown Test, where a Panel Arm is used to block a Cube from being flung into Goo."
 	"Sample"        "p2/sp_a1_intro5_b1.ogg"
