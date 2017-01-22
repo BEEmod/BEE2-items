@@ -6,22 +6,24 @@
 # Installation Instructions
 
 * First, you should download the [standard BEE2.4 compiler from here](https://github.com/BEEmod/BEE2.4/releases)
-* You will need to extract the zip file to anywhere on your computer. **_You should not launch the program yet!_**
-* After that, you must go to the [releases page](https://github.com/BEEmod/BEE2-items/releases) to download the BEE2.4 Default Pack. **_The releases must match!_**
+* You will need to extract the zip file to anywhere on your computer. **You should not launch the program yet!**
+* After that, you must go to the [releases page](https://github.com/BEEmod/BEE2-items/releases) to download the BEE2.4 Default Pack. **Make sure the releases match** - non-matching releases don't go well together.
 * Next, you must extract the contents of the zip file to your **BEE2.4 compiler folder**.
 * Finally, in order to launch BEE2.4, you must go to the `bin` folder and select `BEE2.exe` and open it. Once opened, you must select the game you want BEE2.4 to modify.
 
 ## Development Version
 
-**_These are instructions to install the Development Version of the BEE2.4 Default Pack. This version will receive updates and bug-fixes to the `dev` branch in real time, but may be unstable. It is recommended that you use the Release Version instead._**
+These are instructions to install the Development Version of the BEE2.4 Default Pack. This version will receive updates and bug-fixes to the selected branch in real time, but may be unstable. It is recommended that you use the Release Version instead.
 
 * First, you need to install [GitHub Desktop from here](https://desktop.github.com/).
 * After installation, you must clone this repository. **_It must be done on [GitHub Desktop](https://desktop.github.com/)!_**
-* After cloning, you need to select the `dev` branch and _NOT_ the `master` branch.
+* After cloning, you need to select a branch other than the `master` branch. Features which will be in the next release are on the `dev` branch
 * Next, click the `Sync` button.
-* Now you must go to the BEE2.4 config folder and open `config.cfg`. **_You must use the latest release of the [BEE2.4 Compiler](https://github.com/BEEmod/BEE2.4/releases)!_**
+* Now you must go to the BEE2.4 config folder and open `config.cfg`. **Make sure you have the latest version.**
 * You must set the package directory to your cloned repository folder. (e.g. `C:\Users\User\Documents\GitHub\BEE2-items`)
 * Now open your BEE2.4 application. If it works, your files will be equal to the files of the `dev` branch.
+
+Some items require a compiler change and will not work with the Release Version compiler. You will need the development version of the program for these items to work - see the [BEE2.4 readme](https://github.com/BEEmod/BEE2.4/blob/master/README.md) for instructions to install that.
 
 # Packages in BEE2.4 Default Pack
 
