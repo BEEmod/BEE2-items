@@ -3,7 +3,9 @@
 # BEE2.4 Default Pack
  This pack for BEE2.4 contains the standard packages. Packages contain resources for BEE2.4 - items, styles, music, elevator videos, etc.
 
-# Installation Instructions
+## Installation Instructions
+
+### Release Version
 
 * First, you should download the [standard BEE2.4 compiler from here](https://github.com/BEEmod/BEE2.4/releases)
 * You will need to extract the zip file to anywhere on your computer. **You should not launch the program yet!**
@@ -11,7 +13,7 @@
 * Next, you must extract the contents of the zip file to your **BEE2.4 compiler folder**.
 * Finally, in order to launch BEE2.4, you must go to the `bin` folder and select `BEE2.exe` and open it. Once opened, you must select the game you want BEE2.4 to modify.
 
-## Development Version
+### Development Version
 
 These are instructions to install the Development Version of the BEE2.4 Default Pack. This version will receive updates and bug-fixes to the selected branch in real time, but may be unstable. It is recommended that you use the Release Version instead.
 
@@ -25,7 +27,7 @@ These are instructions to install the Development Version of the BEE2.4 Default 
 
 Some items require a compiler change and will not work with the Release Version compiler. You will need the development version of the program for these items to work - see the [BEE2.4 readme](https://github.com/BEEmod/BEE2.4/blob/master/README.md) for instructions to install that.
 
-# Packages in BEE2.4 Default Pack
+## Packages in BEE2.4 Default Pack
 
 This is a list of packages in the BEE2.4 Default Pack as of Pre-release 23. The BEE2.4 Default Pack has 23 packages.
 Packages can contain multiple items/styles, so do not worry. A package can also contain music, or elevator videos.
@@ -79,13 +81,14 @@ Packages can contain multiple items/styles, so do not worry. A package can also 
 * Test Elements (`VALVE_TEST_ELEM`)
 
 
-# Additional Information
+## Additional Information
 
-* If you are editing on Hammer, anything that is placed in the folder `sdk_content\maps\instances\bee2` will be deleted if you export the BEE2.4 pallete without enabling the setting *Preserve Game Directories*. If you are editing any package, after you have finished, do not forget to save it inside the packages, by replacing the old files inside.
-* BEE2.4 will crash if you are exporting while another folder or file is open that is important to the BEE2.4 compilation process.
-* If you are having problems using BEE2.4, make sure to verify the game cache files of Portal 2 before using a new BEE2.4 Default Pack release. **The issue also could be from another BEE2.4 pack, not just the BEE2.4 Default Pack**
-* It is recommended to have backups from the following Portal 2 folders: `sdk_content`, `portal2_dlc2`, and `bin`, just in case you need to restore your Portal 2 files.
-* You can use the Development Version for other branches, but not at the same time.
+- **If you constantly recieve the message "Build Error: There was an error building the puzzle", even when there are no items in the map, make sure to post a console log to the issue you open.** To do this, enable the developer console (Settings>Controls>Allow Developer Console) and open it (\` by default). Copy the big block of red text.
+- If you are editing on Hammer, anything that is placed in the folder `sdk_content\maps\instances\bee2` will be deleted if you export the BEE2.4 pallete without enabling the setting *Preserve Game Directories*. If you are editing any package, after you have finished, do not forget to save it inside the packages, by replacing the old files inside.
+- BEE2.4 will crash if you are exporting while another folder or file is open that is important to the BEE2.4 compilation process.
+- If you are having problems using BEE2.4, make sure to verify the game cache files of Portal 2 before using a new BEE2.4 Default Pack release. **The issue also could be from another BEE2.4 pack, not just the BEE2.4 Default Pack**
+- It is recommended to have backups from the following Portal 2 folders: `sdk_content`, `portal2_dlc2`, and `bin`, just in case you need to restore your Portal 2 files.
+- You can use the Development Version for other branches, but not at the same time.
 
 If you need more in-depth explanation of items and styles, or development guides, you may view this on the [BEE2.4 Default Pack wiki](https://github.com/BEEmod/BEE2-items/wiki).
 You can also look at the [BEE2.4 wiki](https://github.com/BEEmod/BEE2.4/wiki) for information on the program itself.
