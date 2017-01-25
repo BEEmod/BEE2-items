@@ -1,38 +1,49 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "74"
+	"editorbuild" "7378"
+	"mapversion" "82"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
-	visgroup
-	{
-		"name" "1 object"
-		"visgroupid" "9"
-		"color" "82 91 120"
-	}
 }
 viewsettings
 {
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "74"
+	"mapversion" "82"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "1019"
+	"classname" "material_modify_control"
+	"materialName" "BEE2/rex/beam_field"
+	"materialVar" "$status"
+	"parentname" "field"
+	"targetname" "mod"
+	"origin" "-8 0 24"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
@@ -52,11 +63,10 @@ entity
 	"thick_max" "5"
 	"thick_min" "4"
 	"vscripts" "bee2/rex_field_fx.nut"
-	"origin" "0 0 -16"
+	"origin" "8 0 24"
 	editor
 	{
 		"color" "220 30 220"
-		"visgroupid" "9"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -77,8 +87,10 @@ entity
 		"OnFalse" "mdlColor0 0 2000-1"
 		"OnUser2" "proxyProxyRelay0-1"
 		"OnUser1" "proxyProxyRelay0-1"
+		"OnFalse" "modStartFloatLerp1 0 0.2 00-1"
+		"OnTrue" "modStartFloatLerp0 1 0.2 00-1"
 	}
-	"origin" "-16 0 -16"
+	"origin" "-8 0 -24"
 	editor
 	{
 		"color" "220 30 220"
@@ -97,7 +109,7 @@ entity
 		"OnProxyRelay" "counterAdd10-1"
 		"OnProxyRelay" "counterSubtract10-1"
 	}
-	"origin" "16 0 -16"
+	"origin" "8 0 -24"
 	editor
 	{
 		"color" "220 30 220"
