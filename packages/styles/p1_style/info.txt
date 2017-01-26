@@ -10,7 +10,7 @@
 	"ShortName"	"P1"
 	"Folder"	"p1"
 	"VPK_Name"  "VPK_BEE2_PORTAL_1"
-	"Icon"		"styles/portal1.png"
+	"Icon"      "styles/portal1"
 	"Has_Video"	"0"
 	"Base"		""
 	"Description"
@@ -68,7 +68,8 @@
 	"ID"            "BEE2_PORTAL_1"
 	"Name"          "Portal 1"
 	"Group"         "2D"
-	"Icon"          "skies/p1_conc_wall.png"
+	"Icon"          "skies/p1_metalwall_glow"
+	"IconLarge"     "skies_lrg/p1_metalwall_glow"
 	"Material"      "sky_black"
 	"Authors"       "Valve"
 	"Description"   "The fog and skybox used in the original Portal 1."
@@ -332,8 +333,8 @@
 		"File" "models/BEE2/props_p1/door_right.mdl"
 		
 		// Fixed version with blue lights.
-		"File" "materials/BEE2/props_p1/door_01.vmt"
-		"File" "materials/BEE2/props_p1/door_01.vtf"
+		"File" "materials/BEE2/models/props_p1/door_01.vmt"
+		"File" "materials/BEE2/models/props_p1/door_01.vtf"
 		}
 	}
 	
@@ -342,13 +343,23 @@
 	"ID" "PACK_P1_FLOOR_BUTTON"
 	"Config"
 		{
-		"File" "models/BEE2/props_p1/floor_button_top.mdl"
-		"File" "models/BEE2/props_p1/floor_button_base.mdl"
+		"File" "models/BEE2/props_p1/floor_button.mdl"
 		
 		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vmt"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vtf"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_exponent.vtf"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_normal.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/base.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/exponent.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/normal.vtf"
+		}
+	}
+	
+// P2 cube button model with P1 button base, plus animations.
+"PackList"
+	{
+	"ID" "PACK_P1_CUBE_BUTTON"
+	"Config"
+		{
+		"" "models/BEE2/props_p1/cube_button.mdl"
+		"" "scripts/vscripts/BEE2/change_models.nut"
 		}
 	}
 	
@@ -365,9 +376,9 @@
 		"File" "models/BEE2/props_ingame/ball_button_just_top.mdl"
 		
 		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vmt"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vtf"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_exponent.vtf"
-		"File" "materials/BEE2/models/props_p1/floor_button/p1_button_normal.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/base.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/exponent.vtf"
+		"File" "materials/BEE2/models/props_p1/floor_button/normal.vtf"
 		}
 	}
 	
@@ -454,6 +465,37 @@
 	
 "PackList"
 	{
+	"ID"        "PACK_P1_BLACK_WALL_SML_FADE_WHITE"
+	"AddIfMat"  "BEE2/p1/metalwall048b_fade_white"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall_fade_white.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_P1_BLACK_WALL_SML_FADE_ORANGE"
+	"AddIfMat"  "BEE2/p1/metalwall048b_fade_orange"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall_fade_orange.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"        "PACK_P1_BLACK_WALL_SML_FADE_BLUE"
+	"AddIfMat"  "BEE2/p1/metalwall048b_fade_blue"
+	"Config"
+		{
+		"File" "materials/BEE2/p1/metalwall_fade_blue.vtf"
+		"File" "materials/BEE2/light_blue.vmt"
+		}
+	}
+	
+"PackList"
+	{
 	// A version of the metal_lift001 texture with static cubemaps.
 	"ID"       "PACK_P1_METAL_LIFT"
 	"Config"
@@ -464,6 +506,21 @@
 		"File" "materials/BEE2/p1/metal_lift_grad_mask.vtf"
 		"File" "materials/BEE2/p1/metal_lift_cube.vtf"
 		"File" "materials/BEE2/p1/metal_lift_cube.hdr.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	// High-def version of white cylinders in angled panels.
+	"ID" "PACK_P1_PANEL_CYLINDER"
+	"Config"
+		{
+		"" "models/BEE2/props_p1/panel_cylinder.mdl"
+		
+		"" "materials/BEE2/p1/metalwall_bts_006a.vtf"
+		"" "materials/BEE2/models/props_p1/metalwall_bts_6.vmt"
+		"" "materials/BEE2/models/props_p1/plasticwall_1.vmt"
+		"" "materials/BEE2/models/props_p1/plasticwall_4.vmt"
 		}
 	}
 
@@ -493,23 +550,25 @@
 	"Config"
 		{
 		"File"  "models/BEE2/props_p1/light_hole_small.mdl"
+		"File"  "materials/BEE2/models/props_p1/light_hole/light_blue.vtf"
 		
 		"File"  "materials/BEE2/models/props_p1/light_hole/invis.vmt"
 		
 		"File"  "materials/BEE2/models/props_p1/light_hole/wall_white.vmt"
 		"File"  "materials/BEE2/models/props_p1/light_hole/wall_orange.vmt"
-		"File"  "materials/BEE2/models/props_p1/light_hole/wall_black.vmt"
+		//"File"  "materials/BEE2/models/props_p1/light_hole/wall_black.vmt"
 		"File"  "materials/BEE2/models/props_p1/light_hole/wall_blue.vmt"
 		
 		"File"  "materials/BEE2/models/props_p1/light_hole/light_white.vmt"
 		"File"  "materials/BEE2/models/props_p1/light_hole/light_orange.vmt"
-		"File"  "materials/BEE2/models/props_p1/light_hole/light_black.vmt"
 		"File"  "materials/BEE2/models/props_p1/light_hole/light_blue.vmt"
+		//"File"  "materials/BEE2/models/props_p1/light_hole/light_black.vmt"
 		
-		"File"  "materials/BEE2/models/props_p1/light_hole/glow_white.vtf"
-		"File"  "materials/BEE2/models/props_p1/light_hole/glow_orange.vtf"
-		"File"  "materials/BEE2/models/props_p1/light_hole/glow_blue.vtf"
-		"File"  "materials/BEE2/models/props_p1/light_hole/glow_black.vtf"
+		
+		"File"  "materials/BEE2/models/props_p1/light_hole/wall_white.vtf"
+		"File"  "materials/BEE2/models/props_p1/light_hole/wall_orange.vtf"
+		"File"  "materials/BEE2/models/props_p1/light_hole/wall_blue.vtf"
+		//"File"  "materials/BEE2/models/props_p1/light_hole/wall_black.vtf"
 		}
 	}
 	
@@ -544,7 +603,6 @@
 		"File" "materials/BEE2/bullseye/metalwall48.vtf"
 		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
 		"File" "materials/BEE2/p1/metalwall048b_med_height-ssbump.vtf"
-		"File" "materials/BEE2/p1/metalwall048b_med_normal.vtf"
 		}
 	}
 	
@@ -847,7 +905,10 @@
 				}
 			}
 		}
-		
+}
+
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_LASER_EMITTER_CENTER"
@@ -881,6 +942,22 @@
 				}
 			}
 		}
+	}
+	
+// Modified models - no back face, with extended piping.
+"PackList"
+	{
+	"ID" "PACK_BEE2_P1_LASER_EMITTER"
+	"Config"
+		{
+		"" "models/BEE2/props_p1/laser_emitter.mdl"
+		"" "materials/BEE2/models/props_p1/laser_pipe_glow.vmt"
+		"" "materials/BEE2/models/props_p1/laser_pipe_glow.vtf"
+		}
+	}
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_PANEL_FLIP"

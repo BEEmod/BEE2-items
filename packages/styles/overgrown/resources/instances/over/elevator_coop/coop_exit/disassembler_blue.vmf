@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "6432"
-	"mapversion" "153"
+	"mapversion" "158"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "153"
+	"mapversion" "158"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1198,6 +1198,30 @@ world
 }
 entity
 {
+	"id" "5854"
+	"classname" "logic_timer"
+	"LowerRandomBound" "0.1"
+	"spawnflags" "0"
+	"StartDisabled" "1"
+	"targetname" "@exit_station_tim"
+	"UpperRandomBound" "2"
+	"UseRandomTime" "1"
+	connections
+	{
+		"OnTimer" "stationSkin20-1"
+		"OnTimer" "stationSkin00.05-1"
+	}
+	"origin" "64 0 33"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
 	"id" "5752"
 	"classname" "func_detail"
 	solid
@@ -1496,7 +1520,7 @@ entity
 	"HoldAnimation" "1"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
-	"model" "models/player/bot_assembly/assembly_station.mdl"
+	"model" "models/bee2/props_overgrown/coop_assembly_station.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"

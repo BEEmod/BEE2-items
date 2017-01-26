@@ -39,7 +39,7 @@
 "PackList"
 	{
 	"ID"       "PACK_UNDER_HOTSURFACE_WORLD"
-	"AddIfMat" "BEE2/underground_woodwall003c"
+	"AddIfMat" "BEE2/world/underground_hotsurface"
 	"Config" 
 		{
 		"File" "materials/BEE2/world/underground_hotsurface.vmt"
@@ -177,9 +177,37 @@
 			"BEE2_CLEAN"        "door"
 			"BEE2_BTS"          "door_bts"
 			"BEE2_PORTAL_1"     "door_p1"
-			"BEE2_1950s"        "door_50s"
-			"BEE2_1970s"        "door_70s"
-			"BEE2_1980s"        "door_80s"
+			"BEE2_1950s"        "door_retro"
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "under_door_bee_70s.mdl"
+						}
+					}
+				"Instances"
+					{
+					"bee2_trim" "instances/BEE2/70s/items/bee/door_trim.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "under_door_bee_80s.mdl"
+						}
+					}
+				"Instances"
+					{
+					"bee2_trim" "instances/BEE2/80s/items/bee/door_trim.vmf"
+					}
+				}
 			}
 		}
 	}
