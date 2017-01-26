@@ -26,7 +26,10 @@ This activates an output when pellets pass through.
 			"BEE2_PORTAL_1"
 				{
 				"Base" "BEE2_CLEAN"
-				"config" "pellet_field_p1.cfg"
+				"Replace"
+					{
+					"PACK_BEE2_CUST_FIZZ_MDL" "PACK_P1_CUST_FIZZLER"
+					}
 				"Instances"
 					{
 					// Base changed for different tick-tock sounds
@@ -49,7 +52,16 @@ This activates an output when pellets pass through.
 			"BEE2_1950s"
 				{
 				"Base" "BEE2_CLEAN"
-				"config" "pellet_field_retro.cfg" // Different beam template.
+				"Replace"
+					{
+					"PACK_BEE2_CUST_FIZZ_MDL" "PACK_CUST_FIZZLER_RETRO"
+					// Change closed-caption values.
+					"World.RobotNegInteractPitchedUp" "World.PaintSwitchOpen"
+					
+					// Different template for 3 beams matching Retro fizzlers
+					"REX_PELLET_FIELD_TEMP" "REX_PELLET_FIELD_TEMP_RETRO"
+					"PACK_REX_PELLET_FIELD" "PACK_REX_PELLET_FIELD_RETRO"
+					}
 				"Instances"
 					{
 					// Base changed for different texture & hit sounds
@@ -92,12 +104,12 @@ This activates an output when pellets pass through.
 	
 "BrushTemplate"
 	{
-	"ID"   "REX_PELLET_FIELD"
+	"ID"   "REX_PELLET_FIELD_TEMP"
 	"File" "field.vmf"
 	}
 	
 "BrushTemplate"
 	{
-	"ID"   "REX_PELLET_FIELD_RETRO"
+	"ID"   "REX_PELLET_FIELD_TEMP_RETRO"
 	"File" "field_retro.vmf"
 	}
