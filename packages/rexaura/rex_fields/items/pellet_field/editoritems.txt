@@ -1,0 +1,107 @@
+"Item"
+	{
+	"Type"			"ITEM_REX_PELLET_FIELD"
+	"ItemClass"		"ItemBarrierHazard"
+	"Editor"
+		{
+		"SubTypeProperty" "HazardType"
+		"SubType"
+			{
+			"Name"			"Radiative Flux Rectangle"
+			"Model"
+				{
+				"ModelName"		"rex_pellet_field.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"RADIATIVE FLUX RECTANGLE"
+				"Image"			"palette/logic/rex_pellet_field.png"
+				"Position"		"0 3 0"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"			"UNUSED"
+			"Model"
+				{
+				"ModelName"		"bee2_fizz_error.3ds"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.Error"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.Correction"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"		"HANDLE_6_POSITIONS"
+		"DesiredFacing"			"DESIRES_HORIZONTAL"
+		}
+	"Properties"
+		{
+		"HazardType"
+			{
+			"DefaultValue"		"0"
+			"Index"				"1"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"bee2_toggle_base"   "instances/BEE2/clean/items/rex/pellet_field_base_toggle.vmf"
+			"bee2_toggle_model"  "instances/BEE2/clean/items/rex/pellet_field_model_toggle.vmf""
+			
+			"bee2_timer_base"    "instances/BEE2/clean/items/rex/pellet_field_base_timer.vmf"
+			"bee2_timer_model"   "instances/BEE2/clean/items/rex/pellet_field_model_timer.vmf"
+			"0"
+				{
+				"Name"			"instances/BEE2/clean/items/rex/pellet_field_base.vmf"
+				"EntityCount"	"5"
+				}
+			"1"
+				{
+				"Name"			"instances/BEE2/clean/items/rex/pellet_field_model.vmf"
+				"EntityCount"	"5"
+				}
+			}
+
+		"TargetName"	"rex_pf"
+		"Inputs"
+			{
+			"CONNECTION_HAZARD_MODEL"
+				{
+				"Activate"		"instance:mdl;FireUser2" // Unused
+				"Deactivate"	"instance:mdl;FireUser1"
+				}
+			"CONNECTION_HAZARD_BRUSH"
+				{
+				"Activate"		"Enable" // Unused
+				"Deactivate"	"Disable"
+				}
+			}
+		// Fizzlers don't work for outputs, so we use the output relay item.
+		// Therefore we don't need antline positions.
+		"Outputs"
+			{
+			"CONNECTION_STANDARD"
+				{
+				"Activate"		"instance:out;OnUser2"
+				"Deactivate"	"instance:out;OnUser1"
+				}
+			"CONNECTION_HAZARD"
+				{
+				"Activate"		"instance:out;OnUser2" // Not actually used
+				"Deactivate"	"instance:out;OnUser1"
+				}
+			}
+		"Offset"	"64 64 64"
+		}
+	}
