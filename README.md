@@ -18,7 +18,7 @@
 These are instructions to install the Development Version of the BEE2.4 Default Pack. This version will receive updates and bug-fixes to the selected branch in real time, but may be unstable. It is recommended that you use the Release Version instead.
 
 * First, you need to install [GitHub Desktop from here](https://desktop.github.com/).
-* After installation, you must clone this repository. **_It must be done on [GitHub Desktop](https://desktop.github.com/)!_**
+* After installation, you must clone this repository. **It must be done on [GitHub Desktop](https://desktop.github.com/)!**
 * After cloning, you need to select a branch other than the `master` branch. Features which will be in the next release are on the `dev` branch
 * Next, click the `Sync` button.
 * Now you must go to the BEE2.4 config folder and open `config.cfg`. **Make sure you have the latest version.**
@@ -88,7 +88,6 @@ Packages can contain multiple items/styles, so do not worry. A package can also 
 - BEE2.4 will crash if you are exporting while another folder or file is open that is important to the BEE2.4 compilation process.
 - If you are having problems using BEE2.4, make sure to verify the game cache files of Portal 2 before using a new BEE2.4 Default Pack release. **The issue also could be from another BEE2.4 pack, not just the BEE2.4 Default Pack**
 - It is recommended to have backups from the following Portal 2 folders: `sdk_content`, `portal2_dlc2`, and `bin`, just in case you need to restore your Portal 2 files.
-- You can use the Development Version for other branches, but not at the same time.
 
 If you need more in-depth explanation of items and styles, or development guides, you may view this on the [BEE2.4 Default Pack wiki](https://github.com/BEEmod/BEE2-items/wiki).
 You can also look at the [BEE2.4 wiki](https://github.com/BEEmod/BEE2.4/wiki) for information on the program itself.
