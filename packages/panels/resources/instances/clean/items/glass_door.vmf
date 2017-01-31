@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7378"
-	"mapversion" "56"
+	"mapversion" "59"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "56"
+	"mapversion" "59"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2729,14 +2729,14 @@ entity
 {
 	"id" "647"
 	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
+	"InitialValue" "$start_open"
 	"targetname" "branch_toggle"
 	connections
 	{
-		"OnTrue" "rl_dnCancelPending0-1"
-		"OnFalse" "rl_upCancelPending0-1"
-		"OnTrue" "rl_upTrigger0.01-1"
-		"OnFalse" "rl_dnTrigger0.01-1"
+		"OnFalse" "rl_dnCancelPending0-1"
+		"OnTrue" "rl_upCancelPending0-1"
+		"OnFalse" "rl_upTrigger0.01-1"
+		"OnTrue" "rl_dnTrigger0.01-1"
 	}
 	"origin" "0 -16 0"
 	editor
@@ -2771,7 +2771,7 @@ entity
 	"id" "653"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer"
-	"parm2" "$start_enabled integer"
+	"parm2" "$start_open boolean 0"
 	"origin" "0 48 0"
 	editor
 	{
