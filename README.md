@@ -1,4 +1,4 @@
-[![Join the chat at https://gitter.im/BenVlodgi/BEE2.4](https://badges.gitter.im/BenVlodgi/BEE2.4.svg)]  (https://gitter.im/BenVlodgi/BEE2.4?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
+[![Join the chat at https://gitter.im/BEEmod/Lobby](https://badges.gitter.im/BEEmod/Lobby.svg)]  (https://gitter.im/BEEmod/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
 
 # BEE2.4 Default Pack
  This pack for BEE2.4 contains the standard packages. Packages contain resources for BEE2.4 - items, styles, music, elevator videos, etc.
