@@ -1,10 +1,13 @@
-''' This converts each folder in packages/ into a zip, saving the zips into zips/. This way it's easy to edit them.'''
+"""This converts each folder in packages/ into a zip, saving the zips into zips/.
+
+This way it's easy to edit them.
+Additionally all resources are saved into zips/resources.zip.
+"""
 import os
+import shutil
 import sys
 import itertools
-import subprocess
 from zipfile import ZipFile, ZIP_LZMA, ZIP_DEFLATED
-from concurrent import futures
 
 from srctools import Property, KeyValError, VMF, Entity, conv_bool
 
@@ -126,9 +129,8 @@ def search_folder(zip_path, path):
         yield package_path, pack_zip_path, zip_path
 
         
-def build_package(data):
+def build_package(package_path, pack_zip_path, zip_path):
     """Build the packages in a given folder."""
-    package_path, pack_zip_path, zip_path = data
     
     zip_file = ZipFile(
         pack_zip_path,
@@ -146,18 +148,53 @@ def build_package(data):
                     print('\nX   \\' + rel_path)
                     os.remove(full_path)
                     continue
+
+                hammer_path = os.path.relpath(rel_path, 'resources/')
+                if hammer_path.startswith('..'):
+                    hammer_path = None
+                elif hammer_path.casefold().startswith(('bee2', 'instances')):
+                    # Skip icons and instances
+                    hammer_path = None
+                elif 'props_map_editor' in hammer_path:
+                    # Skip editor models
+                    hammer_path = None
+                elif 'puzzlemaker' in hammer_path:
+                    # Skip editor models
+                    hammer_path = None
+                elif 'music' in rel_path.casefold():
+                    # Skip music files..
+                    hammer_path = None
+                else:
+                    hammer_path = os.path.join('zips/hammer/', hammer_path)
+                    os.makedirs(os.path.dirname(hammer_path), exist_ok=True)
+
                 print('.', end='', flush=True)
                 
                 if OPTIMISE and file.endswith('.vmf'):
                     print(rel_path)
-                    zip_file.writestr(rel_path, '\r\n'.join(clean_vmf(full_path)))
+                    data = '\r\n'.join(clean_vmf(full_path))
+                    zip_file.writestr(rel_path, data)
+
+                    if hammer_path:
+                        with open(hammer_path, 'w') as f:
+                            f.write(data)
                 elif OPTIMISE and file.endswith(PROP_EXT):
                     print(rel_path)
-                    zip_file.writestr(rel_path, ''.join(clean_text(full_path)))
+                    data = ''.join(clean_text(full_path))
+                    zip_file.writestr(rel_path, data)
+
+                    if hammer_path:
+                        with open(hammer_path, 'w') as f:
+                            f.write(data)
                 else:
                     zip_file.write(full_path, rel_path)
+
+                    if hammer_path:
+                        shutil.copy(full_path, hammer_path)
+
         print('')
     print('Finished "{}"'.format(package_path))
+
 
 def main():
     global OPTIMISE
@@ -178,13 +215,13 @@ def main():
     else:
         os.makedirs(zip_path, exist_ok=True)
 
+    shutil.rmtree('zips/hammer/', ignore_errors=True)
+
     path = os.path.join(os.getcwd(), 'packages\\', )
     
     # A list of all the package zips.
-    packages = list(search_folder(zip_path, path))
-
-    with futures.ThreadPoolExecutor(10) as future:
-        list(future.map(build_package, packages))
+    for package in search_folder(zip_path, path):
+        build_package(*package)
 
     print('Building main zip...')
 
