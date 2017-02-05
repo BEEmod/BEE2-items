@@ -7,17 +7,29 @@
 	"ID" "ITEM_PHYS_SHIELD"
 	"Description"
 		{
-		"" "A custom fizzler created by Felix Griffin. "
-		"" "The Physics Repulsion Field blocks physics objects, like cubes, but does not block the player or portal shots. "
+		"" "A custom fizzler created by Felix Griffin.  "
+		"" "The Physics Repulsion Field blocks physics objects, like cubes, but does not block the player or portal shots.  "
 		"" "This is also known as the Physics Shield or Physler."
 		}
 	"Version"
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"        "clean"
+			"BEE2_CLEAN"        "phys_shield"
 			"BEE2_1950s"        "retro"
-			"BEE2_PORTAL_1"     "p1"
+			"BEE2_PORTAL_1"
+				{
+				"Base" "BEE2_CLEAN"
+				"Replace"
+					{
+					"PACK_BEE2_CUST_FIZZ_MDL" "PACK_P1_CUST_FIZZLER"
+					}
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/physler/base.vmf"
+					"1" "instances/BEE2/p1/items/physler/model.vmf"
+					}
+				}
 			}
 		}
 	}
