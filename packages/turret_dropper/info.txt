@@ -1,0 +1,35 @@
+"ID"		"BEE2_TURRET_DROPPER"
+"Name"		"Turret Dropper"
+"Desc"      "Adds a Dropper which places Turrets when activated."
+
+"Item"
+	{
+	"ID" "ITEM_BEE2_TURRET_DROPPER"
+	"Description"
+		{
+		"" "A Dropper which dispenses Turrets.  "
+		"" ""
+		"" "* Since Turrets are unstable, they are lowered to the floor on a cable."
+		"" "* The Auto-Drop and Respawn checkboxes function the same as normal Cube Droppers."
+		"" "* If Auto-Respawn is enabled, Turrets will additionally respawn when coated in Repulsion Gel or knocked over."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN" "turret_dropper"
+			}
+		}
+	}
+
+"PackList"
+	{
+	"ID" "BEE2_TURRET_DROPPER_COMMON"
+	"Config"
+		{
+		// Handles detecting when turrets have died, and replaces other ents.
+		"" "scripts/vscripts/bee2/turret_dropper.nut"
+		// Looped cable sounds
+		"" "sound/BEE2/claw_cable_lp.wav"
+		}
+	}
