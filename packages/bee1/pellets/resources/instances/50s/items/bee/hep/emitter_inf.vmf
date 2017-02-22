@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "144"
+	"editorbuild" "7378"
+	"mapversion" "154"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "144"
+	"mapversion" "154"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -103,12 +103,11 @@ entity
 	"targetname" "man"
 	connections
 	{
-		"OnChangeToAnyTrue" "launcher_realLaunchBall0.01-1"
-		"OnChangeToAnyTrue" "triggerEnable0-1"
-		"OnChangeToAllFalse" "ballkillerFireRegisteredAsActivator10-1"
+		"OnChangeToAnyTrue" "launcherLaunchBall0.01-1"
 		"OnChangeToAnyTrue" "manSetStateBTrue0-1"
+		"OnChangeToAllFalse" "launcherRunScriptCodekill_pellet()0-1"
 	}
-	"origin" "0 48 -48"
+	"origin" "16 48 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -133,7 +132,7 @@ entity
 		"OnSpawn" "coreStartCharge0.501"
 		"OnSpawn" "beamTurnOn01"
 	}
-	"origin" "-48 48 -48"
+	"origin" "-32 48 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -153,132 +152,13 @@ entity
 		"OnHitMax" "manToggleStateA0-1"
 		"OnChangedFromMax" "manToggleStateA0-1"
 	}
-	"origin" "-16 48 -48"
+	"origin" "0 48 -48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "4320"
-	"classname" "logic_register_activator"
-	"StartDisabled" "0"
-	"targetname" "ballkiller"
-	connections
-	{
-		"OnRegisteredActivate1" "!activatorExplode0-1"
-	}
-	"origin" "16 48 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "4322"
-	"classname" "trigger_multiple"
-	"filtername" "@filter_pellet"
-	"origin" "0 0 24"
-	"spawnflags" "5192"
-	"StartDisabled" "0"
-	"targetname" "trigger"
-	"wait" "0.01"
-	connections
-	{
-		"OnTrigger" "ballkillerRegisterEntity!activator0-1"
-		"OnTrigger" "!selfDisable0.01-1"
-		"OnTrigger" "manSetStateBFalse0.02-1"
-	}
-	solid
-	{
-		"id" "4323"
-		side
-		{
-			"id" "420"
-			"plane" "(-16 -16 40) (-16 16 40) (16 16 40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "419"
-			"plane" "(-16 16 8) (-16 -16 8) (16 -16 8)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "418"
-			"plane" "(-16 -16 8) (-16 16 8) (-16 16 40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "417"
-			"plane" "(16 16 8) (16 -16 8) (16 -16 40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "416"
-			"plane" "(-16 16 8) (16 16 8) (16 16 40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "415"
-			"plane" "(16 -16 8) (-16 -16 8) (-16 -16 40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
 	}
 }
 entity
@@ -2222,36 +2102,18 @@ entity
 	"ballradius" "20.0"
 	"ballrespawntime" "1"
 	"balltype" "Combine Energy Ball 1"
-	"maxspeed" "500"
+	"maxspeed" "$speed"
 	"MinLifeAfterPortal" "6"
-	"minspeed" "500"
+	"minspeed" "$speed"
 	"origin" "0 0 12"
 	"spawnflags" "4096"
-	"targetname" "launcher_real"
-	editor
+	"targetname" "launcher"
+	"thinkfunction" "Think"
+	"vscripts" "BEE2/inf_pellet.nut"
+	connections
 	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
+		"OnUser1" "proxyProxyRelay0-1"
 	}
-}
-entity
-{
-	"id" "3321"
-	"classname" "point_energy_ball_launcher"
-	"angles" "-90 0 0"
-	"ballcount" "1"
-	"BallLifetime" "-1"
-	"ballradius" "20.0"
-	"ballrespawntime" "1"
-	"balltype" "1"
-	"maxspeed" "250"
-	"MinLifeAfterPortal" "6"
-	"minspeed" "250"
-	"origin" "0 0 -60"
-	"spawnflags" "0"
-	"targetname" "launcher_inside"
 	editor
 	{
 		"color" "220 30 220"
@@ -2296,7 +2158,7 @@ entity
 		"OnProxyRelay" "counterAdd10-1"
 		"OnProxyRelay" "counterSubtract10-1"
 	}
-	"origin" "-32 48 -48"
+	"origin" "-16 48 -48"
 	editor
 	{
 		"color" "220 30 220"

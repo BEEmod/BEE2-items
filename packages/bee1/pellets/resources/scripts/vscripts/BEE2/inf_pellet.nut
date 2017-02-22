@@ -6,7 +6,7 @@ function pellet_launched() {
 	kill_pellet();
 	
 	// Find the new one...
-	cur_pellet = Entities.FindByClassnameWithin(null, "prop_energy_ball", self.GetOrigin(), 16);
+	cur_pellet = Entities.FindByClassnameNearest("prop_energy_ball", self.GetOrigin(), 16);
 	
 	// Fire a user output with the pellet as an !activator (for overgrown particles).
 	EntFireByHandle(self, "FireUser2", "", 0.0, self, cur_pellet);

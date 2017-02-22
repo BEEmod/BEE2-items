@@ -112,13 +112,19 @@
 	"Style"         "BEE2_PORTAL_1"
 	}
 	
-"StyleVar"
+"Overrides"
 	{
-	"ID"          "RestartOnExit"
-	"Enabled"     "1"
-	"Name"        "Resart When Reaching Exit"
-	"Description" "Automatically restart the map once the player(s) have reached the exit."
-	"Style"       "BEE2_PORTAL_1"
+	"StyleVar"
+		{
+		"ID"    "RestartOnExit"
+		"Style" "BEE2_PORTAL_1"
+		}
+		
+	"StyleVar"
+		{
+		"ID"    "BlockPlayerGelBomb"
+		"Style" "BEE2_PORTAL_1"
+		}
 	}
 	
 "PackList"
@@ -251,6 +257,7 @@
 		"File" "#scripts/bee2_snd/portal_sounds.txt"
 		"File" "sound/BEE2/p1/wall_move5.wav"
 		"File" "sound/BEE2/p1/garage_stop1.wav"
+		"File" "sound/BEE2/p1/doorstop1.wav"
 		}
 	}
 	
@@ -343,13 +350,23 @@
 	"ID" "PACK_P1_FLOOR_BUTTON"
 	"Config"
 		{
-		"File" "models/BEE2/props_p1/floor_button_top.mdl"
-		"File" "models/BEE2/props_p1/floor_button_base.mdl"
+		"File" "models/BEE2/props_p1/floor_button.mdl"
 		
 		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vmt"
 		"File" "materials/BEE2/models/props_p1/floor_button/base.vtf"
 		"File" "materials/BEE2/models/props_p1/floor_button/exponent.vtf"
 		"File" "materials/BEE2/models/props_p1/floor_button/normal.vtf"
+		}
+	}
+	
+// P2 cube button model with P1 button base, plus animations.
+"PackList"
+	{
+	"ID" "PACK_P1_CUBE_BUTTON"
+	"Config"
+		{
+		"" "models/BEE2/props_p1/cube_button.mdl"
+		"" "scripts/vscripts/BEE2/change_models.nut"
 		}
 	}
 	
