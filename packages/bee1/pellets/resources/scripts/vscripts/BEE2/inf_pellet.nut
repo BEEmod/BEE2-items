@@ -1,25 +1,73 @@
-cur_pellet <- null;
-manager <- Entities.FindByName(null, self.GetName().slice(0, -8) + "man");
+cur_pellet <- null; // The pellet entity.
+waiting_for_pellet <- false; // Are we waiting for it to spawn and be detected?
+is_on <- false; // Current input state.
+is_inverted <- 0;
 
 function pellet_launched() {
 	// If we have a pellet, kill it.
 	kill_pellet();
 	
 	// Find the new one...
-	cur_pellet = Entities.FindByClassnameNearest("prop_energy_ball", self.GetOrigin(), 16);
+	local pellet = null;
+	while(1) {
+		pellet = Entities.FindByClassnameWithin(pellet, "prop_energy_ball", self.GetOrigin(), 16);
+		if (pellet == null) {
+			// Didn't find it..
+			return
+		}
+		if (pellet.GetClassname() == "bee_exp_pellet") {
+			// One of ours already detonating...
+			continue;
+		}
+		cur_pellet = pellet;
+		break;
+	}
 	
-	// Fire a user output with the pellet as an !activator (for overgrown particles).
-	EntFireByHandle(self, "FireUser2", "", 0.0, self, cur_pellet);
+	waiting_for_pellet = false;
 	
-	// Allow the manager to deactivate itself and kill the pellet now.
-	EntFireByHandle(manager, "SetStateBFalse", "", 0.0, self, self);
+	if(!is_on) {
+		// We spawned, but disabled in the time - kill it.
+		kill_pellet();
+	} else {
+		
+		// Fire a user output with the pellet as an !activator (for overgrown particles).
+		EntFireByHandle(self, "FireUser2", "", 0.0, self, cur_pellet);
+	}
 }
 
-self.ConnectOutput("OnPostSpawnBall", "pellet_launched");
+self.ConnectOutput("OnPostSpawnBall", "pellet_launched")
+
+function launch_pellet() {
+	EntFireByHandle(self, "LaunchBall", "", 0.0, self, self);
+	waiting_for_pellet = true;
+}
+
+function input(value) {
+	is_on = (value != is_inverted);
+	if (is_on) {
+		if (!waiting_for_pellet) {
+			launch_pellet();
+		}
+	} else {
+		kill_pellet();
+	}
+}
+
+// Set as start enabled
+function invert() {
+	is_inverted = 1;
+	// Trigger with the current value to do the right
+	// thing if a NOT or similar triggers first.
+	input(is_on);
+}
 
 function kill_pellet() {
 	// Ignore if the pellet doesn't exist...
 	if(cur_pellet != null && cur_pellet.IsValid()) {
+		// "Change" it to a different classname, so our search don't find these.
+		// It still exists for some time (for FX), and our actual triggers use 
+		// direct casts to check so that's safe.
+		EntFireByHandle(cur_pellet, "AddOutput", "classname bee_exp_pellet", 0.0, self, self);
 		EntFireByHandle(cur_pellet, "Explode", "", 0.0, self, self);
 		cur_pellet = null;
 	}
@@ -30,6 +78,10 @@ function Think() {
 	if(cur_pellet != null && !cur_pellet.IsValid()) {
 		EntFireByHandle(self, "FireUser1", "", 0.0, self, self);
 		cur_pellet = null;
+		
+		if (is_on) {
+			launch_pellet();
+		}
 	}
 	
 	// Re-run only every second, that's sufficent..

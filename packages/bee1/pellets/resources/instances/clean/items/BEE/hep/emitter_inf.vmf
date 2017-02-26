@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7378"
-	"mapversion" "181"
+	"mapversion" "200"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "181"
+	"mapversion" "200"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -31,35 +31,16 @@ world
 }
 entity
 {
-	"id" "3428"
-	"classname" "logic_register_activator"
-	"StartDisabled" "0"
-	"targetname" "ballkiller"
-	connections
-	{
-		"OnRegisteredActivate1" "!activatorExplode0-1"
-	}
-	"origin" "-48 48 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "3334"
 	"classname" "point_energy_ball_launcher"
 	"angles" "-90 0 0"
 	"ballcount" "1"
 	"BallLifetime" "-1"
-	"ballradius" "12"
-	"ballrespawntime" "-1"
-	"balltype" "0"
+	"ballradius" "128"
+	"ballrespawntime" "1"
+	"balltype" "Combine Energy Ball 1"
 	"maxspeed" "$speed"
-	"MinLifeAfterPortal" "6"
+	"MinLifeAfterPortal" "-1"
 	"minspeed" "$speed"
 	"origin" "0 0 -16"
 	"spawnflags" "4096"
@@ -83,38 +64,16 @@ entity
 }
 entity
 {
-	"id" "3103"
-	"classname" "logic_coop_manager"
-	"DefaultPlayerStateA" "0"
-	"DefaultPlayerStateB" "0"
-	"targetname" "man"
-	connections
-	{
-		"OnChangeToAnyTrue" "launcherLaunchBall0.01-1"
-		"OnChangeToAllFalse" "launcherRunScriptCodekill_pellet()0-1"
-		"OnChangeToAnyTrue" "manSetStateBTrue0-1"
-	}
-	"origin" "16 48 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "782"
 	"classname" "math_counter"
 	"max" "$connectioncount"
 	"targetname" "counter"
 	connections
 	{
-		"OnHitMax" "manToggleStateA0-1"
-		"OnChangedFromMax" "manToggleStateA0-1"
+		"OnChangedFromMax" "launcherRunScriptCodeinput(0)0-1"
+		"OnHitMax" "launcherRunScriptCodeinput(1)0-1"
 	}
-	"origin" "-16 48 -32"
+	"origin" "0 48 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -174,11 +133,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 0"
 	"parm2" "$start_enabled integer 1"
-	"parm3" "$lifetime integer 5"
-	"parm4" "$respawntime integer 1"
-	"parm5" "$speed integer 500"
-	"parm6" "$life_after_portaltransition integer 5"
-	"parm7" "$BallType integer 1"
+	"parm3" "$speed integer 300"
 	"origin" "32 48 -32"
 	editor
 	{
