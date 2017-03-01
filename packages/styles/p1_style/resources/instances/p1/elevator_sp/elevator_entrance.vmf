@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7378"
-	"mapversion" "964"
+	"mapversion" "966"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "964"
+	"mapversion" "966"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -10778,7 +10778,7 @@ entity
 	"duration" "2"
 	"frequency" "2.5"
 	"radius" "500"
-	"targetname" "a00_elevator_p1_p2_shake"
+	"targetname" "elev_shake"
 	"origin" "96.9698 671.576 -1052.41"
 	editor
 	{
@@ -10841,7 +10841,7 @@ entity
 	"speed" "0"
 	"StartSound" "BEE2.P1.elev_start"
 	"startspeed" "65"
-	"StopSound" "eli_lab.elevator_stop"
+	"StopSound" "BEE2.P1.elev_stop"
 	"target" "track_elevator_p1_middle"
 	"targetname" "elevator_body_middle"
 	"velocitytype" "0"
@@ -11417,8 +11417,7 @@ entity
 	connections
 	{
 		"OnStartTouch" "elevator_body_middleStartForward1-1"
-		"OnStartTouch" "a00_elevator_p1_p2_shakeStartShake1-1"
-		"OnStartTouch" "tc00_elevator_startPlaySound1-1"
+		"OnStartTouch" "elev_shakeStartShake1-1"
 		"OnTrigger" "elevator_door_model_middleEnableCollision0-1"
 	}
 	solid
@@ -11528,27 +11527,6 @@ entity
 }
 entity
 {
-	"id" "173990"
-	"classname" "ambient_generic"
-	"health" "10"
-	"message" "BEE2.P1.elev_stop"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"SourceEntityName" "elevator_body_model"
-	"spawnflags" "48"
-	"targetname" "tc00_elevator_stop"
-	"origin" "112.97 687.576 -1057.17"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 5000]"
-	}
-}
-entity
-{
 	"id" "173996"
 	"classname" "logic_relay"
 	"targetname" "elevator_door_model_open"
@@ -11598,7 +11576,6 @@ entity
 		"OnTrigger" "elevator_body_middleStop0-1"
 		"OnTrigger" "elevator_door_model_openTrigger1-1"
 		"OnTrigger" "tc00_elevator_chimePlaySound1-1"
-		"OnTrigger" "tc00_elevator_stopPlaySound0-1"
 	}
 	"origin" "94.4498 724.526 -479.854"
 	editor
@@ -16956,8 +16933,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[173.133 809.903 -981.522]"
-		"look" "[146.331 775.599 -1027.23]"
+		"position" "[104.339 634.182 -1021.77]"
+		"look" "[106.81 693.137 -1044.18]"
 	}
 	camera
 	{
