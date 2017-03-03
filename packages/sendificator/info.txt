@@ -5,7 +5,7 @@
 "Item"
 	{
 	"ID"       "ITEM_HMW_SENDIFICATOR"
-	"All_conf" "sendtor"
+	"All_conf" "sendtor_all.cfg"
 	"Description"	
 		{
 		"" "A custom testing element made by HMW. When activated, teleports cubes to the end of an attached laser beam."
@@ -18,12 +18,58 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"     "sendtor_clean"
-			"BEE2_1950s"     "sendtor_50s"
-			"BEE2_1970s"     "sendtor_70s"
-			"BEE2_1980s"     "sendtor_80s"
-			"BEE2_OVERGROWN" "sendtor_over"
-			"BEE2_PORTAL_1"  "sendtor_p1"
+			"BEE2_CLEAN"     "sendtor"
+			"BEE2_1950s"
+				{
+				"Folder" "sendtor"
+				"Config" "sendtor_50s.cfg"
+				"Instances"
+					{
+					"0"          "instances/BEE2/50s/items/hmw/sendtor.vmf"
+					"las_center" "instances/BEE2/50s/items/hmw/sendtor_emitter_center.vmf"
+					"las_offset" "instances/BEE2/50s/items/hmw/sendtor_emitter_offset.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Config" "sendtor_70s.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/70s/items/hmw/sendtor.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Config" "sendtor_80s.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/80s/items/hmw/sendtor.vmf"
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "sendtor"
+				"Config" "sendtor_over.cfg"
+				"Instances"
+					{
+					"0"          "instances/BEE2/over/items/hmw/sendtor.vmf"
+					"las_center" "instances/BEE2/over/items/hmw/sendtor_emitter_center.vmf"
+					"las_offset" "instances/BEE2/over/items/hmw/sendtor_emitter_offset.vmf"
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "sendtor"
+				"Config" "sendtor_p1.cfg"
+				"Instances"
+					{
+					"0"          "instances/BEE2/p1/items/hmw/sendtor.vmf"
+					"las_center" "instances/BEE2/p1/items/hmw/sendtor_emitter_center.vmf"
+					"las_offset" "instances/BEE2/p1/items/hmw/sendtor_emitter_offset.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -41,7 +87,6 @@
 	"PackIfMat" "BEE2/sendtor/sendificator_antlines"
 	"config" 
 		{
-		"File" "materials/BEE2/sendtor/sendificator_antlines.vmt"
 		"File" "materials/BEE2/sendtor/sendificator_antlines.vtf"
 		}
 	}
@@ -52,8 +97,9 @@
 	"PackIfMat" "BEE2/sendtor/sendificator_antlines_broken"
 	"config" 
 		{
-		"File" "materials/BEE2/sendtor/sendificator_antlines_broken.vmt"
-		"File" "materials/BEE2/sendtor/sendificator_antlines_broken.vtf"
+		"" "materials/BEE2/sendtor/sendificator_antlines.vmt"
+		"" "materials/BEE2/sendtor/sendificator_antlines.vtf"
+		"" "materials/BEE2/sendtor/sendificator_antlines_broken.vtf"
 		}
 	}
 
@@ -64,8 +110,6 @@
 	"PackIfMat" "BEE2/sendtor/sendificator_neon_indicator_2"
 	"config" 
 		{
-		"File" "materials/BEE2/sendtor/sendificator_neon_indicator_1.vmt"
-		"File" "materials/BEE2/sendtor/sendificator_neon_indicator_2.vmt"
 		"File" "materials/BEE2/sendtor/sendificator_neon_indicator.vtf"
 		}
 	}
@@ -78,7 +122,13 @@
 	"PackIfMat" "BEE2/sendtor/p1_ant_floor"
 	"PackIfMat" "BEE2/sendtor/p1_ant_wall"
 	
-	"config"    "ant_p1"
+	"config"
+		{
+		"" "materials/BEE2/sendtor/p1_ant_crn_floor.vtf"
+		"" "materials/BEE2/sendtor/p1_ant_crn_wall.vtf"
+		"" "materials/BEE2/sendtor/p1_ant_floor.vtf"
+		"" "materials/BEE2/sendtor/p1_ant_wall.vtf"
+		}
 	}
 	
 "PackList"
