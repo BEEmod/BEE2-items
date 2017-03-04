@@ -167,15 +167,6 @@
 	
 "PackList"
 	{
-	"ID" "PACK_ANGLED_PANEL_OVER"
-	"Config"
-		{
-		"" "models/BEE2/props_overgrown/angled_pan.mdl"
-		}
-	}
-	
-"PackList"
-	{
 	"ID"        "PACK_GEL_DROPPER_OVER"
 	"Config"
 		{
@@ -952,6 +943,72 @@
 	{
 	"ID"   "BEE2_OVER_CUBE_BUTTON_BASE"
 	"File" "cube_btn_base.vmf"
+	}
+	
+"Overrides"
+	{
+	"Item"
+		{
+		"ID" "ITEM_PANEL_ANGLED"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance"	"<ITEM_PANEL_ANGLED>"
+								"InstVar"   "$connectioncount > 0"
+								"Result"
+									{
+									"Pack"  "PACK_ANGLED_PANEL_OVER"
+									
+									"Random"    
+										{
+										"Seed"    "ANGLED_PANEL"
+										"Weights" "4, 1, 6"
+										
+										"SetInstVar" "$skin 0" // Blue
+										"SetInstVar" "$skin 1" // Red
+										"SetInstVar" "$skin 2" // Off
+										}
+									}
+								}
+							}
+						}
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/over/items/panel_angled.vmf"
+							"EntityCount"		"12"
+							"BrushCount"		"5"
+							"BrushSideCount"	"39"
+							}
+						}
+					"AppendDesc"	
+						{
+						"" "* In Overgrown, non-moving Angled Panels are supported by pistons."
+						}
+					}
+				}
+			}
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_ANGLED_PANEL_OVER"
+	"Config"
+		{
+		"" "models/BEE2/props_overgrown/angled_pan.mdl"
+		}
 	}
 
 "Overrides"
