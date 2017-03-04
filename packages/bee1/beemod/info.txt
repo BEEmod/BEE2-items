@@ -165,6 +165,48 @@
 					"static_down"   "instances/BEE2/p1/items/bee/drawbridge/static_down.vmf"
 					}
 				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "drawbridge"
+				"Description" "In Overgrown Style, the surface is missing many of the tiles. Set **Start Reversed** to force it to be whole."
+				"Instances"
+					{
+					"bee2_logic"  "instances/BEE2/over/items/bee/drawbridge.vmf"
+					}
+				"Replace"
+					{
+					"BEE_DRAW_BRIDGE_CLEAN" "$template"
+					"visgroup_chance" "60%"
+					}
+				"Append"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"Priority" "-5"
+							"instance" "<ITEM_DRAW_BRIDGE>"
+							"Condition"
+								{
+								"instvar" "$start_reversed = 1"
+								// Clean doesn't have visgroups, so random has no effect
+								"Result"
+									{
+									"setinstvar" "$template BEE_DRAW_BRIDGE_CLEAN"
+									}
+								"Else"
+									{
+									"setinstvar" "$template BEE_DRAW_BRIDGE_OVER"
+									}
+								}
+							"Result"
+								{
+								"Pack" "PACK_ANGLED_PANEL_OVER"
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -174,6 +216,13 @@
 	"ID"   "BEE_DRAW_BRIDGE_CLEAN"
 	"file" "drawbridge_clean.vmf"
 	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE_DRAW_BRIDGE_OVER"
+	"file" "drawbridge_over.vmf"
+	}
+	
 "BrushTemplate"
 	{
 	"ID"   "BEE2_P1_DRAWBRIDGE_DOWN"
@@ -185,6 +234,7 @@
 	"file" "drawbridge_p1_up.vmf"
 	}
 	
+
 "Item"
 	{
 	"ID"       "ITEM_LIGHT_PANEL_WARM"
