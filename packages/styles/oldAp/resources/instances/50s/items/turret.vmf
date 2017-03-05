@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "24"
+	"editorbuild" "7378"
+	"mapversion" "26"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "24"
+	"mapversion" "26"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -35,6 +35,10 @@ entity
 	"spawnflags" "2"
 	"targetname" "@template_spawn_3"
 	"Template01" "turret"
+	connections
+	{
+		"OnEntitySpawned" "turretRunScriptCodeskeleton_turret()0-1"
+	}
 	"origin" "0 0 16"
 	editor
 	{
@@ -54,9 +58,9 @@ entity
 	"DamageForce" "1"
 	"DisableMotion" "0"
 	"Gagged" "0"
-	"LoadAlternativeModels" "1"
+	"LoadAlternativeModels" "0"
 	"model" "models/npcs/turret/turret_skeleton.mdl"
-	"ModelIndex" "4"
+	"ModelIndex" "0"
 	"PickupEnabled" "1"
 	"rendercolor" "255 210 140"
 	"spawnflags" "32"
@@ -64,6 +68,7 @@ entity
 	"TurretRange" "1024"
 	"UsedAsActor" "0"
 	"UseSuperDamageScale" "0"
+	"vscripts" "bee2/change_models.nut"
 	connections
 	{
 		"OnExplode" "@voice_turret_diedFireUser10-1"
