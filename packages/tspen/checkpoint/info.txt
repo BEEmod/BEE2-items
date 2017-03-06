@@ -57,35 +57,58 @@
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "sp_check_clean"
-				"Append" "chamberlock_p1.cfg"
 				"Replace"
 					{
 					"TSPEN_CHAMBERLOCK_CLEAN" "TSPEN_CHAMBERLOCK_P1"
 					}
 				"Instances"
 					{
-					"0"
-						{
-						"Name"              "instances/BEE2/p1/items/tSpen/chamberlock_white.vmf"
-						"EntityCount"       "55"
-						"BrushCount"        "48"
-						"BrushSideCount"    "310"
-						}
-					"1"
-						{
-						"Name"              "instances/BEE2/p1/items/tSpen/chamberlock_black.vmf"
-						"EntityCount"       "9"
-						"BrushCount"        "48"
-						"BrushSideCount"    "310"
-						}
 					"bee2_logic"    "instances/BEE2/p1/items/tspen/chamberlock_logic.vmf"
 					"bee2_fizz_tag" "instances/BEE2/p1/items/tspen/chamberlock_tag.vmf"
 					"bee2_fizz_p2"  "instances/BEE2/p1/items/tspen/chamberlock_p2.vmf"
+					}
+				"Append"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"instance"  "<ITEM_TSPEN_SP_CHECKPOINT:bee2_logic>"
+							"Result"
+								{
+								"Pack" "PACK_P1_DOOR"
+								}
+							}
+						}
 					}
 				}
 			"BEE2_1950s"    "sp_check_50s"
 			"BEE2_1970s"    "sp_check_70s"
 			"BEE2_1980s"    "sp_check_80s"
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "sp_check_clean"
+				"Instances"
+					{
+					"bee2_logic"    "instances/BEE2/over/items/tspen/chamberlock_logic.vmf"
+					"bee2_fizz_tag" "instances/BEE2/over/items/tspen/chamberlock_tag.vmf"
+					"bee2_fizz_p2"  "instances/BEE2/over/items/tspen/chamberlock_p2.vmf"
+					}
+				"Append"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"instance"  "<ITEM_TSPEN_SP_CHECKPOINT:bee2_logic>"
+							"Result"
+								{
+								"Pack" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_A"
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -102,7 +125,6 @@
 	"File" "chamberlock_p1.vmf"
 	}
 
-	
 "Item"
 	{
 	"ID" "ITEM_BEE2_COOP_CHECKPOINT_SINGLE"
@@ -120,7 +142,6 @@
 		"Styles"
 			{
 			"BEE2_CLEAN"      "coop_check_single_clean"
-			// "BEE2_BTS"        "coop_check_single_bts"
 			"BEE2_OVERGROWN"
 				{
 				"Base" "BEE2_CLEAN"
