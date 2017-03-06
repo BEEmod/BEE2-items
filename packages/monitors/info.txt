@@ -4,19 +4,48 @@
 
 "Item"
 	{
-	"ID"       "ITEM_BEE2_MONITOR"
-	"Description"	
-		{
-		"" "Monitors display the character set in Voice Lines."
-		}
+	"ID"            "ITEM_BEE2_MONITOR"
+	"Description"   "Monitors display the character set in Voice Lines."
 	"Version"
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"        "mon_clean"
-			"BEE2_PORTAL_1"     "mon_p1"
-			// "BEE2_1950s"        "mon_50s"
-			"BEE2_OVERGROWN"    "mon_over"
+			"BEE2_CLEAN"
+				{
+				"Folder" "monitor"
+				"Config" "monitor_clean.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/clean/items/screen/monitor.vmf"
+					}
+				
+				"Ent_Count" "10 + 2 (if lasers present)"
+				"Description" "Clean monitors extend out of the wall when they come within the player's view."
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "monitor"
+				"Config" "monitor_p1.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/screen/monitor.vmf"
+					}
+				
+				"Ent_Count" "10 + 2 (if lasers present)" 
+				"Description" "P1 monitors extend out of the wall when they come within the player's view."
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "monitor"
+				"Config" "monitor_over.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/over/items/screen/monitor.vmf"
+					}
+					
+				"Ent_Count" "5"
+				"Description" "The Overgrown monitor is already shattered, and does not move."
+				}
 			}
 		}
 	}
