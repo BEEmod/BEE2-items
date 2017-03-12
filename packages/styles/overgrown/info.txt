@@ -1089,7 +1089,87 @@
 				}
 			}
 		}
-		
+	
+	"Item"
+		{
+		"ID" "ITEM_PANEL_STAIRS"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"              "instances/BEE2/over/items/stairs.vmf"
+							"EntityCount"       "13"
+							"BrushCount"        "7"
+							"BrushSideCount"    "56"
+							}
+						}
+					"Replace"
+						{
+						// Chance to have a panel in each place
+						"0%" "60%"
+						"<force_var>" "$disable_autorespawn"
+						
+						"BEE2_STAIRS_TOP:stair_1" "BEE2_OVER_STAIRS_TOP_1"
+						"BEE2_STAIRS_TOP:stair_2" "BEE2_OVER_STAIRS_TOP_2"
+						"BEE2_STAIRS_TOP:stair_3" "BEE2_OVER_STAIRS_TOP_3"
+						"BEE2_STAIRS_TOP:stair_4" "BEE2_OVER_STAIRS_TOP_4"
+						}
+					"Append"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"Priority" "-5"
+								"instance" "<ITEM_PANEL_STAIRS>"
+								"instvar"  "$connectioncount > 0"
+								"Result"    
+									{
+									"PackFile" "models/BEE2/props_overgrown/arm_stairs.mdl"
+									}
+								}
+							}
+						}
+					"AppendDesc"
+						{
+						"" "* In Overgrown Style, enable 'Auto Respawn' to force all tiles to appear."
+						}
+					}
+				}
+			}
+		}
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_STAIRS_TOP_1"
+	"File" "stair_top_1.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_STAIRS_TOP_2"
+	"File" "stair_top_2.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_STAIRS_TOP_3"
+	"File" "stair_top_3.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_STAIRS_TOP_4"
+	"File" "stair_top_4.vmf"
+	}
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_LIGHT_PANEL"
