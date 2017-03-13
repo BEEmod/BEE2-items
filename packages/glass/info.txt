@@ -18,7 +18,31 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"        "break_gls_clean"
+			"BEE2_CLEAN"    "break_gls_clean"
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Replace"
+					{
+					"BEE2_BREAKABLE_GLASS_TEMP_CLEAN"   "BEE2_BREAKABLE_GLASS_TEMP_50S"
+					"BEE2_BREAKABLE_GLASS_SURF_CLEAN"   "BEE2_BREAKABLE_GLASS_SURF_50S"
+					
+					"BEE2/props_ingame/glass_frame_corner.mdl"  ""
+					// Offset
+					"4" "2"
+					// Thickness
+					"8" "4"
+					// Border size
+					"3" "4"
+					}
+				"Instances"
+					{
+					"bee2_frame_edge"       "instances/BEE2/50s/items/breakable_glass/frame_edge.vmf"     // |
+					"bee2_frame_corner"     "instances/BEE2/50s/items/breakable_glass/frame_corner.vmf"   // |_
+					"bee2_frame_ubend"      "instances/BEE2/50s/items/breakable_glass/frame_ubend.vmf"    // |_|
+					"bee2_frame_single"     "instances/BEE2/50s/items/breakable_glass/frame_single.vmf"   // []
+					}
+				}
 			}
 		}
 	}
@@ -46,9 +70,26 @@
 		}
 	}
 
+"Packlist"
+	{
+	"ID" "BEE2_BREAKABLE_GLASS_SURF_50S"
+	"Config"
+		{
+		"" "materials/BEE2/surf_glass/glass_50s.vmt"
+		"" "materials/BEE2/surf_glass/glass_50s_broken.vmt"
+		"" "materials/BEE2/surf_glass/glass_50s_broken.vtf"
+		"" "materials/BEE2/surf_glass/glass_shatter_grid.vtf"
+		}
+	}
 
 "BrushTemplate"
 	{
 	"ID"   "BEE2_BREAKABLE_GLASS_TEMP_CLEAN"
 	"File" "break_gls_clean.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_BREAKABLE_GLASS_TEMP_50S"
+	"File" "break_gls_50s.vmf"
 	}
