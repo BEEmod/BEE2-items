@@ -1043,19 +1043,12 @@
 				{
 				"BEE2_1950s"
 					{
-					"Folder" "mandatory/obs_grate"
+					"Base" "BEE2_CLEAN"
+					"Config" "mandatory/obs_grate.cfg"
 					"Instances"
 						{
-						"0" "instances/BEE2/50s/items/observation_grate_256.vmf"
-						}
-					"Palette"
-						{
-						"0"
-							{
-							"Model" "under_obs_grate_256_50s.3ds"
-							"BEE2"  "50s/observation_grate.png"
-							"Icon"  "palette/50s/observation_grate.png"
-							}
+						"bee2_obs_horiz"    "instances/BEE2/50s/items/observation_grate_256_horiz.vmf"
+						"bee2_obs_vert"     "instances/BEE2/50s/items/observation_grate_256_vert.vmf"
 						}
 					"Append"
 						{
@@ -1063,14 +1056,31 @@
 							{
 							"%SP_OFF%" "-1024 1024 -832"
 							"%MP_OFF%" "-2464 4032 -320"
-							"%OBS_ROOM%" "instances/BEE2/50s/items/observation_room_256.vmf"
 							}
 						}
-					}
+					"Palette"
+						{
+						"0"
+							{
+							"Pal_Name" "OBSERVATION GRATE"
+							"Name"     "Observation Grate"
+							"Model"    "under_obs_grate_256_50s.3ds"
+							}
+						}
+					"Authors"		"Carl Kenner"
+					"Description"	"A grating showing the surrounding Enrichment Sphere. This is always placed by default in a map, and produces special lighting that casts real-time shadows.  
+
+If multiple are placed in the map, all but one are converted to normal rooms (since the sphere cannot appear at multiple places)."
+				}
 				"BEE2_1960s"
 					{
-					// Appears same as 50s, but different location.
 					"Base" "BEE2_1950s"
+					"Config" "mandatory/obs_grate.cfg"
+					"Instances"
+						{
+						"bee2_obs_horiz"    "instances/BEE2/50s/items/observation_grate_256_horiz.vmf"
+						"bee2_obs_vert"     "instances/BEE2/50s/items/observation_grate_256_vert.vmf"
+						}
 					"Append"
 						{
 						"Replacements"
@@ -1082,19 +1092,12 @@
 					}
 				"BEE2_1970s"
 					{
-					"Folder" "mandatory/obs_grate"
+					"Base" "BEE2_1950s"
+					"Config" "mandatory/obs_grate.cfg"
 					"Instances"
 						{
-						"0" "instances/BEE2/70s/items/observation_grate_256.vmf"
-						}
-					"Palette"
-						{
-						"0"
-							{
-							"Model" "under_obs_grate_256_70s.3ds"
-							"BEE2"  "70s/observation_grate.png"
-							"Icon"  "palette/70s/observation_grate.png"
-							}
+						"bee2_obs_horiz"    "instances/BEE2/70s/items/observation_grate_256_horiz.vmf"
+						"bee2_obs_vert"     "instances/BEE2/70s/items/observation_grate_256_vert.vmf"
 						}
 					"Append"
 						{
@@ -1102,28 +1105,81 @@
 							{
 							"%SP_OFF%" "-2560 2112 -832"
 							"%MP_OFF%" "96 -512 -3136"
-							"%OBS_ROOM%" "instances/BEE2/70s/items/observation_room_256.vmf"
+							}
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_obs_grate_256_70s.3ds"
 							}
 						}
 					}
 				"BEE2_1980s"
 					{
-					"Folder" "mandatory/obs_grate"
+					"Base" "BEE2_1950s"
+					"Config" "mandatory/obs_grate.cfg"
 					"Instances"
 						{
-						"0" "instances/BEE2/80s/items/observation_grate_256.vmf"
+						"bee2_obs_horiz"    "instances/BEE2/80s/items/observation_grate_256_horiz.vmf"
+						"bee2_obs_vert"     "instances/BEE2/80s/items/observation_grate_256_vert.vmf"
+						}
+					// Open spheres have different locations.
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SP_OFF%" "$obs_grate_loc"
+							"%MP_OFF%" "$obs_grate_loc"
+							}
+						}
+					"Append"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"Priority" "-10"
+								"instance" "[spEntry]"
+								"Condition"
+									{
+									"StyleVar" "OpenSphere"
+									"Result"
+										{
+										"SetInstVar" "$obs_grate_loc -5120 -1536 -832"
+										}
+									"Else"
+										{
+										"SetInstVar" "$obs_grate_loc -1024 512 -832"
+										}
+									}
+								}
+							"Condition"
+								{
+								"Priority" "-10"
+								"instance" "[coopExit]"
+								"Condition"
+									{
+									"StyleVar" "OpenSphere"
+									"Result"
+										{
+										"SetInstVar" "$obs_grate_loc -4000 -4096 -3264"
+										}
+									"Else"
+										{
+										"SetInstVar" "$obs_grate_loc 96 -512 -3264"
+										}
+									}
+								}
+							}
 						}
 					"Palette"
 						{
 						"0"
 							{
 							"Model" "under_obs_grate_256_80s.3ds"
-							"BEE2"  "80s/observation_grate.png"
-							"Icon"  "palette/80s/observation_grate.png"
 							}
 						}
-					// We need to specialise based on the open-sphere instance.
-					"Config" "mandatory/80s/obs_grate.cfg"
 					}
 				}
 			}
