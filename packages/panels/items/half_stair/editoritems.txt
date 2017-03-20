@@ -1,0 +1,474 @@
+"Item"
+	{
+	"Type"			"ITEM_BEE2_PANEL_HALF_STAIR"
+	"ItemClass"		"ItemButtonFloor"
+	"Editor"
+		{
+		"SubTypeProperty" "ButtonType"
+		"SubType"
+			{
+			"Name"  "Half Stairs - Lower"
+			"Model"
+				{
+				"ModelName" "stairs.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"	"LOWER HALF STAIRS"
+				"Image"		"palette/clean/half_panel_static.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.RaisePanel"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.LowerPanel"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"  "Half Stairs - Mid"
+			"Model"
+				{
+				"ModelName" "stairs.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"	"MID HALF STAIRS"
+				"Image"		"palette/clean/half_panel_static.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.RaisePanel"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.LowerPanel"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"  "Half Stairs - Upper"
+			"Model"
+				{
+				"ModelName" "stairs.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"	"UPPER HALF STAIRS"
+				"Image"		"palette/clean/half_panel_static.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.RaisePanel"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.LowerPanel"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"	"HANDLE_4_DIRECTIONS"
+		"DesiredFacing"		"DESIRES_DOWN"
+		}
+	"Properties"
+		{
+		"ButtonType"
+			{
+			"DefaultValue"  "0"
+			"Index"         "0"
+			}
+		"ConnectionCount"
+			{
+			"DefaultValue"  "0"
+			"Index"         "1"
+			}
+		"StartDeployed"
+			{
+			"DefaultValue"  "1"
+			"Index"         "2"
+			}
+		"StartReversed"
+			{
+			"DefaultValue"  "0"
+			"Index"         "3"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"bee2_static"  "" //instances/BEE2/clean/static_panel/stairs_half.vmf"
+			"bee2_dynamic" "instances/BEE2/clean/items/stairs_half.vmf"
+			
+			"0"
+				{
+				"Name"  "instances/BEE2/clean/items/panel_stair_half_low_white.vmf"
+				}
+			"1"
+				{
+				"Name"  "instances/BEE2/clean/items/panel_stair_half_low_black.vmf"
+				}
+			"2"
+				{
+				"Name"  "instances/BEE2/clean/items/panel_stair_half_mid_white.vmf"
+				}
+			"3"
+				{
+				"Name"  "instances/BEE2/clean/items/panel_stair_half_mid_black.vmf"
+				}
+			"4"
+				{
+				"Name"  "instances/BEE2/clean/items/panel_stair_half_high_white.vmf"
+				}
+			"5"
+				{
+				"Name"  "instances/BEE2/clean/items/panel_stair_half_high_black.vmf"
+				}
+			}
+		"TargetName"    "pan_stair_half"
+		"Offset"        "64 64 64"
+		
+		"Inputs"
+			{
+			"CONNECTION_STANDARD"
+				{
+				"Activate"      "instance:counter;Add"
+				"Deactivate"    "instance:counter;Subtract"
+				}
+			}
+		
+		"OccupiedVoxels"
+			{
+			"Voxel"
+				{
+				"CollideType"		"COLLIDE_SOLID"
+				"CollideAgainst"	"COLLIDE_SOLID COLLIDE_PHYSICS"
+				"Pos"			"0 0 0"
+
+				// First step
+				"Surface"
+					{
+					"Pos"		"0 0 0"
+					}
+				"Surface"
+					{
+					"Pos"		"0 1 0"
+					}
+				"Surface"
+					{
+					"Pos"		"0 2 0"
+					}
+				"Surface"
+					{
+					"Pos"		"0 3 0"
+					}
+
+				"Surface"
+					{
+					"Pos"		"1 0 0"
+					}
+				"Surface"
+					{
+					"Pos"		"1 1 0"
+					}
+				"Surface"
+					{
+					"Pos"		"1 2 0"
+					}
+				"Surface"
+					{
+					"Pos"		"1 3 0"
+					}
+
+				//Second Step bottom layer
+				"Surface"
+					{
+					"Pos"		"2 0 0"
+					}
+				"Surface"
+					{
+					"Pos"		"2 1 0"
+					}
+				"Surface"
+					{
+					"Pos"		"2 2 0"
+					}
+				"Surface"
+					{
+					"Pos"		"2 3 0"
+					}
+
+				"Surface"
+					{
+					"Pos"		"3 0 0"
+					}
+				"Surface"
+					{
+					"Pos"		"3 1 0"
+					}
+				"Surface"
+					{
+					"Pos"		"3 2 0"
+					}
+				"Surface"
+					{
+					"Pos"		"3 3 0"
+					}
+
+				//Second Step second layer
+				"Surface"
+					{
+					"Pos"		"2 0 1"
+					}
+				"Surface"
+					{
+					"Pos"		"2 1 1"
+					}
+				"Surface"
+					{
+					"Pos"		"2 2 1"
+					}
+				"Surface"
+					{
+					"Pos"		"2 3 1"
+					}
+
+				"Surface"
+					{
+					"Pos"		"3 0 1"
+					}
+				"Surface"
+					{
+					"Pos"		"3 1 1"
+					}
+				"Surface"
+					{
+					"Pos"		"3 2 1"
+					}
+				"Surface"
+					{
+					"Pos"		"3 3 1"
+					}
+				}
+
+			"Voxel"
+				{
+				"CollideType"		"COLLIDE_NOTHING"
+				"CollideAgainst"	"COLLIDE_ANTLINES"
+				"Pos"				"0 0 0"
+				
+				"Surface"
+					{
+					"Normal"		"0 0 1"
+					}
+				}
+			}
+		"EmbeddedVoxels"
+			{
+			"Voxel"
+				{
+				"Pos"		"0 0 0"
+				}
+			}
+		"ConnectionPoints"
+			{
+			// left
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 0 0"
+				"SignageOffset"		"-2 1 0"
+				"Priority"  "0"
+				"GroupID"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 2 0"
+				"SignageOffset"		"-2 3 0"
+				"Priority"  "0"
+				"GroupID"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 4 0"
+				"SignageOffset"		"-2 5 0"
+				"Priority"  "0"
+				"GroupID"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 6 0"
+				"SignageOffset"		"-2 7 0"
+				"Priority"  "0"
+				"GroupID"	"0"
+				}
+
+			// right
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"32 0 0"
+				"SignageOffset"		"33 1 0"
+				"Priority"  "0"
+				"GroupID"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"32 2 0"
+				"SignageOffset"		"33 3 0"
+				"Priority"  "0"
+				"GroupID"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"32 4 0"
+				"SignageOffset"		"33 5 0"
+				"Priority"  "0"
+				"GroupID"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"32 6 0"
+				"SignageOffset"		"33 7 0"
+				"Priority"  "0"
+				"GroupID"	"0"
+				}
+
+			// up
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"0 -1 0"
+				"SignageOffset"		"1 -2 0"
+				"Priority"  "1"
+				"GroupID"	"2"
+				}
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"2 -1 0"
+				"SignageOffset"		"3 -2 0"
+				"Priority"  "2"
+				"GroupID"	"2"
+				}
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"4 -1 0"
+				"SignageOffset"		"5 -2 0"
+				"Priority"  "3"
+				"GroupID"	"2"
+				}
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"6 -1 0"
+				"SignageOffset"		"7 -2 0"
+				"Priority"  "4"
+				"GroupID"	"2"
+				}
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"8 -1 0"
+				"SignageOffset"		"9 -2 0"
+				"Priority"  "4"
+				"GroupID"	"2"
+				}
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"10 -1 0"
+				"SignageOffset"		"11 -2 0"
+				"Priority"  "4"
+				"GroupID"	"2"
+				}
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"12 -1 0"
+				"SignageOffset"		"13 -2 0"
+				"Priority"  "4"
+				"GroupID"	"2"
+				}
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"14 -1 0"
+				"SignageOffset"		"15 -2 0"
+				"Priority"  "4"
+				"GroupID"	"2"
+				}
+
+			// down
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"0 8 0"
+				"SignageOffset"		"1 9 0"
+				"Priority"  "1"
+				"GroupID"	"3"
+				}
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"2 8 0"
+				"SignageOffset"		"3 9 0"
+				"Priority"  "2"
+				"GroupID"	"3"
+				}
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"4 8 0"
+				"SignageOffset"		"5 9 0"
+				"Priority"  "3"
+				"GroupID"	"3"
+				}
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"6 8 0"
+				"SignageOffset"		"7 9 0"
+				"Priority"  "4"
+				"GroupID"	"3"
+				}
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"8 8 0"
+				"SignageOffset"		"9 9 0"
+				"Priority"  "4"
+				"GroupID"	"3"
+				}
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"10 8 0"
+				"SignageOffset"		"11 9 0"
+				"Priority"  "4"
+				"GroupID"	"3"
+				}
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"12 8 0"
+				"SignageOffset"		"13 9 0"
+				"Priority"  "4"
+				"GroupID"	"3"
+				}
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"14 8 0"
+				"SignageOffset"		"15 9 0"
+				"Priority"  "4"
+				"GroupID"	"3"
+				}
+			}
+		}
+	}
