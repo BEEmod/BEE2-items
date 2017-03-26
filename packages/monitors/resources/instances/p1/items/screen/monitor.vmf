@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7378"
-	"mapversion" "209"
+	"mapversion" "212"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "209"
+	"mapversion" "212"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -543,9 +543,9 @@ world
 		{
 			"id" "459"
 			"plane" "(-64 64 -64) (-68 60 -68) (-64 60 -68)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 312.522] 0.23"
+			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -554,9 +554,9 @@ world
 		{
 			"id" "458"
 			"plane" "(-68 -60 -68) (-64 -60 -68) (-64 60 -68)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS"
-			"uaxis" "[1 0 0 330] 0.25"
-			"vaxis" "[0 1 0 -251.522] 0.23"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -738,9 +738,9 @@ world
 		{
 			"id" "329"
 			"plane" "(192 -64 -64) (196 -60 -68) (192 -60 -68)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 1 0 312.522] 0.23"
+			"vaxis" "[0 1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -749,9 +749,9 @@ world
 		{
 			"id" "328"
 			"plane" "(196 60 -68) (192 60 -68) (192 -60 -68)"
-			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS"
-			"uaxis" "[-1 0 0 330] 0.25"
-			"vaxis" "[0 -1 0 -251.522] 0.23"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -969,7 +969,7 @@ entity
 		{
 			"id" "520"
 			"plane" "(56 8 -144) (52 0 -144) (56 -8 -144)"
-			"material" "BEE2/P1/METAL_LIFT001"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
@@ -1344,20 +1344,6 @@ entity
 }
 entity
 {
-	"id" "6722"
-	"classname" "func_instance_parms"
-	"parm1" "$anim string"
-	"origin" "32 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "6602"
 	"classname" "func_movelinear"
 	"blockdamage" "0"
@@ -1477,7 +1463,8 @@ entity
 	"drawinfastreflection" "0"
 	"InputFilter" "0"
 	"invert_exclusion" "0"
-	"origin" "64 0 -100"
+	"origin" "64 0 -124"
+	"parentname" "plat_lifter"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
@@ -1494,10 +1481,10 @@ entity
 		side
 		{
 			"id" "239"
-			"plane" "(192 -64 -192) (-64 -64 -192) (-64 -64 -64)"
+			"plane" "(192 -64 -144) (-64 -64 -144) (-64 -64 -88)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"vaxis" "[0 0 -1 32] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1505,10 +1492,10 @@ entity
 		side
 		{
 			"id" "238"
-			"plane" "(-64 64 -192) (192 64 -192) (192 64 -64)"
+			"plane" "(-64 64 -144) (192 64 -144) (192 64 -88)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"vaxis" "[0 0 -1 32] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1516,9 +1503,9 @@ entity
 		side
 		{
 			"id" "237"
-			"plane" "(-64 -64 -192) (-64 64 -192) (-64 64 -64)"
+			"plane" "(-64 -64 -144) (-64 64 -144) (-64 64 -88)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 0] 0.25"
+			"uaxis" "[0 0 1 -32] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -1527,9 +1514,9 @@ entity
 		side
 		{
 			"id" "236"
-			"plane" "(192 64 -192) (192 -64 -192) (192 -64 -64)"
+			"plane" "(192 64 -144) (192 -64 -144) (192 -64 -88)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 0] 0.25"
+			"uaxis" "[0 0 1 -32] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -1538,7 +1525,7 @@ entity
 		side
 		{
 			"id" "235"
-			"plane" "(-64 64 -192) (-64 -64 -192) (192 -64 -192)"
+			"plane" "(-64 64 -144) (-64 -64 -144) (192 -64 -144)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -1549,7 +1536,7 @@ entity
 		side
 		{
 			"id" "234"
-			"plane" "(32 -64 -48) (32 64 -48) (104 64 -48)"
+			"plane" "(32 -64 -72) (32 64 -72) (104 64 -72)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -1560,7 +1547,7 @@ entity
 		side
 		{
 			"id" "233"
-			"plane" "(-64 -64 -64) (-64 64 -64) (32 64 -48)"
+			"plane" "(-64 -64 -88) (-64 64 -88) (32 64 -72)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -1571,7 +1558,7 @@ entity
 		side
 		{
 			"id" "232"
-			"plane" "(104 -64 -48) (104 64 -48) (192 64 -64)"
+			"plane" "(104 -64 -72) (104 64 -72) (192 64 -88)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
