@@ -2,6 +2,58 @@
 "Name"		"Neurotoxin"
 "Desc"      "Adds the Neurotoxin Timer and Emitter items, for forcing a time limit."
 
+"ConfigGroup"
+	{
+	"ID"    "BEE2_NEUROTOXIN"
+	"Name"  "Neurotoxin"
+	"Widget"
+		{
+		"ID"        "TimerValue"
+		"Label"     "Time"
+		"Type"      "Timer"
+		"UseTimer"  "1"
+		"Default"
+			{
+			// 3 -> 3:00
+			// 15 -> 15:00
+			// 30 -> 30:00
+			"3"  "180"
+			"4"  "240"
+			"5"  "300"
+			"6"  "360"
+			"7"  "420"
+			"8"  "480"
+			"9"  "540"
+			"10" "600"
+			"11" "660"
+			"12" "720"
+			"13" "780"
+			"14" "840"
+			"15" "900"
+			"16" "960"
+			"17" "1020"
+			"18" "1080"
+			"19" "1140"
+			"20" "1200"
+			"21" "1260"
+			"22" "1320"
+			"23" "1380"
+			"24" "1440"
+			"25" "1500"
+			"26" "1560"
+			"27" "1620"
+			"28" "1680"
+			"29" "1740"
+			"30" "1800"
+			}
+		
+		"Min"     "30"
+		"Max"     "1800" // 30 minutes
+		
+		"Tooltip" "Set the available time for a Neurotoxin timer."
+		}
+	}
+
 "Item"
 	{
 	"ID" "ITEM_BEE2_NEUROTOXIN_TIMER"
@@ -35,4 +87,16 @@
 			"BEE2_CLEAN" "neuro_vent"
 			}
 		}
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_NEUROTOXIN_TIMER_COVER_CLEAN"
+	"File" "timer_cover_clean.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_NEUROTOXIN_VENT_CLEAN"
+	"File" "vent_clean.vmf"
 	}
