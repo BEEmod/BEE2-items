@@ -2,7 +2,7 @@
 [![BEE2.4 Releases](https://img.shields.io/github/downloads/BEEmod/BEE2.4/total.svg?label=App)](https://github.com/BEEmod/BEE2.4/releases)
 [![Join the chat at https://gitter.im/BEEmod/BEE2-items](https://badges.gitter.im/BEEmod/BEE2-items.svg)](https://gitter.im/BEEmod/BEE2-items?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Join the Discord [here](https://discord.gg/mZ4peDd)!
+Join the Discord [here](https://discord.gg/mZ4peDd) and chat with us!
 
 
 ![BEE2 Icon](https://raw.githubusercontent.com/BEEmod/BEE2.4/master/bee2.ico)
