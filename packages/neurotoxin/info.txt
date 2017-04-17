@@ -53,6 +53,16 @@
 		"Tooltip" "Set the available time for a Neurotoxin timer."
 		}
 	}
+	
+"PackList"
+	{
+	"ID" "BEE2_MON_SCREEN_DIRTY"
+	"Config"
+		{
+		"" "models/bee2/props_overgrown/glados_screen_curve.mdl"
+		"" "materials/BEE2/models/props_overgrown/glados_screen_dirty.vmt"
+		}
+	}
 
 "Item"
 	{
@@ -111,6 +121,35 @@
 				"Instances"
 					{
 					"bee2_front" "instances/BEE2/70s/items/neuro/timer_front.vmf"
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "neuro_timer"
+				"Instances"
+					{
+					"0" "instances/BEE2/over/items/neuro/timer.vmf"
+					}
+				"Replace"
+					{
+					"BEE2_NEUROTOXIN_TIMER_COVER_CLEAN:left" "BEE2_NEUROTOXIN_TIMER_COVER_OVER_LEFT"
+					"BEE2_NEUROTOXIN_TIMER_COVER_CLEAN:right" "BEE2_NEUROTOXIN_TIMER_COVER_OVER_RIGHT"
+					
+					"0%" "70%"
+					}
+				"Append"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"instance" "<ITEM_BEE2_NEUROTOXIN_TIMER>"
+							"Result"
+								{
+								"Pack" "BEE2_MON_SCREEN_DIRTY"
+								}
+							}
+						}
 					}
 				}
 			}
@@ -179,6 +218,18 @@
 	{
 	"ID"   "BEE2_NEUROTOXIN_TIMER_COVER_P1"
 	"File" "timer_cover_p1.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_NEUROTOXIN_TIMER_COVER_OVER_LEFT"
+	"File" "timer_cover_over_left.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_NEUROTOXIN_TIMER_COVER_OVER_RIGHT"
+	"File" "timer_cover_over_right.vmf"
 	}
 	
 "BrushTemplate"
