@@ -20,7 +20,7 @@
 "Item"
 	{
 	"ID" "ITEM_AUTOPORTAL"
-	"All_conf"	"spawner"
+	"All_conf"	"spawner.cfg"
 	"Description"
 		{
 		"" "Creates a portal on the wall when powered. Portals will not open until after the player enters the map."
@@ -34,7 +34,38 @@
 		"Styles"
 			{
 			"BEE2_CLEAN"    "spawner"
-			"BEE2_PORTAL_1" "spawner_p1"
+			"BEE2_PORTAL_1"
+				{
+				"Base" "BEE2_CLEAN"
+				"Config"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"Priority" "-10"
+							"instance" "<ITEM_AUTOPORTAL>"
+							"Result"
+								{
+								"Pack" "PACK_P1_AUTOPORT_FRAME"
+								}
+							}
+						}
+					}
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/BEE/autoportal_orange.vmf"
+					"1" "instances/BEE2/p1/items/BEE/autoportal_orange.vmf"
+					
+					"2" "instances/BEE2/p1/items/BEE/autoportal_blue.vmf"
+					"3" "instances/BEE2/p1/items/BEE/autoportal_blue.vmf"
+					
+					"4" "instances/BEE2/p1/items/BEE/autoportal_frame.vmf"
+					"5" "instances/BEE2/p1/items/BEE/autoportal_frame.vmf"
+					
+					"portal"  "instances/BEE2/p1/items/BEE/autoportal.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -51,7 +82,7 @@
 		"File"  "materials/models/props/autoportal_frame/autoportal_frame_n.vtf"
 		}
 	}
-	
+
 "Item"
 	{
 	"ID" "ITEM_BEE2_PORTALGUN"
