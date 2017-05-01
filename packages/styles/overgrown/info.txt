@@ -973,8 +973,6 @@
 									"InstVar"   "$connectioncount > 0"
 									"Result"
 										{
-										// Needed for good working collisions.
-										"PackFile" "models/BEE2/panels/static_phys.mdl"
 										
 										"Random"    
 											{
@@ -986,7 +984,12 @@
 											"SetInstVar" "$skin 2" // Off
 											}
 										}
-									"Condition"
+									"Else"
+										{
+										// Needed for good working collisions.
+										"PackFile" "models/BEE2/panels/static_phys.mdl"
+										}
+									"ElseCondition"
 										{
 										"InstVar" "animation ramp_90_deg_open"
 										"Result"
