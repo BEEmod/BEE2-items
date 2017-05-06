@@ -69,20 +69,26 @@
 	
 "StyleVar"
 	{
-	"ID"          "RestartOnExit"
-	"Enabled"     "1"
-	"Name"        "Restart When Reaching Exit"
-	"Description" "Automatically restart the map once the player(s) have reached the exit."
-	"Style"       "BEE2_OVERGROWN"
-	}
-	
-"StyleVar"
-	{
 	"ID"          "OverFunnelFlicker"
 	"Enabled"     "1"
 	"Name"        "Flickering Overgrown Funnel"
 	"Description" "Allow the Overgrown Excursion Funnel to randomly shut off briefly. Objects or players travelling in the funnel will not fall out when this occurs."
 	"Style"       "BEE2_OVERGROWN"
+	}
+	
+"Overrides"
+	{
+	"StyleVar"
+		{
+		"ID"    "RestartOnExit"
+		"Style" "BEE2_OVERGROWN"
+		}
+		
+	"StyleVar"
+		{
+		"ID"    "BlockPlayerGelBomb"
+		"Style" "BEE2_OVERGROWN"
+		}
 	}
 	
 "QuotePack"
@@ -245,6 +251,17 @@
 	
 "PackList"
 	{
+	"ID"        "PACK_BEE2_OVER_CATWALK_SUPPORT"
+	// Models used in Coop Exit...
+	"Config"
+		{
+		"" "models/BEE2/catwalk/overgrown/hanging_walkway_support_a.mdl"
+		"" "materials/BEE2/models/props_overgrown/catwalk_rusty.vmt"
+		}
+	}
+	
+"PackList"
+	{
 	"ID"        "PACK_BEE2_OVER_CATAPULT_TOGGLE"
 	"Config"
 		{
@@ -273,9 +290,6 @@
 	"ID"       "PACK_BEE_INDICATOR_BROKEN"
 	"AddIfMat" "BEE2/overgrown/broken_indicator"
 	"AddIfMat" "BEE2/overgrown/broken_indicator_corner"
-	"Config" 
-		{
-		}
 	}
 	
 "PackList"
@@ -354,6 +368,25 @@
 		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_star.vtf"
 		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_wavy.vtf"
 		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_circle.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_SHAPE_SIGN_FRAME_OVER_1"
+	"AddIfMat" "BEE2/signage_frame/frame_blue_over"
+	"Config"
+		{
+		"File" "materials/BEE2/signage_frame/frame_blue_over.vtf"
+		}
+	}
+"PackList"
+	{
+	"ID"       "PACK_BEE2_SHAPE_SIGN_FRAME_OVER_2"
+	"AddIfMat" "BEE2/signage_frame/frame_oran_over"
+	"Config"
+		{
+		"File" "materials/BEE2/signage_frame/frame_oran_over.vtf"
 		}
 	}
 	
@@ -686,7 +719,7 @@
 		{
 		"" "models/elevator/elevator_b_skins.mdl"
 		"" "materials/models/elevator/elevator_main_c_overgrown.vtf"
-		"" "materials/models/elevator/elevator_main_b_overgrown.vtf
+		"" "materials/models/elevator/elevator_main_b_overgrown.vtf"
 		"" "materials/models/elevator/elevator_main_aoff.vtf"
 		"" "materials/models/elevator/elevator_main_a_overgrown_off.vtf"		
 		"" "materials/models/elevator/elevator_main_a_overgrown.vtf"		
@@ -877,33 +910,8 @@
 // may have missing tiles.
 "BrushTemplate"
 	{
-	"ID" "BEE2_OVER_PED_BASE_NOHOLE"
-	"File" "pedestal_base_nohole.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID" "BEE2_OVER_PED_BASE_HOLE"
-	"File" "pedestal_base_hole.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID" "BEE2_OVER_PED_BASE_LEFT"
-	"File" "pedestal_base_left.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID" "BEE2_OVER_PED_BASE_RIGHT"
-	"File" "pedestal_base_right.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID" "BEE2_OVER_PED_BASE_LEFT_BROKEN"
-	"File" "pedestal_base_left_broken.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID" "BEE2_OVER_PED_BASE_RIGHT_BROKEN"
-	"File" "pedestal_base_right_broken.vmf"
+	"ID" "BEE2_OVER_PED_BASE"
+	"File" "pedestal_base.vmf"
 	}
 		
 "Overrides"
@@ -935,6 +943,82 @@
 	{
 	"ID"   "BEE2_OVER_CUBE_BUTTON_BASE"
 	"File" "cube_btn_base.vmf"
+	}
+	
+"Overrides"
+	{
+	"Item"
+		{
+		"ID" "ITEM_PANEL_ANGLED"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance"	"<ITEM_PANEL_ANGLED>"
+								"Result"
+									{
+									"PackFile" "models/BEE2/props_overgrown/angled_pan.mdl"
+									}
+								"Condition"
+									{
+									"InstVar"   "$connectioncount > 0"
+									"Result"
+										{
+										
+										"Random"    
+											{
+											"Seed"    "ANGLED_PANEL"
+											"Weights" "4, 1, 6"
+											
+											"SetInstVar" "$skin 0" // Blue
+											"SetInstVar" "$skin 1" // Red
+											"SetInstVar" "$skin 2" // Off
+											}
+										}
+									"Else"
+										{
+										// Needed for good working collisions.
+										"PackFile" "models/BEE2/panels/static_phys.mdl"
+										}
+									"ElseCondition"
+										{
+										"InstVar" "animation ramp_90_deg_open"
+										"Result"
+											{
+											"Pack" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_B"
+											}
+										}
+									}
+								}
+							}
+						}
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/over/items/panel_angled.vmf"
+							"EntityCount"		"12"
+							"BrushCount"		"5"
+							"BrushSideCount"	"39"
+							}
+						}
+					"AppendDesc"	
+						{
+						"" "* In Overgrown, non-moving Angled Panels are supported by pistons."
+						}
+					}
+				}
+			}
+		}
 	}
 
 "Overrides"
@@ -1015,7 +1099,94 @@
 				}
 			}
 		}
-		
+	
+	"Item"
+		{
+		"ID" "ITEM_PANEL_STAIRS"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"              "instances/BEE2/over/items/stairs.vmf"
+							"EntityCount"       "13"
+							"BrushCount"        "7"
+							"BrushSideCount"    "56"
+							}
+						}
+					"Replace"
+						{
+						// Chance to have a panel in each place
+						"0%" "60%"
+						"<force_var>" "$disable_autorespawn"
+						
+						"BEE2_STAIRS_TOP:stair_1" "BEE2_OVER_STAIRS_TOP_1"
+						"BEE2_STAIRS_TOP:stair_2" "BEE2_OVER_STAIRS_TOP_2"
+						"BEE2_STAIRS_TOP:stair_3" "BEE2_OVER_STAIRS_TOP_3"
+						"BEE2_STAIRS_TOP:stair_4" "BEE2_OVER_STAIRS_TOP_4"
+						"BEE2_STATIC_STAIRS_STATIC_BEAMS_TEMP" "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
+						}
+					"Append"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"Priority" "-5"
+								"instance" "<ITEM_PANEL_STAIRS>"
+								"instvar"  "$connectioncount > 0"
+								"Result"    
+									{
+									"PackFile" "models/BEE2/props_overgrown/arm_stairs.mdl"
+									}
+								}
+							}
+						}
+					"AppendDesc"
+						{
+						"" "* In Overgrown Style, enable 'Auto Respawn' to force all tiles to appear."
+						}
+					}
+				}
+			}
+		}
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_STAIRS_TOP_1"
+	"File" "stair_top_1.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_STAIRS_TOP_2"
+	"File" "stair_top_2.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_STAIRS_TOP_3"
+	"File" "stair_top_3.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_STAIRS_TOP_4"
+	"File" "stair_top_4.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
+	"File" "stairs_squarebeams.vmf"
+	}
+	
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_LIGHT_PANEL"

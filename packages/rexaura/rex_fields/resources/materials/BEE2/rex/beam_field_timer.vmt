@@ -1,0 +1,33 @@
+UnlitTwoTexture
+	{
+	$basetexture "BEE2/rex/beam_field"
+	$texture2 "effects/laserplane_atmosphere"
+
+	$additive 1
+	$translucent 1
+	$nocull 1
+	
+	%compilenonsolid 1
+	%compilepassbullets 1
+	%noportal 1
+	%nopaint 1
+	$nodecal 1
+	
+	$color "[0 0.8 0]" // Green
+	Proxies
+		{
+		Sine
+			{
+			sineMin 0.7
+			sineMax 0.9
+			sinePeriod 0.08
+			resultVar $alpha
+			}
+		TextureScroll
+			{
+			textureScrollRate 0.8
+			textureScrollAngle 0
+			textureScrollVar $texture2transform 
+			}
+		}
+	}

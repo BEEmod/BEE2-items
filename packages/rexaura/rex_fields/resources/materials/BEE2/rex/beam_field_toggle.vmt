@@ -1,0 +1,63 @@
+UnlitTwoTexture
+	{
+	$basetexture "BEE2/rex/beam_field"
+	$texture2 "effects/laserplane_atmosphere"
+
+	$additive 1
+	$translucent 1
+	$nocull 1
+	
+	%noportal 1
+	%nopaint 1
+	$nodecal 1
+	
+	$color "[0 0 0.8]"
+	
+	//$color_off 0 0 200 = 0 0 0.8
+	//$color_on  200 0 0 = 0.8 0 0
+	//$color_tog 0 200 0
+	$brightness 1.8
+	$one 1
+	$status 0 // 0 = off, 1 = on
+	$inv_status 1
+	Proxies
+		{
+		Sine
+			{
+			sineMin 0.7
+			sineMax 0.9
+			sinePeriod 0.08
+			resultVar $alpha
+			}
+		TextureScroll
+			{
+			textureScrollRate 0.8
+			textureScrollAngle 0
+			textureScrollVar $texture2transform 
+			}
+			
+		// Color change
+		MaterialModify
+			{
+			// $status
+			}
+		Subtract
+			{
+			srcVar1 $one
+			srcvar2 $status
+			resultVar $inv_status
+			}
+		Multiply
+			{
+			srcVar1 $status
+			srcvar2 $brightness
+			resultVar "$color[0]"
+			}
+		Multiply
+			{
+			srcVar1 $inv_status
+			srcvar2 $brightness
+			resultVar "$color[2]"
+			}
+		}
+	}

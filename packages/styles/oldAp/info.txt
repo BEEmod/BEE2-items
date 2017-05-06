@@ -164,6 +164,28 @@
 		}
 	}
 	
+"ConfigGroup"
+	{
+	"ID"    "BEE2_OLD_APERTURE"
+	"Name"  "Old Aperture"
+	"Widget"
+		{
+		"ID"	  "VARIANT_OBS_ROOM"
+		"Label"   "Obs Room"
+		"Tooltip" "Old Aperture Observation Rooms are grating showing the exterior of the Enrichment Sphere. The alternate version is a normal office."
+		"Type"    "ItemVariant"
+		"ItemID"  "ITEM_OBSERVATION_ROOM"
+		}
+	"Widget"
+		{
+		"ID"	  "VARIANT_FAITH_PLATE"
+		"Label"   "Faith Plate"
+		"Tooltip" "Faith Plates are replaced by specially-shaped blobs of Repulsion Gel. The alternate version is a mechanical catapult."
+		"Type"    "ItemVariant"
+		"ItemID"  "ITEM_CATAPULT"
+		}
+	}
+	
 
 "SkyBox"
 	{
@@ -321,13 +343,25 @@
 	"CaveSkin"      "3"
 	}
 	
-"StyleVar"
+"Overrides"
 	{
-	"ID"          "RestartOnExit"
-	"Enabled"     "1"
-	"Name"        "Resart When Reaching Exit"
-	"Description" "Automatically restart the map once the player(s) have reached the exit."
-	"Style"       "BEE2_1950s"
+	"StyleVar"
+		{
+		"ID"    "RestartOnExit"
+		"Style" "BEE2_1950s"
+		"Style" "BEE2_1960s"
+		"Style" "BEE2_1970s"
+		"Style" "BEE2_1980s"
+		}
+			
+	"StyleVar"
+		{
+		"ID"    "BlockPlayerGelBomb"
+		"Style" "BEE2_1950s"
+		"Style" "BEE2_1960s"
+		"Style" "BEE2_1970s"
+		"Style" "BEE2_1980s"
+		}
 	}
 
 "StyleVar"
@@ -713,18 +747,6 @@
 
 	}
 	
-// Fixed Salt Mine textures with non-broken cubemap
-"PackList"
-	{
-	"ID" "BEE2_SALT_MINES_DISP"
-	"AddIfMat" "BEE2/cave_blend_white"
-	"AddIfMat" "BEE2/cave_blend_brown"
-	"Config"
-		{
-		"" "materials/BEE2/cubemap_cave01.vtf"		
-		}
-	}
-	
 "PackList"
 	{
 	// Fixed version of the broken neon signs using UnLitGeneric
@@ -853,6 +875,25 @@
 	"Config" 
 		{
 		"File" "materials/BEE2/50s/ball_dropper.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_SHAPE_SIGN_FRAME_RETRO_1"
+	"AddIfMat" "BEE2/signage_frame/frame_blue_retro"
+	"Config"
+		{
+		"File" "materials/BEE2/signage_frame/frame_blue_retro.vtf"
+		}
+	}
+"PackList"
+	{
+	"ID"       "PACK_BEE2_SHAPE_SIGN_FRAME_RETRO_2"
+	"AddIfMat" "BEE2/signage_frame/frame_oran_retro"
+	"Config"
+		{
+		"File" "materials/BEE2/signage_frame/frame_oran_retro.vtf"
 		}
 	}
 
@@ -994,6 +1035,20 @@
 		{
 		"File" "models/BEE2/props_underground/track_plat_vert.mdl"
 		"File" "materials/BEE2/models/props_underground/metalwall_bts_005a.vmt"
+		"File" "materials/BEE2/models/props_underground/factory_metal_floor001a.vmt"
+		}
+	}
+
+"Pack"
+	{
+	"ID" "PACK_RETRO_PIST_PLAT"
+	"Config"
+		{
+		"File" "models/BEE2/props_underground/piston_base.mdl"
+		"File" "models/BEE2/props_underground/piston_mid.mdl"
+		"File" "models/BEE2/props_underground/piston_top.mdl"
+		"File" "models/BEE2/props_underground/piston_plat.mdl"
+		"File" "materials/BEE2/models/props_underground/metalbeam_bts_001c.vmt"
 		"File" "materials/BEE2/models/props_underground/factory_metal_floor001a.vmt"
 		}
 	}

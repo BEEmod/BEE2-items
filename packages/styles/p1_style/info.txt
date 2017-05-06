@@ -112,13 +112,19 @@
 	"Style"         "BEE2_PORTAL_1"
 	}
 	
-"StyleVar"
+"Overrides"
 	{
-	"ID"          "RestartOnExit"
-	"Enabled"     "1"
-	"Name"        "Resart When Reaching Exit"
-	"Description" "Automatically restart the map once the player(s) have reached the exit."
-	"Style"       "BEE2_PORTAL_1"
+	"StyleVar"
+		{
+		"ID"    "RestartOnExit"
+		"Style" "BEE2_PORTAL_1"
+		}
+		
+	"StyleVar"
+		{
+		"ID"    "BlockPlayerGelBomb"
+		"Style" "BEE2_PORTAL_1"
+		}
 	}
 	
 "PackList"
@@ -251,6 +257,7 @@
 		"File" "#scripts/bee2_snd/portal_sounds.txt"
 		"File" "sound/BEE2/p1/wall_move5.wav"
 		"File" "sound/BEE2/p1/garage_stop1.wav"
+		"File" "sound/BEE2/p1/doorstop1.wav"
 		}
 	}
 	
@@ -379,6 +386,10 @@
 		"File" "materials/BEE2/models/props_p1/floor_button/base.vtf"
 		"File" "materials/BEE2/models/props_p1/floor_button/exponent.vtf"
 		"File" "materials/BEE2/models/props_p1/floor_button/normal.vtf"
+		
+		// Ball-specific sign for the base.
+		"File" "materials/BEE2/models/props_p1/floor_button/button_base_ball.vmt"
+		"File" "materials/BEE2/models/props_p1/floor_button/base_sign_ball.vtf"
 		}
 	}
 	
@@ -743,6 +754,61 @@
 		}
 	
 	"Item"
+		{
+		"ID" "ITEM_TURRET" 
+		"Version" 
+			{ 
+			"Styles" 
+				{ 
+				"BEE2_PORTAL_1" 
+					{ 
+					"Base" "BEE2_CLEAN" 
+				    "Config" 
+						{ 
+						"Conditions" 
+							{ 
+						"Condition" 
+								{ 
+								"Instance" "<ITEM_TURRET>" 
+								"Result" 
+									{ 
+									"PrecacheModel"  "models/BEE2/props_p1/turret_01.mdl" 
+									"Pack"           "PACK_BEE2_TURRET_P1" 
+									} 
+								} 
+							} 
+						} 
+					"Instances" 
+						{ 
+						"0" "instances/BEE2/p1/items/turret.vmf" 
+						} 
+					} 
+				} 
+			}
+		}
+	}
+
+
+"PackList"
+	{ 
+	"ID" "PACK_BEE2_TURRET_P1" 
+	"Config" 
+		{
+		"" "models/BEE2/props_p1/turret_01.mdl" 
+		// The turret doesn't have the animation, we use a brush to force it instead.
+		"" "materials/BEE2/p1/turret_off_eye.vmt" 
+		
+		// The texture and no-gel materials are in Portal 2.... 
+		"" "materials/BEE2/models/props_p1/turret/turret_bounce.vmt" 
+		"" "materials/BEE2/models/props_p1/turret/turret_speed.vmt" 
+		"" "materials/BEE2/models/props_p1/turret/turret_off_bounce.vmt" 
+		"" "materials/BEE2/models/props_p1/turret/turret_off_speed.vmt" 
+		} 
+	} 
+
+"Overrides" 
+	{ 
+	"Item" 
 		{
 		"ID" "ITEM_PANEL_STAIRS"
 		"Version"

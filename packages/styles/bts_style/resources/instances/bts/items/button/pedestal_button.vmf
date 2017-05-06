@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "107"
+	"editorbuild" "7378"
+	"mapversion" "118"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "107"
+	"mapversion" "118"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -36,8 +36,8 @@ entity
 	"disablereceiveshadows" "0"
 	"drawinfastreflection" "0"
 	"movedir" "0 180 0"
-	"movedistance" "2"
-	"origin" "-45 0 -9"
+	"movedistance" "1"
+	"origin" "-48.5 0 -9"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
@@ -45,12 +45,12 @@ entity
 	"spawnflags" "8"
 	"speed" "128"
 	"startposition" "0"
-	"startsound" "World.LightPowerOnMd"
+	"startsound" ")world/light_power_on_02.wav"
 	"targetname" "door"
 	connections
 	{
-		"OnFullyOpen" "baseSkin00.3-1"
-		"OnFullyOpen" "doorClose0.3-1"
+		"OnFullyOpen" "baseSkin00.2-1"
+		"OnFullyOpen" "doorClose0.2-1"
 	}
 	solid
 	{
@@ -58,10 +58,10 @@ entity
 		side
 		{
 			"id" "254"
-			"plane" "(-46 1 -8) (-44 1 -8) (-44 -1 -8)"
+			"plane" "(-49 -2 -7) (-49 2 -7) (-48 2 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
+			"uaxis" "[1 0 0 16] 0.25"
+			"vaxis" "[0 -1 0 4] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -69,10 +69,10 @@ entity
 		side
 		{
 			"id" "253"
-			"plane" "(-46 -1 -10) (-44 -1 -10) (-44 1 -10)"
+			"plane" "(-49 2 -11) (-49 -2 -11) (-48 -2 -11)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
+			"uaxis" "[1 0 0 16] 0.25"
+			"vaxis" "[0 -1 0 4] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -80,10 +80,10 @@ entity
 		side
 		{
 			"id" "252"
-			"plane" "(-46 1 -8) (-46 -1 -8) (-46 -1 -10)"
+			"plane" "(-49 -2 -11) (-49 2 -11) (-49 2 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 1 0 -4] 0.25"
+			"vaxis" "[0 0 -1 4] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -91,10 +91,10 @@ entity
 		side
 		{
 			"id" "251"
-			"plane" "(-44 1 -10) (-44 -1 -10) (-44 -1 -8)"
+			"plane" "(-48 2 -11) (-48 -2 -11) (-48 -2 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 1 0 -4] 0.25"
+			"vaxis" "[0 0 -1 4] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -102,10 +102,10 @@ entity
 		side
 		{
 			"id" "250"
-			"plane" "(-44 1 -8) (-46 1 -8) (-46 1 -10)"
+			"plane" "(-49 2 -11) (-48 2 -11) (-48 2 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[1 0 0 16] 0.25"
+			"vaxis" "[0 0 -1 4] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -113,10 +113,10 @@ entity
 		side
 		{
 			"id" "249"
-			"plane" "(-44 -1 -10) (-46 -1 -10) (-46 -1 -8)"
+			"plane" "(-48 -2 -11) (-49 -2 -11) (-49 -2 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[1 0 0 16] 0.25"
+			"vaxis" "[0 0 -1 4] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -709,8 +709,9 @@ entity
 		"OnTimer" "standSkin00-1"
 		"OnTimer" "snd_relPlaySound0-1"
 		"OnTimer" "tim_delayDisable0-1"
+		"OnTimer" "@commandCommandcc_emit Portal.buttonRelease0-1"
 	}
-	"origin" "-16 24 -48"
+	"origin" "-40 8 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -736,13 +737,13 @@ entity
 	"pitchstart" "100"
 	"preset" "0"
 	"radius" "1250"
-	"SourceEntityName" "stand"
+	"SourceEntityName" "base"
 	"spawnflags" "48"
 	"spindown" "0"
 	"spinup" "0"
 	"targetname" "snd_rel"
 	"volstart" "0"
-	"origin" "-16 8 -48"
+	"origin" "-40 24 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -768,13 +769,13 @@ entity
 	"pitchstart" "100"
 	"preset" "0"
 	"radius" "1250"
-	"SourceEntityName" "stand"
+	"SourceEntityName" "base"
 	"spawnflags" "48"
 	"spindown" "0"
 	"spinup" "0"
 	"targetname" "snd_tick"
 	"volstart" "0"
-	"origin" "-16 -8 -48"
+	"origin" "-40 -24 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -795,8 +796,9 @@ entity
 	connections
 	{
 		"OnTimer" "snd_tickPlaySound0-1"
+		"OnTimer" "@commandCommandcc_emit Portal.room1_TickTock0-1"
 	}
-	"origin" "-16 -24 -48"
+	"origin" "-40 -8 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -954,7 +956,7 @@ entity
 	"classname" "func_button"
 	"disablereceiveshadows" "0"
 	"health" "0"
-	"lip" "18"
+	"lip" "19"
 	"locked_sentence" "0"
 	"locked_sound" "0"
 	"movedir" "0 180 0"
@@ -983,6 +985,7 @@ entity
 		"OnPressed" "tim_delayResetTimer0-1"
 		"OnPressed" "baseSkin10-1"
 		"OnPressed" "doorOpen0-1"
+		"OnPressed" "@commandCommandcc_emit Portal.buttonDepress0-1"
 	}
 	solid
 	{
@@ -1080,7 +1083,7 @@ entity
 		"OnTrue" "outputFireUser20.01-1"
 		"OnFalse" "outputFireUser20-1"
 	}
-	"origin" "-48 32 -48"
+	"origin" "-40 0 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -1093,6 +1096,7 @@ entity
 {
 	"id" "36"
 	"classname" "func_noportal_volume"
+	"origin" "-48 0 -60"
 	"spawnflags" "0"
 	solid
 	{
@@ -1184,7 +1188,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$timer_delay float 3"
 	"parm2" "$timer_sound integer 0"
-	"origin" "-16 -40 -52"
+	"origin" "-40 -16 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -1198,7 +1202,7 @@ entity
 	"id" "22"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
-	"origin" "-16 40 -48"
+	"origin" "-40 16 -32"
 	editor
 	{
 		"color" "220 30 220"
