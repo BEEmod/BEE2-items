@@ -1,0 +1,144 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "7378"
+	"mapversion" "11"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "8"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "11"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "115"
+	"classname" "point_hurt"
+	"Damage" "10000"
+	"DamageDelay" "1"
+	"DamageRadius" "99999"
+	"DamageTarget" "!player"
+	"DamageType" "131072"
+	"targetname" "@neurotoxin_hurt"
+	"origin" "-8 8 16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "2"
+	"classname" "math_counter"
+	"max" "9999"
+	"min" "0"
+	"StartDisabled" "0"
+	"startvalue" "0"
+	"targetname" "@neurotoxin_vent"
+	connections
+	{
+		"OnChangedFromMin" "@neurotoxin_partStart0-1"
+		"OnHitMin" "@neurotoxin_partStop0-1"
+		"OnUser2" "@neurotoxin_hurtKill0-1"
+		"OnUser2" "neuro_sndStopSound0-1"
+		"OnHitMin" "neuro_sndStopSound0-1"
+		"OnChangedFromMin" "neuro_sndPlaySound0-1"
+		"OnUser2" "@neurotoxin_partKill0-1"
+		"OnChangedFromMin" "@commandCommandcc_emit VFX.NeuroToxinLp0-1"
+	}
+	"origin" "-8 -8 16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Counts how many timers are on, so particle state works with multiple timers."
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "4"
+	"classname" "ambient_generic"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "5"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" ")vfx/vfx_ntoxin_lp.wav"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"spawnflags" "17"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "neuro_snd"
+	"volstart" "0"
+	"origin" "-8 8 32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 8500]"
+	}
+}
+entity
+{
+	"id" "86"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "@map_won"
+	connections
+	{
+		"OnTrigger" "@neurotoxin_hurtKill0-1"
+		"OnTrigger" "neuro_sndStopSound0-1"
+		"OnTrigger" "@neurotoxin_partStop0-1"
+		"OnTrigger" "@neurotoxin_partKill0.5-1"
+		"OnSpawn" "@neurotoxin_hurtTurnOff01"
+		"OnTrigger" "@neurotoxin_hurtKill0-1"
+	}
+	"origin" "-8 -8 32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Shutdown everything, the player reached the exit."
+		"logicalpos" "[0 500]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
