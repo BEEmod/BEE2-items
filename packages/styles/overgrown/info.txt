@@ -964,19 +964,35 @@
 							"Condition"
 								{
 								"instance"	"<ITEM_PANEL_ANGLED>"
-								"InstVar"   "$connectioncount > 0"
 								"Result"
 									{
-									"Pack"  "PACK_ANGLED_PANEL_OVER"
-									
-									"Random"    
+									"PackFile" "models/BEE2/props_overgrown/angled_pan.mdl"
+									}
+								"Condition"
+									{
+									"InstVar"   "$connectioncount > 0"
+									"Result"
 										{
-										"Seed"    "ANGLED_PANEL"
-										"Weights" "4, 1, 6"
+										// Needed for good working collisions.
+										"PackFile" "models/BEE2/panels/static_phys.mdl"
 										
-										"SetInstVar" "$skin 0" // Blue
-										"SetInstVar" "$skin 1" // Red
-										"SetInstVar" "$skin 2" // Off
+										"Random"    
+											{
+											"Seed"    "ANGLED_PANEL"
+											"Weights" "4, 1, 6"
+											
+											"SetInstVar" "$skin 0" // Blue
+											"SetInstVar" "$skin 1" // Red
+											"SetInstVar" "$skin 2" // Off
+											}
+										}
+									"Condition"
+										{
+										"InstVar" "animation ramp_90_deg_open"
+										"Result"
+											{
+											"Pack" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_B"
+											}
 										}
 									}
 								}
@@ -999,15 +1015,6 @@
 					}
 				}
 			}
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_ANGLED_PANEL_OVER"
-	"Config"
-		{
-		"" "models/BEE2/props_overgrown/angled_pan.mdl"
 		}
 	}
 
@@ -1120,6 +1127,7 @@
 						"BEE2_STAIRS_TOP:stair_2" "BEE2_OVER_STAIRS_TOP_2"
 						"BEE2_STAIRS_TOP:stair_3" "BEE2_OVER_STAIRS_TOP_3"
 						"BEE2_STAIRS_TOP:stair_4" "BEE2_OVER_STAIRS_TOP_4"
+						"BEE2_STATIC_STAIRS_STATIC_BEAMS_TEMP" "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
 						}
 					"Append"
 						{
@@ -1167,6 +1175,12 @@
 	"ID"   "BEE2_OVER_STAIRS_TOP_4"
 	"File" "stair_top_4.vmf"
 	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
+	"File" "stairs_squarebeams.vmf"
+	}
+	
 	
 "Overrides"
 	{

@@ -173,6 +173,15 @@
 		}
 	}
 	
+"PackList"
+	{
+	"ID" "PACK_BEE2_SWITCH_BTS"
+	"Config"
+		{
+		"" "models/BEE2/props_bts/circuit_breaker_anim.mdl"
+		}
+	}
+	
 	
 "PackList"
 	{
@@ -401,7 +410,16 @@
 			{
 			"Styles"
 				{
-				"BEE2_BTS"	"mandatory/coop_spawn"
+				"BEE2_BTS"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config" "coop_spawn.cfg"
+					"Instances"
+						{
+						"0" "instances/BEE2/bts/elevator_coop/spawn_room.vmf"
+						"3" "instances/BEE2/clean/elevator_coop/coop_exit.vmf"
+						}
+					}
 				}
 			}
 		}
@@ -418,6 +436,10 @@
 				}
 			}
 		}
+	}
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_OBSERVATION_ROOM"

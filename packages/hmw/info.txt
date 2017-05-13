@@ -40,7 +40,7 @@
 		{
 		"" "A 1/2 block sized light armature set into the wall, that spreads a brighter light than light strips."
 		"" ""
-		"" "* Use ButtonType property to choose between __Neutral__, __Warm__ or __Cold__ lighting."
+		"" "* Use ButtonType property to choose between __Warm__, __Cold__, or __Neutral__ lighting."
 		"" "* This occupies one wall cube inside the wall."
 		}
 	"Version"
@@ -50,10 +50,60 @@
 			"BEE2_CLEAN"		"square_light_clean"
 			"BEE2_PORTAL_1"		"square_light_p1"
 			"BEE2_OVERGROWN"	"square_light_over"
+			
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Config"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"instance"	"<ITEM_SQUARE_LIGHT>"
+							"Result"
+								{
+								"AddOverlay"
+									{
+									"File" "<ITEM_SQUARE_LIGHT:bee2_common>"
+									}
+								}
+							}
+						}
+					}
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/hmw/square_light_warm.vmf"
+					"1" "instances/BEE2/50s/items/hmw/square_light_warm.vmf"
+					"2" "instances/BEE2/50s/items/hmw/square_light_cool.vmf"
+					"3" "instances/BEE2/50s/items/hmw/square_light_cool.vmf"
+					"4" "instances/BEE2/50s/items/hmw/square_light_neutral.vmf"
+					"5" "instances/BEE2/50s/items/hmw/square_light_neutral.vmf"
+					
+					"bee2_common" "instances/BEE2/50s/items/hmw/square_light_common.vmf"
+					}
+				}
+			
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"bee2_common" "instances/BEE2/70s/items/hmw/square_light_common.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"bee2_common" "instances/BEE2/80s/items/hmw/square_light_common.vmf"
+					}
+				}
 			}
 		}
 	}
-	
+
 // Fixed transparency on the model.
 "PackList"
 	{
