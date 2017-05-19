@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7378"
-	"mapversion" "17"
+	"mapversion" "16"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -30,10 +30,31 @@ world
 }
 entity
 {
-	"id" "5"
+	"id" "32"
+	"classname" "point_template"
+	"spawnflags" "2"
+	"targetname" "@template_spawn_3"
+	"Template01" "cube"
+	"Template02" "cube_*"
+	connections
+	{
+		"OnEntitySpawned" "cubeRunScriptCodehmw_reflect()0-1"
+	}
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "2"
 	"classname" "prop_weighted_cube"
-	"allowfunnel" "0"
-	"angles" "0 180 180"
+	"allowfunnel" "1"
+	"angles" "0 180 0"
 	"CubeType" "2"
 	"model" "models/bee2/props_p1/hmw_laser_cube.mdl"
 	"NewSkins" "1"
@@ -41,22 +62,19 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
-	"SkinType" "0"
-	"targetname" "box"
+	"targetname" "cube"
 	"vscripts" "BEE2/change_models.nut"
 	connections
 	{
-		"OnFizzled" "voice_rlFireUser10-1"
-		"OnFizzled" "voice_rlTrigger0-1"
-		"OnUser4" "!selfRunScriptCodehmw_reflect()01"
+		"OnFizzled" "@voice_cube_destFireUser101"
 	}
-	"origin" "0 0 -164"
+	"origin" "0 0 -24"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 15000]"
+		"logicalpos" "[0 0]"
 	}
 }
 cameras
