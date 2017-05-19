@@ -1,0 +1,153 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "6432"
+	"mapversion" "3"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "3"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2"
+	"classname" "ambient_generic"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "vo/glados/potatos_sp_a3_speed_ramp_hearcave02.wav"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"spawnflags" "49"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "@glados_cave1"
+	"volstart" "0"
+	connections
+	{
+		"OnUser1" "!selfPlaySound01"
+		"OnUser1" "@glados_cave2FireUser151"
+	}
+	"origin" "-48 0 16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1500 5500]"
+	}
+}
+entity
+{
+	"id" "6"
+	"classname" "ambient_generic"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "vo/glados/potatos_hearcave_b01.wav"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"spawnflags" "49"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "@glados_cave2"
+	"volstart" "0"
+	connections
+	{
+		"OnUser1" "!selfPlaySound01"
+		"OnUser1" "@glados_cave3Start41"
+	}
+	"origin" "-48 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1500 5500]"
+	}
+}
+entity
+{
+	"id" "10"
+	"classname" "logic_choreographed_scene"
+	"busyactor" "1"
+	"onplayerdeath" "0"
+	"SceneFile" "scenes/npc/glados/potatos_cave_deathspeech_reactions09.vcd"
+	"targetname" "@glados_cave3"
+	"origin" "-48 0 -16"
+	editor
+	{
+		"color" "0 0 255"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1500 5500]"
+	}
+}
+entity
+{
+	"id" "20"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "@TriggerNeedsReaction"
+	connections
+	{
+		"OnSpawn" "@TriggerNeedsReactionRunScriptCodeif (GetMapIndexInPlayOrder()>80||GetMapIndexInPlayOrder()>80||GetNumMapsPlayed()==-2||GetNumMapsPlayed()==-2) EntFire(self.GetName(),self.GetName().slice(1,8),self.GetName(),0.0,self.GetName())0-1"
+		"OnSpawn" "@TriggerNeedsReactionRunScriptCodeprintl(GetMapIndexInPlayOrder())0-1"
+		"OnSpawn" "@TriggerNeedsReactionRunScriptCodeprintl(GetNumMapsPlayed())0-1"
+		"OnTrigger" "@glados_cave1Kill0-1"
+		"OnTrigger" "@glados_cave2Kill0-1"
+		"OnTrigger" "@glados_cave3Kill0-1"
+	}
+	"origin" "-48 0 48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Is there a voice line for GLaDOS to react to?"
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
