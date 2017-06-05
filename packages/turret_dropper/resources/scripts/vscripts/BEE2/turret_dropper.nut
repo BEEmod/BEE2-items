@@ -1,7 +1,6 @@
 template <- EntityGroup[0] // point_template
 fizzler <- EntityGroup[1] // env_entity_dissolver for fizzling the turret
-upper_door <- EntityGroup[2] // The door for respawning the turret
-lower_door <- EntityGroup[3] // The door for lowering the turret
+lower_door <- EntityGroup[2] // The door for lowering the turret
 
 turret_waiting <- null
 turret_spawned <- null
@@ -22,8 +21,8 @@ function on_turret_spawn() {
 
 
 function OnPostSpawn() {
-	// Start getting a turret.
-	EntFireByHandle(upper_door, "Open", "", 0.00, self, self)
+	// Trigger an output so we can start getting a turret.
+	EntFireByHandle(self, "FireUser4", "", 0.00, self, self)
 }
 
 // Turret triggers this when it falls over, so we respawn it.
