@@ -23,6 +23,12 @@
 // 16 = Light Bridge
 // 17 = Repulsion Gel
 // 18 = Propulsion Gel
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_CLEAN"
+	"file" "sign_clean.vmf"
+	}
 	
 "Item"
 	{
@@ -42,15 +48,58 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"     "sign"
+			"BEE2_CLEAN"
+				{
+				"Folder" "sign"
+				"Config" "sign_clean.cfg"
+				"Append"
+					{
+					// Clean version..
+					"Replacements"
+						{
+						"%SIGN_ARROW%" "signage/signage_overlay_arrow"
+						
+						"%SIGN_1_MAIN%"     "signage/signage_overlay_dots1"
+						"%SIGN_2_MAIN%"     "signage/signage_overlay_dots2"
+						"%SIGN_3_MAIN%"     "signage/signage_overlay_dots3"
+						"%SIGN_4_MAIN%"     "signage/signage_overlay_dots4"
+						
+						// Missing VMT, but the VTF's present
+						"%SIGN_TURRET_MAIN%"        "BEE2/signage_turret"
+						
+						"%SIGN_BRIDGE_MAIN%"        "signage/signage_bridge"
+						"%SIGN_EXIT_MAIN%"          "signage/signage_exit"
+						"%SIGN_FUNNEL_MAIN%"        "signage/signage_tractor_beam"
+						"%SIGN_LASER_RELAY_MAIN%"   "signage/signage_laser_relay"
+						"%SIGN_BALL_DROPPER_MAIN%"  "signage/signage_ball_dispenser"
+						
+						"%SIGN_BOX_DROPPER_MAIN%"   "signage/signage_overlay_boxdispenser"
+						"%SIGN_BOX_DROPPER_EXTRA%"  "signage/signage_overlay_boxhurt"
+						
+						"%SIGN_LASER_CUBE_MAIN%"    "signage/signage_laser_cube"
+						"%SIGN_LASER_CUBE_EXTRA%"   "signage/signage_laser_catcher"
+						
+						"%SIGN_GOOP_MAIN%"          "signage/signage_overlay_toxic"
+						"%SIGN_GOOP_EXTRA%"         "signage/signage_overlay_fountain"
+							
+						"%SIGN_POLARITY_MAIN%"      "signage/signage_tractor_polarity"
+						"%SIGN_POLARITY_EXTRA%"     "signage/signage_tractor_beam"
+						
+						// We need a variant to make it glow, not transparent.
+						"%SIGN_GEL_BOUNCE_MAIN%"    "BEE2/80s/signage_paint_jump"
+						"%SIGN_GEL_BOUNCE_EXTRA%"   "signage/signage_paint_dispenser"
+						
+						"%SIGN_GEL_SPEED_MAIN%"     "BEE2/80s/signage_paint_speed"
+						"%SIGN_GEL_SPEED_EXTRA%"    "signage/signage_paint_dispenser"
+						}
+					}
+				}
 			"BEE2_BTS"       "sign_bts"
 			"BEE2_PORTAL_1"  "sign_p1"
 			"BEE2_OVERGROWN"
 				{
-				"Base"        "BEE2_CLEAN"
 				"Authors"     "TeamSpen210, Josepezdj"
 				"Description" "__The sign textures were made by Josepezdj.__"
-				"Config"      "sign_over.cfg"
 				"Palette"
 					{
 					"0"
@@ -58,6 +107,48 @@
 						"Model" "bee2_signage_over.mdl"
 						"icon"  "signage_overlay_dots3.png"
 						"bee2"  "over/BEE/signage.png"
+						}
+					}
+				"Folder" "sign"
+				"Config" "sign_clean.cfg"
+				"Append"
+					{
+					// Clean version..
+					"Replacements"
+						{
+						"%SIGN_ARROW%" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_arrow"
+						
+						"%SIGN_1_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dots_1"
+						"%SIGN_2_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dots_2"
+						"%SIGN_3_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dots_3"
+						"%SIGN_4_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dots_4"
+						
+						"%SIGN_TURRET_MAIN%"        "BEE2/josepezdj/signage_wasted/jose_wasted_signage_turret"
+						
+						"%SIGN_BRIDGE_MAIN%"        "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bridge"
+						"%SIGN_EXIT_MAIN%"          "BEE2/josepezdj/signage_wasted/jose_wasted_signage_exit"
+						"%SIGN_FUNNEL_MAIN%"        "BEE2/josepezdj/signage_wasted/jose_wasted_signage_funnel"
+						"%SIGN_LASER_RELAY_MAIN%"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_relay"
+						"%SIGN_BALL_DROPPER_MAIN%"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_ball_dropper"
+						
+						"%SIGN_BOX_DROPPER_MAIN%"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_dispenser"
+						"%SIGN_BOX_DROPPER_EXTRA%"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_hurt"
+						
+						"%SIGN_LASER_CUBE_MAIN%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_cube"
+						"%SIGN_LASER_CUBE_EXTRA%"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_catcher"
+						
+						"%SIGN_GOOP_MAIN%"          "BEE2/josepezdj/signage_wasted/jose_wasted_signage_toxic"
+						"%SIGN_GOOP_EXTRA%"         "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fountain"
+							
+						"%SIGN_POLARITY_MAIN%"      "BEE2/josepezdj/signage_wasted/jose_wasted_signage_polarity"
+						"%SIGN_POLARITY_EXTRA%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_funnel"
+						
+						// We need a variant to make it glow, not transparent.
+						"%SIGN_GEL_BOUNCE_MAIN%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bounce_gel"
+						"%SIGN_GEL_BOUNCE_EXTRA%"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_paint_dispenser"
+						
+						"%SIGN_GEL_SPEED_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_speed_gel"
+						"%SIGN_GEL_SPEED_EXTRA%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_paint_dispenser"
 						}
 					}
 				}
@@ -98,55 +189,6 @@
 			"BEE2_1980s"     "<BEE2_CLEAN>" // 1980s style uses modern signs..
 			}
 		}
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_CLEAN_ARROW"
-	"file" "arrow_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN_FLOOR"
-	"file" "sign_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN2_FLOOR"
-	"file" "sign2_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN_WALL"
-	"file" "sign_wall.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_CLEAN_ARROW_REV"
-	"file" "arrow_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN_REV"
-	"file" "sign_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_CLEAN_SIGN2_FLOOR_REV"
-	"file" "sign2_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_CLEAN_ARROW_WALL_REV"
-	"File" "arrow_wall_rev.vmf"
-	"keep_brushes" "0"
 	}
 	
 "PackList"
