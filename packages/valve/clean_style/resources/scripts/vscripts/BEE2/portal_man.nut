@@ -16,9 +16,12 @@ _spawn_scheduled <- false;
 
 _held_object <- null;
 
+
 // Number of portalgun on/off buttons currently on.
 // If -1, disabled.
 portalgun_onoff_count <- -1;
+// If true, force the pgun on.
+portalgun_onoff_forced <- false;
 
 function OnPostSpawn() {
 	stripper = Entities.FindByName(null, "__pgun_weapon_strip");
@@ -29,7 +32,6 @@ function init(blue, orange, has_onoff) {
 	has_blue = blue
 	has_oran = orange
 	if (has_onoff) {
-		portalgun_onoff_count = 0
 		give_gun(0, 0)
 	} else if (!has_blue && !has_oran) {
 		remove_pgun()
@@ -93,7 +95,7 @@ function give_gun(blue, oran) {
 function pgun_btn_act() {
 	// A Portalgun on-off button is pressed.
 	
-	// Disabled.
+	//  Are we disabled?
 	if (portalgun_onoff_count == -1) { return}
 	
 	portalgun_onoff_count = portalgun_onoff_count + 1;
@@ -107,7 +109,7 @@ function pgun_btn_act() {
 function pgun_btn_deact() {
 	// A Portalgun on-off button is pressed.
 	
-	// Disabled.
+	//  Are we disabled?
 	if (portalgun_onoff_count == -1) { return}
 	
 	portalgun_onoff_count = portalgun_onoff_count - 1;
@@ -118,7 +120,24 @@ function pgun_btn_deact() {
 	}
 }
 
-function pgun_btn_shutdown() {
+// For use in corridors or other special cases,
+// force enable the portalgun.
+function pgun_btn_force() {
+	if(!portalgun_onoff_forced) {
+		portalgun_onoff_forced = true
+		pgun_btn_act()
+	}
+}
+
+// And undo that
+function pgun_btn_unforce() {
+	if(portalgun_onoff_forced) {
+		portalgun_onoff_forced = false
+		pgun_btn_deact()
+	}
+}
+
+function map_won() {
 	// When reaching the exit, swap to deactivated mode.
 	if (portalgun_onoff_count > 0) {
 		give_gun(0, 0);
