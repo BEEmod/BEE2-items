@@ -32,6 +32,7 @@ function init(blue, orange, has_onoff) {
 	has_blue = blue
 	has_oran = orange
 	if (has_onoff) {
+		portalgun_onoff_count = 0
 		give_gun(0, 0)
 	} else if (!has_blue && !has_oran) {
 		remove_pgun()
@@ -139,6 +140,10 @@ function pgun_btn_unforce() {
 
 function map_won() {
 	// When reaching the exit, swap to deactivated mode.
+	if (portalgun_onoff_forced) {
+		// But not if the gun's forced on...
+		return;
+	}
 	if (portalgun_onoff_count > 0) {
 		give_gun(0, 0);
 	}
