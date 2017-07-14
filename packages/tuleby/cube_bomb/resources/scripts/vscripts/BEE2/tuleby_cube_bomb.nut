@@ -4,10 +4,17 @@ CUBE_BOMB_WAITING <- 0; // Before pickup, waiting for that.
 CUBE_BOMB_HELD <- 1;    // In hands.
 CUBE_BOMB_ARMED <- 2;   // Timer ticking down, going to fire.
 
+// Cube type -> timer value
+TIMER_VALUES <- {
+	[0]=3,
+	[1]=5,
+	[2]=8,
+	[3]=15,
+	[4]=20
+}
+
 cube_bomb_mode <- CUBE_BOMB_WAITING;
-
-CUBE_BOMB_TIMER <- 8;
-
+cube_bomb_time <- 8;
 blink_state <- false;
 
 // Global time at which we were armed, and will detonate.
@@ -26,6 +33,9 @@ function OnPostSpawn() {
 	self.ConnectOutput("OnPhysGunDrop", "_on_drop")
 }
 
+function set_configs(cube_type) {
+	cube_bomb_time = TIMER_VALUES[cube_type];
+}
 
 function LightsThink() {
 	// Set bodygroup to increment lights as needed.
@@ -42,12 +52,20 @@ function LightsThink() {
 		if (remaining < 0) {
 			cube_bomb_explode();
 		} else {
-			local frac = (remaining/CUBE_BOMB_TIMER) * 30
+			local frac = (remaining/cube_bomb_time) * 30
 			self.SetBodygroup(1, floor(frac).tointeger())
 		}
 	}
 	
 	return 0.25
+}
+
+function arm() {
+	self.EmitSound("NPC_RocketTurret.LockingBeep")
+	cube_bomb_mode = CUBE_BOMB_ARMED;
+	arm_time = Time();
+	det_time = arm_time + cube_bomb_time;
+	LightsThink();
 }
 
 function cube_bomb_explode() {
@@ -101,9 +119,6 @@ function _on_drop() {
 	if (!self.IsValid()) {return}
 	
 	if (cube_bomb_mode == CUBE_BOMB_HELD) {
-		self.EmitSound("NPC_RocketTurret.LockingBeep")
-		cube_bomb_mode = CUBE_BOMB_ARMED;
-		arm_time = Time();
-		det_time = arm_time + CUBE_BOMB_TIMER;
+		arm();
 	}
 }
