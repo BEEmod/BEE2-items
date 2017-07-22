@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7378"
-	"mapversion" "10"
+	"mapversion" "11"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -38,13 +38,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "10"
+	"mapversion" "11"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -58,7 +58,7 @@ entity
 	"classname" "bee2_template_conf"
 	"temp_type" "default"
 	"template_id" "REX_PELLET_FIELD_TEMP"
-	"origin" "-8 0 0"
+	"origin" "-8 0 64"
 	editor
 	{
 		"color" "220 30 220"
@@ -82,7 +82,7 @@ entity
 		side
 		{
 			"id" "30"
-			"plane" "(0 -64 7) (1 -64 7) (1 -64 -64)"
+			"plane" "(1 -64 7) (1 -64 -64) (0 -64 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -32] 0.25"
@@ -93,7 +93,7 @@ entity
 		side
 		{
 			"id" "29"
-			"plane" "(0 64 -64) (1 64 -64) (1 64 7)"
+			"plane" "(0 64 7) (0 64 -64) (1 64 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -32] 0.25"
@@ -158,7 +158,7 @@ entity
 		side
 		{
 			"id" "36"
-			"plane" "(0 64 -7) (1 64 -7) (1 64 64)"
+			"plane" "(0 64 64) (0 64 -7) (1 64 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 1 32] 0.25"
@@ -169,7 +169,7 @@ entity
 		side
 		{
 			"id" "35"
-			"plane" "(0 -64 64) (1 -64 64) (1 -64 -7)"
+			"plane" "(1 -64 64) (1 -64 -7) (0 -64 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 1 32] 0.25"
@@ -180,7 +180,7 @@ entity
 		side
 		{
 			"id" "34"
-			"plane" "(0 64 -7) (0 64 64) (0 -64 64)"
+			"plane" "(0 -64 64) (0 -64 -7) (0 64 -7)"
 			"material" "BEE2/REX/BEAM_FIELD_TIMER"
 			"uaxis" "[0 0 -1 -8] 1"
 			"vaxis" "[0 1 0 -64] 1"
@@ -191,7 +191,7 @@ entity
 		side
 		{
 			"id" "33"
-			"plane" "(1 -64 -7) (1 -64 64) (1 64 64)"
+			"plane" "(1 64 64) (1 64 -7) (1 -64 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 -1 -32] 0.25"
 			"vaxis" "[0 -1 0 3.97644] 0.25"
@@ -252,7 +252,7 @@ entity
 		side
 		{
 			"id" "42"
-			"plane" "(0 -64 31) (1 -64 31) (1 -64 -64)"
+			"plane" "(1 -64 95) (1 -64 0) (0 -64 0)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -263,7 +263,7 @@ entity
 		side
 		{
 			"id" "41"
-			"plane" "(0 64 -64) (1 64 -64) (1 64 31)"
+			"plane" "(0 64 95) (0 64 0) (1 64 0)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -274,9 +274,9 @@ entity
 		side
 		{
 			"id" "40"
-			"plane" "(0 -64 31) (0 -64 -64) (0 64 -64)"
+			"plane" "(0 -64 95) (0 -64 0) (0 64 0)"
 			"material" "BEE2/REX/BEAM_FIELD_TIMER"
-			"uaxis" "[0 0 1 -32] 1"
+			"uaxis" "[0 0 1 -96] 1"
 			"vaxis" "[0 -1 0 -64] 1"
 			"rotation" "180"
 			"lightmapscale" "16"
@@ -285,7 +285,7 @@ entity
 		side
 		{
 			"id" "39"
-			"plane" "(1 64 31) (1 64 -64) (1 -64 -64)"
+			"plane" "(1 64 95) (1 64 0) (1 -64 0)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 3.97627] 0.25"
@@ -296,7 +296,7 @@ entity
 		side
 		{
 			"id" "38"
-			"plane" "(1 -64 31) (0 -64 31) (0 64 31)"
+			"plane" "(1 -64 95) (0 -64 95) (0 64 95)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 1 0 3.97627] 0.25"
@@ -307,7 +307,7 @@ entity
 		side
 		{
 			"id" "37"
-			"plane" "(1 64 -64) (0 64 -64) (0 -64 -64)"
+			"plane" "(1 64 0) (0 64 0) (0 -64 0)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 1 0 3.97627] 0.25"
@@ -346,7 +346,7 @@ entity
 		side
 		{
 			"id" "60"
-			"plane" "(0 -64 31) (1 -64 31) (1 -64 -64)"
+			"plane" "(1 -64 95) (1 -64 0) (0 -64 0)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -357,7 +357,7 @@ entity
 		side
 		{
 			"id" "59"
-			"plane" "(0 64 -64) (1 64 -64) (1 64 31)"
+			"plane" "(0 64 95) (0 64 0) (1 64 0)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -368,9 +368,9 @@ entity
 		side
 		{
 			"id" "58"
-			"plane" "(0 -64 31) (0 -64 -64) (0 64 -64)"
+			"plane" "(0 -64 95) (0 -64 0) (0 64 0)"
 			"material" "BEE2/REX/BEAM_FIELD_TOGGLE"
-			"uaxis" "[0 0 1 -32] 1"
+			"uaxis" "[0 0 1 -96] 1"
 			"vaxis" "[0 -1 0 -64] 1"
 			"rotation" "180"
 			"lightmapscale" "16"
@@ -379,7 +379,7 @@ entity
 		side
 		{
 			"id" "57"
-			"plane" "(1 64 31) (1 64 -64) (1 -64 -64)"
+			"plane" "(1 64 95) (1 64 0) (1 -64 0)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 3.97627] 0.25"
@@ -390,7 +390,7 @@ entity
 		side
 		{
 			"id" "56"
-			"plane" "(1 -64 31) (0 -64 31) (0 64 31)"
+			"plane" "(1 -64 95) (0 -64 95) (0 64 95)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 1 0 3.97627] 0.25"
@@ -401,7 +401,7 @@ entity
 		side
 		{
 			"id" "55"
-			"plane" "(1 64 -64) (0 64 -64) (0 -64 -64)"
+			"plane" "(1 64 0) (0 64 0) (0 -64 0)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 1 0 3.97627] 0.25"
@@ -440,7 +440,7 @@ entity
 		side
 		{
 			"id" "78"
-			"plane" "(0 -64 7) (1 -64 7) (1 -64 -64)"
+			"plane" "(1 -64 7) (1 -64 -64) (0 -64 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -32] 0.25"
@@ -451,7 +451,7 @@ entity
 		side
 		{
 			"id" "77"
-			"plane" "(0 64 -64) (1 64 -64) (1 64 7)"
+			"plane" "(0 64 7) (0 64 -64) (1 64 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -32] 0.25"
@@ -516,7 +516,7 @@ entity
 		side
 		{
 			"id" "84"
-			"plane" "(0 64 -7) (1 64 -7) (1 64 64)"
+			"plane" "(0 64 64) (0 64 -7) (1 64 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 1 32] 0.25"
@@ -527,7 +527,7 @@ entity
 		side
 		{
 			"id" "83"
-			"plane" "(0 -64 64) (1 -64 64) (1 -64 -7)"
+			"plane" "(1 -64 64) (1 -64 -7) (0 -64 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 1 32] 0.25"
@@ -538,7 +538,7 @@ entity
 		side
 		{
 			"id" "82"
-			"plane" "(0 64 -7) (0 64 64) (0 -64 64)"
+			"plane" "(0 -64 64) (0 -64 -7) (0 64 -7)"
 			"material" "BEE2/REX/BEAM_FIELD_TOGGLE"
 			"uaxis" "[0 0 -1 -8] 1"
 			"vaxis" "[0 1 0 -64] 1"
@@ -549,7 +549,7 @@ entity
 		side
 		{
 			"id" "81"
-			"plane" "(1 -64 -7) (1 -64 64) (1 64 64)"
+			"plane" "(1 64 64) (1 64 -7) (1 -64 -7)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 -1 -32] 0.25"
 			"vaxis" "[0 -1 0 3.97644] 0.25"
