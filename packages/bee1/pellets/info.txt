@@ -97,6 +97,20 @@
 				"Base"   "BEE2_CLEAN"
 				"Config" "catcher_p1.cfg"
 				}
+			"BEE2_OVERGROWN"
+				{
+				"Base"  "BEE2_CLEAN"
+				"Replace"
+					{
+					"PACK_PELLET_CATCHER_TIM_CLEAN" "PACK_PELLET_CATCHER_TIM_DIRTY"
+					"PACK_PELLET_CATCHER_CLEAN"     "PACK_PELLET_CATCHER_INF_DIRTY"
+					}
+				"Instances"
+					{
+					"bee2_perm"  "instances/BEE2/over/items/BEE/hep/catcher_perm.vmf"
+					"bee2_timed" "instances/BEE2/over/items/BEE/hep/catcher_timed.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -145,7 +159,12 @@
 "PackList"
 	{
 	"ID"     "PACK_PELLET_LAUNCHER_CLEAN"
-	"Config" "launcher"
+	"Config"
+		{
+		"" "models/props/clean/combine_ball_launcher.mdl"
+		"" "materials/models/props/c_ball_launcher_clean.vmt"
+		"" "materials/models/props/combine_ball_launcher_clean.vtf"
+		}
 	}
 	
 "PackList"
