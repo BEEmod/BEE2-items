@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "955"
+	"editorbuild" "7378"
+	"mapversion" "969"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "955"
+	"mapversion" "969"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -10778,7 +10778,7 @@ entity
 	"duration" "2"
 	"frequency" "2.5"
 	"radius" "500"
-	"targetname" "a00_elevator_p1_p2_shake"
+	"targetname" "elev_shake"
 	"origin" "96.9698 671.576 -1052.41"
 	editor
 	{
@@ -10839,8 +10839,9 @@ entity
 	"rendermode" "0"
 	"spawnflags" "651"
 	"speed" "0"
+	"StartSound" "BEE2.P1.elev_start"
 	"startspeed" "65"
-	"StopSound" "eli_lab.elevator_stop"
+	"StopSound" "BEE2.P1.elev_stop"
 	"target" "track_elevator_p1_middle"
 	"targetname" "elevator_body_middle"
 	"velocitytype" "0"
@@ -11213,8 +11214,10 @@ entity
 	"id" "173955"
 	"classname" "prop_dynamic"
 	"angles" "0 315 0"
+	"DefaultAnim" "idle_closed"
 	"fademindist" "-1"
 	"fadescale" "1"
+	"HoldAnimation" "1"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props/round_elevator_doors.mdl"
@@ -11224,7 +11227,7 @@ entity
 	"skin" "0"
 	"solid" "6"
 	"targetname" "elevator_door_model_middle"
-	"origin" "96.9698 671.576 -1104.17"
+	"origin" "97 671.5 -1104.17"
 	editor
 	{
 		"color" "220 30 220"
@@ -11249,7 +11252,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "96.9228 816.576 -449.174"
+	"origin" "96.9228 816.576 -448.174"
 	editor
 	{
 		"color" "255 255 0"
@@ -11310,101 +11313,6 @@ entity
 }
 entity
 {
-	"id" "173978"
-	"classname" "trigger_once"
-	"origin" "98.97 691.57 -397.17"
-	"spawnflags" "4097"
-	"StartDisabled" "0"
-	connections
-	{
-		"OnStartTouch" "@glados_cave1FireUser20-1"
-	}
-	solid
-	{
-		"id" "173979"
-		side
-		{
-			"id" "30224"
-			"plane" "(-11.0302 795.576 -317.174) (208.97 795.576 -317.174) (208.97 587.576 -317.174)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 -1.6947] 0.25"
-			"vaxis" "[-1 0 0 3.87909] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "30223"
-			"plane" "(208.97 795.576 -477.174) (-11.0302 795.576 -477.174) (-11.0302 587.576 -477.174)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 -1.6947] 0.25"
-			"vaxis" "[-1 0 0 3.87909] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "30222"
-			"plane" "(-11.0302 795.576 -477.174) (208.97 795.576 -477.174) (208.97 795.576 -317.174)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 -3.87909] 0.25"
-			"vaxis" "[0 0 -1 -4.69629] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "30221"
-			"plane" "(208.97 587.576 -477.174) (-11.0302 587.576 -477.174) (-11.0302 587.576 -317.174)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 -3.87909] 0.25"
-			"vaxis" "[0 0 -1 -4.69629] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "30220"
-			"plane" "(208.97 795.576 -477.174) (208.97 587.576 -477.174) (208.97 587.576 -317.174)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 -1.6947] 0.25"
-			"vaxis" "[0 0 -1 -4.69629] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "30219"
-			"plane" "(-11.0302 587.576 -477.174) (-11.0302 795.576 -477.174) (-11.0302 795.576 -317.174)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 -1.6947] 0.25"
-			"vaxis" "[0 0 -1 -4.69629] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 0]"
-	}
-}
-entity
-{
 	"id" "173981"
 	"classname" "trigger_once"
 	"origin" "96.97 657.57 -1062.67"
@@ -11414,10 +11322,8 @@ entity
 	connections
 	{
 		"OnStartTouch" "elevator_body_middleStartForward1-1"
-		"OnStartTouch" "@elevator_door_model_closeTrigger0-1"
-		"OnStartTouch" "elevator_beamTurnOff0-1"
-		"OnStartTouch" "a00_elevator_p1_p2_shakeStartShake1-1"
-		"OnStartTouch" "tc00_elevator_startPlaySound1-1"
+		"OnStartTouch" "elev_shakeStartShake1-1"
+		"OnTrigger" "elevator_door_model_middleEnableCollision0-1"
 	}
 	solid
 	{
@@ -11526,55 +11432,12 @@ entity
 }
 entity
 {
-	"id" "173990"
-	"classname" "ambient_generic"
-	"health" "10"
-	"message" "BEE2.P1.elev_stop"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"SourceEntityName" "elevator_body_model"
-	"spawnflags" "48"
-	"targetname" "tc00_elevator_stop"
-	"origin" "112.97 687.576 -1057.17"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 5000]"
-	}
-}
-entity
-{
-	"id" "173993"
-	"classname" "ambient_generic"
-	"health" "10"
-	"message" "BEE2.P1.elev_start"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"SourceEntityName" "elevator_body_model"
-	"spawnflags" "48"
-	"targetname" "tc00_elevator_start"
-	"origin" "128.97 687.576 -1057.17"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 4500]"
-	}
-}
-entity
-{
 	"id" "173996"
 	"classname" "logic_relay"
 	"targetname" "elevator_door_model_open"
 	connections
 	{
 		"OnTrigger" "elevator_door_model_middleSetAnimationopen0-1"
-		"OnTrigger" "elevator_door_model_middleSetDefaultAnimation0-1"
 		"OnTrigger" "elevator_door_model_middleDisableCollision0-1"
 	}
 	"origin" "55.4098 723.836 -497.174"
@@ -11595,9 +11458,7 @@ entity
 	connections
 	{
 		"OnTrigger" "elevator_door_model_middleSetAnimationclose0-1"
-		"OnTrigger" "elevator_door_model_middleSetDefaultAnimationidle_closed0-1"
 		"OnTrigger" "elevator_door_model_middleEnableCollision0-1"
-		"OnTrigger" "tc00_elevator_stopPlaySound0-1"
 	}
 	"origin" "127.4 723.206 -497.174"
 	editor
@@ -11620,7 +11481,6 @@ entity
 		"OnTrigger" "elevator_body_middleStop0-1"
 		"OnTrigger" "elevator_door_model_openTrigger1-1"
 		"OnTrigger" "tc00_elevator_chimePlaySound1-1"
-		"OnTrigger" "tc00_elevator_stopPlaySound0-1"
 	}
 	"origin" "94.4498 724.526 -479.854"
 	editor
@@ -11670,23 +11530,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "158552"
-	"classname" "shadow_control"
-	"angles" "90 0 0"
-	"color" "128 128 128"
-	"distance" "75"
-	"enableshadowsfromlocallights" "1"
-	"origin" "64 864 -450.652"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1500 5500]"
 	}
 }
 entity
@@ -16995,8 +16838,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[104.548 713.452 -995.692]"
-		"look" "[104.042 718.268 -1058.63]"
+		"position" "[136.677 759.736 -1022.93]"
+		"look" "[112.292 703.919 -1039.47]"
 	}
 	camera
 	{

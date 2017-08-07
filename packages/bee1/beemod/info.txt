@@ -27,13 +27,18 @@
 		}
 	}
 	
-"StyleVar"
+"ConfigGroup"
 	{
-	"ID"	"BEE_SHOW_TRIGGER"
-	"Name"	"Show Triggers ingame"
-	"Description" "Show transparent overlays of triggers when in preview mode. These never appear in the published maps."
-	"Unstyled"	"1"
-	"Enabled"	"0"
+	"ID"    "BEEMOD"
+	"Name"  "BEEmod"
+	"Widget"
+		{
+		"ID"	  "SHOW_TRIGGER"
+		"Label"   "Show Triggers ingame"
+		"Tooltip" "Show transparent overlays of triggers when in preview mode. These never appear in the published maps."
+		"Type"    "Checkbox"
+		"Default" "0"
+		}
 	}
 	
 "PackList"
@@ -54,13 +59,170 @@
 		"Styles"
 			{
 			"BEE2_CLEAN"    "drawbridge"
-			"BEE2_1950s"    "drawbridge_50s"
-			"BEE2_1970s"    "drawbridge_70s"
-			"BEE2_1980s"    "drawbridge_80s"
-			"BEE2_PORTAL_1" "drawbridge_p1"
+			"BEE2_1950s"
+				{
+				"Folder" "drawbridge"
+				"Config" "drawbridge_50s.cfg"
+				"Instances"
+					{
+					"0"
+						{
+						"Name"				"instances/BEE2/50s/items/bee/drawbridge/white.vmf"
+						"EntityCount"		"12"
+						"BrushCount"		"5"
+						"BrushSideCount"	"32"
+						}
+					"1"
+						{
+						"Name"				"instances/BEE2/50s/items/bee/drawbridge/black.vmf"
+						"EntityCount"		"12"
+						"BrushCount"		"5"
+						"BrushSideCount"	"32"
+						}
+					"pan_logic"  "instances/BEE2/50s/items/bee/drawbridge/logic.vmf"
+					
+					"pan_rope_floor" "instances/BEE2/50s/items/bee/drawbridge/rope_floor.vmf"
+					"pan_rope_wall"  "instances/BEE2/50s/items/bee/drawbridge/rope_wall.vmf"
+					
+					"static_up"      "instances/BEE2/50s/items/bee/drawbridge/static_up.vmf"
+					"static_down"    "instances/BEE2/50s/items/bee/drawbridge/static_down.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"0"
+						{
+						"Name"				"instances/BEE2/70s/items/bee/drawbridge/white.vmf"
+						"EntityCount"		"12"
+						"BrushCount"		"5"
+						"BrushSideCount"	"32"
+						}
+					"1"
+						{
+						"Name"				"instances/BEE2/70s/items/bee/drawbridge/black.vmf"
+						"EntityCount"		"12"
+						"BrushCount"		"5"
+						"BrushSideCount"	"32"
+						}
+					"pan_logic"      "instances/BEE2/70s/items/bee/drawbridge/logic.vmf"
+					
+					"static_up"      "instances/BEE2/70s/items/bee/drawbridge/static_up.vmf"
+					"static_down"    "instances/BEE2/70s/items/bee/drawbridge/static_down.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Config" "drawbridge_80s.cfg" // 80s doesn't use ropes.
+				"Instances"
+					{
+					"0"
+						{
+						"Name"				"instances/BEE2/80s/items/bee/drawbridge/white.vmf"
+						"EntityCount"		"12"
+						"BrushCount"		"5"
+						"BrushSideCount"	"32"
+						}
+					"1"
+						{
+						"Name"				"instances/BEE2/80s/items/bee/drawbridge/black.vmf"
+						"EntityCount"		"12"
+						"BrushCount"		"5"
+						"BrushSideCount"	"32"
+						}
+					"pan_logic"      "instances/BEE2/80s/items/bee/drawbridge/logic.vmf"
+					
+					"static_up"      "instances/BEE2/80s/items/bee/drawbridge/static_up.vmf"
+					"static_down"    "instances/BEE2/80s/items/bee/drawbridge/static_down.vmf"
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "drawbridge"
+				"Config" "drawbridge_80s.cfg" // 80s doesn't use ropes.
+				"Instances"
+					{
+					"0"
+						{
+						"Name"              "instances/BEE2/p1/items/bee/drawbridge/white.vmf"
+						"EntityCount"       "12"
+						"BrushCount"        "5"
+						"BrushSideCount"    "32"
+						}
+					"1"
+						{
+						"Name"              "instances/BEE2/p1/items/bee/drawbridge/black.vmf"
+						"EntityCount"       "12"
+						"BrushCount"        "5"
+						"BrushSideCount"    "32"
+						}
+					"pan_logic" "instances/BEE2/p1/items/bee/drawbridge/logic.vmf"
+					
+					"static_up"     "instances/BEE2/p1/items/bee/drawbridge/static_up.vmf"
+					"static_down"   "instances/BEE2/p1/items/bee/drawbridge/static_down.vmf"
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "drawbridge"
+				"Description" "In Overgrown Style, the surface is missing many of the tiles. Set **Start Reversed** to force it to be whole."
+				"Instances"
+					{
+					"bee2_logic"  "instances/BEE2/over/items/bee/drawbridge.vmf"
+					}
+				"Replace"
+					{
+					"BEE_DRAW_BRIDGE_CLEAN" "$template"
+					"visgroup_chance" "60%"
+					}
+				"Append"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"Priority" "-5"
+							"instance" "<ITEM_DRAW_BRIDGE>"
+							"Condition"
+								{
+								"instvar" "$start_reversed = 1"
+								// Clean doesn't have visgroups, so random has no effect
+								"Result"
+									{
+									"setinstvar" "$template BEE_DRAW_BRIDGE_CLEAN"
+									}
+								"Else"
+									{
+									"setinstvar" "$template BEE_DRAW_BRIDGE_OVER"
+									}
+								}
+							"Result"
+								{
+								"PackFile" "models/BEE2/props_overgrown/angled_pan.mdl"
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE_DRAW_BRIDGE_CLEAN"
+	"file" "drawbridge_clean.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE_DRAW_BRIDGE_OVER"
+	"file" "drawbridge_over.vmf"
+	}
+	
 "BrushTemplate"
 	{
 	"ID"   "BEE2_P1_DRAWBRIDGE_DOWN"
@@ -72,6 +234,7 @@
 	"file" "drawbridge_p1_up.vmf"
 	}
 	
+
 "Item"
 	{
 	"ID"       "ITEM_LIGHT_PANEL_WARM"
@@ -177,9 +340,37 @@
 			"BEE2_CLEAN"        "door"
 			"BEE2_BTS"          "door_bts"
 			"BEE2_PORTAL_1"     "door_p1"
-			"BEE2_1950s"        "door_50s"
-			"BEE2_1970s"        "door_70s"
-			"BEE2_1980s"        "door_80s"
+			"BEE2_1950s"        "door_retro"
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "under_door_bee_70s.mdl"
+						}
+					}
+				"Instances"
+					{
+					"bee2_trim" "instances/BEE2/70s/items/bee/door_trim.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "under_door_bee_80s.mdl"
+						}
+					}
+				"Instances"
+					{
+					"bee2_trim" "instances/BEE2/80s/items/bee/door_trim.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -197,7 +388,7 @@
 		{
 		"channel" "CHAN_AUTO"
 		"soundlevel" "SNDLVL_NONE"
-		"volume"	"0.9, 0.95"
+		"volume"	"0.5"
 		"pitch"		"90, 100"
 		"rndwave"
 		{
@@ -230,7 +421,7 @@
 		{
 		"channel" "CHAN_AUTO"
 		"soundlevel" "SNDLVL_NONE"
-		"pitch"		"95,105"
+		"volume"	"0.5"
 		"rndwave"
 		{
 			"wave"		"world\crusher_separate_01.wav"

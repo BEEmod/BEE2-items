@@ -164,6 +164,28 @@
 		}
 	}
 	
+"ConfigGroup"
+	{
+	"ID"    "BEE2_OLD_APERTURE"
+	"Name"  "Old Aperture"
+	"Widget"
+		{
+		"ID"	  "VARIANT_OBS_ROOM"
+		"Label"   "Obs Room"
+		"Tooltip" "Old Aperture Observation Rooms are grating showing the exterior of the Enrichment Sphere. The alternate version is a normal office."
+		"Type"    "ItemVariant"
+		"ItemID"  "ITEM_OBSERVATION_ROOM"
+		}
+	"Widget"
+		{
+		"ID"	  "VARIANT_FAITH_PLATE"
+		"Label"   "Faith Plate"
+		"Tooltip" "Faith Plates are replaced by specially-shaped blobs of Repulsion Gel. The alternate version is a mechanical catapult."
+		"Type"    "ItemVariant"
+		"ItemID"  "ITEM_CATAPULT"
+		}
+	}
+	
 
 "SkyBox"
 	{
@@ -321,13 +343,25 @@
 	"CaveSkin"      "3"
 	}
 	
-"StyleVar"
+"Overrides"
 	{
-	"ID"          "RestartOnExit"
-	"Enabled"     "1"
-	"Name"        "Resart When Reaching Exit"
-	"Description" "Automatically restart the map once the player(s) have reached the exit."
-	"Style"       "BEE2_1950s"
+	"StyleVar"
+		{
+		"ID"    "RestartOnExit"
+		"Style" "BEE2_1950s"
+		"Style" "BEE2_1960s"
+		"Style" "BEE2_1970s"
+		"Style" "BEE2_1980s"
+		}
+			
+	"StyleVar"
+		{
+		"ID"    "BlockPlayerGelBomb"
+		"Style" "BEE2_1950s"
+		"Style" "BEE2_1960s"
+		"Style" "BEE2_1970s"
+		"Style" "BEE2_1980s"
+		}
 	}
 
 "StyleVar"
@@ -713,18 +747,6 @@
 
 	}
 	
-// Fixed Salt Mine textures with non-broken cubemap
-"PackList"
-	{
-	"ID" "BEE2_SALT_MINES_DISP"
-	"AddIfMat" "BEE2/cave_blend_white"
-	"AddIfMat" "BEE2/cave_blend_brown"
-	"Config"
-		{
-		"" "materials/BEE2/cubemap_cave01.vtf"		
-		}
-	}
-	
 "PackList"
 	{
 	// Fixed version of the broken neon signs using UnLitGeneric
@@ -855,6 +877,82 @@
 		"File" "materials/BEE2/50s/ball_dropper.vtf"
 		}
 	}
+	
+"PackList"
+	{
+	"ID"       "PACK_BEE2_SHAPE_SIGN_FRAME_RETRO_1"
+	"AddIfMat" "BEE2/signage_frame/frame_blue_retro"
+	"Config"
+		{
+		"File" "materials/BEE2/signage_frame/frame_blue_retro.vtf"
+		}
+	}
+"PackList"
+	{
+	"ID"       "PACK_BEE2_SHAPE_SIGN_FRAME_RETRO_2"
+	"AddIfMat" "BEE2/signage_frame/frame_oran_retro"
+	"Config"
+		{
+		"File" "materials/BEE2/signage_frame/frame_oran_retro.vtf"
+		}
+	}
+
+// There are 10 shapes, used in this order.
+// Pack them in these sets, so only the used ones are added.
+// It's not common to need more than 5, so in that case pack them all.
+"PackList"
+	{
+	"ID"       "PACK_BEE2_50S_SHAPE_1"
+	"AddIfMat" "BEE2/50s/signage_shape/cross"
+	"Config"
+		{		
+		"File" "materials/BEE2/50s/signage_shape/cross.vtf"
+		}
+	}
+		
+"PackList"
+	{
+	"ID"       "PACK_BEE2_50S_SHAPE_2"
+	"AddIfMat" "BEE2/50s/signage_shape/square"
+	"AddIfMat" "BEE2/50s/signage_shape/dot"
+	"Config"
+		{
+		"File" "materials/BEE2/50s/signage_shape/square.vtf"
+		"File" "materials/BEE2/50s/signage_shape/dot.vtf"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BEE2_50S_SHAPE_3"
+	"AddIfMat" "BEE2/50s/signage_shape/moon"
+	"AddIfMat" "BEE2/50s/signage_shape/slash"
+	
+	"Config"
+		{
+		"File" "materials/BEE2/50s/signage_shape/moon.vtf"
+		"File" "materials/BEE2/50s/signage_shape/slash.vtf"
+		}
+	}
+	
+"PackList"
+	{	
+	"ID" "PACK_BEE2_50S_SHAPE_4"
+	"AddIfMat" "BEE2/50s/signage_shape/triangle"
+	"AddIfMat" "BEE2/50s/signage_shape/sine"
+	"AddIfMat" "BEE2/50s/signage_shape/star"
+	"AddIfMat" "BEE2/50s/signage_shape/wavy"
+	"AddIfMat" "BEE2/50s/signage_shape/circle"
+	"Config"
+		{
+		"File" "materials/BEE2/50s/signage_shape/sine.vtf"
+		"File" "materials/BEE2/50s/signage_shape/triangle.vtf"
+		"File" "materials/BEE2/50s/signage_shape/star.vtf"
+		"File" "materials/BEE2/50s/signage_shape/wavy.vtf"
+		"File" "materials/BEE2/50s/signage_shape/circle.vtf"
+		}
+	}
+
 
 "PackList"
 	{
@@ -888,11 +986,12 @@
 	"Config"
 		{
 		"File" "models/BEE2/props_ingame/retro_cust_fizz.mdl"
-		"File" "materials/BEE2/models/props_ingame/under_cust_fizz/light.vmt"
-		"File" "materials/BEE2/models/props_ingame/under_cust_fizz/frame.vmt"
-		"File" "materials/BEE2/models/props_ingame/under_cust_fizz/coils.vtf"
+		"File" "materials/BEE2/models/props_underground/cust_fizz/light.vmt"
+		"File" "materials/BEE2/models/props_underground/cust_fizz/frame.vmt"
+		"File" "materials/BEE2/models/props_underground/cust_fizz/coils.vtf"
 		}
 	}
+
 	
 "PackList"
 	{
@@ -936,6 +1035,20 @@
 		{
 		"File" "models/BEE2/props_underground/track_plat_vert.mdl"
 		"File" "materials/BEE2/models/props_underground/metalwall_bts_005a.vmt"
+		"File" "materials/BEE2/models/props_underground/factory_metal_floor001a.vmt"
+		}
+	}
+
+"Pack"
+	{
+	"ID" "PACK_RETRO_PIST_PLAT"
+	"Config"
+		{
+		"File" "models/BEE2/props_underground/piston_base.mdl"
+		"File" "models/BEE2/props_underground/piston_mid.mdl"
+		"File" "models/BEE2/props_underground/piston_top.mdl"
+		"File" "models/BEE2/props_underground/piston_plat.mdl"
+		"File" "materials/BEE2/models/props_underground/metalbeam_bts_001c.vmt"
 		"File" "materials/BEE2/models/props_underground/factory_metal_floor001a.vmt"
 		}
 	}
@@ -1137,6 +1250,36 @@
 	"Config"
 		{
 		"File" "materials/BEE2/world/signage_bridge.vtf"
+		} 
+	}
+	
+// A model with additional faces to fill holes in the dropper, and work properly on pillars.
+"PackList"
+	{
+	"ID" "PACK_BEE2_RETRO_CUBE_DROPPER"
+	"Config"
+		{
+		"" "models/BEE2/props_underground/dropper_fix.mdl"
+		}
+	}
+	
+// 1 Fling_support with fixed origin
+"PackList"
+	{
+	"ID" "PACK_BEE2_RETRO_FLING_SUPPORT_SINGLE"
+	"Config"
+		{
+		"" "models/BEE2/props_underground/fling_support_single.mdl"
+		}
+	}
+	
+// 1/2 size of above
+"PackList"
+	{
+	"ID" "PACK_BEE2_RETRO_FLING_SUPPORT_SINGLE_SMALL"
+	"Config"
+		{
+		"" "models/BEE2/props_underground/fling_support_single_sml.mdl"
 		}
 	}
 	
@@ -1164,7 +1307,13 @@
 	"Config" "rusty_ball"
 	}
 	
-	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CUBE_DROPPER_RETRO_CAP"
+	"File"  "dropper_cap.vmf"
+	}
+
+
 "PackList"
 	{
 	// The track-platform track model, but resized to 128.
@@ -1582,8 +1731,67 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"cube_50s"
-				"BEE2_1980s"		"cube_80s"
+				"BEE2_1950s"    "cube"
+				"BEE2_1980s"
+					{
+					"Base" "BEE2_1950s"
+					"Description"
+						{
+						"" "In the 1980s era, cubes are now the modern designs, although the cube dropper is still old."
+						}
+					"Config" "cube_80s.cfg"
+					"Palette"
+						{
+						"0"
+							{
+							"icon" "palette/cube.png"
+							"bee2" "clean/cube.png"
+							"Models"
+								{
+								"" "cube.3ds"
+								"" "cube_falling.3ds"
+								}
+							}
+						"1"
+							{
+							"icon" "palette/companion_cube.png"
+							"bee2" "clean/companion_cube.png"
+							"Models"
+								{
+								"" "cubecompanion.3ds"
+								"" "companion_cube_falling.3ds"
+								}
+							}
+						"all"
+							{
+							"bee2"	    "clean/cubes.png"
+							"pal_name"  "PORTAL2_PuzzleEditor_Palette_weighted_cube"
+							"icon"		"palette/grouped/cubes.png"
+							}
+						}
+					"Instances"
+						{
+						"0"
+							{
+							"Name"			"instances/BEE2/80s/items/cube/standard.vmf"
+							"EntityCount"	"4"
+							}
+						"1"
+							{
+							"Name"			"instances/BEE2/80s/items/cube/companion.vmf"
+							"EntityCount"	"4"
+							}
+						"4"
+							{
+							"Name"			"instances/BEE2/80s/items/cube/monster.vmf"
+							"EntityCount"	"4"
+							}
+						
+						"dropper_standard"  "instances/BEE2/80s/items/cube/drp_standard.vmf"
+						"dropper_companion" "instances/BEE2/80s/items/cube/drp_companion.vmf"
+						"dropper_franken"   "instances/BEE2/80s/items/cube/drp_monster.vmf"
+						}
+					}
 				}
 			}
 		}
@@ -1657,8 +1865,9 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"funnel_50s"
-				"BEE2_1970s"		"funnel_70s"
+				"BEE2_1950s"    "funnel_50s"
+				"BEE2_1970s"    "funnel_70s"
+				"BEE2_1980s"    "<BEE2_CLEAN>"
 				}
 			}
 		}

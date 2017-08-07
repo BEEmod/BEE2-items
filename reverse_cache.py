@@ -120,9 +120,12 @@ def do_folder(path):
             else:
                 do_folder(package_path)
 
-def check_extra(game_subfolder, set_prefix):
+def check_extra(game_subfolder, set_prefix, skip_folder=''):
     full_folder = os.path.join(GAME_FOLDER, game_subfolder)
     for base, dirs, files in os.walk(full_folder):
+        if skip_folder and base == full_folder and skip_folder in dirs:
+            dirs.remove(skip_folder)
+            
         for file in files:
             if file[-3:] in SKIPPED_EXTENSIONS:
                 continue
@@ -134,8 +137,9 @@ def check_extra(game_subfolder, set_prefix):
                 ))
                 dest = os.path.join(EXTRA_FILE_LOC, set_prefix, rel_path)
                 os.makedirs(os.path.dirname(dest), exist_ok=True)
+                # Make it a symlink, easy to delete and create.
                 shutil.copy(full_path, dest)
-
+                
 if __name__ == '__main__':
     do_folder(os.path.join(os.getcwd(), 'packages'))
     print('Cleaning extra_files\\!')
@@ -143,7 +147,8 @@ if __name__ == '__main__':
     print('Done!')
     check_extra('bee2_dev\\models\\', 'models')
     check_extra('bee2_dev\\materials\\', 'materials')
-    check_extra('bee2_dev\\sound\\', 'sound')
+    # Skip the Mel and Tag music.
+    check_extra('bee2_dev\\sound\\', 'sound', skip_folder='music')
     check_extra('bee2_dev\\scripts\\', 'scripts')
     check_extra('bee2_dev\\particles\\', 'particles')
     check_extra('sdk_content\\maps\\instances\\bee2', 'instances')

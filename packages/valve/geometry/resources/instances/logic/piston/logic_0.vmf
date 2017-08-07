@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "336"
+	"editorbuild" "7378"
+	"mapversion" "339"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,13 +32,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "336"
+	"mapversion" "339"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -47,12 +47,12 @@ world
 	"skyname" "sky_black_nofog"
 	solid
 	{
-		"id" "4066"
+		"id" "4146"
 		side
 		{
-			"id" "494"
-			"plane" "(-64 64 -64) (64 64 -64) (64 -64 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"id" "506"
+			"plane" "(-64 -64 -64) (-64 64 -64) (64 64 -64)"
+			"material" "TOOLS/TOOLSHINT"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
@@ -61,9 +61,9 @@ world
 		}
 		side
 		{
-			"id" "493"
-			"plane" "(-48 -48 -96) (48 -48 -96) (48 48 -96)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"id" "505"
+			"plane" "(-60 60 -68) (-60 -60 -68) (60 -60 -68)"
+			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
@@ -72,9 +72,9 @@ world
 		}
 		side
 		{
-			"id" "492"
-			"plane" "(-48 48 -96) (-64 64 -64) (-64 -64 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"id" "504"
+			"plane" "(-60 -60 -68) (-60 60 -68) (-64 64 -64)"
+			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -83,9 +83,9 @@ world
 		}
 		side
 		{
-			"id" "491"
-			"plane" "(48 -48 -96) (64 -64 -64) (64 64 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"id" "503"
+			"plane" "(60 60 -68) (60 -60 -68) (64 -64 -64)"
+			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -94,9 +94,9 @@ world
 		}
 		side
 		{
-			"id" "490"
-			"plane" "(48 48 -96) (64 64 -64) (-64 64 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"id" "502"
+			"plane" "(-60 60 -68) (60 60 -68) (64 64 -64)"
+			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -105,9 +105,9 @@ world
 		}
 		side
 		{
-			"id" "489"
-			"plane" "(-48 -48 -96) (-64 -64 -64) (64 -64 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"id" "501"
+			"plane" "(60 -60 -68) (-60 -60 -68) (-64 -64 -64)"
+			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -116,113 +116,10 @@ world
 		}
 		editor
 		{
-			"color" "0 198 135"
+			"color" "0 178 187"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
-	}
-}
-entity
-{
-	"id" "4162"
-	"classname" "trigger_portal_cleanser"
-	"drawinfastreflection" "0"
-	"origin" "0 0 -68"
-	"parentname" "lift_platform"
-	"spawnflags" "10"
-	"StartDisabled" "1"
-	"targetname" "port_fizz"
-	"thinkfunction" "Think"
-	"UseScanline" "0"
-	"Visible" "0"
-	"vscripts" "bee2/piston_fizzler.nut"
-	connections
-	{
-		"OnDissolve" "!activatorFireUser20-1"
-	}
-	solid
-	{
-		"id" "4163"
-		side
-		{
-			"id" "488"
-			"plane" "(64 -64 -62) (-64 -64 -62) (-64 64 -62)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 9.55678] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "487"
-			"plane" "(64 64 -74) (-64 64 -74) (-64 -64 -74)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 9.55678] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "486"
-			"plane" "(-64 64 -74) (64 64 -74) (64 64 -62)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -6.9456] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "485"
-			"plane" "(64 -64 -74) (-64 -64 -74) (-64 -64 -62)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -6.9456] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "484"
-			"plane" "(64 64 -74) (64 -64 -74) (64 -64 -62)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 9.55678] 0.25"
-			"vaxis" "[0 0 -1 -6.9456] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "483"
-			"plane" "(-64 -64 -74) (-64 64 -74) (-64 64 -62)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 9.55678] 0.25"
-			"vaxis" "[0 0 -1 -6.9456] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "30"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 6000]"
 	}
 }
 entity
@@ -242,7 +139,7 @@ entity
 	"origin" "0 32 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 11500]"
@@ -362,7 +259,7 @@ entity
 	"origin" "-32 -32 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "28"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -573,7 +470,7 @@ entity
 {
 	"id" "3063"
 	"classname" "trigger_multiple"
-	"filtername" "@isbox"
+	"filtername" "@is_mbox"
 	"origin" "0 0 -24"
 	"parentname" "lift_platform"
 	"spawnflags" "4104"
@@ -700,7 +597,7 @@ entity
 	"origin" "0 -32 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "28"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -726,7 +623,7 @@ entity
 	"origin" "32 32 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "28"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -776,7 +673,7 @@ entity
 	"origin" "-32 32 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "28"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -797,7 +694,7 @@ entity
 	"origin" "32 -32 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "28"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"

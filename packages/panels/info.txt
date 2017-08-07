@@ -1,0 +1,145 @@
+"ID"		"BEE2_EXTRA_PANELS"
+"Name"		"Panel Items"
+"Desc"      "Additional Panel variants."
+
+"Item"
+	{
+	"ID" "ITEM_TSPEN_PANEL_HALF_STATIC"
+	"Description"
+		{
+		"" "A half-block long surface sticking out of the wall. It is supported by panel arms.  "
+		"" "Set `Start Reversed` to invert the color of the surface."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"        "half_panel_clean"
+			"BEE2_OVERGROWN"    "half_panel_over"
+			"BEE2_PORTAL_1"     "half_panel_p1"
+			"BEE2_1950s"        "half_panel_50s"
+			"BEE2_1970s"        "half_panel_70s"
+			"BEE2_1980s"        "half_panel_80s"
+			}
+		}
+	}
+
+"BrushTemplate"
+	{
+	"ID" "BEE2_HALF_PANEL_TOP_CLEAN"
+	"File" "half_panel_clean.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID" "BEE2_HALF_PANEL_TOP_P1"
+	"File" "half_panel_p1.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID" "BEE2_HALF_PANEL_TOP_50S"
+	"File" "half_panel_50s.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID" "BEE2_HALF_PANEL_TOP_80S"
+	"File" "half_panel_80s.vmf"
+	}
+	
+// Glass Door
+
+"Item"
+	{
+	"ID" "ITEM_BEE2_PANEL_GLASS_DOOR"
+	"Description"
+		{
+		"" "A separated glass door like in coop maps, for between-chamber doors."
+		"" ""
+		"" "* Only occupies half of a voxel centered."
+		"" "* Put it on the ceiling to make the antlines connect better."
+		"" "* The other half of both sides is always non-portalable."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"    "glass_door"
+			"BEE2_OVERGROWN"
+				{
+				"Base" "BEE2_CLEAN"
+				"Config" "glass_door_over.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/over/items/glass_door.vmf"
+					}
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "bee2_glass_door_shattered.mdl"
+						}
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Config"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"instance" "<ITEM_BEE2_PANEL_GLASS_DOOR>"
+							"Result"
+								{
+								"TemplateBrush"
+									{
+									"ID" "BEE2_GLASS_DOOR_CLEAN"
+									}
+								"Pack" "PACK_P1_METAL_LIFT"
+								"Pack" "PACK_P1_PIST_MOVE_SOUNDS"
+								"Pack" "PACK_P1_PANEL_CYLINDER"
+								}
+							}
+						}
+					}
+				"Base" "BEE2_CLEAN"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/glass_door.vmf"
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Config" "glass_door_retro.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/glass_door.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Config" "glass_door_retro.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/70s/items/glass_door.vmf"
+					}
+				}
+			}
+		}
+	}
+
+"BrushTemplate"
+	{
+	"ID" "BEE2_GLASS_DOOR_CLEAN"
+	"File" "glass_door.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID" "BEE2_GLASS_DOOR_RETRO"
+	"File" "glass_door_retro.vmf"
+	}

@@ -112,13 +112,19 @@
 	"Style"         "BEE2_PORTAL_1"
 	}
 	
-"StyleVar"
+"Overrides"
 	{
-	"ID"          "RestartOnExit"
-	"Enabled"     "1"
-	"Name"        "Resart When Reaching Exit"
-	"Description" "Automatically restart the map once the player(s) have reached the exit."
-	"Style"       "BEE2_PORTAL_1"
+	"StyleVar"
+		{
+		"ID"    "RestartOnExit"
+		"Style" "BEE2_PORTAL_1"
+		}
+		
+	"StyleVar"
+		{
+		"ID"    "BlockPlayerGelBomb"
+		"Style" "BEE2_PORTAL_1"
+		}
 	}
 	
 "PackList"
@@ -154,6 +160,18 @@
 	{
 	"ID"     "PACK_P1_CUBE"
 	"Config" "cube"
+	}
+	
+// HMW's laser cube, from Try Anything Twice.
+"PackList"
+	{
+	"ID" "PACK_P1_HMW_LASER_CUBE"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/change_models.nut"
+		"" "models/BEE2/props_p1/hmw_laser_cube.mdl"
+		"" "materials/BEE2/models/props_p1/hmw_laser_cube/*" 
+		}
 	}
 	
 "PackList"
@@ -251,6 +269,7 @@
 		"File" "#scripts/bee2_snd/portal_sounds.txt"
 		"File" "sound/BEE2/p1/wall_move5.wav"
 		"File" "sound/BEE2/p1/garage_stop1.wav"
+		"File" "sound/BEE2/p1/doorstop1.wav"
 		}
 	}
 	
@@ -343,13 +362,23 @@
 	"ID" "PACK_P1_FLOOR_BUTTON"
 	"Config"
 		{
-		"File" "models/BEE2/props_p1/floor_button_top.mdl"
-		"File" "models/BEE2/props_p1/floor_button_base.mdl"
+		"File" "models/BEE2/props_p1/floor_button.mdl"
 		
 		"File" "materials/BEE2/models/props_p1/floor_button/p1_button.vmt"
 		"File" "materials/BEE2/models/props_p1/floor_button/base.vtf"
 		"File" "materials/BEE2/models/props_p1/floor_button/exponent.vtf"
 		"File" "materials/BEE2/models/props_p1/floor_button/normal.vtf"
+		}
+	}
+	
+// P2 cube button model with P1 button base, plus animations.
+"PackList"
+	{
+	"ID" "PACK_P1_CUBE_BUTTON"
+	"Config"
+		{
+		"" "models/BEE2/props_p1/cube_button.mdl"
+		"" "scripts/vscripts/BEE2/change_models.nut"
 		}
 	}
 	
@@ -369,6 +398,10 @@
 		"File" "materials/BEE2/models/props_p1/floor_button/base.vtf"
 		"File" "materials/BEE2/models/props_p1/floor_button/exponent.vtf"
 		"File" "materials/BEE2/models/props_p1/floor_button/normal.vtf"
+		
+		// Ball-specific sign for the base.
+		"File" "materials/BEE2/models/props_p1/floor_button/button_base_ball.vmt"
+		"File" "materials/BEE2/models/props_p1/floor_button/base_sign_ball.vtf"
 		}
 	}
 	
@@ -498,6 +531,21 @@
 		"File" "materials/BEE2/p1/metal_lift_cube.hdr.vtf"
 		}
 	}
+	
+"PackList"
+	{
+	// High-def version of white cylinders in angled panels.
+	"ID" "PACK_P1_PANEL_CYLINDER"
+	"Config"
+		{
+		"" "models/BEE2/props_p1/panel_cylinder.mdl"
+		
+		"" "materials/BEE2/p1/metalwall_bts_006a.vtf"
+		"" "materials/BEE2/models/props_p1/metalwall_bts_6.vmt"
+		"" "materials/BEE2/models/props_p1/plasticwall_1.vmt"
+		"" "materials/BEE2/models/props_p1/plasticwall_4.vmt"
+		}
+	}
 
 "PackList"
 	{
@@ -525,23 +573,25 @@
 	"Config"
 		{
 		"File"  "models/BEE2/props_p1/light_hole_small.mdl"
+		"File"  "materials/BEE2/models/props_p1/light_hole/light_blue.vtf"
 		
 		"File"  "materials/BEE2/models/props_p1/light_hole/invis.vmt"
 		
 		"File"  "materials/BEE2/models/props_p1/light_hole/wall_white.vmt"
 		"File"  "materials/BEE2/models/props_p1/light_hole/wall_orange.vmt"
-		"File"  "materials/BEE2/models/props_p1/light_hole/wall_black.vmt"
+		//"File"  "materials/BEE2/models/props_p1/light_hole/wall_black.vmt"
 		"File"  "materials/BEE2/models/props_p1/light_hole/wall_blue.vmt"
 		
 		"File"  "materials/BEE2/models/props_p1/light_hole/light_white.vmt"
 		"File"  "materials/BEE2/models/props_p1/light_hole/light_orange.vmt"
-		"File"  "materials/BEE2/models/props_p1/light_hole/light_black.vmt"
 		"File"  "materials/BEE2/models/props_p1/light_hole/light_blue.vmt"
+		//"File"  "materials/BEE2/models/props_p1/light_hole/light_black.vmt"
 		
-		"File"  "materials/BEE2/models/props_p1/light_hole/glow_white.vtf"
-		"File"  "materials/BEE2/models/props_p1/light_hole/glow_orange.vtf"
-		"File"  "materials/BEE2/models/props_p1/light_hole/glow_blue.vtf"
-		"File"  "materials/BEE2/models/props_p1/light_hole/glow_black.vtf"
+		
+		"File"  "materials/BEE2/models/props_p1/light_hole/wall_white.vtf"
+		"File"  "materials/BEE2/models/props_p1/light_hole/wall_orange.vtf"
+		"File"  "materials/BEE2/models/props_p1/light_hole/wall_blue.vtf"
+		//"File"  "materials/BEE2/models/props_p1/light_hole/wall_black.vtf"
 		}
 	}
 	
@@ -717,6 +767,61 @@
 	
 	"Item"
 		{
+		"ID" "ITEM_TURRET" 
+		"Version" 
+			{ 
+			"Styles" 
+				{ 
+				"BEE2_PORTAL_1" 
+					{ 
+					"Base" "BEE2_CLEAN" 
+				    "Config" 
+						{ 
+						"Conditions" 
+							{ 
+						"Condition" 
+								{ 
+								"Instance" "<ITEM_TURRET>" 
+								"Result" 
+									{ 
+									"PrecacheModel"  "models/BEE2/props_p1/turret_01.mdl" 
+									"Pack"           "PACK_BEE2_TURRET_P1" 
+									} 
+								} 
+							} 
+						} 
+					"Instances" 
+						{ 
+						"0" "instances/BEE2/p1/items/turret.vmf" 
+						} 
+					} 
+				} 
+			}
+		}
+	}
+
+
+"PackList"
+	{ 
+	"ID" "PACK_BEE2_TURRET_P1" 
+	"Config" 
+		{
+		"" "models/BEE2/props_p1/turret_01.mdl" 
+		// The turret doesn't have the animation, we use a brush to force it instead.
+		"" "materials/BEE2/p1/turret_off_eye.vmt" 
+		
+		// The texture and no-gel materials are in Portal 2.... 
+		"" "materials/BEE2/models/props_p1/turret/turret_bounce.vmt" 
+		"" "materials/BEE2/models/props_p1/turret/turret_speed.vmt" 
+		"" "materials/BEE2/models/props_p1/turret/turret_off_bounce.vmt" 
+		"" "materials/BEE2/models/props_p1/turret/turret_off_speed.vmt" 
+		} 
+	} 
+
+"Overrides" 
+	{ 
+	"Item" 
+		{
 		"ID" "ITEM_PANEL_STAIRS"
 		"Version"
 			{
@@ -878,7 +983,10 @@
 				}
 			}
 		}
-		
+}
+
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_LASER_EMITTER_CENTER"
@@ -912,6 +1020,33 @@
 				}
 			}
 		}
+	}
+	
+// Modified models - no back face, with extended piping.
+"PackList"
+	{
+	"ID" "PACK_BEE2_P1_LASER_EMITTER"
+	"Config"
+		{
+		"" "models/BEE2/props_p1/laser_emitter.mdl"
+		"" "materials/BEE2/models/props_p1/laser_pipe_glow.vmt"
+		"" "materials/BEE2/models/props_p1/laser_pipe_glow.vtf"
+		}
+	}
+"PackList"
+	{
+	"ID" "PACK_BEE2_P1_LASER_CATCHER"
+	"Config"
+		{
+		"" "scripts/vscripts/BEE2/change_models.nut"
+		"" "models/BEE2/props_p1/laser_catcher.mdl"
+		"" "materials/BEE2/models/props_p1/laser_pipe_glow.vmt"
+		"" "materials/BEE2/models/props_p1/laser_pipe_glow.vtf"
+		}
+	}
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_PANEL_FLIP"

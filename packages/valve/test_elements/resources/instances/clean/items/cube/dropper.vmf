@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "300"
+	"editorbuild" "7378"
+	"mapversion" "309"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -68,7 +68,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "300"
+	"mapversion" "309"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1831,6 +1831,7 @@ entity
 	"drawinfastreflection" "1"
 	"fademindist" "-1"
 	"fadescale" "1"
+	"HoldAnimation" "1"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props_ingame/item_dropper_128.mdl"
@@ -2063,16 +2064,17 @@ entity
 	"origin" "0 0 -67"
 	"spawnflags" "8"
 	"StartDisabled" "0"
-	"targetname" "cube_dropper_close_trigger"
+	"targetname" "done_trig"
 	"wait" "1"
 	connections
 	{
 		"OnEndTouchAll" "cube_templateForceSpawn0.7-1"
 		"OnEndTouchAll" "box*AddOutputOnUser1 !self:Dissolve::0:10-1"
-		"OnEndTouchAll" "cube_dropper_modelSetDefaultAnimationitem_dropper_idle_closed0.2-1"
-		"OnEndTouchAll" "cube_dropper_close_triggerDisable0.2-1"
+		"OnEndTouchAll" "close_trigDisable0.2-1"
 		"OnEndTouchAll" "cube_dropper_modelSetAnimationitem_dropper_close0.1-1"
 		"OnEndTouchAll" "cube_dropper_box_reenter_clipEnable0-1"
+		"OnEndTouchAll" "spawn_manFireUser20.2-1"
+		"OnEndTouchAll" "done_trigDisable0.2-1"
 	}
 	solid
 	{
@@ -2183,11 +2185,11 @@ entity
 	"classname" "point_template"
 	"spawnflags" "0"
 	"targetname" "cube_template"
-	"Template01" "box_ents_*"
-	"Template02" "box"
+	"Template01" "cube_addon_*"
+	"Template02" "box*"
 	connections
 	{
-		"OnEntitySpawned" "box_ents_*FireUser40-1"
+		"OnEntitySpawned" "cube_addon_*FireUser40-1"
 		"OnEntitySpawned" "box*FireUser40-1"
 	}
 	"origin" "16 48 48"
@@ -2213,7 +2215,6 @@ entity
 		"OnChangeToAllTrue" "cube_dropper_modelSkin02-1"
 		"OnChangeToAllTrue" "cube_dropper_box_drop_clipDisable1.1-1"
 		"OnChangeToAllTrue" "cube_dropper_gate_relayEnable1-1"
-		"OnChangeToAllTrue" "cube_dropper_modelSetDefaultAnimationitem_dropper_idle0.2-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationitem_dropper_open0.1-1"
 		"OnChangeToAllTrue" "voice_rlEnable0.02-1"
 		"OnChangeToAllTrue" "box*FireUser10.01-1"
@@ -2222,11 +2223,11 @@ entity
 		"OnChangeToAllTrue" "cube_dropper_modelSkin10-1"
 		"OnChangeToAllTrue" "spawn_manSetStateBFalse0-1"
 		"OnChangeToAllTrue" "cube_dropper_gate_relayDisable0-1"
-		"OnChangeToAllTrue" "cube_dropper_close_triggerEnable0-1"
-		"OnChangeToAllTrue" "spawn_manFireUser22-1"
+		"OnChangeToAllTrue" "close_trigEnable0-1"
 		"OnUser1" "proxyProxyRelay0-1"
-		"OnChangeToAllTrue" "spawn_manFireUser10.01-1"
+		"OnChangeToAllTrue" "spawn_manFireUser10.011"
 		"OnUser2" "proxyProxyRelay0-1"
+		"OnChangeToAllTrue" "done_trigEnable0-1"
 	}
 	"origin" "16 -48 48"
 	editor
@@ -2631,11 +2632,11 @@ entity
 	"origin" "0 0 54"
 	"spawnflags" "8"
 	"StartDisabled" "0"
-	"targetname" "cube_dropper_close_trigger"
+	"targetname" "close_trig"
 	"wait" "0.1"
 	connections
 	{
-		"OnEndTouchAll" "!activatorEnablePortalFunnel0-1"
+		"OnEndTouchAll" "proxyProxyRelay0-1"
 	}
 	solid
 	{

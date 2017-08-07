@@ -2,6 +2,39 @@
 "Name"		"High Energy Pellets"
 "Desc"      "Items relating to High Energy Pellets."
 
+"ConfigGroup"
+	{
+	"ID"    "BEE_PELLET"
+	"Name"  "Pellets"
+	"Widget"
+		{
+		"ID"    "PelletSpeed"
+		"Label" "Pellet Speed"
+		"Type"  "slider"
+		"Default" "300"
+		
+		"Min"     "200"
+		"Max"     "500"
+		"Step"    "50"
+		
+		"Tooltip" "Set the speed of High Energy Pellets. A speed of 128 will cross a block in exactly 1 second. 
+* Portal 1 uses speeds from 200-400.
+* Rexaura uses a speed of 300."
+		}
+	"Widget"
+		{
+		"ID"      "PelletGrating"
+		
+		"Type"    "Checkbox"
+		"Default" "1"
+		
+		"Label"   "Ignore Gratings"
+		
+		"Tooltip" "Make High Energy Pellets pass through Gratings."
+		"Tooltip" "让高能弹丸穿过光栅。" [lang_zh]
+		}
+	}
+
 "Item"
 	{
 	"ID" "ITEM_HIGH_ENERGY_PELLET_EMITTER"
@@ -11,9 +44,10 @@
 		"" ""
 		"" "* Direct them into catchers to activate them."
 		"" "* The timer property controls how long it will last until exploding."
-		"" "* If set to infinite, enabling the input will spawn the pellet; disabling it destroys the pellet."
+		"" "* If set to infinite, enabling the input will spawn the pellet; disabling it destroys the pellet. _Start Enabled_ is ignored."
 		"" "* If respawn is disabled, the launcher will permanently disabled once a catcher receives this pellet."
 		}
+	"All_conf" "launcher.cfg"
 	"Version"
 		{
 		"Styles"
@@ -52,6 +86,7 @@
 		"" "* If set to infinite it will activate permanently."
 		"" "* If not, it can be re-triggered after the specified time."
 		}
+	"All_conf" "catcher.cfg"
 	"Version"
 		{
 		"Styles"
@@ -59,10 +94,16 @@
 			"BEE2_CLEAN"        "catcher"
 			"BEE2_1950s"        "catcher_50s"
 			"BEE2_PORTAL_1"     "catcher_p1"
+			"BEE2_PORTAL_1"
+				{
+				"Base"   "BEE2_CLEAN"
+				"Config" "catcher_p1.cfg"
+				}
 			"BEE2_ART_THERAPY"  "catcher_nobase"
 			}
 		}
 	}
+
 "BrushTemplate"
 	{
 	"ID"   "BEE_HEP_CATCHER_BASE_CLEAN"
@@ -70,8 +111,8 @@
 	}
 "BrushTemplate"
 	{
-	"ID"   "BEE_HEP_CATCHER_BASE_P1"
-	"File" "hep_catcher_base_p1.vmf"
+	"ID"   "BEE_HEP_CATCHER_BASE_P1_EXTENDED"
+	"File" "hep_catcher_base_p1_extended.vmf"
 	}
 "BrushTemplate"
 	{
@@ -83,14 +124,15 @@
 	"ID"   "BEE_HEP_CATCHER_BASE_P1_SIGN"
 	"File" "hep_catcher_base_p1_sign.vmf"
 	}
-"PackList"
+"BrushTemplate"
 	{
-	"ID"        "PACK_P1_PELLET_EMITTER_SIGN"
-	"PackIfMat" "BEE2/p1/signage_overlay_catcher"
-	"Config"
-		{
-		"File" "materials/BEE2/p1/signage_overlay_catcher.vmt"
-		}
+	"ID"   "BEE_HEP_CATCHER_BASE_P1_PISTON"
+	"File" "hep_catcher_base_p1_piston.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"   "BEE_HEP_CATCHER_BASE_P1_FLAT"
+	"File" "hep_catcher_base_p1_flat.vmf"
 	}
 
 
@@ -163,9 +205,10 @@
 	"ID" "Create_HEP"
 	"Keys"
 		{
-		"channel" "CHAN_AUTO"
-		"soundlevel" "SNDLVL_NONE"
-		"wave"	"weapons/physcannon/energy_sing_flyby1.wav"
+		"channel"       "CHAN_AUTO"
+		"soundlevel"    "SNDLVL_NONE"
+		"wave"	        "weapons/physcannon/energy_sing_flyby1.wav"
+		"Volume"        "0.5"
 		}
 	}
 	
@@ -174,8 +217,9 @@
 	"ID" "HEP_Flyby"
 	"Keys"
 		{
-		"channel" "CHAN_AUTO"
-		"soundlevel" "SNDLVL_NONE"
+		"channel"       "CHAN_AUTO"
+		"soundlevel"    "SNDLVL_NONE"
+		"Volume"        "0.3"
 		"rndwave"
 			{
 			"wave"	"weapons/physcannon/energy_sing_flyby1.wav"
@@ -189,8 +233,9 @@
 	"ID" "HEP_Bounce"
 	"Keys"
 		{
-		"channel" "CHAN_AUTO"
-		"soundlevel" "SNDLVL_NONE"
+		"channel"       "CHAN_AUTO"
+		"soundlevel"    "SNDLVL_NONE"
+		"Volume"        "0.3"
 		"rndwave"
 			{
 			"wave"	"weapons/physcannon/energy_bounce1.wav"
@@ -205,9 +250,10 @@
 	"ID" "HEP_Catcher"
 	"Keys"
 		{
-		"channel" "CHAN_AUTO"
-		"soundlevel" "SNDLVL_NONE"
-		"wave"	"bee2/p1/alyx_stunner2.wav"
+		"channel"       "CHAN_AUTO"
+		"soundlevel"    "SNDLVL_NONE"
+		"wave"	        "bee2/p1/alyx_stunner2.wav"
+		"Volume"        "0.3"
 		}
 	}
 	
@@ -217,9 +263,10 @@
 	// Play the regular delete sound, and in addition play pellet-explosion sound
 	"Keys"
 		{
-		"channel" "CHAN_AUTO"
+		"channel"    "CHAN_AUTO"
 		"soundlevel" "SNDLVL_NONE"
-		"wave"	"weapons/physcannon/energy_sing_explosion2.wav"
+		"wave"	     "weapons/physcannon/energy_sing_explosion2.wav"
+		"Volume"     "0.3"
 		"soundentry_version" "2"
 		"operator_stacks"
 			{

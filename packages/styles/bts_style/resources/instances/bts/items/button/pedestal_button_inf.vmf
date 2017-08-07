@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "138"
+	"editorbuild" "7378"
+	"mapversion" "142"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "138"
+	"mapversion" "142"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,23 +30,20 @@ world
 }
 entity
 {
-	"id" "2957"
+	"id" "3168"
 	"classname" "logic_auto"
 	"spawnflags" "1"
 	connections
 	{
-		"OnMapSpawn" "spk_1SetParentAttachmentspark_10-1"
-		"OnMapSpawn" "spk_2SetParentAttachmentspark_20-1"
-		"OnMapSpawn" "sp_grnSetParentAttachmentspr_green0-1"
-		"OnMapSpawn" "sp_redSetParentAttachmentspr_red0-1"
+		"OnMapSpawn" "sprSetParentAttachmentspr_red0-1"
 	}
-	"origin" "-48 0 -48"
+	"origin" "-40 0 -32"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"logicalpos" "[0 3000]"
 	}
 }
 entity
@@ -781,46 +778,6 @@ entity
 }
 entity
 {
-	"id" "2612"
-	"classname" "env_spark"
-	"angles" "0 0 0"
-	"Magnitude" "1"
-	"MaxDelay" "0"
-	"parentname" "lever"
-	"spawnflags" "768"
-	"targetname" "spk_2"
-	"TrailLength" "1"
-	"origin" "-64 -32 -16"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2500]"
-	}
-}
-entity
-{
-	"id" "2722"
-	"classname" "env_spark"
-	"angles" "0 0 0"
-	"Magnitude" "1"
-	"MaxDelay" "0"
-	"parentname" "lever"
-	"spawnflags" "768"
-	"targetname" "spk_1"
-	"TrailLength" "1"
-	"origin" "-55 -32 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2500]"
-	}
-}
-entity
-{
 	"id" "2774"
 	"classname" "env_sprite"
 	"disablereceiveshadows" "0"
@@ -835,34 +792,8 @@ entity
 	"rendermode" "9"
 	"scale" "0.3"
 	"spawnflags" "1"
-	"targetname" "sp_red"
-	"origin" "-58 32 0"
-	editor
-	{
-		"color" "20 140 20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 3000]"
-	}
-}
-entity
-{
-	"id" "2856"
-	"classname" "env_sprite"
-	"disablereceiveshadows" "0"
-	"framerate" "10.0"
-	"GlowProxySize" "5"
-	"HDRColorScale" "1.0"
-	"model" "sprites/glow01.spr"
-	"parentname" "lever"
-	"renderamt" "255"
-	"rendercolor" "0 255 0"
-	"renderfx" "0"
-	"rendermode" "9"
-	"scale" "0.3"
-	"spawnflags" "0"
-	"targetname" "sp_grn"
-	"origin" "-58 32 -16"
+	"targetname" "spr"
+	"origin" "-40 0 -16"
 	editor
 	{
 		"color" "20 140 20"
@@ -894,7 +825,7 @@ entity
 	"MinAnimTime" "5"
 	"mincpulevel" "0"
 	"mingpulevel" "0"
-	"model" "models/bee2/props_ingame/circuit_breaker_anim.mdl"
+	"model" "models/bee2/props_bts/circuit_breaker_anim.mdl"
 	"PerformanceMode" "0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
@@ -911,10 +842,8 @@ entity
 	"targetname" "lever"
 	connections
 	{
-		"OnAnimationDone" "sp_grnShowSprite0-1"
-		"OnAnimationDone" "sp_redHideSprite0-1"
-		"OnAnimationDone" "spk_1SparkOnce0-1"
-		"OnAnimationDone" "spk_2SparkOnce0-1"
+		"OnAnimationDone" "sprColor0 255 001"
+		"OnAnimationDone" "sprSetParentAttachmentspr_green01"
 	}
 	"origin" "-58 0 -16"
 	editor
@@ -1043,6 +972,7 @@ entity
 {
 	"id" "36"
 	"classname" "func_noportal_volume"
+	"origin" "-48 0 -60"
 	"spawnflags" "0"
 	solid
 	{

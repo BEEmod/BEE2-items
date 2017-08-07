@@ -25,12 +25,44 @@
 		"Music"		"VALVE_ROBO_GHOST"
 		"Skybox"	"VALVE_3D_FACTORY"
 		}
+	"Corridors"
+		{
+		"Sp_entry"
+			{
+			"3" "Danger"
+			"4"	"Conveyor"
+			"5" "(Not present)"
+			"6" "(Not present)"
+			"7" "(Not present)"
+			}
+		"Sp_exit"
+			{
+			}
+		"Coop"
+			{
+			}
+		}
 	}
 	
 "StyleVPK"
 	{
 	"ID"       "VPK_BEE2_BTS"
 	"Filename" "bts"
+	}
+	
+"Overrides"
+	{
+	// "StyleVar"
+		// {
+		// "ID"    "RestartOnExit"
+		// "Style" "BEE2_BTS"
+		// }
+			
+	"StyleVar"
+		{
+		"ID"    "BlockPlayerGelBomb"
+		"Style" "BEE2_BTS"
+		}
 	}
 	
 "SkyBox"
@@ -89,19 +121,6 @@
         "tonemap_exposure_max"  "5"
 		}
 	}
-
-"QuotePack"
-	{
-	"ID"			"BEE2_ANNOUNCER_BTS"
-	"File"			"announcer"
-	"ShortName"		"Announcer (BTS)"
-	"Group"			"Announcer"
-	"Characters"    "Announcer"
-	"Icon"			"voices/announcer"
-	"Name"			"Announcer - Behind The Scenes / Turret Manufacturing"
-	"Authors"		"TeamSpen210"
-	"Description"	"The Announcer, with lines suitable for levels taking place off-the-rails. The amount of voicelines are relatively sparse, to make you feel more alone."
-	}
 	
 "BrushTemplate"
 	{
@@ -138,6 +157,15 @@
 	"Config"
 		{
 		"" "models/props_bts/vactube_glass_bothsides/vactube_128_straight_glass.mdl"
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BEE2_SWITCH_BTS"
+	"Config"
+		{
+		"" "models/BEE2/props_bts/circuit_breaker_anim.mdl"
 		}
 	}
 	
@@ -322,6 +350,16 @@
 		"File" "materials/BEE2/bts/sign_gel_bounce.vtf"
 		}
 	}
+
+"Packlist"
+	{
+	"ID" "PACK_BTS_SIGN_HAND_WASHING"
+	"Config"
+		{
+		"" "materials/BEE2/bts/sign_wash_hands.vmt"
+		"" "materials/BEE2/bts/sign_wash_hands.vtf"
+		}
+	}
 	
 "Overrides"
 	{
@@ -359,7 +397,16 @@
 			{
 			"Styles"
 				{
-				"BEE2_BTS"	"mandatory/coop_spawn"
+				"BEE2_BTS"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config" "coop_spawn.cfg"
+					"Instances"
+						{
+						"0" "instances/BEE2/bts/elevator_coop/spawn_room.vmf"
+						"3" "instances/BEE2/clean/elevator_coop/coop_exit.vmf"
+						}
+					}
 				}
 			}
 		}
@@ -376,6 +423,10 @@
 				}
 			}
 		}
+	}
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_OBSERVATION_ROOM"
@@ -507,7 +558,17 @@
 				}
 			}
 		}
-		
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_CUBE_DROPPER_BTS_CAP"
+	"File" "dropper_cap.vmf"
+	}
+
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_PAINT_SPLAT"

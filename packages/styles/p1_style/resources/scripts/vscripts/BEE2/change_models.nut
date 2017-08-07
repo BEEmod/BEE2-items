@@ -8,6 +8,11 @@ function p1_button() // Portal 1 style button
 self.SetModel("models/BEE2/props_ingame/p1_switch.mdl");
 }
 
+function p1_cube_button()
+{
+self.SetModel("models/bee2/props_p1/cube_button.mdl")
+}
+
 function p1_cube() // Portal 1 style companion/standard cube
 {
 self.SetModel("models/BEE2/props_ingame/p1_metal_box.mdl");
@@ -16,6 +21,16 @@ self.SetModel("models/BEE2/props_ingame/p1_metal_box.mdl");
 function p1_ball() // Portal 1 style sphere
 {
 self.SetModel("models/BEE2/props_ingame/p1_ball.mdl");
+}
+
+function p1_laser_catcher()
+{
+self.SetModel("models/bee2/props_p1/laser_catcher.mdl")
+}
+
+function hmw_reflect() // HMW's reflection cube
+{
+self.SetModel("models/BEE2/props_p1/hmw_laser_cube.mdl");
 }
 
 function p1_cam() 

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "291"
+	"editorbuild" "7378"
+	"mapversion" "296"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "291"
+	"mapversion" "296"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -3416,6 +3416,23 @@ world
 }
 entity
 {
+	"id" "13773"
+	"classname" "info_coop_spawn"
+	"angles" "-90 180 0"
+	"Enabled" "1"
+	"StartingTeam" "2"
+	"targetname" "@coop_spawn_orange"
+	"origin" "416 96 -352"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "11827"
 	"classname" "func_instance"
 	"angles" "-90 180 0"
@@ -3679,7 +3696,7 @@ entity
 	connections
 	{
 		"OnTrigger" "@relay_lights_onTrigger1-1"
-		"OnTrigger" "@musicPlaySound01"
+		"OnTrigger" "@music_startTrigger01"
 		"OnTrigger" "@relay_spawn_on_entranceTrigger0-1"
 	}
 	solid

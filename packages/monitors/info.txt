@@ -4,46 +4,62 @@
 
 "Item"
 	{
-	"ID"       "ITEM_BEE2_MONITOR"
-	"Description"	
-		{
-		"" "Monitors display the character set in Voice Lines."
-		}
+	"ID"            "ITEM_BEE2_MONITOR"
+	"Description"   "Monitors display the character set in Voice Lines."
 	"Version"
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"        "mon_clean"
-			"BEE2_PORTAL_1"     "mon_p1"
-			// "BEE2_1950s"        "mon_50s"
-			"BEE2_OVERGROWN"    "mon_over"
+			"BEE2_CLEAN"
+				{
+				"Folder" "monitor"
+				"Config" "monitor_clean.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/clean/items/screen/monitor.vmf"
+					}
+				
+				"Ent_Count" "10 + 2 (if lasers present)"
+				"Description" "Clean monitors extend out of the wall when they come within the player's view."
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "monitor"
+				"Config" "monitor_p1.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/screen/monitor.vmf"
+					}
+				
+				"Ent_Count" "10 + 2 (if lasers present)" 
+				"Description" "P1 monitors extend out of the wall when they come within the player's view."
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "monitor"
+				"Config" "monitor_over.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/over/items/screen/monitor.vmf"
+					}
+					
+				"Ent_Count" "5"
+				"Description" "The Overgrown monitor is already shattered, and does not move."
+				}
 			}
 		}
 	}
 
 "BrushTemplate"
 	{
-	"ID"   "BEE2_MONITOR_COVER_TOP"
-	"file" "cover_clean_top.vmf"
+	"ID"   "BEE2_MONITOR_COVER_CLEAN"
+	"file" "cover_clean.vmf"
 	}
 
 "BrushTemplate"
 	{
-	"ID"   "BEE2_MONITOR_COVER_TOP_P1"
-	"file" "cover_clean_top_p1.vmf"
-	}
-
-
-"BrushTemplate"
-	{
-	"ID"   "BEE2_MONITOR_COVER_BOTTOM"
-	"file" "cover_clean_bottom.vmf"
-	}
-
-"BrushTemplate"
-	{
-	"ID"   "BEE2_MONITOR_COVER_BOTTOM_P1"
-	"file" "cover_clean_bottom_p1.vmf"
+	"ID"   "BEE2_MONITOR_COVER_P1"
+	"file" "cover_p1.vmf"
 	}
 	
 "PackList"
@@ -65,6 +81,17 @@
 		}
 	}
 	
+// Glass model which is curved to match the screen, and doesn't have the lines on it.
+"PackList"
+	{
+	"ID" "BEE2_MONITOR_SHATTER_GLASS"
+	"Config"
+		{
+		"" "models/bee2/props_ingame/monitor_glass.mdl"
+		"" "materials/BEE2/models/props_ingame/monitor_glass.vmt"
+		}
+	}
+	
 
 "Item"
 	{
@@ -80,10 +107,43 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"        "cam_clean"
-			"BEE2_PORTAL_1"     "cam_p1"
-			// "BEE2_1950s"        "cam_50s"
-			"BEE2_OVERGROWN"    "cam_over"
+			"BEE2_CLEAN"
+				{
+				"Folder" "cam"
+				"Config" "cam_clean.cfg"
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "cam"
+				"Config" "cam_p1.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/screen/camera_base.vmf"
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "cam"
+				"Config" "cam_over.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/over/items/screen/camera_base.vmf"
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Authors" "Ultiman9711, TeamSpen210"
+				"Description"
+					{
+					"" "* The model was made by [Ultiman9711](http://steamcommunity.com/id/ultiman9711/)."
+					}
+				"Folder" "cam"
+				"Config" "cam_retro.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/screen/camera_base.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -107,5 +167,21 @@
 		"" "models/bee2/cam_parts/cam_lens_p1.mdl"
 		"" "models/bee2/cam_parts/cam_base_p1.mdl"
 		"" "models/bee2/cam_parts/cam_mount_p1.mdl"
+		// P2 includes the materials for us.
+		}
+	}
+	
+"PackList"
+	{
+	// This model was maed by Ultiman9711 for Mel.
+	"ID" "BEE2_MON_CAM_STATIC_RETRO"
+	"Config"
+		{
+		"" "models/bee2/cam_parts/cam_lens_retro.mdl"
+		"" "models/bee2/cam_parts/cam_truss_retro.mdl"
+		"" "models/bee2/cam_parts/cam_mount_retro.mdl"
+		
+		"" "materals/BEE2/models/props_underground/camera.vmt"
+		"" "materals/BEE2/models/props_underground/camera.vtf"
 		}
 	}
