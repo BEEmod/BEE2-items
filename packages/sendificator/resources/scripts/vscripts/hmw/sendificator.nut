@@ -343,6 +343,10 @@ function is_monster_cube(cube)
     return cube.GetClassname() == "prop_monster_box";
 }
 
+// Include the BEE2 script, which will update these functions to
+// handle custom cubes.
+DoIncludeScript("hmw/sendtor_cube_data", self.GetScriptScope());
+
 
 function get_portal_id(portal)
 {
