@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "186"
+	"editorbuild" "7552"
+	"mapversion" "188"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "186"
+	"mapversion" "188"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -940,7 +940,7 @@ entity
 	"origin" "48 16 -80"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 15500]"
@@ -964,7 +964,7 @@ entity
 	"origin" "48 144 -80"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 15500]"
@@ -988,7 +988,7 @@ entity
 	"origin" "48 112 -80"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 15500]"
@@ -1010,7 +1010,7 @@ entity
 	"origin" "48 -16 -80"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1288,7 +1288,7 @@ entity
 	"origin" "-16 16 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1310,7 +1310,7 @@ entity
 	"origin" "-16 112 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1320,7 +1320,7 @@ entity
 {
 	"id" "3191"
 	"classname" "logic_timer"
-	"RefireTime" "$total_tim"
+	"RefireTime" "$total_time"
 	"spawnflags" "0"
 	"StartDisabled" "1"
 	"targetname" "tim"
@@ -1328,7 +1328,7 @@ entity
 	connections
 	{
 		"OnTimer" "managerKill01"
-		"OnTimer" "@neurotoxin_ventFireUser101"
+		"OnTimer" "@neurotoxin_hurtHurt01"
 		"OnTimer" "dig*Skin00.02-1"
 		"OnTimer" "display_timDisable0-1"
 		"OnTimer" "dig*Skin100.1-1"
@@ -1345,7 +1345,7 @@ entity
 	"origin" "-16 80 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1388,7 +1388,7 @@ entity
 	"origin" "-48 48 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1407,7 +1407,7 @@ entity
 	"origin" "-48 112 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 0 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8000]"
@@ -1458,7 +1458,7 @@ entity
 	"origin" "-16 48 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1468,7 +1468,7 @@ entity
 {
 	"id" "252"
 	"classname" "logic_timer"
-	"RefireTime" "$close_tim"
+	"RefireTime" "$close_time"
 	"spawnflags" "0"
 	"StartDisabled" "1"
 	"targetname" "close_tim"
@@ -1482,7 +1482,7 @@ entity
 	"origin" "-48 80 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"comments" "Triggers 10 seconds before main timer elapses. After that, it plays alarm sounds every second and triggers the screen fade."
@@ -1514,8 +1514,8 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 0"
 	"parm2" "$start_enabled boolean 0"
-	"parm3" "$close_tim integer 5990"
-	"parm4" "$total_tim integer 6000"
+	"parm3" "$close_time integer 5990"
+	"parm4" "$total_time integer 6000"
 	"parm5" "$digit_1 integer 1"
 	"parm6" "$digit_2 integer 0"
 	"parm7" "$digit_3 integer 0"
