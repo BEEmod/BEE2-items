@@ -92,10 +92,9 @@ function cube_bomb_explode() {
 	local origin = self.GetOrigin()
 	local turr = Entities.FindByClassnameWithin(null, "npc_portal_turret_floor", origin, 128)
 	while(turr) {
-		EntFireByHandle(turr, "SelfDestructImmediately", "", 0.1, exp, exp);
+		EntFireByHandle(turr, "SelfDestructImmediately", "", 0.1, null, null);
 		turr = Entities.FindByClassnameWithin(turr, "npc_portal_turret_floor", origin, 128)
 	}
-	
 }
 
 function _on_pickup() {
