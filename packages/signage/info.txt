@@ -397,18 +397,70 @@
 		"" "The signage blocks portal placement as well."
 		}
 	"AllDescLast" "1"
-	"All_Conf"    "signage_antline.cfg"
 	"Version"
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"     "sign_antline_clean"
-			// "BEE2_BTS"       "sign_antline_bts"
-			// "BEE2_PORTAL_1"  "sign_antline_p1"
-			// "BEE2_OVERGROWN" "sign_antline_over"
-			// "BEE2_1950s"     "sign_antline_50s"
-			// "BEE2_1970s"     "sign_antline_70s"
-			// "BEE2_1980s"     "sign_antline_clean" // 1980s style uses modern signs..
+			"BEE2_CLEAN"
+				{
+				"Folder" "sign"
+				"Config" "sign_clean.cfg"
+				"Palette"
+					{
+					"0"
+						{
+						"Model"     "bee2_signage_antline_clean.mdl"
+						"icon"      "signage_shape_box.png"
+						"bee2"      "clean/BEE/signage_antline.png"
+						"pal_name"  "CONNECTION SIGNAGE"
+						"name"      "Connection Signage"
+						}
+					}
+				"Instances"
+					{
+					// Needed to distinguish between the items..
+					"0"                 "instances/BEE2/logic/BEE/antline_signage.vmf"
+					"sign_wall_pos"     "instances/BEE2/clean/items/BEE/antline_signage_sign.vmf"
+					"sign_wall_pos2"    "instances/BEE2/clean/items/BEE/antline_signage_sign2.vmf"
+					"sign_floor_pos"    "instances/BEE2/clean/items/BEE/antline_signage_sign_floor.vmf"
+					"sign_floor_pos2"   "instances/BEE2/clean/items/BEE/antline_signage_sign_floor2.vmf"
+					}
+				"Replace"
+					{
+					"<ITEM_BEE2_SIGNAGE" "<ITEM_BEE2_SIGNAGE_ANTLINE"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%SIGN_ARROW%"      "signage/signage_overlay_arrow"
+						
+						"%SIGN_1_MAIN%"     "<overlay.square>"
+						"%SIGN_2_MAIN%"     "<overlay.cross>"
+						"%SIGN_3_MAIN%"     "<overlay.dot>"
+						"%SIGN_4_MAIN%"     "<overlay.moon>"
+						"%SIGN_5_MAIN%"     "<overlay.slash>"
+						"%SIGN_6_MAIN%"     "<overlay.triangle>"
+						"%SIGN_7_MAIN%"     "<overlay.sine>"
+						"%SIGN_8_MAIN%"     "<overlay.star>"
+						"%SIGN_9_MAIN%"     "<overlay.circle>"
+						"%SIGN_10_MAIN%"    "<overlay.wavy>"
+						}
+					// Swap back to the original instance once done.
+					"Conditions"
+						{
+						"Condition"
+							{
+							"Priority" "10"
+							"instance" "<ITEM_BEE2_SIGNAGE_ANTLINE>"
+							"Result"
+								{
+								"Changeinstance" "<ITEM_BEE2_SIGNAGE:0>"
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
