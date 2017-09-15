@@ -114,9 +114,24 @@
 		}
 	}
 	
+"PackList"
+	{
+	"ID" "HMW_LOGIC_NAMES"
+	"Config"
+		{
+		"" "materials/BEE2/HMW/logic_names.vmt"
+		"" "materials/BEE2/HMW/logic_names.vtf"
+		}
+	}
+	
 "Item"
 	{
 	"ID" "ITEM_LOGIC_GATE"
+	
+	 // Don't allow the different versions to fallback to each other, 
+	 // so they'll give Clean style in those cases.
+	"isolate_versions" "1"
+	
 	"Version"
 		{
 		"ID"   "VER_EUROPEAN"
@@ -217,6 +232,7 @@
 					"Replacements"
 						{
 						"%ICON_FOLDER%" "instances/BEE2/clean/items/hmw/logic/frame_txt"
+						"%PACK_LIST%"   "HMW_LOGIC_NAMES"
 						}
 					}
 				}
