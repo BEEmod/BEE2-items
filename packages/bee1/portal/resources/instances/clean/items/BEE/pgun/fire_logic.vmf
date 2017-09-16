@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "246"
+	"editorbuild" "7552"
+	"mapversion" "254"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,35 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "246"
+	"mapversion" "254"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
+}
+entity
+{
+	"id" "3986"
+	"classname" "logic_coop_manager"
+	"DefaultPlayerStateA" "$start_enabled"
+	"DefaultPlayerStateB" "0"
+	"targetname" "man"
+	connections
+	{
+		"OnChangeToAllTrue" "timerEnable0-1"
+		"OnChangeToAnyFalse" "timerDisable0-1"
+	}
+	"origin" "16 0 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Don't allow activation in elevators."
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
@@ -76,7 +98,7 @@ entity
 	"model" "sprites/glow01.spr"
 	"parentname" "pedestal"
 	"renderamt" "255"
-	"rendercolor" "255 128 64"
+	"rendercolor" "$spr_color"
 	"renderfx" "0"
 	"rendermode" "9"
 	"scale" "0.4"
@@ -107,7 +129,7 @@ entity
 	"model" "sprites/redlaserglow.vmt"
 	"parentname" "pedestal"
 	"renderamt" "255"
-	"rendercolor" "255 128 64"
+	"rendercolor" "$spr_color"
 	"renderfx" "0"
 	"rendermode" "9"
 	"scale" "1"
@@ -192,7 +214,7 @@ entity
 	"origin" "-12 8.74228e-007 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 4000]"
@@ -206,13 +228,13 @@ entity
 	"targetname" "counter"
 	connections
 	{
-		"OnHitMax" "timerToggle0-1"
-		"OnChangedFromMax" "timerToggle0-1"
+		"OnHitMax" "manToggleStateA0-1"
+		"OnChangedFromMax" "manToggleStateA0-1"
 	}
 	"origin" "16 0 32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -243,8 +265,8 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 1"
 	"parm2" "$start_disabled integer 1"
-	"parm3" "$close_one string"
-	"parm4" "$close_two string"
+	"parm3" "$close_rl string @close_orange_autoportals"
+	"parm4" "$spr_color color255 255 128 64"
 	"origin" "0 0 16"
 	editor
 	{
@@ -260,7 +282,7 @@ entity
 	"classname" "logic_timer"
 	"RefireTime" "5"
 	"spawnflags" "0"
-	"StartDisabled" "$start_disabled"
+	"StartDisabled" "1"
 	"targetname" "timer"
 	"UseRandomTime" "0"
 	connections
@@ -271,20 +293,19 @@ entity
 		"OnTimer" "spr_frontFireUser13-1"
 		"OnTimer" "spr_frontFireUser24-1"
 		"OnTimer" "gun$portal_cmd4-1"
-		"OnTimer" "$close_oneTrigger3.99-1"
+		"OnTimer" "$close_rlTrigger3.99-1"
 		"OnTimer" "fxStop4-1"
 		"OnTimer" "fxStart3-1"
 		"OnTimer" "pedestalClearParent2.9-1"
 		"OnTimer" "pedestalSetParentrotate4-1"
 		"OnTimer" "rotateSetSpeed9993-1"
 		"OnTimer" "rotateSetSpeed404-1"
-		"OnTimer" "$close_twoTrigger3.99-1"
 		"OnTimer" "snd_rotPlaySound0-1"
 	}
 	"origin" "16 0 16"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 3000]"
@@ -295,8 +316,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[9.35205 14.7822 -1.25396]"
-		"look" "[-106.9 -171.261 -144.811]"
+		"position" "[13.7534 -53.6317 23.8884]"
+		"look" "[56.9601 201.828 -16.2207]"
 	}
 	camera
 	{
