@@ -1,0 +1,119 @@
+"ID"		"TULEBY_ABSOLUTE_FIZZLER"
+"Name"		"Portal Gun ON/OFF"
+"Desc"      "Special buttons which control when the player can use their portal gun."
+
+"Item"
+	{
+	"ID" "ITEM_TULEBY_ABSOLUTE_FIZZLER"
+	"Authors" "tuleby (CZ)"
+	"Tags" "Portalgun ON-OFF; Fizzlers"
+	"Description"
+		{
+		"" "A more powerful version of the regular Emancipation Grill which affects all portals.  "
+		"" "In addition to the effects of normal fizzlers, this will destroy all portals, except those created by active AutoPortals (since they will immediately reopen).  "
+		"" "In Coop this will fizzle the opposing player's portals as well as your own."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"    "abs_fizz"
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "abs_fizz"
+				"Instances"
+					{
+					"1"           "instances/BEE2/over/items/tuleby/abs_fizz_model.vmf"
+					"bee2_static" "instances/BEE2/over/items/tuleby/abs_fizz_model_static.vmf"
+					}
+				"Replace"
+					{
+					"PACK_TULEBY_ABS_FIZZ_MDL_CLEAN" "PACK_TULEBY_ABS_FIZZ_MDL_OVER"
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "abs_fizz"
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/tuleby/abs_fizz_base.vmf"
+					"1" "instances/BEE2/50s/items/tuleby/abs_fizz_model.vmf"
+					}
+				"Replace"
+					{
+					"PACK_TULEBY_ABS_FIZZ_MDL_CLEAN" "PACK_CUST_FIZZLER_RETRO"
+					"PACK_TULEBY_ABS_FIZZ_CLEAN"     "PACK_TULEBY_ABS_FIZZ_RETRO"
+					"BEE2/fizz/abs_fizz/"            "BEE2/fizz/abs_fizz/retro_"
+					":bee2_static>"                  ":fizz_model>"
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "abs_fizz"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/tuleby/abs_fizz_base.vmf"
+					"1" "instances/BEE2/p1/items/tuleby/abs_fizz_model.vmf"
+					}
+				"Replace"
+					{
+					"PACK_TULEBY_ABS_FIZZ_MDL_CLEAN" "PACK_P1_CUST_FIZZLER"
+					":bee2_static>"                  ":fizz_model>"
+					}
+				}
+			}
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_TULEBY_ABS_FIZZ_MDL_CLEAN"
+	"Config"
+		{
+		"" "materials/BEE2/models/props_clean/tuleby/abs_fizz_front.vmt"
+		"" "materials/BEE2/models/props_clean/tuleby/abs_fizz_front.vtf"
+		"" "models/BEE2/props_clean/tuleby/absolute_fizz_static.mdl"
+		"" "models/BEE2/props_clean/tuleby/absolute_fizz.mdl"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_TULEBY_ABS_FIZZ_MDL_OVER"
+	"Config"
+		{
+		"" "materials/BEE2/models/props_clean/tuleby/abs_fizz_front_dirty.vmt"
+		"" "materials/BEE2/models/props_clean/tuleby/abs_fizz_front_dirty.vtf"
+		"" "models/BEE2/props_clean/tuleby/absolute_fizz_static.mdl"
+		"" "models/BEE2/props_clean/tuleby/absolute_fizz.mdl"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_TULEBY_ABS_FIZZ_CLEAN"
+	"Config"
+		{
+		"" "materials/BEE2/fizz/abs_fizz/abs_fizz_bounds.vtf"
+		"" "materials/BEE2/fizz/abs_fizz/abs_fizz_bounds_l.vtf"
+		"" "materials/BEE2/fizz/abs_fizz/abs_fizz_bounds_r.vtf"
+		
+		"" "materials/BEE2/fizz/abs_fizz/absolute_field.vmt"
+		"" "materials/BEE2/fizz/abs_fizz/absolute_center.vmt"
+		"" "materials/BEE2/fizz/abs_fizz/absolute_left.vmt"
+		"" "materials/BEE2/fizz/abs_fizz/absolute_right.vmt"
+		}
+	}
+
+"PackList"
+	{
+	"ID" "PACK_TULEBY_ABS_FIZZ_RETRO"
+	"Config"
+		{
+		"" "BEE2/fizz/abs_fizz/absolute_field.vmt" // Included in the patches.
+		"" "BEE2/fizz/abs_fizz/retro_absolute_field.vmt"
+		"" "BEE2/fizz/abs_fizz/retro_absolute_center.vmt"
+		"" "BEE2/fizz/abs_fizz/retro_absolute_left.vmt"
+		"" "BEE2/fizz/abs_fizz/retro_absolute_right.vmt"
+		}
+	}

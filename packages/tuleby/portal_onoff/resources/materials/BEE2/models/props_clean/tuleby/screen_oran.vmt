@@ -1,0 +1,40 @@
+UnlitGeneric
+{
+$basetexture "BEE2/models/props_clean/tuleby/screen_oran"
+$model 1
+$color "[1 1 1]"
+
+$bright 1
+$offset 0
+Proxies
+	{
+	EntityRandom
+		{
+		scale 1.5
+		resultVar $offset
+		}
+	Sine
+		{
+		sinemin 0.8
+		sinemax 1
+		sineperiod 1.25
+		timeoffset $offset
+		resultVar $bright
+		}
+	Equals
+		{
+		srcVar1 "$bright"
+		resultVar "$color[0]"
+		}
+	Equals
+		{
+		srcVar1 "$bright"
+		resultVar "$color[1]"
+		}
+	Equals
+		{
+		srcVar1 "$bright"
+		resultVar "$color[2]"
+		}
+	}
+}
