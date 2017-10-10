@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "63"
+	"editorbuild" "7552"
+	"mapversion" "76"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "63"
+	"mapversion" "76"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -95,20 +95,47 @@ world
 }
 entity
 {
+	"id" "709"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "open_rl"
+	connections
+	{
+		"OnTrigger" "portalOpen0-1"
+		"OnTrigger" "open_rlDisable0-1"
+		"OnTrigger" "close_rlEnable0-1"
+		"OnTrigger" "@exit_portal_chamber_sideFireUser101"
+		"OnTrigger" "close_rlCancelPending0-1"
+		"OnTrigger" "door_mdlSetAnimationvert_door_opening0-1"
+		"OnTrigger" "brush_blockerDisable0-1"
+		"OnSpawn" "branch_toggleTest11"
+	}
+	"origin" "48 -16 -40"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 4500]"
+	}
+}
+entity
+{
 	"id" "554"
 	"classname" "logic_branch"
 	"InitialValue" "$start_open"
 	"targetname" "branch_toggle"
 	connections
 	{
-		"OnTrue" "@door_wants_closeSetValue00-1"
-		"OnFalse" "@door_wants_closeSetValue10-1"
-		"OnTrue" "@exit_doorFireUser20-1"
+		"OnTrue" "close_manSetStateAFalse0-1"
+		"OnTrue" "open_rlTrigger0-1"
+		"OnFalse" "close_manSetStateATrue0-1"
 	}
-	"origin" "96 0 -40"
+	"origin" "64 16 -40"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -125,10 +152,10 @@ entity
 		"OnHitMax" "branch_toggleToggleTest0-1"
 		"OnChangedFromMax" "branch_toggleToggleTest0-1"
 	}
-	"origin" "32 0 -40"
+	"origin" "64 -16 -40"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -144,7 +171,7 @@ entity
 		"OnProxyRelay" "counterAdd10-1"
 		"OnProxyRelay" "counterSubtract10-1"
 	}
-	"origin" "32 -32 -40"
+	"origin" "32 -16 -40"
 	editor
 	{
 		"color" "220 30 220"
@@ -159,7 +186,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 1"
 	"parm2" "$start_open integer 0"
-	"origin" "32 32 -40"
+	"origin" "32 16 -40"
 	editor
 	{
 		"color" "220 30 220"
@@ -170,119 +197,24 @@ entity
 }
 entity
 {
-	"id" "521"
-	"classname" "trigger_multiple"
-	"origin" "96 0 -168"
-	"spawnflags" "4097"
-	"StartDisabled" "1"
-	"targetname" "@preview_restart_trigger"
-	"wait" "3"
-	connections
-	{
-		"OnTrigger" "@clientcommandCommandrestart_level2-1"
-		"OnTrigger" "@preview_complete_messageDisplay0-1"
-		"OnTrigger" "@screenshot2Trigger01"
-	}
-	solid
-	{
-		"id" "522"
-		side
-		{
-			"id" "119"
-			"plane" "(0 -187.891 -160) (0 187.895 -160) (192 187.895 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "118"
-			"plane" "(0 187.895 -176) (0 -187.891 -176) (192 -187.891 -176)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "117"
-			"plane" "(0 -187.891 -176) (0 187.895 -176) (0 187.895 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "116"
-			"plane" "(192 187.895 -176) (192 -187.891 -176) (192 -187.891 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "115"
-			"plane" "(0 187.894 -176) (192 187.894 -176) (192 187.894 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "114"
-			"plane" "(192 -187.891 -176) (0 -187.891 -176) (0 -187.891 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "492"
 	"classname" "logic_relay"
 	"spawnflags" "0"
-	"StartDisabled" "0"
+	"StartDisabled" "1"
 	"targetname" "close_rl"
 	connections
 	{
-		"OnTrigger" "portalClose1.1-1"
+		"OnTrigger" "open_rlEnable0-1"
+		"OnTrigger" "close_rlDisable0-1"
 		"OnTrigger" "relay_leaving_levelTrigger1.1-1"
+		"OnTrigger" "portalClose1.1-1"
+		"OnTrigger" "door_mdlSetAnimationvert_door_fast_closing0-1"
+		"OnTrigger" "brush_blockerEnable0-1"
 	}
-	"origin" "64 -32 -40"
+	"origin" "48 16 -40"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 4500]"
@@ -290,112 +222,18 @@ entity
 }
 entity
 {
-	"id" "84"
-	"classname" "trigger_multiple"
-	"origin" "96 -0.03 -301"
-	"spawnflags" "4097"
-	"StartDisabled" "0"
-	"wait" "1"
-	connections
-	{
-		"OnStartTouch" "relay_leaving_levelEnable0-1"
-		"OnEndTouch" "relay_leaving_levelDisable0-1"
-	}
-	solid
-	{
-		"id" "85"
-		side
-		{
-			"id" "30"
-			"plane" "(192 -188 -80) (192 -188 -522) (0 -188 -522)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 -32] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "29"
-			"plane" "(0 187.894 -80) (0 187.894 -522) (192 187.894 -522)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 -31.9961] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "28"
-			"plane" "(192 187.894 -80) (192 187.894 -522) (192 -188 -522)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 -31.9961] 0.25"
-			"vaxis" "[0 1 0 63.8535] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "27"
-			"plane" "(0 -188 -80) (0 -188 -522) (0 187.894 -522)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 -31.9961] 0.25"
-			"vaxis" "[0 1 0 63.8535] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26"
-			"plane" "(192 -188 -80) (0 -188 -80) (0 187.894 -80)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 63.8555] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "25"
-			"plane" "(192 187.894 -522) (0 187.894 -522) (0 -188 -522)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 32] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 5500]"
-	}
-}
-entity
-{
 	"id" "105"
 	"classname" "trigger_once"
-	"origin" "96 0.06 -136"
+	"origin" "64 0.01 -144"
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	connections
 	{
-		"OnTrigger" "@exit_doorFireUser10-1"
-		"OnTrigger" "@relay_spawn_on_entranceFireUser40-1"
+		"OnTrigger" "close_rlEnable0-1"
+		"OnTrigger" "@map_wonTrigger0-1"
+		"OnTrigger" "open_rlKill0-1"
+		"OnTrigger" "close_rlTrigger0.01-1"
+		"OnTrigger" "@voice_exitTrigger1-1"
 	}
 	solid
 	{
@@ -403,7 +241,7 @@ entity
 		side
 		{
 			"id" "42"
-			"plane" "(192 -187.891 -128) (192 -187.891 -144) (0 -187.891 -144)"
+			"plane" "(252 -187.998 -128) (252 -187.998 -160) (-124 -187.998 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -32] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -414,7 +252,7 @@ entity
 		side
 		{
 			"id" "41"
-			"plane" "(0 188 -128) (0 188 -144) (192 188 -144)"
+			"plane" "(-124 188 -128) (-124 188 -160) (252 188 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -425,7 +263,7 @@ entity
 		side
 		{
 			"id" "40"
-			"plane" "(192 188 -128) (192 188 -144) (192 -187.893 -144)"
+			"plane" "(252 188 -128) (252 188 -160) (252 -188 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[0 1 0 63.8535] 0.25"
@@ -436,7 +274,7 @@ entity
 		side
 		{
 			"id" "39"
-			"plane" "(0 -187.893 -128) (0 -187.893 -144) (0 188 -144)"
+			"plane" "(-124 -188 -128) (-124 -188 -160) (-124 188 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 -31.9961] 0.25"
 			"vaxis" "[0 1 0 63.8535] 0.25"
@@ -447,7 +285,7 @@ entity
 		side
 		{
 			"id" "38"
-			"plane" "(192 -187.893 -128) (0 -187.893 -128) (0 188 -128)"
+			"plane" "(252 -188 -128) (-124 -188 -128) (-124 188 -128)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 63.8555] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -458,7 +296,7 @@ entity
 		side
 		{
 			"id" "37"
-			"plane" "(192 188 -144) (0 188 -144) (0 -187.893 -144)"
+			"plane" "(252 188 -160) (-124 188 -160) (-124 -188 -160)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 32] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -492,8 +330,8 @@ entity
 	"wait" "0"
 	connections
 	{
-		"OnStartTouch" "door_clearSetValue00-1"
-		"OnEndTouch" "door_clearSetValue10-1"
+		"OnEndTouchAll" "close_manSetStateBTrue0-1"
+		"OnStartTouch" "close_manSetStateBFalse0-1"
 	}
 	solid
 	{
@@ -582,50 +420,21 @@ entity
 entity
 {
 	"id" "227"
-	"classname" "logic_branch_listener"
-	"Branch01" "door_clear"
-	"Branch02" "@door_wants_close"
+	"classname" "logic_coop_manager"
+	"DefaultPlayerStateA" "1"
+	"DefaultPlayerStateB" "1"
+	"targetname" "close_man"
 	connections
 	{
-		"OnAllTrue" "@exit_doorFireUser10-1"
+		"OnChangeToAllTrue" "close_rlTrigger0-1"
 	}
-	"origin" "64 0 -40"
+	"origin" "48 0 -40"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "229"
-	"classname" "logic_branch"
-	"InitialValue" "1"
-	"targetname" "door_clear"
-	"origin" "96 32 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "231"
-	"classname" "logic_branch"
-	"InitialValue" "1"
-	"targetname" "@door_wants_close"
-	"origin" "96 -32 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
 	}
 }
 entity
@@ -667,20 +476,7 @@ entity
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"SuppressAnimSounds" "0"
-	"targetname" "@exit_door"
-	connections
-	{
-		"OnUser1" "brush_blockerEnable0-1"
-		"OnUser2" "brush_blockerDisable0-1"
-		"OnUser1" "!selfSetAnimationvert_door_fast_closing0-1"
-		"OnUser2" "!selfSetAnimationvert_door_opening0-1"
-		"OnUser2" "portalOpen0-1"
-		"OnUser1" "close_rlTrigger0-1"
-		"OnUser2" "close_rlCancelPending0-1"
-		"OnUser1" "close_trigDisable0-1"
-		"OnUser2" "close_trigEnable0-1"
-		"OnUser2" "@exit_portal_chamber_sideOpen01"
-	}
+	"targetname" "door_mdl"
 	"origin" "64 0 -72"
 	editor
 	{
@@ -802,7 +598,7 @@ entity
 	"id" "7"
 	"classname" "func_areaportal"
 	"PortalVersion" "1"
-	"StartOpen" "1"
+	"StartOpen" "0"
 	"targetname" "portal"
 	solid
 	{
@@ -883,27 +679,6 @@ entity
 	editor
 	{
 		"color" "0 255 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 4500]"
-	}
-}
-entity
-{
-	"id" "23"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "relay_leaving_level"
-	connections
-	{
-		"OnTrigger" "@voice_exitTrigger0-1"
-		"OnSpawn" "branch_toggleTest11"
-	}
-	"origin" "64 32 -40"
-	editor
-	{
-		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 4500]"

@@ -55,6 +55,24 @@
 			"BEE2_CLEAN"    "launcher"
 			"BEE2_1950s"    "launcher_50s"
 			"BEE2_PORTAL_1" "launcher_p1"
+			"BEE2_OVERGROWN"
+				{
+				"Base"  "BEE2_CLEAN"
+				"Replace"
+					{
+					"PACK_PELLET_LAUNCHER_INF_CLEAN" "PACK_PELLET_LAUNCHER_INF_DIRTY"
+					// We don't need to pack anything specific for normal launchers -
+					// it's just the (included) dirty model.
+					"PACK_PELLET_LAUNCHER_CLEAN"     ""
+					}
+				"Instances"
+					{
+					"bee2_inf"  "instances/BEE2/over/items/BEE/hep/emitter_inf.vmf"
+					"bee2_norm" "instances/BEE2/over/items/BEE/hep/emitter_norm.vmf"
+					}
+				}
+			// Use the dirty models with templated materials.
+			"BEE2_1980s" "<BEE2_OVERGROWN>"
 			}
 		}
 	}
@@ -97,6 +115,22 @@
 				"Base"   "BEE2_CLEAN"
 				"Config" "catcher_p1.cfg"
 				}
+			"BEE2_OVERGROWN"
+				{
+				"Base"  "BEE2_CLEAN"
+				"Replace"
+					{
+					"PACK_PELLET_CATCHER_TIM_CLEAN" "PACK_PELLET_CATCHER_TIM_DIRTY"
+					"PACK_PELLET_CATCHER_CLEAN"     "PACK_PELLET_CATCHER_INF_DIRTY"
+					}
+				"Instances"
+					{
+					"bee2_perm"  "instances/BEE2/over/items/BEE/hep/catcher_perm.vmf"
+					"bee2_timed" "instances/BEE2/over/items/BEE/hep/catcher_timed.vmf"
+					}
+				}
+			// Use the dirty models with templated materials.
+			"BEE2_1980s" "<BEE2_OVERGROWN>"
 			}
 		}
 	}
@@ -141,11 +175,17 @@
 	"ID"     "PACK_PELLET"
 	"Config" "pellet"
 	}
+
 	
 "PackList"
 	{
 	"ID"     "PACK_PELLET_LAUNCHER_CLEAN"
-	"Config" "launcher"
+	"Config"
+		{
+		"" "models/props/clean/combine_ball_launcher.mdl"
+		"" "materials/models/props/c_ball_launcher_clean.vmt"
+		"" "materials/models/props/combine_ball_launcher_clean.vtf"
+		}
 	}
 	
 "PackList"
@@ -160,31 +200,78 @@
 "PackList"
 	{
 	"ID"     "PACK_PELLET_LAUNCHER_INF_CLEAN"
-	"Config" "launcher_inf"
+	"Config"
+		{
+		"" "models/BEE2/props_ingame/pellet_launcher_inf.mdl"
+		"" "materials/BEE2/models/props_ingame/rex/launcher_inf_clean.vmt"
+		"" "materials/BEE2/models/props_ingame/rex/launcher_inf_clean.vtf"
+		}
 	}
 	
 "PackList"
 	{
 	"ID"     "PACK_PELLET_CATCHER_CLEAN"
-	"Config" "catcher"
+	"Config"
+		{
+		"" "models/props/clean/combine_ball_catcher.mdl"
+		"" "materials/models/props/ball_catcher_clean.vmt"
+		"" "materials/models/props/combine_ball_catcher_clean.vtf"
+		
+		// Field effect around caught pellet
+		"" "materials/BEE2/p1/physring.vmt"
+		"" "materials/BEE2/p1/physring.vtf"
+		}
 	}
 	
 "PackList"
 	{
 	"ID"     "PACK_PELLET_CATCHER_TIM_CLEAN"
-	"Config" "catcher_timed"
+	"Config"
+		{
+		"" "models/BEE2/props_ingame/pellet_catcher_timed.mdl"
+		"" "materials/BEE2/models/props_ingame/rex/catcher_timed_clean.vmt"
+		"" "materials/BEE2/models/props_ingame/rex/catcher_timed_clean.vtf"
+		
+		// Field effect around caught pellet
+		"" "materials/BEE2/p1/physring.vmt"
+		"" "materials/BEE2/p1/physring.vtf"
+		}
 	}
 	
 "PackList"
 	{
 	"ID"     "PACK_PELLET_LAUNCHER_INF_DIRTY"
-	"Config" "launcher_inf_dirty"
+	"Config"
+		{
+		"" "models/BEE2/props_ingame/pellet_launcher_inf.mdl"
+		"" "materials/BEE2/models/props_ingame/rex/launcher_inf_dirty.vmt"
+		"" "materials/BEE2/models/props_ingame/rex/launcher_inf_dirty.vtf"
+		}
 	}
 	
 "PackList"
 	{
 	"ID"     "PACK_PELLET_CATCHER_TIM_DIRTY"
-	"Config" "catcher_timed_dirty"
+	"Config"
+		{
+		"" "models/BEE2/props_ingame/pellet_catcher_timed.mdl"
+		"" "materials/BEE2/models/props_ingame/rex/catcher_timed_dirty.vmt"
+		"" "materials/BEE2/models/props_ingame/rex/catcher_timed_dirty.vtf"
+		
+		// Field effect around caught pellet
+		"" "materials/BEE2/p1/physring.vmt"
+		"" "materials/BEE2/p1/physring.vtf"
+		}
+	}
+"PackList"
+	{
+	"ID"     "PACK_PELLET_CATCHER_INF_DIRTY"
+	"Config"
+		{
+		// We don't need to pack the models, since Valve included those.
+		"" "materials/BEE2/p1/physring.vmt"
+		"" "materials/BEE2/p1/physring.vtf"
+		}
 	}
 
 "EditorSound"
@@ -192,9 +279,10 @@
 	"ID" "Create_HEP"
 	"Keys"
 		{
-		"channel" "CHAN_AUTO"
-		"soundlevel" "SNDLVL_NONE"
-		"wave"	"weapons/physcannon/energy_sing_flyby1.wav"
+		"channel"       "CHAN_AUTO"
+		"soundlevel"    "SNDLVL_NONE"
+		"wave"	        "weapons/physcannon/energy_sing_flyby1.wav"
+		"Volume"        "0.5"
 		}
 	}
 	
@@ -203,8 +291,9 @@
 	"ID" "HEP_Flyby"
 	"Keys"
 		{
-		"channel" "CHAN_AUTO"
-		"soundlevel" "SNDLVL_NONE"
+		"channel"       "CHAN_AUTO"
+		"soundlevel"    "SNDLVL_NONE"
+		"Volume"        "0.3"
 		"rndwave"
 			{
 			"wave"	"weapons/physcannon/energy_sing_flyby1.wav"
@@ -218,8 +307,9 @@
 	"ID" "HEP_Bounce"
 	"Keys"
 		{
-		"channel" "CHAN_AUTO"
-		"soundlevel" "SNDLVL_NONE"
+		"channel"       "CHAN_AUTO"
+		"soundlevel"    "SNDLVL_NONE"
+		"Volume"        "0.3"
 		"rndwave"
 			{
 			"wave"	"weapons/physcannon/energy_bounce1.wav"
@@ -234,9 +324,10 @@
 	"ID" "HEP_Catcher"
 	"Keys"
 		{
-		"channel" "CHAN_AUTO"
-		"soundlevel" "SNDLVL_NONE"
-		"wave"	"bee2/p1/alyx_stunner2.wav"
+		"channel"       "CHAN_AUTO"
+		"soundlevel"    "SNDLVL_NONE"
+		"wave"	        "bee2/p1/alyx_stunner2.wav"
+		"Volume"        "0.3"
 		}
 	}
 	
@@ -246,9 +337,10 @@
 	// Play the regular delete sound, and in addition play pellet-explosion sound
 	"Keys"
 		{
-		"channel" "CHAN_AUTO"
+		"channel"    "CHAN_AUTO"
 		"soundlevel" "SNDLVL_NONE"
-		"wave"	"weapons/physcannon/energy_sing_explosion2.wav"
+		"wave"	     "weapons/physcannon/energy_sing_explosion2.wav"
+		"Volume"     "0.3"
 		"soundentry_version" "2"
 		"operator_stacks"
 			{

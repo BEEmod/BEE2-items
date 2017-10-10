@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "465"
+	"editorbuild" "7378"
+	"mapversion" "472"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,13 +32,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "64"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "465"
+	"mapversion" "472"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -8858,23 +8858,6 @@ entity
 }
 entity
 {
-	"id" "27556"
-	"classname" "info_coop_spawn"
-	"angles" "0 270 -90"
-	"Enabled" "1"
-	"ForceGunOnSpawn" "0"
-	"StartingTeam" "3"
-	"origin" "424 88 -200"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "27558"
 	"classname" "logic_relay"
 	"spawnflags" "0"
@@ -9042,6 +9025,7 @@ entity
 	"Enabled" "1"
 	"ForceGunOnSpawn" "0"
 	"StartingTeam" "2"
+	"targetname" "@coop_spawn_oran"
 	"origin" "424 88 -392"
 	editor
 	{
@@ -9778,7 +9762,7 @@ entity
 	connections
 	{
 		"OnTrigger" "@relay_lights_onTrigger1-1"
-		"OnTrigger" "@musicPlaySound01"
+		"OnTrigger" "@music_startTrigger01"
 		"OnTrigger" "@relay_spawn_on_entranceTrigger0-1"
 	}
 	solid
