@@ -75,19 +75,21 @@ def clean_vmf(vmf_path):
 
 
 # Text files we should clean up.
-PROP_EXT = ('.cfg', '.txt', '.vmt', '.nut')
+PROP_EXT = ('.cfg', '.txt')
+CLEAN_EXT = ('.vmt', '.nut') + PROP_EXT
 def clean_text(file_path):
     # Try and parse as a property file. If it succeeds,
     # write that out - it removes excess whitespace between lines
-    with open(file_path, 'r') as f:
-        try: 
-            props = Property.parse(f)
-        except KeyValError:
-            pass
-        else:
-            for line in props.export():
-                yield line.lstrip()
-            return
+    if file_path.endswith(PROP_EXT):
+        with open(file_path, 'r') as f:
+            try: 
+                props = Property.parse(f)
+            except KeyValError:
+                pass
+            else:
+                for line in props.export():
+                    yield line.lstrip()
+                return
     
     with open(file_path, 'r') as f:
         for line in f:
@@ -178,7 +180,7 @@ def build_package(package_path, pack_zip_path, zip_path):
                     if hammer_path:
                         with open(hammer_path, 'w') as f:
                             f.write(data)
-                elif OPTIMISE and file.endswith(PROP_EXT):
+                elif OPTIMISE and file.endswith(CLEAN_EXT):
                     print(rel_path)
                     data = ''.join(clean_text(full_path))
                     zip_file.writestr(rel_path, data)
