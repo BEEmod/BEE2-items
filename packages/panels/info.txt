@@ -379,6 +379,27 @@
 		"Styles"
 			{
 			"BEE2_CLEAN" "half_stair"
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "half_stair"
+				"Instances"
+					{
+					"bee2_dynamic" "instances/BEE2/over/items/stairs_half.vmf"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%PACKFILE%"   "BEE2_PANEL_HALF_STAIR_CLEAN"
+						
+						"%UPPER_TEMP%" "BEE2_PANEL_HALF_STAIR_TOP_CLEAN:stair_upper"
+						"%LOWER_TEMP%" "BEE2_PANEL_HALF_STAIR_TOP_CLEAN:stair_lower"
+						// Only useful for Overgrown...
+						"%TILE_CHANCE%" "70"
+						"%FORCE_VAR%"   ""
+						}
+					}
+				}
 			}
 		}
 	}
@@ -395,4 +416,19 @@
 	{
 	"ID" "BEE2_PANEL_HALF_STAIR_TOP_CASE"
 	"File" "half_stair_case_clean.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID" "BEE2_PANEL_HALF_STAIR_STATIC"
+	"File" "half_stair_static_clean.vmf"
+	}
+
+"PackList"
+	{
+	"ID" "BEE2_PANEL_HALF_STAIR_CLEAN"
+	"Config"
+		{
+		"" "models/BEE2/panels/arm_half_stairs.mdl"
+		}
 	}
