@@ -9,6 +9,7 @@
 	"Name"		"Overgrown"
 	"Folder"	"over"
 	"Icon"		"styles/overgrown.png"
+	"IconLarge"  	"prev/overgrown.png"
 	"VPK_Name"  "VPK_BEE2_OVERGROWN"
 	"Has_Video"	"1"
 	"Base"		""
@@ -81,12 +82,6 @@
 	"StyleVar"
 		{
 		"ID"    "RestartOnExit"
-		"Style" "BEE2_OVERGROWN"
-		}
-		
-	"StyleVar"
-		{
-		"ID"    "BlockPlayerGelBomb"
 		"Style" "BEE2_OVERGROWN"
 		}
 	}
@@ -1229,7 +1224,12 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN"	"fizz"
+				"BEE2_OVERGROWN"
+					{
+					"Base"   "BEE2_CLEAN"
+					"Config" "fizzler.cfg"
+					"Description" "Overgrown Style fizzlers are sometimes jammed open."
+					}
 				}
 			}
 		}
@@ -1399,6 +1399,7 @@
 	"ShortName"		"Overgrown"
 	"Group"			"2D"
 	"Icon"			"skies/overgrown.png"
+	"IconLarge"   		"prev/sky_overgrown.png"
 	"Material"		"sky_white"
 	"Config"		""
 	"Authors"		"Valve"
@@ -1542,4 +1543,16 @@
 			}
 		}
 	}
-	
+
+"Music"
+	{
+	"ID"			"VALVE_OVERGROWTH"
+	"Name"          "Overgrowth"
+	"Group"         "Overgrown"
+	"Icon"          "music/overgrowth"
+	"IconLarge"     "music_lrg/overgrowth"
+	"Authors"		"Valve"
+	"Description"	"The music played in the 2nd Overgrown Test, where the player swaps between 3 Blue Portals to put a cube on a Button. Sombre music, which swaps between 4 different tracks every 9 seconds."
+	"Sample"        "p2/sp_a1_intro2.ogg"
+	"Instance"      "instances/BEE2/music/overgrowth.vmf"
+	}

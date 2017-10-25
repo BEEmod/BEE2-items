@@ -13,6 +13,7 @@
 	
 // Used to append additional configs to the cube item, to
 // implement RexCubePelletFizzle
+// It isn't specific to that, but we need to put it somewhere.
 "ItemConfig"
 	{
 	"ID"        "ITEM_CUBE"
@@ -27,11 +28,19 @@
 		"Widget"
 			{
 			"ID"      "RexCubePelletFizzle"
-			"Label"   "Destroy Cubes"
+			"Label"   "Destroy Cubes when hit by Pellets"
 			"Type"    "Checkbox"
 			"Default" "0"
 			"Tooltip" "When struck by pellets cubes will dissolve after deflecting the pellet, like in Rexaura.
 This prevents players from shielding themselves with a cube, and discourages deflecting pellets off of cubes to hit catchers."
+			}
+		"Widget"
+			{
+			"ID"      "RexCubePelletExplode"
+			"Label"   "Destroy Pellets on Cube Contact"
+			"Type"    "Checkbox"
+			"Default" "0"
+			"Tooltip" "When pellets hit cubes they will explode, making it outright impossible to deflect pellets this way."
 			}
 		}
 	}
@@ -198,7 +207,7 @@ This prevents players from shielding themselves with a cube, and discourages def
 				"Instances"
 					{
 					"bee2_common" "instances/BEE2/over/items/rex/pellet_dest/common.vmf"
-					"bee2_common" "instances/BEE2/over/items/rex/pellet_dest/head.vmf"
+					"bee2_head"   "instances/BEE2/over/items/rex/pellet_dest/head.vmf"
 					
 					"bee2_piston_bottom_0" "instances/BEE2/over/items/rex/pellet_dest/pist_0.vmf"
 					"bee2_piston_bottom_1" "instances/BEE2/over/items/rex/pellet_dest/pist_1.vmf"
@@ -220,7 +229,7 @@ This prevents players from shielding themselves with a cube, and discourages def
 				"Instances"
 					{
 					"bee2_common" "instances/BEE2/50s/items/rex/pellet_dest/common.vmf"
-					"bee2_common" "instances/BEE2/50s/items/rex/pellet_dest/head.vmf"
+					"bee2_head"   "instances/BEE2/50s/items/rex/pellet_dest/head.vmf"
 					
 					"bee2_piston_bottom_0" "instances/BEE2/50s/items/rex/pellet_dest/pist_0.vmf"
 					"bee2_piston_bottom_1" "instances/BEE2/50s/items/rex/pellet_dest/pist_1.vmf"

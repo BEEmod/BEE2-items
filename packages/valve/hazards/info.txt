@@ -6,6 +6,7 @@
 	{
 	"Package"	"BEE2_CLEAN_STYLE"
 	}
+
 "Item"
 	{
 	"ID" "ITEM_TURRET"
@@ -21,6 +22,8 @@
 "Item"
 	{
 	"ID" "ITEM_GOO"
+	// Goo items only make the brushes, so there's nothing special
+	// the item can do - it's all in the style.
 	"Unstyled"	"1"
 	"Version"
 		{
@@ -30,6 +33,7 @@
 			}
 		}
 	}
+
 "Item"
 	{
 	"ID" "ITEM_BARRIER_HAZARD"
@@ -47,5 +51,22 @@
 			{
 			"BEE2_CLEAN"	"fizz"
 			}
+		}
+	}
+	
+"ConfigGroup"
+	{
+	"ID"    "VALVE_FIZZLER"
+	"Name"  "Fizzlers"
+	"Widget"
+		{
+		"ID"      "FlinchBack"
+		
+		"Type"    "Checkbox"
+		"Default" "1"
+		
+		"Label"   "Forgiving Laserfields"
+		
+		"Tooltip" "If the player walks into a LaserField, knock them back instead of outright killing them. If they fling into the field or force their way through, it will still kill them."
 		}
 	}

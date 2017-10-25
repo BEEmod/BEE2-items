@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "38"
+	"editorbuild" "7552"
+	"mapversion" "40"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "38"
+	"mapversion" "40"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -42,7 +42,7 @@ entity
 	"origin" "0 16 32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -56,20 +56,18 @@ entity
 	"targetname" "branch_toggle"
 	connections
 	{
-		"OnFalse" "fizzDisable0-1"
+		"OnTrue" "clipEnable0.01-1"
+		"OnTrue" "noportalActivate0-1"
 		"OnTrue" "fizzEnable0-1"
-		"OnTrue" "clipEnable0-1"
-		"OnFalse" "clipDisable0-1"
-		"OnTrue" "mdlSetAnimationopen0-1"
-		"OnFalse" "mdlSetAnimationclose0-1"
-		"OnFalse" "paintRemovePaint0-1"
-		"OnFalse" "paintDisable0-1"
-		"OnTrue" "paintEnable0-1"
+		"OnFalse" "clipDisable0.01-1"
+		"OnFalse" "noportalDeactivate0-1"
+		"OnFalse" "clipRemovePaint0-1"
+		"OnFalse" "fizzDisable0-1"
 	}
 	"origin" "0 -16 32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -106,7 +104,7 @@ entity
 	"origin" "0 0 32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"

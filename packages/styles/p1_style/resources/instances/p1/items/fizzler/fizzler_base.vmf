@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7378"
-	"mapversion" "48"
+	"mapversion" "52"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "48"
+	"mapversion" "52"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -39,10 +39,10 @@ entity
 		"OnHitMax" "branch_toggleToggleTest0-1"
 		"OnChangedFromMax" "branch_toggleToggleTest0-1"
 	}
-	"origin" "0 32 32"
+	"origin" "0 16 32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -56,19 +56,15 @@ entity
 	"targetname" "branch_toggle"
 	connections
 	{
-		"OnTrue" "br_*Enable0-1"
-		"OnFalse" "br_*Disable0-1"
-		"OnTrue" "model*Start0-1"
-		"OnFalse" "model*Stop0-1"
-		"OnTrue" "branch_toggleFireUser20-1"
-		"OnFalse" "branch_toggleFireUser10-1"
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
+		"OnTrue" "br_fizzEnable0-1"
+		"OnFalse" "br_fizzDisable0-1"
+		"OnTrue" "pfxStart0-1"
+		"OnFalse" "pfxStop0-1"
 	}
-	"origin" "0 -32 32"
+	"origin" "0 -16 32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -91,24 +87,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
-	"id" "619"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest0.1-1"
-	}
-	"origin" "0 0 32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
 	}
 }
 entity
