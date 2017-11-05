@@ -23,6 +23,16 @@ function p1_ball() // Portal 1 style sphere
 self.SetModel("models/BEE2/props_ingame/p1_ball.mdl");
 }
 
+function p1_laser_catcher()
+{
+self.SetModel("models/bee2/props_p1/laser_catcher.mdl")
+}
+
+function hmw_reflect() // HMW's reflection cube
+{
+self.SetModel("models/BEE2/props_p1/hmw_laser_cube.mdl");
+}
+
 function p1_cam() 
 {
 self.SetModel("models/BEE2/props_p1/security_camera.mdl");

@@ -11,6 +11,7 @@
 	"Folder"		"1950s"
 	"Group"			"Old Aperture"
 	"Icon"			"styles/aperture_50s"
+	"IconLarge"  		"prev/aperture_50s"
 	"Has_Video"		"0"
 	"VPK_Name"      "VPK_BEE2_1950S"
 	"Description"
@@ -57,6 +58,7 @@
 	"ShortName"		"1960s"
 	"Group"			"Old Aperture"
 	"Icon"			"styles/aperture_60s"
+	"IconLarge" 		"prev/aperture_60s"
 	"Folder"		"1960s"
 	"Base"			"BEE2_1950s"
 	"VPK_Name"      "VPK_BEE2_1950S" // The style has mostly the same textures..
@@ -88,6 +90,7 @@
 	"ShortName"		"1970s"
 	"Group"			"Old Aperture"
 	"Icon"			"styles/aperture_70s"
+	"IconLarge"  		"prev/aperture_70s"
 	"Folder"		"1970s"
 	"Base"			"BEE2_1950s"
 	"VPK_Name"      "VPK_BEE2_1970S"
@@ -133,6 +136,7 @@
 	"ShortName"		"1980s"
 	"Group"			"Old Aperture"
 	"Icon"			"styles/aperture_80s"
+	"IconLarge" 		"prev/aperture_80s"
 	"VPK_Name"      "VPK_BEE2_1980S"
 	"Folder"		"1980s"
 	"Base"			"BEE2_1970s"
@@ -194,6 +198,7 @@
 	"ShortName"     "Sphere Interior"
 	"Group"         "2D"
 	"Icon"          "styles/aperture_60s.png" // Includes an enrichment sphere icon to show 'vitrified'
+	"IconLarge"     "prev/sky_sphere_int.png"
 	"Material"      "sky_black"
 	"Authors"       "Valve"
 	"Description"   "The fog used for the interior of Enrichment Spheres."
@@ -220,7 +225,7 @@
 	"ShortName"     "Sphere Exterior"
 	"Group"         "2D"
 	"Icon"          "skies/sphere_exterior.png"
-	"IconLarge"     "skies_lrg/sphere_exterior.png"
+	"IconLarge"     "prev/sky_sphere_ext.png"
 	"Material"      "sky_black"
 	"Authors"       "Valve"
 	"Description"   "The fog used for the exterior of Enrichment Spheres, or the partially-constructed 80s style."
@@ -348,15 +353,6 @@
 	"StyleVar"
 		{
 		"ID"    "RestartOnExit"
-		"Style" "BEE2_1950s"
-		"Style" "BEE2_1960s"
-		"Style" "BEE2_1970s"
-		"Style" "BEE2_1980s"
-		}
-			
-	"StyleVar"
-		{
-		"ID"    "BlockPlayerGelBomb"
 		"Style" "BEE2_1950s"
 		"Style" "BEE2_1960s"
 		"Style" "BEE2_1970s"
@@ -1006,6 +1002,20 @@
 	
 "PackList"
 	{
+	"ID"       "PACK_LIGHT_BRIDGE_RETRO"
+	"Config" 
+		{
+		"" "models/BEE2/props_underground/light_bridge.mdl"
+		"" "materials/BEE2/models/props_underground/light_bridge_coils.vmt"
+		"" "materials/BEE2/models/props_underground/light_bridge_coils.vtf"
+		"" "materials/BEE2/models/props_underground/light_bridge_coils_n.vtf"
+		"" "materials/BEE2/models/props_underground/light_bridge_lamp.vmt"
+		"" "materials/BEE2/models/props_underground/light_bridge_lamp.vtf"
+		}
+	}
+	
+"PackList"
+	{
 	// 80s floor buttons - the destroyed models, but using clean skins.
 	"ID" "PACK_FLOOR_BUTTON_PROTOTYPE"
 	"Config"
@@ -1307,7 +1317,13 @@
 	"Config" "rusty_ball"
 	}
 	
-	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CUBE_DROPPER_RETRO_CAP"
+	"File"  "dropper_cap.vmf"
+	}
+
+
 "PackList"
 	{
 	// The track-platform track model, but resized to 128.
@@ -1658,9 +1674,23 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"fizz"
-				"BEE2_1960s"		"fizz_sparky"
+				"BEE2_1960s"
+					{
+					"Folder" "fizz"
+					"Config" "fizz_sparky.cfg"
+					}
 				"BEE2_1970s"		"fizz"
-				"BEE2_1980s"		"fizz_improved"
+				"BEE2_1980s"
+					{
+					"Folder" "fizz"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%INST_FOLDER%" "instances/BEE2/80s/items/fizzler/"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1712,7 +1742,6 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"bridge_50s"
-				"BEE2_1970s"		"bridge_70s"
 				"BEE2_1980s"		"bridge_80s"
 				}
 			}

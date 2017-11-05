@@ -1,0 +1,85 @@
+UnlitTwoTexture
+	{
+	// We slide two textures - P1 field, and the atmosphere gradient.
+	
+	// NOT P2 version, old texture from HL2 / P1 Flash Version / P1 Still Alive
+	$basetexture "effects/laserplane" 
+	$basetexturetransform "center 0 0 scale .25 .25 rotate 0 translate 0 0"
+	
+	$texture2 "effects/laserplane_atmosphere"
+
+	$additive 1
+	$translucent 1
+	
+	%compilenonsolid 1
+	%compilepassbullets 1
+	%noportal 1
+	%nopaint 1
+	$nodecal 1
+	
+	$angle 0
+	$base_speed 0
+	$base_speed_sub -.04
+	$base_offset "[0 0]"
+	$base_scale "[.25 .25]"
+	
+	$detail_scale "[.5 .5]"
+	$detail_offset "[0 0]"
+	Proxies
+		{
+		// Move the atmosphere a random direction continually.
+		EntityRandom
+			{
+			scale 360
+			resultVar $angle
+			}
+		EntityRandom
+			{
+			// Subtract -.04 to go min/max
+			scale .08
+			resultVar $base_speed
+			}
+		Subtract
+			{
+			srcVar1 $base_speed
+			srcVar2 $base_speed_sub
+			resultVar $base_speed
+			}
+			
+			
+		LinearRamp
+			{
+			rate 0.1
+			initialValue 0
+			resultVar "$detail_offset[0]"
+			}
+		LinearRamp
+			{
+			rate -0.08
+			initialValue 0
+			resultVar "$detail_offset[1]"
+			}
+		TextureTransform
+			{
+			scaleVar $detail_scale
+			translateVar $detail_offset
+			rotateVar $angle
+			resultvar $texture2transform
+			}
+		
+		// We need to be able to adjust the base scale.
+		// But slide it vertically continually.
+		LinearRamp
+			{
+			rate $base_speed
+			initialValue 0
+			resultVar "$base_offset[1]"
+			}
+		TextureTransform
+			{
+			scaleVar $base_scale
+			translateVar $base_offset
+			resultvar $basetexturetransform
+			}
+		}
+	}

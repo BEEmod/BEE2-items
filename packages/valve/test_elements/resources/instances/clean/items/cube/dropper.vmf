@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "303"
+	"editorbuild" "7552"
+	"mapversion" "318"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -68,7 +68,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "303"
+	"mapversion" "318"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1789,36 +1789,14 @@ entity
 	{
 		"OnHitMax" "spawn_manSetStateATrue0-1"
 	}
-	"origin" "-48 16 48"
+	"origin" "-16 0 24"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "16"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1338"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "$disable_autodrop"
-	"targetname" "@relay_spawn_on_entrance"
-	connections
-	{
-		"OnSpawn" "cube_templateForceSpawn0.11"
-		"OnTrigger" "spawn_manSetStateATrue0-1"
-	}
-	"origin" "-16 -48 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "16"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 2500]"
 	}
 }
 entity
@@ -1831,6 +1809,7 @@ entity
 	"drawinfastreflection" "1"
 	"fademindist" "-1"
 	"fadescale" "1"
+	"HoldAnimation" "1"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props_ingame/item_dropper_128.mdl"
@@ -2063,17 +2042,17 @@ entity
 	"origin" "0 0 -67"
 	"spawnflags" "8"
 	"StartDisabled" "0"
-	"targetname" "cube_dropper_close_trigger"
+	"targetname" "done_trig"
 	"wait" "1"
 	connections
 	{
 		"OnEndTouchAll" "cube_templateForceSpawn0.7-1"
 		"OnEndTouchAll" "box*AddOutputOnUser1 !self:Dissolve::0:10-1"
-		"OnEndTouchAll" "cube_dropper_modelSetDefaultAnimationitem_dropper_idle_closed0.2-1"
-		"OnEndTouchAll" "cube_dropper_close_triggerDisable0.2-1"
+		"OnEndTouchAll" "close_trigDisable0.2-1"
 		"OnEndTouchAll" "cube_dropper_modelSetAnimationitem_dropper_close0.1-1"
 		"OnEndTouchAll" "cube_dropper_box_reenter_clipEnable0-1"
 		"OnEndTouchAll" "spawn_manFireUser20.2-1"
+		"OnEndTouchAll" "done_trigDisable0.2-1"
 	}
 	solid
 	{
@@ -2168,10 +2147,10 @@ entity
 	"filtername" "box*"
 	"Negated" "Allow entities that match criteria"
 	"targetname" "cube_dropper_box_filter"
-	"origin" "48 16 48"
+	"origin" "-8 8 -8"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 255 0"
 		"visgroupid" "15"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -2184,14 +2163,14 @@ entity
 	"classname" "point_template"
 	"spawnflags" "0"
 	"targetname" "cube_template"
-	"Template01" "box_ents_*"
-	"Template02" "box"
+	"Template01" "cube_addon_*"
+	"Template02" "box*"
 	connections
 	{
-		"OnEntitySpawned" "box_ents_*FireUser40-1"
+		"OnEntitySpawned" "cube_addon_*FireUser40-1"
 		"OnEntitySpawned" "box*FireUser40-1"
 	}
-	"origin" "16 48 48"
+	"origin" "-8 -8 -8"
 	editor
 	{
 		"color" "220 30 220"
@@ -2214,7 +2193,6 @@ entity
 		"OnChangeToAllTrue" "cube_dropper_modelSkin02-1"
 		"OnChangeToAllTrue" "cube_dropper_box_drop_clipDisable1.1-1"
 		"OnChangeToAllTrue" "cube_dropper_gate_relayEnable1-1"
-		"OnChangeToAllTrue" "cube_dropper_modelSetDefaultAnimationitem_dropper_idle0.2-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationitem_dropper_open0.1-1"
 		"OnChangeToAllTrue" "voice_rlEnable0.02-1"
 		"OnChangeToAllTrue" "box*FireUser10.01-1"
@@ -2223,15 +2201,16 @@ entity
 		"OnChangeToAllTrue" "cube_dropper_modelSkin10-1"
 		"OnChangeToAllTrue" "spawn_manSetStateBFalse0-1"
 		"OnChangeToAllTrue" "cube_dropper_gate_relayDisable0-1"
-		"OnChangeToAllTrue" "cube_dropper_close_triggerEnable0-1"
+		"OnChangeToAllTrue" "close_trigEnable0-1"
 		"OnUser1" "proxyProxyRelay0-1"
 		"OnChangeToAllTrue" "spawn_manFireUser10.011"
 		"OnUser2" "proxyProxyRelay0-1"
+		"OnChangeToAllTrue" "done_trigEnable0-1"
 	}
-	"origin" "16 -48 48"
+	"origin" "16 0 24"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "16"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -2248,11 +2227,12 @@ entity
 	connections
 	{
 		"OnTrigger" "spawn_manSetStateATrue0-1"
+		"OnSpawn" "cube_templateForceSpawn0.11"
 	}
-	"origin" "-16 48 48"
+	"origin" "0 0 24"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "16"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -2270,7 +2250,7 @@ entity
 		"OnProxyRelay" "counterSubtract10-1"
 		"OnProxyRelay" "cube_dropper_gate_relayTrigger0-1"
 	}
-	"origin" "48 -16 48"
+	"origin" "8 -8 -8"
 	editor
 	{
 		"color" "220 30 220"
@@ -2285,13 +2265,9 @@ entity
 	"id" "797"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 0"
-	"parm2" "$cube_type integer 0"
+	"parm2" "$disable_autodrop boolean 0"
 	"parm3" "$disable_autorespawn boolean 0"
-	"parm4" "$disable_autodrop boolean 0"
-	"parm5" "$item_fall_straight_down boolean 1"
-	"parm6" "$indicator_lights string"
-	"parm7" "$start_reversed boolean 1"
-	"origin" "-48 -16 48"
+	"origin" "8 8 -8"
 	editor
 	{
 		"color" "220 30 220"
@@ -2628,14 +2604,14 @@ entity
 	"id" "913"
 	"classname" "trigger_multiple"
 	"filtername" "cube_dropper_box_filter"
-	"origin" "0 0 54"
+	"origin" "0 0 52"
 	"spawnflags" "8"
 	"StartDisabled" "0"
-	"targetname" "cube_dropper_close_trigger"
+	"targetname" "close_trig"
 	"wait" "0.1"
 	connections
 	{
-		"OnEndTouchAll" "!activatorEnablePortalFunnel0-1"
+		"OnEndTouchAll" "proxyProxyRelay0-1"
 	}
 	solid
 	{
@@ -2643,7 +2619,7 @@ entity
 		side
 		{
 			"id" "192"
-			"plane" "(40 40 46) (-40 40 46) (-40 -40 46)"
+			"plane" "(40 40 62) (-40 40 62) (-40 -40 62)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 -0.00390625] 0.25"
@@ -2654,7 +2630,7 @@ entity
 		side
 		{
 			"id" "191"
-			"plane" "(40 -40 62) (-40 -40 62) (-40 40 62)"
+			"plane" "(40 -40 78) (-40 -40 78) (-40 40 78)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 -0.00390625] 0.25"
@@ -2665,7 +2641,7 @@ entity
 		side
 		{
 			"id" "190"
-			"plane" "(-40 40 46) (40 40 46) (40 40 62)"
+			"plane" "(-40 40 62) (40 40 62) (40 40 78)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0.00390625] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -2676,7 +2652,7 @@ entity
 		side
 		{
 			"id" "189"
-			"plane" "(40 -40 46) (-40 -40 46) (-40 -40 62)"
+			"plane" "(40 -40 62) (-40 -40 62) (-40 -40 78)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0.00390625] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -2687,7 +2663,7 @@ entity
 		side
 		{
 			"id" "188"
-			"plane" "(-40 -40 46) (-40 40 46) (-40 40 62)"
+			"plane" "(-40 -40 62) (-40 40 62) (-40 40 78)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -2698,7 +2674,7 @@ entity
 		side
 		{
 			"id" "187"
-			"plane" "(40 40 46) (40 -40 46) (40 -40 62)"
+			"plane" "(40 40 62) (40 -40 62) (40 -40 78)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
