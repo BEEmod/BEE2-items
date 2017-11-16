@@ -24,7 +24,7 @@ These are instructions to install the standard version of BEE2.4. For the develo
 5. To launch BEE2.4, go to the `bin` folder and open `BEE2.exe`.
 6. Once opened, select the game you want BEE2.4 to modify.
 
-If this will be your very first time using Beemod, then steps from above should be enough. However, **if in the past you used other Beemod versions/Pre-releases, it is fundamental to unmounting and remounting Portal 2 through the Bee´s interface, to make changes and bug fixes take effect. To do this, launch Beemod, then click on:** `File > Uninstall From Selected Game > "Are you sure you want to delete "PORTAL 2"? >` **YES. Wait 1 minute while Beemod removes their resources from Portal 2. Now Beemod is in totally optimal conditions to be used.**
+If this will be your very first time using Beemod, then steps from above should be enough. However, **if in the past you used other Beemod versions/Pre-releases, it is fundamental to unmounting and remounting Portal 2 through the Bee´s interface, this will allow changes and bug fixes take effect. To do this, launch Beemod, then click on:** `File > Uninstall From Selected Game > "Are you sure you want to delete "PORTAL 2"? >` **YES. Wait 1 minute while Beemod removes their resources from Portal 2. Now Beemod is in totally optimal conditions to be used.**
 
 You can add another game using `File > Add Game`. Any Source game can be added, but BEE2.4 will only work with Portal 2 and Aperture Tag. Thinking With Time Machine support is planned, but has not yet been implemented.
 To remove a game, use `File > Uninstall from Selected Game`. As well as unmounting it from BEE2.4, this will also remove all BEE2.4-related resources from the game and reset the Puzzlemaker to the default items and style for that game.
