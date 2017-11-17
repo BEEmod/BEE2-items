@@ -15,7 +15,7 @@ This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/B
 
 ### Release Version
 
-These are instructions to install the standard version of BEE2.4. However, if this is not your very first time using Beemod, follow the extra step N°7. For the development version, see below.
+These are instructions to install the standard version of BEE2.4. However, if this is not your very first time using Beemod, you will also need to follow the aditional step N°7. For the development version, see below.
 
 1. Download the BEE2.4 app and compiler from [here](https://github.com/BEEmod/BEE2.4/releases).
 2. Download the Default Pack from [here](https://github.com/BEEmod/BEE2-items/releases). Make sure to get the same version as the application, otherwise you may encounter errors. Note that the PRL26 app is to be used with the PRL25 items, however both versions are totally outdated now, use instead PRL27 or posterior.
