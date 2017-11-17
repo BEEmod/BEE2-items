@@ -55,10 +55,13 @@
 		"TargetName"		"lb"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
+				"Type" "AND"
+				"Init" "None"
+				"InvertVar"  "$start_enabled"
+				"EnableCmd"  "bridge,Enable,,0.00,-1"
+				"DisableCmd" "bridge,Disable,,0.00,-1"
 				}
 			}
 		"OccupiedVoxels"
