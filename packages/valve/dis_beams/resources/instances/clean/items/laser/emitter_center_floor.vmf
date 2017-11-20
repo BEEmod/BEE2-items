@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "110"
+	"editorbuild" "7552"
+	"mapversion" "114"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "110"
+	"mapversion" "114"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -720,14 +720,14 @@ entity
 	"_distance" "0"
 	"_fifty_percent_distance" "48"
 	"_hardfalloff" "0"
-	"_light" "255 106 106 50"
+	"_light" "255 106 106 150"
 	"_lightHDR" "-1 -1 -1 1"
 	"_lightscaleHDR" "1"
 	"_linear_attn" "0"
 	"_quadratic_attn" "1"
-	"_zero_percent_distance" "72"
-	"spawnflags" "1"
-	"style" "5"
+	"_zero_percent_distance" "96"
+	"spawnflags" "0"
+	"style" "0"
 	"targetname" "$name"
 	"origin" "0 0 -72"
 	editor
@@ -1122,82 +1122,6 @@ entity
 			"visgroupautoshown" "1"
 		}
 	}
-	solid
-	{
-		"id" "856"
-		side
-		{
-			"id" "416"
-			"plane" "(-28 28 -64) (28 28 -64) (28 -28 -64)"
-			"material" "BEE2/GLASS_PLAYER_CLIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "415"
-			"plane" "(-28 -28 -65) (28 -28 -65) (28 28 -65)"
-			"material" "BEE2/GLASS_PLAYER_CLIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "414"
-			"plane" "(-28 28 -64) (-28 -28 -64) (-28 -28 -65)"
-			"material" "BEE2/GLASS_PLAYER_CLIP"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "413"
-			"plane" "(28 28 -65) (28 -28 -65) (28 -28 -64)"
-			"material" "BEE2/GLASS_PLAYER_CLIP"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "412"
-			"plane" "(28 28 -64) (-28 28 -64) (-28 28 -65)"
-			"material" "BEE2/GLASS_PLAYER_CLIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "411"
-			"plane" "(28 -28 -65) (-28 -28 -65) (-28 -28 -64)"
-			"material" "BEE2/GLASS_PLAYER_CLIP"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 180 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
 	editor
 	{
 		"color" "0 180 0"
@@ -1208,90 +1132,13 @@ entity
 }
 entity
 {
-	"id" "701"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest0-1"
-	}
-	"origin" "0 0 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "667"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "laserTurnOn0-1"
-		"OnFalse" "laserTurnOff0-1"
-		"OnTrue" "lightTurnOn0-1"
-		"OnFalse" "lightTurnOff0-1"
-	}
-	"origin" "-24 -24 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "669"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-		"OnHitMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "24 -24 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "671"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "24 24 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
 	"id" "673"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer"
-	"parm2" "$start_enabled integer"
-	"origin" "-24 24 -48"
+	"parm2" "$start_enabled integer 1"
+	"parm3" "$start_disabled boolean 0"
+	"parm4" "$name target_destination light"
+	"origin" "0 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -1401,7 +1248,7 @@ entity
 	"rendercolor" "255 255 255"
 	"scalevalue" "0"
 	"skin" "0"
-	"StartState" "1"
+	"StartState" "$start_disabled"
 	"targetname" "laser"
 	"origin" "0 0 -112"
 	editor

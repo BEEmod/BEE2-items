@@ -15,7 +15,6 @@
 				{
 				"Tooltip"	"PORTAL2_PuzzleEditor_Palette_laser_emitter"
 				"Image"		"palette/laser_emitter.png"
-				"Position"	"0 4 0"
 				}
 			"Sounds"
 				{
@@ -56,10 +55,17 @@
 		"TargetName"		"le"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"              "AND"
+				"Init"              "NONE"
+				
+				"InvertVar"         "$start_enabled"
+				"Enable_Cmd"        "laser,TurnOn,,0.00,-1"
+				"Disable_Cmd"       "laser,TurnOff,,0.00,-1"
+				
+				"Enable_Cmd"        "light,TurnOn,,0.00,-1"
+				"Disable_Cmd"       "light,TurnOff,,0.00,-1"
 				}
 			}
 		"Offset"		"64 64 64"
@@ -235,10 +241,17 @@
 		"TargetName"		"le"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"              "AND"
+				"Init"              "NONE"
+				
+				"InvertVar"         "$start_enabled"
+				"Enable_Cmd"        "las,TurnOn,,0.00,-1"
+				"Disable_Cmd"       "las,TurnOff,,0.00,-1"
+				
+				"Enable_Cmd"        "light,TurnOn,,0.00,-1"
+				"Disable_Cmd"       "light,TurnOff,,0.00,-1"
 				}
 			}
 		"Offset"		"64 64 64"

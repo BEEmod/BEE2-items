@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "95"
+	"editorbuild" "7552"
+	"mapversion" "98"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "95"
+	"mapversion" "98"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -486,14 +486,14 @@ entity
 	"_distance" "0"
 	"_fifty_percent_distance" "48"
 	"_hardfalloff" "0"
-	"_light" "255 106 106 50"
+	"_light" "255 106 106 150"
 	"_lightHDR" "-1 -1 -1 1"
 	"_lightscaleHDR" "1"
 	"_linear_attn" "0"
 	"_quadratic_attn" "1"
-	"_zero_percent_distance" "72"
-	"spawnflags" "1"
-	"style" "5"
+	"_zero_percent_distance" "96"
+	"spawnflags" "0"
+	"style" "0"
 	"targetname" "$name"
 	"origin" "-32 0 -40"
 	editor
@@ -502,24 +502,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 -15768]"
-	}
-}
-entity
-{
-	"id" "585"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest2.21"
-	}
-	"origin" "-32 0 -24"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
 	}
 }
 entity
@@ -617,50 +599,10 @@ entity
 	"id" "377"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer"
-	"parm2" "$start_enabled integer"
-	"origin" "-48 16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "357"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "laserTurnOn0-1"
-		"OnFalse" "laserTurnOff0-1"
-		"OnTrue" "lightTurnOn0-1"
-		"OnFalse" "lightTurnOff0-1"
-	}
-	"origin" "-48 -16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "359"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-		"OnHitMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-16 -16 -48"
+	"parm2" "$start_enabled integer 1"
+	"parm3" "$start_disabled boolean 0"
+	"parm4" "$name target_destination light"
+	"origin" "-32 0 -24"
 	editor
 	{
 		"color" "220 30 220"
@@ -678,9 +620,8 @@ entity
 	"model" "models/props/laser_emitter_center.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
-	"scalevalue" "0"
 	"skin" "0"
-	"StartState" "1"
+	"StartState" "$start_disabled"
 	"targetname" "laser"
 	"origin" "-31.9 0 -80"
 	editor
@@ -689,25 +630,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
-	"id" "350"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-16 16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
 	}
 }
 cameras
