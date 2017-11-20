@@ -71,10 +71,14 @@
 		
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+				"Type"              "AND"
+				"Init"              "NONE"
+				
+				"InvertVar"         "$start_enabled"
+				"Enable_Cmd"        "arm,FireUser4,,0.00,-1"
+				"Disable_Cmd"       "arm,FireUser3,,0.00,-1"
 				}
 			}
 
