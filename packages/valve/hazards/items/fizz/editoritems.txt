@@ -16,7 +16,6 @@
 				{
 				"Tooltip"		"PORTAL2_PuzzleEditor_Palette_fizzler"
 				"Image"			"palette/fizzler.png"
-				"Position"		"0 3 0"
 				}
 			"Sounds"
 				{
@@ -37,7 +36,6 @@
 				{
 				"Tooltip"		"PORTAL2_PuzzleEditor_Palette_laser_field"
 				"Image"			"palette/deathfield.png"
-				"Position"		"0 6 0"
 				}
 			}
 		"MovementHandle"			"HANDLE_6_POSITIONS"
@@ -80,28 +78,16 @@
 		"TargetName"	"fiz"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
-				}
-			"CONNECTION_HAZARD_MODEL"
-				{
-				"Activate"		"instance:mdl;FireUser2"
-				"Deactivate"	"instance:mdl;FireUser1"
-				}
-			"CONNECTION_HAZARD_BRUSH"
-				{
-				"Activate"		"Enable"
-				"Deactivate"	"Disable"
-				}
-			}
-		"Outputs"
-			{
-			"CONNECTION_HAZARD"
-				{
-				"Activate"		"instance:branch_toggle;OnTrue"
-				"Deactivate"	"instance:branch_toggle;OnFalse"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "brush,Enable,,0.00,-1"
+				"Enable_Cmd"    "brush,Activate,,0.00,-1"
+				"Enable_Cmd"    "mdl,SetAnimation,open,0.00,-1"
+				"Disable_Cmd"   "brush,Disable,,0.00,-1"
+				"Disable_Cmd"   "mdl,SetAnimation,close,0.00,-1"
+				"Disable_Cmd"   "mdl,Deactivate,,0.00,-1"
 				}
 			}
 		"ConnectionPoints"
