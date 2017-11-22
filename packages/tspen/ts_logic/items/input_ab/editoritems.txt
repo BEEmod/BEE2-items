@@ -124,18 +124,25 @@
 		"TargetName"		"tsdual"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			// Definition for SR latch here.
+			"BEE2"
 				{
-				"Activate"		"instance:rl_in;FireUser1"
-				"Deactivate"	"instance:rl_in;FireUser2"
+				"Type"              "DUAL"
+				"DefaultDual"       "A"
+				
+				"InvertVar"         "0"
+				"Sec_InvertVar"     "0"
+				
+				"Enable_Cmd"        "man,SetStateATrue,,0.00,-1"
+				"Sec_Enable_Cmd"    "man,SetStateAFalse,,0.00,-1"
 				}
 			}
 		"Outputs"
 			{
 			"CONNECTION_STANDARD"
 				{
-				"Activate"		"instance:rl_out;OnUser1"
-				"Deactivate"	"instance:rl_out;OnUser2"
+				"Activate"		"instance:man;OnUser2"
+				"Deactivate"	"instance:man;OnUser1"
 				}
 			}
 		"ConnectionPoints"
