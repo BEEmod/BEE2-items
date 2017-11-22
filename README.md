@@ -15,19 +15,19 @@ This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/B
 
 ### Release Version
 
-These are instructions to install the standard version of BEE2.4. However, if this is not your very first time using Beemod, you will also need to follow the aditional step N°7. For the development version, see below.
+These are instructions to install the standard version of BEE2.4. For the development version, see below.
 
 1. Download the BEE2.4 app and compiler from [here](https://github.com/BEEmod/BEE2.4/releases).
-2. Download the Default Pack from [here](https://github.com/BEEmod/BEE2-items/releases). Make sure to get the same version as the application, otherwise you may encounter errors. Note that the PRL26 app is to be used with the PRL25 items, however both versions are totally outdated now, use instead PRL27 or posterior.
+2. Download the Default Pack from [here](https://github.com/BEEmod/BEE2-items/releases). Make sure to get the same version as the application, otherwise you may encounter errors.
 3. Extract the application zip to anywhere on your computer.
 4. Extract the contents of the Default Pack zip to the application folder you just extracted.
 5. To launch BEE2.4, go to the `bin` folder and open `BEE2.exe`.
 6. Once opened, select the game you want BEE2.4 to modify.
 
-7. If this will be your very first time using Beemod, then steps from above should be enough. However, **if in the past you used other Beemod versions/Pre-releases, it is fundamental to unmounting and remounting Portal 2 through the Bee´s interface, this will allow changes and bug fixes take effect. To do this, launch Beemod, then click on:** `File > Uninstall From Selected Game > "Are you sure you want to delete "PORTAL 2"? >` **YES. Wait 1 minute while Beemod removes their resources from Portal 2. Now Beemod will be in totally optimal conditions to be used.**
-
 You can add another game using `File > Add Game`. Any Source game can be added, but BEE2.4 will only work with Portal 2 and Aperture Tag. Thinking With Time Machine support is planned, but has not yet been implemented.
 To remove a game, use `File > Uninstall from Selected Game`. As well as unmounting it from BEE2.4, this will also remove all BEE2.4-related resources from the game and reset the Puzzlemaker to the default items and style for that game.
+
+When exporting BEE2.4 after installing a new version, old resources from past releases will not be overwritten, resulting in bugs that were fixed still being present and some things not working correctly. To solve this, choose `File > Uninstall from Selected Game` to remove all BEE2.4 resources from the game. Then, choose `File > Add Game` and browse to the location of `portal2.exe`. Next time you export, the new resources will be copied to the game and new changes and bugfixes will take effect.
 
 ### Development Version
 
