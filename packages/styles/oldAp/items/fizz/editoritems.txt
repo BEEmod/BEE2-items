@@ -1,193 +1,191 @@
 "Item"
-{
+	{
 	"Type"		"ITEM_BARRIER_HAZARD"
 	"ItemClass"	"ItemBarrierHazard"
 	"Editor"
-	{
+		{
 		"SubTypeProperty"	"HazardType"
 		"SubType"
-		{
+			{
 			"Name"			"PORTAL2_PuzzleEditor_Item_fizzler"
 			"Model"
-			{
-				"ModelName"		"under_fizz.3ds"
-			}
+				{
+				"ModelName" "under_fizz.3ds"
+				}
 			"Palette"
-			{
-				"Tooltip"		"PORTAL2_PuzzleEditor_Palette_fizzler"
-				"Image"			"palette/50s/fizzler.png"
-				"Position"		"0 3 0"
-			}
+				{
+				"Tooltip"   "PORTAL2_PuzzleEditor_Palette_fizzler"
+				"Image"     "palette/50s/fizzler.png"
+				}
 			"Sounds"
-			{
+				{
 				"SOUND_CREATED"					"P2Editor.PlaceOther"
 				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
 				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
 				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
 			}
-		}
 		"SubType"
-		{
+			{
 			"Name"				"PORTAL2_PuzzleEditor_Item_laser_field"
 			"Model"
-			{
-				"ModelName"		"under_laserfield.3ds"
-			}
+				{
+				"ModelName" "under_laserfield.3ds"
+				}
 			"Palette"
-			{
-				"Tooltip"		"PORTAL2_PuzzleEditor_Palette_laser_field"
-				"Image"			"palette/50s/deathfield.png"
-				"Position"		"0 6 0"
+				{
+				"Tooltip"   "PORTAL2_PuzzleEditor_Palette_laser_field"
+				"Image"     "palette/50s/deathfield.png"
+				}
 			}
-		}
 		"MovementHandle"			"HANDLE_6_POSITIONS"
 		"DesiredFacing"				"DESIRES_HORIZONTAL"
-	}
+		}
 	"Properties"
-	{
+		{
 		"ConnectionCount"
-		{
-			"DefaultValue"		"0"
-			"Index"				"1"
-		}
+			{
+			"DefaultValue"  "0"
+			"Index"         "1"
+			}
 		"StartEnabled"
-		{
-			"DefaultValue"		"1"
-			"Index"				"2"
-		}
+			{
+			"DefaultValue"  "1"
+			"Index"         "2"
+			}
 		"HazardType"
-		{
-			"DefaultValue"		"0"
-			"Index"				"0"
+			{
+			"DefaultValue"  "0"
+			"Index"         "0"
+			}
 		}
-	}
 	"Exporting"
-	{
+		{
 		"Instances"
-		{
+			{
 			"0"
-			{
-				"Name"			"instances/BEE2/50s/items/fizzler/fizzler_base.vmf"
-				"EntityCount"	"5"
-			}
+				{
+				"Name"          "instances/BEE2/50s/items/fizzler/fizzler_base.vmf"
+				"EntityCount"   "5"
+				}
 			"1"
-			{
-				"Name"			"instances/BEE2/50s/items/fizzler/fizzler_model.vmf"
-				"EntityCount"	"5"
+				{
+				"Name"          "instances/BEE2/50s/items/fizzler/fizzler_model.vmf"
+				"EntityCount"   "5"
+				}
 			}
-		}
 
-		"TargetName"	"fiz"
+		"TargetName"    "fiz"
 		"Inputs"
-		{
+			{
 			"CONNECTION_STANDARD"
-			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
-			}
+				{
+				"Activate"      "instance:counter;Add"
+				"Deactivate"    "instance:counter;Subtract"
+				}
 			"CONNECTION_HAZARD_MODEL"
-			{
-				"Activate"		"instance:mdl;FireUser2"
-				"Deactivate"	"instance:mdl;FireUser1"
-			}
+				{
+				"Activate"      "instance:mdl;FireUser2"
+				"Deactivate"    "instance:mdl;FireUser1"
+				}
 			"CONNECTION_HAZARD_BRUSH"
-			{
-				"Activate"		"Enable"
-				"Deactivate"	"Disable"
+				{
+				"Activate"      "Enable"
+				"Deactivate"    "Disable"
+				}
 			}
-		}
 		"Outputs"
-		{
-			"CONNECTION_HAZARD"
 			{
-				"Activate"		"instance:branch_toggle;OnTrue"
-				"Deactivate"	"instance:branch_toggle;OnFalse"
+			"CONNECTION_HAZARD"
+				{
+				"Activate"      "instance:branch_toggle;OnTrue"
+				"Deactivate"    "instance:branch_toggle;OnFalse"
+				}
 			}
-		}
 		"ConnectionPoints"
-		{
+			{
 			// left
 			"Point"
-			{
+				{
 				"Dir"				"1 0 0"
 				"Pos"				"2 0 0"
 				"SignageOffset"		"1 1 0"
 				"Priority"	"0"
-			}
+				}
 			"Point"
-			{
+				{
 				"Dir"				"1 0 0"
 				"Pos"				"2 2 0"
 				"SignageOffset"		"1 3 0"
 				"Priority"	"0"
-			}
+				}
 			"Point"
-			{
+				{
 				"Dir"				"1 0 0"
 				"Pos"				"2 4 0"
 				"SignageOffset"		"1 5 0"
 				"Priority"	"0"
-			}
+				}
 			"Point"
-			{
+				{
 				"Dir"				"1 0 0"
 				"Pos"				"2 6 0"
 				"SignageOffset"		"1 7 0"
 				"Priority"	"0"
-			}
+				}
 
 
 			// right
 			"Point"
-			{
+				{
 				"Dir"				"-1 0 0"
 				"Pos"				"5 0 0"
 				"SignageOffset"		"6 1 0"
 				"Priority"	"0"
-			}
+				}
 			"Point"
-			{
+				{
 				"Dir"				"-1 0 0"
 				"Pos"				"5 2 0"
 				"SignageOffset"		"6 3 0"
 				"Priority"	"0"
-			}
+				}
 			"Point"
-			{
+				{
 				"Dir"				"-1 0 0"
 				"Pos"				"5 4 0"
 				"SignageOffset"		"6 5 0"
 				"Priority"	"0"
-			}
+				}
 			"Point"
-			{
+				{
 				"Dir"				"-1 0 0"
 				"Pos"				"5 6 0"
 				"SignageOffset"		"6 7 0"
 				"Priority"	"0"
+				}
 			}
-		}
 		"Offset"	"64 64 64"
+		}
 	}
-}
 
 "Item"
-{
+	{
 	"Type"		"ITEM_BARRIER_HAZARD_EXTENT"
 	"ItemClass"	"ItemBarrierHazardExtent"
 	"Editor"
-	{
-		"SubType"
 		{
-			"Model"
+		"SubType"
 			{
+			"Model"
+				{
 				"ModelName"		"handle_grip_trianglesmall.3ds"
+				}
 			}
-		}
 		"MovementHandle"	"HANDLE_NONE"
 		"OccupiesVoxel"		"0"
 		"Deletable"			"0"
 		"Copyable"			"0"
 		"PseudoHandle"		"1"
+		}
 	}
-}
