@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7552"
-	"mapversion" "103"
+	"mapversion" "105"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "103"
+	"mapversion" "105"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -857,33 +857,14 @@ entity
 }
 entity
 {
-	"id" "585"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest2.21"
-	}
-	"origin" "-32 0 -40"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "574"
 	"classname" "light"
-	"_light" "255 106 106 10"
+	"_light" "218 76 26 50"
 	"_lightHDR" "-1 -1 -1 1"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
-	"spawnflags" "1"
-	"targetname" "light"
-	"origin" "-32 0 -24"
+	"spawnflags" "0"
+	"origin" "-32 0 -40"
 	editor
 	{
 		"color" "220 30 220"
@@ -986,54 +967,13 @@ entity
 {
 	"id" "377"
 	"classname" "func_instance_parms"
-	"parm1" "$connectioncount integer"
-	"parm2" "$start_enabled integer"
-	"origin" "-48 16 -48"
+	"parm1" "$connectioncount integer 0"
+	"parm2" "$start_enabled boolean 1"
+	"parm3" "$start_disabled boolean 0"
+	"origin" "-32 0 -24"
 	editor
 	{
 		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "357"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "laserTurnOn0-1"
-		"OnFalse" "laserTurnOff0-1"
-		"OnTrue" "lightTurnOn0-1"
-		"OnFalse" "lightTurnOff0-1"
-	}
-	"origin" "-48 -16 -48"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "359"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-		"OnHitMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-16 -16 -48"
-	editor
-	{
-		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1048,9 +988,8 @@ entity
 	"model" "models/bee2/props_p1/laser_emitter.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
-	"scalevalue" "0"
 	"skin" "0"
-	"StartState" "1"
+	"StartState" "$start_disabled"
 	"targetname" "laser"
 	"origin" "-31.9 0 -80"
 	editor
@@ -1059,25 +998,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
-	"id" "350"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-16 16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
 	}
 }
 cameras

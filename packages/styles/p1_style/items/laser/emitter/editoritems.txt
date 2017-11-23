@@ -56,10 +56,12 @@
 		"TargetName"		"le"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "laser,TurnOn,,0.00,-1"
+				"Disable_Cmd"   "laser,TurnOff,,0.00,-1"
 			}
 		}
 		"Offset"		"64 64 64"
@@ -235,10 +237,12 @@
 		"TargetName"		"le"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "laser,TurnOn,,0.00,-1"
+				"Disable_Cmd"   "laser,TurnOff,,0.00,-1"
 			}
 		}
 		"Offset"		"64 64 64"
