@@ -31,15 +31,20 @@
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "compressed_smoke_field"
-				"Replace"
-					{
-					"PACK_BEE2_CUST_FIZZ_MDL" "PACK_P1_CUST_FIZZLER"
-					"bee2_static" "fizz_model" // No static model.
-					}
+				"Config" "csf_p1.cfg"
 				"Instances"
 					{
 					"0" "instances/BEE2/p1/items/fr/csf_base.vmf"
 					"1" "instances/BEE2/p1/items/fr/csf_model.vmf" 
+					}
+				"IOConf"
+					{
+					"Type"          "AND"
+					"InvertVar"     "$start_enabled"
+					"Enable_Cmd"    "clip,Enable,,0.00,-1"
+					"Disable_Cmd"   "clip,Disable,,0.00,-1"
+					"Enable_Cmd"    "fizz,Enable,,0.00,-1"
+					"Disable_Cmd"   "fizz,Disable,,0.00,-1"
 					}
 				}
 			"BEE2_1950s"
@@ -101,15 +106,18 @@
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "matter_inquisition_field"
-				"Replace"
-					{
-					"PACK_BEE2_CUST_FIZZ_MDL" "PACK_P1_CUST_FIZZLER"
-					"bee2_static" "fizz_model" // No static model.
-					}
+				"Config" "mif_p1.cfg"
 				"Instances"
 					{
 					"0" "instances/BEE2/p1/items/fr/mif_base.vmf"
 					"1" "instances/BEE2/p1/items/fr/mif_model.vmf" 
+					}
+				"IOConf"
+					{
+					"Type"          "AND"
+					"InvertVar"     "$start_enabled"
+					"Enable_Cmd"    "fizz,Enable,,0.00,-1"
+					"Disable_Cmd"   "fizz,Disable,,0.00,-1"
 					}
 				}
 			"BEE2_1950s"
@@ -168,15 +176,20 @@
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "force_deflection_field"
-				"Replace"
-					{
-					"PACK_BEE2_CUST_FIZZ_MDL" "PACK_P1_CUST_FIZZLER"
-					"bee2_static" "fizz_model" // No static model.
-					}
+				"Config" "fdf_p1.cfg"
 				"Instances"
 					{
 					"0" "instances/BEE2/p1/items/fr/fdf_base.vmf"
 					"1" "instances/BEE2/p1/items/fr/fdf_model.vmf" 
+					}
+				"IOConf"
+					{
+					"Type"          "AND"
+					"InvertVar"     "$start_enabled"
+					"Enable_Cmd"    "clip,Enable,,0.00,-1"
+					"Disable_Cmd"   "clip,Disable,,0.00,-1"
+					"Enable_Cmd"    "mat_mod,StartFloatLerp,0 1.7 0.75 0,0.00,-1"
+					"Disable_Cmd"   "mat_mod,StartFloatLerp,1.7 0 0.75 0,0.00,-1"
 					}
 				}
 			"BEE2_1950s"
