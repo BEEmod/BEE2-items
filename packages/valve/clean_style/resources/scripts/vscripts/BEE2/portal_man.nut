@@ -4,8 +4,6 @@ has_blue <- true;
 has_oran <- true;
 has_pgun <- true;
 
-start_pos <- self.GetOrigin();
-
 // Takes the gun off you.
 stripper <- null;
 // Detects cubes held by the player.
@@ -28,16 +26,6 @@ portalgun_onoff_forced <- false;
 function OnPostSpawn() {
 	stripper = Entities.FindByName(null, "__pgun_weapon_strip");
 	held_trig = Entities.FindByName(null, "__pgun_held_trig");
-	if(IsMultiplayer()) {
-		// Wait enough for it to spawn.
-		EntFireByHandle(self, "CallScriptFunction", "_find_players", 2.5, self, self);
-	}
-}
-
-function _find_players() {
-	// Grab the two coop players, which we know are in this order.
-	player_blue <- Entities.FindByClassname(null, "player");
-	player_oran <- Entities.FindByClassname(player_blue, "player");
 }
 
 // Called OnMapSpawn, passing in this config values.
@@ -209,23 +197,6 @@ function kill_pgun_portals(color) {
 		}
 		portal = Entities.FindByClassname(portal, "prop_portal");
 	}
-}
-
-// In coop, delete the portals placed by the other player.
-// This ensures the crosshairs match.
-function fizzle_other_player() {
-	if (!IsMultiplayer()) {
-		return
-	}
-	local pos = null;
-	if (activator == player_blue) {
-		pos = player_oran.GetOrigin();
-	} else {
-		pos = player_blue.GetOrigin();
-	}
-	pos.z += 64;
-	self.SetOrigin(pos);
-	EntFireByHandle(self, "RunScriptCode", "self.SetOrigin(start_pos)", 0.01, null, null);
 }
 
 function _mark_held_cube() {
