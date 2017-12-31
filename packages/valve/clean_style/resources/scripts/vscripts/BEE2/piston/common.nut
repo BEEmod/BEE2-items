@@ -68,6 +68,14 @@ function OnPostSpawn() {
 	if (SPAWN_UP) {
 		pos = highest_pos;
 	}
+	
+	snd_source_ent <- self.GetMoveParent();
+	if (snd_source_ent == null) {
+		snd_source_ent = self;
+	} else {
+		// No use for the parent now we know about it.
+		EntFireByHandle(self, "ClearParent", "", 0, self, self);
+	}
 }
 
 function moveto(new_pos) {
@@ -109,7 +117,7 @@ function _up() {
 	// Finished.
 	is_moving = false;
 	if (STOP_SND) {
-		self.EmitSound(STOP_SND);
+		snd_source_ent.EmitSound(STOP_SND);
 	}
 	if(self.GetClassname() == "ambient_generic") {
 		EntFireByHandle(self, "StopSound", "", 0.00, self, self);
@@ -128,7 +136,7 @@ function _dn() {
 	// Finished.
 	is_moving = false;
 	if (STOP_SND) {
-		self.EmitSound(STOP_SND);
+		snd_source_ent.EmitSound(STOP_SND);
 	}
 	if(self.GetClassname() == "ambient_generic") {
 		EntFireByHandle(self, "StopSound", "", 0.00, self, self);
