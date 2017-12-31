@@ -32,7 +32,7 @@ START_SND <- "";
 STOP_SND <- "";
 
 // If true, we spawned extended.
-SPAWN_UP = false;
+SPAWN_UP <- false;
 
 is_moving <- false;
 
@@ -46,8 +46,8 @@ function OnPostSpawn() {
 	local pist = null;
 	local found_pist = false;
 	local start_pos = (SPAWN_UP) ? POS_UP : POS_DN;
+	local highest_pos = 0;
 	for (local i=1; i<=4; i++) {
-		printl(inst_name + "-pist" + i);
 		pist = Entities.FindByName(null, inst_name + "-pist" + i);
 		pistons[i] <- pist;
 		// Hookup IO to notify us when they've reached the ends.
@@ -56,13 +56,17 @@ function OnPostSpawn() {
 			EntFireByHandle(pist, "AddOutput", "OnFullyOpen " + self.GetName() + ":RunScriptCode:positions[" + i + "]=" + POS_UP + ";_up():0:-1", 0, self, self);
 			EntFireByHandle(pist, "AddOutput", "OnFullyClosed " + self.GetName() + ":RunScriptCode:positions[" + i + "]=" + POS_DN + ";_dn():0:-1", 0, self, self);
 			positions[i] <- start_pos;
-			found_pist= true;
+			found_pist = true;
+			highest_pos = i;
 		} else {
 			// Piston not there, so we need to assume bottom ones are up,
 			// top ones are down.
 			// if found_pist = true, we're past the bottom ones...
 			positions[i] <- found_pist ? POS_DN : POS_UP;
 		}
+	}
+	if (SPAWN_UP) {
+		pos = highest_pos;
 	}
 }
 
