@@ -35,6 +35,9 @@ STOP_SND <- "";
 SPAWN_UP <- false;
 
 is_moving <- false;
+has_dn_fizz <- false;
+dn_fizz_on <- false;
+
 
 function Precache() {
 	if(START_SND) self.PrecacheSoundScript(START_SND);
@@ -76,6 +79,12 @@ function OnPostSpawn() {
 		// No use for the parent now we know about it.
 		EntFireByHandle(self, "ClearParent", "", 0, self, self);
 	}
+	
+	// If present, trigger whenever we start moving to wake cubes.
+	enable_motion_trig <- Entities.FindByName(null, inst_name + "-wake_trig");
+	
+	// If we have these, turn them on while going down.
+	has_dn_fizz <- Entities.FindByName(null, inst_name + "-dn_fizz") != null;
 }
 
 function moveto(new_pos) {
@@ -94,12 +103,20 @@ function moveto(new_pos) {
 		if(self.GetClassname() == "ambient_generic") {
 			EntFireByHandle(self, "PlaySound", "", 0.00, self, self);
 		}
+		if (enable_motion_trig != null) {
+			EntFireByHandle(enable_motion_trig, "Enable", "", 0, self, self);
+			EntFireByHandle(enable_motion_trig, "Disable", "", 0.1, self, self);
+		}
 	}
 	
 	if (old_pos < new_pos) {
 		_up();
 	} else if (old_pos > new_pos) {
 		_dn();
+		if (has_dn_fizz) {
+			dn_fizz_on <- true;
+			EntFire(inst_name + "-dn_fizz", "Enable", "", 0, self);
+		}
 	}
 }
 
@@ -140,5 +157,9 @@ function _dn() {
 	}
 	if(self.GetClassname() == "ambient_generic") {
 		EntFireByHandle(self, "StopSound", "", 0.00, self, self);
+	}
+	if (has_dn_fizz && dn_fizz_on) {
+		dn_fizz_on <- false;
+		EntFire(inst_name + "-dn_fizz", "Disable", "", 0, self);
 	}
 }
