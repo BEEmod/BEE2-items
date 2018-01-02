@@ -1142,20 +1142,18 @@
 							"BrushSideCount"    "56"
 							}
 						}
-					"Replace"
-						{
-						// Chance to have a panel in each place
-						"0%" "60%"
-						"<force_var>" "$disable_autorespawn"
-						
-						"BEE2_STAIRS_TOP:stair_1" "BEE2_OVER_STAIRS_TOP_1"
-						"BEE2_STAIRS_TOP:stair_2" "BEE2_OVER_STAIRS_TOP_2"
-						"BEE2_STAIRS_TOP:stair_3" "BEE2_OVER_STAIRS_TOP_3"
-						"BEE2_STAIRS_TOP:stair_4" "BEE2_OVER_STAIRS_TOP_4"
-						"BEE2_STATIC_STAIRS_STATIC_BEAMS_TEMP" "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
-						}
 					"Append"
 						{
+						"Replacements"
+							{
+							"%STATIC_TEX_TEMP%" "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
+							"%TOP_TEMP%"  "BEE2_OVER_STAIRS_TOP"
+							// Chance to have a panel in each place
+							"%SPACE_PERC%"      "60%"
+							"%FORCE_VAR%"       "$disable_autorespawn"
+							"%EDGE_ORIG_TEX%"   "anim_wp/framework/squarebeams_rusty_01"
+							"%EDGE_PORTAL_TEX%" "BEE2/squarebeams_rusty_portal"
+							}
 						"Conditions"
 							{
 							"Condition"
