@@ -95,10 +95,12 @@
 		"TargetName"		"doorexit"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
+				"Type"          "AND"
+				"invertVar"     "$start_open"
+				"Enable_Cmd"    "close_man,FireUser2,,0.00,-1"
+				"Disable_Cmd"   "close_man,FireUser1,,0.00,-1"
 				}
 			}
 		"Offset"		"64 64 0"
