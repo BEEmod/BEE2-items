@@ -18,6 +18,8 @@
 		}
 	}
 
+// We replace this instance entirely with compiler code - it's handled specially.
+// The input option is added.
 "Item"
 	{
 	"Type"		"ITEM_INDICATOR_TOGGLE"
@@ -46,14 +48,6 @@
 			}
 
 		"TargetName"		"it"
-		"Inputs"
-			{
-			"CONNECTION_STANDARD"
-				{
-				"Activate"		"instance:tog;FireUser2"
-				"Deactivate"	"instance:tog;FireUser1"
-				}
-			}
 		"Offset"		"64 64 64"
 		}
 	}
@@ -185,10 +179,10 @@
 		"TargetName"		"ph"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+				"Enable_Cmd"    "helper,Enable,,0.00,-1"
+				"Disable_Cmd"   "helper,Disable,,0.00,-1"
 				}
 			}
 		"Offset"		"64 64 64"
