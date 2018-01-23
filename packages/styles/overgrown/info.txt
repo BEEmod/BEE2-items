@@ -286,6 +286,16 @@
 	"AddIfMat" "BEE2/overgrown/broken_indicator"
 	"AddIfMat" "BEE2/overgrown/broken_indicator_corner"
 	}
+
+"PackList"
+	{
+	"ID" "PACK_OVER_CHAMBER_TILES"
+	"AddIfMat" "BEE2/overgrown/tile/white_floor_tile005a"
+	"Config"
+		{
+		"" "materials/BEE2/overgrown/tile/white_floor_tile005a.vtf"
+		}
+	}
 	
 "PackList"
 	{
@@ -950,7 +960,13 @@
 	"ID"   "BEE2_OVER_CUBE_BUTTON_BASE"
 	"File" "cube_btn_base.vmf"
 	}
-	
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_OBSERVATION_CEILING_TILES_1"
+	"File" "observation_ceiling_tiles_1"
+	}
+
 "Overrides"
 	{
 	"Item"
@@ -1126,20 +1142,18 @@
 							"BrushSideCount"    "56"
 							}
 						}
-					"Replace"
-						{
-						// Chance to have a panel in each place
-						"0%" "60%"
-						"<force_var>" "$disable_autorespawn"
-						
-						"BEE2_STAIRS_TOP:stair_1" "BEE2_OVER_STAIRS_TOP_1"
-						"BEE2_STAIRS_TOP:stair_2" "BEE2_OVER_STAIRS_TOP_2"
-						"BEE2_STAIRS_TOP:stair_3" "BEE2_OVER_STAIRS_TOP_3"
-						"BEE2_STAIRS_TOP:stair_4" "BEE2_OVER_STAIRS_TOP_4"
-						"BEE2_STATIC_STAIRS_STATIC_BEAMS_TEMP" "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
-						}
 					"Append"
 						{
+						"Replacements"
+							{
+							"%STATIC_TEX_TEMP%" "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
+							"%TOP_TEMP%"  "BEE2_OVER_STAIRS_TOP"
+							// Chance to have a panel in each place
+							"%SPACE_PERC%"      "60%"
+							"%FORCE_VAR%"       "$disable_autorespawn"
+							"%EDGE_ORIG_TEX%"   "anim_wp/framework/squarebeams_rusty_01"
+							"%EDGE_PORTAL_TEX%" "BEE2/squarebeams_rusty_portal"
+							}
 						"Conditions"
 							{
 							"Condition"
@@ -1216,7 +1230,18 @@
 				}
 			}
 		}
-		
+	}
+	
+
+"BrushTemplate"
+	{
+	// No rotation, fitting the grid.
+	"ID"    "BEE2_GRATING_TEMPLATE_SQUARE"
+	"File"  "grating_template.vmf"
+	}
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_BARRIER_HAZARD"

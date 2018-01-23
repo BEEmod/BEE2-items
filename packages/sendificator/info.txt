@@ -74,6 +74,67 @@
 		}
 	}
 	
+"Item"
+	{
+	"ID"       "ITEM_HMW_SENDIFICATOR_SLIM"
+	"All_conf" "sendtor_all.cfg"
+	"Description"	
+		{
+		"" "A slimmer version of HMW's Sendificator made by Konclan. When activated, teleports cubes to the end of an attached laser beam."
+		"" ""
+		"" "* Connect the sendificator to a laser with an antline, and connect an activation input (usually a pedestal button)."
+		"" "* The laser can still be powered on and off via regular inputs, which also disables the Sendificator."
+		"" "* __The Sendificator will not recognise Reflection Gel__."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"     "sendtor_slim"
+			"BEE2_1950s"
+				{
+				"Folder" "sendtor_slim"
+				"Config" "sendtor_slim_50s.cfg"
+				"Instances"
+					{
+					"0"          "instances/BEE2/50s/items/konclan/sendtor_slim.vmf"
+					"las_center" "instances/BEE2/50s/items/hmw/sendtor_emitter_center.vmf"
+					"las_offset" "instances/BEE2/50s/items/hmw/sendtor_emitter_offset.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Config" "sendtor_slim_70s.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/70s/items/konclan/sendtor_slim.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Config" "sendtor_slim_80s.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/80s/items/konclan/sendtor_slim.vmf"
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "sendtor_slim"
+				"Config" "sendtor_slim_over.cfg"
+				"Instances"
+					{
+					"0"          "instances/BEE2/over/items/konclan/sendtor_slim.vmf"
+					"las_center" "instances/BEE2/over/items/hmw/sendtor_emitter_center.vmf"
+					"las_offset" "instances/BEE2/over/items/hmw/sendtor_emitter_offset.vmf"
+					}
+				}
+			}
+		}
+	}
+	
 "BrushTemplate"
 	{
 	"ID"   "BEE2_HMW_SENDTOR_BASE_SLAB"
@@ -155,6 +216,18 @@
 	"config" "sendtor_clean"
 	}
 	
+"PackList"
+	{
+	"ID"     "PACK_HMW_SENDTOR_SLIM_CLEAN"
+	"config" "sendtor_slim_clean"
+	}
+
+"PackList"
+	{
+	"ID"     "PACK_HMW_SENDTOR_SLIM_DIRTY"
+	"config" "sendtor_slim_dirty"
+	}
+
 "PackList"
 	{
 	"ID"     "PACK_HMW_SENDTOR_DIRTY"

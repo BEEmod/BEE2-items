@@ -9,6 +9,8 @@
 //  logic_script EntityGroup entries:
 //      0:  first env_laser
 //      1:  target of first env_laser
+//  
+//  This has been modified and only works in BEE2.4.
 //
 //  ________________________________________________________________________
 //
@@ -211,24 +213,26 @@ function initialise(n)
     // Detectors with name "@sendtor_portal_detect0" detect ID 0 (SP),
     // ones with name "@sendtor_portal_detect1" detect ID 1 (Atlas),
     // "@sendtor_portal_detect2" detect ID 2 (P-Body) etc.
+    
+    // This is now done in BEE2.4.
 
-    local ent = Entities.FindByName(null, "@sendtor_portal_detect*");
-    while (ent != null) {
+    // local ent = Entities.FindByName(null, "@sendtor_portal_detect*");
+    // while (ent != null) {
 
-        local id = ent.GetName().slice(22);
-        if (id == "") {
-            id = "0";
-        }
+        // local id = ent.GetName().slice(22);
+        // if (id == "") {
+            // id = "0";
+        // }
 
-        EntFireByHandle(ent, "AddOutput",
-                "OnStartTouchPortal !activator:RunScriptCode:" +
-                "sendtor_active <- " + id, 0, null, null);
-        EntFireByHandle(ent, "AddOutput",
-                "OnEndTouchPortal !activator:RunScriptCode:" +
-                "sendtor_active <- -1", 0, null, null);
+        // EntFireByHandle(ent, "AddOutput",
+                // "OnStartTouchPortal !activator:RunScriptCode:" +
+                // "sendtor_active <- " + id, 0, null, null);
+        // EntFireByHandle(ent, "AddOutput",
+                // "OnEndTouchPortal !activator:RunScriptCode:" +
+                // "sendtor_active <- -1", 0, null, null);
 
-        ent = Entities.FindByName(ent, "@sendtor_portal_detect*");
-    }
+        // ent = Entities.FindByName(ent, "@sendtor_portal_detect*");
+    // }
 }
 
 
@@ -357,7 +361,17 @@ function get_portal_id(portal)
 
     portal.ValidateScriptScope();
     local portal_ss = portal.GetScriptScope();
-    if ("sendtor_active" in portal_ss) {
+    
+    // New BEE2 logic
+    if ("__pgun_active" in portal_ss) {
+        if (portal_ss.__pgun_active) { 
+            return portal_ss.__pgun_port_id;
+        } else {
+            return -1;
+        }
+        
+    // Original logic.
+    } else if ("sendtor_active" in portal_ss) {
         return portal_ss.sendtor_active;
     }
     else {

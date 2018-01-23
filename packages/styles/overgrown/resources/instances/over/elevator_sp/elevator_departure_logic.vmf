@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "321"
+	"editorbuild" "7552"
+	"mapversion" "327"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -38,13 +38,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "128"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "321"
+	"mapversion" "327"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -87,7 +87,7 @@ entity
 	"origin" "-8 -16 48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -111,7 +111,7 @@ entity
 	"origin" "0 0 48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
@@ -378,7 +378,7 @@ entity
 	"origin" "16 -32 17"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -631,7 +631,7 @@ entity
 	"origin" "-13.2608 -153.08 9"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"comments" "this will disable the relay that summons the elevator. used to let the player into the elevator room but not on the elevator."
@@ -678,7 +678,7 @@ entity
 	"origin" "8 -152 9"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"comments" "this will summon the elevator if it has not shown up already."
@@ -1899,7 +1899,7 @@ entity
 	"origin" "48 -128 33"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "21"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -3004,7 +3004,7 @@ entity
 	"origin" "32 -128 33"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "21"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -3025,7 +3025,6 @@ entity
 	{
 		"OnPass" "@relay_pti_level_endTrigger0-1"
 		"OnPass" "@clientcommandCommandrestart_level2-1"
-		"OnPass" "@screenshot2Trigger0.21"
 		"OnPass" "@preview_complete_messageDisplay0.2-1"
 	}
 	"origin" "0 0 544"
@@ -3047,10 +3046,11 @@ entity
 	"targetname" "source_elevator_door_open_trigger"
 	connections
 	{
-		"OnTrigger" "logic_source_elevator_door_openTrigger0-1"
+		"OnTrigger" "logic_source_elevator_door_openTrigger0.1-1"
 		"OnTrigger" "signs_onTrigger0-1"
 		"OnTrigger" "light_elevator_fillTurnOn1.5-1"
-		"OnTrigger" "@exit_dest_3FireUser20-1"
+		"OnTrigger" "tube_dest_sndFireUser10-1"
+		"OnTrigger" "flicker_upper_timEnable0-1"
 	}
 	solid
 	{
@@ -3266,7 +3266,7 @@ entity
 	"origin" "8 -16 48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
@@ -3320,7 +3320,7 @@ entity
 	"origin" "-16 -32 17"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -3341,8 +3341,8 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
-	"rendermode" "0"
-	"solidbsp" "0"
+	"rendermode" "10"
+	"solidbsp" "1"
 	"Solidity" "0"
 	"spawnflags" "2"
 	"StartDisabled" "0"
@@ -3355,7 +3355,7 @@ entity
 		{
 			"id" "10747"
 			"plane" "(-103 79 -64) (-119 50 -64) (-128 17 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0.130526 -0.991445 0 0] 0.25"
 			"rotation" "0"
@@ -3366,7 +3366,7 @@ entity
 		{
 			"id" "10748"
 			"plane" "(49 119 0) (79 103 0) (103 79 0)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0.130526 -0.991445 0 0] 0.25"
 			"rotation" "0"
@@ -3377,7 +3377,7 @@ entity
 		{
 			"id" "10749"
 			"plane" "(17 128 0) (-17 128 0) (-17 128 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3388,7 +3388,7 @@ entity
 		{
 			"id" "10750"
 			"plane" "(49 119 0) (17 128 0) (17 128 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3399,7 +3399,7 @@ entity
 		{
 			"id" "10751"
 			"plane" "(79 103 0) (49 119 0) (49 119 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3410,7 +3410,7 @@ entity
 		{
 			"id" "10752"
 			"plane" "(103 79 0) (79 103 0) (79 103 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3421,7 +3421,7 @@ entity
 		{
 			"id" "10753"
 			"plane" "(119 49 0) (103 79 0) (103 79 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3432,7 +3432,7 @@ entity
 		{
 			"id" "10754"
 			"plane" "(128 17 0) (119 49 0) (119 49 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3443,7 +3443,7 @@ entity
 		{
 			"id" "10755"
 			"plane" "(128 -17 0) (128 17 0) (128 17 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3454,7 +3454,7 @@ entity
 		{
 			"id" "10756"
 			"plane" "(119 -49 0) (128 -17 0) (128 -17 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3465,7 +3465,7 @@ entity
 		{
 			"id" "10757"
 			"plane" "(103 -79 0) (119 -49 0) (119 -49 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3476,7 +3476,7 @@ entity
 		{
 			"id" "10758"
 			"plane" "(79 -103 0) (103 -79 0) (103 -79 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3487,7 +3487,7 @@ entity
 		{
 			"id" "10759"
 			"plane" "(49 -119 0) (79 -103 0) (79 -103 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3498,7 +3498,7 @@ entity
 		{
 			"id" "10760"
 			"plane" "(17 -128 0) (49 -119 0) (49 -119 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3509,7 +3509,7 @@ entity
 		{
 			"id" "10761"
 			"plane" "(-17 -128 0) (17 -128 0) (17 -128 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3520,7 +3520,7 @@ entity
 		{
 			"id" "10762"
 			"plane" "(-49 -119 0) (-17 -128 0) (-17 -128 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3531,7 +3531,7 @@ entity
 		{
 			"id" "10763"
 			"plane" "(-79 -103 0) (-49 -119 0) (-49 -119 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3542,7 +3542,7 @@ entity
 		{
 			"id" "10764"
 			"plane" "(-103 -79 0) (-79 -103 0) (-79 -103 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3553,7 +3553,7 @@ entity
 		{
 			"id" "10765"
 			"plane" "(-118.632 -48.9029 0) (-103 -79 0) (-103 -79 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3564,7 +3564,7 @@ entity
 		{
 			"id" "10766"
 			"plane" "(-128 -17 0) (-118.632 -48.9029 0) (-118.632 -48.9029 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3575,7 +3575,7 @@ entity
 		{
 			"id" "10767"
 			"plane" "(-128 17 0) (-128 -17 0) (-128 -17 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3586,7 +3586,7 @@ entity
 		{
 			"id" "10768"
 			"plane" "(-119 50 0) (-128 17 0) (-128 17 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3597,7 +3597,7 @@ entity
 		{
 			"id" "10769"
 			"plane" "(-103 79 0) (-119 50 0) (-119 50 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[-0.130526 0.991445 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3608,7 +3608,7 @@ entity
 		{
 			"id" "10770"
 			"plane" "(-79 103 0) (-103 79 0) (-103 79 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3619,7 +3619,7 @@ entity
 		{
 			"id" "10771"
 			"plane" "(-49 119 0) (-79 103 0) (-79 103 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3630,7 +3630,7 @@ entity
 		{
 			"id" "10772"
 			"plane" "(-17 128 0) (-49 119 0) (-49 119 -64)"
-			"material" "TOOLS/TOOLSPLAYERCLIP"
+			"material" "GLASS/GLASSWINDOW_FROSTED_002"
 			"uaxis" "[0.991445 0.130526 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -3793,8 +3793,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[93.1899 32.5121 -821.064]"
-		"look" "[60.6229 19.3528 -867.34]"
+		"position" "[94.1563 -565.522 407.456]"
+		"look" "[93.1824 -542.283 354.219]"
 	}
 	camera
 	{
