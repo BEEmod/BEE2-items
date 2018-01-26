@@ -1,7 +1,7 @@
 "Item"
 	{
 	"ItemClass"		"ItemButtonFloor"
-	"Type"			"ITEM_BUTTON_FLOOR"
+	"Type"			"ITEM_BEE2_TRIGGER_BUTTON"
 	"Editor"
 		{
 		"SubType"
@@ -57,20 +57,37 @@
 			{
 			"CONNECTION_STANDARD"
 				{
-				"Activate"      "instance:man;OnUser2"
-				"Deactivate"    "instance:man;OnUser1"
+				"Activate"      "instance:btn;OnPressed"
+				"Deactivate"    "instance:btn;OnUnPressed"
 				}
 			}
 		"OccupiedVoxels"
 			{
-			"Voxel"
+			"SurfaceVolume"
 				{
 				"Pos" "0 0 0"
-				"SurfaceVolume"
-					{
-					"SubPos1" "0 0 0"
-					"SubPos2" "3 3 2"
-					}
+				// Shape like so:
+				// #  #
+				//  ## 
+				//  ## 
+				// #  #
+				// That ways there's the space to stick the antlines around.
+				
+				"SubPos1" "1 1 0"
+				"SubPos2" "2 2 2"
+				
+				"SubPos1" "0 0 0"
+				"SubPos2" "0 0 2"
+				
+				"SubPos1" "3 0 0"
+				"SubPos2" "3 0 2"
+				
+				"SubPos1" "3 3 0"
+				"SubPos2" "3 3 2"
+				
+				"SubPos1" "0 3 0"
+				"SubPos2" "0 3 2"
+					
 				}
 			}
 		"ConnectionPoints"
