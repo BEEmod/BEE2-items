@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "1164"
+	"editorbuild" "7552"
+	"mapversion" "1169"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -50,7 +50,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "1164"
+	"mapversion" "1169"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -814,8 +814,8 @@ world
 			"id" "27549"
 			"plane" "(-3120 -1200 -1487.27) (-3120 3008 -1487.27) (1024 3008 -1487.27)"
 			"material" "NATURE/TOXICSLIME_A2_BRIDGE_INTRO"
-			"uaxis" "[1 0 0 770.965] 4.04688"
-			"vaxis" "[0 -1 0 731.984] 4.10938"
+			"uaxis" "[1 0 0 771] 4.05"
+			"vaxis" "[0 -1 0 732] 4.11"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1272,8 +1272,8 @@ world
 		{
 			"id" "27216"
 			"plane" "(-1664 2048 -896) (-1792 2048 -896) (-1792 848 -896)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 58] 0.25"
+			"material" "METAL/UNDERGROUND_WALL_METAL004A"
+			"uaxis" "[1 0 0 256] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -3380,6 +3380,29 @@ world
 }
 entity
 {
+	"id" "272680"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "$no_player_start"
+	"targetname" "player_start_rl"
+	connections
+	{
+		"OnTrigger" "@player_start_teleportTeleport0.5-1"
+		"OnTrigger" "@entrance_door_open_rlTrigger1.51"
+		"OnTrigger" "player_door_triggerKill0-1"
+		"OnTrigger" "@preview_restart_triggerEnable0-1"
+	}
+	"origin" "-972.49 632 -908.365"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
 	"id" "271298"
 	"classname" "prop_static"
 	"angles" "0 0 0"
@@ -4776,7 +4799,7 @@ entity
 	"origin" "-1160.38 632 -699.301"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
@@ -11762,8 +11785,7 @@ entity
 	connections
 	{
 		"OnTrigger" "@exit_door_closeTrigger0.1-1"
-		"OnTrigger" "@musicStopSound0-1"
-		"OnTrigger" "@musicKill0.01-1"
+		"OnTrigger" "@music_stopTrigger0-1"
 	}
 	solid
 	{
@@ -16376,7 +16398,7 @@ entity
 	"origin" "359.929 1083.25 -1233.81"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[3500 -10268]"
@@ -16397,7 +16419,7 @@ entity
 	"origin" "336.889 1095.33 -1251.22"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[3500 -8768]"
@@ -17710,7 +17732,7 @@ entity
 	"origin" "-1998.87 2117.53 504"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 0 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"comments" "this is the slowtime global"
@@ -18480,244 +18502,191 @@ entity
 		"logicalpos" "[0 500]"
 	}
 }
-hidden
-{
-	entity
-	{
-		"id" "129755"
-		"classname" "logic_playerproxy"
-		"targetname" "playerproxy"
-		"origin" "128.841 705.016 8"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "13"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 1500]"
-		}
-	}
-}
-hidden
-{
-	entity
-	{
-		"id" "129761"
-		"classname" "logic_relay"
-		"spawnflags" "0"
-		"targetname" "relay_motionblur"
-		connections
-		{
-			"OnTrigger" "timer_motion_blurEnable1-1"
-			"OnTrigger" "playerproxySetMotionBlurAmount0.50-1"
-			"OnTrigger" "counter_motion_blurSetValueNoFire00-1"
-		}
-		"origin" "144.938 752.749 8"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "13"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 0]"
-		}
-	}
-}
-hidden
-{
-	entity
-	{
-		"id" "129785"
-		"classname" "logic_timer"
-		"RefireTime" "0.025"
-		"spawnflags" "0"
-		"StartDisabled" "1"
-		"targetname" "timer_motion_blur"
-		connections
-		{
-			"OnTimer" "counter_motion_blurAdd10-1"
-		}
-		"origin" "151 737.301 50.7028"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "13"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 0]"
-		}
-	}
-}
-hidden
-{
-	entity
-	{
-		"id" "129789"
-		"classname" "math_counter"
-		"max" "30"
-		"targetname" "counter_motion_blur"
-		connections
-		{
-			"OutValue" "remap_motion_blurInValue0-1"
-			"OnHitMax" "timer_motion_blurDisable0-1"
-		}
-		"origin" "151 769.872 64.6414"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "13"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 500]"
-		}
-	}
-}
-hidden
-{
-	entity
-	{
-		"id" "129793"
-		"classname" "math_remap"
-		"in2" "30"
-		"out1" "0.5"
-		"spawnflags" "1"
-		"targetname" "remap_motion_blur"
-		connections
-		{
-			"OutValue" "playerproxySetMotionBlurAmount0-1"
-		}
-		"origin" "151 728.489 69.2624"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "13"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 1000]"
-		}
-	}
-}
 entity
 {
-	"id" "129492"
-	"classname" "game_text"
-	"channel" "3"
-	"color" "255 255 255"
-	"color2" "205 205 205"
-	"effect" "2"
-	"fadein" ".06"
-	"fadeout" "0.5"
-	"fxtime" ".5"
-	"holdtime" "5"
-	"message" "PORTAL2_PuzzleEditor_Preview_Complete"
-	"spawnflags" "1"
-	"targetname" "@preview_complete_message"
-	"x" "-1"
-	"y" ".6"
-	"origin" "88 1304 48"
+	"id" "129755"
+	"classname" "logic_playerproxy"
+	"targetname" "playerproxy"
+	"origin" "128.841 705.016 8"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 0 0"
+		"visgroupid" "13"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
 	}
 }
-hidden
+entity
 {
-	entity
+	"id" "129761"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"targetname" "relay_motionblur"
+	connections
 	{
-		"id" "129159"
-		"classname" "env_fade"
-		"duration" "1"
-		"holdtime" "0.25"
-		"renderamt" "255"
-		"rendercolor" "255 255 255"
-		"ReverseFadeDuration" "2"
-		"spawnflags" "1"
-		"targetname" "multiverse_flash"
-		"origin" "68.393 723.688 9"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "13"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 0]"
-		}
+		"OnTrigger" "timer_motion_blurEnable1-1"
+		"OnTrigger" "playerproxySetMotionBlurAmount0.50-1"
+		"OnTrigger" "counter_motion_blurSetValueNoFire00-1"
+	}
+	"origin" "144.938 752.749 8"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupid" "13"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
-hidden
+entity
 {
-	entity
+	"id" "129785"
+	"classname" "logic_timer"
+	"RefireTime" "0.025"
+	"spawnflags" "0"
+	"StartDisabled" "1"
+	"targetname" "timer_motion_blur"
+	connections
 	{
-		"id" "129222"
-		"classname" "logic_relay"
-		"spawnflags" "0"
-		"targetname" "@relay_multiverse_flash"
-		connections
-		{
-			"OnTrigger" "multiverse_flashFade0-1"
-			"OnTrigger" "sound_multiverse_flashPlaySound0-1"
-			"OnTrigger" "relay_motionblurTrigger0-1"
-		}
-		"origin" "99.2995 719.47 9"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "13"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 0]"
-		}
+		"OnTimer" "counter_motion_blurAdd10-1"
+	}
+	"origin" "151 737.301 50.7028"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupid" "13"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
-hidden
+entity
 {
-	entity
+	"id" "129789"
+	"classname" "math_counter"
+	"max" "30"
+	"targetname" "counter_motion_blur"
+	connections
 	{
-		"id" "129236"
-		"classname" "ambient_generic"
-		"health" "10"
-		"message" "cavejohnson.DLC2_multiverse_transition"
-		"pitch" "100"
-		"pitchstart" "100"
-		"radius" "1250"
-		"spawnflags" "48"
-		"targetname" "sound_multiverse_flash"
-		"origin" "82.4909 702.597 9"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "13"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 500]"
-		}
+		"OutValue" "remap_motion_blurInValue0-1"
+		"OnHitMax" "timer_motion_blurDisable0-1"
+	}
+	"origin" "151 769.872 64.6414"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupid" "13"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
 	}
 }
-hidden
+entity
 {
-	entity
+	"id" "129793"
+	"classname" "math_remap"
+	"in2" "30"
+	"out1" "0.5"
+	"spawnflags" "1"
+	"targetname" "remap_motion_blur"
+	connections
 	{
-		"id" "128907"
-		"classname" "env_fade"
-		"duration" "1"
-		"holdtime" "1"
-		"renderamt" "255"
-		"rendercolor" "0 0 0"
-		"ReverseFadeDuration" "2"
-		"spawnflags" "1"
-		"targetname" "fade_spawn"
-		"origin" "116.393 752.688 9"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "13"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 0]"
-		}
+		"OutValue" "playerproxySetMotionBlurAmount0-1"
+	}
+	"origin" "151 728.489 69.2624"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupid" "13"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "129159"
+	"classname" "env_fade"
+	"duration" "1"
+	"holdtime" "0.25"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"ReverseFadeDuration" "2"
+	"spawnflags" "1"
+	"targetname" "multiverse_flash"
+	"origin" "68.393 723.688 9"
+	editor
+	{
+		"color" "200 0 0"
+		"visgroupid" "13"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "129222"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"targetname" "@relay_multiverse_flash"
+	connections
+	{
+		"OnTrigger" "multiverse_flashFade0-1"
+		"OnTrigger" "sound_multiverse_flashPlaySound0-1"
+		"OnTrigger" "relay_motionblurTrigger0-1"
+	}
+	"origin" "99.2995 719.47 9"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupid" "13"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "129236"
+	"classname" "ambient_generic"
+	"health" "10"
+	"message" "cavejohnson.DLC2_multiverse_transition"
+	"pitch" "100"
+	"pitchstart" "100"
+	"radius" "1250"
+	"spawnflags" "48"
+	"targetname" "sound_multiverse_flash"
+	"origin" "82.4909 702.597 9"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupid" "13"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "128907"
+	"classname" "env_fade"
+	"duration" "1"
+	"holdtime" "1"
+	"renderamt" "255"
+	"rendercolor" "0 0 0"
+	"ReverseFadeDuration" "2"
+	"spawnflags" "1"
+	"targetname" "fade_spawn"
+	"origin" "116.393 752.688 9"
+	editor
+	{
+		"color" "200 0 0"
+		"visgroupid" "13"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -18738,48 +18707,22 @@ entity
 		"logicalpos" "[0 0]"
 	}
 }
-hidden
-{
-	entity
-	{
-		"id" "126070"
-		"classname" "logic_relay"
-		"StartDisabled" "0"
-		"targetname" "pre_paint_rl"
-		connections
-		{
-			"OnTrigger" "@pre_paint_sprayerStart0.5-1"
-			"OnTrigger" "@pre_paint_sprayerStop1.5-1"
-		}
-		"origin" "96 736 48"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "13"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 1000]"
-		}
-	}
-}
 entity
 {
-	"id" "125480"
+	"id" "126070"
 	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "$no_player_start"
-	"targetname" "player_start_rl"
+	"StartDisabled" "0"
+	"targetname" "pre_paint_rl"
 	connections
 	{
-		"OnTrigger" "@player_start_teleportTeleport0.5-1"
-		"OnTrigger" "@entrance_door_open_rlTrigger1.51"
-		"OnTrigger" "player_door_triggerKill0-1"
-		"OnTrigger" "@preview_restart_triggerEnable0-1"
+		"OnTrigger" "@pre_paint_sprayerStart0.5-1"
+		"OnTrigger" "@pre_paint_sprayerStop1.5-1"
 	}
-	"origin" "72 1304 48"
+	"origin" "96 736 48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
+		"visgroupid" "13"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -18830,8 +18773,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-727.582 2065.6 -2.98728]"
-		"look" "[-722.074 2026.07 -51.9271]"
+		"position" "[-921.496 393.482 -759.477]"
+		"look" "[-923.759 439.762 -802.384]"
 	}
 	camera
 	{
