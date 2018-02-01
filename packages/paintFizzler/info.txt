@@ -17,16 +17,36 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"        "paint_fizz"
+			"BEE2_CLEAN"
+				{
+				"Folder" "paint_fizz"
+				"Config" "paint_fizz_clean.cfg"
+				"IOConf"
+					{
+					"Type" "AND"
+					"InvertVar"   "$start_enabled"
+					"Enable_Cmd"  "mdl,SetAnimation,open,0.00,-1"
+					"Disable_Cmd" "mdl,SetAnimation,close,0.00,-1"
+					"Enable_Cmd"  "cleanser,Enable,,0.0,-1"
+					"Disable_Cmd" "cleanser,Disable,,0.0,-1"
+					"Enable_Cmd"  "pfx,Start,,0.0,-1"
+					"Disable_Cmd" "pfx,Stop,,0.0,-1"
+					}
+				}
 			"BEE2_OVERGROWN"
 				{
 				"Folder" "paint_fizz"
-				"Append"
+				"Config" "paint_fizz_over.cfg"
+				"IOConf"
 					{
-					"Replacements"
-						{
-						"%SideModel%" "over/items/paint_fizz_model.vmf"
-						}
+					"Type" "AND"
+					"InvertVar"   "$start_enabled"
+					"Enable_Cmd"  "mdl,SetAnimation,open,0.00,-1"
+					"Disable_Cmd" "mdl,SetAnimation,close,0.00,-1"
+					"Enable_Cmd"  "cleanser,Enable,,0.0,-1"
+					"Disable_Cmd" "cleanser,Disable,,0.0,-1"
+					"Enable_Cmd"  "pfx,Start,,0.0,-1"
+					"Disable_Cmd" "pfx,Stop,,0.0,-1"
 					}
 				}
 			"BEE2_1950s"
