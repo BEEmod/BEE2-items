@@ -60,10 +60,12 @@
 		"TargetName"		"dr"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
+			"Type"        "AND"
+			"invertVar"   "$start_enabled"
+			"Enable_cmd"  "door,Open,,0,-1"
+			"Disable_cmd" "close_man,SetStateATrue,,0,-1"
 			}
 		}
 		"Offset"		"64 64 64"
