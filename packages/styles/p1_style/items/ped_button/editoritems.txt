@@ -56,10 +56,17 @@
 			"TargetName"		"bt"
 			"Outputs"
 			{
-				"CONNECTION_STANDARD"
+				"BEE2"
 				{
-					"Activate"		"instance:output;OnUser2"
-					"Deactivate"	"instance:output;OnUser1"
+					"out_activate"      "instance:output;OnUser2"
+					"out_deactivate"    "instance:output;OnUser1"
+					
+					// Generate a logic_relay which plays the appropriate tick-tock sounds.
+					"timer_sound_pos"   "-48 0 -32"
+					"timer_done_cmd"    "@command,Command,cc_emit Portal.button_down,0.00,-1"
+					"timer_done_cmd"    "output,SetValue,0,0.00,-1"
+					"timer_done_cmd"    "output,FireUser1,,0.00,-1"
+					"timer_done_cmd"    "snd_rel,PlaySound,,0.00,-1"
 				}
 			}
 
