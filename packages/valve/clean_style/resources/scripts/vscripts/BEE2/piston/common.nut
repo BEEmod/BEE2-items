@@ -84,6 +84,7 @@ function OnPostSpawn() {
 	enable_motion_trig <- Entities.FindByName(null, inst_name + "-wake_trig");
 	
 	// If we have these, turn them on while going down.
+	// We can't store the handle to it, since there's a hurt and fizzler.
 	has_dn_fizz <- Entities.FindByName(null, inst_name + "-dn_fizz") != null;
 }
 
@@ -111,6 +112,10 @@ function moveto(new_pos) {
 	
 	if (old_pos < new_pos) {
 		_up();
+		if (has_dn_fizz && dn_fizz_on) {
+			dn_fizz_on <- false;
+			EntFire(inst_name + "-dn_fizz", "Disable", "", 0, self);
+		}
 	} else if (old_pos > new_pos) {
 		_dn();
 		if (has_dn_fizz) {
