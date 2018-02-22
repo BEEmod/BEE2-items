@@ -40,6 +40,11 @@
 		}
 	"Soundscript"   "music.ctc_b1_001"
 	"Sample"        "p2/ctc_b1_001.ogg"
+	"Children"
+		{
+		"tBeam" "VALVE_PETI_FUNNEL"
+		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
+		}
 	}
 
 "Music"
@@ -54,6 +59,11 @@
 	"Description"   "One of several tracks played in the Cooperative Testing Hub and PeTI levels."
 	"Soundscript"   "music.ctc_b1_002"
 	"Sample"        "p2/ctc_b1_002.ogg"
+	"Children"
+		{
+		"tBeam" "VALVE_PETI_FUNNEL"
+		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
+		}
 	}
 
 "Music"
@@ -68,6 +78,11 @@
 	"Description"   "One of several tracks played in the Cooperative Testing Hub and PeTI levels."
 	"Soundscript"   "music.ctc_b1_003"
 	"Sample"        "p2/ctc_b1_003.ogg"
+	"Children"
+		{
+		"tBeam" "VALVE_PETI_FUNNEL"
+		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
+		}
 	}
 
 "Music"
@@ -86,6 +101,11 @@
 		}
 	"Soundscript"   "music.ctc_b1_004"
 	"Sample"        "p2/ctc_b1_004.ogg"
+	"Children"
+		{
+		"tBeam" "VALVE_PETI_FUNNEL"
+		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
+		}
 	}
 
 "Music"
@@ -104,6 +124,11 @@
 		}
 	"Soundscript"   "music.ctc_b1_005"
 	"Sample"        "p2/ctc_b1_005.ogg"
+	"Children"
+		{
+		"tBeam" "VALVE_PETI_FUNNEL"
+		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
+		}
 	}
 
 "Music"
@@ -123,6 +148,11 @@
 	// The soundscript for this doesn't use the actual sound, so we need to use the raw WAV.
 	"Soundscript"   "*)music/mp_coop_lobby_2_c1.wav"
 	"Sample"        "p2/mp_coop_lobby_2_c1.ogg"
+	"Children"
+		{
+		"tBeam" "VALVE_PETI_FUNNEL"
+		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
+		}
 	}
 
 "Music"
@@ -143,6 +173,56 @@
 		}
 	"Soundscript"   "music.ctc_b1_006"
 	"Sample"        "p2/ctc_b1_006.ogg"
+	"Children"
+		{
+		"tBeam" "VALVE_PETI_FUNNEL"
+		}
+	}
+	
+"Music"
+	{
+	"ID"            "VALVE_PETI_FUNNEL"
+	"Name"          "PeTI Excursion Funnel"
+	"ShortName"     "PeTI Funnel"
+	"Icon"          "music/default.png"
+	"IconLarge"	"music_lrg/default.png"
+	"Authors"       "Valve"
+	"Description"
+		{
+		"" "The Excursion Funnel music used for default PeTI levels."
+		}
+	"Sample"        "p2/ctc_tbeam.ogg"
+	"SoundScript"
+		{
+		"tBeam" "music/ctc_tbeam.wav"
+		}
+	}
+	
+"Music"
+	{
+	"ID"            "VALVE_PETI_BOUNCE_GEL"
+	"Name"          "PeTI Repulsion Gel"
+	"ShortName"     "PeTI Bounce"
+	"Icon"          "music/default.png"
+	"IconLarge"	"music_lrg/default.png"
+	"Authors"       "Valve"
+	"Description"
+		{
+		"" "Repulsion Gel beats used in default PeTI levels."
+		}
+	"Sample"        "p2/ctc_z1.ogg"
+	"SoundScript"
+		{
+		"BounceGel"
+			{
+			"snd" "music/ctc_z1_001.wav"
+			"snd" "music/ctc_z1_002.wav"
+			"snd" "music/ctc_z1_003.wav"
+			"snd" "music/ctc_z1_004.wav"
+			"snd" "music/ctc_z1_005.wav"
+			"snd" "music/ctc_z1_006.wav"
+			}
+		}
 	}
 	
 // ----------------------
@@ -163,21 +243,10 @@
 	"SoundScript"
 		{
 		"Base" "music/sp_a1_intro6.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z2.wav"
-			"snd" "music/sp_a3_bomb_flings_z2b.wav"
-			"snd" "music/sp_a3_bomb_flings_z2c.wav"
-			}
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_TBEAM_INTRO"
 		}
 	}
 
@@ -195,7 +264,6 @@
 	"SoundScript"
 		{
 		"Base"  "music/sp_a1_intro3_b1.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
 		"BounceGel"
 			{
 			"snd" "music/sp_a3_jump_intro_z1.wav"
@@ -209,6 +277,10 @@
 			"snd" "music/sp_a3_speed_ramp_z1c.wav"
 			"snd" "music/sp_a3_speed_ramp_z1d.wav"
 			}
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_TBEAM_INTRO"
 		}
 	}
 
@@ -225,7 +297,6 @@
 	"SoundScript"
 		{
 		"Base"  "music/sp_a1_wakeup_b1.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
 		"BounceGel"
 			{
 			"snd" "music/sp_a3_jump_intro_z1.wav"
@@ -239,6 +310,10 @@
 			"snd" "music/sp_a3_speed_ramp_z1c.wav"
 			"snd" "music/sp_a3_speed_ramp_z1d.wav"
 			}
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_TBEAM_INTRO"
 		}
 	}
 
@@ -255,7 +330,6 @@
 	"SoundScript"
 		{
 		"Base"  "bee2/music/sp_a1_intro5_b1_looped.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
 		"BounceGel"
 			{
 			"snd" "music/sp_a3_bomb_flings_z1.wav"
@@ -270,6 +344,10 @@
 			"snd" "music/sp_a3_bomb_flings_z2b.wav"
 			"snd" "music/sp_a3_bomb_flings_z2c.wav"
 			}
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_TBEAM_INTRO"
 		}
 	}
 
@@ -306,7 +384,6 @@
 	"SoundScript"
 		{
 		"Base" "music/sp_a2_bts5_b0.wav"
-		"tbeam" "music/sp_a4_tb_intro_tbin.wav"
 		"SpeedGel" "music/sp_a2_bts5_x2.wav"
 		"BounceGel"
 			{
@@ -315,6 +392,10 @@
 			"snd" "music/ctc_z1_003.wav"
 			"snd" "music/ctc_z1_006.wav"
 			}
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_TBEAM_INTRO"
 		}
 	}
 	
@@ -331,9 +412,12 @@
 	"SoundScript"
 		{
 		"Base" "music/sp_a2_bts1_b1.wav"
-		"tbeam" "music/sp_a4_tb_wall_button_tbin.wav"
 		"BounceGel" "BEE2/music/sp_a2_bts1_x1_looped.wav" // We need a looping version...
 		"SpeedGel" "music/sp_a2_bts2_x1.wav"
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_EXC_FUNNEL"
 		}
 	}
 	
@@ -407,7 +491,6 @@
 	"SoundScript"	
 		{
 		"Base" "music/sp_a2_bts3_b2.wav"
-		"tBeam" "music/sp_a4_tb_wall_button_tbin.wav"
 		"SpeedGel" "music/sp_a2_bts2_x1.wav"
 		"BounceGel"
 			{
@@ -416,6 +499,10 @@
 			"snd" "music/sp_a3_speed_ramp_z1c.wav"
 			"snd" "music/sp_a3_speed_ramp_z1d.wav"
 			}
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_EXC_FUNNEL"
 		}
 	}
 	
@@ -539,7 +626,6 @@
 			"snd" "music/sp_a3_bomb_flings_z2b.wav"
 			"snd" "music/sp_a3_bomb_flings_z2c.wav"
 			}
-		"Tbeam" "music/ctc_tbeam.wav"
 		"BounceGel"
 			{
 			"snd" "music/sp_a3_bomb_flings_z1.wav"
@@ -548,6 +634,10 @@
 			"snd" "music/sp_a3_bomb_flings_z1d.wav"
 			"snd" "music/sp_a3_bomb_flings_z1e.wav"
 			}
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_PETI_FUNNEL"
 		}
 	}
 	
@@ -575,7 +665,6 @@
 			"snd" "music/sp_a3_jump_intro_z1b.wav"
 			"snd" "music/sp_a3_jump_intro_z2b.wav"
 			}
-		"Tbeam" "music/ctc_tbeam.wav"
 		"BounceGel"
 			{
 			"snd" "music/sp_a3_jump_intro_z1.wav"
@@ -583,6 +672,10 @@
 			"snd" "music/sp_a3_jump_intro_z2.wav"
 			"snd" "music/sp_a3_jump_intro_z2c.wav"
 			}
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_PETI_FUNNEL"
 		}
 	}
 	
@@ -601,16 +694,6 @@
 		{
 		"Base" "music/sp_a3_03_b1.wav"
 		"Tbeam" "music/sp_a3_03_b2.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1b.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			
-			"snd" "music/sp_a3_jump_intro_z2.wav"
-			"snd" "music/sp_a3_jump_intro_z2b.wav"
-			"snd" "music/sp_a3_jump_intro_z2c.wav"
-			}
 		"SpeedGel"
 			{
 			"snd" "music/sp_a3_bomb_flings_z1.wav"
@@ -619,6 +702,10 @@
 			"snd" "music/sp_a3_bomb_flings_z1d.wav"
 			"snd" "music/sp_a3_bomb_flings_z1e.wav"
 			}
+		}
+	"Children"
+		{
+		"BounceGel" "VALVE_CONTROL_GROUP"
 		}
 	}
 	
@@ -633,26 +720,12 @@
 	"Authors"		"Valve"
 	"Description"	"The music for the first 1970s Propulsion Gel Test."
 	"Sample"        "p2/sp_a3_speed_ramp_b1.ogg"
-	"SoundScript"
+	"SoundScript"   "music/sp_a3_speed_ramp_b1.wav"
+	"Children"
 		{
-		"Base"  "music/sp_a3_speed_ramp_b1.wav"
-		"Tbeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			// This one sounds a little different, so make it less common.
-			"snd" "music/sp_a3_speed_ramp_c3.wav"
-			}
+		"BounceGel" "VALVE_GEL_REUNION"
+		"SpeedGel" "VALVE_GEL_REUNION"
+		"tBeam" "VALVE_TBEAM_INTRO"
 		}
 	}
 	
@@ -667,10 +740,27 @@
 	"Authors"		"Valve"
 	"Description"	"The music for the second 1970s Propulsion Gel Test."
 	"Sample"        "p2/sp_a3_speed_ramp_b2.ogg"
+	"SoundScript"   "music/sp_a3_speed_ramp_b2.wav"
+	"Children"
+		{
+		"BounceGel" "VALVE_GEL_REUNION"
+		"SpeedGel" "VALVE_GEL_REUNION"
+		"tBeam" "VALVE_TBEAM_INTRO"
+		}
+	}
+	
+"Music"
+	{
+	"ID"			"VALVE_GEL_REUNION"
+	"Name"			"The Reunion"
+	"ShortName"     "The Reunion"
+	"Group"			"Old Aperture"
+	"Icon"			"music/the_reunion_1"
+	"IconLarge"     "music_lrg/the_reunion_1"
+	"Authors"		"Valve"
+	"Description"	"The gel music used in the Propulsion Gel Testing Spheres."
 	"SoundScript"
 		{
-		"Base"  "music/sp_a3_speed_ramp_b2.wav"
-		"Tbeam" "music/sp_a4_tb_intro_tbin.wav"
 		"BounceGel"
 			{
 			"snd" "music/sp_a3_speed_ramp_z1.wav"
@@ -718,6 +808,10 @@
 			"snd" "music/sp_a3_speed_ramp_c2.wav"
 			}
 		}
+	"Children"
+		{
+		"SpeedGel" "VALVE_GEL_REUNION"
+		}
 	}
 	
 // ------------------------
@@ -737,13 +831,6 @@
 	"SoundScript"	
 		{
 		"Base" "music/mainmenu/portal2_background05.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1b.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			}
 		"SpeedGel"
 			{
 			"snd" "music/sp_a3_speed_ramp_z1.wav"
@@ -751,6 +838,26 @@
 			"snd" "music/sp_a3_speed_ramp_z1c.wav"
 			"snd" "music/sp_a3_speed_ramp_z1d.wav"
 			}
+		}
+	"Children"
+		{
+		"BounceGel" "VALVE_CONTROL_GROUP"
+		"tBeam" "VALVE_TBEAM_INTRO"
+		}
+	}
+	
+"Music"
+	{
+	"ID"            "VALVE_EXC_FUNNEL"
+	"Name"          "Excursion Funnel"
+	"Group"         "Wheatley"
+	"Icon"			"music/frankenturrets.png"
+	"IconLarge"     "music_lrg/frankenturrets.png"
+	"Authors"		"Valve"
+	"Description"   "The main Excursion Funnel music track played in Valve levels."
+	"SoundScript"
+		{
+		"tBeam" "music/sp_a4_tb_wall_button_tbin.wav"
 		}
 	}
 	
@@ -762,12 +869,11 @@
 	"Icon"			"music/frankenturrets.png"
 	"IconLarge"     "music_lrg/frankenturrets.png"
 	"Authors"		"Valve"
-	"Description"	"The basic music beat played in many of the Wheatley Tests."
+	"Description"	"The basic music beat played in many of the Wheatley Tests. The funnel music used here is reused in most tests."
 	"Sample"        "p2/sp_a4_tb_wall_button_b1.ogg"
 	"SoundScript"
 		{
 		"Base" "music/sp_a4_tb_wall_button_b1.wav"
-		"tBeam" "music/sp_a4_tb_wall_button_tbin.wav"
 		"BounceGel" "music/sp_a4_finale4_z1.wav"
 		"SpeedGel"
 			{
@@ -780,6 +886,10 @@
 			"snd" "music/sp_a4_laser_catapult_c3.wav"
 			}
 		}
+	"Children"
+		{
+		"tBeam" "VALVE_EXC_FUNNEL"
+		}
 	}
 	
 "Music"
@@ -790,7 +900,7 @@
 	"Icon"			"music/test.png"
 	"IconLarge"     "music_lrg/test.png"
 	"Authors"		"Valve"
-	"Description"	"The music beat played in the Excursion Funnel Intro Test."
+	"Description"	"The music beat played in the Excursion Funnel Intro Test. This has a unique funnel track."
 	"Sample"        "p2/sp_a4_tb_intro_b1.ogg"
 	"SoundScript"
 		{
@@ -830,7 +940,6 @@
 	"SoundScript"	
 		{
 		"Base" "music/sp_a4_tb_catch_b1a.wav"
-		"tBeam" "music/sp_a4_tb_wall_button_tbin.wav"
 		"SpeedGel" 
 			{
 			"snd" "music/sp_a4_tb_catch_c1b.wav"
@@ -841,6 +950,10 @@
 			"snd" "music/sp_a4_tb_catch_c1b.wav"
 			"snd" "music/sp_a4_tb_catch_c1c.wav"
 			}
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_EXC_FUNNEL"
 		}
 	}
 	
@@ -853,7 +966,7 @@
 	"Icon"			"music/a4_collapse.png"
 	"IconLarge"     "music_lrg/a4_collapse.png"
 	"Authors"		"Valve"
-	"Description"	"Dramatic music played at the end of the game, when you first see the destruction surrounding Wheatley's Lair."
+	"Description"	"Dramatic music played at the end of the game, when you first see the destruction surrounding Wheatley's Lair. This has specialised funnel music."
 	"Sample"        "p2/sp_a4_finale3_b4.ogg"
 	"SoundScript"	
 		{
@@ -922,14 +1035,6 @@
 	"SoundScript"
 		{
 		"Base" "music/sp_a2_laser_chaining_b1.wav"
-		"tbeam" "music/sp_a4_tb_wall_button_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			"snd" "music/sp_a3_jump_intro_z2.wav"
-			"snd" "music/sp_a3_jump_intro_z2c.wav"
-			}
 		"SpeedGel"
 			{
 			"snd" "music/sp_a3_speed_ramp_z1.wav"
@@ -937,6 +1042,11 @@
 			"snd" "music/sp_a3_speed_ramp_z1c.wav"
 			"snd" "music/sp_a3_speed_ramp_z1d.wav"
 			}
+		}
+	"Children"
+		{
+		"BounceGel" "VALVE_CONTROL_GROUP"
+		"tBeam" "VALVE_EXC_FUNNEL"
 		}
 	}
 	
