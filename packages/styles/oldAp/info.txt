@@ -1058,6 +1058,7 @@
 		"File" "models/BEE2/props_underground/piston_mid.mdl"
 		"File" "models/BEE2/props_underground/piston_top.mdl"
 		"File" "models/BEE2/props_underground/piston_plat.mdl"
+		"File" "models/BEE2/props_underground/piston_plat_panel.mdl"
 		"File" "materials/BEE2/models/props_underground/metalbeam_bts_001c.vmt"
 		"File" "materials/BEE2/models/props_underground/factory_metal_floor001a.vmt"
 		}
@@ -1863,11 +1864,52 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"piston_plat_50s"
+				"BEE2_1950s"    "piston_plat"
+				"BEE2_1970s"
+					{
+					"Folder" "piston_plat"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%STATIC_0_METAL%"   "instances/BEE2/70s/items/pist_plat/static_0_metal.vmf"
+							"%GRATE_INST%"       "instances/BEE2/70s/items/pist_plat/grate.vmf"
+							"%STATIC_BASE%"      "instances/BEE2/70s/items/pist_plat/static_base.vmf"
+							"%STATIC_TOP_METAL%" "instances/BEE2/70s/items/pist_plat/static_top_gls.vmf"
+							"%STATIC_TOP_BRUSH%" "instances/BEE2/50s/items/pist_plat/static_top_brush.vmf"
+							}
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Folder" "piston_plat"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%STATIC_0_METAL%"   "instances/BEE2/80s/items/pist_plat/static_0_metal.vmf"
+							"%GRATE_INST%"       "instances/BEE2/80s/items/pist_plat/grate.vmf"
+							"%STATIC_BASE%"      "instances/BEE2/80s/items/pist_plat/static_base.vmf"
+							"%STATIC_TOP_METAL%" "instances/BEE2/70s/items/pist_plat/static_top_gls.vmf"
+							"%STATIC_TOP_BRUSH%" "instances/BEE2/80s/items/pist_plat/static_top_brush.vmf"
+							"%STATIC_PUSHOUT%"   "instances/bee2/80s/items/pist_plat/static_pushout.vmf"
+							"%VIS_PANEL%"        "pist_brush_80s"
+							}
+						}
+					}
 				}
 			}
 		}
-		
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_PISTON_PLATFORM_RETRO"
+	"File"  "piston_plat.vmf"
+	}
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_TURRET"
@@ -1937,9 +1979,26 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"  "angled_pan_50s"
-				"BEE2_1970s"  "angled_pan_70s"
-				"BEE2_1980s"  "angled_pan_80s"
+				"BEE2_1950s"  "angled_pan"
+				"BEE2_1970s"
+					{
+					"Folder" "angled_pan"
+					"Instances"
+						{
+						"0"         "instances/BEE2/70s/items/panel_angled.vmf"
+						"pan_logic" "instances/BEE2/70s/items/panel_logic.vmf"
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Folder" "angled_pan"
+					"Config" "angled_pan_80s.cfg"
+					"Instances"
+						{
+						"0"         "instances/BEE2/80s/items/panel_angled.vmf"
+						"pan_logic" "instances/BEE2/80s/items/panel_logic.vmf"
+						}
+					}
 				}
 			}
 		}
