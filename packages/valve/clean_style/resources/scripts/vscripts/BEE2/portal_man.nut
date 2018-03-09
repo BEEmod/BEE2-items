@@ -26,6 +26,8 @@ portalgun_onoff_count <- -1;
 portalgun_onoff_forced <- false;
 
 function OnPostSpawn() {
+	// Cancel if already done.
+	if (stripper != null) { return }
 	stripper = Entities.FindByName(null, "__pgun_weapon_strip");
 	held_trig = Entities.FindByName(null, "__pgun_held_trig");
 	if(IsMultiplayer()) {
@@ -43,10 +45,12 @@ function _find_players() {
 // Called OnMapSpawn, passing in this config values.
 // We then appropriately remove/give the gun to the player.
 // In Coop, never called.
+init_called <- false
 function init(blue, orange, has_onoff) {
-	if (IsMultiplayer()) {
+	if (IsMultiplayer() || init_called) {
 		return; 
 	}
+	init_called = true
 
 	has_blue = blue
 	has_oran = orange

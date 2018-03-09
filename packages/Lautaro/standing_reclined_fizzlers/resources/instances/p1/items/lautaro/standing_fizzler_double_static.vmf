@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7378"
-	"mapversion" "68"
+	"mapversion" "70"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "68"
+	"mapversion" "70"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -182,10 +182,60 @@ world
 }
 entity
 {
-	"id" "2027"
+	"id" "1726"
+	"classname" "info_particle_system"
+	"angles" "0 90 0"
+	"cpoint1_parent" "0"
+	"cpoint2_parent" "0"
+	"cpoint3_parent" "0"
+	"cpoint4_parent" "0"
+	"cpoint5_parent" "0"
+	"cpoint6_parent" "0"
+	"cpoint7_parent" "0"
+	"drawinfastreflection" "0"
+	"effect_name" "portal_cleanser"
+	"start_active" "1"
+	"targetname" "particles"
+	"origin" "-0.0383606 0 128"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1000 14000]"
+	}
+}
+entity
+{
+	"id" "1791"
+	"classname" "info_particle_system"
+	"angles" "0 270 180"
+	"cpoint1_parent" "0"
+	"cpoint2_parent" "0"
+	"cpoint3_parent" "0"
+	"cpoint4_parent" "0"
+	"cpoint5_parent" "0"
+	"cpoint6_parent" "0"
+	"cpoint7_parent" "0"
+	"drawinfastreflection" "0"
+	"effect_name" "portal_cleanser"
+	"start_active" "1"
+	"targetname" "particles"
+	"origin" "-0.0383606 0 128"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1000 14500]"
+	}
+}
+entity
+{
+	"id" "1439"
 	"classname" "trigger_portal_cleanser"
 	"drawinfastreflection" "0"
-	"origin" "-0 0 191.5"
+	"origin" "0 -1 191.5"
 	"spawnflags" "5135"
 	"StartDisabled" "0"
 	"targetname" "fiz"
@@ -193,13 +243,13 @@ entity
 	"Visible" "0"
 	solid
 	{
-		"id" "2028"
+		"id" "1440"
 		side
 		{
 			"id" "319"
-			"plane" "(-17 -65 193) (-17 -65 192) (-17 65 192)"
+			"plane" "(-17 -66 193) (-17 -66 192) (-17 64 192)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
+			"uaxis" "[0 1 0 4] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -208,9 +258,9 @@ entity
 		side
 		{
 			"id" "318"
-			"plane" "(17 65 193) (17 65 192) (17 -65 192)"
+			"plane" "(17 64 193) (17 64 192) (17 -66 192)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
+			"uaxis" "[0 1 0 4] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -219,7 +269,7 @@ entity
 		side
 		{
 			"id" "317"
-			"plane" "(17 -65 193) (17 -65 192) (-17 -65 192)"
+			"plane" "(17 -66 193) (17 -66 192) (-17 -66 192)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0.00782776] 0.25"
 			"vaxis" "[0 0 1 4] 0.25"
@@ -230,7 +280,7 @@ entity
 		side
 		{
 			"id" "316"
-			"plane" "(-17 65 193) (-17 65 192) (17 65 192)"
+			"plane" "(-17 64 193) (-17 64 192) (17 64 192)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 -0.00782776] 0.25"
 			"vaxis" "[0 0 1 4] 0.25"
@@ -241,9 +291,9 @@ entity
 		side
 		{
 			"id" "315"
-			"plane" "(-17 65 192) (-17 -65 192) (17 -65 192)"
+			"plane" "(-17 64 192) (-17 -66 192) (17 -66 192)"
 			"material" "EFFECTS/FIZZLER"
-			"uaxis" "[0 1 0 -512] 0.125"
+			"uaxis" "[0 1 0 -504] 0.125"
 			"vaxis" "[1 0 0 127.63] 0.126"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -252,9 +302,9 @@ entity
 		side
 		{
 			"id" "314"
-			"plane" "(-17 -65 193) (-17 65 193) (17 65 193)"
+			"plane" "(-17 -66 193) (-17 64 193) (17 64 193)"
 			"material" "EFFECTS/FIZZLER"
-			"uaxis" "[0 1 0 -512] 0.125"
+			"uaxis" "[0 1 0 -504] 0.125"
 			"vaxis" "[1 0 0 127.63] 0.126"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -277,10 +327,10 @@ entity
 }
 entity
 {
-	"id" "2030"
+	"id" "1442"
 	"classname" "trigger_portal_cleanser"
 	"drawinfastreflection" "0"
-	"origin" "-0 0 193.84"
+	"origin" "0 -1 193.84"
 	"spawnflags" "5135"
 	"StartDisabled" "0"
 	"targetname" "fiz"
@@ -288,13 +338,13 @@ entity
 	"Visible" "0"
 	solid
 	{
-		"id" "2031"
+		"id" "1443"
 		side
 		{
 			"id" "325"
-			"plane" "(-1 -65 198) (-1 -65 191.675) (-1 65 191.676)"
+			"plane" "(-1 -66 198) (-1 -66 191.675) (-1 64 191.676)"
 			"material" "EFFECTS/FIZZLER"
-			"uaxis" "[0 1 0 504] 0.125"
+			"uaxis" "[0 1 0 512] 0.125"
 			"vaxis" "[0 0 1 -498.44] 0.126"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -303,10 +353,10 @@ entity
 		side
 		{
 			"id" "324"
-			"plane" "(1 -65 191.676) (-1 -65 191.676) (-1 -65 198)"
+			"plane" "(1 -66 191.676) (-1 -66 191.676) (-1 -66 198)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 58.7017] 0.25"
+			"vaxis" "[0 0 -1 -5.29822] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -314,10 +364,10 @@ entity
 		side
 		{
 			"id" "323"
-			"plane" "(-1 65 198) (-1 65 191.675) (1 65 191.675)"
+			"plane" "(-1 64 198) (-1 64 191.675) (1 64 191.675)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 58.7017] 0.25"
+			"vaxis" "[0 0 -1 -5.29822] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -325,9 +375,9 @@ entity
 		side
 		{
 			"id" "322"
-			"plane" "(1 -65 198) (-1 -65 198) (-1 65 198)"
+			"plane" "(1 -66 198) (-1 -66 198) (-1 64 198)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 -4] 0.25"
+			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -336,9 +386,9 @@ entity
 		side
 		{
 			"id" "321"
-			"plane" "(1 65 191.675) (-1 65 191.675) (-1 -65 191.675)"
+			"plane" "(1 64 191.675) (-1 64 191.675) (-1 -66 191.675)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 4] 0.25"
+			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -347,9 +397,9 @@ entity
 		side
 		{
 			"id" "320"
-			"plane" "(1 65 198) (1 65 191.675) (1 -65 191.676)"
+			"plane" "(1 64 198) (1 64 191.675) (1 -66 191.676)"
 			"material" "EFFECTS/FIZZLER"
-			"uaxis" "[0 1 0 504] 0.125"
+			"uaxis" "[0 1 0 512] 0.125"
 			"vaxis" "[0 0 1 -498.44] 0.126"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -917,7 +967,7 @@ entity
 	"effect_name" "portal_cleanser"
 	"start_active" "1"
 	"targetname" "particles"
-	"origin" "-0.0383606 0 1.07019"
+	"origin" "-0.0383606 0 0"
 	editor
 	{
 		"color" "220 30 220"
@@ -930,7 +980,7 @@ entity
 {
 	"id" "827"
 	"classname" "info_particle_system"
-	"angles" "0 270 180"
+	"angles" "0 270 -180"
 	"cpoint1_parent" "0"
 	"cpoint2_parent" "0"
 	"cpoint3_parent" "0"
@@ -942,7 +992,7 @@ entity
 	"effect_name" "portal_cleanser"
 	"start_active" "1"
 	"targetname" "particles"
-	"origin" "-0.0383606 0 1.07019"
+	"origin" "-0.0383606 0 0"
 	editor
 	{
 		"color" "220 30 220"

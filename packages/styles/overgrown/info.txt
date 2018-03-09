@@ -129,6 +129,18 @@
 	"ID"     "PACK_RUSTY_BALL"
 	"Config" "ball"
 	}
+
+"PackList"
+   {
+   "ID" "PACK_CUST_LASERFIELD_OVER"
+   "Config" "laserfield_over" 
+   }		
+
+"PackList"
+   {
+   "ID" "PACK_CUST_LASERFIELD_OVER_STATIC"
+    "Config" "laserfield_over_static"
+   }			
 	
 "PackList"
 	{
@@ -876,7 +888,7 @@
 	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_D"
 	"Config"
 		{
-		"" "models/BEE2/triple_wallpipe/straight_b.mdl"
+		"" "models/BEE2/triple_wallpipe/straight_d.mdl"
 		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
 		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
 		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
@@ -906,6 +918,15 @@
 		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
 		}
 	}
+
+"PackList"
+   {
+   "ID" "VACTUBE_128_STRAIGHT_GLASS"
+   "Config"
+       {
+       "" "models/props_bts/vactube_glass_bothsides/vactube_128_straight_glass.mdl"
+       }  
+    }	
 	
 "Overrides"
 	{
@@ -1302,11 +1323,23 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN"	"piston_plat"
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Append" "piston_plat.cfg"
+					"Instances"
+						{
+						"0" "instances/BEE2/over/items/pist_plat/common.vmf"
+						}
+					}
 				}
 			}
 		}
-		
+	}
+	
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_CATAPULT"
