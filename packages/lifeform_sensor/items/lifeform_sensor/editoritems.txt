@@ -1,0 +1,97 @@
+"Item"
+	{
+	"Type"			"ITEM_PRO_LIFEFORM_SENSOR"
+	"ItemClass"		"ItemBarrierHazard"
+	"Editor"
+		{
+		"SubTypeProperty" "HazardType"
+		"SubType"
+			{
+			"Name"			"Lifeform Sensor"
+			"Model"
+				{
+				"ModelName"		"rex_pellet_field.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"RADIATIVE FLUX RECTANGLE"
+				"Image"			"palette/clean/lifeform_sensor.png"
+				"Position"		"0 3 0"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"			"Lifeform Sensor"
+			"Model"
+				{
+				"ModelName"		"rex_pellet_field.mdl"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"		"HANDLE_6_POSITIONS"
+		"DesiredFacing"			"DESIRES_HORIZONTAL"
+		}
+	"Properties"
+		{
+		"HazardType"
+			{
+			"DefaultValue"		"0"
+			"Index"				"1"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"			"instances/BEE2/clean/items/pro/lifeform_sensor_base.vmf"
+				"EntityCount"	"5"
+				}
+			"1"
+				{
+				"Name"			"instances/BEE2/clean/items/pro/lifeform_sensor_model.vmf"
+				"EntityCount"	"5"
+				}
+			}
+
+		"TargetName"	"pro_lfs"
+		"Inputs"
+			{
+			"CONNECTION_HAZARD_MODEL"
+				{
+				"Activate"		"instance:mdl;FireUser2" // Unused
+				"Deactivate"	"instance:mdl;FireUser1"
+				}
+			"CONNECTION_HAZARD_BRUSH"
+				{
+				"Activate"		"Enable" // Unused
+				"Deactivate"	"Disable"
+				}
+			}
+		// Fizzlers don't work for outputs, so we use the output relay item.
+		// Therefore we don't need antline positions.
+		"Outputs"
+			{
+			"CONNECTION_HAZARD"
+				{
+				"Activate"		"instance:out;OnUser2" // Not actually used
+				"Deactivate"	"instance:out;OnUser1"
+				}
+			}
+		"Offset"	"64 64 64"
+		}
+	}

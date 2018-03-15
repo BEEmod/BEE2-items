@@ -1,0 +1,95 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "7552"
+	"mapversion" "102"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "8"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "102"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "621"
+	"classname" "material_modify_control"
+	"materialName" "BEE2/rex/beam_field_lifeform"
+	"materialVar" "$status"
+	"parentname" "field"
+	"targetname" "mod"
+	"origin" "-16 0 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "615"
+	"classname" "logic_branch"
+	"InitialValue" "0"
+	"targetname" "out"
+	connections
+	{
+		"OnTrue" "outFireUser20-1"
+		"OnFalse" "outFireUser10-1"
+		"OnTrue" "mdlColor200 200 00.1-1"
+		"OnFalse" "mdlColor0 200 2000.1-1"
+		"OnUser2" "proxyProxyRelay0-1"
+		"OnUser1" "proxyProxyRelay0-1"
+		"OnFalse" "modStartFloatLerp1 0 0.2 00-1"
+		"OnTrue" "modStartFloatLerp0 1 0.2 00-1"
+	}
+	"origin" "16 0 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "617"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	"origin" "0 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 9000]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
