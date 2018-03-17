@@ -16,11 +16,9 @@ function Precache() {
 
 function act_side() {
 	// Take the player (!activator), and check if they're on the +ve or -ve side.
-	local off = activator.GetOrigin()[axis];
-	if (axis == "z") {
-		// Offset to near the center, so vertically you have to go all the way through.
-		off += 64;
-	}
+	// We use GetCenter() since that gives a logical value vertically - the player must
+	// be all the way through to trigger.
+	local off = activator.GetCenter()[axis];
 	if (off > plane_off) {
 		return 1;
 	} else {
