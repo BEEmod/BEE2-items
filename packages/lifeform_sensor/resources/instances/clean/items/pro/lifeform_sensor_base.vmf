@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7552"
-	"mapversion" "102"
+	"mapversion" "106"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "102"
+	"mapversion" "106"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,39 +30,17 @@ world
 }
 entity
 {
-	"id" "621"
-	"classname" "material_modify_control"
-	"materialName" "BEE2/rex/beam_field_lifeform"
-	"materialVar" "$status"
-	"parentname" "field"
-	"targetname" "mod"
-	"origin" "-16 0 0"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "615"
-	"classname" "logic_branch"
-	"InitialValue" "0"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
 	"targetname" "out"
 	connections
 	{
-		"OnTrue" "outFireUser20-1"
-		"OnFalse" "outFireUser10-1"
-		"OnTrue" "mdlColor200 200 00.1-1"
-		"OnFalse" "mdlColor0 200 2000.1-1"
 		"OnUser2" "proxyProxyRelay0-1"
 		"OnUser1" "proxyProxyRelay0-1"
-		"OnFalse" "modStartFloatLerp1 0 0.2 00-1"
-		"OnTrue" "modStartFloatLerp0 1 0.2 00-1"
 	}
-	"origin" "16 0 0"
+	"origin" "0 0 0"
 	editor
 	{
 		"color" "0 100 250"
