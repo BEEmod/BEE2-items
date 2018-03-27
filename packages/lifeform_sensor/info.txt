@@ -1,0 +1,73 @@
+"ID"		"PRO_LIFEFORM_SENSOR"
+"Name"		"Portal Pro Lifeform Sensor"
+"Desc"      "Adds the Lifeform Sensor from the Portal Pro Portal 1 mod.
+This toggles an output whenever players cross through the field.
+"
+
+"Prerequisites"
+	{
+	"Package" "BEE2_FIZZLER_OUT_RELAY"
+	}
+	
+"Item"
+	{
+	"ID"        "ITEM_PRO_LIFEFORM_SENSOR"
+	"Description"
+		{
+		"" "A fizzler-style field which toggles an output whenever players cross through the field.  "
+		"" "Players must leave on the opposite side to the one they entered in."
+		"" "This requires use of the Fizzler Output Relay."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN" "lifeform_sensor"
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "lifeform_sensor"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%MDL_SKIN%" "1" // Dirty
+						}
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "lifeform_sensor"
+				"Instances"
+					{
+					"1" "instances/BEE2/p1/items/pro/lifeform_sensor_model.vmf"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%MDL_PACK%" "PACK_P1_CUST_FIZZLER"
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "lifeform_sensor"
+				"Config" "retro.cfg"
+				"Instances"
+					{
+					"1" "instances/BEE2/50s/items/pro/lifeform_sensor_model.vmf"
+					}
+				}
+			}
+		}
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_PRO_LIFEFORM_SENSOR"
+	"Config"
+		{
+		"" "sound/BEE2/p1/hl1_bell.wav"
+		"" "scripts/vscripts/BEE2/lifeform_sensor.nut"
+		}
+	}
