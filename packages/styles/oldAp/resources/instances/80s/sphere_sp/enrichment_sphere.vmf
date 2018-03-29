@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7552"
-	"mapversion" "1044"
+	"mapversion" "1048"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,7 +32,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "1044"
+	"mapversion" "1048"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1506,21 +1506,24 @@ world
 		}
 	}
 }
-entity
+hidden
 {
-	"id" "273535"
-	"classname" "func_instance"
-	"angles" "-0 0 0"
-	"file" "instances/bee2/80s/sphere_sp/sphere/pipes_water.vmf"
-	"fixup_style" "0"
-	"origin" "0 0 0"
-	editor
+	entity
 	{
-		"color" "220 30 220"
-		"visgroupid" "52"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"id" "273535"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/80s/sphere_sp/sphere/pipes_water.vmf"
+		"fixup_style" "0"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "52"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
 	}
 }
 entity
@@ -1697,8 +1700,9 @@ entity
 	connections
 	{
 		"OnTrigger" "@player_start_teleportTeleport0.5-1"
-		"OnTrigger" "@entrance_door_open_rlTrigger1.51"
+		"OnTrigger" "@entrance_door_openTrigger1.51"
 		"OnTrigger" "player_door_triggerKill0-1"
+		"OnTrigger" "@player_start_teleportFireUser10-1"
 	}
 	"origin" "-1074.53 2168 -952.832"
 	editor
@@ -1841,89 +1845,104 @@ entity
 		"logicalpos" "[11000 -6768]"
 	}
 }
-entity
+hidden
 {
-	"id" "268053"
-	"classname" "func_instance"
-	"angles" "-0 0 0"
-	"file" "instances/bee2/80s/sphere_sp/sphere/pipes_blue.vmf"
-	"fixup_style" "0"
-	"origin" "0 0 0"
-	editor
+	entity
 	{
-		"color" "220 30 220"
-		"visgroupid" "52"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"id" "268053"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/80s/sphere_sp/sphere/pipes_blue.vmf"
+		"fixup_style" "0"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "52"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
 	}
 }
-entity
+hidden
 {
-	"id" "268074"
-	"classname" "func_instance"
-	"angles" "-0 0 0"
-	"file" "instances/bee2/80s/sphere_sp/sphere/pipes_grey.vmf"
-	"fixup_style" "0"
-	"origin" "0 0 0"
-	editor
+	entity
 	{
-		"color" "220 30 220"
-		"visgroupid" "52"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"id" "268074"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/80s/sphere_sp/sphere/pipes_grey.vmf"
+		"fixup_style" "0"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "52"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
 	}
 }
-entity
+hidden
 {
-	"id" "268084"
-	"classname" "func_instance"
-	"angles" "-0 0 0"
-	"file" "instances/bee2/80s/sphere_sp/sphere/pipes_orange.vmf"
-	"fixup_style" "0"
-	"origin" "0 0 0"
-	editor
+	entity
 	{
-		"color" "220 30 220"
-		"visgroupid" "52"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"id" "268084"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/80s/sphere_sp/sphere/pipes_orange.vmf"
+		"fixup_style" "0"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "52"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
 	}
 }
-entity
+hidden
 {
-	"id" "268097"
-	"classname" "func_instance"
-	"angles" "-0 0 0"
-	"file" "instances/bee2/80s/sphere_sp/sphere/vent.vmf"
-	"fixup_style" "0"
-	"origin" "0 0 0"
-	editor
+	entity
 	{
-		"color" "220 30 220"
-		"visgroupid" "52"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"id" "268097"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/80s/sphere_sp/sphere/vent.vmf"
+		"fixup_style" "0"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "52"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
 	}
 }
-entity
+hidden
 {
-	"id" "268110"
-	"classname" "func_instance"
-	"angles" "-0 0 0"
-	"file" "instances/bee2/80s/sphere_sp/sphere/pipes_white.vmf"
-	"fixup_style" "0"
-	"origin" "0 0 0"
-	editor
+	entity
 	{
-		"color" "220 30 220"
-		"visgroupid" "52"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"id" "268110"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/80s/sphere_sp/sphere/pipes_white.vmf"
+		"fixup_style" "0"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "52"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
 	}
 }
 entity
@@ -8981,7 +9000,7 @@ entity
 	"maxgpulevel" "0"
 	"mincpulevel" "0"
 	"mingpulevel" "0"
-	"model" "models/props_underground/walkway_corner.mdl"
+	"model" "models/props_underground/walkway_l.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"screenspacefade" "0"
@@ -16265,32 +16284,6 @@ entity
 }
 entity
 {
-	"id" "129492"
-	"classname" "game_text"
-	"channel" "3"
-	"color" "255 255 255"
-	"color2" "205 205 205"
-	"effect" "2"
-	"fadein" ".06"
-	"fadeout" "0.5"
-	"fxtime" ".5"
-	"holdtime" "5"
-	"message" "PORTAL2_PuzzleEditor_Preview_Complete"
-	"spawnflags" "1"
-	"targetname" "@preview_complete_message"
-	"x" "-1"
-	"y" ".6"
-	"origin" "142.194 2778.17 8"
-	editor
-	{
-		"color" "200 0 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
 	"id" "129159"
 	"classname" "env_fade"
 	"duration" "1"
@@ -16473,8 +16466,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[192.888 2839.05 130.222]"
-		"look" "[165.497 2824.98 75.117]"
+		"position" "[-1395.33 3778.72 -772.995]"
+		"look" "[-1368.75 3742.66 -817.479]"
 	}
 	camera
 	{

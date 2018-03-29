@@ -1,0 +1,197 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "7552"
+	"mapversion" "353"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "353"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "4451"
+	"classname" "logic_coop_manager"
+	"DefaultPlayerStateA" "0"
+	"DefaultPlayerStateB" "0"
+	"targetname" "manager"
+	connections
+	{
+		"OnChangeToAllTrue" "scriptFireUser20-1"
+		"OnChangeToAnyFalse" "scriptFireUser10-1"
+	}
+	"origin" "-32 -32 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "4472"
+	"classname" "math_counter"
+	"max" "$connectioncount"
+	"targetname" "counter"
+	connections
+	{
+		"OnHitMax" "managerSetStateATrue0-1"
+		"OnChangedFromMax" "managerSetStateAFalse0-1"
+	}
+	"origin" "32 -32 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "4474"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	connections
+	{
+		"OnProxyRelay" "counterAdd10-1"
+		"OnProxyRelay" "counterSubtract10-1"
+	}
+	"origin" "-32 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 13000]"
+	}
+}
+entity
+{
+	"id" "4678"
+	"classname" "trigger_multiple"
+	"origin" "0 0 -16"
+	"parentname" "$parent"
+	"spawnflags" "4097"
+	"StartDisabled" "0"
+	"targetname" "auto_trigger"
+	"wait" "1"
+	connections
+	{
+		"OnStartTouch" "managerSetStateBTrue0-1"
+		"OnEndTouchAll" "managerSetStateBFalse0-1"
+	}
+	solid
+	{
+		"id" "4679"
+		side
+		{
+			"id" "43"
+			"plane" "(-48 -48 16) (-48 48 16) (48 48 16)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "44"
+			"plane" "(-48 48 -48) (-48 -48 -48) (48 -48 -48)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "45"
+			"plane" "(-48 -48 -48) (-48 48 -48) (-48 48 16)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "46"
+			"plane" "(48 48 -48) (48 -48 -48) (48 -48 16)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "47"
+			"plane" "(-48 48 -48) (48 48 -48) (48 48 16)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "48"
+			"plane" "(48 -48 -48) (-48 -48 -48) (-48 -48 16)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
