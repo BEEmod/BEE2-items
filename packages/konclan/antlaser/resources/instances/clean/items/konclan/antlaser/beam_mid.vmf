@@ -1,0 +1,99 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "7552"
+	"mapversion" "5"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "5"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2"
+	"classname" "env_beam"
+	"BoltWidth" "2"
+	"ClipStyle" "0"
+	"damage" "0"
+	"decalname" "Bigshot"
+	"framerate" "0"
+	"framestart" "0"
+	"HDRColorScale" "1.0"
+	"life" "0"
+	"LightningEnd" "$next_beam"
+	"LightningStart" "$beam_name"
+	"NoiseAmplitude" "0"
+	"Radius" "8"
+	"renderamt" "100"
+	"rendercolor" "74 192 255"
+	"renderfx" "0"
+	"spawnflags" "1"
+	"StrikeTime" "1"
+	"targetname" "$beam_name"
+	"targetpoint" "0 0 0"
+	"texture" "sprites/laserbeam.vmt"
+	"TextureScroll" "35"
+	"TouchType" "0"
+	connections
+	{
+		"OnUser1" "mdlFireUser10-1"
+		"OnUser2" "mdlFireUser20-1"
+		"OnUser1" "mdlSkin00-1"
+		"OnUser2" "mdlSkin10-1"
+		"OnUser1" "$beam_nameColor74 192 2550-1"
+		"OnUser2" "$beam_nameColor255 128 00-1"
+		"OnUser2" "sprColor255 128 00-1"
+		"OnUser1" "sprColor74 192 2550-1"
+	}
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "200 200 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 5500]"
+	}
+}
+entity
+{
+	"id" "37"
+	"classname" "func_instance_parms"
+	"parm1" "$next_beam target_destination beam2"
+	"parm2" "$beam_name target_destination beam1"
+	"origin" "0 0 16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 5500]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
