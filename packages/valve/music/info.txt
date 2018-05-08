@@ -259,7 +259,27 @@
 	"Icon"			"music/technical_difficulties"
 	"IconLarge"     "music_lrg/technical_difficulties"
 	"Authors"		"Valve"
-	"Description"	"The music played in the first few Overgrown Test Chambers."
+	"Description"	"The music played in the first Overgrown Test Chamber."
+	"Sample"   		"p2/sp_intro_01_08_chamberexit.ogg"
+	"SoundScript"   "music/sp_intro_01_08_chamberexit.wav"
+	"Children"
+		{
+		"BounceGel" "VALVE_CONTROL_GROUP"
+		"SpeedGel" "VALVE_GEL_REUNION"
+		"tBeam" "VALVE_TEST"
+		}
+	}
+
+"Music"
+	{
+	"ID"			"VALVE_RATTMAN_1"
+	"Name"			"Ghost Of Rattman #1"
+	"ShortName"		"Rattman 1"
+	"Group"			"Overgrown"
+	"Icon"			"music/ratmann_1"
+	"IconLarge"     "music_lrg/ratmann_1"
+	"Authors"		"Valve"
+	"Description"	"Sombre music played in the Rattman Den where the blue-only Portal Gun is collected. Unlike the soundtrack, this does not feature Rattman mumbles."
 	"Sample"        "p2/sp_a1_intro3_b1.ogg"
 	"SoundScript"   "music/sp_a1_intro3_b1.wav"
 	"Children"
@@ -268,6 +288,20 @@
 		"SpeedGel" "VALVE_GEL_REUNION"
 		"tBeam" "VALVE_TEST"
 		}
+	}
+	
+"Music"
+	{	
+	"ID"			"VALVE_RATTMAN_2"
+	"Name"			"Ghost Of Rattman #2"
+	"ShortName"		"Rattman 2"
+	"Group"			"Reconstructing"
+	"Icon"			"music/ratmann_2.png"
+	"IconLarge"     "music_lrg/ratmann_2.png"
+	"Authors"		"Valve"
+	"Description"	"Sombre music played inside the Ratman Den in \"Pull The Rug\". Unlike the soundtrack, this does not feature Rattman mumbles."
+	"Sample"        "p2/sp_a2_pull_the_rug_r1.ogg"
+	"SoundScript"   "music/sp_a2_pull_the_rug_r1.wav"
 	}
 
 "Music"
@@ -545,7 +579,12 @@
 	"IconLarge"     "music_lrg/cause_of_science"
 	"Authors"		"Valve"
 	"Description"	"The music for the second 1950s Repulsion Gel Test."
-	"Sample"        "p2/sp_a3_bomb_flings_b1.ogg"
+	"Sample"
+		{
+		"Base" "p2/sp_a3_bomb_flings_b1.ogg"
+		"BounceGel" "p2/sp_a3_bomb_flings_z1.ogg"
+		"SpeedGel"  "p2/sp_a3_bomb_flings_z2.ogg"
+		}
 	"SoundScript"
 		{
 		"Base" "music/sp_a3_bomb_flings_b1.wav"
@@ -580,7 +619,12 @@
 	"IconLarge"     "music_lrg/control_group"
 	"Authors"		"Valve"
 	"Description"	"The music for the first 1950s Repulsion Gel Test."
-	"Sample"        "p2/sp_a3_jump_intro_b1.ogg"
+	"Sample"
+		{
+		"Base" "p2/sp_a3_jump_intro_b1.ogg"
+		"BouncefGel" "p2/sp_a3_jump_intro_z1.ogg"
+		"SpeedGel" "p2/sp_a3_jump_intro_z1b.ogg"
+		}
 	"SoundScript"
 		{
 		"Base" 
@@ -1068,17 +1112,4 @@
 			}
 		}
 	}
-	
-"Music"
-	{	
-	"ID"			"VALVE_RATTMAN"
-	"Name"			"Ghost Of Rattman"
-	"ShortName"		"Rattman"
-	"Group"			"Reconstructing"
-	"Icon"			"music/ratmann.png"
-	"IconLarge"     "music_lrg/ratmann.png"
-	"Authors"		"Valve"
-	"Description"	"Sombre music played inside some of the Ratman Dens. Unlike the soundtrack, this does not feature Rattman mumbles."
-	"Sample"        "p2/sp_a2_pull_the_rug_r1.ogg"
-	"SoundScript"   "music/sp_a2_pull_the_rug_r1.wav"
-	}
+
