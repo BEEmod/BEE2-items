@@ -7,3 +7,11 @@ Welcome to the BEE2.4 Default Pack issue tracker! Here are a few guidelines you 
 5. If you have multiple bug reports or feature requests which are not related to each other, **please create separate issues instead of combining them.** This allows us to individually label the issues, and close them once they are fixed/implemented. Combined issues will immediately be closed, no matter how elaborate the post may be.
 6. And finally, **please keep in mind that BEEmod is not a wishlist for custom test elements/styles or specific items that only benefit the map you're working on now.** Suggesting a custom test element or style is fine, but please stick to things that other people have already implemented in a map or that you are willing to develop yourself. If you need a very specific item for a map you're working on, learn Hammer or find another way of doing it within the Puzzlemaker.
 7. **Failure to follow these guidelines may result in being BANNED from Bee2 Github Pages!**
+
+## New Suggestions:
+A few guidelines for the scope of this project:
+
+* Things should already be present in Portal 1/2 or a existing mod/map: This keeps content to things which actually fit in the game, and are actually possible in the engine.
+* No beta stuff: We don't have most of those resources, and it's a very unfinished and incoherent mess of parts.
+* Focus on puzzle potential: In general, items should be focused on providing new opportunities for puzzles, not solely for decoration purposes. BEE is not a replacement for Hammer.
+* Versitility is key: For the most part, good new items maximise their flexibility in different situations, especially in improving the puzzle experience. We're not adding some item that only works for your specific map.
