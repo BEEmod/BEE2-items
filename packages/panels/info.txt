@@ -162,24 +162,17 @@
 					"" ""
 					"" "* This was seen in the Art Therapy and Wheatley themes."
 					}
-				"Replace"
-					{
-					"BEE2_COVERED_ANGLED_PANEL_TOP_CLEAN" "BEE2_COVERED_ANGLED_PANEL_TOP_RETRO"
-					}
 				"Instances"
 					{
 					"0" "instances/BEE2/50s/items/panel_covered.vmf"
 					}
-				"Append"
+				"Config" "covered_pan_retro.cfg"
+				"IOConf"
 					{
-					"Conditions"
-						{
-						"instance" "<ITEM_BEE2_COVERED_ANGLED_PANEL>"
-						"Result"
-							{
-							"Pack" "PACK_BEE2_COVERED_PAN_50s"
-							}
-						}
+					"Type"          "AND"
+					"InvertVar"     "$start_deployed"
+					"Enable_Cmd"    "model_arms,SetPlaybackRate,1,0.00,-1"
+					"Disable_Cmd"   "model_arms,SetPlaybackRate,-1,0.00,-1"
 					}
 				}
 			"BEE2_1970s"
