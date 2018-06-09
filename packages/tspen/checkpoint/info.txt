@@ -11,7 +11,7 @@
 		"" ""
 		"" "* The entry door will accept inputs to open/close it."
 		}
-	"all_conf" "coop_check"
+	"all_conf" "coop_check.cfg"
 	"Version"
 		{
 		"Styles"
@@ -46,11 +46,79 @@
 						}
 					}
 				}
-			"BEE2_BTS"        "coop_check_bts"
-			"BEE2_1950s"      "coop_check_50s"
-			"BEE2_1960s"      "coop_check_60s"
-			"BEE2_1970s"      "coop_check_70s"
-			"BEE2_1980s"      "coop_check_80s"
+			"BEE2_BTS"
+				{
+				"Folder" "coop_check_clean"
+				"Instances"
+					{
+					"0" "instances/BEE2/bts/items/tspen/coop_checkpoint.vmf"
+					"1" "instances/BEE2/bts/items/tspen/coop_checkpoint_sp.vmf"
+					}
+				"Append"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"instance"  "<ITEM_TSPEN_COOP_CHECKPOINT>"
+							"Result"
+								{
+								"PackFile" "models/bee2/props_bts/circuit_breaker_anim.mdl"
+								}
+							}
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "coop_check_clean"
+				"Config"
+					{
+					"Conditions" 
+					    { 
+					    "Condition" 
+					        { 
+					        "instance"  "<ITEM_TSPEN_COOP_CHECKPOINT>" 
+					        "Result" 
+					            { 
+					            "AddOverlay" 
+					                {
+					                // Shared by 50s/60s/70s/80s maps				                	
+					                "file"   "instances/BEE2/50s/items/tspen/coop_checkpoint_logic.vmf"
+					                } 
+					            } 
+					        } 
+					    } 
+					}
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/tspen/coop_checkpoint.vmf"
+					}
+				}
+			"BEE2_1960s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"0" "instances/BEE2/60s/items/tspen/coop_checkpoint.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"0" "instances/BEE2/70s/items/tspen/coop_checkpoint.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"0" "instances/BEE2/80s/items/tspen/coop_checkpoint.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -207,7 +275,7 @@
 		}
 	}
 
-	
+
 "BrushTemplate"
 	{
 	"ID"  "TSPEN_CHECKPOINT_SINGLE_CAP_P1"

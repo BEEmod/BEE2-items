@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "327"
+	"editorbuild" "7552"
+	"mapversion" "330"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "327"
+	"mapversion" "330"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1195,56 +1195,7 @@ entity
 		"OnProxyRelay" "counterAdd10-1"
 		"OnProxyRelay" "counterSubtract10-1"
 	}
-	"origin" "-16 16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "3"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6067"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-16 -16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "3"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "6069"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "triggerEnable0.01-1"
-		"OnFalse" "triggerDisable0.01-1"
-		"OnTrue" "wake_trigEnable0-1"
-		"OnTrue" "wake_trigDisable0.01-1"
-		"OnFalse" "wake_trigDisable0-1"
-		"OnFalse" "rotOpen0-1"
-		"OnTrue" "rotClose0-1"
-		"OnTrue" "clipOpen0-1"
-		"OnFalse" "clipClose0-1"
-	}
-	"origin" "16 -16 -48"
+	"origin" "0 -16 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -1273,7 +1224,7 @@ entity
 	"origin" "0 0 -62"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupid" "3"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -1314,12 +1265,20 @@ entity
 		"OnTrigger" "@music_faith_playTrigger0-1"
 		"OnTrigger" "mistStop1-1"
 		"OnTrigger" "mistStart0-1"
-		"OnSpawn" "branch_toggleTest01"
+		"OnUser2" "wake_trigDisable0.01-1"
+		"OnUser2" "triggerEnable0.01-1"
+		"OnUser2" "clipOpen0-1"
+		"OnUser2" "rotClose0-1"
+		"OnUser2" "wake_trigEnable0-1"
+		"OnUser1" "triggerDisable0.01-1"
+		"OnUser1" "clipClose0-1"
+		"OnUser1" "rotOpen0-1"
+		"OnUser1" "wake_trigDisable0-1"
 	}
 	"origin" "32 0 -48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "3"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -1333,7 +1292,7 @@ entity
 	"parm1" "$catapult_speed integer"
 	"parm2" "$connectioncount string"
 	"parm3" "$start_enabled string"
-	"origin" "16 16 -48"
+	"origin" "0 16 -48"
 	editor
 	{
 		"color" "220 30 220"

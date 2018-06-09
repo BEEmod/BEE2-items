@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7552"
-	"mapversion" "91"
+	"mapversion" "94"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "91"
+	"mapversion" "94"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -469,6 +469,16 @@ world
 	}
 	group
 	{
+		"id" "3501"
+		editor
+		{
+			"color" "179 128 0"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	group
+	{
 		"id" "3128"
 		editor
 		{
@@ -846,113 +856,6 @@ entity
 }
 entity
 {
-	"id" "3373"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "laserTurnOn0-1"
-		"OnFalse" "laserTurnOff0-1"
-		"OnTrue" "snd_onPlaySound0-1"
-		"OnFalse" "snd_offPlaySound0-1"
-	}
-	"origin" "-32 16 -48"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "3406"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-		"OnHitMax" "fireTrigger0-1"
-		"OnHitMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-32 -16 -48"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "2988"
-	"classname" "ambient_generic"
-	"cspinup" "0"
-	"fadeinsecs" "0"
-	"fadeoutsecs" "0"
-	"health" "10"
-	"lfomodpitch" "0"
-	"lfomodvol" "0"
-	"lforate" "0"
-	"lfotype" "0"
-	"message" "World.LightPowerOnLg"
-	"pitch" "100"
-	"pitchstart" "100"
-	"preset" "0"
-	"radius" "800"
-	"SourceEntityName" "gls"
-	"spawnflags" "48"
-	"spindown" "0"
-	"spinup" "0"
-	"targetname" "snd_on"
-	"volstart" "0"
-	"origin" "-48 0 -55"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "3015"
-	"classname" "ambient_generic"
-	"cspinup" "0"
-	"fadeinsecs" "0"
-	"fadeoutsecs" "0"
-	"health" "10"
-	"lfomodpitch" "0"
-	"lfomodvol" "0"
-	"lforate" "0"
-	"lfotype" "0"
-	"message" "World.LightPowerOff"
-	"pitch" "100"
-	"pitchstart" "100"
-	"preset" "0"
-	"radius" "800"
-	"SourceEntityName" "gls"
-	"spawnflags" "48"
-	"spindown" "0"
-	"spinup" "0"
-	"targetname" "snd_off"
-	"volstart" "0"
-	"origin" "-16 0 -55"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "1105"
 	"classname" "func_detail"
 	solid
@@ -1026,7 +929,7 @@ entity
 		}
 		editor
 		{
-			"color" "0 180 0"
+			"color" "179 128 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1102,7 +1005,7 @@ entity
 		}
 		editor
 		{
-			"color" "0 180 0"
+			"color" "179 128 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1178,7 +1081,7 @@ entity
 		}
 		editor
 		{
-			"color" "0 180 0"
+			"color" "179 128 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1254,14 +1157,15 @@ entity
 		}
 		editor
 		{
-			"color" "0 180 0"
+			"color" "179 128 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "0 180 0"
+		"color" "179 128 0"
+		"groupid" "3501"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 4000]"
@@ -1316,7 +1220,7 @@ entity
 	"parm1" "$connectioncount integer 0"
 	"parm2" "$start_disabled integer 0"
 	"parm3" "$start_enabled integer 1"
-	"origin" "-16 16 -48"
+	"origin" "-32 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -1335,7 +1239,6 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"rendermode" "10"
-	"scalevalue" "0"
 	"skin" "0"
 	"StartState" "$start_disabled"
 	"targetname" "laser"
@@ -1346,25 +1249,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
-	"id" "137"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-48 -16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
 	}
 }
 cameras
