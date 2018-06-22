@@ -7,7 +7,8 @@ Welcome to the BEE2.4 Default Pack issue tracker! Here are a few guidelines you 
 5. If you have multiple bug reports or feature requests which are not related to each other, **please create separate issues instead of combining them.** This allows us to individually label the issues, and close them once they are fixed/implemented. Combined issues will immediately be closed, no matter how elaborate the post may be.
 6. **Please keep in mind that BEEmod is not a wishlist for custom test elements/styles or specific items that only benefit the map you're working on now.** Suggesting a custom test element or style is fine, but please stick to things that other people have already implemented in a map or that you are willing to develop yourself. If you need a very specific item for a map you're working on, learn Hammer or find another way of doing it within the Puzzlemaker.
 7. A User must be at least 13 years of age as per the [GitHub account requirement](https://help.github.com/articles/github-terms-of-service/#b-account-terms)
-8. **Failure to follow these guidelines may result in being BANNED from Bee2 Github Pages!** Ban evasion is not acceptable, and will get your multiple accounts reported and most likely removed.
+8. Remember to **respect, be kind and polite towards contributors and other users**. Being rude, using excessive swearing/offensive/pejorative language will make it less likely that you get helped, and might get your issue locked, and in more extreme cases, your account banned. **Contributors are here to help however and whenever they can. Demanding solutions or tagging them will not get the job done any quicker, and will only cause inconveniences.**
+9. **Failure to follow these guidelines may result in being BANNED from Bee2 Github Pages!** Ban evasion is not acceptable, and will get your multiple accounts reported and most likely removed.
 
 
 ## New Suggestions:
