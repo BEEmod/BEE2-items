@@ -1,126 +1,136 @@
 versioninfo
 {
-"editorversion" "400"
-"editorbuild" "7552"
-"mapversion" "46"
-"formatversion" "100"
-"prefab" "0"
+	"editorversion" "400"
+	"editorbuild" "7378"
+	"mapversion" "45"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
 }
 world
 {
-"id" "2"
-"classname" "worldspawn"
-"mapversion" "46"
-"skyname" "sky_black_nofog"
-editor
-{
-"color" "0 0 0"
-"visgroupshown" "1"
-"visgroupautoshown" "1"
-"logicalpos" "[0 2]"
-"comments" ""
-}
+	"id" "1"
+	"mapversion" "45"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
 }
 entity
 {
-"id" "613"
-"classname" "math_counter"
-"max" "$connectioncount"
-"origin" "0 32 32"
-"targetname" "counter"
-connections
-{
-"OnHitMax" "branch_toggleToggleTest0-1"
-"OnChangedFromMax" "branch_toggleToggleTest0-1"
-}
-editor
-{
-"color" "0 100 250"
-"visgroupshown" "1"
-"visgroupautoshown" "1"
-"logicalpos" "[0 0]"
-"comments" ""
-}
-}
-entity
-{
-"id" "615"
-"classname" "logic_branch"
-"initialvalue" "$start_enabled"
-"origin" "0 -32 32"
-"targetname" "branch_toggle"
-connections
-{
-"OnTrue" "trig*Enable0-1"
-"OnFalse" "trig*Disable0-1"
-"OnTrue" "brushActivate0-1"
-"OnFalse" "brushDisable0-1"
-"OnTrue" "pfizzEnable0-1"
-"OnFalse" "pfizzDisable0-1"
-"OnTrue" "brushEnable0-1"
-"OnFalse" "brushDeactivate0-1"
-}
-editor
-{
-"color" "0 100 250"
-"visgroupshown" "1"
-"visgroupautoshown" "1"
-"logicalpos" "[0 0]"
-"comments" ""
-}
+	"id" "613"
+	"classname" "math_counter"
+	"max" "$connectioncount"
+	"targetname" "counter"
+	connections
+	{
+		"OnHitMax" "branch_toggleToggleTest0-1"
+		"OnChangedFromMax" "branch_toggleToggleTest0-1"
+	}
+	"origin" "0 32 32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
-"id" "617"
-"classname" "func_instance_io_proxy"
-"origin" "0 -16 48"
-"targetname" "proxy"
-connections
-{
-"OnProxyRelay" "counterAdd10-1"
-"OnProxyRelay" "counterSubtract10-1"
-}
-editor
-{
-"color" "220 30 220"
-"visgroupshown" "1"
-"visgroupautoshown" "1"
-"logicalpos" "[0 9000]"
-"comments" ""
-}
-}
-entity
-{
-"id" "619"
-"classname" "logic_auto"
-"origin" "0 0 32"
-"spawnflags" "1"
-connections
-{
-"OnMapSpawn" "branch_toggleTest0-1"
-}
-editor
-{
-"color" "0 100 250"
-"visgroupshown" "1"
-"visgroupautoshown" "1"
-"logicalpos" "[0 1000]"
-"comments" ""
-}
+	"id" "615"
+	"classname" "logic_branch"
+	"InitialValue" "$start_enabled"
+	"targetname" "branch_toggle"
+	connections
+	{
+		"OnTrue" "trig*Enable0-1"
+		"OnFalse" "trig*Disable0-1"
+		"OnTrue" "br_*Activate0-1"
+		"OnFalse" "br_*Disable0-1"
+		"OnTrue" "pfizzEnable0-1"
+		"OnFalse" "pfizzDisable0-1"
+		"OnTrue" "br_*Enable0-1"
+		"OnFalse" "br_*Deactivate0-1"
+	}
+	"origin" "0 -32 32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
-"id" "623"
-"classname" "func_instance_parms"
-"origin" "0 16 48"
-"parm1" "$connectioncount integer"
-"parm2" "$start_enabled integer"
-editor
-{
-"color" "220 30 220"
-"visgroupshown" "1"
-"visgroupautoshown" "1"
-"logicalpos" "[0 0]"
-"comments" ""
+	"id" "617"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	connections
+	{
+		"OnProxyRelay" "counterAdd10-1"
+		"OnProxyRelay" "counterSubtract10-1"
+	}
+	"origin" "0 -16 48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 9000]"
+	}
 }
+entity
+{
+	"id" "619"
+	"classname" "logic_auto"
+	"spawnflags" "1"
+	connections
+	{
+		"OnMapSpawn" "branch_toggleTest0-1"
+	}
+	"origin" "0 0 32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "623"
+	"classname" "func_instance_parms"
+	"parm1" "$connectioncount integer"
+	"parm2" "$start_enabled integer"
+	"origin" "0 16 48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
 }
