@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "28"
+	"editorbuild" "7552"
+	"mapversion" "49"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "28"
+	"mapversion" "49"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,15 +30,11 @@ world
 }
 entity
 {
-	"id" "503"
-	"classname" "logic_auto"
-	"spawnflags" "0"
-	connections
-	{
-		"OnMapSpawn" "viewmodelRunScriptFilebee2/set_p1_pgun.nut0-1"
-		"OnLoadGame" "viewmodelRunScriptFilebee2/set_p1_pgun.nut0-1"
-	}
-	"origin" "0 0 0"
+	"id" "773"
+	"classname" "comp_pack_replace_soundscript"
+	"original" "scripts/game_sounds_player_portal2.txt"
+	"replacement" "scripts/bee2/p1_pgun_sounds.txt"
+	"origin" "16 0 16"
 	editor
 	{
 		"color" "220 30 220"
@@ -49,46 +45,103 @@ entity
 }
 entity
 {
+	"id" "795"
+	"classname" "comp_pack_replace_soundscript"
+	"original" "scripts/game_sounds_weapons_portal.txt"
+	"replacement" "scripts/bee2/p1_pgun_sounds.txt"
+	"origin" "16 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "683"
+	"classname" "comp_pack_replace_soundscript"
+	"original" "scripts/game_sounds_physics.txt"
+	"replacement" "scripts/bee2/p1_physics_sounds.txt"
+	"origin" "16 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "720"
+	"classname" "comp_precache_sound"
+	"sound1" "player/footsteps/metal1.wav"
+	"sound2" "player/footsteps/metal2.wav"
+	"sound3" "player/footsteps/metal3.wav"
+	"sound4" "player/footsteps/metal4.wav"
+	"sound5" "physics/metal/metal_box_scrape_smooth_loop1.wav"
+	"sound6" "physics/metal/metal_box_scrape_rough_loop1.wav"
+	"origin" "-16 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "673"
+	"classname" "comp_precache_sound"
+	"sound1" "bee2/p1/pgun/ambient.wav"
+	"sound2" "bee2/p1/pgun/portal_enter1.wav"
+	"sound3" "bee2/p1/pgun/portal_enter2.wav"
+	"sound4" "bee2/p1/pgun/portal_exit1.wav"
+	"sound5" "bee2/p1/pgun/portal_exit2.wav"
+	"sound6" "player/footsteps/concrete1.wav"
+	"sound7" "player/footsteps/concrete2.wav"
+	"sound8" "player/footsteps/concrete3.wav"
+	"sound9" "player/footsteps/concrete4.wav"
+	"origin" "-16 0 16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "503"
+	"classname" "logic_auto"
+	"spawnflags" "0"
+	connections
+	{
+		"OnMapSpawn" "viewmodelRunScriptCodeself.SetModel(`models/BEE2/p1_pgun.mdl`)0-1"
+		"OnLoadGame" "viewmodelRunScriptCodeself.SetModel(`models/BEE2/p1_pgun.mdl`);0-1"
+	}
+	"origin" "-16 0 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "` becomes double-quotes."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "648"
-	"classname" "prop_dynamic_override"
-	"angles" "0 0 0"
-	"AnimateEveryFrame" "0"
-	"DefaultAnim" "idle"
-	"DisableBoneFollowers" "1"
-	"disableflashlight" "0"
-	"disablereceiveshadows" "0"
-	"disableshadowdepth" "1"
-	"disableshadows" "1"
-	"disableX360" "0"
-	"drawinfastreflection" "0"
-	"ExplodeDamage" "0"
-	"ExplodeRadius" "0"
-	"fademaxdist" "0"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"health" "0"
-	"HoldAnimation" "1"
-	"MaxAnimTime" "10"
-	"maxcpulevel" "0"
-	"maxgpulevel" "0"
-	"MinAnimTime" "5"
-	"mincpulevel" "0"
-	"mingpulevel" "0"
+	"classname" "comp_precache_model"
+	"angles" "0 270 0"
 	"model" "models/bee2/p1_pgun.mdl"
-	"PerformanceMode" "0"
-	"pressuredelay" "0"
-	"RandomAnimation" "0"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"rendermode" "10"
-	"SetBodyGroup" "0"
-	"shadowdepthnocache" "0"
 	"skin" "0"
-	"solid" "0"
-	"spawnflags" "256"
-	"SuppressAnimSounds" "1"
-	"origin" "-24 -4 20"
+	"origin" "8 24 8"
 	editor
 	{
 		"color" "220 30 220"
