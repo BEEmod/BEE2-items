@@ -17,7 +17,7 @@ This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/B
 
 ### Release Version
 
-These are instructions to install the standard version of BEE2.4. For the development version, see below.
+These are instructions to install the release version of BEE2.4. For the development version, see below.
 
 1. Download the BEE2.4 app and compiler from [here](https://github.com/BEEmod/BEE2.4/releases).
 2. Download the Default Pack from [here](https://github.com/BEEmod/BEE2-items/releases). Make sure to get the same version as the application, otherwise you may encounter errors.
@@ -50,7 +50,7 @@ The development version does not automatically update to the latest features, yo
 
 - If you are editing in Hammer, anything that is placed in the folder `sdk_content\maps\instances\bee2` will be deleted if you export the BEE2.4 pallete without enabling the setting *Preserve Game Directories*. If you are editing any package, after you have finished, do not forget to save it inside the packages, by replacing the old files inside.
 - BEE2.4 will crash if you are exporting while another folder or file is open that is important to the BEE2.4 compilation process.
-- It is recommended to have backups from the following Portal 2 folders: `sdk_content`, `portal2_dlc2`, and `bin`, just in case you need to restore your Portal 2 files.
+- It is recommended to keep backups of the following Portal 2 folders: `sdk_content`, `portal2_dlc2`, and `bin`, just in case you need to restore your Portal 2 files.
 
 The [BEE2.4 Default Pack wiki](https://github.com/BEEmod/BEE2-items/wiki) contains more in-depth explanations of items and styles, as well as development guides. The [BEE2.4 wiki](https://github.com/BEEmod/BEE2.4/wiki) has information on the application. Note that both of these wikis are missing a lot of content, you can help by contributing to them.
 
