@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "138"
+	"editorbuild" "7552"
+	"mapversion" "140"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,33 +14,19 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "138"
+	"mapversion" "140"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
-}
-entity
-{
-	"id" "1678"
-	"classname" "info_lighting"
-	"targetname" "gel_light"
-	"origin" "0 0 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 10500]"
-	}
 }
 entity
 {
@@ -144,7 +130,7 @@ entity
 	"parm7" "$spread_angle integer"
 	"parm8" "$render_mode integer"
 	"parm9" "$ambient_sound string"
-	"origin" "-16 16 8"
+	"origin" "0 0 -12"
 	editor
 	{
 		"color" "220 30 220"
@@ -181,48 +167,6 @@ entity
 }
 entity
 {
-	"id" "708"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnFalse" "sprayer_1Stop0-1"
-		"OnFalse" "sprayerStop0-1"
-		"OnTrue" "sprayer_1Start0-1"
-		"OnTrue" "sprayerStart0-1"
-	}
-	"origin" "16 -16 8"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "710"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "16 16 8"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "611"
 	"classname" "info_paint_sprayer"
 	"AmbientSound" "$ambient_sound"
@@ -233,7 +177,6 @@ entity
 	"blobs_per_second" "$angled_blobs_per_second"
 	"end_radius_max" "0.7"
 	"end_radius_min" "0.5"
-	"light_position_name" "gel_light"
 	"max_speed" "$max_blob_speed"
 	"max_streak_speed_dampen" "0"
 	"max_streak_time" "$streak_time"
@@ -260,25 +203,6 @@ entity
 }
 entity
 {
-	"id" "380"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterSubtract10-1"
-		"OnProxyRelay" "counterAdd10-1"
-	}
-	"origin" "-16 -16 8"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "2"
 	"classname" "info_paint_sprayer"
 	"AmbientSound" "$ambient_sound"
@@ -289,7 +213,6 @@ entity
 	"blobs_per_second" "$blobs_per_second"
 	"end_radius_max" "0.7"
 	"end_radius_min" "0.5"
-	"light_position_name" "gel_light"
 	"max_speed" "$max_blob_speed"
 	"max_streak_speed_dampen" "0"
 	"max_streak_time" "$streak_time"
