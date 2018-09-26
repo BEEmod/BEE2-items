@@ -1,6 +1,6 @@
 touch_pos <- {};  // ID -> -1/+1 for side.
 // axis = Set by compiler to "x"/"y"/"z".
-plane_off <- self.GetOrigin()[axis]; // origin[axis]
+plane_off <- 0;  // origin[axis]
 active <- 0;
 color <- 0; // 0-200
 
@@ -8,6 +8,7 @@ mdl_name <- self.GetName().slice(0, -4) + "mdl*";
 
 function OnPostSpawn() {
 	out_ent <- Entities.FindByName(null, self.GetName().slice(0, -4) + "out");
+	plane_off <- self.GetOrigin()[axis];
 }
 
 function Precache() {
