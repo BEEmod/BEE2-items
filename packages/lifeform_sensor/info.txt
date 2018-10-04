@@ -14,9 +14,11 @@ This toggles an output whenever players cross through the field.
 	"ID"        "ITEM_PRO_LIFEFORM_SENSOR"
 	"Description"
 		{
-		"" "A fizzler-style field which toggles an output whenever players cross through the field.  "
-		"" "Players must leave on the opposite side to the one they entered in."
-		"" "This requires use of the Fizzler Output Relay."
+		"" "A fizzler-style field which toggles an output whenever players cross through the field."
+		"" ""
+		"" "* Players must leave on the opposite side to the one they entered in."
+		"" "* This requires use of the Fizzler Output Relay."
+		"" "* Note that there are two circumstances when the field will **not properly detect movement** - when players move at exteme speeds via Faith Plate, or if they are able to pass through the side of the fizzler. Avoid high-speed plates, and add walls above/below the fizzler."
 		}
 	"Version"
 		{
@@ -41,13 +43,6 @@ This toggles an output whenever players cross through the field.
 					{
 					"1" "instances/BEE2/p1/items/pro/lifeform_sensor_model.vmf"
 					}
-				"Append"
-					{
-					"Replacements"
-						{
-						"%MDL_PACK%" "PACK_P1_CUST_FIZZLER"
-						}
-					}
 				}
 			"BEE2_1950s"
 				{
@@ -59,15 +54,5 @@ This toggles an output whenever players cross through the field.
 					}
 				}
 			}
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_PRO_LIFEFORM_SENSOR"
-	"Config"
-		{
-		"" "sound/BEE2/p1/hl1_bell.wav"
-		"" "scripts/vscripts/BEE2/lifeform_sensor.nut"
 		}
 	}

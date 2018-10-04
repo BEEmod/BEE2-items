@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "189"
+	"editorbuild" "7552"
+	"mapversion" "191"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "189"
+	"mapversion" "191"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,6 +32,7 @@ entity
 {
 	"id" "2204"
 	"classname" "func_noportal_volume"
+	"origin" "0 0 -62.5"
 	"spawnflags" "0"
 	solid
 	{
@@ -138,7 +139,7 @@ entity
 	"Solidity" "1"
 	"spawnflags" "2"
 	"StartDisabled" "0"
-	"targetname" "sign"
+	"targetname" "$indicator_name"
 	"vrad_brush_cast_shadows" "0"
 	connections
 	{
@@ -232,6 +233,7 @@ entity
 {
 	"id" "1202"
 	"classname" "func_portal_bumper"
+	"origin" "0 0 -62.5"
 	"spawnflags" "0"
 	solid
 	{
@@ -319,50 +321,12 @@ entity
 }
 entity
 {
-	"id" "1095"
-	"classname" "env_texturetoggle"
-	"target" "sign"
-	"targetname" "tx"
-	connections
-	{
-		"OnUser1" "txSetTextureIndex00-1"
-		"OnUser2" "txSetTextureIndex10-1"
-	}
-	"origin" "0 0 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
 	"id" "1149"
 	"classname" "func_instance_parms"
 	"parm1" "$timer_delay integer 3"
 	"parm2" "$is_timer integer 0"
-	"origin" "0 0 -16"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2500]"
-	}
-}
-entity
-{
-	"id" "1175"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "txFireUser20-1"
-		"OnProxyRelay" "txFireUser10-1"
-	}
-	"origin" "0 0 -32"
+	"parm3" "$indicator_name target_name_or_class sign"
+	"origin" "0 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -376,8 +340,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-27.3491 2.24423 -30.7792]"
-		"look" "[159.96 3.55214 -214.211]"
+		"position" "[-26.6733 -31.1056 3.2721]"
+		"look" "[102.042 88.0866 -191.559]"
 	}
 	camera
 	{

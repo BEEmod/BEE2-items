@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7552"
-	"mapversion" "74"
+	"mapversion" "91"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "74"
+	"mapversion" "91"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1600,6 +1600,28 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "2661"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "1"
+	"targetname" "close_rl"
+	connections
+	{
+		"OnTrigger" "close_rlDisable0-1"
+		"OnTrigger" "doorClose0-1"
+		"OnUser2" "proxyProxyRelay0-1"
+	}
+	"origin" "0 0 -40"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
 	}
 }
 entity
@@ -5784,14 +5806,16 @@ entity
 	"targetname" "trig"
 	connections
 	{
-		"OnTrigger" "counterKill0-1"
 		"OnTrigger" "doorClose0-1"
 		"OnTrigger" "block_trigKill0-1"
-		"OnTrigger" "out_rlTrigger0-1"
+		"OnTrigger" "close_rlFireUser20-1"
 		"OnTrigger" "@autosaveSave0-1"
 		"OnTrigger" "door2Close0-1"
 		"OnTrigger" "fizz_invisEnable0.1-1"
 		"OnTrigger" "fizz_invisDisable0.11-1"
+		"OnUser1" "door2Open01"
+		"OnUser1" "doorOpen0-1"
+		"OnUser1" "close_rlDisable0-1"
 	}
 	solid
 	{
@@ -6185,15 +6209,16 @@ entity
 {
 	"id" "918"
 	"classname" "trigger_multiple"
-	"origin" "0 0 -100"
+	"origin" "0 0 -102"
 	"spawnflags" "4105"
 	"StartDisabled" "0"
 	"targetname" "block_trig"
 	"wait" "1"
 	connections
 	{
-		"OnEndTouchAll" "branch_toggleTest0-1"
+		"OnEndTouchAll" "close_rlTrigger0-1"
 		"OnNotTouching" "doorClose0-1"
+		"OnTouching" "close_rlEnable0-1"
 	}
 	solid
 	{
@@ -6201,7 +6226,7 @@ entity
 		side
 		{
 			"id" "474"
-			"plane" "(-64 -64 -128) (-64 64 -128) (-64 64 -72)"
+			"plane" "(-64 -64 -128) (-64 64 -128) (-64 64 -76)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[0 0 -1 32] 0.25"
@@ -6212,7 +6237,7 @@ entity
 		side
 		{
 			"id" "473"
-			"plane" "(64 64 -128) (64 -64 -128) (64 -64 -72)"
+			"plane" "(64 64 -128) (64 -64 -128) (64 -64 -76)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 32] 0.25"
@@ -6234,7 +6259,7 @@ entity
 		side
 		{
 			"id" "471"
-			"plane" "(-64 -64 -72) (-64 64 -72) (64 64 -72)"
+			"plane" "(-64 -64 -76) (-64 64 -76) (64 64 -76)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -6245,7 +6270,7 @@ entity
 		side
 		{
 			"id" "470"
-			"plane" "(-64 64 -72) (-64 64 -128) (64 64 -128)"
+			"plane" "(-64 64 -76) (-64 64 -128) (64 64 -128)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 32] 0.25"
@@ -6256,7 +6281,7 @@ entity
 		side
 		{
 			"id" "469"
-			"plane" "(64 -64 -72) (64 -64 -128) (-64 -64 -128)"
+			"plane" "(64 -64 -76) (64 -64 -128) (-64 -64 -128)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 32] 0.25"
@@ -6281,56 +6306,10 @@ entity
 }
 entity
 {
-	"id" "990"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "16 24 -40"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "992"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnFalse" "block_trigTouchTest0-1"
-		"OnTrue" "door2Open01"
-		"OnTrue" "doorOpen0-1"
-	}
-	"origin" "16 -8 -40"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "994"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "0 -24 -40"
+	"origin" "-16 -16 -40"
 	editor
 	{
 		"color" "220 30 220"
@@ -6341,32 +6320,11 @@ entity
 }
 entity
 {
-	"id" "996"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "out_rl"
-	connections
-	{
-		"OnTrigger" "proxyProxyRelay0-1"
-		"OnSpawn" "branch_toggleTest01"
-	}
-	"origin" "0 8 -40"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "998"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer"
 	"parm2" "$start_enabled integer"
-	"origin" "0 40 -40"
+	"origin" "-16 16 -40"
 	editor
 	{
 		"color" "220 30 220"
