@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7552"
-	"mapversion" "51"
+	"mapversion" "52"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "51"
+	"mapversion" "52"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -408,6 +408,25 @@ world
 		}
 	}
 }
+hidden
+{
+	entity
+	{
+		"id" "290"
+		"classname" "comp_precache_model"
+		"angles" "-90 0 0"
+		"model" "models/bee2/props_p1/laser_catcher.mdl"
+		"skin" "0"
+		"origin" "0 0 -80"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
+	}
+}
 entity
 {
 	"id" "279"
@@ -443,6 +462,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"SkinType" "0"
+	"src_fix_skins" "1"
 	"targetname" "laser_catcher"
 	"vscripts" "bee2/change_models.nut"
 	connections
@@ -467,8 +487,6 @@ entity
 	connections
 	{
 		"OnMapSpawn" "laser_catcherRunScriptCodep1_laser_catcher()0-1"
-		"OnMapSpawn" "laser_catcherAddOutputOnPowered !self:Skin:1:0.00:-10-1"
-		"OnMapSpawn" "laser_catcherAddOutputOnUnPowered !self:Skin:0:0.00:-10-1"
 	}
 	"origin" "0 0 -128"
 	editor
@@ -590,4 +608,8 @@ cameras
 cordons
 {
 	"active" "0"
+}
+quickhide
+{
+	"count" "2"
 }

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "166"
+	"editorbuild" "7552"
+	"mapversion" "170"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "166"
+	"mapversion" "170"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -319,65 +319,6 @@ entity
 }
 entity
 {
-	"id" "5234"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "32 16 -16"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 6000]"
-	}
-}
-entity
-{
-	"id" "5238"
-	"classname" "logic_branch"
-	"InitialValue" "$start_locked"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "@door_unlockedSetValue00-1"
-		"OnFalse" "@door_unlockedSetValue10-1"
-	}
-	"origin" "56 -16 -16"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "5242"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "56 -1.90735e-006 -16"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "5244"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 1"
@@ -563,7 +504,7 @@ entity
 {
 	"id" "4309"
 	"classname" "logic_branch"
-	"InitialValue" "0"
+	"InitialValue" "$start_locked"
 	"targetname" "@door_unlocked"
 	"origin" "80 8 -56"
 	editor
@@ -1019,24 +960,24 @@ entity
 		"OnStartTouchBluePlayer" "cameraEnable01"
 		"OnStartTouchBluePlayer" "snd_airlock_button_dnPlaySound0-1"
 		"OnStartTouchBluePlayer" "textog_blueSetTextureIndex10-1"
-		"OnStartTouchBluePlayer" "coopman_airlock_successSetStateBTrue0-1"
 		"OnStartTouchBluePlayer" "spr_blueShowSprite0-1"
 		"OnEndTouchBluePlayer" "blue_nearSetValue00-1"
 		"OnEndTouchBluePlayer" "snd_airlock_button_upPlaySound0-1"
 		"OnEndTouchBluePlayer" "textog_blueSetTextureIndex00-1"
-		"OnEndTouchBluePlayer" "coopman_airlock_successSetStateBFalse0-1"
 		"OnEndTouchBluePlayer" "spr_blueHideSprite0-1"
 		"OnStartTouchOrangePlayer" "orange_nearSetValue10-1"
 		"OnStartTouchOrangePlayer" "cameraEnable01"
 		"OnStartTouchOrangePlayer" "snd_airlock_button_dnPlaySound0-1"
 		"OnStartTouchOrangePlayer" "textog_orangeSetTextureIndex10-1"
 		"OnStartTouchOrangePlayer" "spr_oranShowSprite0-1"
-		"OnStartTouchOrangePlayer" "coopman_airlock_successSetStateATrue0-1"
 		"OnEndTouchOrangePlayer" "orange_nearSetValue00-1"
 		"OnEndTouchOrangePlayer" "snd_airlock_button_upPlaySound0-1"
 		"OnEndTouchOrangePlayer" "textog_orangeSetTextureIndex00-1"
 		"OnEndTouchOrangePlayer" "spr_oranHideSprite0-1"
-		"OnEndTouchOrangePlayer" "coopman_airlock_successSetStateAFalse0-1"
+		"OnStartTouchBluePlayer" "coopman_airlock_successSetStateATrue0-1"
+		"OnStartTouchOrangePlayer" "coopman_airlock_successSetStateBTrue0-1"
+		"OnEndTouchOrangePlayer" "coopman_airlock_successSetStateBFalse0-1"
+		"OnEndTouchBluePlayer" "coopman_airlock_successSetStateAFalse0-1"
 	}
 	solid
 	{
@@ -1758,7 +1699,6 @@ entity
 		"OnSpawn" "spr_blueSetParentAttachmentlight01"
 		"OnSpawn" "spr_oranSetParentAttachmentlight01"
 		"OnTrigger" "@map_finishedTrigger0-1"
-		"OnSpawn" "branch_toggleTest1-1"
 	}
 	"origin" "32 0 -56"
 	editor

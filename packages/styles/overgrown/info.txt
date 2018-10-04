@@ -26,29 +26,60 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "overgrown"
 		"Sp_entry"
 			{
-			"1"	"Right Turn"
-			"2"	"Staircase"
-			"3"	"White Left"
-			"4"	"Collapsed"
-			"5"	"Small Right"
-			"6"	"Flooded"
-			"7"	"Tilted"
+			"1" {
+				"Name" "Right Turn"
+				"Desc" "A large corridor where players turn the corner to enter the chamber."
+				}
+			"2" {
+				"Name" "Staircase"
+				"Desc" "The corridor is lowered, dropping players downward before allowing them to enter up a staircase."
+				}
+			"3"	{
+				"Name" "White Left"
+				"Desc" "This portalable corridor turns leftward."
+				}
+			"4"	{
+				"Name" "Collapsed"
+				"Desc" "The entryway is collapsed, dropping debris in the path. If Repulsion Gel is present in the map, the gel has spilled to allow jumping over. If playing Aperture Tag, the gel gun is activated to allow doing this. Otherwise, portals are used (with autoportals being inserted if required)."
+				}
+			"5"	{
+				"Name" "Small Right"
+				"Desc" "A cramped corridor, with a collapsed wall to the side revealing background destruction."
+				}
+			"6" {
+				"Name" "Flooded"
+				"Desc" "This corridor is heavily flooded, with the floor collapsed and water raining in from the ceiling."
+				}
+			"7"	{
+				"Name" "Tilted"
+				"Desc" "This corridor is tilted to the side substantially."
+				}
 			}
 		"Sp_exit"
 			{
 			"1"	"Black"
 			"2"	"White"
-			"3" "Floor BTS"
-			"4" "Floor Goo"
+			"3" {
+				"Name" "Floor BTS"
+				"Desc" "The floor is collapsed, driving players to walk through a small BTS area into the elevator."
+				}
+			"4" {
+				"Name" "Floor Goo"
+				"Desc" "The floor is collapsed, preventing players from walking through the room. If Repulsion Gel is present in the chamber, the walls are covered with gel to allow bouncing to the exit. If playing Aperture Tag, the gel gun is activated to allow doing this. Otherwise, portals are used (with autoportals being inserted if required)."
+				}
 			}
 		"Coop"
 			{
 			"1"	"Black Left"
 			"2"	"White S-Bend"
 			"3"	"Small White"
-			"4"	"Tilted"
+			"4"	{
+				"Name" "Tilted"
+				"Desc" "This chamber is tilted sideways."
+				}
 			}
 		}
 	}
@@ -1372,7 +1403,23 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN" "laser/emitter"
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"          "instances/BEE2/over/items/laser/emitter_center.vmf"
+						"bee2_floor" "instances/BEE2/over/items/laser/emitter_center_floor.vmf"
+						}
+					"Extra"
+						{
+						"Instances"
+							{
+							"0"          "instances/BEE2/over/items/laser/emitter_offset.vmf"
+							"bee2_floor" "instances/BEE2/over/items/laser/emitter_offset_floor.vmf"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1478,139 +1525,3 @@
 		}
 	}
 	
-"Music"
-	{
-	"ID"			"VALVE_FUTURE_STARTER"
-	"Name"			"The Future Starts With You"
-	"ShortName"		"Future Starter"
-	"Group"			"Overgrown"
-	"Icon"          "music/future_starter"
-	"IconLarge"     "music_lrg/future_starter"
-	"Authors"		"Valve"
-	"Description"	"The music played in the 6th Overgrown Test, where Flinging is first introduced."
-	"Sample"        "p2/sp_a1_intro6.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a1_intro6.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z2.wav"
-			"snd" "music/sp_a3_bomb_flings_z2b.wav"
-			"snd" "music/sp_a3_bomb_flings_z2c.wav"
-			}
-		}
-	}
-
-"Music"
-	{
-	"ID"			"VALVE_TECHNICAL_DIFFICULTIES"
-	"Name"			"Technical Difficulties"
-	"ShortName"		"Tech Difficulties"
-	"Group"			"Overgrown"
-	"Icon"			"music/technical_difficulties"
-	"IconLarge"     "music_lrg/technical_difficulties"
-	"Authors"		"Valve"
-	"Description"	"The music played in the first few Overgrown Test Chambers."
-	"Sample"        "p2/sp_a1_intro3_b1.ogg"
-	"SoundScript"
-		{
-		"Base"  "music/sp_a1_intro3_b1.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1b.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		}
-	}
-
-"Music"
-	{
-	"ID"			"VALVE_THERE_SHE_IS"
-	"Name"		    "There She Is"
-	"Group"			"Overgrown"
-	"Icon"			"music/there_she_is"
-	"IconLarge"     "music_lrg/there_she_is"
-	"Authors"		"Valve"
-	"Description"	"The music played when first seeing the deactivated GLaDOS."
-	"Sample"        "p2/sp_a1_wakeup_b1.ogg"
-	"SoundScript"
-		{
-		"Base"  "music/sp_a1_wakeup_b1.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1b.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		}
-	}
-
-"Music"
-	{
-	"ID"			"VALVE_HAUNTED_PANELS"
-	"Name"          "Haunted Panels"
-	"Group"         "Overgrown"
-	"Icon"          "music/haunted_panels"
-	"IconLarge"     "music_lrg/haunted_panels"
-	"Authors"		"Valve"
-	"Description"	"The music played in the 5th Overgrown Test, where a Panel Arm is used to block a Cube from being flung into Goo."
-	"Sample"        "p2/sp_a1_intro5_b1.ogg"
-	"SoundScript"
-		{
-		"Base"  "bee2/music/sp_a1_intro5_b1_looped.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z2.wav"
-			"snd" "music/sp_a3_bomb_flings_z2b.wav"
-			"snd" "music/sp_a3_bomb_flings_z2c.wav"
-			}
-		}
-	}
-
-"Music"
-	{
-	"ID"			"VALVE_OVERGROWTH"
-	"Name"          "Overgrowth"
-	"Group"         "Overgrown"
-	"Icon"          "music/overgrowth"
-	"IconLarge"     "music_lrg/overgrowth"
-	"Authors"		"Valve"
-	"Description"	"The music played in the 2nd Overgrown Test, where the player swaps between 3 Blue Portals to put a cube on a Button. Sombre music, which swaps between 4 different tracks every 9 seconds."
-	"Sample"        "p2/sp_a1_intro2.ogg"
-	"Instance"      "instances/BEE2/music/overgrowth.vmf"
-	}

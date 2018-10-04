@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "39"
+	"editorbuild" "7552"
+	"mapversion" "47"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "39"
+	"mapversion" "47"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -31,24 +31,29 @@ world
 entity
 {
 	"id" "59"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "reset_rl"
+	"classname" "logic_coop_manager"
+	"DefaultPlayerStateA" "0"
+	"DefaultPlayerStateB" "1"
+	"targetname" "lock_man"
 	connections
 	{
-		"OnTrigger" "outputFireUser10.1-1"
-		"OnTrigger" "outputUnLock0.1-1"
-		"OnTrigger" "outputCancelPress0.1-1"
-		"OnTrigger" "mdlSetAnimationup0-1"
-		"OnTrigger" "reset_rlDisable0-1"
+		"OnChangeToAllFalse" "outputUnLock0-1"
+		"OnChangeToAllFalse" "outputCancelPress0-1"
+		"OnChangeToAllFalse" "mdlSetAnimationup0-1"
+		"OnChangeToAllTrue" "outputFireUser20-1"
+		"OnChangeToAllTrue" "outputLock0-1"
+		"OnChangeToAllTrue" "mdlSetAnimationdown0-1"
+		"OnChangeToAllTrue" "lock_manSetStateBFalse0-1"
+		"OnChangeToAllFalse" "lock_manSetStateBTrue0-1"
+		"OnChangeToAllFalse" "outputFireUser10-1"
 	}
-	"origin" "-48 16 8"
+	"origin" "-48 16 -16"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "B = !current"
 		"logicalpos" "[0 1000]"
 	}
 }
@@ -207,12 +212,9 @@ entity
 	"targetname" "output"
 	connections
 	{
-		"OnPressed" "!selfFireUser20-1"
-		"OnPressed" "!selfLock0-1"
-		"OnPressed" "mdlSetAnimationdown0-1"
 		"OnUser2" "proxyProxyRelay0-1"
+		"OnPressed" "lock_manSetStateATrue0-1"
 		"OnUser1" "proxyProxyRelay0-1"
-		"OnPressed" "reset_rlEnable0-1"
 	}
 	"origin" "-46 0 -52"
 	editor
@@ -228,11 +230,7 @@ entity
 	"id" "22"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "reset_rlTrigger0-1"
-	}
-	"origin" "-48 -16 8"
+	"origin" "-48 -16 -16"
 	editor
 	{
 		"color" "220 30 220"
