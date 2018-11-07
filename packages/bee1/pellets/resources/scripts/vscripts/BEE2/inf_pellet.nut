@@ -1,7 +1,7 @@
 cur_pellet <- null; // The pellet entity.
 waiting_for_pellet <- false; // Are we waiting for it to spawn and be detected?
-is_on <- false; // Current input state.
-is_inverted <- 0;
+is_on <- null; // Current input state. Null = false, but before initialised.
+init <- false;
 
 function pellet_launched() {
 	// If we have a pellet, kill it.
@@ -42,23 +42,25 @@ function launch_pellet() {
 	waiting_for_pellet = true;
 }
 
-function input(value) {
-	is_on = (value != is_inverted);
-	if (is_on) {
-		if (!waiting_for_pellet) {
-			launch_pellet();
-		}
-	} else {
-		kill_pellet();
+function inp_on() {
+	is_on = true;
+	if (!waiting_for_pellet) {
+		launch_pellet();
 	}
 }
 
-// Set as start enabled
+function inp_off() {
+	is_on = false;
+	kill_pellet();
+}
+
+// Called on spawn, if we start on.
+// is_on is set to null, so we can handle this being
+// disabled *before* the logic_auto triggers.
 function invert() {
-	is_inverted = 1;
-	// Trigger with the current value to do the right
-	// thing if a NOT or similar triggers first.
-	input(is_on);
+	if(is_on == null) {
+		inp_on();
+	}
 }
 
 function kill_pellet() {
@@ -67,6 +69,7 @@ function kill_pellet() {
 		// "Change" it to a different classname, so our search don't find these.
 		// It still exists for some time (for FX), and our actual triggers use 
 		// direct casts to check so that's safe.
+		// Reloading from saves will not spawn this correctly, but that's not too important.
 		EntFireByHandle(cur_pellet, "AddOutput", "classname bee_exp_pellet", 0.0, self, self);
 		EntFireByHandle(cur_pellet, "Explode", "", 0.0, self, self);
 		cur_pellet = null;

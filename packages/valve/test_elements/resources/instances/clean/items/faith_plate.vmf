@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "118"
+	"editorbuild" "7552"
+	"mapversion" "119"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "118"
+	"mapversion" "119"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -540,6 +540,61 @@ world
 }
 entity
 {
+	"id" "1207"
+	"classname" "prop_dynamic"
+	"angles" "0 180 0"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"MaxAnimTime" "10"
+	"MinAnimTime" "5"
+	"model" "models/bee2/props_ingame/faith_plate_toggle.mdl"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"skin" "0"
+	"solid" "6"
+	"spawnflags" "0"
+	"targetname" "arm"
+	connections
+	{
+		"OnUser1" "@voice_faith_triggerFireUser10.31"
+		"OnUser1" "armSetAnimation$animation0-1"
+		"OnUser1" "@music_faith_playTrigger0-1"
+	}
+	"origin" "0 0 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "1211"
+	"classname" "env_sprite"
+	"framerate" "10.0"
+	"GlowProxySize" "5"
+	"HDRColorScale" "1.0"
+	"model" "sprites/glow01.vmt"
+	"parentname" "arm,light"
+	"renderamt" "255"
+	"rendercolor" "0 255 255"
+	"rendermode" "9"
+	"scale" "0.4"
+	"spawnflags" "1"
+	"targetname" "spr"
+	"origin" "4 1 -64"
+	editor
+	{
+		"color" "20 140 20"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "1144"
 	"classname" "func_detail"
 	solid
@@ -632,66 +687,13 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$catapult_speed integer"
 	"parm2" "$animation string angled"
-	"origin" "0 0 -32"
+	"origin" "24 0 -48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "2"
-	"classname" "prop_dynamic"
-	"angles" "0 180 0"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"MaxAnimTime" "10"
-	"MinAnimTime" "5"
-	"model" "models/props_ingame/faith_plate_mapeditor.mdl"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"skin" "0"
-	"solid" "6"
-	"spawnflags" "0"
-	"targetname" "arm"
-	connections
-	{
-		"OnUser1" "@voice_faith_triggerFireUser10.31"
-		"OnUser1" "sndPlaySound0-1"
-		"OnUser1" "armSetAnimation$animation0-1"
-		"OnUser1" "@music_faith_playTrigger0-1"
-	}
-	"origin" "0 0 -64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "604"
-	"classname" "ambient_generic"
-	"health" "10"
-	"message" "World.CatapultLaunch"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"SourceEntityName" "arm"
-	"spawnflags" "48"
-	"targetname" "snd"
-	"origin" "0 0 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 -11768]"
 	}
 }
 cameras

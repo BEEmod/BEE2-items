@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "52"
+	"editorbuild" "7552"
+	"mapversion" "62"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "52"
+	"mapversion" "62"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,9 +30,33 @@ world
 }
 entity
 {
+	"id" "3959"
+	"classname" "math_counter"
+	"max" "$timer_delay"
+	"min" "0"
+	"StartDisabled" "0"
+	"startvalue" "0"
+	"targetname" "tim_count"
+	connections
+	{
+		"OnHitMax" "spawn_manSetStateATrue0-1"
+		"OnHitMax" "tim_countSetValue00-1"
+	}
+	"origin" "-8 -16 -56"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "We need to remember how far we are in the timer period, so you can't spam the input to spawn heaps of platforms. Counters are float, so that's convenient."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "3838"
 	"classname" "func_brush"
-	"_minlight" "1"
+	"_minlight" "0"
 	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "0"
@@ -516,7 +540,7 @@ entity
 	"origin" "-24 0 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -531,10 +555,10 @@ entity
 	{
 		"OnMapSpawn" "branch_toggleTest2.2-1"
 	}
-	"origin" "-8 -16 -56"
+	"origin" "22 -16 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -544,19 +568,19 @@ entity
 {
 	"id" "3109"
 	"classname" "logic_timer"
-	"RefireTime" "$timer_delay"
+	"RefireTime" "0.1"
 	"spawnflags" "0"
 	"StartDisabled" "1"
 	"targetname" "tim"
 	"UseRandomTime" "0"
 	connections
 	{
-		"OnTimer" "spawn_manSetStateATrue0-1"
+		"OnTimer" "tim_countAdd0.10-1"
 	}
 	"origin" "-24 -16 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -566,6 +590,7 @@ entity
 {
 	"id" "400"
 	"classname" "func_tracktrain"
+	"_minlight" "0"
 	"bank" "0"
 	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
@@ -1242,7 +1267,7 @@ entity
 	"origin" "-30 3.8147e-006 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1291,7 +1316,7 @@ entity
 	"renderamt" "255"
 	"rendercolor" "38 50 68"
 	"renderfx" "4"
-	"spawnflags" "1"
+	"spawnflags" "129"
 	"StrikeTime" "1"
 	"targetname" "b1"
 	"targetpoint" "-28.01 0 -312"
@@ -1308,7 +1333,7 @@ entity
 	"origin" "-28 3.8147e-006 -312"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1417,7 +1442,7 @@ entity
 	"origin" "-28 3.8147e-006 -88"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1440,11 +1465,9 @@ entity
 		"OnFalse" "$all_beamsWidth20-1"
 		"OnTrue" "$all_beamsColor176 217 2470-1"
 		"OnFalse" "$all_beamsColor38 50 680-1"
-		"OnFalse" "timResetTimer0-1"
 		"OnFalse" "train_coreStop10-1"
 		"OnTrue" "train*FireUser20-1"
 		"OnFalse" "train*FireUser10-1"
-		"OnTrue" "spawn_manSetStateATrue0-1"
 		"OnTrue" "b1Color176 217 2470-1"
 		"OnTrue" "b1Width100-1"
 		"OnFalse" "b1Color38 50 680-1"
@@ -1454,13 +1477,15 @@ entity
 		"OnFalse" "b2Width20-1"
 		"OnFalse" "b2Color38 50 680-1"
 		"OnTrue" "train_coreStartDischarge0-1"
+		"OnTrue" "spawn_manSetStateATrue01"
 	}
 	"origin" "-24 16 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "The first time we activate, spawn a platform. After that we only spawn every X seconds."
 		"logicalpos" "[0 0]"
 	}
 }
@@ -1478,7 +1503,7 @@ entity
 	"origin" "-8 16 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"

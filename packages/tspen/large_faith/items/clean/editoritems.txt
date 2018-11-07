@@ -75,10 +75,12 @@
 		"Offset"        "64 64 64"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "wake_trig,FireUser2,,0.00,-1"
+				"Disable_Cmd"   "wake_trig,FireUser1,,0.00,-1"
 				}
 			}
 		"OccupiedVoxels"

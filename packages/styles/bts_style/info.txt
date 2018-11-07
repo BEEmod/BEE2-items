@@ -28,6 +28,7 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "bts"
 		"Sp_entry"
 			{
 			"3" "Danger"
@@ -269,18 +270,21 @@
 	{
 	"ID"       "PACK_SQUAREBEAMS_BTS"
 	"AddIfMat" "BEE2/squarebeams_bts"
-	"Config"
-		{
-		"File" "materials/BEE2/squarebeams_bts.vmt"
-		}
 	}
 	
 "PackList"
 	{
-	"ID"     "PACK_PETI_PROJECTOR"
+	"ID"       "PACK_PETI_PROJECTOR"
+	"AddIfMat" "BEE2/world/pti_projector"
+	}
+	
+"PackList"
+	{
+	"ID" "PACK_BTS_SIGN_BUTTON"
+	"AddIfMat" "BEE2/bts/sign_button"
 	"Config"
 		{
-		"File" "materials/BEE2/world/pti_projector.vmt"
+		"" "materials/BEE2/bts/sign_button.vtf"
 		}
 	}
 	
@@ -290,7 +294,6 @@
 	"AddIfMat" "BEE2/bts/sign_exit"
 	"Config"
 		{
-		"File" "materials/BEE2/bts/sign_exit.vmt"
 		"File" "materials/BEE2/bts/sign_exit.vtf"
 		}
 	}
@@ -301,7 +304,6 @@
 	"AddIfMat" "BEE2/bts/sign_funnel"
 	"Config"
 		{
-		"File" "materials/BEE2/bts/sign_funnel.vmt"
 		"File" "materials/BEE2/bts/sign_funnel.vtf"
 		}
 	}
@@ -312,7 +314,6 @@
 	"AddIfMat" "BEE2/bts/sign_polarity"
 	"Config"
 		{
-		"File" "materials/BEE2/bts/sign_polarity.vmt"
 		"File" "materials/BEE2/bts/sign_polarity.vtf"
 		}
 	}
@@ -323,7 +324,6 @@
 	"AddIfMat" "BEE2/bts/sign_gel_speed"
 	"Config"
 		{
-		"File" "materials/BEE2/bts/sign_gel_speed.vmt"
 		"File" "materials/BEE2/bts/sign_gel_speed.vtf"
 		}
 	}
@@ -334,7 +334,6 @@
 	"AddIfMat" "BEE2/bts/sign_gel_bounce"
 	"Config"
 		{
-		"File" "materials/BEE2/bts/sign_gel_bounce.vmt"
 		"File" "materials/BEE2/bts/sign_gel_bounce.vtf"
 		}
 	}
@@ -344,7 +343,6 @@
 	"ID" "PACK_BTS_SIGN_HAND_WASHING"
 	"Config"
 		{
-		"" "materials/BEE2/bts/sign_wash_hands.vmt"
 		"" "materials/BEE2/bts/sign_wash_hands.vtf"
 		}
 	}
@@ -586,157 +584,3 @@
 		}
 	}
 	
-"Music"
-	{
-	"ID"			"VALVE_50_PERC"
-	"Name"			"Almost at Fifty Percent"
-	"ShortName"		"Almost at 50%"
-	"Group"			"BTS"
-	"Icon"			"music/50_percent.png"
-	"IconLarge"		"music_lrg/50_percent.png"
-	"Authors"		"Valve"
-	"Description"	"The music played in Neurotoxin Sabotage level."
-	"Sample"        "p2/sp_a2_bts5_b0.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a2_bts5_b0.wav"
-		"tbeam" "music/sp_a4_tb_intro_tbin.wav"
-		"SpeedGel" "music/sp_a2_bts5_x2.wav"
-		"BounceGel"
-			{
-			"snd" "music/ctc_z1_001.wav"
-			"snd" "music/ctc_z1_002.wav"
-			"snd" "music/ctc_z1_003.wav"
-			"snd" "music/ctc_z1_006.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_ACCENT_BEYOND"
-	"Name"			"An Accent Beyond"
-	"Group"			"BTS"
-	"Icon"			"music/accent_beyond.png"
-	"IconLarge"		"music_lrg/accent_beyond.png"
-	"Authors"		"Valve"
-	"Description"	"The music played during Chapter 5's Escape sequence with Wheatley."
-	"Sample"        "p2/sp_a2_bts1_b1.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a2_bts1_b1.wav"
-		"tbeam" "music/sp_a4_tb_wall_button_tbin.wav"
-		"BounceGel" "BEE2/music/sp_a2_bts1_x1_looped.wav" // We need a looping version...
-		"SpeedGel" "music/sp_a2_bts2_x1.wav"
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_DAUGHTER_WORK"
-	"Name"			"Bring Your Daughter To Work Day"
-	"ShortName"		"Daughter Work Day"
-	"Group"			"BTS"
-	"Icon"			"music/daughter_to_work.png"
-	"IconLarge"		"music_lrg/daughter_to_work.png"
-	"Authors"		"Valve"
-	"Description"	"The music played when examining the various childen's science experiments and potato batteries."
-	"Sample"        "p2/sp_a2_bts4_b2.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a2_bts4_b2.wav"
-		"SpeedGel" "music/sp_a2_bts4_b3.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		}
-	}
-	
-"Music"
-	{	
-	"ID"			"VALVE_ROBO_GHOST"
-	"Name"			"Robot Ghost Story"
-	"ShortName"		"Ghost Stories"
-	"Group"			"BTS"
-	"Icon"			"music/ghost_story.png"
-	"IconLarge"		"music_lrg/ghost_story.png"
-	"Authors"		"Valve"
-	"Description"	"Music played during the blackout BTS level, where Wheatley guides you with his flashlight."
-	"Sample"        "p2/sp_a2_bts3_b1.ogg"
-	"SoundScript"	"music.sp_a2_bts3_b1"
-	}
-	
-"Music"
-	{	
-	"ID"			"VALVE_REDEMPTION"
-	"Name"			"Turret Redemption Line"
-	"ShortName"		"Redemption"
-	"Group"			"BTS"
-	"Icon"			"music/redemption_line.png"
-	"IconLarge"		"music_lrg/redemption_line.png"
-	"Authors"		"Valve"
-	"Description"	"Somewhat spooky tracks played during BTS sections. Extra parts of the track are played from turrets."
-	"Sample"        "p2/sp_factory_01_redemption_01.ogg"
-	"SoundScript"	
-		{
-		"Base" "music/sp_factory_01_redemption_01.wav"
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_LASER_DANCE"
-	"Name"			"Die Cut Laser Dance"
-	"ShortName"		"Laser Dance"
-	"Group"			"BTS"
-	"Icon"			"music/die_cut_laser_dance.png"
-	"IconLarge"		"music_lrg/die_cut_laser_dance.png"
-	"Authors"		"Valve"
-	"Description"	"The music played near some of the laser cutting machinery during The Escape."
-	"Sample"        "p2/sp_a2_bts3_b2.ogg"
-	"SoundScript"	
-		{
-		"Base" "music/sp_a2_bts3_b2.wav"
-		"tBeam" "music/sp_a4_tb_wall_button_tbin.wav"
-		"SpeedGel" "music/sp_a2_bts2_x1.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_NINES_1"
-	"Name"			"9999999 (Part 1)"
-	"ShortName"		"9999999 (1)"
-	"Group"			"BTS"
-	"Icon"			"music/menu_act1.png"
-	"IconLarge"		"music_lrg/menu_act1.png"
-	"Authors"		"Valve"
-	"Description"	"The earlier parts of the 9999999 track, played most prominently on the main menu for Act 1."
-	"SoundScript"	"music.sp_a2_core_b1"
-	"Sample"        "p2/sp_a2_core_b1.ogg"
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_NINES_2"
-	"Name"			"9999999 (Part 2)"
-	"ShortName"		"9999999 (2)"
-	"Group"			"BTS"
-	"Icon"			"music/nines.png"
-	"IconLarge"		"music_lrg/nines.png"
-	"Authors"		"Valve"
-	"Description"	"The latter parts of the 9999999 track, used in the last level of Chapter 6: The Escape just before GLaDOS recaptures you."
-	"SoundScript"	"music.sp_a2_core_b2"
-	"Sample"        "p2/sp_a2_core_b2.ogg"
-	}

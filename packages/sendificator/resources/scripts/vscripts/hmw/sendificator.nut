@@ -686,18 +686,21 @@ function dest_confirm(cargo, location)
 
         // play teleportation effects
         EntFire("@sendtor_tel_fx", "Trigger", "", 0, null);
-        // for PeTI
+        // for PeTI, the platform is the texturetoggle too.
+        EntFireByHandle(::sendtor_platform, "SetTextureIndex","1",0, null, null);
+        // Tell our sendtor to animate too.
         EntFireByHandle(::sendtor_platform, "FireUser1","",0, null, null);
     }
     else {
         // play misfire effects
         EntFire("@sendtor_nop_fx", "Trigger", "", 0, null);
-        // for PeTI
-        EntFireByHandle(::sendtor_platform, "FireUser2","",0, null, null);
+        // for PeTI, the platform is the texturetoggle too.
+        EntFireByHandle(::sendtor_platform, "SetTextureIndex","2",0, null, null);
     }
 
     // play general effects
     EntFire("@sendtor_gen_fx", "Trigger", "", 0, null);
+    EntFireByHandle(::sendtor_platform, "FireUser2","",0, null, null);
 }
 
 
