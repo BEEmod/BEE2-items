@@ -542,7 +542,7 @@
 					"Base" "BEE2_CLEAN"
 					"Append" 
 						{
-						// Force speciic tile textures on the frame.
+						// Force specific tile textures on the frame.
 						"Replacements"
 							{
 							"%white%" "white special"
@@ -561,7 +561,25 @@
 			{
 			"Styles"
 				{
-				"BEE2_PORTAL_1"	"faith"
+				"BEE2_PORTAL_1"
+					{
+					"Base" "BEE2_CLEAN"
+					"Append"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"Priority" "-10"
+								"instance" "<ITEM_CATAPULT>"
+								"Result"
+									{
+									"AddOverlay" "instances/BEE2/p1/items/faith_sign.vmf"
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
