@@ -1886,7 +1886,60 @@
 							}
 						}
 					}
-				"BEE2_1970s"    "funnel_70s"
+				"BEE2_1970s"
+					{
+					"Base" "BEE2_CLEAN"
+
+					"Authors"		"Valve, TeamSpen210"
+					"Tags"			"Portal 2; Test Elements"
+					"Description"	"In the 1970s era, this is produced by a prototype emitter."
+					"Ent_Count"     "3"
+
+					"Instances"
+						{
+						"0" "instances/BEE2/70s/items/tbeam/beam.vmf"
+						"1" "instances/BEE2/70s/items/tbeam/frame_white.vmf"
+						"2" "instances/BEE2/70s/items/tbeam/frame_black.vmf"
+						}
+					"IOConf"
+						{
+						"Type"              "DUAL"
+						"Init"              "Auto"
+						"DefaultDual"       "A"
+						
+						"InvertVar"         "$start_enabled"
+						"Enable_Cmd"        "tbeam,Enable,,0.00,-1"
+						"Disable_Cmd"       "tbeam,Disable,,0.00,-1"
+						"Enable_Cmd"        "asb,TurnOn,,0.00,-1"
+						"Disable_Cmd"       "asb,TurnOff,,0.00,-1"
+						
+						"Sec_InvertVar"     "$start_reversed"
+						"Sec_Enable_Cmd"    "mdl,FireUser4,,0.00,-1"
+						"Sec_Disable_Cmd"   "mdl,FireUser3,,0.00,-1"
+						}
+					"Config"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance" "<ITEM_TBEAM:fun_emitter>"
+								"Condition"
+									{
+									"instvar" "$conn_count_b > 0"
+									"Result"
+										{
+										"AddOverlay" "instances/BEE2/70s/items/tbeam/polarity_inp.vmf"
+										}
+									"Else"
+										{
+										"AddOverlay" "instances/BEE2/70s/items/tbeam/polarity_static.vmf"
+										}
+									}
+								}
+							}
+						}
+					}
 				"BEE2_1980s"    "<BEE2_CLEAN>"
 				}
 			}
