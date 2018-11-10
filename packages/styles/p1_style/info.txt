@@ -37,6 +37,7 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "p1"
 		"Sp_entry"
 			{
 			"7" "Right Straight"
@@ -459,10 +460,7 @@
 				}
 			}
 		}
-}
 
-"Overrides"
-	{
 	"Item"
 		{
 		"ID" "ITEM_LASER_EMITTER_CENTER"
@@ -512,11 +510,7 @@
 				}
 			}
 		}
-	}
-	
-	
-"Overrides"
-	{
+
 	"Item"
 		{
 		"ID" "ITEM_PANEL_FLIP"
@@ -524,7 +518,14 @@
 			{
 			"Styles"
 				{
-				"BEE2_PORTAL_1"	"flip_pan"
+				"BEE2_PORTAL_1"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"          "instances/BEE2/p1/items/panel_flip.vmf"
+						}
+					}
 				}
 			}
 		}
@@ -536,7 +537,19 @@
 			{
 			"Styles"
 				{
-				"BEE2_PORTAL_1"		"funnel"
+				"BEE2_PORTAL_1"
+					{
+					"Base" "BEE2_CLEAN"
+					"Append" 
+						{
+						// Force specific tile textures on the frame.
+						"Replacements"
+							{
+							"%white%" "white special"
+							"%black%" "black 4x4"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -548,7 +561,25 @@
 			{
 			"Styles"
 				{
-				"BEE2_PORTAL_1"	"faith"
+				"BEE2_PORTAL_1"
+					{
+					"Base" "BEE2_CLEAN"
+					"Append"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"Priority" "-10"
+								"instance" "<ITEM_CATAPULT>"
+								"Result"
+									{
+									"AddOverlay" "instances/BEE2/p1/items/faith_sign.vmf"
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
