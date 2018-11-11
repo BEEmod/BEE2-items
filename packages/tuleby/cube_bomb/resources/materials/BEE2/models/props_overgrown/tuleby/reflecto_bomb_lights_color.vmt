@@ -1,12 +1,8 @@
 UnlitGeneric
 {
 $basetexture "BEE2/models/props_clean/tuleby/reflecto_bomb_lights"
-$color2 "[0.97 0.45 0]"
- 
-// Copy of above in 3 variables.
-$color_r .7
-$color_g .6
-$color_b .5 
+$color "[1 1 1]"
+$color2 "[1 1 1]"
 
 // Alphatest is more reliable...
 $alphatest 1
@@ -44,22 +40,19 @@ Proxies
 		}
 		
 	// Darken the color blend with this amount
-	Multiply
+	Equals
 		{
 		srcVar1 $multiplier
-		srcVar2 $color_r
 		resultVar "$color[0]"
 		}
-	Multiply
+	Equals
 		{
 		srcVar1 $multiplier
-		srcVar2 $color_g
 		resultVar "$color[1]"
 		}
-	Multiply
+	Equals
 		{
 		srcVar1 $multiplier
-		srcVar2 $color_b
 		resultVar "$color[2]"
 		}
 	}
