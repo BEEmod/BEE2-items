@@ -8,12 +8,13 @@
 	"Description"
 		{
 		"" "A half-block long surface sticking out of the wall. It is supported by panel arms."
+		"" ""
+		"" "* In Portal 1 style, this is able to crush cubes."
 		}
 	"Version"
 		{
 		"Styles"
 			{
-			"BEE2_PORTAL_1"     "half_panel_p1"
 			"BEE2_1950s"        "half_panel_50s"
 			"BEE2_CLEAN"        "half_panel"
 			"BEE2_OVERGROWN"
@@ -24,6 +25,49 @@
 					"0" "instances/BEE2/over/items/panel_half.vmf"
 					}
 				"Append" "overgrown.cfg"
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "half_panel"
+				"Palette"
+					{
+					"0"
+						{
+						"Icon" "palette/clean/half_panel.png"
+						"Models"
+							{
+							"ModelName"	"bee2_half_panel_clean_white_out.3ds"
+							"ModelName"	"bee2_half_panel_clean_black_out.3ds"
+							"ModelName"	"bee2_half_panel_clean_white_in.3ds"
+							"ModelName"	"bee2_half_panel_clean_black_in.3ds"
+
+							"ModelName"	"bee2_half_panel_clean_black_out.3ds"
+							"ModelName"	"bee2_half_panel_clean_white_out.3ds"
+							"ModelName"	"bee2_half_panel_clean_black_in.3ds"
+							"ModelName"	"bee2_half_panel_clean_white_in.3ds"
+
+							"ModelName"	"bee2_half_panel_ghost_out.3ds"
+							"ModelName"	"bee2_half_panel_ghost_out.3ds"
+							"ModelName"	"bee2_half_panel_ghost_in.3ds"
+							"ModelName"	"bee2_half_panel_ghost_in.3ds"
+							}
+						}
+					}
+				"Config" "portal1.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/half_panel/item.vmf"
+					}
+				"IOConf"
+					{
+					"Type"          "AND"
+					"invertVar"     "$start_deployed"
+					"SpawnFire"     "dynamic"
+					"Enable_Cmd"    "open_rl,Trigger,,0.00,-1"
+					"Enable_Cmd"    "close_rl,CancelPending,,0.00,-1"
+					"Disable_Cmd"   "close_rl,Trigger,,0.00,-1"
+					"Disable_Cmd"   "open_rl,CancelPending,,0.00,-1"
+					}
 				}
 			"BEE2_1970s"        "half_panel_70s"
 			"BEE2_1980s"        "half_panel_80s"
@@ -39,7 +83,7 @@
 
 "BrushTemplate"
 	{
-	"ID" "BEE2_HALF_PANEL_TOP_P1"
+	"ID" "BEE2_HALF_PANEL_P1"
 	"File" "half_panel_p1.vmf"
 	}
 
