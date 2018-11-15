@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7552"
-	"mapversion" "116"
+	"mapversion" "120"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,13 +32,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "116"
+	"mapversion" "120"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2275,6 +2275,25 @@ entity
 	"StartDisabled" "0"
 	"SuppressAnimSounds" "0"
 	"targetname" "head"
+	connections
+	{
+		"OnUser2" "pistEnableDraw0-1"
+		"OnUser2" "apSetFadeEndDistance8000-1"
+		"OnUser2" "snd_startFireUser10-1"
+		"OnUser2" "snd_close_lpStopSound0-1"
+		"OnUser2" "snd_close_lpVolume00-1"
+		"OnUser2" "snd_open_lpVolume100-1"
+		"OnUser2" "snd_open_lpPlaySound0-1"
+		"OnUser2" "doorOpen0-1"
+		"OnUser2" "hurt_outEnable0-1"
+		"OnUser1" "snd_startFireUser10-1"
+		"OnUser1" "doorClose0-1"
+		"OnUser1" "hurt_outDisable0-1"
+		"OnUser1" "snd_open_lpVolume00-1"
+		"OnUser1" "snd_open_lpStopSound0-1"
+		"OnUser1" "snd_close_lpPlaySound0-1"
+		"OnUser1" "snd_close_lpVolume100-1"
+	}
 	"origin" "-64 -64 0"
 	editor
 	{
@@ -2622,62 +2641,6 @@ entity
 }
 entity
 {
-	"id" "20913"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-176 -176 -96"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupid" "33"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "20915"
-	"classname" "logic_branch"
-	"InitialValue" "$start_deployed"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "hurt_outEnable0-1"
-		"OnTrue" "doorOpen0-1"
-		"OnTrue" "snd_open_lpPlaySound0-1"
-		"OnTrue" "snd_open_lpVolume100-1"
-		"OnFalse" "snd_close_lpVolume100-1"
-		"OnFalse" "snd_close_lpPlaySound0-1"
-		"OnTrue" "snd_close_lpVolume00-1"
-		"OnTrue" "snd_close_lpStopSound0-1"
-		"OnFalse" "snd_open_lpStopSound0-1"
-		"OnFalse" "snd_open_lpVolume00-1"
-		"OnFalse" "hurt_outDisable0-1"
-		"OnFalse" "doorClose0-1"
-		"OnTrue" "snd_startFireUser10-1"
-		"OnFalse" "snd_startFireUser10-1"
-		"OnTrue" "apSetFadeEndDistance8000-1"
-		"OnTrue" "pistEnableDraw0-1"
-	}
-	"origin" "48 -176 -96"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupid" "33"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "20917"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer"
@@ -2690,26 +2653,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "20919"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-176 48 -96"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "33"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
 	}
 }
 entity
@@ -2800,6 +2743,82 @@ entity
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 32] 0.25"
 			"vaxis" "[0 1 0 28] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	solid
+	{
+		"id" "22619"
+		side
+		{
+			"id" "6084"
+			"plane" "(-72 -56 -64) (-72 -56 -16) (-72 -72 -16)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 0 1 -48] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "6085"
+			"plane" "(-56 -72 -64) (-56 -72 -16) (-56 -56 -16)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 0 -1 48] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "6086"
+			"plane" "(-72 -56 -64) (-72 -72 -64) (-56 -72 -64)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 -1 0 0] 0.25"
+			"vaxis" "[1 0 0 16] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "6087"
+			"plane" "(-56 -56 -16) (-56 -72 -16) (-72 -72 -16)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[1 0 0 16] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "6088"
+			"plane" "(-72 -56 -16) (-72 -56 -64) (-56 -56 -64)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 0 -1 48] 0.25"
+			"vaxis" "[1 0 0 16] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "6089"
+			"plane" "(-56 -72 -16) (-56 -72 -64) (-72 -72 -64)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 0 1 -48] 0.25"
+			"vaxis" "[1 0 0 16] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -6815,7 +6834,7 @@ entity
 		"OnFullyClosed" "!selfSetSpeed5001"
 		"OnFullyOpen" "!selfSetSpeed5001"
 		"OnFullyClosed" "apSetFadeEndDistance00-1"
-		"OnFullyOpen" "snd_startAddOutputOnUser1 !self:PlaySound::0:10-1"
+		"OnFullyOpen" "snd_startAddOutputOnUser1 !self:PlaySound::0:101"
 	}
 	solid
 	{
