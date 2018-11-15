@@ -144,10 +144,12 @@
 		"TargetName"		"pgun"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "man,SetStateATrue,,0.00,-1"
+				"Disable_Cmd"   "man,SetStateAFalse,,0.00,-1"
 			}
 		}
 		"Outputs"

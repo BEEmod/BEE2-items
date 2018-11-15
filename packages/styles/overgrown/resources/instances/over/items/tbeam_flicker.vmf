@@ -1,32 +1,26 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "143"
+	"editorbuild" "7552"
+	"mapversion" "146"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
-	visgroup
-	{
-		"name" "Logic"
-		"visgroupid" "12"
-		"color" "166 143 156"
-	}
 }
 viewsettings
 {
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "143"
+	"mapversion" "146"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -36,23 +30,43 @@ world
 }
 entity
 {
+	"id" "10086"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "$start_disabled"
+	"targetname" "error_rl"
+	connections
+	{
+		"OnTrigger" "tbeamDisable0-1"
+		"OnTrigger" "tbeamEnable0.1-1"
+	}
+	"origin" "16 0 -16"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
 	"id" "10084"
 	"classname" "logic_timer"
 	"LowerRandomBound" "3"
 	"spawnflags" "0"
 	"StartDisabled" "$start_disabled"
-	"targetname" "tim"
+	"targetname" "tbeam"
 	"UpperRandomBound" "25"
 	"UseRandomTime" "1"
 	connections
 	{
 		"OnTimer" "error_rlTrigger0-1"
 	}
-	"origin" "16 40 -16"
+	"origin" "-16 0 -16"
 	editor
 	{
-		"color" "220 30 220"
-		"visgroupid" "12"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"

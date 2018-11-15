@@ -1,0 +1,26 @@
+UnlitGeneric
+	{
+	$basetexture "effects/tractor_beam_core1"
+
+	$translucent 1
+	$additive 1
+	$nocull 1 
+
+	$color "[0.01 0.85 5.5]"
+	$trans "[0 0]"
+	Proxies
+		{
+		UniformNoise
+			{
+			minVal 0
+			maxVal 1
+			resultVar "$trans[0]"
+			}
+
+		TextureTransform
+			{
+			translateVar $trans
+			resultVar $basetexturetransform
+			}
+		}
+	}

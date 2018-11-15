@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "31"
+	"editorbuild" "7552"
+	"mapversion" "36"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "31"
+	"mapversion" "36"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,27 +30,9 @@ world
 }
 entity
 {
-	"id" "272"
-	"classname" "filter_multi"
-	"Filter01" "@isbox"
-	"Filter02" "@isball"
-	"filtertype" "1"
-	"Negated" "0"
-	"targetname" "filt"
-	"origin" "0 -32 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "10"
 	"classname" "trigger_multiple"
-	"filtername" "filt"
+	"filtername" "$filter_name"
 	"origin" "0 0 -44"
 	"spawnflags" "4104"
 	"StartDisabled" "0"
@@ -215,11 +197,6 @@ entity
 	"id" "130"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
 	"origin" "-32 -32 -48"
 	editor
 	{
@@ -234,6 +211,7 @@ entity
 	"id" "145"
 	"classname" "func_instance_parms"
 	"parm1" "$no_input boolean 0"
+	"parm2" "$filter_name target_destination"
 	"origin" "32 -32 -48"
 	editor
 	{
@@ -258,7 +236,7 @@ entity
 	"origin" "-32 32 -48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"

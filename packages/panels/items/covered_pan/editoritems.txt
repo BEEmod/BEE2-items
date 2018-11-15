@@ -112,10 +112,14 @@
 		"TargetName" "cp"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_deployed"
+				"Enable_Cmd"    "ramp_open,Trigger,,0.00,-1"
+				"Enable_Cmd"    "ramp_close,CancelPending,,0.00,-1"
+				"Disable_Cmd"   "ramp_open,CancelPending,,0.00,-1"
+				"Disable_Cmd"   "ramp_close,Trigger,,0.00,-1"
 				}
 			}
 		"Offset"		"64 64 64"
@@ -125,7 +129,7 @@
 				{
 				"CollideType"		"COLLIDE_SOLID"
 				"CollideAgainst"	"COLLIDE_SOLID COLLIDE_PHYSICS"
-					
+				
 				"Pos"		"0 0 0"
 				}
 

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "94"
+	"editorbuild" "7552"
+	"mapversion" "109"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,59 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "94"
+	"mapversion" "109"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "1832"
+	"classname" "prop_floor_button"
+	"angles" "0 0 0"
+	"disablereceiveshadows" "0"
+	"model" "models/props/portal_button.mdl"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"renderfx" "0"
+	"rendermode" "10"
+	"SuppressAnimSounds" "1"
+	"origin" "0 0 -60"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "This invisible button swaps frankenturrets to 'box' mode, and swaps cube rings."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "1730"
+	"classname" "env_texturetoggle"
+	"target" "$ind_name"
+	"targetname" "target"
+	connections
+	{
+		"OnUser1" "flash_shapeDisable0.75-1"
+		"OnUser1" "fire_soundPlaySound0-1"
+		"OnUser1" "flash_shapeSetAnimationflash0-1"
+		"OnUser1" "flash_shape_blendStartFloatLerp1 0 0.75 00-1"
+		"OnUser1" "flash_shapeEnable0-1"
+	}
+	"origin" "0 0 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "User1 comes from the script, on sucess."
+		"logicalpos" "[0 6500]"
+	}
 }
 entity
 {
@@ -120,80 +166,11 @@ entity
 }
 entity
 {
-	"id" "1313"
-	"classname" "logic_relay"
-	"spawnflags" "2"
-	"targetname" "fire"
-	connections
-	{
-		"OnTrigger" "proxyProxyRelay0-1"
-	}
-	"origin" "64 0 -16"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 7500]"
-	}
-}
-entity
-{
-	"id" "1315"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "tel_fx"
-	connections
-	{
-		"OnTrigger" "flash_shapeEnable0-1"
-		"OnTrigger" "flash_shape_blendStartFloatLerp1 0 0.75 00-1"
-		"OnTrigger" "flash_shapeDisable0.75-1"
-		"OnTrigger" "flash_shapeSetAnimationflash0-1"
-		"OnTrigger" "fire_soundPlaySound0-1"
-	}
-	"origin" "40 0 -16"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1317"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "targetRunScriptCode::sendtor_platform <- self;0-1"
-		"OnHitMax" "@sendtor_mutexTrigger0-1"
-		"OnHitMax" "tel_fxEnable0-1"
-		"OnHitMax" "gen_fxEnable0-1"
-		"OnHitMax" "fireTrigger0.01-1"
-		"OnHitMax" "tel_fxDisable1-1"
-		"OnHitMax" "gen_fxDisable1-1"
-		"OnHitMax" "targetFireUser31-1"
-		"OnHitMax" "targetFireUser20-1"
-	}
-	"origin" "80 0 -16"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "1471"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer"
 	"parm2" "$alpha string"
+	"parm3" "$ind_name string"
 	"origin" "64 -3.91305e-006 0"
 	editor
 	{
@@ -740,148 +717,6 @@ entity
 }
 entity
 {
-	"id" "1206"
-	"classname" "trigger_multiple"
-	"filtername" "@sendtor_monster_box_filter"
-	"origin" "0 0 -32"
-	"spawnflags" "4104"
-	"StartDisabled" "0"
-	"wait" "1"
-	connections
-	{
-		"OnStartTouch" "!activatorBecomeBox0-1"
-		"OnEndTouch" "!activatorBecomeMonster0-1"
-	}
-	solid
-	{
-		"id" "1207"
-		side
-		{
-			"id" "106"
-			"plane" "(8 -3.31561 -24) (3.31586 -8 -24) (-3.31474 -8 -24)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "105"
-			"plane" "(-3.31543 8 -40) (-8 3.31543 -40) (-8 -3.31445 -40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "104"
-			"plane" "(-8 3.31641 -40) (-3.31641 8 -40) (-3.31445 8 -24)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "103"
-			"plane" "(8 -3.31268 -40) (3.31293 -8 -40) (3.31514 -8 -24)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "102"
-			"plane" "(3.31818 8 -40) (8 3.31793 -40) (8 3.31836 -24)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "101"
-			"plane" "(-3.31445 -8 -40) (-8 -3.31445 -40) (-8 -3.31445 -24)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "100"
-			"plane" "(-8 -3.31445 -40) (-8 3.31543 -40) (-8 3.31348 -24)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "99"
-			"plane" "(-3.31641 8 -40) (3.3172 8 -40) (3.31763 8 -24)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "98"
-			"plane" "(8 3.31695 -40) (8 -3.31365 -40) (8 -3.31543 -24)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "97"
-			"plane" "(3.31445 -8 -40) (-3.31445 -8 -40) (-3.31445 -8 -24)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 4000]"
-	}
-}
-entity
-{
 	"id" "251"
 	"classname" "info_particle_system"
 	"angles" "0 180 0"
@@ -1018,46 +853,6 @@ entity
 }
 entity
 {
-	"id" "753"
-	"classname" "logic_relay"
-	"targetname" "@sendtor_gen_fx"
-	connections
-	{
-		"OnTrigger" "gen_fxTrigger0-1"
-	}
-	"origin" "24 -7.40996e-006 0"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "761"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "gen_fx"
-	connections
-	{
-		"OnTrigger" "beam_moveOpen0-1"
-		"OnTrigger" "switch_closePlaySound0-1"
-		"OnTrigger" "switch_openPlaySound0.2-1"
-	}
-	"origin" "24 -7.40996e-006 -16"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "800"
 	"classname" "ambient_generic"
 	"health" "10"
@@ -1142,36 +937,27 @@ entity
 }
 entity
 {
-	"id" "196"
-	"classname" "logic_relay"
-	"targetname" "@sendtor_tel_fx"
-	connections
-	{
-		"OnTrigger" "tel_fxTrigger0-1"
-	}
-	"origin" "40 -6.0112e-006 0"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "236"
 	"classname" "material_modify_control"
 	"materialName" "models/hmw/props/sendificator_beam"
 	"materialVar" "$alpha"
 	"parentname" "flash_shape"
 	"targetname" "flash_shape_blend"
-	"origin" "48 -6.0112e-006 -32"
+	connections
+	{
+		"OnUser1" "targetSetTextureIndex01-1"
+		"OnUser1" "targetRunScriptCode::sendtor_platform <- self;0-1"
+		"OnUser1" "switch_openPlaySound0.2-1"
+		"OnUser1" "beam_moveOpen0-1"
+		"OnUser1" "switch_closePlaySound0-1"
+	}
+	"origin" "48 -6.0112e-006 0"
 	editor
 	{
 		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "This is the item input too."
 		"logicalpos" "[0 500]"
 	}
 }
@@ -1238,47 +1024,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "134"
-	"classname" "info_target"
-	"angles" "0 0 0"
-	"spawnflags" "0"
-	"targetname" "target"
-	connections
-	{
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnUser3" "proxyProxyRelay0-1"
-	}
-	"origin" "0 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 6500]"
-	}
-}
-entity
-{
-	"id" "148"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "80 -3.91305e-006 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 7000]"
 	}
 }
 cameras

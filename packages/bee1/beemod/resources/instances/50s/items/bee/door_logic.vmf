@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "110"
+	"editorbuild" "7552"
+	"mapversion" "122"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "110"
+	"mapversion" "122"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -242,27 +242,6 @@ world
 			"visgroupautoshown" "1"
 		}
 	}
-	group
-	{
-		"id" "4297"
-		editor
-		{
-			"color" "216 121 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	group
-	{
-		"id" "4114"
-		editor
-		{
-			"color" "216 121 0"
-			"groupid" "4297"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
 }
 entity
 {
@@ -284,7 +263,7 @@ entity
 	"solidbsp" "0"
 	"Solidity" "0"
 	"spawnflags" "2"
-	"StartDisabled" "0"
+	"StartDisabled" "$start_enabled"
 	"targetname" "clip"
 	"vrad_brush_cast_shadows" "0"
 	solid
@@ -373,38 +352,15 @@ entity
 }
 entity
 {
-	"id" "4174"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterSubtract10-1"
-		"OnProxyRelay" "counterAdd10-1"
-	}
-	"origin" "8 8 8"
-	editor
-	{
-		"color" "216 121 0"
-		"groupid" "4114"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
 	"id" "4183"
 	"classname" "func_instance_parms"
-	"parm1" "$FadeEndDistance float 0"
-	"parm2" "$FadeStartDistance float 0"
-	"parm3" "$FadeAreaPortal boolean 0"
-	"parm4" "$start_enabled integer 0"
-	"parm5" "$connectioncount integer 0"
-	"origin" "8 -8 8"
+	"parm1" "$connectioncount integer 0"
+	"parm2" "$start_enabled integer 0"
+	"parm3" "$start_disabled string"
+	"origin" "8 0 8"
 	editor
 	{
-		"color" "216 121 0"
-		"groupid" "4114"
+		"color" "0 243 128"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -416,7 +372,7 @@ entity
 	"classname" "trigger_multiple"
 	"origin" "-12 0 -3"
 	"spawnflags" "4105"
-	"StartDisabled" "1"
+	"StartDisabled" "0"
 	"targetname" "close_trig"
 	"wait" "1"
 	connections
@@ -495,15 +451,14 @@ entity
 		}
 		editor
 		{
-			"color" "216 121 0"
+			"color" "0 161 234"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "216 121 0"
-		"groupid" "4114"
+		"color" "0 161 234"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -518,16 +473,13 @@ entity
 	"targetname" "close_man"
 	connections
 	{
-		"OnChangeToAllTrue" "close_trigDisable0-1"
 		"OnChangeToAllTrue" "close_manSetStateAFalse0-1"
-		"OnChangeToAllTrue" "doorSetAnimationclose0-1"
-		"OnChangeToAllTrue" "clipEnable0-1"
+		"OnChangeToAllTrue" "anim_manSetStateAFalse0-1"
 	}
 	"origin" "8 -8.00001 -8"
 	editor
 	{
-		"color" "216 121 0"
-		"groupid" "4114"
+		"color" "0 235 156"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
@@ -535,64 +487,29 @@ entity
 }
 entity
 {
-	"id" "4064"
-	"classname" "logic_auto"
-	"spawnflags" "1"
+	"id" "4070"
+	"classname" "logic_coop_manager"
+	"DefaultPlayerStateA" "$start_enabled"
+	"DefaultPlayerStateB" "$start_disabled"
+	"targetname" "anim_man"
 	connections
 	{
-		"OnMapSpawn" "branch_toggleTest2.2-1"
+		"OnChangeToAllTrue" "doorSetAnimationopen0-1"
+		"OnChangeToAllFalse" "doorSetAnimationclose0-1"
+		"OnChangeToAllFalse" "anim_manSetStateBTrue0-1"
+		"OnChangeToAllTrue" "anim_manSetStateBFalse0-1"
+		"OnChangeToAllTrue" "clipDisable0-1"
+		"OnChangeToAllFalse" "clipEnable0-1"
+		"OnChangeToAllTrue" "doorSetDefaultAnimationopen_idle0.01-1"
+		"OnChangeToAllFalse" "doorSetDefaultAnimationclose_idle0.01-1"
 	}
 	"origin" "8 8 -8"
 	editor
 	{
-		"color" "216 121 0"
-		"groupid" "4297"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "4066"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnFalse" "close_manSetStateATrue0-1"
-		"OnTrue" "close_trigEnable0-1"
-		"OnTrue" "clipDisable0-1"
-		"OnTrue" "doorSetAnimationopen0-1"
-	}
-	"origin" "8 7.99999 24"
-	editor
-	{
-		"color" "216 121 0"
-		"groupid" "4297"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "4070"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "8 -8 24"
-	editor
-	{
-		"color" "216 121 0"
-		"groupid" "4297"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
+		"comments" "Ensures door doesn't repeat the animation."
 		"logicalpos" "[0 0]"
 	}
 }

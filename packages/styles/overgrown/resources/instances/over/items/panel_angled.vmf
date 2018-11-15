@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "251"
+	"editorbuild" "7552"
+	"mapversion" "254"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "251"
+	"mapversion" "254"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -189,6 +189,28 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "3831"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "ramp_close"
+	connections
+	{
+		"OnTrigger" "model_armsSetPlaybackRate-10-1"
+		"OnTrigger" "underside_fizzlerEnable0-1"
+		"OnTrigger" "underside_fizzlerDisable1.5-1"
+	}
+	"origin" "-16 0 -48"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -404,7 +426,8 @@ entity
 	"parm1" "$connectioncount integer 1"
 	"parm2" "$start_deployed integer 0"
 	"parm3" "$animation string ramp_90_deg_open"
-	"origin" "32 -16 -32"
+	"parm4" "$skin string"
+	"origin" "16 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -415,51 +438,10 @@ entity
 }
 entity
 {
-	"id" "3714"
-	"classname" "logic_branch"
-	"InitialValue" "$start_deployed"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnFalse" "ramp_closeTrigger0-1"
-		"OnTrue" "ramp_closeCancelPending0-1"
-		"OnTrue" "underside_fizzlerDisable0-1"
-		"OnTrue" "model_armsSetPlaybackRate10-1"
-	}
-	"origin" "-32 16 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "3716"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-32 -16 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "3720"
 	"classname" "prop_dynamic"
 	"angles" "0 180 0"
+	"DefaultAnim" "$animation"
 	"DisableBoneFollowers" "0"
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "1"
@@ -486,6 +468,13 @@ entity
 	"solid" "6"
 	"spawnflags" "0"
 	"targetname" "model_arms"
+	connections
+	{
+		"OnUser2" "model_armsSetPlaybackRate10-1"
+		"OnUser2" "underside_fizzlerDisable0-1"
+		"OnUser2" "ramp_closeCancelPending0-1"
+		"OnUser1" "ramp_closeTrigger0-1"
+	}
 	"origin" "0 0 -64"
 	editor
 	{
@@ -493,49 +482,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "3727"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "ramp_close"
-	connections
-	{
-		"OnTrigger" "model_armsSetPlaybackRate-10-1"
-		"OnTrigger" "underside_fizzlerEnable0-1"
-		"OnTrigger" "underside_fizzlerDisable1.5-1"
-		"OnSpawn" "branch_toggleTest0.151"
-		"OnSpawn" "model_armsSetAnimation$animation0.11"
-	}
-	"origin" "0 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "3729"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "32 16 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
