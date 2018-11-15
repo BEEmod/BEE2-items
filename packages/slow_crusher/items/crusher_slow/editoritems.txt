@@ -55,10 +55,13 @@
 		"TargetName"		"scr"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_deployed"
+				"SpawnFire"     "always"
+				"Enable_Cmd"    "head,FireUser2,,0.00,-1"
+				"Disable_Cmd"   "head,FireUser1,,0.00,-1"
 				}
 			}
 		"Offset"		"64 64 64"
