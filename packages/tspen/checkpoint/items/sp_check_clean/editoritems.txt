@@ -4,6 +4,7 @@
 	"ItemClass"		"ItemButtonFloor"
 	"Editor"
 		{
+		"SubTypeProperty" "StartEnabled"
 		"SubType"
 			{
 			"Name"			"ChamberLock"
@@ -16,6 +17,14 @@
 				"Tooltip"	"CHAMBERLOCK"
 				"Image"		"palette/clean/tSpen/chamberlock.png"
 				"Position"	"0 0 0"
+				}
+			}
+		"SubType"
+			{
+			"Name"			"ChamberLock"
+			"Model"
+				{
+				"ModelName" "bee2_chamberlock_open_clean.mdl"
 				}
 			}
 		"MovementHandle"		"HANDLE_NONE"
@@ -53,6 +62,20 @@
 				"BrushCount"        "48"
 				"BrushSideCount"	"310"
 				}
+			"2"
+				{
+				"Name"				"instances/BEE2/clean/items/tSpen/chamberlock_white.vmf"
+				"EntityCount"		"55"
+				"BrushCount"		"48"
+				"BrushSideCount"	"310"
+				}
+			"3"
+				{
+				"Name"              "instances/BEE2/clean/items/tSpen/chamberlock_black.vmf"
+				"EntityCount"       "9"
+				"BrushCount"        "48"
+				"BrushSideCount"	"310"
+				}
 			"bee2_logic" "instances/BEE2/clean/items/tspen/chamberlock_logic.vmf"
 			"bee2_fizz_tag" "instances/BEE2/clean/items/tspen/chamberlock_tag.vmf"
 			"bee2_fizz_p2" "instances/BEE2/clean/items/tspen/chamberlock_p2.vmf"
@@ -60,18 +83,19 @@
 		"TargetName"		"chdr"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"invertVar"		"$start_enabled"
+				"Enable_Cmd"    "trig,FireUser1,,0.00,-1"
+				"Disable_Cmd"   "block_trig,TouchTest,,0.00,-1"
 				}
 			}
 		"Outputs"
 			{
 			"CONNECTION_STANDARD"
 				{
-				"Activate"		"instance:out_rl;OnTrigger"
-				"Deactivate"	"instance:out_rl;OnUser4" //unused
+				"Activate"		"instance:close_rl;OnUser2"
 				}
 			}
 		"Offset"		"64 64 64"
