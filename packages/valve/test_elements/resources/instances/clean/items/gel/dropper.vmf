@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "113"
+	"editorbuild" "7552"
+	"mapversion" "115"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "113"
+	"mapversion" "115"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -230,7 +230,7 @@ world
 		}
 		editor
 		{
-			"color" "0 180 0"
+			"color" "0 189 158"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1980,7 +1980,7 @@ entity
 	"parm7" "$spread_angle integer"
 	"parm8" "$render_mode integer"
 	"parm9" "$ambient_sound string"
-	"origin" "-16 16 24"
+	"origin" "0 0 24"
 	editor
 	{
 		"color" "220 30 220"
@@ -2029,46 +2029,6 @@ entity
 }
 entity
 {
-	"id" "708"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "sprayerStart0-1"
-		"OnFalse" "sprayerStop0-1"
-	}
-	"origin" "16 -16 24"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "710"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "16 16 24"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "611"
 	"classname" "info_paint_sprayer"
 	"AmbientSound" "$ambient_sound"
@@ -2101,25 +2061,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 10500]"
-	}
-}
-entity
-{
-	"id" "380"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterSubtract10-1"
-		"OnProxyRelay" "counterAdd10-1"
-	}
-	"origin" "-16 -16 24"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity

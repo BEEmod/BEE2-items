@@ -33,10 +33,38 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "50s"
 		"sp_entry"
 			{
-			"1"	"Lobby"
-			"4"	"Right Turn"
+			"1" {
+				"Name" "Lobby"
+				"Desc" "Test subjects enter through an office corridor. Several dynamic elements change based on chamber contents:
+
+* An information sign appears describing Repulsion Gel if present.
+* A \"Safety First\" sign appears if dangerous test elements are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+"
+				}
+			"2" {
+				"Name" "Straight Hallway"
+				"Desc" "A normal straight corridor. Several dynamic elements change based on chamber contents:
+
+* An information sign appears describing Repulsion Gel if present.
+* A reminder sign appears asking subjects to retrieve a Quantum Tunneling Device, if this is required.
+* A \"Safety First\" sign appears if dangerous test elements are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+"
+				}
+			"4" {
+				"Name" "Right Turn"
+				"Desc" "Test Subjects enter through a small waiting area.
+* An information sign appears describing Repulsion Gel if present.
+* A \"Safety First\" sign appears if dangerous test elements are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+* A warning about moving platforms appears if they are present.
+* A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
+"
+				}
 			}
 		"sp_exit"
 			{
@@ -80,6 +108,22 @@
 		"Music"		"VALVE_VIT_ORDER_2"
 		"Skybox"	"BEE2_SPHERE_INTERIOR"
 		}
+	"Corridors"
+		{
+		"icon_folder" "60s"
+		"sp_entry"
+			{
+			"1"	"Lobby"
+			}
+		"sp_exit"
+			{
+			"2"	"Lobby"
+			}
+		"coop"
+			{
+			"2"	"Office"
+			}
+		}
 	}
 
 "Style"
@@ -113,9 +157,36 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "70s"
 		"sp_entry"
 			{
-			"1"	"Lobby"
+			"1" {
+				"Name" "Lobby"
+				"Desc" "Test subjects enter through an office corridor. Several dynamic elements change based on chamber contents:
+
+* Conversion Gel will be spilled in splatters on the floor if present.
+* Semi-transparent versions of modern sigange appear for Crushers, Propulsion Gel and Repulsion Gel.
+* A sign warns of dangerous testing elements.
+* Another warns about \"Combatatron\" androids if Turrets are present.
+"
+				}
+			"3" {
+				"Name" "Low Ceiling"
+				"Desc" "The corridor contains a rather low ceiling. Several dynamic elements change based on chamber contents:
+* Semi-transparent versions of modern sigange appear for Discouragement Beams, Propulsion Gel, Repulsion Gel, Light Bridges, Toxic Goo, High Energy Pellets and Excursion Funnels.
+* A sign warns of dangerous testing elements.
+* Another warns about \"Combatatron\" androids if Turrets are present.
+"
+				}
+			"4" {
+				"Name" "Stairs"
+				"Desc" "Test subjects walk up a small staircase to enter the chamber. Several dynamic elements change based on chamber contents:
+* Repulsion Gel is spilled on the floor if present in the chamber.
+* Semi-transparent versions of modern sigange appear for Repulsion Gel and Crushers.
+* A sign warns of dangerous testing elements.
+* Another warns about \"Combatatron\" androids if Turrets are present.
+"
+				}
 			}
 		"sp_exit"
 			{
@@ -160,10 +231,16 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "80s"
 		"sp_entry"
 			{
 			"1"	"Lobby"
+			"2" "Elevated office"
 			"3"	"Office"
+			}
+		"sp_exit"
+			{
+			"2" "Presentation"
 			}
 		}
 	}
@@ -383,273 +460,6 @@
 	{
 	"ID"       "VPK_BEE2_1980S"
 	"Filename" "1980s"
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_VIT_ORDER_1"
-	"Name"			"Vitrification Order Part 1"
-	"ShortName"		"Vit Order #1"
-	"Group"			"Old Aperture"
-	"Icon"			"music/vitrification_order_1"
-	"IconLarge"     "music_lrg/vitrification_order_1"
-	"Authors"		"Valve"
-	"Description"	"The music played during the trek through the base of Test Shaft 09."
-	"Sample"        "p2/sp_a3_01_b2.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a3_01_b2.wav"
-		"SpeedGel" 
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		"Tbeam" "music/sp_a3_01_b3.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_VIT_ORDER_2"
-	"Name"			"Vitrification Order Part 2"
-	"ShortName"		"Vit Order #2"
-	"Group"			"Old Aperture"
-	"Icon"			"music/vitrification_order_2"
-	"IconLarge"     "music_lrg/vitrification_order_2"
-	"Authors"		"Valve"
-	"Description"	"The second half of the music played during the trek through the base of Test Shaft 09."
-	"Sample"        "p2/sp_a3_01_b4.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a3_01_b4.wav"
-		"SpeedGel" 
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		"Tbeam" "music/sp_a3_01_b3.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_CAUSE_SCIENCE"
-	"Name"			"Forwarding The Cause of Science"
-	"ShortName"		"Cause of Science"
-	"Group"			"Old Aperture"
-	"Icon"			"music/cause_of_science"
-	"IconLarge"     "music_lrg/cause_of_science"
-	"Authors"		"Valve"
-	"Description"	"The music for the second 1950s Repulsion Gel Test."
-	"Sample"        "p2/sp_a3_bomb_flings_b1.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a3_bomb_flings_b1.wav"
-		"SpeedGel" 
-			{
-			"snd" "music/sp_a3_bomb_flings_z2.wav"
-			"snd" "music/sp_a3_bomb_flings_z2b.wav"
-			"snd" "music/sp_a3_bomb_flings_z2c.wav"
-			}
-		"Tbeam" "music/ctc_tbeam.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_CONTROL_GROUP"
-	"Name"			"You Are Not Part Of The Control Group"
-	"ShortName"		"Control Group"
-	"Group"			"Old Aperture"
-	"Icon"			"music/control_group"
-	"IconLarge"     "music_lrg/control_group"
-	"Authors"		"Valve"
-	"Description"	"The music for the first 1950s Repulsion Gel Test."
-	"Sample"        "p2/sp_a3_jump_intro_b1.ogg"
-	"SoundScript"
-		{
-		"Base" 
-			{
-			"snd" "music/sp_a3_jump_intro_b1.wav"
-			"snd" "music/sp_a3_jump_intro_b2.wav"
-			}
-		"SpeedGel" 
-			{
-			// Higher pitched sounds
-			"snd" "music/sp_a3_jump_intro_z1b.wav"
-			"snd" "music/sp_a3_jump_intro_z2b.wav"
-			}
-		"Tbeam" "music/ctc_tbeam.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			"snd" "music/sp_a3_jump_intro_z2.wav"
-			"snd" "music/sp_a3_jump_intro_z2c.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_MUSIC_SPHERES_1"
-	"Name"			"Music of The Spheres 1"
-	"ShortName"		"MoT Spheres 1"
-	"Group"			"Old Aperture"
-	"Icon"			"music/music_of_spheres_1"
-	"IconLarge"     "music_lrg/music_of_spheres_1"
-	"Authors"		"Valve"
-	"Description"	"The music played around the exterior of the 1950s Enrichment Spheres."
-	"Sample"        "p2/sp_a3_03_b1.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a3_03_b1.wav"
-		"Tbeam" "music/sp_a3_03_b2.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1b.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			
-			"snd" "music/sp_a3_jump_intro_z2.wav"
-			"snd" "music/sp_a3_jump_intro_z2b.wav"
-			"snd" "music/sp_a3_jump_intro_z2c.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_REUNION_PART_1"
-	"Name"			"The Reunion - Part 1"
-	"ShortName"     "The Reunion #1"
-	"Group"			"Old Aperture"
-	"Icon"			"music/the_reunion_1"
-	"IconLarge"     "music_lrg/the_reunion_1"
-	"Authors"		"Valve"
-	"Description"	"The music for the first 1970s Propulsion Gel Test."
-	"Sample"        "p2/sp_a3_speed_ramp_b1.ogg"
-	"SoundScript"
-		{
-		"Base"  "music/sp_a3_speed_ramp_b1.wav"
-		"Tbeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			// This one sounds a little different, so make it less common.
-			"snd" "music/sp_a3_speed_ramp_c3.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_REUNION_PART_2"
-	"Name"			"The Reunion - Part 2"
-	"ShortName"     "The Reunion #2"
-	"Group"			"Old Aperture"
-	"Icon"			"music/the_reunion_2"
-	"IconLarge"     "music_lrg/the_reunion_2"
-	"Authors"		"Valve"
-	"Description"	"The music for the second 1970s Propulsion Gel Test."
-	"Sample"        "p2/sp_a3_speed_ramp_b2.ogg"
-	"SoundScript"
-		{
-		"Base"  "music/sp_a3_speed_ramp_b2.wav"
-		"Tbeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			// This one sounds a little different, so make it less common.
-			"snd" "music/sp_a3_speed_ramp_c3.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_MUSIC_SPHERES_2"
-	"Name"			"Music of The Spheres 2 (Incendiary Lemons)"
-	"ShortName"		"MoT Spheres 2"
-	"Group"			"Old Aperture"
-	"Icon"			"music/music_of_spheres_2"
-	"IconLarge"     "music_lrg/music_of_spheres_2"
-	"Authors"		"Valve"
-	"Description"	"The music played in the first and only proper 1980s Conversion Gel Test."
-	"Sample"        "p2/sp_a3_portal_intro_b1.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a3_portal_intro_b1.wav"
-		"Tbeam" "music/sp_a3_portal_intro_b4_2.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			"snd" "music/sp_a3_jump_intro_z2.wav"
-			"snd" "music/sp_a3_jump_intro_z2c.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			}
-		}
 	}
 	
 "BrushTemplate"
@@ -1470,10 +1280,103 @@
 			"Name"		"Grating"
 			"Styles"
 				{
-				"BEE2_1950s"	"mandatory/50s/obs_grate"
-				"BEE2_1960s"	"mandatory/60s/obs_grate"
-				"BEE2_1970s"	"mandatory/70s/obs_grate"
-				"BEE2_1980s"	"mandatory/80s/obs_grate"
+				"BEE2_1950s"
+					{
+					"Folder" "mandatory/obs_grate"
+					"Instances"
+						{
+						"0" "instances/BEE2/50s/items/observation_grate_256.vmf"
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_obs_grate_256_50s.3ds"
+							"BEE2"  "50s/observation_grate.png"
+							"Icon"  "palette/50s/observation_grate.png"
+							}
+						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SP_OFF%" "-1024 1024 -832"
+							"%MP_OFF%" "-2464 4032 -320"
+							"%OBS_ROOM%" "instances/BEE2/50s/items/observation_room_256.vmf"
+							}
+						}
+					}
+				"BEE2_1960s"
+					{
+					"Folder" "mandatory/obs_grate"
+					"Instances"
+						{
+						"0" "instances/BEE2/60s/items/observation_grate_256.vmf"
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_obs_grate_256_60s.3ds"
+							"BEE2"  "50s/observation_grate.png"
+							"Icon"  "palette/50s/observation_grate.png"
+							}
+						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SP_OFF%" "-2048 1536 -832"
+							"%MP_OFF%" "96 -576 -3392"
+							"%OBS_ROOM%" "instances/BEE2/60s/items/observation_room_256.vmf"
+							}
+						}
+					}
+				"BEE2_1970s"
+					{
+					"Folder" "mandatory/obs_grate"
+					"Instances"
+						{
+						"0" "instances/BEE2/70s/items/observation_grate_256.vmf"
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_obs_grate_256_70s.3ds"
+							"BEE2"  "70s/observation_grate.png"
+							"Icon"  "palette/70s/observation_grate.png"
+							}
+						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SP_OFF%" "-2560 2112 -832"
+							"%MP_OFF%" "96 -512 -3136"
+							"%OBS_ROOM%" "instances/BEE2/70s/items/observation_room_256.vmf"
+							}
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Folder" "mandatory/obs_grate"
+					"Instances"
+						{
+						"0" "instances/BEE2/80s/items/observation_grate_256.vmf"
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_obs_grate_256_80s.3ds"
+							"BEE2"  "80s/observation_grate.png"
+							"Icon"  "palette/80s/observation_grate.png"
+							}
+						}
+					// We need to specialise based on the open-sphere instance.
+					"Config" "mandatory/80s/obs_grate.cfg"
+					}
 				}
 			}
 			
@@ -1825,7 +1728,37 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"las_emitter_50s"
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_las_emitter_center.3ds"
+							}
+						}
+					"Instances"
+						{
+						"0"          "instances/BEE2/50s/items/laser/emitter_center.vmf"
+						"bee2_floor" "instances/BEE2/50s/items/laser/emitter_center.vmf"
+						}
+					"Extra"
+						{
+						"Instances"
+							{
+							"0"          "instances/BEE2/50s/items/laser/emitter_offset.vmf"
+							"bee2_floor" "instances/BEE2/50s/items/laser/emitter_offset.vmf"
+							}
+						"Palette"
+							{
+							"0"
+								{
+								"Model" "under_las_emitter_offset.3ds"
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1928,8 +1861,85 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"    "funnel_50s"
-				"BEE2_1970s"    "funnel_70s"
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+
+					"Authors"		"Valve, TeamSpen210"
+					"Tags"			"Portal 2; Test Elements"
+					"Description"	"50s Funnels are beamed into the chamber via a hole in the wall."
+					"Ent_Count"     "3"
+
+					"Config" {} // We don't need any configuration.
+					"Instances"
+						{
+						"0" "instances/BEE2/50s/items/tbeam/beam.vmf"
+						"1" "instances/BEE2/50s/items/tbeam/frame_white.vmf"
+						"2" "instances/BEE2/50s/items/tbeam/frame_black.vmf"
+						}
+					"Palette"
+						{
+						"0" 
+							{
+							// 50s funnels are beamed into the chamber through a gel tube..
+							"Model" "under_gel_drop_water.3ds"
+							}
+						}
+					}
+				"BEE2_1970s"
+					{
+					"Base" "BEE2_CLEAN"
+
+					"Authors"		"Valve, TeamSpen210"
+					"Tags"			"Portal 2; Test Elements"
+					"Description"	"In the 1970s era, this is produced by a prototype emitter."
+					"Ent_Count"     "3"
+
+					"Instances"
+						{
+						"0" "instances/BEE2/70s/items/tbeam/beam.vmf"
+						"1" "instances/BEE2/70s/items/tbeam/frame_white.vmf"
+						"2" "instances/BEE2/70s/items/tbeam/frame_black.vmf"
+						}
+					"IOConf"
+						{
+						"Type"              "DUAL"
+						"Init"              "Auto"
+						"DefaultDual"       "A"
+						
+						"InvertVar"         "$start_enabled"
+						"Enable_Cmd"        "tbeam,Enable,,0.00,-1"
+						"Disable_Cmd"       "tbeam,Disable,,0.00,-1"
+						"Enable_Cmd"        "asb,TurnOn,,0.00,-1"
+						"Disable_Cmd"       "asb,TurnOff,,0.00,-1"
+						
+						"Sec_InvertVar"     "$start_reversed"
+						"Sec_Enable_Cmd"    "mdl,FireUser4,,0.00,-1"
+						"Sec_Disable_Cmd"   "mdl,FireUser3,,0.00,-1"
+						}
+					"Config"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance" "<ITEM_TBEAM:fun_emitter>"
+								"Condition"
+									{
+									"instvar" "$conn_count_b > 0"
+									"Result"
+										{
+										"AddOverlay" "instances/BEE2/70s/items/tbeam/polarity_inp.vmf"
+										}
+									"Else"
+										{
+										"AddOverlay" "instances/BEE2/70s/items/tbeam/polarity_static.vmf"
+										}
+									}
+								}
+							}
+						}
+					}
 				"BEE2_1980s"    "<BEE2_CLEAN>"
 				}
 			}

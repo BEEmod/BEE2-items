@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "451"
+	"editorbuild" "7552"
+	"mapversion" "452"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -18,12 +18,6 @@ visgroups
 			"name" "Instance"
 			"visgroupid" "18"
 			"color" "226 155 88"
-		}
-		visgroup
-		{
-			"name" "Logic"
-			"visgroupid" "16"
-			"color" "236 109 130"
 		}
 		visgroup
 		{
@@ -50,13 +44,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "451"
+	"mapversion" "452"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1320,7 +1314,7 @@ entity
 	"spinup" "0"
 	"targetname" "snd_open"
 	"volstart" "0"
-	"origin" "-16 4 64.3794"
+	"origin" "32 -12 64.3794"
 	editor
 	{
 		"color" "220 30 220"
@@ -1352,7 +1346,7 @@ entity
 	"spinup" "0"
 	"targetname" "snd_close"
 	"volstart" "0"
-	"origin" "16 4 64.3794"
+	"origin" "32 20 64.3794"
 	editor
 	{
 		"color" "220 30 220"
@@ -1368,7 +1362,7 @@ entity
 	"filterclass" "func_movelinear"
 	"Negated" "1"
 	"targetname" "filter_not_door"
-	"origin" "0 -32 64"
+	"origin" "16 -32 64"
 	editor
 	{
 		"color" "0 255 0"
@@ -1384,7 +1378,7 @@ entity
 	"filtername" "turret*"
 	"Negated" "1"
 	"targetname" "filter_not_turret"
-	"origin" "-32 -32 64"
+	"origin" "-32 -16 64"
 	editor
 	{
 		"color" "0 255 0"
@@ -1872,7 +1866,7 @@ entity
 	"filtertype" "0"
 	"Negated" "0"
 	"targetname" "filter_clip"
-	"origin" "-16 -48 64"
+	"origin" "-16 -32 64"
 	editor
 	{
 		"color" "0 255 0"
@@ -2436,7 +2430,7 @@ entity
 		"OnUser1" "snd_openPlaySound0-1"
 		"OnUser4" "door_upperOpen01"
 	}
-	"origin" "16 48 64"
+	"origin" "0 0 64"
 	editor
 	{
 		"color" "200 200 200"
@@ -2475,7 +2469,7 @@ entity
 	"magnitude" "250"
 	"target" "turret"
 	"targetname" "fizzler"
-	"origin" "16 -48 64"
+	"origin" "16 32 64"
 	editor
 	{
 		"color" "220 30 220"
@@ -2770,7 +2764,7 @@ entity
 	"spinup" "0"
 	"targetname" "snd"
 	"volstart" "0"
-	"origin" "48 -16 64"
+	"origin" "-32 16 64"
 	editor
 	{
 		"color" "220 30 220"
@@ -3385,26 +3379,6 @@ entity
 }
 entity
 {
-	"id" "1458"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "scriptRunScriptCodespawn()0-1"
-	}
-	"origin" "-48 16 64"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupid" "16"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "11"
 	"classname" "prop_dynamic"
 	"angles" "0 270 180"
@@ -3436,33 +3410,12 @@ entity
 }
 entity
 {
-	"id" "650"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-		"OnProxyRelay" "cube_dropper_gate_relayTrigger0-1"
-	}
-	"origin" "48 16 64"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "18"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2500]"
-	}
-}
-entity
-{
 	"id" "797"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 0"
 	"parm2" "$disable_autorespawn boolean 0"
 	"parm3" "$dist float 256"
-	"origin" "-48 -16 64"
+	"origin" "-16 32 64"
 	editor
 	{
 		"color" "220 30 220"

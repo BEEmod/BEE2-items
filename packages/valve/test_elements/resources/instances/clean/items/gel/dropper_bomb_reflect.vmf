@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "141"
+	"editorbuild" "7552"
+	"mapversion" "142"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "141"
+	"mapversion" "142"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2241,8 +2241,10 @@ entity
 	"AllowSilentDissolve" "1"
 	"angles" "0 180 0"
 	"BombType" "0"
+	"model" "models/error.mdl"
 	"PaintType" "1"
 	"playspawnsound" "1"
+	"skin" "1"
 	"targetname" "bmb"
 	connections
 	{
@@ -2263,9 +2265,9 @@ entity
 	"id" "1117"
 	"classname" "point_template"
 	"spawnflags" "2"
-	"targetname" "paint_bomb_template"
+	"targetname" "tmp"
 	"Template01" "bmb*"
-	"origin" "0 0 8"
+	"origin" "0 0 32"
 	editor
 	{
 		"color" "220 30 220"
@@ -2278,76 +2280,17 @@ entity
 {
 	"id" "1137"
 	"classname" "logic_relay"
-	"targetname" "paint_bomb_rl"
+	"StartDisabled" "$start_disabled"
+	"targetname" "rl"
 	connections
 	{
-		"OnTrigger" "paint_bomb_templateForceSpawn0.5-1"
-		"OnSpawn" "branch_toggleTest01"
+		"OnTrigger" "tmpForceSpawn0.5-1"
+		"OnSpawn" "rlTrigger01"
 	}
 	"origin" "0 -16 32"
 	editor
 	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "708"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "paint_bomb_rlEnable0-1"
-		"OnFalse" "paint_bomb_rlDisable0-1"
-		"OnTrue" "paint_bomb_rlTrigger0.01-1"
-	}
-	"origin" "32 -16 32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "710"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "32 16 32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "380"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterSubtract10-1"
-		"OnProxyRelay" "counterAdd10-1"
-	}
-	"origin" "-32 -16 32"
-	editor
-	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -2360,7 +2303,7 @@ entity
 	"parm1" "$connectioncount integer 0"
 	"parm2" "$paint_type integer 0"
 	"parm3" "$start_enabled boolean 0"
-	"origin" "-32 16 32"
+	"origin" "0 16 32"
 	editor
 	{
 		"color" "220 30 220"

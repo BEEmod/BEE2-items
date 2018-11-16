@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7552"
-	"mapversion" "51"
+	"mapversion" "58"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "51"
+	"mapversion" "58"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -443,8 +443,8 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"SkinType" "0"
+	"src_fix_skins" "1"
 	"targetname" "laser_catcher"
-	"vscripts" "bee2/change_models.nut"
 	connections
 	{
 		"OnPowered" "proxyProxyRelay0-1"
@@ -454,26 +454,6 @@ entity
 	editor
 	{
 		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "272"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "laser_catcherRunScriptCodep1_laser_catcher()0-1"
-		"OnMapSpawn" "laser_catcherAddOutputOnPowered !self:Skin:1:0.00:-10-1"
-		"OnMapSpawn" "laser_catcherAddOutputOnUnPowered !self:Skin:0:0.00:-10-1"
-	}
-	"origin" "0 0 -128"
-	editor
-	{
-		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"

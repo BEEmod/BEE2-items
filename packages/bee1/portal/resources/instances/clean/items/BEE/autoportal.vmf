@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7552"
-	"mapversion" "108"
+	"mapversion" "123"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,19 +20,64 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "108"
+	"mapversion" "123"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2111"
+	"classname" "ambient_generic"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "Portal.fizzle_moved"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"spawnflags" "48"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "close_snd"
+	"volstart" "0"
+	"origin" "0 0 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "2027"
+	"classname" "func_instance_io_proxy"
+	"targetname" "proxy"
+	"origin" "24 -16 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
@@ -50,7 +95,7 @@ entity
 		"OnChangeToAllTrue" "pushEnable0-1"
 		"OnChangeToAllTrue" "pushDisable0.1-1"
 	}
-	"origin" "24 0 -56"
+	"origin" "40 0 -56"
 	editor
 	{
 		"color" "0 100 250"
@@ -66,7 +111,7 @@ entity
 	"spawnflags" "2"
 	"targetname" "temp"
 	"Template01" "portal"
-	"origin" "8 0 -56"
+	"origin" "24 0 -56"
 	editor
 	{
 		"color" "220 30 220"
@@ -97,45 +142,6 @@ hidden
 			"visgroupautoshown" "1"
 			"logicalpos" "[0 0]"
 		}
-	}
-}
-entity
-{
-	"id" "1160"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "40 16 -56"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
-	"id" "1162"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "manToggleStateA0-1"
-		"OnChangedFromMax" "manToggleStateA0-1"
-	}
-	"origin" "40 0 -56"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -200,9 +206,11 @@ entity
 	"targetname" "portal"
 	connections
 	{
-		"OnUser1" "!selfKill0.11"
-		"OnUser1" "!selfSetActivatedState001"
-		"OnUser2" "proxyProxyRelay01"
+		"OnUser1" "!selfKill0.1-1"
+		"OnUser1" "!selfSetActivatedState00-1"
+		"OnUser2" "proxyProxyRelay0-1"
+		"OnUser1" "close_sndPlaySound0-1"
+		"OnUser1" "@commandCommandcc_emit Portal.close_red0-1"
 	}
 	"origin" "0 0 -64"
 	editor
@@ -222,7 +230,7 @@ entity
 	"parm3" "$start_enabled boolean 0"
 	"parm4" "$skin integer 1"
 	"parm5" "$glob_relay target_name_or_class @close_autoportal"
-	"origin" "40 -16 -56"
+	"origin" "24 16 -56"
 	editor
 	{
 		"color" "220 30 220"
@@ -252,7 +260,7 @@ entity
 		side
 		{
 			"id" "1"
-			"plane" "(-16 -16 -72) (-16 16 -72) (-16 16 -62)"
+			"plane" "(-16 -16 -68) (-16 16 -68) (-16 16 -62)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -263,7 +271,7 @@ entity
 		side
 		{
 			"id" "2"
-			"plane" "(16 16 -72) (16 -16 -72) (16 -16 -62)"
+			"plane" "(16 16 -68) (16 -16 -68) (16 -16 -62)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -274,7 +282,7 @@ entity
 		side
 		{
 			"id" "3"
-			"plane" "(-16 16 -72) (-16 -16 -72) (16 -16 -72)"
+			"plane" "(-16 16 -68) (-16 -16 -68) (16 -16 -68)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -296,7 +304,7 @@ entity
 		side
 		{
 			"id" "5"
-			"plane" "(-16 16 -62) (-16 16 -72) (16 16 -72)"
+			"plane" "(-16 16 -62) (-16 16 -68) (16 16 -68)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -307,7 +315,7 @@ entity
 		side
 		{
 			"id" "6"
-			"plane" "(16 -16 -62) (16 -16 -72) (-16 -16 -72)"
+			"plane" "(16 -16 -62) (16 -16 -68) (-16 -16 -68)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -349,7 +357,7 @@ entity
 		"OnUser4" "portalFizzle01"
 		"OnTrigger" "portalFireUser20-1"
 	}
-	"origin" "24 16 -56"
+	"origin" "40 16 -56"
 	editor
 	{
 		"color" "0 100 250"
@@ -372,7 +380,7 @@ entity
 		"OnTrigger" "tempForceSpawn0.01-1"
 		"OnTrigger" "modelSkin$skin0-1"
 	}
-	"origin" "24 -16 -56"
+	"origin" "40 -16 -56"
 	editor
 	{
 		"color" "0 100 250"

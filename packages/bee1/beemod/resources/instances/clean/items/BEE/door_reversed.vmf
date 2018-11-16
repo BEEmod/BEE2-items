@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "96"
+	"editorbuild" "7552"
+	"mapversion" "101"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "96"
+	"mapversion" "101"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -244,21 +244,10 @@ world
 	}
 	group
 	{
-		"id" "4297"
-		editor
-		{
-			"color" "216 121 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	group
-	{
 		"id" "4114"
 		editor
 		{
-			"color" "216 121 0"
-			"groupid" "4297"
+			"color" "0 172 141"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -270,34 +259,19 @@ entity
 	"classname" "prop_testchamber_door"
 	"angles" "0 0 0"
 	"targetname" "door"
-	"origin" "0 -1.01303e-005 -64"
+	connections
+	{
+		"OnOpen" "door_clipDisable0-1"
+		"OnClose" "door_clipEnable0-1"
+	}
+	"origin" "0 0 -64"
 	editor
 	{
-		"color" "216 121 0"
+		"color" "0 172 141"
 		"groupid" "4114"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "4174"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterSubtract10-1"
-		"OnProxyRelay" "counterAdd10-1"
-	}
-	"origin" "24 -16 -8"
-	editor
-	{
-		"color" "216 121 0"
-		"groupid" "4114"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
 	}
 }
 entity
@@ -319,7 +293,7 @@ entity
 	"solidbsp" "0"
 	"Solidity" "0"
 	"spawnflags" "2"
-	"StartDisabled" "0"
+	"StartDisabled" "$start_enabled"
 	"targetname" "door_clip"
 	"vrad_brush_cast_shadows" "0"
 	solid
@@ -393,14 +367,14 @@ entity
 		}
 		editor
 		{
-			"color" "216 121 0"
+			"color" "0 172 141"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "216 121 0"
+		"color" "0 172 141"
 		"groupid" "4114"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -413,10 +387,10 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$start_enabled boolean 0"
 	"parm2" "$connectioncount integer 0"
-	"origin" "24 16 -8"
+	"origin" "24 0 -8"
 	editor
 	{
-		"color" "216 121 0"
+		"color" "0 172 141"
 		"groupid" "4114"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -429,8 +403,8 @@ entity
 	"classname" "trigger_multiple"
 	"origin" "0 0 -6"
 	"spawnflags" "4097"
-	"StartDisabled" "1"
-	"targetname" "player_in_door_trigger"
+	"StartDisabled" "0"
+	"targetname" "trig"
 	"wait" "1"
 	connections
 	{
@@ -508,14 +482,14 @@ entity
 		}
 		editor
 		{
-			"color" "216 121 0"
+			"color" "0 172 141"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "216 121 0"
+		"color" "0 172 141"
 		"groupid" "4114"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -531,83 +505,18 @@ entity
 	"targetname" "close_man"
 	connections
 	{
-		"OnChangeToAllTrue" "player_in_door_triggerDisable0-1"
 		"OnChangeToAllTrue" "close_manSetStateAFalse0-1"
 		"OnChangeToAllTrue" "doorClose0-1"
-		"OnChangeToAllTrue" "door_clipEnable0-1"
 	}
-	"origin" "24 -8.03212e-006 -8"
+	"origin" "24 -8.03212e-006 8"
 	editor
 	{
-		"color" "216 121 0"
+		"color" "0 172 141"
 		"groupid" "4114"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"comments" "A = want, B = can"
 		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
-	"id" "4064"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest2.2-1"
-	}
-	"origin" "24 0 8"
-	editor
-	{
-		"color" "216 121 0"
-		"groupid" "4297"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "4066"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "player_in_door_triggerEnable0-1"
-		"OnTrue" "door_clipDisable0-1"
-		"OnTrue" "doorOpen0-1"
-		"OnFalse" "close_manSetStateATrue0-1"
-	}
-	"origin" "24 16 8"
-	editor
-	{
-		"color" "216 121 0"
-		"groupid" "4297"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "4070"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "24 -16 8"
-	editor
-	{
-		"color" "216 121 0"
-		"groupid" "4297"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 cameras

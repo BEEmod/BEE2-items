@@ -1,0 +1,59 @@
+UnlitGeneric
+{
+$basetexture "BEE2/models/props_clean/tuleby/reflecto_bomb_lights"
+$color "[1 1 1]"
+$color2 "[1 1 1]"
+
+// Alphatest is more reliable...
+$alphatest 1
+$nocull 1
+
+$flicker_amount 0
+$offset 0
+$multiplier 1
+
+Proxies
+	{
+	EntityRandom
+		{
+		// Different cubes shouldn't copy each other.
+		scale 1.2
+		resultVar $offset
+		}
+	Sine
+		{
+		sineperiod .8
+		sinemin .1
+		sinemax 1.2
+		timeoffset $offset
+		resultVar $flicker_amount
+		}
+	// Then add noise to that sine wave, so when it's low it'll
+	// flicker, but when high it's locked on.
+	GaussianNoise
+		{
+		mean 1
+		halfWidth .3
+		minVal $flicker_amount
+		maxVal 1
+		resultVar $multiplier
+		}
+		
+	// Darken the color blend with this amount
+	Equals
+		{
+		srcVar1 $multiplier
+		resultVar "$color[0]"
+		}
+	Equals
+		{
+		srcVar1 $multiplier
+		resultVar "$color[1]"
+		}
+	Equals
+		{
+		srcVar1 $multiplier
+		resultVar "$color[2]"
+		}
+	}
+}
