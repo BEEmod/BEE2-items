@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "121"
+	"editorbuild" "7552"
+	"mapversion" "125"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "121"
+	"mapversion" "125"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -638,6 +638,49 @@ world
 }
 entity
 {
+	"id" "11650"
+	"classname" "ambient_generic"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "World.a3JumpIntroPlatformTravel"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"spawnflags" "16"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "snd"
+	"volstart" "0"
+	connections
+	{
+		"OnChangeToAllTrue" "proxyProxyRelay0-1"
+		"OnChangeToAnyFalse" "proxyProxyRelay0-1"
+		"OnUser2" "andSetStateATrue0-1"
+		"OnUser2" "closeCancelPending0-1"
+		"OnUser1" "andSetStateAFalse0-1"
+		"OnUser1" "closeTrigger0-1"
+		"OnUser2" "hurtDisable0-1"
+		"OnUser2" "fizzDisable0-1"
+		"OnUser2" "armsSetAnimationopen0-1"
+	}
+	"origin" "0 0 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "11612"
 	"classname" "light"
 	"_light" "251 159 57 30"
@@ -692,6 +735,10 @@ entity
 	"spawnflags" "0"
 	"SuppressAnimSounds" "0"
 	"targetname" "arms"
+	connections
+	{
+		"OnAnimationDone" "sndStopSound0-1"
+	}
 	"origin" "0 0 -64"
 	editor
 	{
@@ -1749,35 +1796,13 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$start_enabled boolean false"
 	"parm2" "$connectioncount integer 0"
-	"origin" "8 8 -56"
+	"origin" "16 16 -48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
-	"id" "5188"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "open"
-	connections
-	{
-		"OnTrigger" "armsSetAnimationopen0-1"
-		"OnTrigger" "fizzDisable0-1"
-		"OnTrigger" "hurtDisable0-1"
-	}
-	"origin" "8 -24 -56"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -1794,56 +1819,8 @@ entity
 		"OnTrigger" "fizzEnable0.25-1"
 		"OnTrigger" "fizzDisable0.9-1"
 		"OnTrigger" "hurtDisable0.9-1"
-		"OnTrigger" "openCancelPending0-1"
-		"OnSpawn" "branch_toggleTest0.11"
 	}
-	"origin" "-8 -24 -56"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "5319"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-		"OnHitMax" "m2AddOutputOnAnimationDone !self:FireUser1::0:-101"
-	}
-	"origin" "8 24 -56"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "AddOutput used to restrict sounds to only when moved by inputs, not OnMapSpawn"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "5321"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "openTrigger0-1"
-		"OnTrue" "closeCancelPending0-1"
-		"OnFalse" "openCancelPending0-1"
-		"OnFalse" "closeTrigger0-1"
-		"OnTrue" "andSetStateATrue0-1"
-		"OnFalse" "andSetStateAFalse0-1"
-	}
-	"origin" "-8 24 -56"
+	"origin" "-16 -16 -48"
 	editor
 	{
 		"color" "0 100 250"
@@ -1857,12 +1834,7 @@ entity
 	"id" "53"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-8 8 -56"
+	"origin" "-16 16 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -1882,6 +1854,15 @@ entity
 	{
 		"OnChangeToAllTrue" "proxyProxyRelay0-1"
 		"OnChangeToAnyFalse" "proxyProxyRelay0-1"
+		"OnUser2" "andSetStateATrue0-1"
+		"OnUser2" "closeCancelPending0-1"
+		"OnUser1" "andSetStateAFalse0-1"
+		"OnUser1" "closeTrigger0-1"
+		"OnUser2" "hurtDisable0-1"
+		"OnUser2" "fizzDisable0-1"
+		"OnUser2" "armsSetAnimationopen0-1"
+		"OnUser1" "sndPlaySound0-1"
+		"OnUser2" "sndPlaySound0-1"
 	}
 	"origin" "16 -16 -48"
 	editor
