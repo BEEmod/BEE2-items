@@ -46,7 +46,7 @@
 			"BEE2_CLEAN"    "ret_floor_button"
 			"BEE2_1950s"
 				{
-				"Base"    "BEE2_CLEAN"
+				"Folder"  "ret_floor_button"
 				"Config"  "ret_floor_button_retro.cfg"
 				"Instances"
 					{
@@ -58,6 +58,58 @@
 					"bee2_floor"  "instances/bee2/50s/items/tspen/ret_btn/floor_btn.vmf"
 					"bee2_cube"   "instances/bee2/50s/items/tspen/ret_btn/cube_btn.vmf"
 					"bee2_ball"   "instances/bee2/50s/items/tspen/ret_btn/ball_btn.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%vis_neg%" "neg,neg_70s"
+						"%vis_pos%" "pos,pos_70s"
+						}
+					}
+				"Instances"
+					{
+					"bee2_common" "instances/bee2/70s/items/tspen/ret_button_common.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1970s"
+				"Instances"
+					{
+					"bee2_common" "instances/bee2/80s/items/tspen/ret_btn/common.vmf"
+					"bee2_floor"  "instances/bee2/80s/items/tspen/ret_btn/floor_btn.vmf"
+					"bee2_cube"   "instances/bee2/80s/items/tspen/ret_btn/cube_btn.vmf"
+					"bee2_ball"   "instances/bee2/80s/items/tspen/ret_btn/ball_btn.vmf"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%vis_neg%" "neg_70s,neg_80s"
+						"%vis_pos%" "pos_70s,pos_80s"
+						}
+					"Conditions"
+						{
+						"Condition"
+							{
+							"instance" "<ITEM_TSPEN_BUTTON_RETRACT_FLOOR:bee2_floor>"
+							"Result"
+								{
+								"Random"
+									{	
+									 // Clean, Dest, V.Dest
+									"Weights"	"1, 2, 3"
+									"SetInstVar" "$model models/bee2/props_ingame/floor_button_prototype_2.mdl"
+									"SetInstVar" "$model models/bee2/props_ingame/floor_button_prototype_1.mdl"
+									}
+								}
+							}
+						}
 					}
 				}
 			// "BEE2_OVERGROWN"    "ped_over"
