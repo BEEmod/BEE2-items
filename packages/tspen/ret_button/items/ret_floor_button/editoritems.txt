@@ -141,10 +141,13 @@
 		"TargetName"		"btr"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_deployed"
+				"SpawnFire"		"always"
+				"Enable_Cmd"    "and,FireUser2,,0.00,-1"
+				"Disable_Cmd"   "and,FireUSer1,,0.00,-1"
 				}
 			}
 		"Outputs"
