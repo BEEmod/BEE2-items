@@ -1793,8 +1793,6 @@
 			{
 			"Styles"
 				{
-				"BEE2_1970s"  "track_plat/70s"
-				"BEE2_1980s"  "track_plat/80s"
 				"BEE2_1950s"
 					{
 					"Base" "BEE2_CLEAN"
@@ -1844,6 +1842,121 @@
 						"5" "instances/BEE2/50s/items/track/platform_oscillate.vmf"
 						"6" "instances/BEE2/50s/items/track/single.vmf"
 						"bee2_static" "instances/BEE2/50s/items/track/static.vmf"
+						}
+					}
+				"BEE2_1970s"
+					{
+					"Base" "BEE2_1950s"
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_70s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"1"
+							{
+							"Model" "under_rail_plat_black.3ds"
+							"Model" "under_rail_track_70s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"2"
+							{
+							"Model" "under_rail_plat_white.3ds"
+							"Model" "under_rail_track_70s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"3"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_70s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"4"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_70s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						}
+					"Instances"
+						{
+						"0" "instances/BEE2/70s/items/track/bottom_grate.vmf"
+						"1" "instances/BEE2/70s/items/track/bottom.vmf"
+						"2" "instances/BEE2/70s/items/track/middle.vmf"
+						"3" "instances/BEE2/70s/items/track/top.vmf"
+						"4" "instances/BEE2/50s/items/track/platform.vmf"
+						"5" "instances/BEE2/50s/items/track/platform_oscillate.vmf"
+						"6" "instances/BEE2/70s/items/track/single.vmf"
+						"bee2_static" "instances/BEE2/70s/items/track/static.vmf"
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Base" "BEE2_1950s"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%decade%" "80s"
+							}
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance" "<ITEM_RAIL_PLATFORM:track_top, track_bottom>"
+								// These are all the same, just reuse 1 instance
+								"Result"
+									{
+									"ChangeInstance" "<ITEM_RAIL_PLATFORM:track_middle>"
+									}
+								}
+							}
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_80s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"1"
+							{
+							"Model" "under_rail_plat_black.3ds"
+							"Model" "under_rail_track_80s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"2"
+							{
+							"Model" "under_rail_plat_white.3ds"
+							"Model" "under_rail_track_80s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"3"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_80s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"4"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_80s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						}
+					"Instances"
+						{
+						"0" "instances/BEE2/80s/items/track/bottom_grate.vmf"
+						"1" "instances/BEE2/80s/items/track/track_bottom.vmf"
+						"2" "instances/BEE2/80s/items/track/track.vmf"
+						"3" "instances/BEE2/80s/items/track/track_top.vmf"
+						"4" "instances/BEE2/50s/items/track/platform.vmf"
+						"5" "instances/BEE2/50s/items/track/platform_oscillate.vmf"
+						"6" "instances/BEE2/80s/items/track/single.vmf"
+						"bee2_static" "instances/BEE2/80s/items/track/static.vmf"
 						}
 					}
 				}
