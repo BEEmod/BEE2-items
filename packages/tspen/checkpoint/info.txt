@@ -169,7 +169,6 @@
 					}
 				"Config" "sp_check_p1.cfg"
 				}
-			"BEE2_1980s"    "sp_check_80s"
 			"BEE2_1950s"
 				{
 				"Folder" "sp_check"
@@ -205,6 +204,20 @@
 						{
 						"%LIGHT%" "200 220 230"
 						}
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Folder" "sp_check"
+				"Config" "sp_check_80s.cfg"
+				"IOConf"
+					{
+					"Type"          "AND"
+					"invertVar"		"$start_enabled"
+					"spawnFire"		"always"
+					"Enable_Cmd"    "block_trig,FireUser1,,0.00,-1"
+					"Disable_Cmd"   "close_rl,FireUser1,,0.00,-1"
+					"out_activate"  "instance:close_rl;OnUser4"
 					}
 				}
 			"BEE2_OVERGROWN"
