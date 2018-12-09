@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "238"
+	"editorbuild" "7335"
+	"mapversion" "239"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,7 +32,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "238"
+	"mapversion" "239"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -164,7 +164,7 @@ entity
 	"origin" "16 0 -32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "32"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -603,7 +603,6 @@ entity
 	"mincpulevel" "0"
 	"mingpulevel" "0"
 	"MoveSpeed" "64"
-	"NextKey" "r1_b1"
 	"parentname" "camera"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "25"
@@ -709,16 +708,7 @@ entity
 	"targetname" "camera"
 	"TeamPlayerToLookAt" "0"
 	"TeamToLookAt" "1"
-	"vscripts" "bee2/change_models.nut"
-	connections
-	{
-		"OnUser1" "r1_aSetParentAttachmentWire1_A01"
-		"OnUser1" "r1_bSetParentAttachmentWire1_B01"
-		"OnUser1" "r2_bSetParentAttachmentWire2_B01"
-		"OnUser1" "r2_aSetParentAttachmentWire2_A01"
-		"OnUser1" "spr_blueSetParentAttachmentlight01"
-		"OnUser1" "spr_oranSetParentAttachmentlight01"
-	}
+	"vscripts" "bee2/p1_camera.nut"
 	"origin" "116 -44 -64"
 	editor
 	{
@@ -726,7 +716,6 @@ entity
 		"visgroupid" "31"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "We can't set attachments immediately - they get invalidated when the model changes."
 		"logicalpos" "[0 0]"
 	}
 }
@@ -866,7 +855,7 @@ entity
 	"origin" "80 -16 -32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "32"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -991,7 +980,7 @@ entity
 	"origin" "48 16 -32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "32"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -1013,7 +1002,7 @@ entity
 	"origin" "48 -16 -32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "32"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -1608,7 +1597,7 @@ entity
 	"origin" "64 16 -32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "32"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -1982,7 +1971,7 @@ entity
 	"origin" "64 -16 -32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "32"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -2196,13 +2185,12 @@ entity
 	"targetname" "relay_leaving_level"
 	connections
 	{
-		"OnSpawn" "cameraRunScriptCodep1_cam()01"
 		"OnTrigger" "@exit_airlockFireUser20-1"
 	}
 	"origin" "48 0 -32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupid" "32"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
