@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7335"
-	"mapversion" "8"
+	"mapversion" "4"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "64"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "8"
+	"mapversion" "4"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,22 +32,22 @@ entity
 {
 	"id" "2"
 	"classname" "prop_wall_projector"
-	"angles" "-45 180 0"
+	"angles" "-90 270 0"
 	"DisableHelper" "0"
 	"disablereceiveshadows" "0"
+	"parentname" "$pan_top"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "0"
-	"skin" "0"
 	"StartEnabled" "$start_enabled"
 	"targetname" "bridge"
 	connections
 	{
-		"OnUser1" "!selfDisable0-1"
-		"OnUser2" "!selfEnable0-1"
+		"OnUser2" "bridge_manSetStateATrue0-1"
+		"OnUser1" "bridge_manSetStateAFalse0-1"
 	}
-	"origin" "-18.745 0 -18.7447"
+	"origin" "0 0 -64"
 	editor
 	{
 		"color" "220 30 220"
