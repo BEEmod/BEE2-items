@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "190"
+	"editorbuild" "7335"
+	"mapversion" "194"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "190"
+	"mapversion" "194"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -182,6 +182,7 @@ entity
 	"parm4" "$travel_direction angle 0 90 0"
 	"parm5" "$starting_position float 0"
 	"parm6" "$start_active boolean 0"
+	"parm7" "$model string"
 	"origin" "48 0 16"
 	editor
 	{
@@ -216,82 +217,6 @@ entity
 		"OnFullyClosed" "track_lift_movelinearSetPosition10-1"
 		"OnFullyOpen" "branch_posSetValue00-1"
 		"OnFullyClosed" "branch_posSetValue10-1"
-	}
-	solid
-	{
-		"id" "3"
-		side
-		{
-			"id" "24"
-			"plane" "(-64 -64 -64) (-64 64 -64) (-64 64 64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 -29.4313] 0.25"
-			"vaxis" "[0 0 -1 -29.957] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "23"
-			"plane" "(-64 64 64) (-64 64 -64) (-56.0002 64 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 29.957] 0.25"
-			"vaxis" "[1 0 0 47.7822] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "22"
-			"plane" "(-64 -64 -64) (-64 -64 64) (-56.0002 -64 64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 29.957] 0.25"
-			"vaxis" "[1 0 0 47.7822] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "21"
-			"plane" "(-64 -64 64) (-64 64 64) (-56 64 64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 -29.4313] 0.25"
-			"vaxis" "[1 0 0 47.7822] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "20"
-			"plane" "(-64 64 -64) (-64 -64 -64) (-56 -64 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 -29.4313] 0.25"
-			"vaxis" "[1 0 0 47.7822] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "19"
-			"plane" "(-56.0002 64 -64) (-56 -64 -64) (-56.0002 -64 64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
 	}
 	solid
 	{
@@ -449,7 +374,7 @@ entity
 	"HoldAnimation" "1"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
-	"model" "models/anim_wp/arm_interior_192/arm_interior_128.mdl"
+	"model" "$model"
 	"parentname" "track_lift_movelinear"
 	"PerformanceMode" "0"
 	"pressuredelay" "0"
@@ -460,7 +385,7 @@ entity
 	"rendermode" "0"
 	"SetBodyGroup" "0"
 	"shadowdepthnocache" "0"
-	"skin" "0"
+	"skin" "$skin"
 	"solid" "6"
 	"spawnflags" "0"
 	"targetname" "track_lift_model"
