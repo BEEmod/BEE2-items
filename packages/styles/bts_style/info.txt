@@ -504,19 +504,70 @@
 			{
 			"Styles"
 				{
-				"BEE2_BTS"			"light_strip_cool"
-				}
-			}
-		}
-		
-	"Item"
-		{
-		"ID" "ITEM_LIGHT_PANEL_WARM"
-		"Version"
-			{
-			"Styles"
-				{
-				"BEE2_BTS"			"light_strip_warm"
+				"BEE2_BTS"
+					{
+					"Base"   "BEE2_CLEAN"
+					"Instances"
+						{
+						"bee2_cool" "instances/BEE2/bts/items/light_strip/cool.vmf"
+						"bee2_warm" "instances/BEE2/bts/items/light_strip/warm.vmf"
+						"bee2_cold" "instances/BEE2/bts/items/light_strip/cold.vmf"
+						}
+					"Authors" "Carl Kenner, TeamSpen210"
+					"Description"
+						{
+						"" "A caged fluorescent light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" ""
+						"" "* The non-cool lights can be used to contrast or highlight areas."
+						"" "* Sphere-type is unused."
+						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "COOL FLUORESCENT LIGHT"
+							"Name"     "Cool Fluorescent Light"
+							"Model"    "bts_light_cool.3ds"
+							"Icon"     "palette/bts/light_strip_cool.png"
+							"BEE2"     "bts/light_strip_cool.png"
+							}
+						"1"
+							{
+							"pal_name" "WARM FLUORESCENT LIGHT"
+							"Name"     "Warm Fluorescent Light"
+							"Model"    "bts_light_warm.3ds"
+							"Icon"     "palette/bts/light_strip_warm.png"
+							"BEE2"     "bts/light_strip_warm.png"
+							}
+						"2"
+							{
+							"pal_name" "COLD FLUORESCENT LIGHT"
+							"Name"     "Cold Fluorescent Light"
+							"Model"    "bts_light_cold.3ds"
+							"Icon"     "palette/bts/light_strip_cold.png"
+							"BEE2"     "bts/light_strip_cold.png"
+							}
+						// 3: Router, unstyled.
+						}
+					// Duplicates for backwards compatibility.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Name"     "Cool Fluorescent Light"
+								"Model"    "bts_light_warm.3ds"
+								}
+							"1"
+								{
+								"Name"     "Cold Fluorescent Light"
+								"Model"    "bts_light_cold.3ds"
+								}
+							}
+						}
+					}
 				}
 			}
 		}

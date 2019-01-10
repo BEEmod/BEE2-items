@@ -1306,25 +1306,286 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"light_warm"
-				"BEE2_1960s"		"light_cool_caged"
-				"BEE2_1970s"		"light_cool"
-				"BEE2_1980s"		"light_cool_noback"
-				}
-			}
-		}
-		
-	"Item"
-		{
-		"ID" "ITEM_LIGHT_PANEL_WARM"
-		"Version"
-			{
-			"Styles"
-				{
-				"BEE2_1950s"		"light_cool"
-				"BEE2_1960s"		"light_warm_caged"
-				"BEE2_1970s"		"light_warm"
-				"BEE2_1980s"		"light_warm_noback"
+				"BEE2_1950s"
+					{
+					"Base"   "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name" "instances/BEE2/50s/items/light_strip/common.vmf"
+							"EntityCount"		"4"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						// Swapped!
+						"bee2_cool" "instances/BEE2/50s/items/light_strip/warm.vmf"
+						"bee2_warm" "instances/BEE2/50s/items/light_strip/cool.vmf"
+						// The same.
+						"bee2_cold" "instances/BEE2/50s/items/light_strip/cold.vmf"
+						}
+					"Authors" "Carl Kenner, TeamSpen210"
+					"Description"
+						{
+						"" "A fluorescent light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" ""
+						"" "* _In the 1950s era, lighting is warm by default._"
+						"" "* The non-warm lights can be used to contrast or highlight areas."
+						"" "* Sphere-type is unused."
+						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "WARM NEON LIGHT"
+							"Name"     "Warm Neon Light"
+							"Model"    "under_light_warm.3ds"
+							"Icon"     "palette/50s/light_strip_warm.png"
+							"BEE2"     "50s/light_strip_warm.png"
+							}
+						"1"
+							{
+							"pal_name" "COOL NEON LIGHT"
+							"Name"     "Cool Neon Light"
+							"Model"    "under_light_cool.3ds"
+							"Icon"     "palette/50s/light_strip_cool.png"
+							"BEE2"     "50s/light_strip_cool.png"
+							}
+						"2"
+							{
+							"pal_name" "COLD NEON LIGHT"
+							"Name"     "Cold Neon Light"
+							"Model"    "under_light_cold.3ds"
+							"Icon"     "palette/50s/light_strip_cold.png"
+							"BEE2"     "50s/light_strip_cold.png"
+							}
+						// 3: Router, unstyled.
+						}
+					// Duplicates for backwards compatibility.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Name"     "Cool Neon Light"
+								"Model"    "under_light_cool.3ds"
+								}
+							"1"
+								{
+								"Name"     "Cold Neon Light"
+								"Model"    "under_light_cold.3ds"
+								}
+							}
+						}
+					}
+				"BEE2_1960s"
+					{
+					"Base"   "BEE2_1950s"
+					"Instances"
+						{
+						"0"
+							{
+							"Name" "instances/BEE2/60s/items/light_strip.vmf"
+							"EntityCount"		"4"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						}
+					"Authors" "Carl Kenner, TeamSpen210"
+					"Description"
+						{
+						"" "A fluorescent light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" ""
+						"" "* _In the 1960s era, lighting is warm by default._ They are also covered by protective grating."
+						"" "* The non-warm lights can be used to contrast or highlight areas."
+						"" "* Sphere-type is unused."
+						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "WARM NEON LIGHT"
+							"Name"     "Warm Neon Light"
+							"Model"    "under_light_warm_caged.3ds"
+							"Icon"     "palette/50s/light_strip_warm.png"
+							"BEE2"     "50s/light_strip_warm.png"
+							}
+						"1"
+							{
+							"pal_name" "COOL NEON LIGHT"
+							"Name"     "Cool Neon Light"
+							"Model"    "under_light_cool_caged.3ds"
+							"Icon"     "palette/50s/light_strip_cool.png"
+							"BEE2"     "50s/light_strip_cool.png"
+							}
+						"2"
+							{
+							"pal_name" "COLD NEON LIGHT"
+							"Name"     "Cold Neon Light"
+							"Model"    "under_light_cold_caged.3ds"
+							"Icon"     "palette/50s/light_strip_cold.png"
+							"BEE2"     "50s/light_strip_cold.png"
+							}
+						// 3: Router, unstyled.
+						}
+					// Duplicates for backwards compatibility.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Name"     "Cool Neon Light"
+								"Model"    "under_light_cool_caged.3ds"
+								}
+							"1"
+								{
+								"Name"     "Cold Neon Light"
+								"Model"    "under_light_cold_caged.3ds"
+								}
+							}
+						}
+					}
+				"BEE2_1970s"
+					{
+					"Base"   "BEE2_1950s"
+					"Instances"
+						{
+						"bee2_cool" "instances/BEE2/50s/items/light_strip/cool.vmf"
+						"bee2_warm" "instances/BEE2/50s/items/light_strip/warm.vmf"
+						}
+					"Authors" "Carl Kenner, TeamSpen210"
+					"Description"
+						{
+						"" "A fluorescent light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" ""
+						"" "* The non-cool lights can be used to contrast or highlight areas."
+						"" "* Sphere-type is unused."
+						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "COOL NEON LIGHT"
+							"Name"     "Cool Neon Light"
+							"Model"    "under_light_cool.3ds"
+							"Icon"     "palette/50s/light_strip_cool.png"
+							"BEE2"     "50s/light_strip_cool.png"
+							}
+						"1"
+							{
+							"pal_name" "WARM NEON LIGHT"
+							"Name"     "Warm Neon Light"
+							"Model"    "under_light_warm.3ds"
+							"Icon"     "palette/50s/light_strip_warm.png"
+							"BEE2"     "50s/light_strip_warm.png"
+							}
+						"2"
+							{
+							"pal_name" "COLD NEON LIGHT"
+							"Name"     "Cold Neon Light"
+							"Model"    "under_light_cold.3ds"
+							"Icon"     "palette/50s/light_strip_cold.png"
+							"BEE2"     "50s/light_strip_cold.png"
+							}
+						// 3: Router, unstyled.
+						}
+					// Duplicates for backwards compatibility.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Name"     "Warm Neon Light"
+								"Model"    "under_light_warm.3ds"
+								}
+							"1"
+								{
+								"Name"     "Cold Neon Light"
+								"Model"    "under_light_cold.3ds"
+								}
+							}
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Base"   "BEE2_1950s"
+					"Instances"
+						{
+						// Just the noportal volume.
+						"0"
+							{
+							"Name" "instances/BEE2/clean/items/light_strip/common.vmf"
+							"EntityCount"		"2"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						// Swapped!
+						"bee2_cool" "instances/BEE2/80s/items/light_strip/warm.vmf"
+						"bee2_warm" "instances/BEE2/80s/items/light_strip/cool.vmf"
+						// The same.
+						"bee2_cold" "instances/BEE2/80s/items/light_strip/cold.vmf"
+						}
+					"Authors" "Carl Kenner, TeamSpen210"
+					"Description"
+						{
+						"" "A fluorescent light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" ""
+						"" "* The non-cool lights can be used to contrast or highlight areas."
+						"" "* Sphere-type is unused."
+						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "COOL NEON LIGHT"
+							"Name"     "Cool Neon Light"
+							"Model"    "under_light_cool.3ds"
+							"Icon"     "palette/50s/light_strip_cool.png"
+							"BEE2"     "50s/light_strip_cool.png"
+							}
+						"1"
+							{
+							"pal_name" "WARM NEON LIGHT"
+							"Name"     "Warm Neon Light"
+							"Model"    "under_light_warm.3ds"
+							"Icon"     "palette/50s/light_strip_warm.png"
+							"BEE2"     "50s/light_strip_warm.png"
+							}
+						"2"
+							{
+							"pal_name" "COLD NEON LIGHT"
+							"Name"     "Cold Neon Light"
+							"Model"    "under_light_cold.3ds"
+							"Icon"     "palette/50s/light_strip_cold.png"
+							"BEE2"     "50s/light_strip_cold.png"
+							}
+						// 3: Router, unstyled.
+						}
+					// Duplicates for backwards compatibility.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Name"     "Warm Neon Light"
+								"Model"    "under_light_warm.3ds"
+								}
+							"1"
+								{
+								"Name"     "Cold Neon Light"
+								"Model"    "under_light_cold.3ds"
+								}
+							}
+						}
+					}
 				}
 			}
 		}
