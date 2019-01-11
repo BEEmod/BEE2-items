@@ -24,16 +24,17 @@ function StopDepartureVideo(width,height)
 
 function StopVideo(videoType,width,height)
 {
+	local signName;
 	if (videoType == DEPARTURE_VIDEO)
 		{
-			signName = "@departure_sign_*"
+			signName = "@departure_sign_*";
 		}
 		else
 		{
-			signName = "@arrival_sign_*"
+			signName = "@arrival_sign_*";
 		}	
-	EntFire(signName, "Disable", "", 0)
-	EntFire(signName, "killhierarchy", "", 1.0)
+	EntFire(signName, "Disable", "", 0);
+	EntFire(signName, "killhierarchy", "", 1.0);
 }
 
 function StartArrivalVideo(width, height, use_destructed)

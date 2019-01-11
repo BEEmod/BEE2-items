@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "257"
+	"editorbuild" "7335"
+	"mapversion" "262"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "257"
+	"mapversion" "262"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -473,8 +473,6 @@ entity
 		"OnTrigger" "@entrance_door_openCancelPending0-1"
 		"OnTrigger" "door_pushersEnable0-1"
 		"OnTrigger" "door_pushersDisable1-1"
-		"OnTrigger" "door_hurterEnable1-1"
-		"OnTrigger" "door_hurterDisable2-1"
 		"OnTrigger" "@entrance_areaportalClose2-1"
 	}
 	"origin" "97 44 -124"
@@ -490,7 +488,7 @@ entity
 {
 	"id" "14781"
 	"classname" "logic_relay"
-	"spawnflags" "2"
+	"spawnflags" "3"
 	"targetname" "@entrance_door_open"
 	connections
 	{
@@ -498,7 +496,6 @@ entity
 		"OnTrigger" "door_propSetDefaultAnimationopen_idle0.1-1"
 		"OnTrigger" "@entrance_door_closeCancelPending0-1"
 		"OnTrigger" "door_pushersDisable0-1"
-		"OnTrigger" "door_hurterDisable0-1"
 		"OnTrigger" "@entrance_areaportalOpen0-1"
 	}
 	"origin" "121 44 -124"
@@ -618,7 +615,7 @@ entity
 		side
 		{
 			"id" "2996"
-			"plane" "(0 -64 -68) (0 64 -68) (128 64 -68)"
+			"plane" "(0 -48 -68) (0 48 -68) (128 48 -68)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -629,7 +626,7 @@ entity
 		side
 		{
 			"id" "2995"
-			"plane" "(0 64 -69) (0 -64 -69) (128 -64 -69)"
+			"plane" "(0 48 -69) (0 -48 -69) (128 -48 -69)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -640,9 +637,9 @@ entity
 		side
 		{
 			"id" "2994"
-			"plane" "(0 -64 -69) (0 64 -69) (0 64 -68)"
+			"plane" "(0 -48 -69) (0 48 -69) (0 48 -68)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
-			"uaxis" "[0 1 0 0] 0.25"
+			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -651,7 +648,7 @@ entity
 		side
 		{
 			"id" "2993"
-			"plane" "(128 64 -69) (128 -64 -69) (128 -64 -68)"
+			"plane" "(128 48 -69) (128 -48 -69) (128 -48 -68)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -662,9 +659,9 @@ entity
 		side
 		{
 			"id" "2992"
-			"plane" "(0 64 -69) (128 64 -69) (128 64 -68)"
+			"plane" "(0 48 -69) (128 48 -69) (128 48 -68)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
-			"uaxis" "[1 0 0 0] 0.25"
+			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -673,7 +670,7 @@ entity
 		side
 		{
 			"id" "2991"
-			"plane" "(128 -64 -69) (0 -64 -69) (0 -64 -68)"
+			"plane" "(128 -48 -69) (0 -48 -69) (0 -48 -68)"
 			"material" "TOOLS/TOOLSAREAPORTAL"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
