@@ -1067,20 +1067,11 @@
 	"Description"	"The music played in Sentry Turret introduction map. Features extra music beats whenever Turrets are defeated."
 	"Sample"        "p2/sp_a2_turret_intro_b1.ogg"
 	"SoundScript"	"music/sp_a2_turret_intro_b1.wav"
-	"Config"
-		{
-		"Condition"
-			{
-			"instance" "<ITEM_TURRET>"
-			"Result"
-				{
-				"addOverlay"
-					{
-					"File" "instances/BEE2/music/valve_turret_intro_turret.vmf"
-					}
-				}
-			}
-		}
+	// Note - don't use the "instance" option for the global one,
+	// that disables changing the sub-channels!
+	
+	// Add special track whenever turrets are knocked over.
+	"Config" "im_different.cfg"
 	"Children"
 		{
 		"tBeam" "VALVE_EXC_FUNNEL"
