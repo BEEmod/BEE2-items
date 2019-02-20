@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "83"
+	"editorbuild" "7335"
+	"mapversion" "87"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "83"
+	"mapversion" "87"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -72,7 +72,7 @@ entity
 	"_lightHDR" "122 207 239 15"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
-	"origin" "0 0 -48"
+	"origin" "0 0 -36"
 	editor
 	{
 		"color" "220 30 220"
@@ -84,43 +84,22 @@ entity
 entity
 {
 	"id" "664"
-	"classname" "prop_dynamic"
+	"classname" "prop_floor_button"
 	"angles" "0 180 0"
-	"DisableBoneFollowers" "0"
-	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
-	"disableshadowdepth" "0"
-	"disableshadows" "0"
-	"disableX360" "0"
-	"drawinfastreflection" "1"
-	"ExplodeDamage" "0"
-	"ExplodeRadius" "0"
-	"fademaxdist" "0"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"HoldAnimation" "0"
-	"MaxAnimTime" "10"
-	"maxcpulevel" "0"
-	"maxgpulevel" "0"
-	"MinAnimTime" "5"
-	"mincpulevel" "0"
-	"mingpulevel" "0"
-	"model" "models/bee2/props_p1/tuleby/pgun_button.mdl"
-	"PerformanceMode" "0"
-	"pressuredelay" "0"
-	"RandomAnimation" "0"
+	"model" "models/bee2/props_p1/tuleby/pgun_button_blue.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "0"
-	"SetBodyGroup" "0"
-	"shadowdepthnocache" "0"
-	"skin" "2"
-	"solid" "6"
-	"spawnflags" "0"
-	"StartDisabled" "0"
 	"SuppressAnimSounds" "0"
 	"targetname" "mdl"
+	"vscripts" "bee2/pgun_btn_blue.nut"
+	connections
+	{
+		"OnUnPressed" "@portalgunRunScriptCodepgun_btn_deact()0-1"
+		"OnPressed" "@portalgunRunScriptCodepgun_btn_act()0-1"
+	}
 	"origin" "3.8147e-006 0 -56"
 	editor
 	{
@@ -128,150 +107,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 4000]"
-	}
-}
-entity
-{
-	"id" "705"
-	"classname" "trigger_multiple"
-	"origin" "0 -0.2 -51"
-	"spawnflags" "1"
-	"StartDisabled" "0"
-	"targetname" "player_button"
-	"wait" ".11"
-	connections
-	{
-		"OnEndTouchAll" "mdlSetAnimationup0-1"
-		"OnStartTouch" "mdlSetAnimationdown0-1"
-		"OnStartTouch" "@portalgunRunScriptCodepgun_btn_act()0-1"
-		"OnEndTouchAll" "@portalgunRunScriptCodepgun_btn_deact()0-1"
-	}
-	solid
-	{
-		"id" "1049"
-		side
-		{
-			"id" "809"
-			"plane" "(23 23 -55) (0 32 -55) (-23 23 -55)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "810"
-			"plane" "(0 32 -39) (23 23 -39) (32 0 -39)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "811"
-			"plane" "(0 32 -55) (23 23 -55) (23 23 -39)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-0.931243 0.364399 0 0] 0.25"
-			"vaxis" "[0 0 -1 4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "812"
-			"plane" "(23 23 -55) (32 0 -55) (32 0 -39)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-0.364399 0.931243 0 0] 0.25"
-			"vaxis" "[0 0 -1 4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "813"
-			"plane" "(32 0 -55) (23 -23 -55) (23 -23 -39)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0.364399 0.931243 0 0] 0.25"
-			"vaxis" "[0 0 -1 4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "814"
-			"plane" "(23 -23 -55) (0 -32 -55) (0 -32 -39)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0.931243 0.364399 0 0] 0.25"
-			"vaxis" "[0 0 -1 4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "815"
-			"plane" "(0 -32 -55) (-23 -23 -55) (-23 -23 -39)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0.931243 -0.364399 0 0] 0.25"
-			"vaxis" "[0 0 -1 4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "816"
-			"plane" "(-23 -23 -55) (-32 0 -55) (-32 0 -39)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0.364399 -0.931243 0 0] 0.25"
-			"vaxis" "[0 0 -1 4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "817"
-			"plane" "(-32 0 -55) (-23 23 -55) (-23 23 -39)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-0.364399 -0.931243 0 0] 0.25"
-			"vaxis" "[0 0 -1 4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "818"
-			"plane" "(-23 23 -55) (0 32 -55) (0 32 -39)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-0.931243 -0.364399 0 0] 0.25"
-			"vaxis" "[0 0 -1 4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras
