@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "40"
+	"editorbuild" "7335"
+	"mapversion" "48"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -15,12 +15,12 @@ viewsettings
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
 	"nGridSpacing" "4"
-	"bShow3DGrid" "0"
+	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "40"
+	"mapversion" "48"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -53,6 +53,7 @@ entity
 	"mincpulevel" "0"
 	"mingpulevel" "0"
 	"model" "models/props/switch001.mdl"
+	"parentname" "output"
 	"PerformanceMode" "0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
@@ -68,7 +69,7 @@ entity
 	"StartDisabled" "0"
 	"SuppressAnimSounds" "0"
 	"targetname" "mdl"
-	"origin" "-48 0 -60"
+	"origin" "-48 0 -56"
 	editor
 	{
 		"color" "220 30 220"
@@ -81,7 +82,7 @@ entity
 {
 	"id" "36"
 	"classname" "func_noportal_volume"
-	"origin" "-48 0 -62"
+	"origin" "-48 0 -60"
 	"spawnflags" "0"
 	solid
 	{
@@ -89,7 +90,7 @@ entity
 		side
 		{
 			"id" "1"
-			"plane" "(-32 -48 -60) (-64 -48 -60) (-64 48 -60)"
+			"plane" "(-32 -48 -56) (-64 -48 -56) (-64 48 -56)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -111,7 +112,7 @@ entity
 		side
 		{
 			"id" "3"
-			"plane" "(-64 48 -64) (-32 48 -64) (-32 48 -60)"
+			"plane" "(-64 48 -64) (-32 48 -64) (-32 48 -56)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -122,7 +123,7 @@ entity
 		side
 		{
 			"id" "4"
-			"plane" "(-32 -48 -64) (-64 -48 -64) (-64 -48 -60)"
+			"plane" "(-32 -48 -64) (-64 -48 -64) (-64 -48 -56)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -133,7 +134,7 @@ entity
 		side
 		{
 			"id" "5"
-			"plane" "(-32 48 -64) (-32 -48 -64) (-32 -48 -60)"
+			"plane" "(-32 48 -64) (-32 -48 -64) (-32 -48 -56)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -144,7 +145,7 @@ entity
 		side
 		{
 			"id" "6"
-			"plane" "(-64 -48 -64) (-64 48 -64) (-64 48 -60)"
+			"plane" "(-64 -48 -64) (-64 48 -64) (-64 48 -56)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -189,8 +190,9 @@ entity
 		"OnPressed" "mdlSetAnimationdown0-1"
 		"OnUser2" "proxyProxyRelay0-1"
 		"OnPressed" "spSparkOnce0-1"
+		"OnPressed" "mdlClearParent0-1"
 	}
-	"origin" "-46 0 -56"
+	"origin" "-48 0 -56"
 	editor
 	{
 		"color" "220 30 220"
