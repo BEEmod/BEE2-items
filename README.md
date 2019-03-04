@@ -37,18 +37,18 @@ These are instructions to install the development version of the Default Pack. T
 
 For some things to work correctly, you may need to use this with the development version of the application/compiler. Instructions for how to install this can be found [here](https://github.com/BEEmod/BEE2.4#build-from-source-advanced-for-adding-to-bee24-program-windows).
 
-1. If you don't already have one, download and install a Git app such as [GitHub Desktop](https://desktop.github.com/).
-2. Clone this repository in your Git app.
-3. Once it is finished, select the branch you want to get features from. `master`, the default branch, is the release version. `dev` contains features which will be in the next update. There are also various other branches, explained below.
-4. Open `config/config.cfg` in the BEE2.4 folder.
-4. Set the package directory to the `packages` folder within your cloned repository folder. By default this is `C:\Users\<yourname>\Documents\GitHub\BEE2-items\packages`.
-5. Open the BEE2.4 application. If it works, your files will be equal to the files of the branch you selected.
+1. If you don't already have one, download and install a Git client such as [GitHub Desktop](https://desktop.github.com/).
+2. Clone this repository in your Git client. If you are using GitHub Desktop, the "Clone or Download" button above can be used to instantly begin cloning the repository to your computer.
+3. Once it is finished, select the branch you want to sync changes from. `master`, the default branch, is the release version. `dev` contains features which will be in the next update. There are also various other branches available, for testing different features.
+4. Open `%appdata%/BEEMOD2/config/config.cfg` in a text editor. <!--TODO: Where are these files/directories located on Mac?-->
+5. Set the package directory to the `packages` folder within your cloned repository folder. If using GitHub Desktop, this will default to `C:\Users\<yourname>\Documents\GitHub\BEE2-items\packages`.
+6. Open the BEE2.4 application. If it works, your files will be equal to the files of the branch you selected.
 
-The development version does not automatically update to the latest features, you must do this manually by clicking the "Sync" button in your Git app.
+To continue recieving the latest changes, you must regularly pull commits from the repository in your Git client. For GitHub Desktop, this is done using the "Pull origin" option at the top of the app.
 
 ## Additional Information
 
-- If you are editing in Hammer, anything that is placed in the folder `sdk_content\maps\instances\bee2` will be deleted if you export the BEE2.4 pallete without enabling the setting *Preserve Game Directories*. If you are editing any package, after you have finished, do not forget to save it inside the packages, by replacing the old files inside.
+- If you are editing in Hammer, anything that is placed in the folder `sdk_content\maps\instances\bee2` will be deleted if you export the BEE2.4 pallete without enabling the setting *Preserve Game Directories*. If you are editing any package, after you have finished, do not forget to save it inside the packages, by replacing the old files inside. If you are using the development version, you can run `reverse-cache.py` to do this automatically. <!--TODO: Does do what I think it does/work properly?-->
 - BEE2.4 will crash if you are exporting while another folder or file is open that is important to the BEE2.4 compilation process.
 - It is recommended to keep backups of the following Portal 2 folders: `sdk_content`, `portal2_dlc2`, and `bin`, just in case you need to restore your Portal 2 files.
 
