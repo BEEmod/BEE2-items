@@ -65,11 +65,16 @@
 		"TargetName"		"st"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
-			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
-			}
+			"BEE2"
+				{
+				"Type"          "AND"
+				"InvertVar"     "$start_deployed"
+				"SpawnFire"		"dynamic"
+				"Enable_Cmd"    "up_rl,Trigger,,0.00,-1"
+				"Enable_Cmd"    "down_rl,CancelPending,,0.00,-1"
+				"Disable_Cmd"   "down_rl,Trigger,,0.00,-1"
+				"Disable_Cmd"   "up_rl,CancelPending,,0.00,-1"
+				}
 		}
 		"Offset"		"64 64 64"
 

@@ -98,9 +98,9 @@
 			"BEE2"
 				{
 				"Type"          "AND"
-				"InvertVar"     "$start_locked"
-				"Enable_Cmd"    "@door_unlocked,SetValue,1,0.00,-1"
-				"Disable_Cmd"   "@door_unlocked,SetValue,0,0.00,-1"
+				"InvertVar"     "!$start_locked"
+				"Enable_Cmd"    "script,RunScriptCode,inp_io(true),0.00,-1"
+				"Disable_Cmd"   "script,RunScriptCode,inp_io(false),0.00,-1"
 				}
 			}
 		"Offset"		"64 64 0"
