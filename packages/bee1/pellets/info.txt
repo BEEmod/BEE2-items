@@ -33,6 +33,16 @@
 		"Tooltip" "Make High Energy Pellets pass through Gratings."
 		"Tooltip" "让高能弹丸穿过光栅。" [lang_zh]
 		}
+	"Widget"
+		{
+		"ID"	  "RefreshTime"
+		"Label"   "Portal Refresh Time"
+		"Type"    "Timer"
+		"Default" "6"
+		"Min"     "3"
+		"Max"     "30"
+		"Tooltip" "When pellets pass through a portal, the time remaining before they explode will be to at least this many seconds. Does not apply to infinite launchers."
+		}
 	}
 
 "Item"
@@ -58,13 +68,6 @@
 			"BEE2_OVERGROWN"
 				{
 				"Base"  "BEE2_CLEAN"
-				"Replace"
-					{
-					"PACK_PELLET_LAUNCHER_INF_CLEAN" "PACK_PELLET_LAUNCHER_INF_DIRTY"
-					// We don't need to pack anything specific for normal launchers -
-					// it's just the (included) dirty model.
-					"PACK_PELLET_LAUNCHER_CLEAN"     ""
-					}
 				"Instances"
 					{
 					"bee2_inf"  "instances/BEE2/over/items/BEE/hep/emitter_inf.vmf"

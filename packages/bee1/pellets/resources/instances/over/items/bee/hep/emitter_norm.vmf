@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "122"
+	"editorbuild" "7335"
+	"mapversion" "130"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "122"
+	"mapversion" "130"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -40,10 +40,10 @@ entity
 	"ballrespawntime" "1"
 	"balltype" "0"
 	"maxspeed" "$speed"
-	"MinLifeAfterPortal" "6"
+	"MinLifeAfterPortal" "$refresh_time"
 	"minspeed" "$speed"
 	"origin" "0 0 -16"
-	"spawnflags" "4096"
+	"spawnflags" "0"
 	"targetname" "launcher"
 	connections
 	{
@@ -51,6 +51,7 @@ entity
 		"OnPostSpawnBall" "launch_fxStart0-1"
 		"OnPostSpawnBall" "launch_fxStop0.9-1"
 		"OnBallCaught" "branch_respawnTest0-1"
+		"OnPostSpawnBall" "!selfFireUser10-1"
 	}
 	editor
 	{
@@ -69,89 +70,11 @@ entity
 	connections
 	{
 		"OnFalse" "launcherKill01"
-		"OnFalse" "counterKill01"
-		"OnFalse" "branch_toggleKill01"
 		"OnTrue" "launcherEnable0-1"
 		"OnTrue" "launcherLaunchBall1-1"
+		"OnFalse" "branch_respawnKill01"
 	}
 	"origin" "-48 16 -32"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "3103"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "launcherEnable0-1"
-		"OnFalse" "launcherDisable0-1"
-	}
-	"origin" "-48 48 -32"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "782"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-16 48 -32"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "784"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "48 48 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
-	"id" "788"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest2.21"
-	}
-	"origin" "16 48 -32"
 	editor
 	{
 		"color" "0 100 250"
@@ -174,6 +97,7 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
+	"skinset" "0"
 	"solid" "0"
 	"targetname" "mdl"
 	"origin" "0 -1.90735e-006 -56"
@@ -190,14 +114,10 @@ entity
 	"id" "307"
 	"classname" "func_instance_parms"
 	"parm1" "$start_enabled boolean 0"
-	"parm2" "$timer_delay integer"
-	"parm3" "$lifetime integer"
-	"parm4" "$lifetime$timer_delay integer"
-	"parm5" "$respawntime string 1"
-	"parm6" "$speed integer 500"
-	"parm7" "$life_after_portaltransition integer 6"
-	"parm8" "$connectioncount integer 0"
-	"parm9" "$disable_autorespawn boolean 0"
+	"parm2" "$disable_autorespawn boolean 1"
+	"parm3" "$speed integer 500"
+	"parm4" "$timer_delay integer 5"
+	"parm5" "$refresh_time float 6"
 	"origin" "48 16 -32"
 	editor
 	{

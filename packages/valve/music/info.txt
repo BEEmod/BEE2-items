@@ -1,5 +1,5 @@
 "ID"		"VALVE_MUSIC"
-"Name"		"Music"
+"Name"		"Valve Music"
 "Desc"      "Music added by Valve."
 
 
@@ -19,8 +19,11 @@
 		""  "The original PeTI music."
 		""  ""
 		""  "* Randomly chooses between Robot Waiting Room 1-5 and '7'."
+		""  "* This special behaviour prevents users from customising tracks."
 		}
-	"Soundscript"   "music.pti_b1_001"
+
+	// Using an instance allows us to force using the custom soundscript.
+	"Instance" "instances/BEE2/music/robo_room.vmf"
 	// No sample - this switches between the following 7 ones.
 	}
 
@@ -38,12 +41,15 @@
 		""  "One of several tracks played in the Cooperative Testing Hub, and PeTI levels."
 		""  "This track is similar to the 1950s music tracks."
 		}
-	"Soundscript"   "music.ctc_b1_001"
 	"Sample"        "p2/ctc_b1_001.ogg"
+	"Soundscript"
+		{
+		"Base" "music/ctc_b1_001.wav"
+		"BounceGel" "music/ctc_z1_001.wav"
+		}
 	"Children"
 		{
 		"tBeam" "VALVE_PETI_FUNNEL"
-		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
 		}
 	}
 
@@ -57,12 +63,16 @@
 	"IconLarge"	"music_lrg/robo_room.png"
 	"Authors"       "Valve"
 	"Description"   "One of several tracks played in the Cooperative Testing Hub and PeTI levels."
-	"Soundscript"   "music.ctc_b1_002"
+
 	"Sample"        "p2/ctc_b1_002.ogg"
+	"Soundscript"
+		{
+		"Base" "music/ctc_b1_002.wav"
+		"BounceGel" "music/ctc_z1_002.wav"
+		}
 	"Children"
 		{
 		"tBeam" "VALVE_PETI_FUNNEL"
-		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
 		}
 	}
 
@@ -76,12 +86,16 @@
 	"IconLarge"	"music_lrg/robo_room.png"
 	"Authors"       "Valve"
 	"Description"   "One of several tracks played in the Cooperative Testing Hub and PeTI levels."
-	"Soundscript"   "music.ctc_b1_003"
+	
 	"Sample"        "p2/ctc_b1_003.ogg"
+	"Soundscript"
+		{
+		"Base" "music/ctc_b1_003.wav"
+		"BounceGel" "music/ctc_z1_003.wav"
+		}
 	"Children"
 		{
 		"tBeam" "VALVE_PETI_FUNNEL"
-		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
 		}
 	}
 
@@ -99,12 +113,15 @@
 		""	"One of several tracks played in the Cooperative Testing Hub and PeTI levels."
 		""	"This track is similar to the 1950s music tracks."
 		}
-	"Soundscript"   "music.ctc_b1_004"
 	"Sample"        "p2/ctc_b1_004.ogg"
+	"Soundscript"
+		{
+		"Base" "music/ctc_b1_004.wav"
+		"BounceGel" "music/ctc_z1_004.wav"
+		}
 	"Children"
 		{
 		"tBeam" "VALVE_PETI_FUNNEL"
-		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
 		}
 	}
 
@@ -122,12 +139,15 @@
 		""  "One of several tracks played in the Cooperative Testing Hub and PeTI levels."
 		""  "This track is similar to the 1950s music tracks."
 		}
-	"Soundscript"   "music.ctc_b1_005"
 	"Sample"        "p2/ctc_b1_005.ogg"
+	"Soundscript"
+		{
+		"Base" "music/ctc_b1_005.wav"
+		"BounceGel" "music/ctc_z1_005.wav"
+		}
 	"Children"
 		{
 		"tBeam" "VALVE_PETI_FUNNEL"
-		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
 		}
 	}
 
@@ -146,7 +166,7 @@
 		""  "This track is similar to Robot Room 1, but slightly more dramatic."
 		}
 	// The soundscript for this doesn't use the actual sound, so we need to use the raw WAV.
-	"Soundscript"   "*)music/mp_coop_lobby_2_c1.wav"
+	"Soundscript"   "music/mp_coop_lobby_2_c1.wav"
 	"Sample"        "p2/mp_coop_lobby_2_c1.ogg"
 	"Children"
 		{
@@ -171,8 +191,12 @@
 		""  "This track does not appear in the original game soundtrack."
 		""  "It features trombones and mallet instruments."
 		}
-	"Soundscript"   "music.ctc_b1_006"
 	"Sample"        "p2/ctc_b1_006.ogg"
+	"Soundscript"
+		{
+		"Base" "music/ctc_b1_006.wav"
+		"BounceGel" "music/ctc_z1_006.wav"
+		}
 	"Children"
 		{
 		"tBeam" "VALVE_PETI_FUNNEL"
@@ -203,12 +227,13 @@
 	"ID"            "VALVE_PETI_BOUNCE_GEL"
 	"Name"          "PeTI Repulsion Gel"
 	"ShortName"     "PeTI Bounce"
+	"Group"         "PeTI / Robo Room"
 	"Icon"          "music/default.png"
 	"IconLarge"	"music_lrg/default.png"
 	"Authors"       "Valve"
 	"Description"
 		{
-		"" "Repulsion Gel beats used in default PeTI levels."
+		"" "All the Repulsion Gel beats used in default PeTI levels."
 		}
 	"Sample"        "p2/ctc_z1.ogg"
 	"SoundScript"
@@ -510,7 +535,7 @@
 	"Icon"			"music/nines.png"
 	"IconLarge"		"music_lrg/nines.png"
 	"Authors"		"Valve"
-	"Description"	"The latter parts of the 9999999 track, used in the last level of Chapter 6: The Escape just before GLaDOS recaptures you."
+	"Description"	"The latter parts of the 9999999 track, used in the last level of Chapter 5: The Escape just before GLaDOS recaptures you."
 	"SoundScript"	"music/sp_a2_core_b2.wav"
 	"Sample"        "p2/sp_a2_core_b2.ogg"
 	}
@@ -1042,20 +1067,11 @@
 	"Description"	"The music played in Sentry Turret introduction map. Features extra music beats whenever Turrets are defeated."
 	"Sample"        "p2/sp_a2_turret_intro_b1.ogg"
 	"SoundScript"	"music/sp_a2_turret_intro_b1.wav"
-	"Config"
-		{
-		"Condition"
-			{
-			"instance" "<ITEM_TURRET>"
-			"Result"
-				{
-				"addOverlay"
-					{
-					"File" "instances/BEE2/music/valve_turret_intro_turret.vmf"
-					}
-				}
-			}
-		}
+	// Note - don't use the "instance" option for the global one,
+	// that disables changing the sub-channels!
+	
+	// Add special track whenever turrets are knocked over.
+	"Config" "im_different.cfg"
 	"Children"
 		{
 		"tBeam" "VALVE_EXC_FUNNEL"

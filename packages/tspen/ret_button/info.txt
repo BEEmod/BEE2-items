@@ -1,0 +1,187 @@
+"ID"		"TSPEN_RET_BUTTON"
+"Name"		"TSpen - Retractable Button"
+"Desc"      "Adds versions of floor and pedestal buttons which can be retracted into surfaces."
+
+"Item"
+	{
+	"ID" "ITEM_TSPEN_BUTTON_PEDESTAL_RETRACT"
+	"Description" "This pedestal button accepts an input which will raise it up from under the floor. It cannot be pushed when not fully up."
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"        "ped_clean"
+			"BEE2_OVERGROWN"    "ped_over"
+			"BEE2_PORTAL_1"     "ped_p1"
+			"BEE2_1950s"        "ped_50s"
+			}
+		}
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_BTN_PED_CLEAN_BASE"
+	"File"  "ped_cowl_clean.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_BTN_PED_P1_BASE"
+	"File"  "ped_cowl_p1.vmf"
+	}
+	
+"Item"
+	{
+	"ID" "ITEM_TSPEN_BUTTON_RETRACT_FLOOR"
+	"Description" 
+		{
+		"" "A floor button that has panels to cover it so players/objects cannot push the button."
+		"" ""
+		"" "* Cubes are fizzled when the panels close."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"    "ret_floor_button"
+			"BEE2_1950s"
+				{
+				"Folder"  "ret_floor_button"
+				"Config"  "ret_floor_button_retro.cfg"
+				"Instances"
+					{
+					// Shared among the styles
+					"bee2_logic" "instances/bee2/50s/items/tspen/ret_btn/floor_logic.vmf"
+					// Base and brushes.
+					"bee2_common" "instances/bee2/50s/items/tspen/ret_btn/floor_base.vmf"
+					
+					"bee2_floor"  "instances/bee2/50s/items/tspen/ret_btn/floor_btn.vmf"
+					"bee2_cube"   "instances/bee2/50s/items/tspen/ret_btn/cube_btn.vmf"
+					"bee2_ball"   "instances/bee2/50s/items/tspen/ret_btn/ball_btn.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%vis_neg%" "neg,neg_70s"
+						"%vis_pos%" "pos,pos_70s"
+						}
+					}
+				"Instances"
+					{
+					"bee2_common" "instances/bee2/70s/items/tspen/ret_button_common.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1970s"
+				"Instances"
+					{
+					"bee2_common" "instances/bee2/80s/items/tspen/ret_btn/common.vmf"
+					"bee2_floor"  "instances/bee2/80s/items/tspen/ret_btn/floor_btn.vmf"
+					"bee2_cube"   "instances/bee2/80s/items/tspen/ret_btn/cube_btn.vmf"
+					"bee2_ball"   "instances/bee2/80s/items/tspen/ret_btn/ball_btn.vmf"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%vis_neg%" "neg_70s,neg_80s"
+						"%vis_pos%" "pos_70s,pos_80s"
+						}
+					"Conditions"
+						{
+						"Condition"
+							{
+							"instance" "<ITEM_TSPEN_BUTTON_RETRACT_FLOOR:bee2_floor>"
+							"Result"
+								{
+								"Random"
+									{	
+									 // Clean, Dest, V.Dest
+									"Weights"	"1, 2, 3"
+									"SetInstVar" "$model models/bee2/props_ingame/floor_button_prototype_2.mdl"
+									"SetInstVar" "$model models/bee2/props_ingame/floor_button_prototype_1.mdl"
+									}
+								}
+							}
+						}
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder"  "ret_floor_button"
+				"Config"  "ret_floor_button_over.cfg"
+				"Instances"
+					{
+					// Shared among the styles
+					"bee2_logic" "instances/bee2/over/items/tspen/ret_btn/floor_logic.vmf"
+					// Base and brushes.
+					"bee2_common" "instances/bee2/over/items/tspen/ret_btn/floor_base.vmf"
+					
+					"bee2_floor"  "instances/bee2/over/items/tspen/ret_btn/floor_btn.vmf"
+					"bee2_cube"   "instances/bee2/over/items/tspen/ret_btn/cube_btn.vmf"
+					"bee2_ball"   "instances/bee2/over/items/tspen/ret_btn/ball_btn.vmf"
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder"  "ret_floor_button"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMP_ONESIGN%" "TSPEN_BTN_CUBE_P1"
+						"%TEMP_TWOSIGN%" "TSPEN_BTN_FLOOR_P1"
+
+						"%LEFT_PARENT%" "m2,cyl"
+						"%RIGHT_PARENT%" "m1,cyl"
+						}
+					}
+				"Instances"
+					{
+					// Base and brushes.
+					"bee2_common"   "instances/BEE2/p1/items/tspen/ret_btn/ret_button_common.vmf"
+
+					"bee2_floor"    "instances/BEE2/p1/items/tspen/ret_btn/floor_button.vmf"
+					"bee2_ball"     "instances/BEE2/p1/items/tspen/ret_btn/ball_button.vmf"
+					"bee2_cube"     "instances/BEE2/p1/items/tspen/ret_btn/cube_button.vmf"
+					}
+				}
+			}
+		}
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_BTN_FLOOR_CLEAN"
+	"File"  "pan_floor_clean.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_BTN_CUBE_CLEAN"
+	"File"  "pan_cube_clean.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_BTN_FLOOR_RETRO"
+	"File"  "retro_floor_top.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_BTN_FLOOR_P1"
+	"File"  "pan_floor_p1.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_BTN_CUBE_P1"
+	"File"  "pan_cube_p1.vmf"
+	}

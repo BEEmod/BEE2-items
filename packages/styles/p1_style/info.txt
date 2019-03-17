@@ -62,7 +62,7 @@
 "StyleVPK"
 	{
 	"ID"       "VPK_BEE2_PORTAL_1"
-	"Filename" "p1"
+	"FileName" "p1"
 	}
 	
 "SkyBox"
@@ -159,18 +159,6 @@
 	{
 	"ID"    "BEE2_P1_GLASS_BEAM"
 	"File"  "glass_floor_beam.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "BEE2_FLOOR_BUTTON_BASE_P1_WHITE"
-	"File"  "button_base_white.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "BEE2_BALL_BUTTON_BASE_P1_WHITE"
-	"File"  "ball_base_white.vmf"
 	}
 	
 "Overrides"
@@ -280,7 +268,17 @@
 				}
 			}
 		}
-		
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_STAIRS_TOP_PORTAL_1"
+	"File" "stair_top.vmf"
+	}
+
+
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_SECONDARY_OBSERVATION_ROOM"
@@ -345,22 +343,75 @@
 			{
 			"Styles"
 				{
-				"BEE2_PORTAL_1" "light_strip_cool"
+				"BEE2_PORTAL_1"
+					{
+					"Base"   "BEE2_CLEAN"
+					"Append" "light_strip.cfg"
+					"Instances"
+						{
+						"bee2_cool" "instances/BEE2/p1/items/light_strip/cool.vmf"
+						"bee2_warm" "instances/BEE2/p1/items/light_strip/warm.vmf"
+						"bee2_cold" "instances/BEE2/p1/items/light_strip/cold.vmf"
+						}
+					"Authors" "Carl Kenner, BenVlodgi, Rantis, Lautaro, TeamSpen210"
+					"Description"
+						{
+						"" "A small hole that emits that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" ""
+						"" "* The non-cool lights can be used to contrast or highlight areas."
+						"" "* Sphere-type is unused."
+						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "WHITE HOLE LIGHT"
+							"Name"     "White Hole Light"
+							"Model"    "p1_light_cool.3ds"
+							"Icon"     "palette/p1/light_strip_cool.png"
+							"BEE2"     "p1/light_strip_cool.png"
+							}
+						"1"
+							{
+							"pal_name" "ORANGE HOLE LIGHT"
+							"Name"     "Orange Hole Light"
+							"Model"    "p1_light_warm.3ds"
+							"Icon"     "palette/p1/light_strip_warm.png"
+							"BEE2"     "p1/light_strip_warm.png"
+							}
+						"2"
+							{
+							"pal_name" "BLUE HOLE LIGHT"
+							"Name"     "Blue Hole Light"
+							"Model"    "p1_light_cold.3ds"
+							"Icon"     "palette/p1/light_strip_cold.png"
+							"BEE2"     "p1/light_strip_cold.png"
+							}
+						// 3: Router, unstyled.
+						}
+					// Duplicates for backwards compatibility.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Name"     "Orange Hole Light"
+								"Model"    "p1_light_warm.3ds"
+								}
+							"1"
+								{
+								"Name"     "Blue Hole Light"
+								"Model"    "p1_light_cold.3ds"
+								}
+							}
+						}
+					}
 				}
 			}
 		}
-	"ITEM"
-		{
-		"ID" "ITEM_LIGHT_PANEL_WARM"
-		"Version"
-			{
-			"Styles"
-				{
-				"BEE2_PORTAL_1" "light_strip_warm"
-				}
-			}
-		}
-		
+
 	"ITEM"
 		{
 		"ID" "ITEM_BARRIER_HAZARD"
@@ -420,11 +471,93 @@
 			{
 			"Styles"
 				{
-				"BEE2_PORTAL_1" "track_plat"
+				"BEE2_PORTAL_1"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config" "track_plat.cfg"
+					"Instances"
+						{
+						"0" "instances/BEE2/p1/items/track/bottom_grate.vmf"
+						"1" "instances/BEE2/p1/items/track/bottom.vmf"
+						"2" "instances/BEE2/p1/items/track/middle.vmf"
+						"3" "instances/BEE2/p1/items/track/top.vmf"
+						"4" "instances/BEE2/p1/items/track/platform.vmf"
+						"5" "instances/BEE2/p1/items/track/platform_oscillate.vmf"
+						"6" "instances/BEE2/p1/items/track/single.vmf"
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "UNSTATIONARY SCAFFOLD"
+							"Name" "Unstationary Scaffold"
+
+							"Model" "arm_motionplatform.3ds"
+							"Model" "arm_motionplatform_rail.3ds"
+							"Model" "arm_motionplatform_rail_inwater.3ds"
+							}
+						"1"
+							{
+							"Name" "Non-Portalable Unstationary Scaffold"
+							
+							"Model" "BEE2_track_plat_panel_black.3ds"
+							"Model" "arm_motionplatform_rail.3ds"
+							"Model" "arm_motionplatform_rail_inwater.3ds"
+							}
+						"2"
+							{
+							"Name" "Portalable Unstationary Scaffold"
+							
+							"Model" "BEE2_track_plat_panel_white.3ds"
+							"Model" "arm_motionplatform_rail.3ds"
+							"Model" "arm_motionplatform_rail_inwater.3ds"
+							}
+						"3"
+							{
+							"Name" "Unstationary Scaffold"
+
+							"Model" "arm_motionplatform.3ds"
+							"Model" "arm_motionplatform_rail.3ds"
+							"Model" "arm_motionplatform_rail_inwater.3ds"
+							}
+						"4"
+							{
+							"Name" "Unstationary Scaffold"
+
+							"Model" "arm_motionplatform.3ds"
+							"Model" "arm_motionplatform_rail.3ds"
+							"Model" "arm_motionplatform_rail_inwater.3ds"
+							}
+						}
+					}
 				}
 			}
 		}
-		
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_TRACK_SCAFFOLD_P1_TOP_VERT"
+	"File"  "track_platform_top_vert.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_TRACK_SCAFFOLD_P1_TOP_HORIZ"
+	"File"  "track_platform_top_horiz.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_TRACK_PLAT_PANEL_P1"
+	"File"  "track_platform_panel_top.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_TRACK_PLAT_GOO_P1"
+	"File"  "track_platform_goo.vmf"
+	}
+
+"Overrides"
+	{		
 	"ITEM"
 		{
 		"ID" "ITEM_BUTTON_FLOOR"
@@ -436,7 +569,23 @@
 				}
 			}
 		}
-		
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_FLOOR_BUTTON_BASE_P1_WHITE"
+	"File"  "button_base_white.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_BALL_BUTTON_BASE_P1_WHITE"
+	"File"  "ball_base_white.vmf"
+	}
+
+
+"Overrides"
+	{
 	"ITEM"
 		{
 		"ID" "ITEM_BUTTON_PEDESTAL"
