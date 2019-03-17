@@ -7,44 +7,233 @@
 	"ID" "ITEM_TSPEN_PANEL_HALF_STATIC"
 	"Description"
 		{
-		"" "A half-block long surface sticking out of the wall. It is supported by panel arms.  "
-		"" "Set `Start Reversed` to invert the color of the surface."
+		"" "A half-block long surface sticking out of the wall. It is supported by panel arms."
+		"" ""
+		"" "* In Portal 1 style, this is able to crush cubes."
 		}
 	"Version"
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"        "half_panel_clean"
-			"BEE2_OVERGROWN"    "half_panel_over"
-			"BEE2_PORTAL_1"     "half_panel_p1"
-			"BEE2_1950s"        "half_panel_50s"
-			"BEE2_1970s"        "half_panel_70s"
-			"BEE2_1980s"        "half_panel_80s"
+			"BEE2_CLEAN"        "half_panel"
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "half_panel"
+				"Instances"
+					{
+					"0" "instances/BEE2/over/items/panel_half.vmf"
+					}
+				"Append" "overgrown.cfg"
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "half_panel"
+				"Palette"
+					{
+					"0"
+						{
+						"Icon" "palette/clean/half_panel.png"
+						"Models"
+							{
+							"ModelName"	"bee2_half_panel_p1_white_out.3ds"
+							"ModelName"	"bee2_half_panel_p1_black_out.3ds"
+							"ModelName"	"bee2_half_panel_p1_white_in.3ds"
+							"ModelName"	"bee2_half_panel_p1_black_in.3ds"
+
+							"ModelName"	"bee2_half_panel_p1_black_out.3ds"
+							"ModelName"	"bee2_half_panel_p1_white_out.3ds"
+							"ModelName"	"bee2_half_panel_p1_black_in.3ds"
+							"ModelName"	"bee2_half_panel_p1_white_in.3ds"
+
+							"ModelName"	"bee2_half_panel_ghost_out.3ds"
+							"ModelName"	"bee2_half_panel_ghost_out.3ds"
+							"ModelName"	"bee2_half_panel_ghost_in.3ds"
+							"ModelName"	"bee2_half_panel_ghost_in.3ds"
+							}
+						}
+					}
+				"Config" "portal1.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/half_panel/item.vmf"
+					}
+				"IOConf"
+					{
+					"Type"          "AND"
+					"invertVar"     "$start_deployed"
+					"SpawnFire"     "dynamic"
+					"Enable_Cmd"    "open_rl,Trigger,,0.00,-1"
+					"Enable_Cmd"    "close_rl,CancelPending,,0.00,-1"
+					"Disable_Cmd"   "close_rl,Trigger,,0.00,-1"
+					"Disable_Cmd"   "open_rl,CancelPending,,0.00,-1"
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "half_panel"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMP%" "50s"
+						}
+					"Conditions"
+						{
+						"Condition"
+							{
+							"Priority" "-10"
+							"instance" "<ITEM_TSPEN_PANEL_HALF_STATIC>"
+							"Result"
+								{
+								"SetInstVar" "$model models/bee2/props_underground/retro_half_panel_50s.mdl"
+								}
+							}
+						}
+					}
+				"Palette"
+					{
+					"0"
+						{
+						"Icon" "palette/clean/half_panel.png"
+						"Models"
+							{
+							"ModelName"	"bee2_half_panel_50s_out_white.3ds"
+							"ModelName"	"bee2_half_panel_50s_out_black.3ds"
+							"ModelName"	"bee2_half_panel_50s_in_white.3ds"
+							"ModelName"	"bee2_half_panel_50s_in_black.3ds"
+
+							"ModelName"	"bee2_half_panel_50s_out_black.3ds"
+							"ModelName"	"bee2_half_panel_50s_out_white.3ds"
+							"ModelName"	"bee2_half_panel_50s_in_black.3ds"
+							"ModelName"	"bee2_half_panel_50s_in_white.3ds"
+
+							"ModelName"	"bee2_half_panel_ghost_out.3ds"
+							"ModelName"	"bee2_half_panel_ghost_out.3ds"
+							"ModelName"	"bee2_half_panel_ghost_in.3ds"
+							"ModelName"	"bee2_half_panel_ghost_in.3ds"
+							}
+						}
+					}
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/panel_half.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Folder" "half_panel"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMP%" "50s"
+						}
+					"Conditions"
+						{
+						"Condition"
+							{
+							"Priority" "-10"
+							"instance" "<ITEM_TSPEN_PANEL_HALF_STATIC>"
+							"Result"
+								{
+								"SetInstVar" "$model models/bee2/props_underground/retro_half_panel_70s.mdl"
+								}
+							}
+						}
+					}
+				"Palette"
+					{
+					"0"
+						{
+						"Icon" "palette/clean/half_panel.png"
+						"Models"
+							{
+							"ModelName"	"bee2_half_panel_70s_out_white.3ds"
+							"ModelName"	"bee2_half_panel_70s_out_black.3ds"
+							"ModelName"	"bee2_half_panel_70s_in_white.3ds"
+							"ModelName"	"bee2_half_panel_70s_in_black.3ds"
+
+							"ModelName"	"bee2_half_panel_70s_out_black.3ds"
+							"ModelName"	"bee2_half_panel_70s_out_white.3ds"
+							"ModelName"	"bee2_half_panel_70s_in_black.3ds"
+							"ModelName"	"bee2_half_panel_70s_in_white.3ds"
+
+							"ModelName"	"bee2_half_panel_ghost_out.3ds"
+							"ModelName"	"bee2_half_panel_ghost_out.3ds"
+							"ModelName"	"bee2_half_panel_ghost_in.3ds"
+							"ModelName"	"bee2_half_panel_ghost_in.3ds"
+							}
+						}
+					}
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/panel_half.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Folder" "half_panel"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMP%" "80s"
+						}
+					}
+				"Palette"
+					{
+					"0"
+						{
+						"Icon" "palette/clean/half_panel.png"
+						"Models"
+							{
+							"ModelName"	"bee2_half_panel_80s_out_white.3ds"
+							"ModelName"	"bee2_half_panel_80s_out_black.3ds"
+							"ModelName"	"bee2_half_panel_80s_in_white.3ds"
+							"ModelName"	"bee2_half_panel_80s_in_black.3ds"
+
+							"ModelName"	"bee2_half_panel_80s_out_black.3ds"
+							"ModelName"	"bee2_half_panel_80s_out_white.3ds"
+							"ModelName"	"bee2_half_panel_80s_in_black.3ds"
+							"ModelName"	"bee2_half_panel_80s_in_white.3ds"
+
+							"ModelName"	"bee2_half_panel_ghost_out.3ds"
+							"ModelName"	"bee2_half_panel_ghost_out.3ds"
+							"ModelName"	"bee2_half_panel_ghost_in.3ds"
+							"ModelName"	"bee2_half_panel_ghost_in.3ds"
+							}
+						}
+					}
+				"Instances"
+					{
+					"0" "instances/BEE2/80s/items/panel_half.vmf"
+					}
+				}
 			}
 		}
 	}
 
 "BrushTemplate"
 	{
-	"ID" "BEE2_HALF_PANEL_TOP_CLEAN"
+	"ID" "BEE2_HALF_PANEL_CLEAN"
 	"File" "half_panel_clean.vmf"
 	}
 
 "BrushTemplate"
 	{
-	"ID" "BEE2_HALF_PANEL_TOP_P1"
+	"ID" "BEE2_HALF_PANEL_P1"
 	"File" "half_panel_p1.vmf"
 	}
 
 "BrushTemplate"
 	{
-	"ID" "BEE2_HALF_PANEL_TOP_50S"
+	"ID" "BEE2_HALF_PANEL_50S"
 	"File" "half_panel_50s.vmf"
 	}
 
 "BrushTemplate"
 	{
-	"ID" "BEE2_HALF_PANEL_TOP_80S"
+	"ID" "BEE2_HALF_PANEL_80S"
 	"File" "half_panel_80s.vmf"
 	}
 	

@@ -1,0 +1,46 @@
+VertexLitGeneric
+	{
+	$basetexture "BEE2/models/props_overgrown/bumbleball/light_on"
+	$blendtintbybasealpha 1
+	$selfillum 1
+	$selfillummask "BEE2/models/props_overgrown/bumbleball/light_illum"
+
+	$phong 1
+	$phongexponent 5
+	$phongboost 2
+	$phongfresnelranges "[5 1 2]"
+	$nodecal 1
+
+	$selfillummaskscale 0.9
+	$offset 0
+	$noise 0
+	$base_glow 0
+	Proxies
+		{
+		EntityRandom
+			{
+			scale 2.7
+			resultVar $offset
+			}
+		Sine
+			{
+			sinemin 0.4
+			sinemax 0.7
+			sineperiod 2.7
+			timeoffset $offset
+			resultVar $base_glow 
+			}
+		UniformNoise
+			{
+			minVal -0.1
+			maxVal 0.1
+			resultVar $noise
+			}
+		Add
+			{
+			srcVar1 $base_glow
+			srcVar2 $noise
+			resultVar $selfillummaskscale
+			}
+		}
+	}

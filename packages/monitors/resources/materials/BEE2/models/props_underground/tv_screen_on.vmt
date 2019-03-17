@@ -1,0 +1,54 @@
+MonitorScreen
+{
+$model 1
+$surfaceprop glass
+$basetexture _RT_Camera
+$texture2 "BEE2/models/props_underground/tv_film_noise"
+
+$saturation 0.1 // Greyscale
+
+$tint "[1 1 1]"
+
+$scan_scale 1
+$scan_scroll "[0 0]"
+Proxies
+{
+UniformNoise
+	{
+	minVal 0.8
+	maxVal 1
+	resultVar "$tint[0]"
+	}
+UniformNoise
+	{
+	minVal 0.8
+	maxVal 1
+	resultVar "$tint[1]"
+	}
+UniformNoise
+	{
+	minVal 0.8
+	maxVal 1
+	resultVar "$tint[2]"
+	}
+	
+UniformNoise
+	{
+	minVal 0
+	maxVal 256
+	resultVar "$scan_scroll[0]"
+	}
+UniformNoise
+	{
+	minVal 0
+	maxVal 256
+	resultVar "$scan_scroll[1]"
+	}
+TextureTransform
+	{
+	translateVar $scan_scroll
+	scaleVar $scan_scale
+	resultVar $texture2transform
+	}
+}
+}
