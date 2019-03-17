@@ -18,22 +18,39 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"    "break_gls_clean"
+			"BEE2_CLEAN"
+				{
+				"Folder" "break_gls"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%template%"    "BEE2_BREAKABLE_GLASS_TEMP_CLEAN"
+						"%offset%"      "4"
+						"%border_size%" "3"
+						"%thickness%"   "8"
+						}
+					}
+				"Instances"
+					{
+					"bee2_frame_edge"       "instances/BEE2/clean/items/breakable_glass/frame_edge.vmf"     // |
+					"bee2_frame_corner"     "instances/BEE2/clean/items/breakable_glass/frame_corner.vmf"   // |_
+					"bee2_frame_ubend"      "instances/BEE2/clean/items/breakable_glass/frame_ubend.vmf"    // |_|
+					"bee2_frame_single"     "instances/BEE2/clean/items/breakable_glass/frame_single.vmf"   // []
+					}
+				}
 			"BEE2_1950s"
 				{
-				"Base" "BEE2_CLEAN"
-				"Replace"
+				"Folder" "break_gls"
+				"Append"
 					{
-					"BEE2_BREAKABLE_GLASS_TEMP_CLEAN"   "BEE2_BREAKABLE_GLASS_TEMP_50S"
-					"BEE2_BREAKABLE_GLASS_SURF_CLEAN"   "BEE2_BREAKABLE_GLASS_SURF_50S"
-					
-					"BEE2/props_ingame/glass_frame_corner.mdl"  ""
-					// Offset
-					"4" "2"
-					// Thickness
-					"8" "4"
-					// Border size
-					"3" "4"
+					"Replacements"
+						{
+						"%template%"    "BEE2_BREAKABLE_GLASS_TEMP_50S"
+						"%offset%"      "2"
+						"%border_size%" "4"
+						"%thickness%"   "4"
+						}
 					}
 				"Instances"
 					{
@@ -47,17 +64,6 @@
 		}
 	}
 	
-// The gib models used for func_breakable_surf
-"Packlist"
-	{
-	"ID" "BEE2_BREAKABLE_GLASS_SURF_GIBS"
-	"Config"
-		{
-		"" "models/brokenglass_piece.mdl"
-		"" "materials/models/brokenglass/*"
-		}
-	}
-
 "Packlist"
 	{
 	"ID" "BEE2_BREAKABLE_GLASS_SURF_CLEAN"
