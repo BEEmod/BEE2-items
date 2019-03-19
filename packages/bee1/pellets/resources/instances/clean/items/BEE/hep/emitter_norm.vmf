@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "123"
+	"editorbuild" "7335"
+	"mapversion" "129"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "123"
+	"mapversion" "129"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -40,10 +40,10 @@ entity
 	"ballrespawntime" "1"
 	"balltype" "0"
 	"maxspeed" "$speed"
-	"MinLifeAfterPortal" "6"
+	"MinLifeAfterPortal" "$refresh_time"
 	"minspeed" "$speed"
 	"origin" "0 0 -16"
-	"spawnflags" "4096"
+	"spawnflags" "0"
 	"targetname" "launcher"
 	connections
 	{
@@ -97,6 +97,7 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
+	"skinset" "0"
 	"solid" "0"
 	"targetname" "mdl"
 	"origin" "0 -1.90735e-006 -56"
@@ -113,14 +114,10 @@ entity
 	"id" "307"
 	"classname" "func_instance_parms"
 	"parm1" "$start_enabled boolean 0"
-	"parm2" "$timer_delay integer"
-	"parm3" "$lifetime integer"
-	"parm4" "$lifetime$timer_delay integer"
-	"parm5" "$respawntime string 1"
-	"parm6" "$speed integer 500"
-	"parm7" "$life_after_portaltransition integer 6"
-	"parm8" "$connectioncount integer 0"
-	"parm9" "$disable_autorespawn boolean 0"
+	"parm2" "$disable_autorespawn boolean 1"
+	"parm3" "$speed integer 500"
+	"parm4" "$timer_delay integer 5"
+	"parm5" "$refresh_time float 6"
 	"origin" "48 16 -32"
 	editor
 	{

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "66"
+	"editorbuild" "7335"
+	"mapversion" "70"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "66"
+	"mapversion" "70"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -101,8 +101,9 @@ entity
 		"OnPressed" "mdlSetAnimationdown0-1"
 		"OnUser2" "proxyProxyRelay0-1"
 		"OnPressed" "expExplode0-1"
+		"OnPressed" "mdlSetParentphys0-1"
 	}
-	"origin" "-46 0 -35"
+	"origin" "-48 0 -39"
 	editor
 	{
 		"color" "220 30 220"
@@ -125,7 +126,7 @@ entity
 	"origin" "-48 0 -42"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -144,7 +145,7 @@ entity
 	"origin" "-48 0 -62"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "128 128 128"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -229,18 +230,10 @@ entity
 	"spawnflags" "1"
 	"targetentityname" "phys"
 	"targetname" "exp"
-	connections
-	{
-		"OnPressed" "outputTest0-1"
-		"OnButtonReset" "outputSetValue00-1"
-		"OnButtonReset" "outputFireUser10-1"
-		"OnPressed" "outputSetValue10.01-1"
-		"OnPressed" "spSparkOnce0-1"
-	}
 	"origin" "-38 0 6"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "128 128 128"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
@@ -487,28 +480,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 3500]"
-	}
-}
-entity
-{
-	"id" "52"
-	"classname" "logic_branch"
-	"targetname" "output"
-	connections
-	{
-		"OnTrue" "!selfFireUser10-1"
-		"OnTrue" "!selfFireUser20.01-1"
-		"OnFalse" "!selfFireUser20-1"
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
-	}
-	"origin" "-32 0 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
 	}
 }
 entity
