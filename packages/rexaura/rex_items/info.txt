@@ -179,105 +179,72 @@ This prevents players from shielding themselves with a cube, and discourages def
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"        "pellet_killer"
+			"BEE2_CLEAN"
+				{
+				"Folder" "pellet_killer"
+				"Config" "pellet_killer_clean.cfg"
+				}
 			"BEE2_PORTAL_1"
 				{
-				"Base" "BEE2_CLEAN"
-				// Packing movement sounds, and pistons.
+				"Folder" "pellet_killer"
 				"Config" "pellet_killer_p1.cfg"
-				"Instances"
-					{
-					"bee2_common" "instances/BEE2/p1/items/rex/pellet_dest/common.vmf"
-					
-					"bee2_piston_bottom_0" "instances/BEE2/p1/items/rex/pellet_dest/pist_0.vmf"
-					"bee2_piston_bottom_1" "instances/BEE2/p1/items/rex/pellet_dest/pist_1.vmf"
-					"bee2_piston_bottom_2" "instances/BEE2/p1/items/rex/pellet_dest/pist_2.vmf"
-					"bee2_piston_bottom_3" "instances/BEE2/p1/items/rex/pellet_dest/pist_3.vmf"
-					
-					"bee2_piston_static_0" "instances/BEE2/p1/items/rex/pellet_dest/static_0.vmf"
-					"bee2_piston_static_1" "instances/BEE2/p1/items/rex/pellet_dest/static_1.vmf"
-					"bee2_piston_static_2" "instances/BEE2/p1/items/rex/pellet_dest/static_2.vmf"
-					"bee2_piston_static_3" "instances/BEE2/p1/items/rex/pellet_dest/static_3.vmf"
-					"bee2_piston_static_4" "instances/BEE2/p1/items/rex/pellet_dest/static_4.vmf"
-					}
 				}
 			"BEE2_OVERGROWN"
 				{
-				"Base" "BEE2_CLEAN"
+				"Folder" "pellet_killer"
+				"Config" "pellet_killer_clean.cfg"
+				"Append"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"Priority"  "-15"
+							"instance"	"<ITEM_REX_PELLET_DESTROYER>"
+							"Result"
+								{
+								// All the Clean instances use this skin, so we can set this to switch them to dirty.
+								"SetInstVar" "$skin 1"
+								}
+							}
+						}
+					"Replacements"
+						{
+						"%style%" "over"
+						}
+					}
 				"Instances"
 					{
-					"bee2_common" "instances/BEE2/over/items/rex/pellet_dest/common.vmf"
-					"bee2_head"   "instances/BEE2/over/items/rex/pellet_dest/head.vmf"
-					
-					"bee2_piston_bottom_0" "instances/BEE2/over/items/rex/pellet_dest/pist_0.vmf"
-					"bee2_piston_bottom_1" "instances/BEE2/over/items/rex/pellet_dest/pist_1.vmf"
-					"bee2_piston_bottom_2" "instances/BEE2/over/items/rex/pellet_dest/pist_2.vmf"
-					"bee2_piston_bottom_3" "instances/BEE2/over/items/rex/pellet_dest/pist_3.vmf"
-					
-					"bee2_piston_static_0" "instances/BEE2/over/items/rex/pellet_dest/static_0.vmf"
-					"bee2_piston_static_1" "instances/BEE2/over/items/rex/pellet_dest/static_1.vmf"
-					"bee2_piston_static_2" "instances/BEE2/over/items/rex/pellet_dest/static_2.vmf"
-					"bee2_piston_static_3" "instances/BEE2/over/items/rex/pellet_dest/static_3.vmf"
-					"bee2_piston_static_4" "instances/BEE2/over/items/rex/pellet_dest/static_4.vmf"
+					"0" "instances/BEE2/over/items/rex/pellet_dest/common.vmf"
 					}
 				}
 			"BEE2_1950s"
 				{
-				"Base" "BEE2_CLEAN"
-				// Packing, and swapping a grating if static/dynamic.
+				"Folder" "pellet_killer"
 				"Config" "pellet_killer_retro.cfg"
 				"Instances"
 					{
-					"bee2_common" "instances/BEE2/50s/items/rex/pellet_dest/common.vmf"
-					"bee2_head"   "instances/BEE2/50s/items/rex/pellet_dest/head.vmf"
-					
-					"bee2_piston_bottom_0" "instances/BEE2/50s/items/rex/pellet_dest/pist_0.vmf"
-					"bee2_piston_bottom_1" "instances/BEE2/50s/items/rex/pellet_dest/pist_1.vmf"
-					"bee2_piston_bottom_2" "instances/BEE2/50s/items/rex/pellet_dest/pist_2.vmf"
-					"bee2_piston_bottom_3" "instances/BEE2/50s/items/rex/pellet_dest/pist_3.vmf"
-					
-					"bee2_piston_static_0" "instances/BEE2/50s/items/rex/pellet_dest/static_0.vmf"
-					"bee2_piston_static_1" "instances/BEE2/50s/items/rex/pellet_dest/static_1.vmf"
-					"bee2_piston_static_2" "instances/BEE2/50s/items/rex/pellet_dest/static_2.vmf"
-					"bee2_piston_static_3" "instances/BEE2/50s/items/rex/pellet_dest/static_3.vmf"
-					"bee2_piston_static_4" "instances/BEE2/50s/items/rex/pellet_dest/static_4.vmf"
+					"0" "instances/BEE2/50s/items/rex/pellet_dest/common.vmf"
 					}
 				}
-			//"BEE2_1980s"        "pellet_killer_80s"
 			}
 		}
 	}
 
-"PackList"
+"BrushTemplate"
 	{
-	"ID" "REX_PELLET_DESTROYER_FX"
-	"Config"
-		{
-		// Provided by the BEE pellet package
-		"" "materials/BEE2/p1/physring.vmt"
-		"" "materials/BEE2/p1/physring.vtf"
-		
-		"" "materials/BEE2/p1/strider_blackball.vmt"
-		"" "materials/BEE2/p1/strider_blackball.vtf"
-		}
+	"ID"   "REX_PELLET_DESTROYER_CLEAN"
+	"File" "pellet_killer_clean.vmf"
 	}
-		
-"PackList"
+
+"BrushTemplate"
 	{
-	"ID" "REX_PELLET_DESTROYER_SOUND"
-	"Config"
-		{
-		"" "#scripts/bee2_snd/rex_sounds.txt"
-		"" "sound/BEE2/p1/electric_explosion1.wav"
-		"" "sound/BEE2/p1/force_field_loop1.wav"
-		}
+	"ID"   "REX_PELLET_DESTROYER_PORTAL_1"
+	"File" "pellet_killer_p1.vmf"
 	}
-	
-"PackList"
+
+"BrushTemplate"
 	{
-	"ID" "BEE2_BTS_BEAM_YELLOW"
-	"Config"
-		{
-		"" "materials/BEE2/no_paint/metalbeam_bts_001c.vmt"
-		}
+	"ID"   "REX_PELLET_DESTROYER_RETRO"
+	"File" "pellet_killer_retro.vmf"
 	}
