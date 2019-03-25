@@ -1,0 +1,259 @@
+"Item"
+	{
+	"Type" "ITEM_BEE2_VACTUBE_CUBEDROPPER"
+	"Editor"
+		{
+		"SubTypeProperty" "CubeType"
+		"SubType"
+			{
+			"Name" "Vacuum Cube Dropper - Weighted"
+			"Model"
+				{
+				"ModelName"	"dropper.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"	"VACTUBE DROPPER - WEIGHTED"
+				"Image"		"palette/cube.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"             "P2Editor.PlaceCube"
+				"SOUND_EDITING_ACTIVATE"    "P2Editor.ExpandCube"
+				"SOUND_EDITING_DEACTIVATE"  "P2Editor.CollapseCube"
+				"SOUND_DELETED"             "P2Editor.RemoveCube"
+				}
+			}
+		"SubType"
+			{
+			"Name" "Vacuum Cube Dropper - Companion"
+			"Model"
+				{
+				"ModelName"	"dropper.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"	"VACTUBE DROPPER - COMPANION"
+				"Image"		"palette/companion_cube.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"             "P2Editor.PlaceCube"
+				"SOUND_EDITING_ACTIVATE"    "P2Editor.ExpandCube"
+				"SOUND_EDITING_DEACTIVATE"  "P2Editor.CollapseCube"
+				"SOUND_DELETED"             "P2Editor.RemoveCube"
+				}
+			}
+		"SubType"
+			{
+			"Name" "Vacuum Cube Dropper - Reflection"
+			"Model"
+				{
+				"ModelName"	"dropper.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"	"VACTUBE DROPPER - REFLECTION"
+				"Image"		"palette/reflection_cube.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"             "P2Editor.PlaceCube"
+				"SOUND_EDITING_ACTIVATE"    "P2Editor.ExpandCube"
+				"SOUND_EDITING_DEACTIVATE"  "P2Editor.CollapseCube"
+				"SOUND_DELETED"             "P2Editor.RemoveCube"
+				}
+			}
+		"SubType"
+			{
+			"Name" "Vacuum Cube Dropper - Sphere"
+			"Model"
+				{
+				"ModelName"	"dropper.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"	"VACTUBE DROPPER - SPHERE"
+				"Image"		"palette/edgeless_safety_cube.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"             "P2Editor.PlaceCube"
+				"SOUND_EDITING_ACTIVATE"    "P2Editor.ExpandCube"
+				"SOUND_EDITING_DEACTIVATE"  "P2Editor.CollapseCube"
+				"SOUND_DELETED"             "P2Editor.RemoveCube"
+				}
+			}
+		"SubType"
+			{
+			"Name" "Vacuum Cube Dropper - FrankenTurret"
+			"Model"
+				{
+				"ModelName"	"dropper.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"	"VAC CUBE - FRANKEN"
+				"Image"		"palette/frankenturret.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"             "P2Editor.PlaceCube"
+				"SOUND_EDITING_ACTIVATE"    "P2Editor.ExpandCube"
+				"SOUND_EDITING_DEACTIVATE"  "P2Editor.CollapseCube"
+				"SOUND_DELETED"             "P2Editor.RemoveCube"
+				}
+			}
+		"MovementHandle" "HANDLE_NONE"
+		}
+	"Properties"
+		{
+		"ConnectionCount"
+			{
+			"DefaultValue"  "0"
+			"Index"         "1"
+			}
+		"CubeType"
+			{
+			"DefaultValue"  "0"
+			"Index"         "2"
+			}
+		"TimerDelay"
+			{
+			// Prevent editing this property in the app.
+			"BEE2_ignore"   "1"
+			"DefaultValue"  "0"
+			"Index"         "3"
+			}
+		"AutoRespawn"
+			{
+			"DefaultValue"	"1"
+			"Index"			"4"
+			}
+		"AutoDrop"
+			{
+			"DefaultValue"	"1"
+			"Index"			"5"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name" "instances/BEE2/clean/items/vactube/marker_cdropper.vmf"
+				}
+			}
+		"Offset"	"64 64 64"
+		"TargetName"	"vacdrp"
+		"Inputs"
+			{
+			"BEE2"
+				{
+				"Force" "Output" // For tube linking.
+				"Type"          "AND"
+				"Enable_Cmd"    "spawn_man,SetStateATrue,,0.00,-1"
+				}
+			}
+		"OccupiedVoxels"
+			{
+			"Voxel"
+				{
+				"Pos"		"0 0 0"
+				"CollideType"		"COLLIDE_SOLID"
+				"CollideAgainst"	"COLLIDE_SOLID COLLIDE_GLASS COLLIDE_GRATING COLLIDE_ANTLINES"
+
+				"Surface"
+					{
+					"Normal"	"0 0 1"
+					}
+				}
+			"Voxel"
+				{
+				"Pos"               "0 0 0"
+				"CollideType"		"COLLIDE_NOTHING"
+				"CollideAgainst"	"COLLIDE_ANTLINES"
+				}
+			"Voxel"
+				{
+				"Pos"               "0 0 1"
+				"CollideType"		"COLLIDE_NOTHING"
+				"CollideAgainst"	"COLLIDE_ANTLINES"
+				}
+			}
+		"EmbeddedVoxels"
+			{
+			"Voxel"
+				{
+				"Pos" "0 0 0"
+				}
+			}
+		"ConnectionPoints"
+			{
+			// left
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 3 0"
+				"SignageOffset"		"-2 2 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 4 0"
+				"SignageOffset"		"-2 5 0"
+				"Priority"  "0"
+				}
+
+			// right
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"8 3 0"
+				"SignageOffset"		"9 2 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"8 4 0"
+				"SignageOffset"		"9 5 0"
+				"Priority"  "0"
+				}
+
+			// up
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"3 -1 0"
+				"SignageOffset"		"2 -2 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"4 -1 0"
+				"SignageOffset"		"5 -2 0"
+				"Priority"  "0"
+				}
+
+			// down
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"3 8 0"
+				"SignageOffset"		"2 9 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"4 8 0"
+				"SignageOffset"		"5 9 0"
+				"Priority"  "0"
+				}
+			}
+		}
+	}
