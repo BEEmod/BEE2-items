@@ -11,8 +11,6 @@ This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/B
 
 [Discord Server](https://discord.gg/hnGFJrz)
 
-[Steam Group](https://steamcommunity.com/groups/beemod)
-
 ## Download and Use
 
 ### Release Version
