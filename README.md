@@ -9,7 +9,7 @@ This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/B
 
 [Application Repository](https://github.com/BEEmod/BEE2.4)
 
-[Discord Server](https://discord.me/beemod)
+[Discord Server](https://discord.gg/hnGFJrz)
 
 [Steam Group](https://steamcommunity.com/groups/beemod)
 
