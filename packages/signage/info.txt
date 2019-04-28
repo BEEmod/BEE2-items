@@ -52,55 +52,11 @@
 				{
 				"Folder" "sign"
 				"Config" "sign_clean.cfg"
-				
-				"Description" "![legend](items/clean/bee/signage_legend.png)"
-				"Append"
-					{
-					// Clean version..
-					"Replacements"
-						{
-						"%SIGN_ARROW%"      "signage/signage_overlay_arrow"
-						
-						"%SIGN_1_MAIN%"     "signage/signage_overlay_dots1"
-						"%SIGN_2_MAIN%"     "signage/signage_overlay_dots2"
-						"%SIGN_3_MAIN%"     "signage/signage_overlay_dots3"
-						"%SIGN_4_MAIN%"     "signage/signage_overlay_dots4"
-						
-						// Missing VMT, but the VTF's present
-						"%SIGN_13_MAIN%"    "BEE2/signage_turret"
-						
-						"%SIGN_14_MAIN%"    "signage/signage_bridge"
-						"%SIGN_5_MAIN%"     "signage/signage_exit"
-						"%SIGN_10_MAIN%"    "signage/signage_tractor_beam"
-						"%SIGN_12_MAIN%"    "signage/signage_laser_relay"
-						"%SIGN_7_MAIN%"     "signage/signage_ball_dispenser"
-						
-						"%SIGN_6_MAIN%"     "signage/signage_overlay_boxdispenser"
-						"%SIGN_6_EXTRA%"    "signage/signage_overlay_boxhurt"
-						
-						"%SIGN_8_MAIN%"     "signage/signage_laser_cube"
-						"%SIGN_8_EXTRA%"    "signage/signage_laser_catcher"
-						
-						"%SIGN_9_MAIN%"     "signage/signage_overlay_toxic"
-						"%SIGN_9_EXTRA%"    "signage/signage_overlay_fountain"
-							
-						"%SIGN_11_MAIN%"    "signage/signage_tractor_polarity"
-						"%SIGN_11_EXTRA%"   "signage/signage_tractor_beam"
-						
-						// We need a variant to make it glow, not transparent.
-						"%SIGN_15_MAIN%"    "BEE2/80s/signage_paint_jump"
-						"%SIGN_15_EXTRA%"   "signage/signage_paint_dispenser"
-						
-						"%SIGN_16_MAIN%"    "BEE2/80s/signage_paint_speed"
-						"%SIGN_16_EXTRA%"   "signage/signage_paint_dispenser"
-						}
-					}
 				}
 			"BEE2_BTS"       "sign_bts"
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "sign_p1"
-				"Description" "![legend](items/clean/bee/signage_legend.png)"
 				}
 			"BEE2_OVERGROWN"
 				{
@@ -763,7 +719,6 @@
 			"BEE2_CLEAN"
 				{
 				"Folder" "sign"
-				"Config" "sign_clean.cfg"
 				"Palette"
 					{
 					"0"
@@ -778,45 +733,15 @@
 				"Instances"
 					{
 					// Needed to distinguish between the items..
-					"0"                 "instances/BEE2/logic/BEE/antline_signage.vmf"
-					"sign_wall_pos"     "instances/BEE2/clean/items/BEE/antline_signage_sign.vmf"
-					"sign_wall_pos2"    "instances/BEE2/clean/items/BEE/antline_signage_sign2.vmf"
-					"sign_floor_pos"    "instances/BEE2/clean/items/BEE/antline_signage_sign_floor.vmf"
-					"sign_floor_pos2"   "instances/BEE2/clean/items/BEE/antline_signage_sign_floor2.vmf"
+					"0" "instances/BEE2/logic/BEE/antline_signage.vmf"
 					}
-				"Replace"
-					{
-					"<ITEM_BEE2_SIGNAGE" "<ITEM_BEE2_SIGNAGE_ANTLINE"
-					}
+				"Config" "sign_clean.cfg"
 				"Append"
 					{
 					"Replacements"
 						{
-						"%SIGN_ARROW%"      "signage/signage_overlay_arrow"
-						
-						"%SIGN_1_MAIN%"     "<overlay.square>"
-						"%SIGN_2_MAIN%"     "<overlay.cross>"
-						"%SIGN_3_MAIN%"     "<overlay.dot>"
-						"%SIGN_4_MAIN%"     "<overlay.moon>"
-						"%SIGN_5_MAIN%"     "<overlay.slash>"
-						"%SIGN_6_MAIN%"     "<overlay.triangle>"
-						"%SIGN_7_MAIN%"     "<overlay.sine>"
-						"%SIGN_8_MAIN%"     "<overlay.star>"
-						"%SIGN_9_MAIN%"     "<overlay.circle>"
-						"%SIGN_10_MAIN%"    "<overlay.wavy>"
-						}
-					// Swap back to the original instance once done.
-					"Conditions"
-						{
-						"Condition"
-							{
-							"Priority" "10"
-							"instance" "<ITEM_BEE2_SIGNAGE_ANTLINE>"
-							"Result"
-								{
-								"Changeinstance" "<ITEM_BEE2_SIGNAGE:0>"
-								}
-							}
+						"%ID%"   "<ITEM_BEE2_SIGNAGE_ANTLINE>"
+						"%CONN%" "1"
 						}
 					}
 				}
