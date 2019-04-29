@@ -156,6 +156,56 @@
 		}
 	}
 
+"Item"
+	{
+	"ID"    "ITEM_BEE2_SIGNAGE_ANTLINE"
+	"Description"
+		{
+		"" "Allows manually placing the signage used for antline connections."
+		"" ""
+		"" "* The timer widget chooses which sign should be used (3-12)."
+		"" "* Set Start Reversed to place it on the other side."
+		"" ""
+		"" "The signage blocks portal placement as well."
+		}
+	"AllDescLast" "1"
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"
+				{
+				"Folder" "sign"
+				"Palette"
+					{
+					"0"
+						{
+						"Model"     "bee2_signage_antline_clean.mdl"
+						"icon"      "signage_shape_box.png"
+						"bee2"      "clean/BEE/signage_antline.png"
+						"pal_name"  "CONNECTION SIGNAGE"
+						"name"      "Connection Signage"
+						}
+					}
+				"Instances"
+					{
+					// Needed to distinguish between the items..
+					"0" "instances/BEE2/logic/BEE/antline_signage.vmf"
+					}
+				// Straight on the surface.
+				"Config" "sign_flush.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%ID%"   "<ITEM_BEE2_SIGNAGE_ANTLINE>"
+						"%CONN%" "1"
+						}
+					}
+				}
+			}
+		}
+	}
 "Signage"
 	{
 	// Special case, not directly selectable.
@@ -826,226 +876,6 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2"
-			}
-		}
-	}
-	
-// BTS:
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_ARROW"
-	"File" "bts/arrow.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_ARROW_REV"
-	"File" "bts/arrow_rev.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_RECT"
-	"File" "bts/sign_rect.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_RECT_REV"
-	"File" "bts/sign_rect_inv.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_LONG"
-	"File" "bts/sign_long.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_LONG_REV"
-	"File" "bts/sign_long_inv.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_NUM"
-	"File" "bts/sign_num.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_NUM_REV"
-	"File" "bts/sign_num_inv.vmf"
-	"keep_brushes" "0"
-	}
-	
-// 1950s:
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_ARROW"
-	"file" "50s/arrow_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_ARROW_REV"
-	"file" "50s/arrow_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_SIGN"
-	"file" "50s/sign_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_SIGN_REV"
-	"file" "50s/sign_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_SIGN_WALL"
-	"file" "50s/sign_wall.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_EXIT"
-	"file" "50s/exit_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_EXIT_REV"
-	"file" "50s/exit_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_EXIT_WALL"
-	"file" "50s/exit_wall.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_NUM"
-	"file" "50s/num_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_NUM_REV"
-	"file" "50s/num_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_NUM_WALL"
-	"file" "50s/num_wall.vmf"
-	"keep_brushes" "0"
-	}
-	
-// 70s
-// Keep the brushes, since these are mounted on a small section of plywood.
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_ARROW"
-	"file" "70s/arrow_floor.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_SIGN_FLOOR"
-	"file" "70s/sign_floor.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_SIGN2_FLOOR"
-	"file" "70s/sign2_floor.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_SIGN_WALL"
-	"file" "70s/sign_wall.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_ARROW_REV"
-	"file" "70s/arrow_floor_rev.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_SIGN_REV"
-	"file" "70s/sign_floor_rev.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_SIGN2_FLOOR_REV"
-	"file" "70s/sign2_floor_rev.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_ARROW_WALL_REV"
-	"File" "70s/arrow_wall_rev.vmf"
-	}
-	
-
-"Item"
-	{
-	"ID"    "ITEM_BEE2_SIGNAGE_ANTLINE"
-	"Description"
-		{
-		"" "Allows manually placing the signage used for antline connections."
-		"" ""
-		"" "* The timer widget chooses which sign should be used (3-12)."
-		"" "* Set Start Reversed to place it on the other side."
-		"" ""
-		"" "The signage blocks portal placement as well."
-		}
-	"AllDescLast" "1"
-	"Version"
-		{
-		"Styles"
-			{
-			"BEE2_CLEAN"
-				{
-				"Folder" "sign"
-				"Palette"
-					{
-					"0"
-						{
-						"Model"     "bee2_signage_antline_clean.mdl"
-						"icon"      "signage_shape_box.png"
-						"bee2"      "clean/BEE/signage_antline.png"
-						"pal_name"  "CONNECTION SIGNAGE"
-						"name"      "Connection Signage"
-						}
-					}
-				"Instances"
-					{
-					// Needed to distinguish between the items..
-					"0" "instances/BEE2/logic/BEE/antline_signage.vmf"
-					}
-				// Straight on the surface.
-				"Config" "sign_flush.cfg"
-				"Append"
-					{
-					"Replacements"
-						{
-						"%ID%"   "<ITEM_BEE2_SIGNAGE_ANTLINE>"
-						"%CONN%" "1"
-						}
-					}
-				}
 			}
 		}
 	}
