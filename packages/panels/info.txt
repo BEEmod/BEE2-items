@@ -382,10 +382,10 @@
 			"BEE2_OVERGROWN"
 				{
 				"Folder" "half_stair"
-				// "Instances"
-					// {
-					// "bee2_dynamic" "instances/BEE2/over/items/stairs_half.vmf"
-					// }
+				"Instances"
+					{
+					"bee2_dynamic" "instances/BEE2/over/items/stairs_half.vmf"
+					}
 				"Append"
 					{
 					"Replacements"
@@ -397,6 +397,25 @@
 						"%FORCE_VAR%"   "$disable_autorespawn"
 						"%EDGE_ORIG_TEX%"   "anim_wp/framework/squarebeams_rusty_01"
 						"%EDGE_PORTAL_TEX%" "BEE2/squarebeams_rusty_portal"
+						}
+					"Conditions"
+						{
+						"Condition"
+							{
+							"instance" "<ITEM_BEE2_PANEL_HALF_STAIR:bee2_dynamic>"
+							"Result"
+								{
+								"Random"    
+									{
+									"Seed"    "STAIRS"
+									"Weights" "4, 1, 6"
+									
+									"SetInstVar" "$skin 0" // Blue
+									"SetInstVar" "$skin 1" // Red
+									"SetInstVar" "$skin 2" // Off
+									}
+								}
+							}
 						}
 					}
 				}
