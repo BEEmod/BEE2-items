@@ -129,10 +129,15 @@
 		
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+				"Type"          "AND"
+				"invertVar"     "$start_deployed"
+				"SpawnFire"     "dynamic"
+				"Enable_Cmd"    "mdl,SetPlayBackRate,1,0.00,-1"
+				"Disable_Cmd"   "mdl,SetPlayBackRate,-1,0.00,-1"
+				"Enable_Cmd"    "clip,Close,,0.00,-1"
+				"Disable_Cmd"   "clip,Open,,0.00,-1"
 				}
 			}
 		

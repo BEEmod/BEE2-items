@@ -382,21 +382,21 @@
 			"BEE2_OVERGROWN"
 				{
 				"Folder" "half_stair"
-				"Instances"
-					{
-					"bee2_dynamic" "instances/BEE2/over/items/stairs_half.vmf"
-					}
+				// "Instances"
+					// {
+					// "bee2_dynamic" "instances/BEE2/over/items/stairs_half.vmf"
+					// }
 				"Append"
 					{
 					"Replacements"
 						{
-						"%PACKFILE%"   "BEE2_PANEL_HALF_STAIR_CLEAN"
-						
-						"%UPPER_TEMP%" "BEE2_PANEL_HALF_STAIR_TOP_CLEAN:stair_upper"
-						"%LOWER_TEMP%" "BEE2_PANEL_HALF_STAIR_TOP_CLEAN:stair_lower"
+						"%UPPER_TEMP%" "BEE2_PANEL_HALF_STAIR_TOP_UPPER_OVER"
+						"%LOWER_TEMP%" "BEE2_PANEL_HALF_STAIR_TOP_LOWER_OVER"
 						// Only useful for Overgrown...
-						"%TILE_CHANCE%" "70"
-						"%FORCE_VAR%"   ""
+						"%TILE_CHANCE%" "60%"
+						"%FORCE_VAR%"   "$disable_autorespawn"
+						"%EDGE_ORIG_TEX%"   "anim_wp/framework/squarebeams_rusty_01"
+						"%EDGE_PORTAL_TEX%" "BEE2/squarebeams_rusty_portal"
 						}
 					}
 				}
@@ -418,17 +418,22 @@
 	"File" "half_stair_case_clean.vmf"
 	}
 
+// Fully brush-based version.
 "BrushTemplate"
 	{
 	"ID" "BEE2_PANEL_HALF_STAIR_STATIC"
 	"File" "half_stair_static_clean.vmf"
 	}
 
-"PackList"
+// Overgrown versions.
+"BrushTemplate"
 	{
-	"ID" "BEE2_PANEL_HALF_STAIR_CLEAN"
-	"Config"
-		{
-		"" "models/BEE2/panels/arm_half_stairs.mdl"
-		}
+	"ID" "BEE2_PANEL_HALF_STAIR_TOP_LOWER_OVER"
+	"File" "half_stair_top_lower_over.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID" "BEE2_PANEL_HALF_STAIR_TOP_UPPER_OVER"
+	"File" "half_stair_top_upper_over.vmf"
 	}
