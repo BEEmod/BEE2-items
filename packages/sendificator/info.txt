@@ -26,8 +26,6 @@
 				"Instances"
 					{
 					"0"          "instances/BEE2/50s/items/hmw/sendtor.vmf"
-					"las_center" "instances/BEE2/50s/items/hmw/sendtor_emitter_center.vmf"
-					"las_offset" "instances/BEE2/50s/items/hmw/sendtor_emitter_offset.vmf"
 					}
 				}
 			"BEE2_1970s"
@@ -55,20 +53,13 @@
 				"Instances"
 					{
 					"0"          "instances/BEE2/over/items/hmw/sendtor.vmf"
-					"las_center" "instances/BEE2/over/items/hmw/sendtor_emitter_center.vmf"
-					"las_offset" "instances/BEE2/over/items/hmw/sendtor_emitter_offset.vmf"
 					}
 				}
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "sendtor"
 				"Config" "sendtor_p1.cfg"
-				"Instances"
-					{
-					// No instance change, just on a support slab.
-					"las_center" "instances/BEE2/p1/items/hmw/sendtor_emitter_center.vmf"
-					"las_offset" "instances/BEE2/p1/items/hmw/sendtor_emitter_offset.vmf"
-					}
+				// No instance change, just on a support slab.
 				}
 			}
 		}
@@ -96,9 +87,7 @@
 				"Config" "sendtor_slim_50s.cfg"
 				"Instances"
 					{
-					"0"          "instances/BEE2/50s/items/konclan/sendtor_slim.vmf"
-					"las_center" "instances/BEE2/50s/items/hmw/sendtor_emitter_center.vmf"
-					"las_offset" "instances/BEE2/50s/items/hmw/sendtor_emitter_offset.vmf"
+					"0" "instances/BEE2/50s/items/konclan/sendtor_slim.vmf"
 					}
 				}
 			"BEE2_1970s"
@@ -123,12 +112,6 @@
 				{
 				"Folder" "sendtor_slim"
 				"Config" "sendtor_slim_over.cfg"
-				"Instances"
-					{
-					"0"          "instances/BEE2/over/items/konclan/sendtor_slim.vmf"
-					"las_center" "instances/BEE2/over/items/hmw/sendtor_emitter_center.vmf"
-					"las_offset" "instances/BEE2/over/items/hmw/sendtor_emitter_offset.vmf"
-					}
 				}
 			}
 		}
@@ -150,98 +133,4 @@
 	{
 	"ID"   "BEE2_HMW_SENDTOR_TOP_SLAB_P1"
 	"File" "top_slab_p1.vmf"
-	}
-	
-"PackList"
-	{
-	// General logic required for all styles
-	"ID"     "PACK_HMW_SENDTOR_LOGIC"
-	"config" "logic"
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_HMW_SENDTOR_ANT_CLEAN"
-	"AddIfMat"  "BEE2/sendtor/sendificator_antlines"
-	"config" 
-		{
-		"File" "materials/BEE2/sendtor/sendificator_antlines.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_HMW_SENDTOR_ANT_CLEAN_BROKEN"
-	"AddIfMat"  "BEE2/sendtor/sendificator_antlines_broken"
-	"config" 
-		{
-		"" "materials/BEE2/sendtor/sendificator_antlines.vmt"
-		"" "materials/BEE2/sendtor/sendificator_antlines.vtf"
-		"" "materials/BEE2/sendtor/sendificator_antlines_broken.vtf"
-		}
-	}
-
-"PackList"
-	{
-	"ID"        "PACK_HMW_SENDTOR_ANT_RETRO"
-	"AddIfMat"  "BEE2/sendtor/sendificator_neon_indicator_1"
-	"AddIfMat"  "BEE2/sendtor/sendificator_neon_indicator_2"
-	"config" 
-		{
-		"File" "materials/BEE2/sendtor/sendificator_neon_indicator.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_HMW_SENDTOR_ANT_P1"
-	"AddIfMat"  "BEE2/sendtor/p1_ant_crn_floor"
-	"AddIfMat"  "BEE2/sendtor/p1_ant_crn_wall"
-	"AddIfMat"  "BEE2/sendtor/p1_ant_floor"
-	"AddIfMat"  "BEE2/sendtor/p1_ant_wall"
-	
-	"config"
-		{
-		"" "materials/BEE2/sendtor/p1_ant_crn_floor.vtf"
-		"" "materials/BEE2/sendtor/p1_ant_crn_wall.vtf"
-		"" "materials/BEE2/sendtor/p1_ant_floor.vtf"
-		"" "materials/BEE2/sendtor/p1_ant_wall.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_HMW_SENDTOR_CLEAN"
-	"config" "sendtor_clean"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_HMW_SENDTOR_SLIM_CLEAN"
-	"config" "sendtor_slim_clean"
-	}
-
-"PackList"
-	{
-	"ID"     "PACK_HMW_SENDTOR_SLIM_DIRTY"
-	"config" "sendtor_slim_dirty"
-	}
-
-"PackList"
-	{
-	"ID"     "PACK_HMW_SENDTOR_DIRTY"
-	"config" "sendtor_dirty"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_HMW_SENDTOR_DIRTYISH"
-	"config" "sendtor_dirtyish"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_HMW_SENDTOR_RETRO"
-	// This isn't actually a model, just a bunch of textures.
-	"config" "sendtor_retro"
 	}
