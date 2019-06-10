@@ -231,6 +231,8 @@ def main():
     
     with ZipFile(os.path.join('zips', pack_name), 'w', compression=ZIP_DEFLATED) as zip_file:
         for file in os.listdir(zip_path):
+            if file.startswith('tutorial_'):
+                continue
             zip_file.write(os.path.join(zip_path, file), os.path.join('packages/', file))
             print('.', end='', flush=True)
     print('Done!')
