@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "106"
+	"editorbuild" "7335"
+	"mapversion" "111"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "106"
+	"mapversion" "111"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -34,117 +34,109 @@ world
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
 }
+entity
+{
+	"id" "816"
+	"classname" "logic_script"
+	"targetname" "scr"
+	"vscripts" "bee2/death_fizz.nut"
+	connections
+	{
+		"OnUser1" "fizz_blueDisable0-1"
+		"OnUser1" "fizz_redDisable0-1"
+		"OnUser1" "hurtDisable0-1"
+		"OnUser1" "model*TurnOff0-1"
+		"OnUser3" "hurtEnable0-1"
+		"OnUser4" "hurtEnable0-1"
+		"OnUser2" "model*TurnOff0-1"
+		"OnUser2" "hurtDisable0-1"
+		"OnUser2" "fizz_redDisable0-1"
+		"OnUser2" "fizz_blueEnable0-1"
+		"OnUser3" "model*TurnOn0-1"
+		"OnUser3" "fizz_redDisable0-1"
+		"OnUser3" "fizz_blueDisable0-1"
+		"OnUser4" "model*TurnOff0-1"
+		"OnUser4" "fizz_redEnable0-1"
+		"OnUser4" "fizz_blueDisable0-1"
+		"OnUser4" "model*Stop0-1"
+		"OnUser3" "model*Start0-1"
+		"OnUser2" "model*Stop0-1"
+		"OnUser1" "model*Stop0-1"
+	}
+	"origin" "16 0 0"
+	editor
+	{
+		"color" "200 200 200"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
 hidden
 {
 	entity
 	{
-		"id" "738"
-		"classname" "func_brush"
-		"disableflashlight" "0"
-		"disablereceiveshadows" "0"
-		"disableshadowdepth" "0"
-		"disableshadows" "0"
-		"drawinfastreflection" "1"
-		"InputFilter" "0"
-		"invert_exclusion" "0"
-		"origin" "0 -48 16"
-		"renderamt" "255"
-		"rendercolor" "255 255 255"
-		"renderfx" "14"
-		"rendermode" "0"
-		"shadowdepthnocache" "0"
-		"solidbsp" "0"
-		"Solidity" "1"
-		"spawnflags" "2"
-		"StartDisabled" "0"
-		"targetname" "brush"
-		"vrad_brush_cast_shadows" "0"
-		hidden
-		{
-			solid
-			{
-				"id" "736"
-				side
-				{
-					"id" "48"
-					"plane" "(-8 -40 24) (8 -40 24) (8 -56 24)"
-					"material" "EFFECTS/LASERPLANE"
-					"uaxis" "[1 0 0 256] 0.25"
-					"vaxis" "[0 -1 0 64] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "47"
-					"plane" "(-8 -56 8) (8 -56 8) (8 -40 8)"
-					"material" "EFFECTS/LASERPLANE"
-					"uaxis" "[-1 0 0 256] 0.25"
-					"vaxis" "[0 -1 0 64] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "46"
-					"plane" "(-8 -40 24) (-8 -56 24) (-8 -56 8)"
-					"material" "EFFECTS/LASERPLANE"
-					"uaxis" "[0 -1 0 64] 0.25"
-					"vaxis" "[0 0 -1 320] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "45"
-					"plane" "(8 -40 8) (8 -56 8) (8 -56 24)"
-					"material" "EFFECTS/LASERPLANE"
-					"uaxis" "[0 1 0 448] 0.25"
-					"vaxis" "[0 0 -1 320] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "44"
-					"plane" "(8 -40 24) (-8 -40 24) (-8 -40 8)"
-					"material" "EFFECTS/LASERPLANE"
-					"uaxis" "[-1 0 0 256] 0.25"
-					"vaxis" "[0 0 -1 320] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"id" "43"
-					"plane" "(8 -56 8) (-8 -56 8) (-8 -56 24)"
-					"material" "EFFECTS/LASERPLANE"
-					"uaxis" "[1 0 0 256] 0.25"
-					"vaxis" "[0 0 -1 320] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				editor
-				{
-					"color" "220 30 220"
-					"visgroupshown" "1"
-					"visgroupautoshown" "1"
-				}
-			}
-		}
+		"id" "1021"
+		"classname" "env_beam"
+		"BoltWidth" "4"
+		"ClipStyle" "2"
+		"damage" "0"
+		"decalname" "Bigshot"
+		"framerate" "0"
+		"framestart" "0"
+		"HDRColorScale" "1.0"
+		"life" "0"
+		"LightningEnd" "model01-bm_2_end"
+		"LightningStart" "model01-bm_2_start"
+		"NoiseAmplitude" "6"
+		"Radius" "16"
+		"renderamt" "200"
+		"rendercolor" "255 30 30"
+		"renderfx" "0"
+		"spawnflags" "0"
+		"StrikeTime" "1"
+		"targetname" "model01-beam"
+		"targetpoint" "-16 24 78.66"
+		"texture" "sprites/grav_beam.vmt"
+		"TextureScroll" "35"
+		"TouchType" "0"
+		"origin" "-16 24 4.66372"
 		editor
 		{
-			"color" "220 30 220"
+			"color" "200 200 0"
 			"visgroupid" "15"
 			"visgroupshown" "0"
 			"visgroupautoshown" "1"
-			"logicalpos" "[0 500]"
+			"logicalpos" "[0 1000]"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "1030"
+		"classname" "info_particle_system"
+		"angles" "-90 0 0"
+		"cpoint1_parent" "0"
+		"cpoint2_parent" "0"
+		"cpoint3_parent" "0"
+		"cpoint4_parent" "0"
+		"cpoint5_parent" "0"
+		"cpoint6_parent" "0"
+		"cpoint7_parent" "0"
+		"drawinfastreflection" "0"
+		"effect_name" "laser_relay_ball"
+		"start_active" "0"
+		"targetname" "model01-bm_1_start"
+		"origin" "16 24 -7.33628"
+		editor
+		{
+			"color" "200 200 0"
+			"visgroupid" "15"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 1000]"
 		}
 	}
 }
@@ -235,7 +227,7 @@ hidden
 				editor
 				{
 					"color" "220 30 220"
-					"visgroupshown" "1"
+					"visgroupshown" "0"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -337,7 +329,7 @@ hidden
 				editor
 				{
 					"color" "220 30 220"
-					"visgroupshown" "1"
+					"visgroupshown" "0"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -441,7 +433,7 @@ hidden
 				editor
 				{
 					"color" "220 30 220"
-					"visgroupshown" "1"
+					"visgroupshown" "0"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -454,157 +446,6 @@ hidden
 			"visgroupautoshown" "1"
 			"logicalpos" "[0 500]"
 		}
-	}
-}
-entity
-{
-	"id" "638"
-	"classname" "logic_branch"
-	"InitialValue" "$start_reversed"
-	"targetname" "branch_las"
-	connections
-	{
-		"OnTrue" "model*Start0-1"
-		"OnTrue" "hurtEnable0-1"
-		"OnFalse" "hurtDisable0-1"
-		"OnFalse" "model*Stop0-1"
-		"OnFalse" "manSetStateAFalse0-1"
-		"OnTrue" "manSetStateATrue0-1"
-		"OnTrue" "laser_on_rlTrigger0-1"
-		"OnFalse" "model*TurnOff0.15-1"
-	}
-	"origin" "0 -16 0"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "678"
-	"classname" "logic_coop_manager"
-	"DefaultPlayerStateA" "0"
-	"DefaultPlayerStateB" "0"
-	"targetname" "man"
-	connections
-	{
-		"OnChangeToAnyFalse" "branch_fizzTest0-1"
-		"OnChangeToAnyFalse" "branch_lasTest0-1"
-		"OnChangeToAllTrue" "model*Stop0-1"
-		"OnChangeToAllTrue" "fizz_redEnable0-1"
-		"OnChangeToAllTrue" "fizz_blueDisable0-1"
-		"OnChangeToAnyFalse" "fizz_redDisable0-1"
-		"OnChangeToAllTrue" "model*TurnOff0-1"
-		"OnChangeToAllTrue" "laser_on_rlCancelPending0-1"
-	}
-	"origin" "0 -9.53674e-007 -16"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-hidden
-{
-	entity
-	{
-		"id" "629"
-		"classname" "ambient_generic"
-		"cspinup" "0"
-		"fadeinsecs" "0"
-		"fadeoutsecs" "0"
-		"health" "10"
-		"lfomodpitch" "0"
-		"lfomodvol" "0"
-		"lforate" "0"
-		"lfotype" "0"
-		"message" "Laser.BeamLoopMega"
-		"pitch" "100"
-		"pitchstart" "100"
-		"preset" "0"
-		"radius" "128"
-		"spawnflags" "16"
-		"spindown" "0"
-		"spinup" "0"
-		"targetname" "model-snd"
-		"volstart" "0"
-		"origin" "0 0 32"
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupid" "15"
-			"visgroupshown" "0"
-			"visgroupautoshown" "1"
-			"logicalpos" "[0 1000]"
-		}
-	}
-}
-entity
-{
-	"id" "615"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_fizz"
-	connections
-	{
-		"OnFalse" "fizz_blueDisable0-1"
-		"OnTrue" "fizz_blueEnable0-1"
-		"OnTrue" "manSetStateBTrue0-1"
-		"OnFalse" "manSetStateBFalse0-1"
-	}
-	"origin" "0 16 0"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "617"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "branch_lasToggleTest0-1"
-		"OnProxyRelay" "branch_fizzToggleTest0-1"
-	}
-	"origin" "16 0 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
-	"id" "619"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "laser_on_rl"
-	connections
-	{
-		"OnSpawn" "branch_lasTest0.111"
-		"OnSpawn" "branch_fizzTest0.11"
-		"OnTrigger" "model*TurnOn0.15-1"
-	}
-	"origin" "0 4.76837e-007 16"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
 	}
 }
 entity

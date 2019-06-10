@@ -79,38 +79,21 @@
 			{
 			"0"
 				{
-				"Name"				"instances/BEE2/clean/items/rex/pellet_dest.vmf"
+				"Name"				"instances/BEE2/clean/items/rex/pellet_dest/common.vmf"
 				"EntityCount"		"46"
 				"BrushCount"		"15"
 				"BrushSideCount"	"106"
 				}
-			"bee2_head"   "instances/BEE2/clean/items/rex/pellet_dest/head.vmf"
-			"bee2_common" "instances/BEE2/clean/items/rex/pellet_dest/common.vmf"
-				
-			"bee2_piston_bottom_0"  "instances/BEE2/clean/items/rex/pellet_dest/pist_0.vmf"
-			"bee2_piston_bottom_1"  "instances/BEE2/clean/items/rex/pellet_dest/pist_1.vmf"
-			"bee2_piston_bottom_2"  "instances/BEE2/clean/items/rex/pellet_dest/pist_2.vmf"
-			"bee2_piston_bottom_3"  "instances/BEE2/clean/items/rex/pellet_dest/pist_3.vmf"
-			
-			"bee2_piston_static_0"  "instances/BEE2/clean/items/rex/pellet_dest/static_0.vmf"
-			"bee2_piston_static_1"  "instances/BEE2/clean/items/rex/pellet_dest/static_1.vmf"
-			"bee2_piston_static_2"  "instances/BEE2/clean/items/rex/pellet_dest/static_2.vmf"
-			"bee2_piston_static_3"  "instances/BEE2/clean/items/rex/pellet_dest/static_3.vmf"
-			"bee2_piston_static_4"  "instances/BEE2/clean/items/rex/pellet_dest/static_4.vmf"
-			
-			"bee2_piston_logic_0"   "instances/BEE2/clean/items/rex/pellet_dest/logic_0.vmf"
-			"bee2_piston_logic_1"   "instances/BEE2/clean/items/rex/pellet_dest/logic_1.vmf"
-			"bee2_piston_logic_2"   "instances/BEE2/clean/items/rex/pellet_dest/logic_2.vmf"
-			"bee2_piston_logic_3"   "instances/BEE2/clean/items/rex/pellet_dest/logic_3.vmf"
 			}
 
 		"TargetName"		"pk"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
+				"Type"          "AND"
+				"Enable_Cmd"    "script,FireUser2,,0.00,-1"
+				"Disable_Cmd"   "script,FireUser1,,0.00,-1"
 				}
 			}
 		"Offset"		"64 64 64"

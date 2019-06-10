@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "310"
+	"editorbuild" "7335"
+	"mapversion" "315"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "310"
+	"mapversion" "315"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -442,26 +442,6 @@ world
 }
 entity
 {
-	"id" "3779"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "32 -32 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "3781"
 	"classname" "func_instance_parms"
 	"parm1" "$bottom_level integer 0"
@@ -470,7 +450,7 @@ entity
 	"parm4" "$connectioncount boolean 0"
 	"parm5" "$disable_autodrop boolean 1"
 	"parm6" "$manager_a boolean 0"
-	"origin" "32 0 -32"
+	"origin" "32 32 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -481,66 +461,21 @@ entity
 }
 entity
 {
-	"id" "3783"
-	"classname" "logic_branch"
-	"InitialValue" "$start_up"
-	"targetname" "branch_starting_state"
-	connections
-	{
-		"OnTrue" "lift_segment_*SetSpeed30000-1"
-		"OnTrue" "lift_segment_*SetSpeed1502-1"
-		"OnFalse" "lift_segment_*SetSpeed1500-1"
-		"OnTrue" "lift_platformSetSpeed30000-1"
-		"OnTrue" "lift_platformSetSpeed1502-1"
-		"OnFalse" "lift_platformSetSpeed1500-1"
-		"OnTrue" "branch_toggleTest0.01-1"
-	}
-	"origin" "32 32 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 11000]"
-	}
-}
-entity
-{
 	"id" "3785"
 	"classname" "logic_auto"
 	"spawnflags" "1"
 	connections
 	{
-		"OnMapSpawn" "branch_starting_stateTest0.1-1"
 		"OnMapSpawn" "tes_normTurnOn0-1"
 		"OnMapSpawn" "snd_ambientPlaySound0-1"
 	}
-	"origin" "-32 -28 -32"
+	"origin" "-32 -32 -32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 11500]"
-	}
-}
-entity
-{
-	"id" "3789"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-32 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 13000]"
 	}
 }
 cameras
