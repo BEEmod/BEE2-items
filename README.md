@@ -17,7 +17,7 @@ This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/B
 
 These are instructions to install the release version of BEE2.4. For the development version, see below.
 
-1. Download the BEE2.4 app and compiler from [here](https://github.com/BEEmod/BEE2.4/releases).
+1. Download the BEE2.4 app and compiler from [here](https://github.com/BEEmod/BEE2.4/releases). **Do not use the "Clone or download" button above, this will download the source files which do not include an executable.**
 2. Download the Default Pack from [here](https://github.com/BEEmod/BEE2-items/releases). Make sure to get the same version as the application, otherwise you may encounter errors.
 3. Extract the application zip to anywhere on your computer.
 4. Extract the contents of the Default Pack zip to the application folder you just extracted.
