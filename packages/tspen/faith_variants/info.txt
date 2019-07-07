@@ -20,7 +20,22 @@
 			{
 			"BEE2_CLEAN"        "large_clean"
 			"BEE2_BTS"          "large_bts"
-			"BEE2_OVERGROWN"    "large_over"
+			"BEE2_OVERGROWN"
+				{
+				"Base" "BEE2_CLEAN"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%SK_OFF%" "3"
+						"%SK_ON%"  "2"
+						}
+					}
+				"Instances"
+					{
+					"logic" "instances/BEE2/over/items/tspen/large_faith_io.vmf"
+					}
+				}
 			"BEE2_1950s"        "large_retro_gel"
 			}
 		}
@@ -32,22 +47,13 @@
 			{
 			"BEE2_1950s"        "large_retro_mech"
 			
-			"BEE2_CLEAN"        "large_clean"
-			"BEE2_BTS"          "large_bts"
-			"BEE2_OVERGROWN"    "large_over"
+			"BEE2_CLEAN"        "<VER_DEFAULT:BEE2_CLEAN>"
+			"BEE2_BTS"          "<VER_DEFAULT:BEE2_BTS>"
+			"BEE2_OVERGROWN"    "<VER_DEFAULT:BEE2_OVERGROWN>"
 			}
 		}
 	}
-	
-"PackList"
-	{
-	"ID" "PACK_PLAYER_CLIP_GRATE"
-	"Config"
-		{
-		"File" "materials/BEE2/grate_player_clip.vmt"
-		}
-	}
-	
+
 "BrushTemplate"
 	{
 	"ID"    "TSPEN_LARGE_FAITH_TRIG"
@@ -60,30 +66,6 @@
 	"File"  "large_trigger_square.vmf"
 	}
 
-"PackList"
-	{
-	"ID"    "PACK_TSPEN_LARGE_FAITH_PLATE_CLEAN"
-	"Config"
-		{
-		"File" "models/BEE2/props_ingame/faith_plate_128.mdl"
-		}
-	}
-
-"PackList"
-	{
-	// The model also includes dirty skins - don't pack those in clean maps.
-	"ID"    "PACK_TSPEN_LARGE_FAITH_PLATE_DIRTY"
-	"Config"
-		{
-		"File" "models/BEE2/props_ingame/faith_plate_128.mdl"
-		
-		"File" "materials/BEE2/models/props_ingame/faith_plate_rusty.vmt"
-		"File" "materials/BEE2/models/props_ingame/faith_plate_rusty_error.vmt"
-		"File" "materials/BEE2/models/props_ingame/faith_plate_rusty_glass.vmt"
-		"File" "materials/BEE2/glass_shatter.vtf"
-		}
-	}
-	
 "BrushTemplate"
 	{
 	"ID"    "TSPEN_LARGE_FAITH_RETRO_BORDER"
@@ -94,23 +76,4 @@
 	{
 	"ID"    "TSPEN_LARGE_FAITH_RETRO_MECH_BACK"
 	"File"  "retro_mech_back.vmf"
-	}
-	
-"PackList" // Used for BTS style
-	{
-	"ID"    "PACK_TSPEN_LARGE_FAITH_PLATE_BTS"
-	"Config"
-		{
-		"File" "models/BEE2/panels/panel_faith_large.mdl"
-		}
-	}
-"PackList"
-	{
-	// Only needed when off..
-	"ID"    "PACK_TSPEN_LARGE_FAITH_PLATE_BTS_REDSKIN"
-	"Config"
-		{
-		"File" "materials/BEE2/models/props_ingame/circle_shield_red_lit.vmt"
-		"File" "materials/BEE2/models/props_ingame/circle_shield_light.vtf"
-		}
 	}
