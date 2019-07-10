@@ -1,13 +1,13 @@
 // Cycles through active cameras.
 // Values set by generated entity script called 
 // before this executes: 
-// CAM_NUM = int
-// CAM_ACTIVE = [bool]
-// CAM_ACTIVE_NUM = int
-// CAM_LOC = [Vector]
-// CAM_ANGLES = [Vector]
+// CAM_NUM = int (Number of cameras in the map)
+// CAM_ACTIVE = [bool] (For each camera, if it starts on/is on)
+// CAM_ACTIVE_NUM = int (Total number of enabled cams)
+// CAM_LOC = [Vector] (For each camera, the location it is at)
+// CAM_ANGLES = [Vector] (For each camera, the pitch, yaw, and zero roll)
 // CAM_STUDIO_CHANCE = float (If -1, other studio values are undefined..)
-// CAM_STUDIO_LOC = Vector
+// CAM_STUDIO_LOC = Vector (Location of studio, for the voiceline)
 // CAM_STUDIO_PITCH = float
 // CAM_STUDIO_YAW = float
 // This is also always defined
@@ -16,29 +16,44 @@
 cur_ind <- 0;
 is_studio <- 0;
 
-function ToggleCam(index) {
+function CamToggle(index) {
+	// Unused, for old logic.
 	if (CAM_ACTIVE[index]) {
-		CAM_ACTIVE[index] = 0;
-		CAM_ACTIVE_NUM--;
-		if(CAM_ACTIVE_NUM == 0) {
-			if(CAM_STUDIO_CHANCE == -1) {
-				// No cameras at all, blank the screen.
-				// Teleport to arrival_departure_transition_ents...
-				// That has a toolsblack surface.
-				self.SetAbsOrigin(Vector(-2500, -2500, 0));
-				self.SetAngles(0, 90, 0);
-			} else {
-				// We have a studio, just display that.
-				set_camera_studio();
-			}
-		}
+		CamDisable(index);
 	} else {
-		CAM_ACTIVE[index] = 1;
-		CAM_ACTIVE_NUM++;
-		// Skip to that camera.
-		cur_ind = index;
-		set_camera();
+		CamEnable(index);
 	}
+}
+
+function CamDisable(index) {
+	if (!CAM_ACTIVE[index]) {
+		return;
+	}
+	CAM_ACTIVE[index] = 0;
+	CAM_ACTIVE_NUM--;
+	if(CAM_ACTIVE_NUM == 0) {
+		if(CAM_STUDIO_CHANCE == -1) {
+			// No cameras at all, blank the screen.
+			// Teleport to arrival_departure_transition_ents...
+			// That has a toolsblack surface.
+			self.SetAbsOrigin(Vector(-2500, -2500, 0));
+			self.SetAngles(0, 90, 0);
+		} else {
+			// We have a studio, just display that.
+			set_camera_studio();
+		}
+	}
+}
+
+function CamEnable(index) {
+	if (CAM_ACTIVE[index]) {
+		return;
+	}
+	CAM_ACTIVE[index] = 1;
+	CAM_ACTIVE_NUM++;
+	// Skip to that camera.
+	cur_ind = index;
+	set_camera();
 }
 
 function Think() {

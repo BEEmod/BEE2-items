@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "28"
+	"editorbuild" "7335"
+	"mapversion" "35"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "28"
+	"mapversion" "35"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,16 +30,30 @@ world
 }
 entity
 {
-	"id" "189"
-	"classname" "info_target"
-	"angles" "0 0 0"
+	"id" "238"
+	"classname" "env_sprite"
+	"disablereceiveshadows" "0"
+	"disableX360" "0"
+	"framerate" "10.0"
+	"GlowProxySize" "2.0"
+	"HDRColorScale" "1.0"
+	"maxcpulevel" "0"
+	"maxgpulevel" "0"
+	"mincpulevel" "0"
+	"mingpulevel" "0"
+	"model" "sprites/redlaserglow.vmt"
 	"parentname" "box"
-	"spawnflags" "3"
-	"targetname" "cube_addon_ref_cube_las_targ2"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"renderfx" "0"
+	"rendermode" "9"
+	"scale" ".25"
+	"spawnflags" "0"
+	"targetname" "cube_addon_ref_cube_las_spr"
 	"origin" "16 8 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "20 140 20"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -52,7 +66,7 @@ entity
 	"angles" "0 0 0"
 	"parentname" "box"
 	"spawnflags" "1"
-	"targetname" "cube_addon_ref_cube_las_targ1"
+	"targetname" "cube_addon_ref_cube_las_targ"
 	"origin" "16 -8 0"
 	editor
 	{
@@ -74,8 +88,8 @@ entity
 	"framestart" "0"
 	"HDRColorScale" "1.0"
 	"life" "0"
-	"LightningEnd" "cube_addon_ref_cube_las_targ2"
-	"LightningStart" "cube_addon_ref_cube_las_targ1"
+	"LightningEnd" "cube_addon_ref_cube_las_targ"
+	"LightningStart" "cube_addon_ref_cube_las_spr"
 	"NoiseAmplitude" "0"
 	"parentname" "box"
 	"Radius" "0"
@@ -89,6 +103,14 @@ entity
 	"texture" "sprites/grav_beam.vmt"
 	"TextureScroll" "35"
 	"TouchType" "0"
+	"vscripts" "bee2/ref_cube_laser.nut"
+	connections
+	{
+		"OnUser2" "!selfTurnOn0-1"
+		"OnUser1" "!selfTurnOff0-1"
+		"OnUser1" "cube_addon_ref_cube_las_sprHideSprite0-1"
+		"OnUser2" "cube_addon_ref_cube_las_sprShowSprite0-1"
+	}
 	"origin" "0 0 0"
 	editor
 	{

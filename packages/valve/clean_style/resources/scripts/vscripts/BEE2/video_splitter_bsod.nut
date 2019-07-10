@@ -22,26 +22,17 @@ function StopDepartureVideo(width,height)
 
 function StopVideo(videoType,width,height)
 {
-	for(local i=0;i<width;i+=1)
-	{
-		for(local j=0;j<height;j+=1)
+	local signName;
+	if (videoType == DEPARTURE_VIDEO)
 		{
-			local panelNum = 1 + width*j + i
-			local signName
-			
-			if (videoType == DEPARTURE_VIDEO)
-			{
-				signName = "@departure_sign_" + panelNum
-			}
-			else
-			{
-				signName = "@arrival_sign_" + panelNum
-			}
-			
-			EntFire(signName, "Disable", "", 0)
-			EntFire(signName, "killhierarchy", "", 1.0)
+			signName = "@departure_sign_*";
 		}
-	}
+		else
+		{
+			signName = "@arrival_sign_*";
+		}	
+	EntFire(signName, "Disable", "", 0)
+	EntFire(signName, "killhierarchy", "", 1.0)
 }
 
 function StartArrivalVideo(width, height, use_destructed)
@@ -83,7 +74,7 @@ function StartVideo(videoType, width, height, use_destructed)
 					
 			if( randomDestructChance > RandomInt(0,100) )
 			{
-				EntFire(signName, "Kill", "", 0)
+				EntFire(signName, "killhierarchy", "", 0)
 				continue
 			}
 			

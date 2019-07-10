@@ -1,0 +1,58 @@
+"ID"		"PRO_LIFEFORM_SENSOR"
+"Name"		"Portal Pro Lifeform Sensor"
+"Desc"      "Adds the Lifeform Sensor from the Portal Pro Portal 1 mod.
+This toggles an output whenever players cross through the field.
+"
+
+"Prerequisites"
+	{
+	"Package" "BEE2_FIZZLER_OUT_RELAY"
+	}
+	
+"Item"
+	{
+	"ID"        "ITEM_PRO_LIFEFORM_SENSOR"
+	"Description"
+		{
+		"" "A fizzler-style field which toggles an output whenever players cross through the field."
+		"" ""
+		"" "* Players must leave on the opposite side to the one they entered in."
+		"" "* This requires use of the Fizzler Output Relay."
+		"" "* Note that there are two circumstances when the field will **not properly detect movement** - when players move at exteme speeds via Faith Plate, or if they are able to pass through the side of the fizzler. Avoid high-speed plates, and add walls above/below the fizzler."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN" "lifeform_sensor"
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "lifeform_sensor"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%MDL_SKIN%" "1" // Dirty
+						}
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "lifeform_sensor"
+				"Instances"
+					{
+					"1" "instances/BEE2/p1/items/pro/lifeform_sensor_model.vmf"
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "lifeform_sensor"
+				"Config" "retro.cfg"
+				"Instances"
+					{
+					"1" "instances/BEE2/50s/items/pro/lifeform_sensor_model.vmf"
+					}
+				}
+			}
+		}
+	}

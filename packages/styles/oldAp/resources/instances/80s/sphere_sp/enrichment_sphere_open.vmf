@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7552"
-	"mapversion" "1455"
+	"mapversion" "1462"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -40,12 +40,6 @@ visgroups
 	}
 	visgroup
 	{
-		"name" "Quote"
-		"visgroupid" "20"
-		"color" "240 113 134"
-	}
-	visgroup
-	{
 		"name" "Office"
 		"visgroupid" "32"
 		"color" "80 113 246"
@@ -74,13 +68,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "1455"
+	"mapversion" "1462"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -3240,34 +3234,6 @@ entity
 }
 entity
 {
-	"id" "354884"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/cavejohnson/eighties_intro01.vcd"
-	"targetname" "@cave_enter_generic"
-	connections
-	{
-		"OnUser2" "!selfStart0.011"
-		"OnUser1" "@cave_enter_funnelKill0-1"
-		"OnUser1" "@cave_enter_whitegelKill0-1"
-		"OnUser1" "@cave_enter_bluegelKill0-1"
-		"OnUser1" "@caroline_enterKill0-1"
-		"OnUser1" "@cave_enter_laserKill0-1"
-		"OnUser2" "@intro_bullseye_1AddOutputtargetname cave_portal_intro_office01"
-	}
-	"origin" "-5439.1 -1928 -653.043"
-	editor
-	{
-		"color" "240 180 250"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "352048"
 	"classname" "prop_static"
 	"angles" "0 0 0"
@@ -5477,7 +5443,7 @@ entity
 	"maxspeed" "100"
 	"mindxlevel" "0"
 	"renderamt" "255"
-	"rendercolor" "247 228 170"
+	"rendercolor" "247 228 570"
 	"renderfx" "0"
 	"rendermode" "0"
 	"spawnflags" "3"
@@ -9276,52 +9242,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[9500 0]"
-	}
-}
-entity
-{
-	"id" "263504"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@normal_gun"
-	connections
-	{
-		"OnTrigger" "@orange_gunKill0-1"
-		"OnUser2" "!selfKill0.01-1"
-		"OnUser1" "!selfRunScriptCodeGivePlayerPortalgun()0-1"
-		"OnUser2" "!selfDisable0-1"
-	}
-	"origin" "-4913.92 -2302.81 -958.792"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "263506"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@is_one_portal_test"
-	connections
-	{
-		"OnTrigger" "@nogunEnable0-1"
-		"OnUser2" "@nogunEnable0-1"
-		"OnUser2" "@normal_gunFireUser20-1"
-		"OnTrigger" "@orange_gunKill0-1"
-	}
-	"origin" "-4939.05 -2297.52 -958.792"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -15992,244 +15912,6 @@ entity
 }
 entity
 {
-	"id" "257415"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "@turret_caroline"
-	connections
-	{
-		"OnTrigger" "@turret_carolineFireUser201"
-	}
-	"origin" "-5078.56 -1945.17 -877.879"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "257417"
-	"classname" "ambient_generic"
-	"cspinup" "0"
-	"fadeinsecs" "0"
-	"fadeoutsecs" "0"
-	"health" "10"
-	"lfomodpitch" "0"
-	"lfomodvol" "0"
-	"lforate" "0"
-	"lfotype" "0"
-	"message" "npc/turret/different_turret10.wav"
-	"pitch" "100"
-	"pitchstart" "100"
-	"preset" "0"
-	"radius" "12500"
-	"spawnflags" "49"
-	"spindown" "0"
-	"spinup" "0"
-	"targetname" "@turret_caroline"
-	"volstart" "0"
-	connections
-	{
-		"OnUser2" "!selfPlaySound0-1"
-		"OnUser2" "!selfKill8-1"
-	}
-	"origin" "-5078.56 -1928.89 -880.523"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "257420"
-	"classname" "ambient_generic"
-	"cspinup" "0"
-	"fadeinsecs" "0"
-	"fadeoutsecs" "0"
-	"health" "10"
-	"lfomodpitch" "0"
-	"lfomodvol" "0"
-	"lforate" "0"
-	"lfotype" "0"
-	"message" "npc/turret/different_turret09.wav"
-	"pitch" "100"
-	"pitchstart" "100"
-	"preset" "0"
-	"radius" "12500"
-	"spawnflags" "49"
-	"spindown" "0"
-	"spinup" "0"
-	"targetname" "@turret_beneath"
-	"volstart" "0"
-	connections
-	{
-		"OnUser2" "!selfPlaySound0-1"
-		"OnUser2" "!selfKill10-1"
-	}
-	"origin" "-5078.56 -1928 -858.479"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "257423"
-	"classname" "logic_case"
-	"Case01" "1"
-	"Case02" "2"
-	"Case03" "3"
-	"Case04" "4"
-	"Case05" "5"
-	"Case06" "6"
-	"Case07" "7"
-	"targetname" "@turret_different"
-	connections
-	{
-		"OnCase01" "@turret_madFireUser201"
-		"OnCase02" "@turret_lemonadeFireUser201"
-		"OnCase03" "@turret_prometheusFireUser201"
-		"OnCase04" "@turret_beneathFireUser201"
-		"OnCase05" "@turret_carolineTrigger01"
-		"OnCase06" "@turret_carolineTrigger01"
-		"OnCase07" "@turret_carolineTrigger01"
-	}
-	"origin" "-5078.56 -1946.28 -854.745"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "257425"
-	"classname" "ambient_generic"
-	"cspinup" "0"
-	"fadeinsecs" "0"
-	"fadeoutsecs" "0"
-	"health" "10"
-	"lfomodpitch" "0"
-	"lfomodvol" "0"
-	"lforate" "0"
-	"lfotype" "0"
-	"message" "npc/turret/different_turret04.wav"
-	"pitch" "100"
-	"pitchstart" "100"
-	"preset" "0"
-	"radius" "12500"
-	"spawnflags" "49"
-	"spindown" "0"
-	"spinup" "0"
-	"targetname" "@turret_prometheus"
-	"volstart" "0"
-	connections
-	{
-		"OnUser2" "!selfPlaySound0-1"
-		"OnUser2" "!selfKill12-1"
-	}
-	"origin" "-5078.56 -1930.42 -839.31"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "257428"
-	"classname" "ambient_generic"
-	"cspinup" "0"
-	"fadeinsecs" "0"
-	"fadeoutsecs" "0"
-	"health" "10"
-	"lfomodpitch" "0"
-	"lfomodvol" "0"
-	"lforate" "0"
-	"lfotype" "0"
-	"message" "npc/turret/different_turret03.wav"
-	"pitch" "100"
-	"pitchstart" "100"
-	"preset" "0"
-	"radius" "12500"
-	"spawnflags" "49"
-	"spindown" "0"
-	"spinup" "0"
-	"targetname" "@turret_lemonade"
-	"volstart" "0"
-	connections
-	{
-		"OnUser2" "!selfPlaySound0-1"
-		"OnUser2" "!selfKill6-1"
-	}
-	"origin" "-5078.56 -1928.44 -823.349"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "257431"
-	"classname" "ambient_generic"
-	"cspinup" "0"
-	"fadeinsecs" "0"
-	"fadeoutsecs" "0"
-	"health" "10"
-	"lfomodpitch" "0"
-	"lfomodvol" "0"
-	"lforate" "0"
-	"lfotype" "0"
-	"message" "npc/turret/different_turret02.wav"
-	"pitch" "100"
-	"pitchstart" "100"
-	"preset" "0"
-	"radius" "12500"
-	"spawnflags" "49"
-	"spindown" "0"
-	"spinup" "0"
-	"targetname" "@turret_mad"
-	"volstart" "0"
-	connections
-	{
-		"OnUser2" "!selfPlaySound0-1"
-		"OnUser2" "!selfKill3-1"
-	}
-	"origin" "-5078.56 -1928.02 -804.111"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "256513"
 	"classname" "prop_static"
 	"angles" "0 0 0"
@@ -16248,7 +15930,7 @@ entity
 	"maxgpulevel" "0"
 	"mincpulevel" "0"
 	"mingpulevel" "0"
-	"model" "models/props_underground/walkway_corner.mdl"
+	"model" "models/props_underground/walkway_l.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"screenspacefade" "0"
@@ -16469,47 +16151,6 @@ entity
 }
 entity
 {
-	"id" "255638"
-	"classname" "logic_relay"
-	"spawnflags" "1"
-	"StartDisabled" "$no_player_start"
-	"targetname" "@relay_spawn_on_entrance"
-	connections
-	{
-		"OnTrigger" "@commandCommandjpeg0-1"
-	}
-	"origin" "-5328 -1928 -877.894"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "255640"
-	"classname" "logic_relay"
-	"spawnflags" "1"
-	"StartDisabled" "$no_player_start"
-	"targetname" "@screenshot2"
-	connections
-	{
-		"OnTrigger" "@commandCommandcl_screenshotname previewcomplete0-1"
-		"OnTrigger" "@commandCommandscreenshot0.05-1"
-	}
-	"origin" "-5296 -1928 -879.146"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "251935"
 	"classname" "logic_relay"
 	"spawnflags" "0"
@@ -16532,105 +16173,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "251944"
-	"classname" "trigger_weapon_strip"
-	"KillWeapons" "1"
-	"origin" "-4372.81 -2209.53 -1135.29"
-	"spawnflags" "4097"
-	"StartDisabled" "1"
-	"targetname" "@nogun"
-	connections
-	{
-		"OnStartTouch" "@normal_gunFireUser10.1-1"
-		"OnStartTouch" "@nogunDisable0.01-1"
-	}
-	solid
-	{
-		"id" "251945"
-		side
-		{
-			"id" "26132"
-			"plane" "(-4260.82 -2337.53 -783.27) (-4484.82 -2337.53 -783.27) (-4484.82 -2081.52 -783.27)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.5"
-			"vaxis" "[0 -1 0 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26131"
-			"plane" "(-4260.82 -2081.52 -1487.27) (-4484.82 -2081.52 -1487.27) (-4484.82 -2337.53 -1487.27)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-1 0 0 0] 0.5"
-			"vaxis" "[0 -1 0 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26130"
-			"plane" "(-4260.82 -2337.52 -1487.27) (-4484.82 -2337.52 -1487.27) (-4484.82 -2337.52 -783.271)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.5"
-			"vaxis" "[0 0 -1 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26129"
-			"plane" "(-4484.82 -2081.52 -1487.27) (-4260.82 -2081.52 -1487.27) (-4260.82 -2081.52 -783.272)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-1 0 0 0] 0.5"
-			"vaxis" "[0 0 -1 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26128"
-			"plane" "(-4484.82 -2337.52 -1487.27) (-4484.82 -2081.52 -1487.27) (-4484.82 -2081.52 -783.272)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 -1 0 0] 0.5"
-			"vaxis" "[0 0 -1 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "26127"
-			"plane" "(-4260.82 -2081.52 -1487.27) (-4260.82 -2337.53 -1487.27) (-4260.82 -2337.52 -783.271)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.5"
-			"vaxis" "[0 0 -1 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "18"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
 	}
 }
 entity
@@ -16664,97 +16206,6 @@ entity
 }
 entity
 {
-	"id" "231745"
-	"classname" "logic_relay"
-	"spawnflags" "1"
-	"StartDisabled" "0"
-	"targetname" "@cave_enter"
-	connections
-	{
-		"OnTrigger" "@cave_enter_whitegelFireUser25-1"
-		"OnTrigger" "@cave_enter_funnelFireUser25-1"
-		"OnTrigger" "@cave_enter_genericFireUser24-1"
-		"OnTrigger" "@cave_enter_laserFireUser25-1"
-		"OnTrigger" "@caroline_enterFireUser25-1"
-		"OnTrigger" "@cave_enter_bluegelFireUser25-1"
-	}
-	"origin" "-5353.96 -1924.88 -724.529"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "231759"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/cavejohnson/fifties_repulsion_intro03.vcd"
-	"targetname" "@cave_enter_bluegel2"
-	"origin" "-5312.82 -1924.88 -647.851"
-	editor
-	{
-		"color" "240 180 250"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "231762"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/cavejohnson/eighties_intro07.vcd"
-	"targetname" "@cave_enter_whitegel2"
-	"origin" "-5287.7 -1924.6 -644.452"
-	editor
-	{
-		"color" "240 180 250"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "231765"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/cavejohnson/eighties_intro06.vcd"
-	"targetname" "@cave_enter_whitegel"
-	connections
-	{
-		"OnUser2" "!selfStart0.01-1"
-		"OnUser1" "@cave_enter_funnelKill0-1"
-		"OnUser1" "@cave_enter_laserKill0-1"
-		"OnUser1" "@cave_enter_bluegelKill0-1"
-		"OnUser1" "@cave_enter_genericKill0-1"
-		"OnCompletion" "@cave_enter_whitegel2Start0.1-1"
-		"OnUser1" "@caroline_enterKill0-1"
-		"OnUser2" "@eye_intro_1AddOutputtargetname t0-1"
-	}
-	"origin" "-5284.21 -1924.88 -677.42"
-	editor
-	{
-		"color" "240 180 250"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "231771"
 	"classname" "logic_auto"
 	"spawnflags" "1"
@@ -16762,21 +16213,6 @@ entity
 	{
 		"OnMapSpawn" "player_start_rlTrigger0-1"
 		"OnMapSpawn" "fade_spawnFade0-1"
-		"OnMapSpawn" "@cave_enter_genericFireUser10.85-1"
-		"OnMapSpawn" "@cave_exit_genericFireUser10.85-1"
-		"OnMapSpawn" "@pipes_purpleTrigger0.35-1"
-		"OnMapSpawn" "@pipes_greyTrigger0.4-1"
-		"OnMapSpawn" "@pipes_orangeTrigger0.8-1"
-		"OnMapSpawn" "@has_deadlyTrigger0.75-1"
-		"OnMapSpawn" "@pipes_blueTrigger0.7-1"
-		"OnMapSpawn" "@has_laserTrigger0.6-1"
-		"OnMapSpawn" "@pipes_whiteTrigger0.55-1"
-		"OnMapSpawn" "@has_funnelTrigger0.5-1"
-		"OnMapSpawn" "@has_carolineTrigger0.45-1"
-		"OnMapSpawn" "@has_glassTrigger0.65-1"
-		"OnMapSpawn" "@normal_gunTrigger0.15-1"
-		"OnMapSpawn" "@has_bridgeTrigger0.5-1"
-		"OnMapSpawn" "@has_nobridgeTrigger0.79-1"
 	}
 	"origin" "-4897.92 -2298.43 -963.794"
 	editor
@@ -16862,30 +16298,6 @@ entity
 }
 entity
 {
-	"id" "250582"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "1"
-	"targetname" "@has_caroline"
-	connections
-	{
-		"OnTrigger" "@caroline_exitFireUser10-1"
-		"OnTrigger" "@caroline_enterFireUser10-1"
-		"OnTrigger" "@cave_portraitSkin30-1"
-		"OnTrigger" "@turret_carolineEnable0-1"
-		"OnTrigger" "@caroline_catwalksEnable0-1"
-	}
-	"origin" "-5312 -1928 -728"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
 	"id" "250907"
 	"classname" "light"
 	"_constant_attn" "0"
@@ -16908,76 +16320,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[1000 9500]"
-	}
-}
-entity
-{
-	"id" "251057"
-	"classname" "ambient_generic"
-	"cspinup" "0"
-	"fadeinsecs" "0"
-	"fadeoutsecs" "0"
-	"health" "10"
-	"lfomodpitch" "0"
-	"lfomodvol" "0"
-	"lforate" "0"
-	"lfotype" "0"
-	"message" "vo/cavejohnson/caroline_cave_responses41.wav"
-	"pitch" "100"
-	"pitchstart" "100"
-	"preset" "0"
-	"radius" "1250"
-	"spawnflags" "48"
-	"spindown" "0"
-	"spinup" "0"
-	"targetname" "@caroline_enter"
-	"volstart" "0"
-	connections
-	{
-		"OnUser2" "!selfPlaySound0-1"
-		"OnUser1" "@cave_enter_funnelKill0-1"
-		"OnUser1" "@cave_enter_whitegelKill0-1"
-		"OnUser1" "@cave_enter_bluegelKill0-1"
-		"OnUser1" "@cave_enter_genericKill0-1"
-		"OnUser1" "@cave_enter_laserKill0-1"
-	}
-	"origin" "-5487.95 -1928 -664.484"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "251128"
-	"classname" "logic_choreographed_scene"
-	"busyactor" "1"
-	"onplayerdeath" "0"
-	"SceneFile" "scenes/npc/cavejohnson/fifties_repulsion_intro02.vcd"
-	"targetname" "@cave_enter_bluegel"
-	connections
-	{
-		"OnUser2" "@eye_intro_1AddOutputtargetname cave_a3_jump_intro_entrance0-1"
-		"OnUser1" "@cave_enter_funnelKill0-1"
-		"OnUser1" "@cave_enter_laserKill0-1"
-		"OnUser1" "@cave_enter_whitegelKill0-1"
-		"OnUser1" "@cave_enter_genericKill0-1"
-		"OnCompletion" "@cave_enter_bluegel2Start0.1-1"
-		"OnUser1" "@caroline_enterKill0-1"
-		"OnUser2" "!selfStart0.01-1"
-	}
-	"origin" "-5312.81 -1928 -675.889"
-	editor
-	{
-		"color" "240 180 250"
-		"visgroupid" "20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -17367,11 +16709,10 @@ entity
 	"StartDisabled" "0"
 	connections
 	{
-		"OnTrigger" "@musicStopSound0-1"
 		"OnTrigger" "@close_exit_doorTrigger0.1-1"
-		"OnTrigger" "@musicKill0.01-1"
 		"OnTrigger" "@close_exit_portalDisable0-1"
 		"OnTrigger" "@close_exit_portalCancelPending0-1"
+		"OnTrigger" "@music_stopTrigger0-1"
 	}
 	solid
 	{
@@ -17466,7 +16807,7 @@ entity
 	"damagemodel" "0"
 	"damagetype" "262144"
 	"nodmgforce" "0"
-	"origin" "-4863.86 -2560 -1551.27"
+	"origin" "-4863.86 -2560 -1520.3"
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	solid
@@ -17475,7 +16816,7 @@ entity
 		side
 		{
 			"id" "25964"
-			"plane" "(-2304 -3840 -1525.27) (-7424 -3840 -1525.27) (-7424 1280 -1525.27)"
+			"plane" "(-2304 -3840 -1488) (-7424 -3840 -1488) (-7424 1280 -1488)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.5"
 			"vaxis" "[0 -1 0 0] 0.5"
@@ -17497,7 +16838,7 @@ entity
 		side
 		{
 			"id" "25962"
-			"plane" "(-7424 1280 -1679.27) (-2304 1280 -1679.27) (-2304 1280 -1525.27)"
+			"plane" "(-7424 1280 -1679.27) (-2304 1280 -1679.27) (-2304 1280 -1488)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-1 0 0 0] 0.5"
 			"vaxis" "[0 0 -1 0] 0.5"
@@ -17508,7 +16849,7 @@ entity
 		side
 		{
 			"id" "25961"
-			"plane" "(-2304 -3840 -1679.27) (-7424 -3840 -1679.27) (-7424 -3840 -1525.27)"
+			"plane" "(-2304 -3840 -1679.27) (-7424 -3840 -1679.27) (-7424 -3840 -1488)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.5"
 			"vaxis" "[0 0 -1 0] 0.5"
@@ -17519,7 +16860,7 @@ entity
 		side
 		{
 			"id" "25960"
-			"plane" "(-7424 -3840 -1679.27) (-7424 1280 -1679.27) (-7424 1280 -1525.27)"
+			"plane" "(-7424 -3840 -1679.27) (-7424 1280 -1679.27) (-7424 1280 -1488)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 -1 0 0.0012207] 0.5"
 			"vaxis" "[0 0 -1 0] 0.5"
@@ -17530,7 +16871,7 @@ entity
 		side
 		{
 			"id" "25959"
-			"plane" "(-2304 1280 -1679.27) (-2304 -3840 -1679.27) (-2304 -3840 -1525.27)"
+			"plane" "(-2304 1280 -1679.27) (-2304 -3840 -1679.27) (-2304 -3840 -1488)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 -0.0012207] 0.5"
 			"vaxis" "[0 0 -1 0] 0.5"
@@ -22864,7 +22205,6 @@ entity
 	{
 		"OnTrigger" "@entrance_airlock_doorOpen0.51"
 		"OnTrigger" "@entrance_portal_elevator_sideOpen0.51"
-		"OnTrigger" "pre_paint_rlTrigger0-1"
 	}
 	solid
 	{
@@ -23059,34 +22399,6 @@ entity
 }
 entity
 {
-	"id" "129492"
-	"classname" "game_text"
-	"channel" "3"
-	"color" "255 255 255"
-	"color2" "205 205 205"
-	"effect" "2"
-	"fadein" ".06"
-	"fadeout" "0.5"
-	"fxtime" ".5"
-	"holdtime" "5"
-	"message" "PORTAL2_PuzzleEditor_Preview_Complete"
-	"spawnflags" "1"
-	"targetname" "@preview_complete_message"
-	"x" "-1"
-	"y" ".6"
-	"origin" "-4593.81 -2085.83 -1016"
-	editor
-	{
-		"color" "222 139 0"
-		"groupid" "265584"
-		"visgroupid" "21"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
 	"id" "129159"
 	"classname" "env_fade"
 	"duration" "1"
@@ -23195,29 +22507,6 @@ entity
 }
 entity
 {
-	"id" "126070"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "pre_paint_rl"
-	connections
-	{
-		"OnTrigger" "@pre_paint_sprayerStart0.5-1"
-		"OnTrigger" "@pre_paint_sprayerStop1.5-1"
-	}
-	"origin" "-4640 -2080 -976"
-	editor
-	{
-		"color" "222 139 0"
-		"groupid" "265584"
-		"visgroupid" "21"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "125480"
 	"classname" "logic_relay"
 	"spawnflags" "0"
@@ -23225,12 +22514,11 @@ entity
 	"targetname" "player_start_rl"
 	connections
 	{
-		"OnTrigger" "@player_start_templateForceSpawn0-1"
 		"OnTrigger" "@player_start_teleportTeleport0.5-1"
-		"OnTrigger" "@entrance_door_open_rlTrigger1.51"
-		"OnTrigger" "pre_paint_rlTrigger0-1"
+		"OnTrigger" "@entrance_door_openTrigger1.51"
 		"OnTrigger" "player_door_triggerKill0-1"
 		"OnTrigger" "@preview_restart_triggerEnable0-1"
+		"OnTrigger" "@player_start_teleportFireUser10-1"
 	}
 	"origin" "-4664 -2024 -976"
 	editor
@@ -23306,8 +22594,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-4786.44 -1053.23 169.444]"
-		"look" "[-4811.93 -1083.91 120.546]"
+		"position" "[-3735.36 -3145.31 -1346.91]"
+		"look" "[-3687.79 -3114.78 -1374.96]"
 	}
 	camera
 	{

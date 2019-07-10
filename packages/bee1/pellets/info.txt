@@ -33,6 +33,16 @@
 		"Tooltip" "Make High Energy Pellets pass through Gratings."
 		"Tooltip" "让高能弹丸穿过光栅。" [lang_zh]
 		}
+	"Widget"
+		{
+		"ID"	  "RefreshTime"
+		"Label"   "Portal Refresh Time"
+		"Type"    "Timer"
+		"Default" "6"
+		"Min"     "3"
+		"Max"     "30"
+		"Tooltip" "When pellets pass through a portal, the time remaining before they explode will be to at least this many seconds. Does not apply to infinite launchers."
+		}
 	}
 
 "Item"
@@ -44,7 +54,7 @@
 		"" ""
 		"" "* Direct them into catchers to activate them."
 		"" "* The timer property controls how long it will last until exploding."
-		"" "* If set to infinite, enabling the input will spawn the pellet; disabling it destroys the pellet. _Start Enabled_ is ignored."
+		"" "* If set to infinite, enabling the input will spawn the pellet; disabling it destroys the pellet."
 		"" "* If respawn is disabled, the launcher will permanently disabled once a catcher receives this pellet."
 		}
 	"All_conf" "launcher.cfg"
@@ -58,13 +68,6 @@
 			"BEE2_OVERGROWN"
 				{
 				"Base"  "BEE2_CLEAN"
-				"Replace"
-					{
-					"PACK_PELLET_LAUNCHER_INF_CLEAN" "PACK_PELLET_LAUNCHER_INF_DIRTY"
-					// We don't need to pack anything specific for normal launchers -
-					// it's just the (included) dirty model.
-					"PACK_PELLET_LAUNCHER_CLEAN"     ""
-					}
 				"Instances"
 					{
 					"bee2_inf"  "instances/BEE2/over/items/BEE/hep/emitter_inf.vmf"
@@ -157,6 +160,7 @@
 	}
 
 
+// Emitterless infinite HEP.
 "Item"
 	{
 	"ID"       "ITEM_HIGH_ENERGY_PELLET_INF"
@@ -170,109 +174,62 @@
 		}
 	}
 
-"PackList"
+// Add in the original pellet signage.
+"Signage"
 	{
-	"ID"     "PACK_PELLET"
-	"Config" "pellet"
+	"ID" "SIGN_BEE_HEP_IMPACT"
+	"Name" "High Energy Pellet Impact / Danger"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_energyball"
+			"icon"    "items/clean/BEE/signage/pellet_hit.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/pellet_impact"
+			"icon"    "items/50s/BEE/signage/pellet_hit.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_pellet_hit"
+			"icon"    "items/70s/BEE/signage/pellet_hit.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
 	}
 
-	
-"PackList"
+"Signage"
 	{
-	"ID"     "PACK_PELLET_LAUNCHER_CLEAN"
-	"Config"
+	"ID" "SIGN_BEE_HEP_CATCHER"
+	"Name" "High Energy Pellet Catcher"
+	"Secondary" "SIGN_BEE_HEP_IMPACT"
+	"Styles"
 		{
-		"" "models/props/clean/combine_ball_launcher.mdl"
-		"" "materials/models/props/c_ball_launcher_clean.vmt"
-		"" "materials/models/props/combine_ball_launcher_clean.vtf"
+		"BEE2_CLEAN"
+			{
+			"overlay" "BEE2/signage/signage_pellet_catcher"
+			"icon"    "items/clean/BEE/signage/pellet_catcher.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/pellet_catcher"
+			"icon"    "items/50s/BEE/signage/pellet_catcher.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_pellet_catcher"
+			"icon"    "items/70s/BEE/signage/pellet_catcher.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
 		}
 	}
-	
-"PackList"
-	{
-	"ID"     "PACK_PELLET_LAUNCHER_INF"
-	"Config"
-		{
-		"" "scripts/vscripts/BEE2/inf_pellet.nut"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_PELLET_LAUNCHER_INF_CLEAN"
-	"Config"
-		{
-		"" "models/BEE2/props_ingame/pellet_launcher_inf.mdl"
-		"" "materials/BEE2/models/props_ingame/rex/launcher_inf_clean.vmt"
-		"" "materials/BEE2/models/props_ingame/rex/launcher_inf_clean.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_PELLET_CATCHER_CLEAN"
-	"Config"
-		{
-		"" "models/props/clean/combine_ball_catcher.mdl"
-		"" "materials/models/props/ball_catcher_clean.vmt"
-		"" "materials/models/props/combine_ball_catcher_clean.vtf"
-		
-		// Field effect around caught pellet
-		"" "materials/BEE2/p1/physring.vmt"
-		"" "materials/BEE2/p1/physring.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_PELLET_CATCHER_TIM_CLEAN"
-	"Config"
-		{
-		"" "models/BEE2/props_ingame/pellet_catcher_timed.mdl"
-		"" "materials/BEE2/models/props_ingame/rex/catcher_timed_clean.vmt"
-		"" "materials/BEE2/models/props_ingame/rex/catcher_timed_clean.vtf"
-		
-		// Field effect around caught pellet
-		"" "materials/BEE2/p1/physring.vmt"
-		"" "materials/BEE2/p1/physring.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_PELLET_LAUNCHER_INF_DIRTY"
-	"Config"
-		{
-		"" "models/BEE2/props_ingame/pellet_launcher_inf.mdl"
-		"" "materials/BEE2/models/props_ingame/rex/launcher_inf_dirty.vmt"
-		"" "materials/BEE2/models/props_ingame/rex/launcher_inf_dirty.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_PELLET_CATCHER_TIM_DIRTY"
-	"Config"
-		{
-		"" "models/BEE2/props_ingame/pellet_catcher_timed.mdl"
-		"" "materials/BEE2/models/props_ingame/rex/catcher_timed_dirty.vmt"
-		"" "materials/BEE2/models/props_ingame/rex/catcher_timed_dirty.vtf"
-		
-		// Field effect around caught pellet
-		"" "materials/BEE2/p1/physring.vmt"
-		"" "materials/BEE2/p1/physring.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"     "PACK_PELLET_CATCHER_INF_DIRTY"
-	"Config"
-		{
-		// We don't need to pack the models, since Valve included those.
-		"" "materials/BEE2/p1/physring.vmt"
-		"" "materials/BEE2/p1/physring.vtf"
-		}
-	}
+
 
 "EditorSound"
 	{

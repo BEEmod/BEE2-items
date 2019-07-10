@@ -33,6 +33,22 @@
 		"File" "models/BEE2/panels/bee2_clean_glass_panel.mdl" // Fixed transparency on the model.
 		}
 	}	
+
+"ConfigGroup"
+	{
+	"ID"    "VALVE_TEST_ELEM"
+	"Name"  "Default Test Elements"
+	"Widget"
+		{
+		"ID"      "AllowBrushStair"
+		"Type"    "Checkbox"
+		"Default" "1"
+		
+		"Label"   "Allow Block Stairs"
+		
+		"Tooltip" "If Stairs recieve no inputs they will switch to an alternate design, made of solid blocks. This disables that feature, for designers who prefer the fully-articulated panels."
+		}
+	}
 	
 "Item"
 	{
@@ -44,6 +60,16 @@
 			"BEE2_CLEAN"	"glass"
 			}
 		}
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_GLASS_TEMPLATE"
+	"File"  "glass_template.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_GRATING_TEMPLATE"
+	"File"  "grating_template.vmf"
 	}
 "Item"
 	{
@@ -179,6 +205,16 @@
 	"ID"    "BEE2_TRACK_PLAT_SINGLE"
 	"File"  "track_single.vmf"
 	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_TRACK_PLAT_GOO"
+	"File"  "track_goo.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_TRACK_PLAT_PANEL"
+	"File"  "track_panel.vmf"
+	}
 	
 "Item"
 	{
@@ -190,6 +226,7 @@
 		"" "* Players are killed and objects are destroyed if they block downward movement of the piston."
 		"" "* The Auto Drop option enables or disables player detection. If enabled the platform will only move when players stand on the lift."
 		"" "* If connections are attached, they must be all active first before the lift will function."
+		"" "* Cube Type allows using Portalable or non-Portalable surfaces on the top of the platform. Sphere and Franken should not be used."
 		}
 	"Version"
 		{
@@ -198,4 +235,10 @@
 			"BEE2_CLEAN"	"piston_plat"
 			}
 		}
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "BEE2_PISTON_PLATFORM_MODERN"
+	"File"  "piston_plat.vmf"
 	}
