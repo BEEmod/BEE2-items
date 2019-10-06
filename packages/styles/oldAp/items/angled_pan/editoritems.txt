@@ -110,10 +110,13 @@
 		"TargetName"		"ap"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"invertVar"     "$start_deployed"
+				"SpawnFire"     "dynamic"
+				"Enable_Cmd"    "model_arms,FireUser2,,0.00,-1"
+				"Disable_Cmd"   "model_arms,FireUser1,,0.00,-1"
 			}
 		}
 		"Offset"		"64 64 64"
