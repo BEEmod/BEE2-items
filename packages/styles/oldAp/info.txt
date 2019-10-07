@@ -1643,7 +1643,7 @@
 			"Name"		"Mechanical Plate"
 			"Styles"
 				{
-				"BEE2_1950s"		"mech_plate/50s"
+				"BEE2_1950s"		"mech_plate"
 				"BEE2_1970s"		"mech_plate/70s"
 				"BEE2_1980s"		"mech_plate/80s"
 				}
@@ -2031,44 +2031,34 @@
 				"BEE2_1950s"
 					{
 					"Folder" "angled_pan"
-					"Instances"
+					"Append"
 						{
-						"0"         "instances/BEE2/50s/items/panel_angled.vmf"
-						"pan_logic" "instances/BEE2/50s/items/panel_logic.vmf"
-
-						"static_30" "instances/BEE2/50s/static_panel/30_surf.vmf"
-						"static_45" "instances/BEE2/50s/static_panel/45_surf.vmf"
-						"static_60" "instances/BEE2/50s/static_panel/60_surf.vmf"
-						"static_90" "instances/BEE2/50s/static_panel/90_surf.vmf"
+						"Replacements"
+							{
+							"%DECADE%" "50s"
+							}
 						}
 					}
 				"BEE2_1970s"
 					{
 					"Folder" "angled_pan"
-					"Instances"
+					"Append"
 						{
-						"0"         "instances/BEE2/70s/items/panel_angled.vmf"
-						"pan_logic" "instances/BEE2/70s/items/panel_logic.vmf"
-
-						"static_30" "instances/BEE2/70s/static_panel/30_surf.vmf"
-						"static_45" "instances/BEE2/70s/static_panel/45_surf.vmf"
-						"static_60" "instances/BEE2/70s/static_panel/60_surf.vmf"
-						"static_90" "instances/BEE2/70s/static_panel/90_surf.vmf"
+						"Replacements"
+							{
+							"%DECADE%" "70s"
+							}
 						}
 					}
 				"BEE2_1980s"
 					{
 					"Folder" "angled_pan"
-					"Config" "angled_pan_80s.cfg"
-					"Instances"
+					"Append"
 						{
-						"0" 		"instances/BEE2/80s/items/panel_angled.vmf"
-						"pan_logic" "instances/BEE2/80s/items/panel_logic.vmf"
-
-						"static_30" "instances/BEE2/80s/static_panel/30_surf.vmf"
-						"static_45" "instances/BEE2/80s/static_panel/45_surf.vmf"
-						"static_60" "instances/BEE2/80s/static_panel/60_surf.vmf"
-						"static_90" "instances/BEE2/80s/static_panel/90_surf.vmf"
+						"Replacements"
+							{
+							"%DECADE%" "80s"
+							}
 						}
 					}
 				}
@@ -2085,16 +2075,16 @@
 				"BEE2_1950s" 
 					{
 					"Folder" "glass_pan"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%DECADE%" "50s"
+							}
+						}
 					"Instances"
 						{
-						"0"           "instances/BEE2/50s/items/panel_glass.vmf"
-						"pan_logic"   "instances/BEE2/50s/items/panel_logic.vmf"
-
-						"static_flat" "instances/BEE2/50s/static_panel/00_glass.vmf"
-						"static_30"   "instances/BEE2/50s/static_panel/30_glass.vmf"
-						"static_45"   "instances/BEE2/50s/static_panel/45_glass.vmf"
-						"static_60"   "instances/BEE2/50s/static_panel/60_glass.vmf"
-						"static_90"   "instances/BEE2/50s/static_panel/90_glass.vmf"
+						"0" "instances/BEE2/50s/items/panel_glass.vmf"
 						}
 					}
 				"BEE2_1970s" 
@@ -2104,16 +2094,16 @@
 						{
 						"" "A glass sheet that can rise to angles of 30,45,60 and 90 degrees. 1970s uses better quality glass."
 						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%DECADE%" "70s"
+							}
+						}
 					"Instances"
 						{
-						"0"           "instances/BEE2/70s/items/panel_glass.vmf"
-						"pan_logic"   "instances/BEE2/70s/items/panel_logic.vmf"
-
-						"static_flat" "instances/BEE2/70s/static_panel/00_glass.vmf"
-						"static_30"   "instances/BEE2/70s/static_panel/30_glass.vmf"
-						"static_45"   "instances/BEE2/70s/static_panel/45_glass.vmf"
-						"static_60"   "instances/BEE2/70s/static_panel/60_glass.vmf"
-						"static_90"   "instances/BEE2/70s/static_panel/90_glass.vmf"
+						"0" "instances/BEE2/70s/items/panel_glass.vmf"
 						}
 					}
 				"BEE2_1980s" 
@@ -2123,17 +2113,17 @@
 						{
 						"" "A glass sheet that can rise to angles of 30,45,60 and 90 degrees. 1980s also uses better quality glass."
 						}
-					"Config" "glass_pan_80s.cfg"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%DECADE%" "80s"
+							}
+						}
 					"Instances"
 						{
-						"0"           "instances/BEE2/80s/items/panel_glass.vmf"
-						"pan_logic"   "instances/BEE2/80s/items/panel_logic.vmf"
-
-						"static_flat" "instances/BEE2/80s/static_panel/00_glass.vmf"
-						"static_30"   "instances/BEE2/80s/static_panel/30_glass.vmf"
-						"static_45"   "instances/BEE2/80s/static_panel/45_glass.vmf"
-						"static_60"   "instances/BEE2/80s/static_panel/60_glass.vmf"
-						"static_90"   "instances/BEE2/80s/static_panel/90_glass.vmf"
+						// Use the same glass as 70s style.
+						"0" "instances/BEE2/70s/items/panel_glass.vmf"
 						}
 					}
 				}
