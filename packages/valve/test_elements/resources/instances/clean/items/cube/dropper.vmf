@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8037"
-	"mapversion" "345"
+	"mapversion" "350"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -80,7 +80,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "345"
+	"mapversion" "350"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2486,21 +2486,6 @@ hidden
 		}
 	}
 }
-entity
-{
-	"id" "6201"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "0 8 -8"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "15"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[-2179.31 2892.93]"
-	}
-}
 hidden
 {
 	entity
@@ -3268,7 +3253,7 @@ hidden
 		"solid" "6"
 		"spawnflags" "8"
 		"StartDisabled" "0"
-		"targetname" "done_trig"
+		"targetname" "close_trig"
 		"wait" "1"
 		connections
 		{
@@ -3425,8 +3410,8 @@ entity
 	{
 		"OnChangeToAllTrue" "spawn_manSetStateAFalse0-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSkin02-1"
-		"OnChangeToAllTrue" "cube_dropper_box_drop_clipDisable1.1-1"
-		"OnChangeToAllTrue" "cube_dropper_gate_relayEnable1-1"
+		"OnChangeToAllTrue" "cube_dropper_box_drop_clipDisable1.05-1"
+		"OnChangeToAllTrue" "cube_dropper_gate_relayEnable0.8-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationitem_dropper_open0.1-1"
 		"OnChangeToAllTrue" "voice_rlEnable0.02-1"
 		"OnChangeToAllTrue" "box*FireUser10.01-1"
@@ -3436,10 +3421,7 @@ entity
 		"OnChangeToAllTrue" "spawn_manSetStateBFalse0-1"
 		"OnChangeToAllTrue" "cube_dropper_gate_relayDisable0-1"
 		"OnChangeToAllTrue" "close_trigEnable0-1"
-		"OnUser1" "proxyProxyRelay0-1"
 		"OnChangeToAllTrue" "spawn_manFireUser10.01-1"
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnChangeToAllTrue" "done_trigEnable0-1"
 	}
 	"origin" "16 -8 -8"
 	editor
@@ -3828,106 +3810,6 @@ hidden
 			"visgroupautoshown" "1"
 			"logicalpos" "[0 0]"
 		}
-	}
-}
-entity
-{
-	"id" "913"
-	"classname" "trigger_multiple"
-	"filtername" "cube_dropper_box_filter"
-	"origin" "0 0 52"
-	"solid" "6"
-	"spawnflags" "8"
-	"StartDisabled" "0"
-	"targetname" "close_trig"
-	"wait" "0.1"
-	connections
-	{
-		"OnEndTouchAll" "proxyProxyRelay0-1"
-	}
-	solid
-	{
-		"id" "914"
-		side
-		{
-			"id" "192"
-			"plane" "(40 40 62) (-40 40 62) (-40 -40 62)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 -0.00390625] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "191"
-			"plane" "(40 -40 78) (-40 -40 78) (-40 40 78)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 -0.00390625] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "190"
-			"plane" "(-40 40 62) (40 40 62) (40 40 78)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0.00390625] 0.25"
-			"vaxis" "[0 0 -1 8] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "189"
-			"plane" "(40 -40 62) (-40 -40 62) (-40 -40 78)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0.00390625] 0.25"
-			"vaxis" "[0 0 -1 8] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "188"
-			"plane" "(-40 -40 62) (-40 40 62) (-40 40 78)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 8] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "187"
-			"plane" "(40 40 62) (40 -40 62) (40 -40 78)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 8] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "15"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[5063.77 961.314]"
 	}
 }
 entity
