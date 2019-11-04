@@ -1932,12 +1932,11 @@
 					"Description"	"50s Funnels are beamed into the chamber via a hole in the wall."
 					"Ent_Count"     "3"
 
-					"Config" {} // We don't need any configuration.
 					"Instances"
 						{
-						"0" "instances/BEE2/50s/items/tbeam/beam.vmf"
-						"1" "instances/BEE2/50s/items/tbeam/frame_white.vmf"
-						"2" "instances/BEE2/50s/items/tbeam/frame_black.vmf"
+						"0" "instances/BEE2/50s/items/tbeam.vmf"
+						"1" "instances/BEE2/50s/items/tbeam_frame_white.vmf"
+						"2" "instances/BEE2/50s/items/tbeam_frame_black.vmf"
 						}
 					"Palette"
 						{
@@ -1945,6 +1944,22 @@
 							{
 							// 50s funnels are beamed into the chamber through a gel tube..
 							"Model" "under_gel_drop_water.3ds"
+							}
+						}
+					"Config"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"Priority" "50"
+								"instance" "<ITEM_TBEAM:fun_frame>"
+								"Result"
+									{
+									"TemplateBrush"  "BEE2_FUNNEL_HOLE_50s"
+									"ChangeInstance" ""
+									}
+								}
 							}
 						}
 					}
@@ -2006,7 +2021,17 @@
 				}
 			}
 		}
-		
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_FUNNEL_HOLE_50s"
+	"File" "tbeam_50s.vmf"
+	}
+
+
+"Overrides"
+	{		
 	"Item"
 		{
 		"ID" "ITEM_BARRIER"
