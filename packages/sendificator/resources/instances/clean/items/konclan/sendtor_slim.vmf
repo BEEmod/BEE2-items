@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "39"
+	"editorbuild" "7552"
+	"mapversion" "41"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "64"
 	"bShow3DGrid" "0"
 }
 world
 {
-	"id" "1"
-	"mapversion" "39"
+	"id" "2"
+	"mapversion" "41"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -306,8 +306,7 @@ world
 		}
 		editor
 		{
-			"color" "251 152 0"
-			"groupid" "724"
+			"color" "0 111 188"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -616,16 +615,6 @@ world
 			"visgroupautoshown" "1"
 		}
 	}
-	group
-	{
-		"id" "724"
-		editor
-		{
-			"color" "251 152 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
 }
 entity
 {
@@ -637,7 +626,7 @@ entity
 	"disableshadowdepth" "0"
 	"disableshadows" "1"
 	"disablevertexlighting" "0"
-	"disableX360" "0"
+	"disablex360" "0"
 	"drawinfastreflection" "0"
 	"fademaxdist" "0"
 	"fademindist" "-1"
@@ -648,12 +637,12 @@ entity
 	"maxgpulevel" "0"
 	"mincpulevel" "0"
 	"mingpulevel" "0"
-	"model" "models/konclan/props/sendificator_slim.mdl"
+	"model" "models/props/konclan/sendificator_slim.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"screenspacefade" "0"
 	"shadowdepthnocache" "0"
-	"skin" "0"
+	"skin" "$skin"
 	"solid" "6"
 	"origin" "0 0 -64"
 	editor
@@ -686,12 +675,12 @@ entity
 	"disablereceiveshadows" "1"
 	"fademindist" "-1"
 	"fadescale" "1"
-	"model" "models/konclan/props/sendificator_slim.mdl"
+	"model" "models/props/konclan/sendificator_slim.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "10"
-	"SuppressAnimSounds" "1"
+	"suppressanimsounds" "1"
 	"origin" "0 0 -64"
 	editor
 	{
@@ -708,6 +697,7 @@ entity
 	"parm1" "$connectioncount integer"
 	"parm2" "$alpha string"
 	"parm3" "$ind_name string"
+	"parm4" "$skin integer 0"
 	"origin" "8 -3.8147e-006 -16"
 	editor
 	{
@@ -721,8 +711,8 @@ entity
 {
 	"id" "885"
 	"classname" "material_modify_control"
-	"materialName" "models/hmw/props/sendificator_beam"
-	"materialVar" "$alpha"
+	"materialname" "models/hmw/props/sendificator_beam"
+	"materialvar" "$alpha"
 	"parentname" "flash_shape"
 	"targetname" "flash_shape_blend"
 	connections
@@ -740,7 +730,6 @@ entity
 		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "This is the item input too."
 		"logicalpos" "[0 500]"
 	}
 }
@@ -751,15 +740,15 @@ entity
 	"angles" "0 90 -179.5"
 	"fademindist" "-1"
 	"fadescale" "1"
-	"MaxAnimTime" "10"
-	"MinAnimTime" "5"
+	"maxanimtime" "10"
+	"minanimtime" "5"
 	"model" "models/hmw/props/sendificator_beam.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
 	"spawnflags" "0"
-	"StartDisabled" "1"
+	"startdisabled" "1"
 	"targetname" "flash_shape"
 	"origin" "0 0 -24"
 	editor
@@ -807,7 +796,6 @@ entity
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "User1 comes from the script, on sucess."
 		"logicalpos" "[0 6500]"
 	}
 }
@@ -886,7 +874,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -962,7 +950,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1038,7 +1026,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1114,7 +1102,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1190,7 +1178,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1277,7 +1265,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1342,7 +1330,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1418,7 +1406,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1494,7 +1482,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1570,7 +1558,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1646,7 +1634,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1722,7 +1710,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1798,7 +1786,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1874,7 +1862,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1950,7 +1938,7 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -2026,15 +2014,14 @@ entity
 		}
 		editor
 		{
-			"color" "251 152 0"
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "251 152 0"
-		"groupid" "724"
+		"color" "0 180 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[500 9500]"
