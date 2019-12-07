@@ -85,8 +85,9 @@
 				{
 				"Type"          "AND"
 				"InvertVar"     "$start_enabled"
-				// We need to always fire the StartFloatLerp input,
-				// and disable the vphysics clip via inputs as well no matter what.
+				// We need to always fire the StartFloatLerp input, since before an input is fired
+				// the material modify reuses previously rendered brushes.
+				// Vphysics clips also can't be turned off by keyvalue.
 				"SpawnFire"		"always"
 
 				"Enable_Cmd"    "mdl,SetAnimation,open,0.00,-1"
