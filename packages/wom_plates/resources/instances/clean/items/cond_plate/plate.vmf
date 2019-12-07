@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "36"
+	"editorbuild" "8037"
+	"mapversion" "37"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "36"
+	"mapversion" "37"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -34,6 +34,7 @@ entity
 	"classname" "trigger_multiple"
 	"filtername" "$filter_name"
 	"origin" "0 0 -44"
+	"solid" "6"
 	"spawnflags" "4104"
 	"StartDisabled" "0"
 	"wait" "0"
@@ -134,6 +135,7 @@ entity
 {
 	"id" "13"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -152,7 +154,7 @@ entity
 	"spinup" "0"
 	"targetname" "snd_on"
 	"volstart" "0"
-	"origin" "-32 0 -48"
+	"origin" "-16 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -165,6 +167,7 @@ entity
 {
 	"id" "17"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -183,7 +186,7 @@ entity
 	"spinup" "0"
 	"targetname" "snd_off"
 	"volstart" "0"
-	"origin" "32 0 -48"
+	"origin" "16 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -194,25 +197,11 @@ entity
 }
 entity
 {
-	"id" "130"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-32 -32 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "145"
 	"classname" "func_instance_parms"
 	"parm1" "$no_input boolean 0"
 	"parm2" "$filter_name target_destination"
-	"origin" "32 -32 -48"
+	"origin" "0 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -225,15 +214,11 @@ entity
 {
 	"id" "169"
 	"classname" "logic_coop_manager"
+	"angles" "0 0 0"
 	"DefaultPlayerStateA" "$no_input"
 	"DefaultPlayerStateB" "0"
 	"targetname" "man"
-	connections
-	{
-		"OnChangeToAllTrue" "proxyProxyRelay0-1"
-		"OnChangeToAnyFalse" "proxyProxyRelay0-1"
-	}
-	"origin" "-32 32 -48"
+	"origin" "0 -16 -48"
 	editor
 	{
 		"color" "0 100 250"
@@ -246,9 +231,10 @@ entity
 {
 	"id" "230"
 	"classname" "env_texturetoggle"
+	"angles" "0 0 0"
 	"target" "over"
 	"targetname" "toggle"
-	"origin" "0 32 -48"
+	"origin" "0 16 -48"
 	editor
 	{
 		"color" "220 30 220"
