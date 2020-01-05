@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "204"
+	"editorbuild" "7335"
+	"mapversion" "209"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "204"
+	"mapversion" "209"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,7 +32,7 @@ entity
 {
 	"id" "18640"
 	"classname" "filter_multi"
-	"Filter01" "@isball"
+	"Filter01" "$ball_filter"
 	"filtertype" "0"
 	"Negated" "0"
 	"targetname" "filter_ball"
@@ -52,7 +52,7 @@ entity
 	"origin" "16 -48 -48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[12500 -3268]"
@@ -70,7 +70,7 @@ entity
 	"origin" "-32 32 -40"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "128 128 128"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -259,7 +259,7 @@ entity
 	"renderfx" "0"
 	"SetBodyGroup" "0"
 	"skin" "0"
-	"solid" "0"
+	"solid" "6"
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"SuppressAnimSounds" "0"
@@ -318,7 +318,7 @@ entity
 	"renderfx" "0"
 	"SetBodyGroup" "0"
 	"skin" "0"
-	"solid" "0"
+	"solid" "6"
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"SuppressAnimSounds" "0"
@@ -448,7 +448,7 @@ entity
 	"origin" "48 -16 -48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[12500 -3268]"
@@ -496,7 +496,7 @@ entity
 	"origin" "32 -32 -43"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
@@ -606,10 +606,10 @@ entity
 	"wait" "1"
 	connections
 	{
-		"OnStartTouch" "start_trigDisable0-1"
+		"OnStartTouch" "!selfDisable0.1-1"
 		"OnStartTouch" "snd_onPlaySound0-1"
 		"OnStartTouch" "fail_trigEnable0.02-1"
-		"OnStartTouch" "trigger_offEnable0.02-1"
+		"OnStartTouch" "trigger_offEnable0.05-1"
 		"OnStartTouch" "ball_collideEnable0-1"
 		"OnStartTouch" "holo_cubeDisableDraw0-1"
 		"OnStartTouch" "filter_monsterTestActivator0.01-1"
@@ -1351,8 +1351,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-4.8068 -236.01 167.377]"
-		"look" "[-5.86302 -185.594 127.979]"
+		"position" "[-3.75869 -84.157 70.7161]"
+		"look" "[-1.19744 -43.4464 21.4081]"
 	}
 }
 cordons

@@ -32,7 +32,36 @@
 			}
 		}
 	}
-	
+
+// This signage was originally in HMW's Try Anything Twice mod.
+"Signage"
+	{
+	"ID" "SIGN_HMW_RESCUE"
+	"Name" "Rescue / Full Reset"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "BEE2/signage/signage_hmw_rescue"
+			"icon"    "items/clean/BEE/signage/hmw_rescue.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN" "BEE2_CLEAN" // Todo?
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/hmw_rescue"
+			"icon"    "items/50s/BEE/signage/hmw_rescue.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_hmw_rescue"
+			"icon"    "items/70s/BEE/signage/hmw_rescue.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+
 "Item"
 	{
 	"ID" "ITEM_SQUARE_LIGHT"
@@ -114,15 +143,152 @@
 		}
 	}
 	
+"PackList"
+	{
+	"ID" "HMW_LOGIC_NAMES"
+	"Config"
+		{
+		"" "materials/BEE2/HMW/logic_names.vmt"
+		"" "materials/BEE2/HMW/logic_names.vtf"
+		}
+	}
+	
 "Item"
 	{
 	"ID" "ITEM_LOGIC_GATE"
-	"all_conf"  "logic_gate.cfg"
+	
+	 // Don't allow the different versions to fallback to each other, 
+	 // so they'll give Clean style in those cases.
+	"isolate_versions" "1"
+	
 	"Version"
 		{
+		"ID"   "VER_EUROPEAN"
+		"Name" "European Icons"
 		"Styles"
 			{
-			"BEE2_CLEAN"	"logic_clean"
+			"BEE2_CLEAN"
+				{
+				"Folder" "logic"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%ICON_FOLDER%" "instances/BEE2/clean/items/hmw/logic/frame_eu"
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/50s/items/hmw/logic/frame.vmf"
+					
+					"bee2_and"   "instances/BEE2/50s/items/hmw/logic/and.vmf"
+					"bee2_or"    "instances/BEE2/50s/items/hmw/logic/or.vmf"
+					"bee2_xor"   "instances/BEE2/50s/items/hmw/logic/xor.vmf"
+					
+					"bee2_nand"  "instances/BEE2/50s/items/hmw/logic/nand.vmf"
+					"bee2_nor"   "instances/BEE2/50s/items/hmw/logic/nor.vmf"
+					"bee2_xnor"  "instances/BEE2/50s/items/hmw/logic/xnor.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/70s/items/hmw/logic_frame.vmf"
+					}
+				}
+			}
+		}
+	"Version"
+		{
+		"ID"   "VER_GERMAN"
+		"Name" "German Icons"
+		"Styles"
+			{
+			"BEE2_CLEAN"
+				{
+				"Folder" "logic"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%ICON_FOLDER%" "instances/BEE2/clean/items/hmw/logic/frame_ger"
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/50s/items/hmw/logic/frame.vmf"
+					
+					"bee2_and"   "instances/BEE2/50s/items/hmw/logic/and.vmf"
+					"bee2_or"    "instances/BEE2/50s/items/hmw/logic/or.vmf"
+					"bee2_xor"   "instances/BEE2/50s/items/hmw/logic/xor.vmf"
+					
+					"bee2_nand"  "instances/BEE2/50s/items/hmw/logic/nand.vmf"
+					"bee2_nor"   "instances/BEE2/50s/items/hmw/logic/nor.vmf"
+					"bee2_xnor"  "instances/BEE2/50s/items/hmw/logic/xnor.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/70s/items/hmw/logic_frame.vmf"
+					}
+				}
+			}
+		}
+	"Version"
+		{
+		"ID"   "VER_TEXT"
+		"Name" "Textual Icons"
+		"Styles"
+			{
+			"BEE2_CLEAN"
+				{
+				"Folder" "logic"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%ICON_FOLDER%" "instances/BEE2/clean/items/hmw/logic/frame_txt"
+						"%PACK_LIST%"   "HMW_LOGIC_NAMES"
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/50s/items/hmw/logic/frame.vmf"
+					
+					"bee2_and"   "instances/BEE2/50s/items/hmw/logic/and.vmf"
+					"bee2_or"    "instances/BEE2/50s/items/hmw/logic/or.vmf"
+					"bee2_xor"   "instances/BEE2/50s/items/hmw/logic/xor.vmf"
+					
+					"bee2_nand"  "instances/BEE2/50s/items/hmw/logic/nand.vmf"
+					"bee2_nor"   "instances/BEE2/50s/items/hmw/logic/nor.vmf"
+					"bee2_xnor"  "instances/BEE2/50s/items/hmw/logic/xnor.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/70s/items/hmw/logic_frame.vmf"
+					}
+				}
 			}
 		}
 	}

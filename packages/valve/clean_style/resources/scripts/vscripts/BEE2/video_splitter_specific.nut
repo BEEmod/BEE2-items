@@ -24,26 +24,17 @@ function StopDepartureVideo(width,height)
 
 function StopVideo(videoType,width,height)
 {
-	for(local i=0;i<width;i+=1)
-	{
-		for(local j=0;j<height;j+=1)
+	local signName;
+	if (videoType == DEPARTURE_VIDEO)
 		{
-			local panelNum = 1 + width*j + i
-			local signName
-			
-			if (videoType == DEPARTURE_VIDEO)
-			{
-				signName = "@departure_sign_" + panelNum
-			}
-			else
-			{
-				signName = "@arrival_sign_" + panelNum
-			}
-			
-			EntFire(signName, "Disable", "", 0)
-			EntFire(signName, "killhierarchy", "", 1.0)
+			signName = "@departure_sign_*";
 		}
-	}
+		else
+		{
+			signName = "@arrival_sign_*";
+		}	
+	EntFire(signName, "Disable", "", 0);
+	EntFire(signName, "killhierarchy", "", 1.0);
 }
 
 function StartArrivalVideo(width, height, use_destructed)
@@ -62,15 +53,16 @@ function StartVideo(videoType, width, height, use_destructed)
 {
 	local videoScaleType = 0
 	local randomDestructChance = 0
+	local video_shape = "";
 	
 	if (use_destructed == 1)
 	{
-		videoScaleType = RandomInt(1,4)
+		videoScaleType = RandomInt(1,5)
 		randomDestructChance = RandomInt(30, 70)
 	}
 	else
 	{
-		videoScaleType = RandomInt(5,13)
+		videoScaleType = RandomInt(6,13)
 	}
 	
 	printl("-------")
@@ -95,7 +87,7 @@ function StartVideo(videoType, width, height, use_destructed)
 					
 			if( randomDestructChance > RandomInt(0,100) )
 			{
-				EntFire(signName, "Kill", "", 0)
+				EntFire(signName, "killhierarchy", "", 0)
 				continue
 			}
 			
@@ -145,10 +137,19 @@ function StartVideo(videoType, width, height, use_destructed)
 				uMax = ((i%3)+1.0001)/3
 				video_shape = "horiz"			
 			}
+
+			// Formerly 8, never used in P2, only do for overgrown..
+			else if( videoScaleType == 5 /*Tiled Single*/ )
+			{
+				uMin = 0.0001
+				uMax = 0.9999
+				vMin = 0.0001
+				vMax = 0.9999
+			}
 			
 			// Clean below 
 			
-			else if( videoScaleType == 5 /*Tiled*/ )
+			else if( videoScaleType == 6 /*Tiled*/ )
 			{
 				vMin = 0.00001
 				vMax = 0.99999
@@ -157,25 +158,17 @@ function StartVideo(videoType, width, height, use_destructed)
 				uMax = ((i%3)+1.0001)/3
 			}
 			
-			else if( videoScaleType == 6 /*Tiled Really Big*/ )
+			else if( videoScaleType == 7 /*Tiled Really Big*/ )
 			{
 				uMin = ((i%8)+0.0001)/8
 				uMax = ((i%8)+1.0001)/8
 				video_shape = "horiz"
 			}
 
-			else if( videoScaleType == 7 /*Tiled Big*/ )
+			else if( videoScaleType == 8 /*Tiled Big*/ )
 			{
 				uMin = ((i%12)+0.0001)/12
 				uMax = ((i%12)+1.0001)/12
-			}
-
-			else if( videoScaleType == 8 /*Tiled Single*/ )
-			{
-				uMin = 0.0001
-				uMax = 0.9999
-				vMin = 0.0001
-				vMax = 0.9999
 			}
 
 			else if( videoScaleType == 9 /*Tiled Double*/ )

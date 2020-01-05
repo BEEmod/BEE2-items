@@ -74,36 +74,6 @@ def clean_vmf(vmf_path):
         yield line.lstrip()
 
 
-# Text files we should clean up.
-PROP_EXT = ('.cfg', '.txt', '.vmt', '.nut')
-def clean_text(file_path):
-    # Try and parse as a property file. If it succeeds,
-    # write that out - it removes excess whitespace between lines
-    with open(file_path, 'r') as f:
-        try: 
-            props = Property.parse(f)
-        except KeyValError:
-            pass
-        else:
-            for line in props.export():
-                yield line.lstrip()
-            return
-    
-    with open(file_path, 'r') as f:
-        for line in f:
-            if line.isspace():
-                continue
-            if line.lstrip().startswith('//'):
-                continue
-            # Remove // comments, but only if the comment doesn't have
-            # a quote char after it - it could be part of the string,
-            # so leave it just to be safe.
-            if '//' in line and '"' not in line:
-                yield line.split('//')[0] + '\n'
-            else:
-                yield line.lstrip()
-
-
 # Delete these files, if they exist in the source folders.
 # Users won't need them.
 DELETE_EXTENSIONS = ['vmx', 'log', 'bsp', 'prt', 'lin']
@@ -173,14 +143,6 @@ def build_package(package_path, pack_zip_path, zip_path):
                 if OPTIMISE and file.endswith('.vmf'):
                     print(rel_path)
                     data = '\r\n'.join(clean_vmf(full_path))
-                    zip_file.writestr(rel_path, data)
-
-                    if hammer_path:
-                        with open(hammer_path, 'w') as f:
-                            f.write(data)
-                elif OPTIMISE and file.endswith(PROP_EXT):
-                    print(rel_path)
-                    data = ''.join(clean_text(full_path))
                     zip_file.writestr(rel_path, data)
 
                     if hammer_path:

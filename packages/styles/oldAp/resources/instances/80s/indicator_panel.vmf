@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "99"
+	"editorbuild" "7335"
+	"mapversion" "102"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "99"
+	"mapversion" "102"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -35,7 +35,6 @@ entity
 	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "0"
-	"disableshadows" "0"
 	"drawinfastreflection" "1"
 	"InputFilter" "0"
 	"invert_exclusion" "0"
@@ -45,6 +44,7 @@ entity
 	"renderfx" "0"
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
+	"solid" "6"
 	"solidbsp" "0"
 	"Solidity" "1"
 	"spawnflags" "2"
@@ -139,6 +139,7 @@ entity
 	"id" "1197"
 	"classname" "func_noportal_volume"
 	"origin" "0 0 -62.5"
+	"solid" "6"
 	"spawnflags" "0"
 	solid
 	{
@@ -229,6 +230,7 @@ entity
 	"id" "1202"
 	"classname" "func_portal_bumper"
 	"origin" "0 0 -62.5"
+	"solid" "6"
 	"spawnflags" "0"
 	solid
 	{
@@ -320,6 +322,7 @@ entity
 	"classname" "prop_indicator_panel"
 	"angles" "-90 180 0"
 	"Enabled" "1"
+	"indicatorlights" "$indicator_name"
 	"IsTimer" "$is_timer"
 	"skin" "0"
 	"targetname" "pan"
@@ -339,28 +342,8 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$timer_delay integer 3"
 	"parm2" "$is_timer integer 0"
-	"origin" "0 -8 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2500]"
-	}
-}
-entity
-{
-	"id" "1175"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "panStart0-1"
-		"OnProxyRelay" "panCheck0-1"
-		"OnProxyRelay" "panUncheck0-1"
-		"OnProxyRelay" "panReset0-1"
-	}
-	"origin" "0 8 -48"
+	"parm3" "$indicator_name string -"
+	"origin" "0 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -374,8 +357,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[34.4431 -30.1034 -46.9677]"
-		"look" "[-137.67 158.383 -106.835]"
+		"position" "[71.4832 -4.02653 -33.5954]"
+		"look" "[-165.676 15.8866 -143.564]"
 	}
 	camera
 	{

@@ -9,6 +9,7 @@
 	"Name"		"Overgrown"
 	"Folder"	"over"
 	"Icon"		"styles/overgrown.png"
+	"IconLarge"  	"prev/overgrown.png"
 	"VPK_Name"  "VPK_BEE2_OVERGROWN"
 	"Has_Video"	"1"
 	"Base"		""
@@ -25,29 +26,60 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "overgrown"
 		"Sp_entry"
 			{
-			"1"	"Right Turn"
-			"2"	"Staircase"
-			"3"	"White Left"
-			"4"	"Collapsed"
-			"5"	"Small Right"
-			"6"	"Flooded"
-			"7"	"Tilted"
+			"1" {
+				"Name" "Right Turn"
+				"Desc" "A large corridor where players turn the corner to enter the chamber."
+				}
+			"2" {
+				"Name" "Staircase"
+				"Desc" "The corridor is lowered, dropping players downward before allowing them to enter up a staircase."
+				}
+			"3"	{
+				"Name" "White Left"
+				"Desc" "This portalable corridor turns leftward."
+				}
+			"4"	{
+				"Name" "Collapsed"
+				"Desc" "The entryway is collapsed, dropping debris in the path. If Repulsion Gel is present in the map, the gel has spilled to allow jumping over. If playing Aperture Tag, the gel gun is activated to allow doing this. Otherwise, portals are used (with autoportals being inserted if required)."
+				}
+			"5"	{
+				"Name" "Small Right"
+				"Desc" "A cramped corridor, with a collapsed wall to the side revealing background destruction."
+				}
+			"6" {
+				"Name" "Flooded"
+				"Desc" "This corridor is heavily flooded, with the floor collapsed and water raining in from the ceiling."
+				}
+			"7"	{
+				"Name" "Tilted"
+				"Desc" "This corridor is tilted to the side substantially."
+				}
 			}
 		"Sp_exit"
 			{
 			"1"	"Black"
 			"2"	"White"
-			"3" "Floor BTS"
-			"4" "Floor Goo"
+			"3" {
+				"Name" "Floor BTS"
+				"Desc" "The floor is collapsed, driving players to walk through a small BTS area into the elevator."
+				}
+			"4" {
+				"Name" "Floor Goo"
+				"Desc" "The floor is collapsed, preventing players from walking through the room. If Repulsion Gel is present in the chamber, the walls are covered with gel to allow bouncing to the exit. If playing Aperture Tag, the gel gun is activated to allow doing this. Otherwise, portals are used (with autoportals being inserted if required)."
+				}
 			}
 		"Coop"
 			{
 			"1"	"Black Left"
 			"2"	"White S-Bend"
 			"3"	"Small White"
-			"4"	"Tilted"
+			"4"	{
+				"Name" "Tilted"
+				"Desc" "This chamber is tilted sideways."
+				}
 			}
 		}
 	}
@@ -70,7 +102,7 @@
 "StyleVar"
 	{
 	"ID"          "OverFunnelFlicker"
-	"Enabled"     "1"
+	"Enabled"     "0"
 	"Name"        "Flickering Overgrown Funnel"
 	"Description" "Allow the Overgrown Excursion Funnel to randomly shut off briefly. Objects or players travelling in the funnel will not fall out when this occurs."
 	"Style"       "BEE2_OVERGROWN"
@@ -81,12 +113,6 @@
 	"StyleVar"
 		{
 		"ID"    "RestartOnExit"
-		"Style" "BEE2_OVERGROWN"
-		}
-		
-	"StyleVar"
-		{
-		"ID"    "BlockPlayerGelBomb"
 		"Style" "BEE2_OVERGROWN"
 		}
 	}
@@ -115,781 +141,8 @@
 	"Icon"			"voices/glados"
 	"Authors"		"TeamSpen210"
 	"Description"	"Pre-recorded GLaDOS guiding you through destroyed and wrecked chambers. This is an unused variant of the Announcer's lines, where GLaDOS played the role of this character."
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_RUSTY_CUBE"
-	"Config" "cube"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_RUSTY_REFLECT"
-	"Config" "reflect"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_RUSTY_BALL"
-	"Config" "ball"
-	}
-	
-"PackList"
-	{
-	//  Dirty dropper, but shrunk to 128 size.
-	"ID" "PACK_BEE2_MODERN_DROPPER_WRECKED"
-	"Config"
-		{
-		"" "models/BEE2/props_overgrown/wrecked_dropper_128.mdl"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BEE2_OVER_COOP_DISASSEMBLER"
-	"Config"
-		{
-		"" "models/BEE2/props_overgrown/coop_assembly_station.mdl"
-		"" "materials/BEE2/models/props_overgrown/assembly_station/*"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_GLASS_PANEL_OVER"
-	"Config"
-		{
-		"" "models/BEE2/props_overgrown/glass_pan.mdl"
-		"" "materials/BEE2/models/props_ingame/pan_glass_broken.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_GEL_DROPPER_OVER"
-	"Config"
-		{
-		""  "models/BEE2/props_overgrown/gel_dropper.mdl"
-		""  "materials/BEE2/models/props_overgrown/gel_dropper_blue.vmt"
-		""  "materials/BEE2/models/props_overgrown/gel_dropper_red.vmt"
-		""  "materials/BEE2/models/props_overgrown/gel_dropper_white.vmt"
-		""  "materials/BEE2/models/props_overgrown/gel_dropper_water.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_GEL_DROPPER_REFLECT_OVER"
-	"Config"
-		{
-		""  "materials/BEE2/models/props_overgrown/gel_dropper_grey.vmt"
-		""  "materials/BEE2/models/props_ingame/clean_dropper_grey.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	// Dirty version of laser relays, with ruined rod part
-	"ID"        "PACK_BEE2_LASER_RELAY_DEST"
-	"Config"
-		{
-		"File"  "materials/BEE2/models/props_ingame/laser_receptacle_rusty.vmt"
-		"File"  "materials/BEE2/models/props_ingame/laser_receptacle_rusty.vtf"
-		"File"  "materials/BEE2/models/props_ingame/wall_glass_rusty.vmt"
-		"File"  "models/BEE2/props_ingame/lasers/relay_dest.mdl"
-		}
-	}
-	
-"PackList"
-	{
-	// Dirty version of laser relays, undamaged
-	"ID"        "PACK_BEE2_LASER_RELAY_DIRTY"
-	"Config"
-		{
-		"File"  "materials/BEE2/models/props_ingame/laser_receptacle_rusty.vmt"
-		"File"  "materials/BEE2/models/props_ingame/laser_receptacle_rusty.vtf"
-		"File"  "materials/BEE2/models/props_ingame/wall_glass_rusty.vmt"
-		"File"  "models/BEE2/props_ingame/lasers/relay_dirty.mdl"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_OVER_CATWALK_SP_ELEVATOR"
-	// Models used in SP elevators...
-	"Config"
-		{
-		"" "models/BEE2/catwalk/overgrown/hanging_stair_128.mdl"
-		"" "models/BEE2/catwalk/overgrown/hanging_walkway_end_cap.mdl"
-		"" "models/BEE2/catwalk/overgrown/hanging_walkway_32b.mdl"
-		"" "materials/BEE2/models/props_overgrown/catwalk_rusty.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_OVER_CATWALK_DESTROYED_64"
-	// Models used in the BTS exit corridor
-	"Config"
-		{
-		"" "models/BEE2/catwalk/overgrown/walkway_destroyed_64a.mdl"
-		"" "materials/BEE2/models/props_overgrown/catwalk_rusty.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_OVER_CATWALK_COOP_EXIT"
-	// Models used in Coop Exit...
-	"Config"
-		{
-		"" "models/BEE2/catwalk/overgrown/hanging_stair_64.mdl"
-		"" "materials/BEE2/models/props_overgrown/catwalk_rusty.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_OVER_CATWALK_SUPPORT"
-	// Models used in Coop Exit...
-	"Config"
-		{
-		"" "models/BEE2/catwalk/overgrown/hanging_walkway_support_a.mdl"
-		"" "materials/BEE2/models/props_overgrown/catwalk_rusty.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_OVER_CATAPULT_TOGGLE"
-	"Config"
-		{
-		"" "models/BEE2/props_ingame/faith_plate_toggle.mdl"
-		
-		"" "materials/BEE2/models/props_ingame/faith_plate_rusty.vmt"
-		"" "materials/BEE2/models/props_ingame/faith_plate_rusty_error.vmt"
-		"" "materials/BEE2/models/props_ingame/faith_plate_rusty_glass.vmt"
-		"" "materials/BEE2/glass_shatter.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_OVER_GLASS"
-	"AddIfMat"  "BEE2/overgrown/glass"
-	"Config"
-		{
-		"File"  "materials/BEE2/overgrown/glass.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	// Indicator light with only the broken texture
-	"ID"       "PACK_BEE_INDICATOR_BROKEN"
-	"AddIfMat" "BEE2/overgrown/broken_indicator"
-	"AddIfMat" "BEE2/overgrown/broken_indicator_corner"
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_COOP_EXIT"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_coop_teamdoor_blue"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_coop_teamdoor_orange"
-	// We can't use Patch with a proxy...
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_coop_teamdoor_blue.vtf"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_coop_teamdoor_orange.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_ARROW"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_arrow"
-	"Config"
-		{
-		// Has the commands common to all the overlays
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_arrow.vtf"
-		}
-	}
+	}			
 
-// There are 10 shapes, used in this order.
-// Pack them in these sets, so only the used ones are added.
-// It's not common to need more than 5, so in that case pack them all.
-"PackList"
-	{
-	"ID"       "PACK_JOSE_WASTED_SHAPE_1"
-	"AddIfMat" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape4" // cross
-	"AddIfMat" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape5" // square
-	"AddIfMat" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape1" // dot
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape4.vtf"
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape5.vtf"
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape1.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BEE2_JOSE_WASTED_SHAPE_2"
-	"AddIfMat" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape2" // moon
-	"AddIfMat" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_slash"
-	
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape2.vtf"
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_slash.vtf"
-		}
-	}
-	
-"PackList"
-	{	
-	"ID" "PACK_JOSE_WASTED_SHAPE_3"
-	"AddIfMat" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape3" // triangle
-	"AddIfMat" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_sine"
-	"AddIfMat" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_star"
-	"AddIfMat" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_wavy"
-	"AddIfMat" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_circle"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape3.vtf"
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_sine.vtf"
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_star.vtf"
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_wavy.vtf"
-		"File" "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_shape_circle.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_SHAPE_SIGN_FRAME_OVER_1"
-	"AddIfMat" "BEE2/signage_frame/frame_blue_over"
-	"Config"
-		{
-		"File" "materials/BEE2/signage_frame/frame_blue_over.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"       "PACK_BEE2_SHAPE_SIGN_FRAME_OVER_2"
-	"AddIfMat" "BEE2/signage_frame/frame_oran_over"
-	"Config"
-		{
-		"File" "materials/BEE2/signage_frame/frame_oran_over.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	// Textures for the catapult item
-	"ID"        "PACK_JOSE_WASTED_CATAPULT_WORLD"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base_world.vmt"
-		
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_arrow.vtf"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult1.vtf"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	// Overlay versions of catapult signage
-	"ID"        "PACK_JOSE_WASTED_CATAPULT"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult1.vtf"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_EXIT"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_exit"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_exit.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_DOTS_1"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_1"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_1.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_DOTS_2"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_2"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_2.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_DOTS_3"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_3"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_3.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_DOTS_4"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_4"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_4.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_BRIDGE"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bridge"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_bridge.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_LASER_CATCHER"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_catcher"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_catcher.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_LASER_RELAY"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_relay"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_relay.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_LASER_CUBE"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_cube"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_cube.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_BOX_DROPPER"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_dropper"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_dropper.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_BALL_DROPPER"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_ball_dropper"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_ball_dropper.vtf"
-		}
-	}
-
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_TOXIC"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_toxic"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fountain"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_toxic.vtf"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_fountain.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_FUNNEL"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_funnel"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_polarity"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_funnel.vtf"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_polarity.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_GEL_DROPPER"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_paint_dispenser"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_paint_dispenser.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_BOUNCE_GEL"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bounce_gel"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_bounce_gel.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_SPEED_GEL"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_speed_gel"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_speed_gel.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_JOSE_WASTED_WASH_CUBE"
-	"AddIfMat"  "BEE2/josepezdj/signage_wasted/jose_wasted_signage_wash_cube"
-	"Config"
-		{
-		"File"  "materials/BEE2/josepezdj/signage_wasted/base.vmt"
-		"File"  "materials/BEE2/josepezdj/signage_wasted/jose_wasted_signage_wash_cube.vtf"
-		}
-	}
-	
-// Bullseye textures
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_OVER_WHITE_FLOOR"
-	"AddIfMat"  "BEE2/bullseye/white_floor_tile_dirty"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/white_floor_tile_dirty.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_OVER_WHITE_CEIL"
-	"AddIfMat"  "BEE2/bullseye/ceiling_tile_dirty"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/ceiling_tile_dirty.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_OVER_DIRT_FLOOR"
-	"AddIfMat"  "BEE2/bullseye/dirtfloor"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/dirtfloor.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_OVER_BLACK_WALL_2X2"
-	"AddIfMat"  "BEE2/bullseye/black_wall_metal_dirty_2x2"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/black_wall_metal_dirty_2x2.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_OVER_WHITE_WALL_B"
-	"AddIfMat"  "BEE2/bullseye/white_wall_tile_dirty_b"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/white_wall_tile_dirty_b.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_OVER_WHITE_WALL_C"
-	"AddIfMat"  "BEE2/bullseye/white_wall_tile_dirty_c"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/white_wall_tile_dirty_c.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_OVER_WHITE_WALL_D"
-	"AddIfMat"  "BEE2/bullseye/white_wall_tile_dirty_d"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/white_wall_tile_dirty_d.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_OVER_WHITE_WALL_E"
-	"AddIfMat"  "BEE2/bullseye/white_wall_tile_dirty_e"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/white_wall_tile_dirty_e.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_OVER_WHITE_WALL_F"
-	"AddIfMat"  "BEE2/bullseye/white_wall_tile_dirty_f"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/white_wall_tile_dirty_f.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_RUSTY_TRUSS"
-	"Config"
-		{
-		"" "models/BEE2/props_overgrown/truss_512.mdl"
-		"" "models/BEE2/props_overgrown/truss_1024.mdl"
-		"" "materials/BEE2/models/props_overgrown/truss_rusty.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BEE2_ELEVATOR_DIRTY"
-	"Config"
-		{
-		"" "models/elevator/elevator_b_skins.mdl"
-		"" "materials/models/elevator/elevator_main_c_overgrown.vtf"
-		"" "materials/models/elevator/elevator_main_b_overgrown.vtf"
-		"" "materials/models/elevator/elevator_main_aoff.vtf"
-		"" "materials/models/elevator/elevator_main_a_overgrown_off.vtf"		
-		"" "materials/models/elevator/elevator_main_a_overgrown.vtf"		
-		"" "materials/models/elevator/elevator_main_coff.vmt"		
-		"" "materials/models/elevator/elevator_main_c_overgrown_off.vmt"		
-		"" "materials/models/elevator/elevator_main_c_overgrown.vmt"		
-		"" "materials/models/elevator/elevator_main_boff.vmt"		
-		"" "materials/models/elevator/elevator_main_b_overgrown_off.vmt"		
-		"" "materials/models/elevator/elevator_main_b_overgrown.vmt"		
-		"" "materials/models/elevator/elevator_main_aoff.vmt"		
-		"" "materials/models/elevator/elevator_main_a_overgrown_off.vmt"		
-		"" "materials/models/elevator/elevator_main_a_overgrown.vmt"		
-		}
-	}	
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_A"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/corner_a.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_B"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/corner_b.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_C"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/corner_c.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_D"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/corner_d.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_E"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/corner_e.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_ENTRANCE_A"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/entrance_a.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_ENTRANCE_B"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/entrance_b.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_A"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/straight_a.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_B"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/straight_b.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_C"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/straight_c.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_D"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/straight_b.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_E"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/straight_e.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_F"
-	"Config"
-		{
-		"" "models/BEE2/triple_wallpipe/straight_f.mdl"
-		"" "materials/BEE2/models/props_ingame/triple_wallpipe_nocull.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_rusty.vmt"
-		"" "materials/BEE2/models/props_overgrown/triple_wallpipe_nocull_rusty.vmt"
-		}
-	}
 	
 "Overrides"
 	{
@@ -944,7 +197,13 @@
 	"ID"   "BEE2_OVER_CUBE_BUTTON_BASE"
 	"File" "cube_btn_base.vmf"
 	}
-	
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OVER_OBSERVATION_CEILING_TILES_1"
+	"File" "observation_ceiling_tiles_1"
+	}
+
 "Overrides"
 	{
 	"Item"
@@ -964,37 +223,30 @@
 							"Condition"
 								{
 								"instance"	"<ITEM_PANEL_ANGLED>"
+								"InstVar"   "$connectioncount > 0"
 								"Result"
 									{
-									"PackFile" "models/BEE2/props_overgrown/angled_pan.mdl"
+									"Random"    
+										{
+										"Seed"    "ANGLED_PANEL"
+										"Weights" "4, 1, 6"
+										
+										"SetInstVar" "$skin 0" // Blue
+										"SetInstVar" "$skin 1" // Red
+										"SetInstVar" "$skin 2" // Off
+										}
 									}
 								"Condition"
 									{
-									"InstVar"   "$connectioncount > 0"
+									"instvar" "$start_deployed 0"
 									"Result"
 										{
-										
-										"Random"    
+										"GlobalInput"
 											{
-											"Seed"    "ANGLED_PANEL"
-											"Weights" "4, 1, 6"
-											
-											"SetInstVar" "$skin 0" // Blue
-											"SetInstVar" "$skin 1" // Red
-											"SetInstVar" "$skin 2" // Off
-											}
-										}
-									"Else"
-										{
-										// Needed for good working collisions.
-										"PackFile" "models/BEE2/panels/static_phys.mdl"
-										}
-									"ElseCondition"
-										{
-										"InstVar" "animation ramp_90_deg_open"
-										"Result"
-											{
-											"Pack" "PACK_BEE2_TRIPLE_WALLPIPE_CORNER_B"
+											"Target" "model_arms"
+											"Input"  "SetPlaybackRate"
+											"Param"  "-1"
+											"Delay"  "0.01"
 											}
 										}
 									}
@@ -1099,7 +351,7 @@
 				}
 			}
 		}
-	
+
 	"Item"
 		{
 		"ID" "ITEM_PANEL_STAIRS"
@@ -1120,32 +372,17 @@
 							"BrushSideCount"    "56"
 							}
 						}
-					"Replace"
-						{
-						// Chance to have a panel in each place
-						"0%" "60%"
-						"<force_var>" "$disable_autorespawn"
-						
-						"BEE2_STAIRS_TOP:stair_1" "BEE2_OVER_STAIRS_TOP_1"
-						"BEE2_STAIRS_TOP:stair_2" "BEE2_OVER_STAIRS_TOP_2"
-						"BEE2_STAIRS_TOP:stair_3" "BEE2_OVER_STAIRS_TOP_3"
-						"BEE2_STAIRS_TOP:stair_4" "BEE2_OVER_STAIRS_TOP_4"
-						"BEE2_STATIC_STAIRS_STATIC_BEAMS_TEMP" "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
-						}
 					"Append"
 						{
-						"Conditions"
+						"Replacements"
 							{
-							"Condition"
-								{
-								"Priority" "-5"
-								"instance" "<ITEM_PANEL_STAIRS>"
-								"instvar"  "$connectioncount > 0"
-								"Result"    
-									{
-									"PackFile" "models/BEE2/props_overgrown/arm_stairs.mdl"
-									}
-								}
+							"%STATIC_TEX_TEMP%" "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
+							"%TOP_TEMP%"  "BEE2_OVER_STAIRS_TOP"
+							// Chance to have a panel in each place
+							"%SPACE_PERC%"      "60%"
+							"%FORCE_VAR%"       "$disable_autorespawn"
+							"%EDGE_ORIG_TEX%"   "anim_wp/framework/squarebeams_rusty_01"
+							"%EDGE_PORTAL_TEX%" "BEE2/squarebeams_rusty_portal"
 							}
 						}
 					"AppendDesc"
@@ -1194,11 +431,22 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN"	"light_strip"
+				"BEE2_OVERGROWN"
+					{
+					"Base"   "BEE2_CLEAN"
+					"Instances"
+						{
+						"bee2_cool" "instances/BEE2/over/items/light_strip/cool.vmf"
+						"bee2_warm" "instances/BEE2/over/items/light_strip/warm.vmf"
+						"bee2_cold" "instances/BEE2/over/items/light_strip/cold.vmf"
+						}
+					"Append" "light_strip.cfg"
+					// Overgrown Style uses the same editor appearance, no need for palette customisation.
+					}
 				}
 			}
 		}
-		
+
 	"Item"
 		{
 		"ID" "ITEM_BARRIER"
@@ -1210,7 +458,18 @@
 				}
 			}
 		}
-		
+	}
+	
+
+"BrushTemplate"
+	{
+	// No rotation, fitting the grid.
+	"ID"    "BEE2_GRATING_TEMPLATE_SQUARE"
+	"File"  "grating_template.vmf"
+	}
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_BARRIER_HAZARD"
@@ -1218,7 +477,12 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN"	"fizz"
+				"BEE2_OVERGROWN"
+					{
+					"Base"   "BEE2_CLEAN"
+					"Config" "fizzler.cfg"
+					"Description" "Overgrown Style fizzlers are sometimes jammed open."
+					}
 				}
 			}
 		}
@@ -1266,11 +530,55 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN"	"piston_plat"
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Append" "piston_plat.cfg"
+					"Instances"
+						{
+						"0" "instances/BEE2/over/items/pist_plat/common.vmf"
+						}
+					}
 				}
 			}
 		}
-		
+	"Item"
+		{
+		"ID" "ITEM_RAIL_PLATFORM"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%skin%"    "1"
+							"%gls_mdl%" "models/BEE2/props_overgrown/track_platform.mdl"
+							}
+						}
+					"Instances"
+						{
+						"0" "instances/BEE2/over/items/track/bottom_grate.vmf"
+						"1" "instances/BEE2/over/items/track/bottom.vmf"
+						"2" "instances/BEE2/over/items/track/middle.vmf"
+						"3" "instances/BEE2/over/items/track/top.vmf"
+						"4" "instances/BEE2/clean/items/track/platform.vmf"
+						"5" "instances/BEE2/clean/items/track/platform_oscillate.vmf"
+						"6" "instances/BEE2/over/items/track/single.vmf"
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_CATAPULT"
@@ -1290,7 +598,39 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN" "funnel"
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/over/items/tbeam.vmf"
+							"EntityCount"		"1"
+							"BrushCount"		"3"
+							"BrushSideCount"	"22"
+							}
+						"1"
+							{
+							"Name"				"instances/BEE2/over/items/tbeam_frame_white.vmf"
+							"EntityCount"		"1"
+							"BrushCount"		"12"
+							"BrushSideCount"	"100"
+							}
+						"2"
+							{
+							"Name"				"instances/BEE2/over/items/tbeam_frame_black.vmf"
+							"EntityCount"		"1"
+							"BrushCount"		"12"
+							"BrushSideCount"	"100"
+							}
+						}
+					"Append" "funnel.cfg"
+					"AppendDesc"
+						{
+						"" "* In Overgrown Style, Funnels may randomly flicker if the option is enabled."
+						}
+					}
 				}
 			}
 		}
@@ -1303,7 +643,23 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN" "laser/emitter"
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"          "instances/BEE2/over/items/laser/emitter_center.vmf"
+						"bee2_floor" "instances/BEE2/over/items/laser/emitter_center_floor.vmf"
+						}
+					"Extra"
+						{
+						"Instances"
+							{
+							"0"          "instances/BEE2/over/items/laser/emitter_offset.vmf"
+							"bee2_floor" "instances/BEE2/over/items/laser/emitter_offset_floor.vmf"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1388,6 +744,7 @@
 	"ShortName"		"Overgrown"
 	"Group"			"2D"
 	"Icon"			"skies/overgrown.png"
+	"IconLarge"   		"prev/sky_overgrown.png"
 	"Material"		"sky_white"
 	"Config"		""
 	"Authors"		"Valve"
@@ -1407,128 +764,3 @@
         "tonemap_exposure_max"  "3"
 		}
 	}
-	
-"Music"
-	{
-	"ID"			"VALVE_FUTURE_STARTER"
-	"Name"			"The Future Starts With You"
-	"ShortName"		"Future Starter"
-	"Group"			"Overgrown"
-	"Icon"          "music/future_starter"
-	"IconLarge"     "music_lrg/future_starter"
-	"Authors"		"Valve"
-	"Description"	"The music played in the 6th Overgrown Test, where Flinging is first introduced."
-	"Sample"        "p2/sp_a1_intro6.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a1_intro6.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z2.wav"
-			"snd" "music/sp_a3_bomb_flings_z2b.wav"
-			"snd" "music/sp_a3_bomb_flings_z2c.wav"
-			}
-		}
-	}
-
-"Music"
-	{
-	"ID"			"VALVE_TECHNICAL_DIFFICULTIES"
-	"Name"			"Technical Difficulties"
-	"ShortName"		"Tech Difficulties"
-	"Group"			"Overgrown"
-	"Icon"			"music/technical_difficulties"
-	"IconLarge"     "music_lrg/technical_difficulties"
-	"Authors"		"Valve"
-	"Description"	"The music played in the first few Overgrown Test Chambers."
-	"Sample"        "p2/sp_a1_intro3_b1.ogg"
-	"SoundScript"
-		{
-		"Base"  "music/sp_a1_intro3_b1.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1b.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		}
-	}
-
-"Music"
-	{
-	"ID"			"VALVE_THERE_SHE_IS"
-	"Name"		    "There She Is"
-	"Group"			"Overgrown"
-	"Icon"			"music/there_she_is"
-	"IconLarge"     "music_lrg/there_she_is"
-	"Authors"		"Valve"
-	"Description"	"The music played when first seeing the deactivated GLaDOS."
-	"Sample"        "p2/sp_a1_wakeup_b1.ogg"
-	"SoundScript"
-		{
-		"Base"  "music/sp_a1_wakeup_b1.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1b.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		}
-	}
-
-"Music"
-	{
-	"ID"			"VALVE_HAUNTED_PANELS"
-	"Name"          "Haunted Panels"
-	"Group"         "Overgrown"
-	"Icon"          "music/haunted_panels"
-	"IconLarge"     "music_lrg/haunted_panels"
-	"Authors"		"Valve"
-	"Description"	"The music played in the 5th Overgrown Test, where a Panel Arm is used to block a Cube from being flung into Goo."
-	"Sample"        "p2/sp_a1_intro5_b1.ogg"
-	"SoundScript"
-		{
-		"Base"  "bee2/music/sp_a1_intro5_b1_looped.wav"
-		"tBeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z2.wav"
-			"snd" "music/sp_a3_bomb_flings_z2b.wav"
-			"snd" "music/sp_a3_bomb_flings_z2c.wav"
-			}
-		}
-	}
-	

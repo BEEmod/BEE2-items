@@ -1,0 +1,162 @@
+"Item"
+	{
+	"Type"			"ITEM_COMPRESSED_SMOKE_FIELD"
+	"ItemClass"		"ItemBarrierHazard"
+	"Editor"
+		{
+		"SubTypeProperty" "HazardType"
+		"SubType"
+			{
+			"Name"			"Compressed Smoke Field"
+			"Model"
+				{
+				"ModelName"		"fr_compressed_smoke_field.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"COMPRESSED SMOKE FIELD"
+				"Image"			"palette/clean/fr/csf.png"
+				"Position"		"0 3 0"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"			"Compressed Smoke Field"
+			"Model"
+				{
+				"ModelName"		"fr_compressed_smoke_field.mdl"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"		"HANDLE_6_POSITIONS"
+		"DesiredFacing"			"DESIRES_HORIZONTAL"
+		}
+	"Properties"
+		{
+		"ConnectionCount"
+			{
+			"DefaultValue"		"0"
+			"Index"				"1"
+			}
+		"StartEnabled"
+			{
+			"DefaultValue"		"1"
+			"Index"				"2"
+			}
+		"HazardType"
+			{
+			"DefaultValue"		"0"
+			"Index"				"3"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"          "instances/BEE2/clean/items/fr/csf_base.vmf"
+				"EntityCount"   "5"
+				}
+			"1"
+				{
+				"Name"          "instances/BEE2/clean/items/fr/csf_model.vmf"
+				"EntityCount"   "1"
+				}
+			"bee2_static"       "instances/BEE2/clean/items/fr/csf_model_static.vmf"
+			}
+
+		"TargetName"	"fr_csf"
+		"Inputs"
+			{
+			"BEE2"
+				{
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "mdl,SetAnimation,open,0.00,-1"
+				"Disable_Cmd"   "mdl,SetAnimation,close,0.00,-1"
+				"Enable_Cmd"    "clip,Enable,,0.00,-1"
+				"Disable_Cmd"   "clip,Disable,,0.00,-1"
+				"Enable_Cmd"    "fizz,Enable,,0.00,-1"
+				"Disable_Cmd"   "fizz,Disable,,0.00,-1"
+				}
+			}
+		"ConnectionPoints"
+			{
+			// left
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"2 0 0"
+				"SignageOffset"		"1 1 0"
+				"Priority"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"2 2 0"
+				"SignageOffset"		"1 3 0"
+				"Priority"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"2 4 0"
+				"SignageOffset"		"1 5 0"
+				"Priority"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"2 6 0"
+				"SignageOffset"		"1 7 0"
+				"Priority"	"0"
+				}
+
+
+			// right
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"5 0 0"
+				"SignageOffset"		"6 1 0"
+				"Priority"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"5 2 0"
+				"SignageOffset"		"6 3 0"
+				"Priority"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"5 4 0"
+				"SignageOffset"		"6 5 0"
+				"Priority"	"0"
+				}
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"5 6 0"
+				"SignageOffset"		"6 7 0"
+				"Priority"	"0"
+				}
+			}
+		"Offset"	"64 64 64"
+		}
+	}

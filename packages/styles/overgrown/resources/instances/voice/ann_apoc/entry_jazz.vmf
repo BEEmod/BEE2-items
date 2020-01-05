@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "7"
+	"editorbuild" "7378"
+	"mapversion" "22"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,81 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "7"
+	"mapversion" "22"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "505"
+	"classname" "ambient_generic"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "br/train/br_spark_02.wav"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"spawnflags" "49"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "jazz_5"
+	"volstart" "0"
+	"origin" "16 -8 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "647"
+	"classname" "ambient_generic"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "portalExperiment.portalGun_powerdown"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"spawnflags" "49"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "jazz_power_fail"
+	"volstart" "0"
+	connections
+	{
+		"OnStart" "jazz_casePickRandomShuffle5-1"
+		"OnStart" "jazz_casePickRandomShuffle5.15-1"
+		"OnStart" "announcer_enter_2Cancel5.1-1"
+	}
+	"origin" "0 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
@@ -40,12 +108,12 @@ entity
 	"lfomodvol" "0"
 	"lforate" "0"
 	"lfotype" "0"
-	"message" "radio.VO.static2"
+	"message" "br/train/walla/radiostatic_01.wav"
 	"pitch" "100"
 	"pitchstart" "100"
 	"preset" "0"
 	"radius" "1250"
-	"spawnflags" "48"
+	"spawnflags" "49"
 	"spindown" "0"
 	"spinup" "0"
 	"targetname" "jazz_1"
@@ -71,12 +139,12 @@ entity
 	"lfomodvol" "0"
 	"lforate" "0"
 	"lfotype" "0"
-	"message" "radio.VO.static2"
+	"message" "br/train/walla/radiostatic_02.wav"
 	"pitch" "100"
 	"pitchstart" "100"
 	"preset" "0"
 	"radius" "1250"
-	"spawnflags" "48"
+	"spawnflags" "49"
 	"spindown" "0"
 	"spinup" "0"
 	"targetname" "jazz_2"
@@ -102,17 +170,17 @@ entity
 	"lfomodvol" "0"
 	"lforate" "0"
 	"lfotype" "0"
-	"message" "radio.VO.static2"
+	"message" "br/train/walla/radiostatic_03.wav"
 	"pitch" "100"
 	"pitchstart" "100"
 	"preset" "0"
 	"radius" "1250"
-	"spawnflags" "48"
+	"spawnflags" "49"
 	"spindown" "0"
 	"spinup" "0"
 	"targetname" "jazz_3"
 	"volstart" "0"
-	"origin" "-8 -8 -32"
+	"origin" "-16 -8 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -133,17 +201,17 @@ entity
 	"lfomodvol" "0"
 	"lforate" "0"
 	"lfotype" "0"
-	"message" "radio.VO.static2"
+	"message" "br/train/br_spark_01.wav"
 	"pitch" "100"
 	"pitchstart" "100"
 	"preset" "0"
 	"radius" "1250"
-	"spawnflags" "48"
+	"spawnflags" "49"
 	"spindown" "0"
 	"spinup" "0"
 	"targetname" "jazz_4"
 	"volstart" "0"
-	"origin" "8 -8 -32"
+	"origin" "0 -8 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -162,12 +230,11 @@ entity
 		"OnCase01" "jazz_1PlaySound0-1"
 		"OnCase02" "jazz_2PlaySound0-1"
 		"OnCase03" "jazz_3PlaySound0-1"
-		"OnCase04" "jazz_4PlaySound0-1"
 	}
-	"origin" "0 0 -16"
+	"origin" "0 0 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -185,10 +252,10 @@ entity
 	{
 		"OnCompletion" "announcer_enter_2Start0-1"
 	}
-	"origin" "0 0 16"
+	"origin" "-8 0 16"
 	editor
 	{
-		"color" "0 0 255"
+		"color" "240 180 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"comments" "At the time of this recording, Federal disclosure policies require us to inform you that this next test is probably lethal and to redirect you to a safer test environment."
@@ -205,15 +272,21 @@ entity
 	"targetname" "announcer_enter_2"
 	connections
 	{
-		"OnCompletion" "jazz_casePickRandom0-1"
+		"OnStart" "jazz_casePickRandomShuffle5-1"
+		"OnStart" "jazz_casePickRandomShuffle5.25-1"
+		"OnStart" "announcer_enter_2Cancel5.1-1"
+		"OnStart" "jazz_4PlaySound5.4-1"
+		"OnStart" "jazz_power_failPlaySound7.5-1"
+		"OnStart" "jazz_5PlaySound5.8-1"
+		"OnStart" "jazz_4PlaySound6.2-1"
 	}
-	"origin" "0 0 0"
+	"origin" "8 0 16"
 	editor
 	{
-		"color" "0 0 255"
+		"color" "240 180 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "We will attempt to comply with these now non-existent agencies by playing some more smooth jazz."
+		"comments" "We will attempt to comply with these now non-existent agencies by playing some more smooth jazz. This has the wrong length, so trigger the outputs manually."
 		"logicalpos" "[0 0]"
 	}
 }

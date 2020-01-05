@@ -91,12 +91,12 @@
 			{
 			"0"
 				{
-				"Name"			"instances/BEE2/logic/tspen/delayer/delay_both.vmf"
+				"Name"			"instances/BEE2/logic/tspen/delayer_both.vmf"
 				"EntityCount"	"6"
 				}
 			"1"
 				{
-				"Name"			"instances/BEE2/logic/tspen/delayer/delay_both.vmf"
+				"Name"			"instances/BEE2/logic/tspen/delayer_both.vmf"
 				"EntityCount"	"6"
 				}
 			"2"
@@ -124,18 +124,12 @@
 		"TargetName"		"delay"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			// Each item type is defined in the config.
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
-				}
-			}
-		"Outputs"
-			{
-			"CONNECTION_STANDARD"
-				{
-				"Activate"		"instance:out;OnUser2"
-				"Deactivate"	"instance:out;OnUser1"
+				"Force" "input"
+				"Out_Activate"      "instance:out;OnUser2"
+				"Out_Deactivate"    "instance:out;OnUser1"
 				}
 			}
 		"ConnectionPoints"

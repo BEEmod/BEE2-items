@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "122"
+	"editorbuild" "7552"
+	"mapversion" "125"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "122"
+	"mapversion" "125"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1666,7 +1666,7 @@ entity
 	"origin" "0 16 -16"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -1690,7 +1690,7 @@ entity
 	"origin" "-16 16 -16"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1710,7 +1710,7 @@ entity
 	"origin" "-32 32 -16"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1732,7 +1732,7 @@ entity
 	"origin" "32 32 -16"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1746,19 +1746,21 @@ entity
 	"targetname" "branch_toggle_polarity"
 	connections
 	{
-		"OnTrue" "tbeamSetLinearForce-2500-1"
-		"OnFalse" "tbeamSetLinearForce2500-1"
+		"OnTrue" "tbeamSetLinearForce$neg_force0-1"
+		"OnFalse" "tbeamSetLinearForce$pos_force0-1"
 		"OnTrue" "c1StartDischarge0-1"
 		"OnTrue" "c2StartDischarge0-1"
 		"OnTrue" "c3StartDischarge0-1"
 		"OnFalse" "c3StartCharge0.50-1"
 		"OnFalse" "c2StartCharge0.50-1"
 		"OnFalse" "c1StartCharge0.50-1"
+		"OnTrue" "oran_mdlEnableDraw0-1"
+		"OnFalse" "oran_mdlDisableDraw0-1"
 	}
 	"origin" "16 16 -16"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"

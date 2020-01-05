@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "94"
+	"editorbuild" "7335"
+	"mapversion" "98"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "94"
+	"mapversion" "98"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -33,7 +33,7 @@ world
 		side
 		{
 			"id" "37"
-			"plane" "(-12 -64 -62) (-12 64 -62) (12 64 -62)"
+			"plane" "(-12 -64 2) (-12 64 2) (12 64 2)"
 			"material" "METAL/UNDERGROUND_PIPE001A"
 			"uaxis" "[0 1 0 256] 0.25"
 			"vaxis" "[1 0 0 48] 0.25"
@@ -44,7 +44,7 @@ world
 		side
 		{
 			"id" "38"
-			"plane" "(-12 64 -64) (-12 -64 -64) (12 -64 -64)"
+			"plane" "(-12 64 0) (-12 -64 0) (12 -64 0)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0.406006] 0.25"
 			"vaxis" "[0 1 0 -13.984] 0.25"
@@ -55,9 +55,9 @@ world
 		side
 		{
 			"id" "39"
-			"plane" "(-12 -64 -64) (-12 64 -64) (-12 64 -62)"
+			"plane" "(-12 -64 0) (-12 64 0) (-12 64 2)"
 			"material" "METAL/UNDERGROUND_PIPE001A"
-			"uaxis" "[0 0 1 256] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 256] 0.25"
 			"rotation" "90"
 			"lightmapscale" "16"
@@ -66,9 +66,9 @@ world
 		side
 		{
 			"id" "40"
-			"plane" "(12 64 -64) (12 -64 -64) (12 -64 -62)"
+			"plane" "(12 64 0) (12 -64 0) (12 -64 2)"
 			"material" "METAL/UNDERGROUND_PIPE001A"
-			"uaxis" "[0 0 1 256] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 256] 0.25"
 			"rotation" "90"
 			"lightmapscale" "16"
@@ -77,9 +77,9 @@ world
 		side
 		{
 			"id" "41"
-			"plane" "(-12 64 -64) (12 64 -64) (12 64 -62)"
+			"plane" "(-12 64 0) (12 64 0) (12 64 2)"
 			"material" "METAL/UNDERGROUND_PIPE001A"
-			"uaxis" "[0 0 1 256] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[1 0 0 48] 0.25"
 			"rotation" "90"
 			"lightmapscale" "16"
@@ -88,9 +88,9 @@ world
 		side
 		{
 			"id" "42"
-			"plane" "(12 -64 -64) (-12 -64 -64) (-12 -64 -62)"
+			"plane" "(12 -64 0) (-12 -64 0) (-12 -64 2)"
 			"material" "METAL/UNDERGROUND_PIPE001A"
-			"uaxis" "[0 0 1 256] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[1 0 0 48] 0.25"
 			"rotation" "90"
 			"lightmapscale" "16"
@@ -118,12 +118,12 @@ entity
 	"cpoint7_parent" "0"
 	"drawinfastreflection" "1"
 	"effect_name" "laser_relay_ball"
-	"start_active" "1"
+	"start_active" "$start_enabled"
 	"targetname" "bm_2_end"
-	"origin" "0 -4 -44"
+	"origin" "0 -4 20"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -143,12 +143,12 @@ entity
 	"cpoint7_parent" "0"
 	"drawinfastreflection" "1"
 	"effect_name" "laser_relay_ball"
-	"start_active" "1"
+	"start_active" "$start_enabled"
 	"targetname" "bm_1_end"
-	"origin" "0 -36 -44"
+	"origin" "0 -36 20"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -168,12 +168,12 @@ entity
 	"cpoint7_parent" "0"
 	"drawinfastreflection" "1"
 	"effect_name" "laser_relay_ball"
-	"start_active" "1"
+	"start_active" "$start_enabled"
 	"targetname" "bm_3_end"
-	"origin" "0 32 -44"
+	"origin" "0 32 20"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -185,7 +185,7 @@ entity
 	"classname" "info_overlay"
 	"angles" "0 0 0"
 	"BasisNormal" "0 0 1"
-	"BasisOrigin" "6.67572e-006 -60.702 -56"
+	"BasisOrigin" "6.67572e-006 -60.702 8"
 	"BasisU" "1 0 0"
 	"BasisV" "0 1 0"
 	"EndU" "1"
@@ -199,7 +199,7 @@ entity
 	"uv1" "-12 7.29799 0"
 	"uv2" "12 7.29799 0"
 	"uv3" "12 -7.29799 0"
-	"origin" "6.67572e-006 -60.702 -56"
+	"origin" "6.67572e-006 -60.702 8"
 	editor
 	{
 		"color" "80 150 225"
@@ -232,7 +232,7 @@ entity
 	"screenspacefade" "0"
 	"skin" "0"
 	"solid" "6"
-	"origin" "0.250011 -60 -62"
+	"origin" "0.250011 -60 2"
 	editor
 	{
 		"color" "255 255 0"

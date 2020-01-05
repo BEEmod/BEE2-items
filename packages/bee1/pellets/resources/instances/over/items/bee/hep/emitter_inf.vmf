@@ -1,0 +1,115 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "7335"
+	"mapversion" "203"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "8"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "203"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"paintinmap" "1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "3334"
+	"classname" "point_energy_ball_launcher"
+	"angles" "-90 0 0"
+	"ballcount" "1"
+	"BallLifetime" "-1"
+	"ballradius" "128"
+	"ballrespawntime" "1"
+	"balltype" "Combine Energy Ball 1"
+	"maxspeed" "$speed"
+	"MinLifeAfterPortal" "-1"
+	"minspeed" "$speed"
+	"origin" "0 0 -16"
+	"spawnflags" "4096"
+	"targetname" "launcher"
+	"thinkfunction" "Think"
+	"vscripts" "BEE2/inf_pellet.nut"
+	connections
+	{
+		"OnPostSpawnBall" "launch_fxStop0.9-1"
+		"OnPostSpawnBall" "launch_fxStart0-1"
+		"OnPostSpawnBall" "LauncherPropSetAnimationclose0-1"
+		"OnUser1" "proxyProxyRelay0-1"
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "8"
+	"classname" "prop_dynamic"
+	"angles" "-90 270 0"
+	"disableshadows" "1"
+	"drawinfastreflection" "1"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"MaxAnimTime" "10"
+	"MinAnimTime" "5"
+	"model" "models/bee2/props_ingame/pellet_launcher_inf.mdl"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"skin" "1"
+	"skinset" "1"
+	"solid" "0"
+	"targetname" "LauncherProp"
+	"origin" "0 -1.90735e-006 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "307"
+	"classname" "func_instance_parms"
+	"parm1" "$connectioncount integer 0"
+	"parm2" "$start_enabled integer 1"
+	"parm3" "$speed integer 300"
+	"origin" "0 0 16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 4500]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
