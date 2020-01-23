@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "79"
+	"editorbuild" "8419"
+	"mapversion" "85"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,118 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "79"
+	"mapversion" "85"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "1460"
+	"classname" "trigger_multiple"
+	"filtername" "@filter_futbol"
+	"origin" "-16 0 -16"
+	"solid" "6"
+	"spawnflags" "4104"
+	"StartDisabled" "0"
+	"targetname" "trig"
+	"wait" "0.1"
+	connections
+	{
+		"OnEndTouchAll" "snd_offPlaySound0-1"
+		"OnEndTouchAll" "snd_lpStopSound0-1"
+		"OnEndTouchAll" "coreStop0.50-1"
+		"OnStartTouch" "snd_onPlaySound0-1"
+		"OnStartTouch" "snd_lpPlaySound0-1"
+		"OnStartTouch" "coreStartCharge0.010-1"
+		"OnTouching" "!activatorBreak0-1"
+	}
+	solid
+	{
+		"id" "1461"
+		side
+		{
+			"id" "1"
+			"plane" "(-24 8 -7.99937) (-24 8 -24) (-8 8 -23.9994)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 -0.0599976] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2"
+			"plane" "(-8 -8 -7.99937) (-8 -8 -24) (-24 -8 -23.9994)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 -0.0599976] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3"
+			"plane" "(-8 8 -7.99937) (-8 8 -24) (-8 -8 -23.9994)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 -0.0599976] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "4"
+			"plane" "(-24 -8 -7.99937) (-24 -8 -24) (-24 8 -23.9994)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 -0.0599976] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "5"
+			"plane" "(-8 -8 -7.99998) (-24 -8 -7.99998) (-24 8 -7.99998)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "6"
+			"plane" "(-8 8 -24) (-24 8 -24) (-24 -8 -24)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 3000]"
+	}
 }
 entity
 {
@@ -69,6 +174,7 @@ entity
 {
 	"id" "498"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -88,7 +194,7 @@ entity
 	"spinup" "0"
 	"targetname" "snd_on"
 	"volstart" "0"
-	"origin" "-34 -3.37645e-006 8"
+	"origin" "-32 0 8"
 	editor
 	{
 		"color" "220 30 220"
@@ -101,6 +207,7 @@ entity
 {
 	"id" "539"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -120,7 +227,7 @@ entity
 	"spinup" "0"
 	"targetname" "snd_off"
 	"volstart" "0"
-	"origin" "-1.60902 2.25279e-006 8"
+	"origin" "0 0 8"
 	editor
 	{
 		"color" "220 30 220"
@@ -133,6 +240,7 @@ entity
 {
 	"id" "569"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -146,12 +254,13 @@ entity
 	"pitchstart" "100"
 	"preset" "0"
 	"radius" "128"
+	"sourceentityname" "holder"
 	"spawnflags" "16"
 	"spindown" "0"
 	"spinup" "0"
 	"targetname" "snd_lp"
 	"volstart" "0"
-	"origin" "-17.609 -5.44736e-007 -16"
+	"origin" "-16 0 8"
 	editor
 	{
 		"color" "220 30 220"
@@ -164,6 +273,7 @@ entity
 {
 	"id" "2"
 	"classname" "prop_glass_futbol_socket"
+	"angles" "0 0 0"
 	"rendermode" "10"
 	"targetname" "holder"
 	"origin" "-16 1.39876e-006 -16"

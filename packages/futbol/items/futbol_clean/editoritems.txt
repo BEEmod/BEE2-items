@@ -51,33 +51,35 @@
 			{
 			"0"
 				{
-				"Name"			"instances/BEE2/clean/items/futbol/futbol.vmf"
+				"Name"			"instances/BEE2/clean/items/futbol/common.vmf"
 				"EntityCount"	"5"
 				}
-			"common"        "instances/BEE2/clean/items/futbol/common.vmf"
+			"futbol"        "instances/BEE2/clean/items/futbol/futbol.vmf"
 			"respawn"       "instances/BEE2/clean/items/futbol/respawn.vmf"
-			"no_respawn"    "instances/BEE2/clean/items/futbol/no_respawn.vmf"
-			"autospawn"     "instances/BEE2/clean/items/futbol/autospawn.vmf"
-			"no_autospawn"  "instances/BEE2/clean/items/futbol/no_autospawn.vmf"
-			"no_input"      "instances/BEE2/clean/items/futbol/no_input.vmf"
-			"input"         "instances/BEE2/clean/items/futbol/has_input.vmf"
+			"spawner"       "instances/BEE2/clean/items/futbol/spawner.vmf"
 			}
 
 		"TargetName"		"futbol"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "0"
+				"Enable_Cmd"    "rl_spawn,Trigger,,0.00,-1"
+
+				"Out_Activate"   "instance:trig;OnStartTouchAll"
+				"Out_Deactivate" "instance:trig;OnEndTouchAll"
+
+				"out_unlock" "instance:trig;OnEndTouchAll"
 				}
 			}
 		"Outputs"
 			{
 			"CONNECTION_STANDARD"
 				{
-				"Activate"		"instance:trig;OnUser2"
-				"Deactivate"	"instance:trig;OnUser1"
+				"Activate"		"instance:trig;OnStartTouchAll"
+				"Deactivate"	"instance:trig;OnEndTouchAll"
 				}
 			}
 		"OccupiedVoxels"
