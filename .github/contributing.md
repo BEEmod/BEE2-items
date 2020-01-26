@@ -22,9 +22,9 @@ BEEmod cannot modify the game code, and is not a Hammer replacement. Keep these 
 
 - Things should already be present in Portal 1/2 or a existing mod/map: This keeps content to things which actually fit in the game, and are possible in the engine.
 - No beta content: Most of these resources aren't publicly available, and it's a very unfinished and incoherent mess of parts.
-- No, we won't develop your custom style for you. Styles require a lot work and maintenance.
+- No, we won't develop your custom style for you. Styles require a lot of work and maintenance.
 - Focus on puzzle potential: In general, items should be focused on providing new opportunities for puzzles, not solely for decoration purposes.
-- Versitility is key: For the most part, good new items maximise their flexibility in different situations, especially in improving the puzzle experience. We're not adding some item that only works for your specific map.
+- Versatility is key: For the most part, good new items maximise their flexibility in different situations, especially in improving the puzzle experience. We're not adding some item that only works for your specific map.
 
 ### Other requirements
 A User must be at least 13 years of age as per the [GitHub account requirement](https://help.github.com/articles/github-terms-of-service/#b-account-terms).
