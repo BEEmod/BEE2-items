@@ -43,11 +43,6 @@
 			"DefaultValue"	"1"
 			"Index"			"2"
 		}
-		"StartReversed"
-		{
-			"DefaultValue"	"0"
-			"Index"			"3"
-		}
 	}
 	"Exporting"
 	{
@@ -65,11 +60,14 @@
 		"TargetName"		"st"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
-			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
-			}
+			"BEE2"
+				{
+				"Type"        "AND"
+				"SpawnFire"   "dynamic"
+				"invertVar"   "$start_deployed"
+				"Enable_cmd"  "stair,FireUser2,,0,-1"
+				"Disable_cmd" "stair,FireUser1,,0,-1"
+				}
 		}
 		"Offset"		"64 64 64"
 
@@ -227,6 +225,21 @@
 				"Pos"		"1 0 0"
 			}
 		}
+		"EmbedFace"
+			{
+			"Solid"
+				{
+				"Center"        "64 64 128"
+				"Dimensions"    "128 128 4"
+				"Grid"          "Grid_Default"
+				}
+			"Solid"
+				{
+				"Center"        "192 64 128"
+				"Dimensions"    "128 128 4"
+				"Grid"          "Grid_Default"
+				}
+			}
 		"ConnectionPoints"
 		{
 			// left
