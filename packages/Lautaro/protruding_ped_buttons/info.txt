@@ -54,7 +54,7 @@
 				{
 				"Base" "BEE2_CLEAN"
 				"Config" "protruding_p1.cfg"
-				"Palette"  // A new block format into the info file, that replaces the editoritem´s names from models and icons. This saves space from having to make duplicate folders for each model / icon that is styled.
+				"Palette"
 					{
 					"0"
 						{
@@ -79,6 +79,33 @@
 						"icon" "palette/lautaro/protruding_ped/p1/protruding_ped_combined.png"
 						"bee2" "p1/protruding_ped/protruding_ped_combined.png"
                         }
+					}
+				"Instances"
+					{
+					"bee2_ped_fwd" "instances/BEE2/p1/items/lautaro/protrude_ped.vmf"
+					"bee2_ped_rev" "instances/BEE2/p1/items/lautaro/protrude_ped_rev.vmf"
+					}
+				"IOConf"
+					{
+					"out_activate"   "instance:output;OnUser2"
+					"out_deactivate" "instance:output;OnUser1"
+					
+					"lock_cmd"       "lock_man,SetStateATrue,,0.00,-1"
+					"unlock_cmd"     "lock_man,SetStateAFalse,,0.00,-1"
+
+					// Generate a logic_relay which plays the appropriate tick-tock sounds.
+					"timer_sound_pos"   "-96 0 -48"
+					"timer_done_cmd"    "@command,Command,cc_emit Portal.button_down,0.00,-1"
+					"timer_done_cmd"    "output,SetValue,0,0.00,-1"
+					"timer_done_cmd"    "output,FireUser1,,0.00,-1"
+					"timer_done_cmd"    "snd_rel,PlaySound,,0.00,-1"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PROTRUDING_PED_BASE_P!"
+						}
 					}
 				}
 			"BEE2_1950s"
