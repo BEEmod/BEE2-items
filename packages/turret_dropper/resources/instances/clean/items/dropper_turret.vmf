@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8037"
-	"mapversion" "444"
+	"editorbuild" "8419"
+	"mapversion" "446"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -50,13 +50,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "444"
+	"mapversion" "446"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2127,6 +2127,36 @@ world
 }
 entity
 {
+	"id" "14289"
+	"classname" "comp_scriptvar_setter"
+	"angles" "0 0 0"
+	"const" "$disable_autorespawn"
+	"mode" "const"
+	"origin" "48 -16 64"
+	"target" "script"
+	"variable" "conf_respawn"
+	connections
+	{
+		"OnUser1" "cube_dropper_modelSetAnimationitem_dropper_open0-1"
+		"OnUser1" "door_lowerOpen0.4-1"
+		"OnUser1" "sndPlaySound0.4-1"
+		"OnUser1" "cube_dropper_modelSkin10-1"
+		"OnUser1" "scriptCallScriptFunctionstart_lower0.45-1"
+		"OnUser1" "iris_clipDisable0.4-1"
+		"OnUser1" "clawEnableDrawInFastReflection0-1"
+		"OnUser1" "door_lowerSetSpeed2000-1"
+		"OnUser4" "door_upperOpen01"
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "12861"
 	"classname" "filter_activator_class"
 	"angles" "0 0 0"
@@ -3962,7 +3992,6 @@ entity
 	"Group02" "door_lower"
 	"targetname" "script"
 	"thinkfunction" "Think"
-	"vscript_init_code" "conf_respawn=$disable_autorespawn"
 	"vscripts" "bee2/turret_dropper.nut"
 	connections
 	{
@@ -4167,6 +4196,7 @@ entity
 	"mingpulevel" "0"
 	"MoveSpeed" "64"
 	"parentname" "door_lower"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "25"
 	"spawnflags" "0"
@@ -4208,7 +4238,7 @@ entity
 	{
 		"OnFullyOpen" "tempForceSpawn0-1"
 		"OnFullyOpen" "door_upperClose0.1-1"
-		"OnFullyClosed" "scriptRunScriptCodeconf_ready_to_spawn = true0-1"
+		"OnFullyClosed" "scriptCallScriptFunctionis_ready_to_spawn0-1"
 		"OnFullyClosed" "cube_dropper_modelSkin00-1"
 		"OnFullyClosed" "spawn_fadeDisable0-1"
 	}
