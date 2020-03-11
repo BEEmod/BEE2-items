@@ -1506,7 +1506,7 @@
 				}
 			}
 		}
-		
+
 	"Item"
 		{
 		"ID" "ITEM_PISTON_PLATFORM"
@@ -1557,7 +1557,7 @@
 	"ID"    "BEE2_PISTON_PLATFORM_RETRO"
 	"File"  "piston_plat.vmf"
 	}
-	
+
 "Overrides"
 	{
 	"Item"
@@ -1629,6 +1629,7 @@
 					"Description"	"In the 1970s era, this is produced by a prototype emitter."
 					"Ent_Count"     "3"
 
+					"Config" "funnel_70s.cfg"
 					"Instances"
 						{
 						"0" "instances/BEE2/70s/items/tbeam/beam.vmf"
@@ -1651,28 +1652,6 @@
 						"Sec_Enable_Cmd"    "mdl,FireUser4,,0.00,-1"
 						"Sec_Disable_Cmd"   "mdl,FireUser3,,0.00,-1"
 						}
-					"Config"
-						{
-						"Conditions"
-							{
-							"Condition"
-								{
-								"instance" "<ITEM_TBEAM:fun_emitter>"
-								"Condition"
-									{
-									"instvar" "$conn_count_b > 0"
-									"Result"
-										{
-										"AddOverlay" "instances/BEE2/70s/items/tbeam/polarity_inp.vmf"
-										}
-									"Else"
-										{
-										"AddOverlay" "instances/BEE2/70s/items/tbeam/polarity_static.vmf"
-										}
-									}
-								}
-							}
-						}
 					}
 				"BEE2_1980s"    "<BEE2_CLEAN>"
 				}
@@ -1686,6 +1665,17 @@
 	"File" "tbeam_50s.vmf"
 	}
 
+"BrushTemplate"
+	{
+	"ID"   "BEE2_FUNNEL_HOLE_MULTI_70s"
+	"File" "tbeam_70s_multi.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_FUNNEL_HOLE_70s"
+	"File" "tbeam_70s_single.vmf"
+	}
 
 "Overrides"
 	{		
@@ -1701,7 +1691,6 @@
 			}
 		}
 	}
-	
 
 "BrushTemplate"
 	{
@@ -1720,10 +1709,9 @@
 	"ID"    "BEE2_GRATING_TEMPLATE_SQUARE"
 	"File"  "grating_template.vmf"
 	}
-	
-	
+
 "Overrides"
-	{		
+	{
 	"Item"
 		{
 		"ID" "ITEM_PANEL_ANGLED"
@@ -1832,7 +1820,7 @@
 				}
 			}
 		}
-		
+
 	"Item"
 		{
 		"ID" "ITEM_RAIL_PLATFORM"
