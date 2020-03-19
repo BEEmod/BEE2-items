@@ -32,9 +32,11 @@
 		"start_stack"
 			{
 			// Prevent multiple versions of this from playing at the same time..
+			// But only within split seconds, so multiple interconnected items
+			// only play once.
 			"stop_others"
 				{   
-				"input_duration" "0.5"
+				"input_duration" "0.05"
 				"input_execute" "1"	
 				"operator" "sys_block_entries"
 				"match_entity" "false"

@@ -1,46 +1,264 @@
 "Item"
-{
+	{
 	"Type"		"ITEM_LIGHT_PANEL"
 	"ItemClass"	"itemlightstrip"
 	"Editor"
-	{
-		"SubType"
 		{
+		"SubTypeProperty" "CubeType"
+		"SubType"
+			{
 			"Name"			"PORTAL2_PuzzleEditor_Item_light_strip"
 			"Model"
-			{
-				"ModelName"			"light_strip.3ds"
-			}
+				{
+				"ModelName" "light_strip.3ds"
+				}
 			"Palette"
-			{
-				"Tooltip"	"PORTAL2_PuzzleEditor_Palette_light_strip"
-				"Image"		"palette/light_panel.png"
-				"Position"	"3 6 0"
-			}
+				{
+				"Tooltip"   "PORTAL2_PuzzleEditor_Palette_light_strip"
+				"Image"     "palette/light_panel.png"
+				}
 			"Sounds"
-			{
+				{
 				"SOUND_CREATED"					"P2Editor.PlaceOther"
 				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
 				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
 				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"			"Warm Light Strip"
+			"Model"
+				{
+				"ModelName"	"light_strip_warm.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"   "WARM LIGHT STRIP"
+				"Image"	    "palette/light_panel_warm.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"			"Cold Light Strip"
+			"Model"
+				{
+				"ModelName"	"light_strip_cold.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"  "COLD LIGHT STRIP"
+				"Image"	   "palette/light_panel_cold.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		// Unused subtype, we need a colour or light-strip sized item to put here.
+		"SubType"
+			{
+			"Name"			"PORTAL2_PuzzleEditor_Item_light_strip"
+			"Model"
+				{
+				"ModelName" "light_strip.3ds"
+				}
+			// "Palette"
+			// 	{
+			// 	"Tooltip"  "PORTAL2_PuzzleEditor_Palette_light_strip"
+			// 	"Image"	   "palette/light_panel.png"
+			// 	}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"			"Antline Router Strip"
+			"Model"
+				{
+				"ModelName" "tspen_ant_router_strip.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"  "ANTLINE ROUTER STRIP"
+				"Image"    "palette/logic/tspen/ant_router_strip.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"        "HANDLE_8_POSITIONS"
+		}
+	"Properties"
+		{
+		"CubeType"
+			{
+			"DefaultValue"  "0"
+			"Index"         "1"
 			}
 		}
-		"MovementHandle"        "HANDLE_8_POSITIONS"
-	}
 	"Exporting"
-	{
-		"Instances"
 		{
-			"0"
+		"Instances"
 			{
-				"Name"				"instances/BEE2/clean/items/light_strip.vmf"
+			"0"
+				{
+				"Name"				"instances/BEE2/clean/items/light_strip/common.vmf"
 				"EntityCount"		"4"
 				"BrushCount"		"2"
 				"BrushSideCount"	"12"
+				}
+			"bee2_cool" "instances/BEE2/clean/items/light_strip/cool.vmf"
+			"bee2_warm" "instances/BEE2/clean/items/light_strip/warm.vmf"
+			"bee2_cold" "instances/BEE2/clean/items/light_strip/cold.vmf"
 			}
-		}
 
 		"TargetName"		"ls"
 		"Offset"	"64 64 64"
+		}
 	}
-}
+
+// These items were originally seperate items. These configs are kept for backward compatibility.
+"Item"
+	{
+	"Type"		"ITEM_LIGHT_PANEL_WARM"
+	"ItemClass"	"itemlightstrip"
+	"Editor"
+		{
+		"SubType"
+			{
+			"Name"			"Warm Light Strip"
+			"Model"
+				{
+				"ModelName"			"light_strip_warm.3ds"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"        "HANDLE_8_POSITIONS"
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"				"instances/BEE2/clean/items/light_strip_warm.vmf"
+				"EntityCount"		"2"
+				"BrushCount"		"5"
+				"BrushSideCount"	"30"
+				}
+			}
+		"TargetName"		"ls"
+		"Offset"	"64 64 64"
+		}
+	}
+
+"Item"
+	{
+	"Type"		"ITEM_LIGHT_PANEL_COLD"
+	"ItemClass"	"itemlightstrip"
+	"Editor"
+		{
+		"SubType"
+			{
+			"Name"			"Cold Light Strip"
+			"Model"
+				{
+				"ModelName"			"light_strip_cold.3ds"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"        "HANDLE_8_POSITIONS"
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"				"instances/BEE2/clean/items/light_strip_cold.vmf"
+				"EntityCount"		"2"
+				"BrushCount"		"5"
+				"BrushSideCount"	"30"
+				}
+			}
+		"TargetName"		"ls"
+		"Offset"	"64 64 64"
+		}
+	}
+
+"Item"
+	{
+	"Type"      "ITEM_TSPEN_ANT_ROUTER_STRIP"
+	"ItemClass" "itemlightstrip"
+	"Editor"
+		{
+		"SubType"
+			{
+			"Name"		"Antline Router Strip"
+			"Model"
+				{
+				"ModelName"		"tspen_ant_router_strip.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"		"ANTLINE ROUTER STRIP"
+				"Image"			"palette/logic/tspen/ant_router_strip.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"    "HANDLE_8_POSITIONS"
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"				""
+				"EntityCount"		"0"
+				"BrushCount"		"0"
+				"BrushSideCount"	"0"
+				}
+			}
+		"TargetName"		"router"
+		"Offset"		"64 64 64"
+		}
+	}

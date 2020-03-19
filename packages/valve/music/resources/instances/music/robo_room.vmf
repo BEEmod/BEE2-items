@@ -1,0 +1,184 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "7335"
+	"mapversion" "17"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "17"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "358"
+	"classname" "logic_relay"
+	"spawnflags" "2"
+	"StartDisabled" "1"
+	"targetname" "@music_restart"
+	connections
+	{
+		"OnTrigger" "@music_stopperPlaySound0-1"
+		"OnTrigger" "@musicPlaySound0.1-1"
+	}
+	"origin" "16 0 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "446"
+	"classname" "ambient_generic"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "music.ctc_stop_music"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "999999"
+	"spawnflags" "49"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "@music_stopper"
+	"volstart" "0"
+	"origin" "16 16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Stops the played music - we need this since it's random which script is played."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "28"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "@music_start"
+	connections
+	{
+		"OnTrigger" "@musicPlaySound0-1"
+		"OnTrigger" "@music_restartEnable0-1"
+	}
+	"origin" "-16 -16 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "39"
+	"classname" "logic_relay"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"targetname" "@music_stop"
+	connections
+	{
+		"OnTrigger" "@music_restartDisable0-1"
+		"OnTrigger" "@music_stopperPlaySound0-1"
+		"OnTrigger" "@music_restartCancelPending0-1"
+	}
+	"origin" "-16 16 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "47"
+	"classname" "ambient_generic"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "music.pti_b1_001"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "999999"
+	"spawnflags" "49"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "@music"
+	"volstart" "0"
+	"origin" "16 -16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "300"
+	"classname" "logic_auto"
+	"spawnflags" "0"
+	connections
+	{
+		"OnLoadGame" "@music_restartTrigger0-1"
+	}
+	"origin" "-16 0 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "This is ignored if it's disabled."
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}

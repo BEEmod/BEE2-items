@@ -1,0 +1,79 @@
+"ID"		"TSPEN_FAITH_VARIANTS"
+"Name"		"TSpen - Faith Plate Variants"
+"Desc"      "Adds various alternate forms of Faith Plates."
+
+"Item"
+	{
+	"ID" "ITEM_TSPEN_LARGE_CATAPULT"
+	"Description"	
+		{
+		"" "A larger variant of normal Faith Plates, designed for 'reflecting' objects."
+		"" ""
+		"" "* This accepts inputs to turn the plate on and off."
+		"" "* Large Plates have a much larger trigger area compared to regular plates."
+		}
+	"Version"
+		{
+		"ID"		"VER_DEFAULT"
+		"Name"		"Gel-Plate"
+		"Styles"
+			{
+			"BEE2_CLEAN"        "large_clean"
+			"BEE2_BTS"          "large_bts"
+			"BEE2_OVERGROWN"
+				{
+				"Base" "BEE2_CLEAN"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%SK_OFF%" "3"
+						"%SK_ON%"  "2"
+						}
+					}
+				"Instances"
+					{
+					"logic" "instances/BEE2/over/items/tspen/large_faith_io.vmf"
+					}
+				}
+			"BEE2_1950s"        "large_retro_gel"
+			}
+		}
+	"Version"
+		{
+		"ID"		"VER_MECH"
+		"Name"		"Mechanical Plate"
+		"Styles"
+			{
+			"BEE2_1950s"        "large_retro_mech"
+			
+			"BEE2_CLEAN"        "<VER_DEFAULT:BEE2_CLEAN>"
+			"BEE2_BTS"          "<VER_DEFAULT:BEE2_BTS>"
+			"BEE2_OVERGROWN"    "<VER_DEFAULT:BEE2_OVERGROWN>"
+			}
+		}
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_LARGE_FAITH_TRIG"
+	"File"  "large_trigger.vmf"
+	}
+// Most styles don't have an 'orientation', so make the trigger square.
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_LARGE_FAITH_TRIG_SQUARE"
+	"File"  "large_trigger_square.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_LARGE_FAITH_RETRO_BORDER"
+	"File"  "retro_gel_frame.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_LARGE_FAITH_RETRO_MECH_BACK"
+	"File"  "retro_mech_back.vmf"
+	}

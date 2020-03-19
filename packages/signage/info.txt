@@ -2,34 +2,6 @@
 "Name"		"Signage"
 "Desc"      "Signage items which indicate unseen elements or other information."
 
-// Sign slots:
-// 0 = None
-// 3 = Dots #1
-// 4 = Dots #2
-// 5 = Dots #3
-// 6 = Dots #4
-
-// 7 = Exit
-// 8 = Cube Dropper
-// 9 = Ball Dropper
-// 10 = Reflection Cube
-
-// 11 = Toxic Goo
-// 12 = Funnel
-// 13 = Funnel Polarity
-// 14 = Laser Relay
-
-// 15 = Turret (Danger in others)
-// 16 = Light Bridge
-// 17 = Repulsion Gel
-// 18 = Propulsion Gel
-
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_CLEAN"
-	"file" "sign_clean.vmf"
-	}
-	
 "Item"
 	{
 	"ID"    "ITEM_BEE2_SIGNAGE"
@@ -43,7 +15,6 @@
 		"" ""
 		"" "The signage blocks portal placement as well."
 		}
-	"AllDescLast" "0"
 	"Version"
 		{
 		"Styles"
@@ -51,151 +22,73 @@
 			"BEE2_CLEAN"
 				{
 				"Folder" "sign"
-				"Config" "sign_clean.cfg"
-				
-				"Description" "![legend](items/clean/bee/signage_legend.png)"
-				"Append"
-					{
-					// Clean version..
-					"Replacements"
-						{
-						"%SIGN_ARROW%"      "signage/signage_overlay_arrow"
-						
-						"%SIGN_1_MAIN%"     "signage/signage_overlay_dots1"
-						"%SIGN_2_MAIN%"     "signage/signage_overlay_dots2"
-						"%SIGN_3_MAIN%"     "signage/signage_overlay_dots3"
-						"%SIGN_4_MAIN%"     "signage/signage_overlay_dots4"
-						
-						// Missing VMT, but the VTF's present
-						"%SIGN_13_MAIN%"    "BEE2/signage_turret"
-						
-						"%SIGN_14_MAIN%"    "signage/signage_bridge"
-						"%SIGN_5_MAIN%"     "signage/signage_exit"
-						"%SIGN_10_MAIN%"    "signage/signage_tractor_beam"
-						"%SIGN_12_MAIN%"    "signage/signage_laser_relay"
-						"%SIGN_7_MAIN%"     "signage/signage_ball_dispenser"
-						
-						"%SIGN_6_MAIN%"     "signage/signage_overlay_boxdispenser"
-						"%SIGN_6_EXTRA%"    "signage/signage_overlay_boxhurt"
-						
-						"%SIGN_8_MAIN%"     "signage/signage_laser_cube"
-						"%SIGN_8_EXTRA%"    "signage/signage_laser_catcher"
-						
-						"%SIGN_9_MAIN%"     "signage/signage_overlay_toxic"
-						"%SIGN_9_EXTRA%"    "signage/signage_overlay_fountain"
-							
-						"%SIGN_11_MAIN%"    "signage/signage_tractor_polarity"
-						"%SIGN_11_EXTRA%"   "signage/signage_tractor_beam"
-						
-						// We need a variant to make it glow, not transparent.
-						"%SIGN_15_MAIN%"    "BEE2/80s/signage_paint_jump"
-						"%SIGN_15_EXTRA%"   "signage/signage_paint_dispenser"
-						
-						"%SIGN_16_MAIN%"    "BEE2/80s/signage_paint_speed"
-						"%SIGN_16_EXTRA%"   "signage/signage_paint_dispenser"
-						}
-					}
+				// Straight on the surface.
+				"Config" "sign_flush.cfg"
 				}
-			"BEE2_BTS"       "sign_bts"
-			"BEE2_PORTAL_1"
-				{
-				"Folder" "sign_p1"
-				"Description" "![legend](items/clean/bee/signage_legend.png)"
-				}
+			// "BEE2_BTS" // TODO
+
+			// The frames are actually only used for exit doors, and checkmarks.
+			// So just use the clean style.
+			"BEE2_PORTAL_1" "<BEE2_CLEAN>"
+			
 			"BEE2_OVERGROWN"
 				{
 				"Authors"     "TeamSpen210, Josepezdj"
 				"Description" 
 					{
 					"" "__The sign textures were made by Josepezdj.__"
-					"" "![legend](items/over/bee/signage_legend.png)"
 					}
 				"Palette"
 					{
 					"0"
 						{
-						"Model" "bee2_signage_over.mdl"
+						"Model" "bee2_signage_fwd_over.mdl"
 						"icon"  "signage_overlay_dots3.png"
 						"bee2"  "over/BEE/signage.png"
 						}
-					}
-				"Folder" "sign"
-				"Config" "sign_clean.cfg"
-				"Append"
-					{
-					// Clean version..
-					"Replacements"
+					"1"
 						{
-						"%SIGN_ARROW%"      "BEE2/josepezdj/signage_wasted/jose_wasted_signage_arrow"
-						
-						// Josepezdj has 'dots' 1/2 - numerals like test chambers. We don't use those.
-						"%SIGN_1_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_1"
-						"%SIGN_2_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_2"
-						"%SIGN_3_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_3"
-						"%SIGN_4_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_4"
-						
-						"%SIGN_13_MAIN%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_turret"
-						
-						"%SIGN_14_MAIN%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bridge"
-						"%SIGN_5_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_exit"
-						"%SIGN_10_MAIN%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_funnel"
-						"%SIGN_12_MAIN%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_relay"
-						"%SIGN_7_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_ball_dropper"
-						
-						"%SIGN_6_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_dropper"
-						"%SIGN_6_EXTRA%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_hurt"
-						
-						"%SIGN_8_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_cube"
-						"%SIGN_8_EXTRA%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_catcher"
-						
-						"%SIGN_9_MAIN%"     "BEE2/josepezdj/signage_wasted/jose_wasted_signage_toxic"
-						"%SIGN_9_EXTRA%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fountain"
-							
-						"%SIGN_11_MAIN%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_polarity"
-						"%SIGN_11_EXTRA%"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_funnel"
-						
-						// We need a variant to make it glow, not transparent.
-						"%SIGN_15_MAIN%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bounce_gel"
-						"%SIGN_15_EXTRA%"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_paint_dispenser"
-						
-						"%SIGN_16_MAIN%"    "BEE2/josepezdj/signage_wasted/jose_wasted_signage_speed_gel"
-						"%SIGN_16_EXTRA%"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_paint_dispenser"
+						"Model" "bee2_signage_rev_over.mdl"
 						}
 					}
+				"Folder" "sign"
+				"Config" "sign_flush.cfg"
 				}
 			"BEE2_1950s"
 				{
-				"Base"        "BEE2_CLEAN"
-				"Config"      "sign_50s.cfg"
-				"Description" "![legend](items/50s/bee/signage_legend.png)"
+				"Folder" "sign"
+				// Arrow pointing up
+				"Config" "sign_50s.cfg"
+
 				"Palette"
 					{
 					"0"
 						{
-						"Model" "bee2_signage_50s.mdl"
+						"Model" "bee2_signage_fwd_50s.mdl"
 						"icon"  "palette/50s/BEE2/signage.png"
 						"bee2"  "50s/BEE/signage.png"
 						}
-					}
-				"Instances"
-					{
-					"num_wall_pos"     "instances/BEE2/50s/items/BEE/signage_sign.vmf"
-					"square_wall_pos"  "instances/BEE2/50s/items/BEE/signage_num.vmf"
-					"exit_wall_pos"    "instances/BEE2/50s/items/BEE/signage_exit.vmf"
+					"1"
+						{
+						"Model" "bee2_signage_rev_50s.mdl"
+						}
 					}
 				}
 			"BEE2_1970s"
 				{
-				"Base"        "BEE2_CLEAN"
-				"Config"      "sign_70s.cfg"
-				"Description" "![legend](items/70s/bee/signage_legend.png)"
+				"Folder" "sign"
+				"Config" "sign_70s.cfg"
 				"Palette"
 					{
 					"0"
 						{
-						"Model" "bee2_signage_70s.mdl"
+						"Model" "bee2_signage_fwd_70s.mdl"
 						"icon"  "palette/70s/BEE2/signage.png"
 						"bee2"  "70s/BEE/signage.png"
+						}
+					"1"
+						{
+						"Model" "bee2_signage_rev_70s.mdl"
 						}
 					}
 				}
@@ -203,199 +96,6 @@
 			}
 		}
 	}
-	
-"PackList"
-	{
-	// Valve didn't include the VMT, but they did include the VTF.
-	"ID"        "BEE2_PACK_SIGNAGE_TURRET"
-	"AddIfMat"  "BEE2/signage_turret"
-	"Config"
-		{
-		"File" "materials/BEE2/signage_turret.vmt"
-		}
-	}
-	
-// Needed for clean signage..
-"PackList"
-	{
-	"ID"       "PACK_BEE2_80S_SIGN_PAINT_JUMP"
-	"AddIfMat" "BEE2/80s/signage_paint_jump"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_80S_SIGN_PAINT_SPEED"
-	"AddIfMat" "BEE2/80s/signage_paint_speed"
-	}
-	
-// BTS:
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_ARROW"
-	"File" "bts/arrow.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_ARROW_REV"
-	"File" "bts/arrow_rev.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_RECT"
-	"File" "bts/sign_rect.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_RECT_REV"
-	"File" "bts/sign_rect_inv.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_LONG"
-	"File" "bts/sign_long.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_LONG_REV"
-	"File" "bts/sign_long_inv.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_NUM"
-	"File" "bts/sign_num.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_BTS_NUM_REV"
-	"File" "bts/sign_num_inv.vmf"
-	"keep_brushes" "0"
-	}
-	
-// 1950s:
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_ARROW"
-	"file" "50s/arrow_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_ARROW_REV"
-	"file" "50s/arrow_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_SIGN"
-	"file" "50s/sign_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_SIGN_REV"
-	"file" "50s/sign_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_SIGN_WALL"
-	"file" "50s/sign_wall.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_EXIT"
-	"file" "50s/exit_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_EXIT_REV"
-	"file" "50s/exit_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_EXIT_WALL"
-	"file" "50s/exit_wall.vmf"
-	"keep_brushes" "0"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_NUM"
-	"file" "50s/num_floor.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_NUM_REV"
-	"file" "50s/num_floor_rev.vmf"
-	"keep_brushes" "0"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_50S_NUM_WALL"
-	"file" "50s/num_wall.vmf"
-	"keep_brushes" "0"
-	}
-	
-// 70s
-// Keep the brushes, since these are mounted on a small section of plywood.
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_ARROW"
-	"file" "70s/arrow_floor.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_SIGN_FLOOR"
-	"file" "70s/sign_floor.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_SIGN2_FLOOR"
-	"file" "70s/sign2_floor.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_SIGN_WALL"
-	"file" "70s/sign_wall.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_ARROW_REV"
-	"file" "70s/arrow_floor_rev.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_SIGN_REV"
-	"file" "70s/sign_floor_rev.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_SIGN2_FLOOR_REV"
-	"file" "70s/sign2_floor_rev.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_SIGNAGE_70s_ARROW_WALL_REV"
-	"File" "70s/arrow_wall_rev.vmf"
-	}
-	
 
 "Item"
 	{
@@ -409,7 +109,6 @@
 		"" ""
 		"" "The signage blocks portal placement as well."
 		}
-	"AllDescLast" "1"
 	"Version"
 		{
 		"Styles"
@@ -417,63 +116,1490 @@
 			"BEE2_CLEAN"
 				{
 				"Folder" "sign"
-				"Config" "sign_clean.cfg"
 				"Palette"
 					{
 					"0"
 						{
-						"Model"     "bee2_signage_antline_clean.mdl"
+						"Model"     "bee2_signage_fwd_antline_clean.mdl"
 						"icon"      "signage_shape_box.png"
 						"bee2"      "clean/BEE/signage_antline.png"
 						"pal_name"  "CONNECTION SIGNAGE"
 						"name"      "Connection Signage"
 						}
+					"1"
+						{
+						"Model"     "bee2_signage_rev_antline_clean.mdl"
+						}
 					}
 				"Instances"
 					{
 					// Needed to distinguish between the items..
-					"0"                 "instances/BEE2/logic/BEE/antline_signage.vmf"
-					"sign_wall_pos"     "instances/BEE2/clean/items/BEE/antline_signage_sign.vmf"
-					"sign_wall_pos2"    "instances/BEE2/clean/items/BEE/antline_signage_sign2.vmf"
-					"sign_floor_pos"    "instances/BEE2/clean/items/BEE/antline_signage_sign_floor.vmf"
-					"sign_floor_pos2"   "instances/BEE2/clean/items/BEE/antline_signage_sign_floor2.vmf"
+					"0" "instances/BEE2/logic/BEE/antline_signage.vmf"
 					}
-				"Replace"
-					{
-					"<ITEM_BEE2_SIGNAGE" "<ITEM_BEE2_SIGNAGE_ANTLINE"
-					}
+				// Straight on the surface.
+				"Config" "sign_flush.cfg"
 				"Append"
 					{
 					"Replacements"
 						{
-						"%SIGN_ARROW%"      "signage/signage_overlay_arrow"
-						
-						"%SIGN_1_MAIN%"     "<overlay.square>"
-						"%SIGN_2_MAIN%"     "<overlay.cross>"
-						"%SIGN_3_MAIN%"     "<overlay.dot>"
-						"%SIGN_4_MAIN%"     "<overlay.moon>"
-						"%SIGN_5_MAIN%"     "<overlay.slash>"
-						"%SIGN_6_MAIN%"     "<overlay.triangle>"
-						"%SIGN_7_MAIN%"     "<overlay.sine>"
-						"%SIGN_8_MAIN%"     "<overlay.star>"
-						"%SIGN_9_MAIN%"     "<overlay.circle>"
-						"%SIGN_10_MAIN%"    "<overlay.wavy>"
+						"%ID%"   "<ITEM_BEE2_SIGNAGE_ANTLINE>"
+						"%CONN%" "1"
 						}
-					// Swap back to the original instance once done.
-					"Conditions"
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Base" "BEE2_CLEAN"
+				"Palette"
+					{
+					"0"
 						{
-						"Condition"
-							{
-							"Priority" "10"
-							"instance" "<ITEM_BEE2_SIGNAGE_ANTLINE>"
-							"Result"
-								{
-								"Changeinstance" "<ITEM_BEE2_SIGNAGE:0>"
-								}
-							}
+						"Model" "bee2_signage_fwd_antline_over.mdl"
+						"icon"  "signage_shape_box.png"
+						"bee2"  "over/BEE/signage_antline.png"
+						}
+					"1"
+						{
+						"Model" "bee2_signage_rev_antline_over.mdl"
+						}
+					}
+				}
+			"BEE2_PORTAL_1" "<BEE2_CLEAN>"
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "bee2_signage_fwd_antline_50s.mdl"
+						"icon"  "signage_shape_box.png"
+						"bee2"  "50s/BEE/signage_antline.png"
+						}
+					"1"
+						{
+						"Model" "bee2_signage_rev_antline_50s.mdl"
+						}
+					}
+				// Arrow pointing up
+				"Config" "sign_50s.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%ID%"   "<ITEM_BEE2_SIGNAGE_ANTLINE>"
+						"%CONN%" "1"
+						}
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "bee2_signage_fwd_antline_70s.mdl"
+						"icon"  "signage_shape_box.png"
+						"bee2"  "70s/BEE/signage_antline.png"
+						}
+					"1"
+						{
+						"Model" "bee2_signage_rev_antline_70s.mdl"
+						}
+					}
+				"Config" "sign_70s.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%ID%"   "<ITEM_BEE2_SIGNAGE_ANTLINE>"
+						"%CONN%" "1"
 						}
 					}
 				}
 			}
 		}
 	}
+
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_SIGNAGE_70S"
+	"file" "sign_70s.vmf"
+	}
+
+"Signage"
+	{
+	// Special case, not directly selectable.
+	"ID"     "SIGN_ARROW"
+	"Name"   "Arrow"
+	"Hidden" "1"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/signage_arrow"
+			"overlay" "signage/signage_overlay_arrow"
+			"icon"    "items/clean/BEE/signage/arrow.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "signage/underground_arrow"
+			"icon"    "items/50s/BEE/signage/arrow.png"
+			}
+		"BEE2_1970s"
+			{
+			"world"   "BEE2/70s/signage_arrow"
+			"overlay" "BEE2/70s/signage_arrow"
+			"icon"    "items/70s/BEE/signage/arrow.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_arrow_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_arrow"
+			"icon"    "items/over/BEE/signage/arrow.png"
+			}
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_NUM_1"
+	"Name" "Step 1"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_dots1"
+			"icon"    "items/clean/BEE/signage/dots1.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_1_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_1"
+			"icon"    "items/over/BEE/signage/dot_1.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "signage/underground_num_01"
+			"icon"    "items/50s/BEE/signage/num_1.png"
+			"type"    "tall"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_overlay_dots1"
+			"icon"    "items/70s/BEE/signage/dots1.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+"Signage"
+	{
+	"ID" "SIGN_NUM_2"
+	"Name" "Step 2"
+	"Styles"
+		{
+		"BEE2_CLEAN" 
+			{
+			"overlay" "signage/signage_overlay_dots2"
+			"icon"    "items/clean/BEE/signage/dots2.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_2_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_2"
+			"icon"    "items/over/BEE/signage/dot_2.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "signage/underground_num_02"
+			"icon"    "items/50s/BEE/signage/num_2.png"
+			"type"    "tall"
+			}
+		"BEE2_1970s" 
+			{
+			"overlay" "BEE2/70s/signage_overlay_dots2"
+			"icon"    "items/70s/BEE/signage/dots2.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+"Signage"
+	{
+	"ID" "SIGN_NUM_3"
+	"Name" "Step 3"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_dots3"
+			"icon"    "items/clean/BEE/signage/dots3.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_3_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_3"
+			"icon"    "items/over/BEE/signage/dot_3.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "signage/underground_num_03"
+			"icon"    "items/50s/BEE/signage/num_3.png"
+			"type"    "tall"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_overlay_dots3"
+			"icon"    "items/70s/BEE/signage/dots3.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+"Signage"
+	{
+	"ID" "SIGN_NUM_4"
+	"Name" "Step 4"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_dots4"
+			"icon"    "items/clean/BEE/signage/dots4.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_4_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_4"
+			"icon"    "items/over/BEE/signage/dot_4.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "signage/underground_num_04"
+			"icon"    "items/50s/BEE/signage/num_4.png"
+			"type"    "tall"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_overlay_dots4"
+			"icon"    "items/70s/BEE/signage/dots4.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+"Signage"
+	{
+	"ID" "SIGN_NUM_5"
+	"Name" "Step 5 (Extra Sign)"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "BEE2/signage/signage_dots5"
+			"icon"    "items/clean/BEE/signage/dots5.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_5_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_dot_5"
+			"icon"    "items/over/BEE/signage/dot_5.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "signage/underground_num_05"
+			"icon"    "items/50s/BEE/signage/num_5.png"
+			"type"    "tall"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_overlay_dots5"
+			"icon"    "items/70s/BEE/signage/dots5.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+
+"Signage"
+	{
+	"ID" "SIGN_EXIT"
+	"Name" "Exit"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_exit"
+			"icon"    "items/clean/BEE/signage/exit.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_exit_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_exit"
+			"icon"    "items/over/BEE/signage/exit.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/exit"
+			"icon"    "items/50s/BEE/signage/exit.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_exit"
+			"icon"    "items/70s/BEE/signage/exit.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_CUBE_DROPPER"
+	"Name" "Cube Dropper"
+	"Secondary" "SIGN_CUBE_HURT"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_boxdispenser"
+			"icon"    "items/clean/BEE/signage/boxdispenser.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_dropper_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_dropper"
+			"icon"    "items/over/BEE/signage/box_dropper.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/box_dropper"
+			"icon"    "items/50s/BEE/signage/box_dropper.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_overlay_boxdispenser"
+			"icon"    "items/70s/BEE/signage/boxdispenser.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_CUBE_HURT"
+	"Name" "Cube on Head Warning"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_boxhurt"
+			"icon"    "items/clean/BEE/signage/boxhurt.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_hurt_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_box_hurt"
+			"icon"    "items/over/BEE/signage/box_hurt.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/box_hurt"
+			"icon"    "items/50s/BEE/signage/box_hurt.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_overlay_boxhurt"
+			"icon"    "items/70s/BEE/signage/boxhurt.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_BALL_DROPPER"
+	"Name" "Ball Dropper"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/signage_ball_dispenser_world"
+			"overlay" "signage/signage_ball_dispenser"
+			"icon"    "items/clean/BEE/signage/ball_dispenser.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_ball_dropper_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_ball_dropper"
+			"icon"    "items/over/BEE/signage/ball_dropper.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/ball_dropper"
+			"icon"    "items/50s/BEE/signage/ball_dropper.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_ball_dispenser"
+			"icon"    "items/70s/BEE/signage/ball_dispenser.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+"Signage"
+	{
+	"ID" "SIGN_REFLECT_CUBE"
+	"Name" "Reflection Cube"
+	"Secondary" "SIGN_REFLECTION_DROPPER"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/signage_laser_cube_world"
+			"overlay" "signage/signage_laser_cube"
+			"icon"    "items/clean/BEE/signage/laser_cube.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_cube_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_cube"
+			"icon"    "items/over/BEE/signage/laser_cube.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/laser_cube"
+			"icon"    "items/50s/BEE/signage/laser_cube.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_laser_cube"
+			"icon"    "items/70s/BEE/signage/laser_cube.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_REFLECTION_DROPPER"
+	"Name" "Reflection Cube Dropper"
+	"Description" "This texture variation was made by Alfe5."
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "BEE2/signage/signage_laserdispenser"
+			"icon"    "items/clean/BEE/signage/laserdispenser.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_laserdispenser"
+			"icon"    "items/70s/BEE/signage/laserdispenser.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_HANDOFF"
+	"Name" "Cube Handoff"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_box_handoff"
+			"icon"    "items/clean/BEE/signage/box_handoff.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/box_handoff"
+			"icon"    "items/50s/BEE/signage/box_handoff.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_box_handoff"
+			"icon"    "items/70s/BEE/signage/box_handoff.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_TURRET"
+	"Name" "Turret"
+	"Styles"
+		{
+		// Missing VMT, but the VTF's present
+		"BEE2_CLEAN"
+			{
+			"overlay" "BEE2/signage_turret"
+			"icon"    "items/clean/BEE/signage/turret.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_turret_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_turret"
+			"icon"    "items/over/BEE/signage/turret.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/turret"
+			"icon"    "items/50s/BEE/signage/turret.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_turret"
+			"icon"    "items/70s/BEE/signage/turret.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_TURRET_BURN"
+	"Name" "Turret Burning"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/signage_laser_burn_world"
+			"overlay" "signage/signage_laser_burn"
+			"icon"    "items/clean/BEE/signage/laser_burn.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_laser_burn"
+			"icon"    "items/70s/BEE/signage/laser_burn.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_LASER_CATCHER"
+	"Name" "Laser Catcher"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_laser_catcher"
+			"icon"    "items/clean/BEE/signage/laser_catcher.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_catcher_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_catcher"
+			"icon"    "items/over/BEE/signage/laser_catcher.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_laser_catcher"
+			"icon"    "items/70s/BEE/signage/laser_catcher.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_LASER_RELAY"
+	"Name" "Laser Relay"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_laser_relay"
+			"icon"    "items/clean/BEE/signage/laser_relay.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_relay_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laser_relay"
+			"icon"    "items/over/BEE/signage/laser_relay.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/laser_relay"
+			"icon"    "items/50s/BEE/signage/laser_relay.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_laser_relay"
+			"icon"    "items/70s/BEE/signage/laser_relay.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_LASER_PORTALS"
+	"Name" "Lasers through Portals"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_laser_thru_portals"
+			"icon"    "items/clean/BEE/signage/laser_thru_portals.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_laser_thru_portals"
+			"icon"    "items/70s/BEE/signage/laser_thru_portals.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_TBEAM"
+	"Name" "Excursion Funnel"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_tractor_beam"
+			"icon"    "items/clean/BEE/signage/tractor_beam.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_funnel_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_funnel"
+			"icon"    "items/over/BEE/signage/funnel.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/funnel"
+			"icon"    "items/50s/BEE/signage/funnel.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_tractor_beam"
+			"icon"    "items/70s/BEE/signage/tractor_beam.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_TBEAM_POLARITY"
+	"Name" "Funnel Polarity"
+	"Secondary" "SIGN_TBEAM"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_tractor_polarity"
+			"icon"    "items/clean/BEE/signage/tractor_polarity.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_polarity_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_polarity"
+			"icon"    "items/over/BEE/signage/polarity.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/funnel_polarity"
+			"icon"    "items/50s/BEE/signage/funnel_polarity.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_tractor_polarity"
+			"icon"    "items/70s/BEE/signage/tractor_polarity.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_GOO_TOXIC"
+	"Name" "Toxic Goo"
+	"Secondary" "SIGN_NO_DRINK"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_toxic"
+			"icon"    "items/clean/BEE/signage/toxic.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_toxic_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_toxic"
+			"icon"    "items/over/BEE/signage/toxic.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/toxic_goo"
+			"icon"    "items/50s/BEE/signage/toxic_goo.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_overlay_toxic"
+			"icon"    "items/70s/BEE/signage/toxic.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_NO_DRINK"
+	"Name" "Don't Drink"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_fountain"
+			"icon"    "items/clean/BEE/signage/fountain.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fountain_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fountain"
+			"icon"    "items/over/BEE/signage/fountain.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_overlay_fountain"
+			"icon"    "items/70s/BEE/signage/fountain.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_LIGHT_BRIDGE"
+	"Name" "Light Bridge"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "BEE2/world/signage_bridge"
+			"overlay" "signage/signage_bridge"
+			"icon"    "items/clean/BEE/signage/bridge.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bridge_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bridge"
+			"icon"    "items/over/BEE/signage/bridge.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/light_bridge"
+			"icon"    "items/50s/BEE/signage/light_bridge.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_bridge"
+			"icon"    "items/70s/BEE/signage/bridge.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_BRIDGE_TURRET_BLOCK"
+	"Name" "Turret Blockade"
+	"Secondary" "SIGN_LIGHT_BRIDGE"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_bridge_block"
+			"icon"    "items/clean/BEE/signage/bridge_block.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_bridge_block"
+			"icon"    "items/70s/BEE/signage/bridge_block.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+"Signage"
+	{
+	"ID" "SIGN_BRIDGE_PORTAL"
+	"Name" "Portal Through Bridge"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_bridge_shoot"
+			"icon"    "items/clean/BEE/signage/bridge_shoot.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/bridge_shoot"
+			"icon"    "items/50s/BEE/signage/bridge_shoot.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_bridge_shoot"
+			"icon"    "items/70s/BEE/signage/bridge_shoot.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_JOSE_MECHANISM"
+	"Name" "Mechanisms"
+	"Description" "Josepezdj's \"Mechanism\" signage, for indicating panels or similar devices."
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "BEE2/signage/jose_signage_gears"
+			"icon"    "items/clean/BEE/signage/jose_gears.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_mechanism_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_mechanism"
+			"icon"    "items/over/BEE/signage/jose_gears.png"
+			}
+		"BEE2_1950s"
+			{
+			"world"   "BEE2/50s/jose_gears"
+			"overlay" "BEE2/50s/jose_gears"
+			"icon"    "items/50s/BEE/signage/jose_gears.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_jose_gears"
+			"icon"    "items/70s/BEE/signage/jose_gears.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_PAINT_DISPENSER"
+	"Name" "Gel Dispenser"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_paint_dispenser"
+			"icon"    "items/clean/BEE/signage/paint_dispenser.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_paint_dispenser_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_paint_dispenser"
+			"icon"    "items/over/BEE/signage/paint_dispenser.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/paint_dispenser"
+			"icon"    "items/50s/BEE/signage/paint_dispenser.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_paint_dispenser"
+			"icon"    "items/70s/BEE/signage/paint_dispenser.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_PAINT_CUBE"
+	"Name" "Cube Shower"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_wash_cube"
+			"icon"    "items/clean/BEE/signage/wash_cube.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_wash_cube_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_wash_cube"
+			"icon"    "items/over/BEE/signage/wash_cube.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_wash_cube"
+			"icon"    "items/70s/BEE/signage/wash_cube.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_PAINT_BOUNCE"
+	"Name" "Repulsion Gel"
+	"Secondary" "SIGN_PAINT_DISPENSER"
+	"Styles"
+		{
+		// We need a variant to make it glow, not transparent.
+		"BEE2_CLEAN"
+			{
+			"world"	  "BEE2/world/signage_paint_jump"
+			"overlay" "BEE2/80s/signage_paint_jump"
+			"icon"    "items/clean/BEE/signage/paint_jump.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bounce_gel_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bounce_gel"
+			"icon"    "items/over/BEE/signage/bounce_gel.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "signage/signage_paint_jump_50s"
+			"icon"    "items/50s/BEE/signage/paint_jump.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "signage/signage_paint_jump"
+			"icon"    "items/70s/BEE/signage/paint_jump.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+"Signage"
+	{
+	"ID" "SIGN_PAINT_SPEED"
+	"Name" "Propulsion Gel"
+	"Secondary" "SIGN_PAINT_DISPENSER"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "BEE2/world/signage_paint_speed"
+			"overlay" "BEE2/80s/signage_paint_speed"
+			"icon"    "items/clean/BEE/signage/paint_speed.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_speed_gel_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_speed_gel"
+			"icon"    "items/over/BEE/signage/speed_gel.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/paint_speed"
+			"icon"    "items/50s/BEE/signage/paint_speed.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "signage/signage_paint_speed"
+			"icon"    "items/70s/BEE/signage/paint_speed.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_LASER_FIELD"
+	"Name" "Laserfield"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_danger_field"
+			"icon"    "items/clean/BEE/signage/danger_field.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laserfield_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laserfield"
+			"icon"    "items/over/BEE/signage/laserfield.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/laserfield"
+			"icon"    "items/50s/BEE/signage/laserfield.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_danger_field"
+			"icon"    "items/70s/BEE/signage/danger_field.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_PEDESTAL_BUTTON"
+	"Name" "Pedestal Button"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/xbla_signage_switch"
+			"overlay" "signage/xbla_signage_switch"
+			"icon"    "items/clean/BEE/signage/xbla_switch.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/pedestal_button"
+			"icon"    "items/50s/BEE/signage/pedestal_button.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/xbla_signage_switch"
+			"icon"    "items/70s/BEE/signage/xbla_switch.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_CRUSHER"
+	"Name" "Crusher"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/xbla_signage_crusher"
+			"overlay" "signage/xbla_signage_crusher"
+			"icon"    "items/clean/BEE/signage/xbla_crusher.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/crusher"
+			"icon"    "items/50s/BEE/signage/crusher.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/xbla_signage_crusher"
+			"icon"    "items/70s/BEE/signage/xbla_crusher.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_FAITH_PLATE"
+	"Name" "Faith Plate"
+	"Primary"   "SIGN_FAITH_PLATE_LAUNCH"
+	"Secondary" "SIGN_FAITH_PLATE_TARGET"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/a4_wallbutton_catapult"
+			"overlay" "signage/signage_overlay_catapult"
+			"icon"    "items/clean/BEE/signage/catapult.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult"
+			"icon"    "items/over/BEE/signage/catapult.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/catapult_gel"
+			"icon"    "items/50s/BEE/signage/catapult_gel.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_catapult"
+			"icon"    "items/70s/BEE/signage/catapult.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_FAITH_PLATE_LAUNCH"
+	"Name" "Faith Plate"
+	"Hidden" "1"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/a4_wallbutton_catapult1"
+			"overlay" "signage/signage_overlay_catapult1"
+			"icon"    "items/clean/BEE/signage/catapult1.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult1_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult1"
+			"icon"    "items/clean/BEE/signage/catapult1.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/catapult1_gel"
+			"icon"    "items/50s/BEE/signage/catapult1_gel.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_catapult1"
+			"icon"    "items/70s/BEE/signage/catapult1.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_FAITH_PLATE_TARGET"
+	"Name" "Faith Plate Target"
+	"Hidden" "1"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/a4_wallbutton_catapult2"
+			"overlay" "signage/signage_overlay_catapult2"
+			"icon"    "items/clean/BEE/signage/catapult2.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2"
+			"icon"    "items/clean/BEE/signage/catapult2.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/catapult2"
+			"icon"    "items/50s/BEE/signage/catapult2.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_catapult2"
+			"icon"    "items/70s/BEE/signage/catapult2.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_RECYCLING"
+	"Name" "Recycling / Autorespawn"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "BEE2/signage/signage_recycle"
+			"overlay" "BEE2/signage/signage_recycle"
+			"icon"    "items/clean/BEE/signage/recycle.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/recycle"
+			"icon"    "items/50s/BEE/signage/recycle.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_recycle"
+			"icon"    "items/70s/BEE/signage/recycle.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+
+"Signage"
+	{
+	"ID" "SIGN_NO_RECYCLING"
+	"Name" "No Recycling / No Autorespawn"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "BEE2/signage/signage_no_recycle"
+			"overlay" "BEE2/signage/signage_no_recycle"
+			"icon"    "items/clean/BEE/signage/no_recycle.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/no_recycle"
+			"icon"    "items/50s/BEE/signage/no_recycle.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_no_recycle"
+			"icon"    "items/70s/BEE/signage/no_recycle.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+
+"Signage"
+	{
+	"ID" "SIGN_FLING_ENTRY"
+	"Name" "Flinging"
+	"Secondary" "SIGN_FLING_EXIT"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_fling1"
+			"icon"    "items/clean/BEE/signage/fling1.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fling_world"
+			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fling"
+			"icon"    "items/over/BEE/signage/fling.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/fling1"
+			"icon"    "items/50s/BEE/signage/fling1.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_fling1"
+			"icon"    "items/70s/BEE/signage/fling1.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_FLING_EXIT"
+	"Name" "Flinging"
+	"Hidden" "1"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_fling2"
+			"icon"    "items/clean/BEE/signage/fling2.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/fling2"
+			"icon"    "items/50s/BEE/signage/fling2.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_fling2"
+			"icon"    "items/70s/BEE/signage/fling2.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_FLING_MIDAIR_1"
+	"Name" "Midair Portal Shot"
+	"Secondary" "SIGN_FLING_MIDAIR_2"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "BEE2/80s/signage_midair1"
+			"icon"    "items/clean/BEE/signage/midair1.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/midair1"
+			"icon"    "items/50s/BEE/signage/midair1.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_midair1"
+			"icon"    "items/70s/BEE/signage/midair1.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_FLING_MIDAIR_2"
+	"Name" "Flinging"
+	"Hidden" "1"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "BEE2/80s/signage_midair2"
+			"icon"    "items/clean/BEE/signage/midair2.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/midair2"
+			"icon"    "items/50s/BEE/signage/midair2.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_midair2"
+			"icon"    "items/70s/BEE/signage/midair2.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_BUTTON_PLAYER"
+	"Name" "Player Button"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "BEE2/signage/signage_player_button"
+			"icon"    "items/clean/BEE/signage/player_button.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/player_button"
+			"icon"    "items/50s/BEE/signage/player_button.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_player_button"
+			"icon"    "items/70s/BEE/signage/player_button.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_BUTTON_BOX"
+	"Name" "Cube Button"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/signage_box_button_world"
+			"overlay" "signage/signage_box_button"
+			"icon"    "items/clean/BEE/signage/box_button.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "bee2/josepezdj/signage_wasted/jose_wasted_signage_box_button_world"
+			"overlay" "bee2/josepezdj/signage_wasted/jose_wasted_signage_box_button"
+			"icon"    "item/over/BEE/signage/box_button.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/box_button"
+			"icon"    "items/50s/BEE/signage/box_button.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_box_button"
+			"icon"    "items/70s/BEE/signage/box_button.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_BUTTON_BALL"
+	"Name" "Ball Button"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"world"   "signage/signage_ball_button_world"
+			"overlay" "signage/signage_ball_button"
+			"icon"    "items/clean/BEE/signage/ball_button.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_OVERGROWN"
+			{
+			"world"   "bee2/josepezdj/signage_wasted/jose_wasted_signage_ball_button_world"
+			"overlay" "bee2/josepezdj/signage_wasted/jose_wasted_signage_ball_button"
+			"icon"    "item/over/BEE/signage/ball_button.png"
+			}
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/ball_button"
+			"icon"    "items/50s/BEE/signage/ball_button.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_ball_button"
+			"icon"    "items/70s/BEE/signage/ball_button.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+

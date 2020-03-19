@@ -33,6 +33,16 @@
 		"Tooltip" "Make High Energy Pellets pass through Gratings."
 		"Tooltip" "让高能弹丸穿过光栅。" [lang_zh]
 		}
+	"Widget"
+		{
+		"ID"	  "RefreshTime"
+		"Label"   "Portal Refresh Time"
+		"Type"    "Timer"
+		"Default" "6"
+		"Min"     "3"
+		"Max"     "30"
+		"Tooltip" "When pellets pass through a portal, the time remaining before they explode will be to at least this many seconds. Does not apply to infinite launchers."
+		}
 	}
 
 "Item"
@@ -45,7 +55,9 @@
 		"" "* Direct them into catchers to activate them."
 		"" "* The timer property controls how long it will last until exploding."
 		"" "* If set to infinite, enabling the input will spawn the pellet; disabling it destroys the pellet."
-		"" "* If respawn is disabled, the launcher will permanently disabled once a catcher receives this pellet."
+		"" "* The respawn checkbox does different things depending on the timer property.  "
+		"" "    If the emitter is timed, the launcher will be permanently disabled once a catcher receives this pellet.  "
+		"" "    If the emitter is infinite, this controls whether the pellet will be replaced if destroyed and the input is still active."
 		}
 	"All_conf" "launcher.cfg"
 	"Version"
@@ -58,13 +70,6 @@
 			"BEE2_OVERGROWN"
 				{
 				"Base"  "BEE2_CLEAN"
-				"Replace"
-					{
-					"PACK_PELLET_LAUNCHER_INF_CLEAN" "PACK_PELLET_LAUNCHER_INF_DIRTY"
-					// We don't need to pack anything specific for normal launchers -
-					// it's just the (included) dirty model.
-					"PACK_PELLET_LAUNCHER_CLEAN"     ""
-					}
 				"Instances"
 					{
 					"bee2_inf"  "instances/BEE2/over/items/BEE/hep/emitter_inf.vmf"
@@ -157,6 +162,7 @@
 	}
 
 
+// Emitterless infinite HEP.
 "Item"
 	{
 	"ID"       "ITEM_HIGH_ENERGY_PELLET_INF"
@@ -169,6 +175,63 @@
 			}
 		}
 	}
+
+// Add in the original pellet signage.
+"Signage"
+	{
+	"ID" "SIGN_BEE_HEP_IMPACT"
+	"Name" "High Energy Pellet Impact / Danger"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "signage/signage_overlay_energyball"
+			"icon"    "items/clean/BEE/signage/pellet_hit.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/pellet_impact"
+			"icon"    "items/50s/BEE/signage/pellet_hit.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_pellet_hit"
+			"icon"    "items/70s/BEE/signage/pellet_hit.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
+"Signage"
+	{
+	"ID" "SIGN_BEE_HEP_CATCHER"
+	"Name" "High Energy Pellet Catcher"
+	"Secondary" "SIGN_BEE_HEP_IMPACT"
+	"Styles"
+		{
+		"BEE2_CLEAN"
+			{
+			"overlay" "BEE2/signage/signage_pellet_catcher"
+			"icon"    "items/clean/BEE/signage/pellet_catcher.png"
+			}
+		"BEE2_PORTAL_1" "BEE2_CLEAN"
+		"BEE2_1980s" "BEE2_CLEAN"
+		"BEE2_1950s"
+			{
+			"overlay" "BEE2/50s/pellet_catcher"
+			"icon"    "items/50s/BEE/signage/pellet_catcher.png"
+			}
+		"BEE2_1970s"
+			{
+			"overlay" "BEE2/70s/signage_pellet_catcher"
+			"icon"    "items/70s/BEE/signage/pellet_catcher.png"
+			}
+		"BEE2_1980s" "BEE2_CLEAN"
+		}
+	}
+
 
 "EditorSound"
 	{

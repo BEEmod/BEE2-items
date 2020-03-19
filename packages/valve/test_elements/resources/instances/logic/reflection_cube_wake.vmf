@@ -1,0 +1,101 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "7335"
+	"mapversion" "5"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "8"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "5"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2"
+	"classname" "point_entity_finder"
+	"angles" "0 0 0"
+	"filtername" "$filter"
+	"method" "2"
+	"targetname" "finder"
+	connections
+	{
+		"OnFoundEntity" "!callerExitDisabledState0-1"
+	}
+	"origin" "8 0 8"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "21"
+	"classname" "logic_timer"
+	"angles" "0 0 0"
+	"refiretime" "$delay"
+	"spawnflags" "0"
+	"startdisabled" "0"
+	"targetname" "tim"
+	"userandomtime" "0"
+	connections
+	{
+		"OnTimer" "finderFindEntity0-1"
+	}
+	"origin" "-8 0 8"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "82"
+	"classname" "func_instance_parms"
+	"parm1" "$filter target_destination"
+	"parm2" "$delay float 0.5"
+	connections
+	{
+		"OnFoundEntity" "!callerExitDisabledState0-1"
+	}
+	"origin" "0 0 24"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
