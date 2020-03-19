@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "73"
+	"editorbuild" "7335"
+	"mapversion" "81"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "73"
+	"mapversion" "81"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -237,24 +237,6 @@ entity
 }
 entity
 {
-	"id" "400"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "cameraRunScriptCodep1_cam()0-1"
-	}
-	"origin" "-40 0 32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "38"
 	"classname" "move_rope"
 	"angles" "0 0 0"
@@ -417,7 +399,6 @@ entity
 		"color" "20 140 20"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "Make sure thiis is >32 units away from the camera origin - that ensures the script doesn't remove this!"
 		"logicalpos" "[0 0]"
 	}
 }
@@ -437,22 +418,13 @@ entity
 	"targetname" "camera"
 	"TeamPlayerToLookAt" "0"
 	"TeamToLookAt" "1"
-	"vscripts" "bee2/change_models.nut"
-	connections
-	{
-		"OnUser1" "r1_aSetParentAttachmentWire1_A01"
-		"OnUser1" "r1_bSetParentAttachmentWire1_B01"
-		"OnUser1" "r2_bSetParentAttachmentWire2_B01"
-		"OnUser1" "r2_aSetParentAttachmentWire2_A01"
-		"OnUser1" "cam_sprSetParentAttachmentlight01"
-	}
+	"vscripts" "bee2/p1_camera.nut"
 	"origin" "0 0 0"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "We can't set attachments immediately - they get invalidated when the model changes."
 		"logicalpos" "[0 0]"
 	}
 }

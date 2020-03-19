@@ -27,6 +27,7 @@ POS_UP <- 1;
 POS_DN <- -1;
 POS_MOVING <- 0;
 positions <- {};
+cur_moving <- -1;
 
 START_SND <- "";
 STOP_SND <- "";
@@ -34,9 +35,11 @@ STOP_SND <- "";
 // If true, we spawned extended.
 SPAWN_UP <- false;
 
-is_moving <- false;
 has_dn_fizz <- false;
 dn_fizz_on <- false;
+dn_fizz_allowed <- false;
+door_pos <- null;
+crush_count <- 0;
 
 
 function Precache() {
@@ -92,12 +95,13 @@ function moveto(new_pos) {
 	local old_pos = pos;
 	pos = new_pos;
 	
+	// printl("Moving: " + old_pos + " -> " + new_pos);
+	
 	if (old_pos == new_pos) {
 		return; // No change.
 	}
 	
-	if (!is_moving) {
-		is_moving = true;
+	if (cur_moving == -1) {
 		if(START_SND) {
 			self.EmitSound(START_SND);
 		}
@@ -111,16 +115,19 @@ function moveto(new_pos) {
 	}
 	
 	if (old_pos < new_pos) {
-		_up();
-		if (has_dn_fizz && dn_fizz_on) {
-			dn_fizz_on <- false;
-			EntFire(inst_name + "-dn_fizz", "Disable", "", 0, self);
+		door_pos = null;
+		if (has_dn_fizz) {
+			dn_fizz_allowed = false;
+			if (dn_fizz_on) {
+				dn_fizz_on = false;
+				EntFire(inst_name + "-dn_fizz", "Disable", "", 0, self);
+			}
 		}
+		_up();
 	} else if (old_pos > new_pos) {
 		_dn();
 		if (has_dn_fizz) {
-			dn_fizz_on <- true;
-			EntFire(inst_name + "-dn_fizz", "Enable", "", 0, self);
+			dn_fizz_allowed <- true;
 		}
 	}
 }
@@ -133,11 +140,12 @@ function _up() {
 		if (positions[i] != POS_UP) {
 			positions[i] = POS_MOVING;
 			EntFireByHandle(pistons[i], "Open", "", 0, self, self);
+			cur_moving = i;
 			return;
 		}
 	}
 	// Finished.
-	is_moving = false;
+	cur_moving = -1;
 	if (STOP_SND) {
 		snd_source_ent.EmitSound(STOP_SND);
 	}
@@ -152,11 +160,14 @@ function _dn() {
 		if (positions[i] != POS_DN) {
 			positions[i] = POS_MOVING;
 			EntFireByHandle(pistons[i], "Close", "", 0, self, self);
+			cur_moving = i;
+			door_pos = pistons[i].GetOrigin();
+			crush_count = 0;
 			return;
 		}
 	}
 	// Finished.
-	is_moving = false;
+	cur_moving = -1;
 	if (STOP_SND) {
 		snd_source_ent.EmitSound(STOP_SND);
 	}
@@ -164,7 +175,37 @@ function _dn() {
 		EntFireByHandle(self, "StopSound", "", 0.00, self, self);
 	}
 	if (has_dn_fizz && dn_fizz_on) {
-		dn_fizz_on <- false;
+		dn_fizz_on = false;
+		dn_fizz_allowed = false;
+		door_pos = null;
 		EntFire(inst_name + "-dn_fizz", "Disable", "", 0, self);
 	}
+}
+
+// Used by pistons that can fizzle objects below them.
+// If it gets stuck (stops moving), activate.
+function FizzThink() {
+	// Lotsa checks here.
+	// Only run if:
+	// * allowed to.
+	// * Not already on
+	// * Currently moving
+	// * We have a valid previous position
+	// It has to trigger twice consecuatively.
+    if (dn_fizz_allowed && !dn_fizz_on && cur_moving != -1 && door_pos != null) {
+		local new_pos = pistons[cur_moving].GetOrigin();
+		if ((new_pos - door_pos).LengthSqr() < 1) {
+			crush_count++;
+			if (crush_count > 2) {
+				// Stuck...
+				dn_fizz_on = true;
+				EntFire(inst_name + "-dn_fizz", "Enable", "", 0, self);
+			}
+		} else {
+			crush_count = 0;
+		}
+		door_pos = new_pos;
+   		return 0.05;
+    }
+    return 0.25;
 }
