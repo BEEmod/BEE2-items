@@ -7,8 +7,6 @@
 # BEE2.4 Default Pack
 This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/BEE2.4). Packages contain resources for BEE2.4, such as items or styles.
 
-The app and custom compiler are in the [BEE2.4](https://github.com/BEEmod/BEE2.4) repository.
-
 [Discord Server](https://discord.gg/hnGFJrz)
 
 ## Download and Use
