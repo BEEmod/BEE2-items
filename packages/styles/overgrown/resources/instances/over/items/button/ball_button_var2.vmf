@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8419"
-	"mapversion" "49"
+	"mapversion" "51"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "49"
+	"mapversion" "51"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -150,6 +150,54 @@ world
 }
 entity
 {
+	"id" "346"
+	"classname" "logic_timer"
+	"angles" "0 0 0"
+	"LowerRandomBound" "4"
+	"spawnflags" "1"
+	"StartDisabled" "0"
+	"targetname" "p"
+	"UpperRandomBound" "10"
+	"UseRandomTime" "1"
+	connections
+	{
+		"OnTimerHigh" "mdlSkin10-1"
+		"OnTimerLow" "mdlSkin00-1"
+		"OnTimerHigh" "spSparkOnce0-1"
+		"OnTimerLow" "spSparkOnce0-1"
+		"OnUser1" "proxyProxyRelay0-1"
+		"OnUser2" "proxyProxyRelay0-1"
+	}
+	"origin" "48 -48 -48"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 7000]"
+	}
+}
+entity
+{
+	"id" "348"
+	"classname" "env_spark"
+	"angles" "-90 0 0"
+	"Magnitude" "1"
+	"MaxDelay" "0"
+	"spawnflags" "768"
+	"targetname" "sp"
+	"TrailLength" "1"
+	"origin" "0 0 -48"
+	editor
+	{
+		"color" "200 200 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "328"
 	"classname" "prop_dynamic"
 	"angles" "0 0 0"
@@ -197,28 +245,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
-	"id" "300"
-	"classname" "logic_relay"
-	"angles" "0 0 0"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "p"
-	connections
-	{
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
-	}
-	"origin" "48 -48 -48"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 7000]"
 	}
 }
 entity
