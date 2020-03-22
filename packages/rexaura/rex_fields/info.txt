@@ -4,6 +4,8 @@
 This activates an output when pellets pass through.
 "
 
+// We need pellets for this to be useful.
+// The output relay is also required for it to connect to anything.
 "Prerequisites"
 	{
 	"Package" "BEE_PELLETS"
@@ -26,9 +28,12 @@ This activates an output when pellets pass through.
 			"BEE2_PORTAL_1"
 				{
 				"Base" "BEE2_CLEAN"
-				"Replace"
+				"Append"
 					{
-					"PACK_BEE2_CUST_FIZZ_MDL" "PACK_P1_CUST_FIZZLER"
+					"Replacements"
+						{
+						"%NODRAW%" "0"
+						}
 					}
 				"Instances"
 					{
@@ -116,32 +121,7 @@ This activates an output when pellets pass through.
 			}
 		}
 	}
-	
-"PackList"
-	{
-	"ID" "PACK_REX_PELLET_FIELD"
-	"Config"
-		{
-		"" "#scripts/bee2_snd/rex_sounds.txt"
-		"" "sound/BEE2/p1/hl1_bell.wav"
-		
-		"" "materials/BEE2/rex/beam_field_timer.vmt"
-		"" "materials/BEE2/rex/beam_field_toggle.vmt"
-		"" "materials/BEE2/rex/beam_field.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_REX_PELLET_FIELD_RETRO"
-	"Config"
-		{
-		"" "materials/BEE2/rex/beam_field_retro_timer.vmt"
-		"" "materials/BEE2/rex/beam_field_retro_toggle.vmt"
-		"" "materials/BEE2/rex/beam_field_retro.vtf"
-		}
-	}
-	
+
 "BrushTemplate"
 	{
 	"ID"   "REX_PELLET_FIELD_TEMP"
