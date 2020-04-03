@@ -52,10 +52,13 @@
 		"TargetName"  "lp"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
+				"Type" 			"AND"
+				"InvertVar"		"$start_deployed"
+				"Enable_Cmd"    "relay_toggle,FireUser1,,0.00,-1"
+				"Disable_Cmd"   "relay_toggle,FireUser2,,0.00,-1"
+				"SpawnFire"		"dynamic"
 			}
 		}
 		"Offset"      "64 64 64"
