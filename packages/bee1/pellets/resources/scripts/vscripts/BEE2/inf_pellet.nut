@@ -1,7 +1,7 @@
 cur_pellet <- null; // The pellet entity.
 waiting_for_pellet <- false; // Are we waiting for it to spawn and be detected?
-is_on <- null; // Current input state. Null = false, but before initialised.
-init <- false;
+is_on <- false; // Current input state.
+// respawn: If the pellet should be replaced when killed while input is on.
 
 function pellet_launched() {
 	// If we have a pellet, kill it.
@@ -54,15 +54,6 @@ function inp_off() {
 	kill_pellet();
 }
 
-// Called on spawn, if we start on.
-// is_on is set to null, so we can handle this being
-// disabled *before* the logic_auto triggers.
-function invert() {
-	if(is_on == null) {
-		inp_on();
-	}
-}
-
 function kill_pellet() {
 	// Ignore if the pellet doesn't exist...
 	if(cur_pellet != null && cur_pellet.IsValid()) {
@@ -82,7 +73,7 @@ function Think() {
 		EntFireByHandle(self, "FireUser1", "", 0.0, self, self);
 		cur_pellet = null;
 		
-		if (is_on) {
+		if (is_on && respawn) {
 			launch_pellet();
 		}
 	}
