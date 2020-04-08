@@ -43,7 +43,7 @@
 				"Base" "BEE2_CLEAN"
 				"Replace"
 					{
-					"BEE2_CUBE_DROPPER_CLEAN_CAP" "BEE2_TURRET_DROPPER_50S_CAP"
+					"BEE2_CUBE_DROPPER_CLEAN_CAP" "BEE2_CUBE_DROPPER_RETRO_CAP"
 					// Distance extra to move
 					"22"    "166"
 					}
@@ -56,50 +56,23 @@
 							"instance"	"<ITEM_BEE2_TURRET_DROPPER>"
 							"Result"
 								{
-								"AddOverlay"
-									{
-									"File" "instances/BEE2/50s/items/dropper_turret_skel.vmf"
-									}
-								"PrecacheModel"  "models/BEE2/props_underground/turret_skeleton.mdl"
-								"PackFile"       "models/BEE2/props_underground/turret_skeleton.mdl"
+								"AddOverlay" "<ITEM_BEE2_TURRET_DROPPER:bee2_turr>"
 								}
 							}
 						}
 					}
 				"Instances"
 					{
-					"0" "instances/BEE2/50s/items/dropper_turret.vmf"
+					"0"         "instances/BEE2/50s/items/dropper_turret.vmf"
+					"bee2_turr" "instances/BEE2/50s/items/dropper_turret_skel.vmf"
 					}
 				}
 			"BEE2_1980s"
 				{
-				"Base" "BEE2_CLEAN"
-				"Replace"
-					{
-					"BEE2_CUBE_DROPPER_CLEAN_CAP" "BEE2_TURRET_DROPPER_50S_CAP"
-					// Distance extra to move
-					"22"    "166"
-					}
-				"Append"
-					{
-					"Conditions"
-						{
-						"Condition"
-							{
-							"instance"	"<ITEM_BEE2_TURRET_DROPPER>"
-							"Result"
-								{
-								"AddOverlay"
-									{
-									"File" "instances/BEE2/80s/items/dropper_turret_modern.vmf"
-									}
-								}
-							}
-						}
-					}
+				"Base" "BEE2_1950s"
 				"Instances"
 					{
-					"0" "instances/BEE2/50s/items/dropper_turret.vmf"
+					"bee2_turr" "instances/BEE2/80s/items/dropper_turret_modern.vmf"
 					}
 				}
 			}
@@ -110,10 +83,4 @@
 	{
 	"ID"    "BEE2_TURRET_DROPPER_P1_CAP"
 	"File"  "cap_p1.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "BEE2_TURRET_DROPPER_50S_CAP"
-	"File"  "cap_50s.vmf"
 	}
