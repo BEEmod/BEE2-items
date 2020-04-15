@@ -1310,9 +1310,86 @@
 			"Name"		"Gel-Plate"
 			"Styles"
 				{
-				"BEE2_1950s"		"gel_plate"
-				"BEE2_1970s"		"gel_plate/70s"
-				"BEE2_1980s"		"gel_plate/80s"
+				"BEE2_1950s"
+					{
+					"Folder" "gel_plate"
+					"Description"	"A specially-shaped pool of Repulsion Gel that throws things along a preset trajectory. It is also capable of throwing paint bombs."
+					"Instances"
+						{
+						"0" "instances/BEE2/50s/items/gel_plate/static.vmf"
+						"bee2_toggle" "instances/BEE2/50s/items/gel_plate/toggle_decade.vmf"
+						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%DECADE%" "50s"
+							"%STATIC_ANGLED_SINGLE%"   "BEE2_OLDAP_GEL_PLATE_STATIC_ANGLED_50s"
+							"%STATIC_ANGLED_MULTI%"    "BEE2_OLDAP_GEL_PLATE_STATIC_ANGLED_50s"
+							"%STATIC_STRAIGHT_SINGLE%" "BEE2_OLDAP_GEL_PLATE_STATIC_STRAIGHT_50s"
+							"%STATIC_STRAIGHT_MULTI%"  "BEE2_OLDAP_GEL_PLATE_STATIC_STRAIGHT_50s"
+							"%DYNAMIC_ANGLED%"         "BEE2_OLDAP_GEL_PLATE_DYN_ANGLED_50s"
+							"%DYNAMIC_STRAIGHT%"       "BEE2_OLDAP_GEL_PLATE_DYN_STRAIGHT_50s"
+							}
+						}
+					}
+				"BEE2_1970s"
+					{
+					"Folder" "gel_plate"
+					"Description"	
+						{
+						"" "A specially-shaped pool of Repulsion Gel that throws things along a preset trajectory. It is also capable of throwing paint bombs."
+						"" ""
+						"" "* In the 1970s era, these are made of much cheaper wood materials."
+						}
+					"Instances"
+						{
+						"0" "instances/BEE2/70s/items/gel_plate/static.vmf"
+						"bee2_toggle" "instances/BEE2/70s/items/gel_plate/dynamic.vmf"
+						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%DECADE%" "70s"
+							// Just overlays, no brushes added.
+							"%STATIC_ANGLED_SINGLE%"   "BEE2_OLDAP_GEL_PLATE_STATIC_70s:angled"
+							"%STATIC_ANGLED_MULTI%"    "BEE2_OLDAP_GEL_PLATE_STATIC_70s:angled"
+							"%STATIC_STRAIGHT_SINGLE%" "BEE2_OLDAP_GEL_PLATE_STATIC_70s:straight"
+							"%STATIC_STRAIGHT_MULTI%"  "BEE2_OLDAP_GEL_PLATE_STATIC_70s:straight"
+							"%DYNAMIC_ANGLED%"         "BEE2_OLDAP_GEL_PLATE_DYN_ANGLED_50s"
+							"%DYNAMIC_STRAIGHT%"       "BEE2_OLDAP_GEL_PLATE_DYN_STRAIGHT_50s"
+							}
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Folder" "gel_plate"
+					"Description"	
+						{
+						"" "A specially-shaped pool of Repulsion Gel that throws things along a preset trajectory. It is also capable of throwing paint bombs."
+						"" ""
+						"" "* The 1980s era has the gel sunken into the floor."
+						}
+					"Instances"
+						{
+						"0" "instances/BEE2/80s/items/gel_plate/static.vmf"
+						"bee2_toggle" "instances/BEE2/80s/items/gel_plate/dynamic.vmf"
+						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%DECADE%" "80s"
+							"%STATIC_ANGLED_SINGLE%"   "BEE2_OLDAP_GEL_PLATE_STATIC_80s:angled,single"
+							"%STATIC_ANGLED_MULTI%"    "BEE2_OLDAP_GEL_PLATE_STATIC_80s:angled,multi"
+							"%STATIC_STRAIGHT_SINGLE%" "BEE2_OLDAP_GEL_PLATE_STATIC_80s:straight"
+							"%STATIC_STRAIGHT_MULTI%"  "BEE2_OLDAP_GEL_PLATE_STATIC_80s:straight"
+							"%DYNAMIC_ANGLED%"         "BEE2_OLDAP_GEL_PLATE_DYN_ANGLED_80s"
+							"%DYNAMIC_STRAIGHT%"       "BEE2_OLDAP_GEL_PLATE_DYN_STRAIGHT_80s"
+							}
+						}
+					}
 				}
 			}
 		"Version"
@@ -1373,6 +1450,18 @@
 
 "BrushTemplate"
 	{
+	"ID"   "BEE2_OLDAP_GEL_PLATE_STATIC_70s"
+	"File" "gel_plate_static_70s.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OLDAP_GEL_PLATE_STATIC_80s"
+	"File" "gel_plate_static_80s.vmf"
+	}
+
+"BrushTemplate"
+	{
 	"ID"   "BEE2_OLDAP_GEL_PLATE_DYN_ANGLED_50s"
 	"File" "gel_plate_dynamic_angled_50s.vmf"
 	}
@@ -1381,6 +1470,18 @@
 	{
 	"ID"   "BEE2_OLDAP_GEL_PLATE_DYN_STRAIGHT_50s"
 	"File" "gel_plate_dynamic_straight_50s.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OLDAP_GEL_PLATE_DYN_ANGLED_80s"
+	"File" "gel_plate_dynamic_angled_80s.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_OLDAP_GEL_PLATE_DYN_STRAIGHT_80s"
+	"File" "gel_plate_dynamic_straight_80s.vmf"
 	}
 
 "Overrides"
