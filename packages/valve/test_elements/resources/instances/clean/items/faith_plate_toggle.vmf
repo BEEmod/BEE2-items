@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "123"
+	"editorbuild" "7335"
+	"mapversion" "132"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "123"
+	"mapversion" "132"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -540,6 +540,32 @@ world
 }
 entity
 {
+	"id" "1250"
+	"classname" "env_sprite"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"framerate" "10.0"
+	"GlowProxySize" "5"
+	"HDRColorScale" "1.0"
+	"model" "sprites/glow01.vmt"
+	"parentname" "arm,light"
+	"renderamt" "255"
+	"rendercolor" "$start_color"
+	"rendermode" "9"
+	"scale" "0.4"
+	"spawnflags" "1"
+	"targetname" "spr"
+	"origin" "3.75 1.35 -63.6"
+	editor
+	{
+		"color" "20 140 20"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "1227"
 	"classname" "logic_timer"
 	"RefireTime" "0.5"
@@ -551,11 +577,13 @@ entity
 	{
 		"OnTimerLow" "armSkin10-1"
 		"OnTimerHigh" "armSkin00-1"
+		"OnTimerLow" "sprColor255 128 00-1"
+		"OnTimerHigh" "sprColor0 255 2550-1"
 	}
-	"origin" "0 3.8147e-006 -48"
+	"origin" "-16 3.8147e-006 -48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -665,80 +693,14 @@ entity
 	"parm2" "$start_enabled integer 0"
 	"parm3" "$start_skin integer 0"
 	"parm4" "$animation string angled"
-	"origin" "16 16 -48"
+	"parm5" "$start_color color255 255 255 255"
+	"origin" "16 0 -48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "1235"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "16 -16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1237"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-16 16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1239"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "triggerEnable0.01-1"
-		"OnFalse" "triggerDisable0.01-1"
-		"OnTrue" "armSkin00-1"
-		"OnTrue" "wake_trigEnable0-1"
-		"OnTrue" "wake_trigDisable0.01-1"
-		"OnFalse" "wake_trigDisable0-1"
-		"OnTrue" "flash_timDisable0-1"
-		"OnFalse" "flash_timEnable0-1"
-		"OnTrue" "flash_timResetTimer0-1"
-		"OnFalse" "armSkin10-1"
-	}
-	"origin" "-16 -16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -850,6 +812,18 @@ entity
 		"OnUser1" "@voice_faith_triggerFireUser10.31"
 		"OnUser1" "armSetAnimation$animation0-1"
 		"OnUser1" "@music_faith_playTrigger0-1"
+		"OnUser4" "wake_trigDisable0.01-1"
+		"OnUser4" "triggerEnable0.01-1"
+		"OnUser4" "sprColor0 255 2550-1"
+		"OnUser4" "flash_timResetTimer0-1"
+		"OnUser4" "flash_timDisable0-1"
+		"OnUser4" "wake_trigEnable0-1"
+		"OnUser4" "armSkin00-1"
+		"OnUser3" "triggerDisable0.01-1"
+		"OnUser3" "sprColor255 128 00-1"
+		"OnUser3" "armSkin10-1"
+		"OnUser3" "flash_timEnable0-1"
+		"OnUser3" "wake_trigDisable0-1"
 	}
 	"origin" "0 0 -56"
 	editor

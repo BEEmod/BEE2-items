@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "67"
+	"editorbuild" "7552"
+	"mapversion" "74"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "64"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "67"
+	"mapversion" "74"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -480,22 +480,27 @@ world
 }
 entity
 {
-	"id" "574"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "laser_catcherRunScriptCodep1_laser_catcher()0-1"
-		"OnMapSpawn" "laser_catcherAddOutputOnPowered !self:Skin:1:0.00:-10-1"
-		"OnMapSpawn" "laser_catcherAddOutputOnUnPowered !self:Skin:0:0.00:-10-1"
-	}
-	"origin" "-32 0 -128"
+	"id" "583"
+	"classname" "light"
+	"_constant_attn" "0"
+	"_distance" "0"
+	"_fifty_percent_distance" "56"
+	"_hardfalloff" "0"
+	"_light" "179 243 255 15"
+	"_lightHDR" "-1 -1 -1 1"
+	"_lightscaleHDR" "1"
+	"_linear_attn" "0"
+	"_quadratic_attn" "1"
+	"_zero_percent_distance" "96"
+	"spawnflags" "0"
+	"style" "0"
+	"origin" "-32 0 -48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"logicalpos" "[0 1500]"
 	}
 }
 entity
@@ -579,7 +584,7 @@ entity
 {
 	"id" "418"
 	"classname" "func_noportal_volume"
-	"origin" "-32 0 -79.5"
+	"origin" "-30 0 -79.5"
 	"spawnflags" "0"
 	solid
 	{
@@ -587,7 +592,7 @@ entity
 		side
 		{
 			"id" "242"
-			"plane" "(-0 32 -63) (-0 -32 -63) (-64 -32 -63)"
+			"plane" "(-60 32 -63) (0 32 -63) (0 -32 -63)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -598,7 +603,7 @@ entity
 		side
 		{
 			"id" "241"
-			"plane" "(-0 -32 -96) (-0 32 -96) (-62 32 -96)"
+			"plane" "(-60 -32 -96) (0 -32 -96) (0 32 -96)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -609,7 +614,7 @@ entity
 		side
 		{
 			"id" "240"
-			"plane" "(-64 32 -63) (-64 -32 -63) (-62 -32 -96)"
+			"plane" "(-60 32 -96) (-60 32 -63) (-60 -32 -63)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 -28] 0.25"
@@ -620,7 +625,7 @@ entity
 		side
 		{
 			"id" "239"
-			"plane" "(-0 -32 -63) (-0 32 -63) (-0 32 -96)"
+			"plane" "(0 -32 -96) (0 -32 -63) (0 32 -63)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 -28] 0.25"
@@ -631,7 +636,7 @@ entity
 		side
 		{
 			"id" "238"
-			"plane" "(-0 32 -63) (-64 32 -63) (-62 32 -96)"
+			"plane" "(0 32 -96) (0 32 -63) (-60 32 -63)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -28] 0.25"
@@ -642,7 +647,7 @@ entity
 		side
 		{
 			"id" "237"
-			"plane" "(-64 -32 -63) (-0 -32 -63) (-0 -32 -96)"
+			"plane" "(-60 -32 -96) (-60 -32 -63) (0 -32 -63)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -28] 0.25"
@@ -670,7 +675,7 @@ entity
 	"id" "350"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
-	"origin" "-32 0 -48"
+	"origin" "-32 0 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -689,8 +694,8 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"SkinType" "0"
+	"src_fix_skins" "1"
 	"targetname" "laser_catcher"
-	"vscripts" "bee2/change_models.nut"
 	connections
 	{
 		"OnPowered" "proxyProxyRelay0-1"

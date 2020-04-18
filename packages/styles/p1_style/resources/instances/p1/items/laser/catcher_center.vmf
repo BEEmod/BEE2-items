@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "49"
+	"editorbuild" "7552"
+	"mapversion" "58"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "49"
+	"mapversion" "58"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -410,6 +410,31 @@ world
 }
 entity
 {
+	"id" "279"
+	"classname" "light"
+	"_constant_attn" "0"
+	"_distance" "0"
+	"_fifty_percent_distance" "56"
+	"_hardfalloff" "0"
+	"_light" "179 243 255 15"
+	"_lightHDR" "-1 -1 -1 1"
+	"_lightscaleHDR" "1"
+	"_linear_attn" "0"
+	"_quadratic_attn" "1"
+	"_zero_percent_distance" "96"
+	"spawnflags" "0"
+	"style" "0"
+	"origin" "0 0 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
 	"id" "270"
 	"classname" "prop_laser_catcher"
 	"angles" "-90 180 0"
@@ -418,34 +443,14 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"SkinType" "0"
+	"src_fix_skins" "1"
 	"targetname" "laser_catcher"
-	"vscripts" "bee2/change_models.nut"
 	connections
 	{
 		"OnPowered" "proxyProxyRelay0-1"
 		"OnUnpowered" "proxyProxyRelay0-1"
 	}
 	"origin" "0 0 -80"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "272"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "laser_catcherRunScriptCodep1_laser_catcher()0-1"
-		"OnMapSpawn" "laser_catcherAddOutputOnPowered !self:Skin:1:0.00:-10-1"
-		"OnMapSpawn" "laser_catcherAddOutputOnUnPowered !self:Skin:0:0.00:-10-1"
-	}
-	"origin" "0 0 -128"
 	editor
 	{
 		"color" "220 30 220"
@@ -549,7 +554,7 @@ entity
 	"id" "137"
 	"classname" "func_instance_io_proxy"
 	"targetname" "proxy"
-	"origin" "0 0 -48"
+	"origin" "0 0 -32"
 	editor
 	{
 		"color" "220 30 220"

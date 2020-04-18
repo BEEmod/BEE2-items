@@ -28,16 +28,16 @@
 			}
 		"SubType"
 			{
-			"Name"			"UNUSED"
+			"Name"			"Radiative Flux Rectangle"
 			"Model"
 				{
-				"ModelName"		"bee2_fizz_error.3ds"
+				"ModelName"		"rex_pellet_field.mdl"
 				}
 			"Sounds"
 				{
 				"SOUND_CREATED"					"P2Editor.PlaceOther"
-				"SOUND_EDITING_ACTIVATE"		"P2Editor.Error"
-				"SOUND_EDITING_DEACTIVATE"		"P2Editor.Correction"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
 				"SOUND_DELETED"					"P2Editor.RemoveOther"
 				}
 			}
@@ -74,19 +74,6 @@
 			}
 
 		"TargetName"	"rex_pf"
-		"Inputs"
-			{
-			"CONNECTION_HAZARD_MODEL"
-				{
-				"Activate"		"instance:mdl;FireUser2" // Unused
-				"Deactivate"	"instance:mdl;FireUser1"
-				}
-			"CONNECTION_HAZARD_BRUSH"
-				{
-				"Activate"		"Enable" // Unused
-				"Deactivate"	"Disable"
-				}
-			}
 		// Fizzlers don't work for outputs, so we use the output relay item.
 		// Therefore we don't need antline positions.
 		"Outputs"
@@ -94,11 +81,6 @@
 			"CONNECTION_STANDARD"
 				{
 				"Activate"		"instance:out;OnUser2"
-				"Deactivate"	"instance:out;OnUser1"
-				}
-			"CONNECTION_HAZARD"
-				{
-				"Activate"		"instance:out;OnUser2" // Not actually used
 				"Deactivate"	"instance:out;OnUser1"
 				}
 			}

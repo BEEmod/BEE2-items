@@ -13,7 +13,7 @@
 			"Palette"
 				{
 				"Tooltip"		"TOGGLE LATCH"
-				"Image"			"palette/logic/tspen/flip_flop.png"
+				"Image"			"palette/logic/tspen/flip_flop_palette.png"
 				}
 			"Sounds"
 				{
@@ -49,21 +49,23 @@
 				}
 			}
 
-		"TargetName"		"mag"
+		"TargetName"		"flip_flop"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			// Definition for SR latch here.
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"			"AND"
+				"InvertVar"		"0"
+				"Enable_Cmd"	",ToggleStateA,,0.01,-1"
 				}
 			}
 		"Outputs"
 			{
 			"CONNECTION_STANDARD"
 				{
-				"Activate"		"instance:toggle;OnTrue"
-				"Deactivate"	"instance:toggle;OnFalse"
+				"Activate"		"OnChangeToAllTrue"
+				"Deactivate"	"OnChangeToAllFalse"
 				}
 			}
 		"ConnectionPoints"

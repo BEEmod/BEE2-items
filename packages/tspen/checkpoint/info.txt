@@ -11,7 +11,7 @@
 		"" ""
 		"" "* The entry door will accept inputs to open/close it."
 		}
-	"all_conf" "coop_check"
+	"all_conf" "coop_check.cfg"
 	"Version"
 		{
 		"Styles"
@@ -46,11 +46,79 @@
 						}
 					}
 				}
-			"BEE2_BTS"        "coop_check_bts"
-			"BEE2_1950s"      "coop_check_50s"
-			"BEE2_1960s"      "coop_check_60s"
-			"BEE2_1970s"      "coop_check_70s"
-			"BEE2_1980s"      "coop_check_80s"
+			"BEE2_BTS"
+				{
+				"Folder" "coop_check_clean"
+				"Instances"
+					{
+					"0" "instances/BEE2/bts/items/tspen/coop_checkpoint.vmf"
+					"1" "instances/BEE2/bts/items/tspen/coop_checkpoint_sp.vmf"
+					}
+				"Append"
+					{
+					"Conditions"
+						{
+						"Condition"
+							{
+							"instance"  "<ITEM_TSPEN_COOP_CHECKPOINT>"
+							"Result"
+								{
+								"PackFile" "models/bee2/props_bts/circuit_breaker_anim.mdl"
+								}
+							}
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "coop_check_clean"
+				"Config"
+					{
+					"Conditions" 
+					    { 
+					    "Condition" 
+					        { 
+					        "instance"  "<ITEM_TSPEN_COOP_CHECKPOINT>" 
+					        "Result" 
+					            { 
+					            "AddOverlay" 
+					                {
+					                // Shared by 50s/60s/70s/80s maps				                	
+					                "file"   "instances/BEE2/50s/items/tspen/coop_checkpoint_logic.vmf"
+					                } 
+					            } 
+					        } 
+					    } 
+					}
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/tspen/coop_checkpoint.vmf"
+					}
+				}
+			"BEE2_1960s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"0" "instances/BEE2/60s/items/tspen/coop_checkpoint.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"0" "instances/BEE2/70s/items/tspen/coop_checkpoint.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"0" "instances/BEE2/80s/items/tspen/coop_checkpoint.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -76,65 +144,91 @@
 		"" "An exit door combined with a fizzler and some triggers, so it will lock closed after the player walks through."
 		"" ""
 		"" "* This will trigger its output permanently when the door closes, as well as autosave."
+		"" "* If Portalgun On/Off buttons are present in the map, this will contain an Absolute Fizzler and dissolve cubes on On/Off Buttons when walked through."
 		}
 	"Version"
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"    "sp_check_clean"
+			"BEE2_CLEAN"
+				{
+				"Folder" "sp_check"
+				"Config" "sp_check_clean.cfg"
+				}
 			"BEE2_PORTAL_1"
 				{
-				"Folder" "sp_check_clean"
-				"Replace"
-					{
-					"TSPEN_CHAMBERLOCK_CLEAN" "TSPEN_CHAMBERLOCK_P1"
-					}
+				"Folder" "sp_check"
 				"Instances"
 					{
 					"bee2_logic"    "instances/BEE2/p1/items/tspen/chamberlock_logic.vmf"
 					"bee2_fizz_tag" "instances/BEE2/p1/items/tspen/chamberlock_tag.vmf"
 					"bee2_fizz_p2"  "instances/BEE2/p1/items/tspen/chamberlock_p2.vmf"
+
+					// Tuleby's absolute fizzler, for when pgun on/off buttons are used.
+					"bee2_fizz_abs" "instances/BEE2/p1/items/tspen/chamberlock_abs_fizz.vmf"
+					}
+				"Config" "sp_check_p1.cfg"
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "sp_check"
+				"Config" "sp_check_retro.cfg"
+				"Instances"
+					{
+					"bee2_decade" "instances/BEE2/50s/items/tspen/chamberlock_50s.vmf"
+					"bee2_white"  "instances/BEE2/50s/items/tspen/chamberlock_white.vmf"
+					"bee2_black"  "instances/BEE2/50s/items/tspen/chamberlock_black.vmf"
+					}
+				"IOConf"
+					{
+					"Type"          "AND"
+					"invertVar"		"$start_enabled"
+					"spawnFire"		"always"
+					"Enable_Cmd"    "open_rl,FireUser1,,0.00,-1"
+					"Disable_Cmd"   "close_rl,FireUser1,,0.00,-1"
+					"out_activate"  "instance:close_rl;OnUser4"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"bee2_decade" "instances/BEE2/70s/items/tspen/chamberlock_70s.vmf"
+					"bee2_white"  "instances/BEE2/70s/items/tspen/chamberlock_white.vmf"
+					"bee2_black"  "instances/BEE2/70s/items/tspen/chamberlock_black.vmf"
 					}
 				"Append"
 					{
-					"Conditions"
+					"Replacements"
 						{
-						"Condition"
-							{
-							"instance"  "<ITEM_TSPEN_SP_CHECKPOINT:bee2_logic>"
-							"Result"
-								{
-								"Pack" "PACK_P1_DOOR"
-								}
-							}
+						"%LIGHT%" "200 220 230"
 						}
 					}
 				}
-			"BEE2_1950s"    "sp_check_50s"
-			"BEE2_1970s"    "sp_check_70s"
-			"BEE2_1980s"    "sp_check_80s"
+			"BEE2_1980s"
+				{
+				"Folder" "sp_check"
+				"Config" "sp_check_80s.cfg"
+				"IOConf"
+					{
+					"Type"          "AND"
+					"invertVar"		"$start_enabled"
+					"spawnFire"		"always"
+					"Enable_Cmd"    "block_trig,FireUser1,,0.00,-1"
+					"Disable_Cmd"   "close_rl,FireUser1,,0.00,-1"
+					"out_activate"  "instance:close_rl;OnUser4"
+					}
+				}
 			"BEE2_OVERGROWN"
 				{
-				"Folder" "sp_check_clean"
+				"Folder" "sp_check"
 				"Instances"
 					{
 					"bee2_logic"    "instances/BEE2/over/items/tspen/chamberlock_logic.vmf"
 					"bee2_fizz_tag" "instances/BEE2/over/items/tspen/chamberlock_tag.vmf"
 					"bee2_fizz_p2"  "instances/BEE2/over/items/tspen/chamberlock_p2.vmf"
-					}
-				"Append"
-					{
-					"Conditions"
-						{
-						"Condition"
-							{
-							"instance"  "<ITEM_TSPEN_SP_CHECKPOINT:bee2_logic>"
-							"Result"
-								{
-								"Pack" "PACK_BEE2_TRIPLE_WALLPIPE_STRAIGHT_A"
-								}
-							}
-						}
+					"bee2_fizz_abs" "instances/BEE2/over/items/tspen/chamberlock_abs_fizz.vmf"
 					}
 				}
 			}
@@ -191,6 +285,25 @@
 					"bee2_common" "instances/BEE2/50s/items/tspen/single_checkpoint.vmf"
 					}
 				}
+			"BEE2_PORTAL_1"
+				{
+				"Base" "BEE2_CLEAN"
+				"Config" "coop_check_single_p1.cfg"
+				"Instances"
+					{
+					"bee2_both"   "instances/BEE2/p1/items/tspen/single_checkpoint_both.vmf"
+					"bee2_blue"   "instances/BEE2/p1/items/tspen/single_checkpoint_blue.vmf"
+					"bee2_oran"   "instances/BEE2/p1/items/tspen/single_checkpoint_oran.vmf"
+					"bee2_common" "instances/BEE2/p1/items/tspen/single_checkpoint.vmf"
+					}
+				}
 			}
 		}
+	}
+
+
+"BrushTemplate"
+	{
+	"ID"  "TSPEN_CHECKPOINT_SINGLE_CAP_P1"
+	"File" "single_checkpoint_p1.vmf"
 	}

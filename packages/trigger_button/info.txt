@@ -1,0 +1,84 @@
+"ID"		"BEE2_TRIGGER_BUTTON"
+"Name"		"Trigger Button"
+"Desc"      "A button which has a larger trigger radius, to ensure it is always pressed by flung cubes."
+
+// It turns out buttons have a trigger_portal_button entity at their location, which acts as the trigger range.
+// We can't spawn them ourselves, but we can change the absize to fiddle with this.
+
+"Item"
+	{
+	"ID" "ITEM_BEE2_TRIGGER_BUTTON"
+	"Description"
+		{
+		"" "A button which has a larger trigger radius, to ensure it is always pressed by flung cubes.  "
+		"" "Cubes landing anywhere in the block will force-press the button.  "
+		"" "Only available in a Weighted version, as the other receptacles would not realistically allow inaccurate placement.  "
+		"" "The button is placed on a 3/4 block, so it can be recessed in the floor to produce a button inside a 1/4 recess."
+		}
+	"All_conf" "trigger_button_all.cfg"
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"
+				{
+				"Folder" "trigger_button"
+				"Config" "trigger_button_clean.cfg"
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "trigger_button"
+				"Config" "trigger_button_over.cfg"
+				"Instances"
+					{
+					"bee2_btn" "instances/BEE2/over/items/button/floor_button_trigger.vmf"
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "trigger_button"
+				"Config" "trigger_button_p1.cfg"
+				"Instances"
+					{
+					"bee2_btn" "instances/BEE2/p1/items/button/btn_weighted_trigger.vmf"
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "trigger_button"
+				"Config" "trigger_button_retro.cfg"
+				"Instances"
+					{
+					"bee2_btn" "instances/BEE2/50s/items/button/btn_weighted_trigger.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Folder" "trigger_button"
+				"Config" "trigger_button_80s.cfg"
+				"Instances"
+					{
+					"bee2_btn" "instances/BEE2/80s/items/button/btn_weighted_trigger.vmf"
+					}
+				}
+			}
+		}
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_TRIGGER_BUTTON_PILLAR_SOLID"
+	"File"  "pillar_clean.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_TRIGGER_BUTTON_SIDE_RETRO_WOOD"
+	"File"  "tex_retro_wood.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_TRIGGER_BUTTON_PILLAR_1980s"
+	"File"  "pillar_80s.vmf"
+	}

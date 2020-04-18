@@ -2,12 +2,20 @@
 "Name"  "Clean Style"
 "Desc"  "Adds the Clean Style, plus several critical resources.\n\nThis cannot be disabled!."
 
+
+"Prerequisites"
+	{
+	"Package"	"VALVE_MUSIC"
+	}
+
+
 "Style"
 	{
 	"ID"          "BEE2_CLEAN"
 	"Authors"     "Valve, Carl Kenner, TeamSpen210"
 	"Folder"      "clean"
 	"Icon"        "styles/clean.png"
+	"IconLarge"   "prev/clean.png"
 	"Name"        "Clean"
 	"Base"        ""
 	
@@ -22,6 +30,7 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "clean"
 		"sp_entry"
 			{
 			"2"	"Right Turn"
@@ -34,6 +43,7 @@
 			}
 		"coop"
 			{
+			"4" "Drop"
 			}
 		}
 	}
@@ -43,7 +53,8 @@
 	"ID"          "BEE2_CLEAN_ORIGINAL"
 	"Authors"     "Valve"
 	"Folder"      "clean_original"
-	"Icon"        "music/peti.png"
+	"Icon"        "styles/peti.png"
+	"IconLarge"   "prev/original_clean.png"
 	"Name"        "Clean (Original Textures)"
 	"ShortName"   "Original Clean"
 	"Base"        "BEE2_CLEAN"
@@ -63,6 +74,7 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "clean"
 		"sp_entry"
 			{
 			"2"	"Right Turn"
@@ -75,6 +87,7 @@
 			}
 		"coop"
 			{
+			"4" "Drop"
 			}
 		}
 	}
@@ -205,6 +218,7 @@
 	"Name"          "Clean"
 	"Group"         "2D"
 	"Icon"          "<black>"
+	"IconLarge"     "prev/sky_clean.png"
 	"Material"      "sky_black"
 	"Authors"       "Valve"
 	"Description"   "Pure black skybox, with Clean test chamber fog."
@@ -289,134 +303,3 @@
 		}
 	}
 
-"Music"
-	{
-	"ID"            "VALVE_PETI"
-	"Name"          "Random PeTI (Robot Waiting Room)"
-	"ShortName"     "Random PeTI"
-	"Group"         "PeTI / Robo Room"
-	"Icon"          "music/peti.png"
-	"Authors"       "Valve"
-	"Description"
-		{
-		""  "The original PeTI music."
-		""  ""
-		""  "* Randomly chooses between Robot Waiting Room 1-5 and '7'."
-		}
-	"Soundscript"   "music.pti_b1_001"
-	// No sample - this switches between the following 7 ones.
-	}
-
-"Music"
-	{
-	"ID"            "VALVE_ROBO_ROOM_1"
-	"Name"          "Robot Waiting Room 1"
-	"ShortName"     "Robo Room 1"
-	"Group"         "PeTI / Robo Room"
-	"Icon"          "music/robo_room.png"
-	"Authors"       "Valve"
-	"Description"
-		{
-		""  "One of several tracks played in the Cooperative Testing Hub, and PeTI levels."
-		""  "This track is similar to the 1950s music tracks."
-		}
-	"Soundscript"   "music.ctc_b1_001"
-	"Sample"        "p2/ctc_b1_001.ogg"
-	}
-
-"Music"
-	{
-	"ID"            "VALVE_ROBO_ROOM_2"
-	"Name"          "Robot Waiting Room 2"
-	"ShortName"     "Robo Room 2"
-	"Group"         "PeTI / Robo Room"
-	"Icon"          "music/robo_room.png"
-	"Authors"       "Valve"
-	"Description"   "One of several tracks played in the Cooperative Testing Hub, and PeTI levels."
-	"Soundscript"   "music.ctc_b1_002"
-	"Sample"        "p2/ctc_b1_002.ogg"
-	}
-
-"Music"
-	{
-	"ID"            "VALVE_ROBO_ROOM_3"
-	"Name"          "Robot Waiting Room 3"
-	"ShortName"     "Robo Room 3"
-	"Group"         "PeTI / Robo Room"
-	"Icon"          "music/robo_room.png"
-	"Authors"       "Valve"
-	"Description"   "One of several tracks played in the Cooperative Testing Hub, and PeTI levels."
-	"Soundscript"   "music.ctc_b1_003"
-	"Sample"        "p2/ctc_b1_003.ogg"
-	}
-
-"Music"
-	{
-	"ID"            "VALVE_ROBO_ROOM_4"
-	"Name"          "Robot Waiting Room 4"
-	"ShortName"     "Robo Room 4"
-	"Group"         "PeTI / Robo Room"
-	"Icon"          "music/robo_room.png"
-	"Authors"       "Valve"
-	"Description"
-		{
-		""	"One of several tracks played in the Cooperative Testing Hub, and PeTI levels."
-		""	"This track is similar to the 1950s music tracks."
-		}
-	"Soundscript"   "music.ctc_b1_004"
-	"Sample"        "p2/ctc_b1_004.ogg"
-	}
-
-"Music"
-	{
-	"ID"            "VALVE_ROBO_ROOM_5"
-	"Name"          "Robot Waiting Room 5"
-	"ShortName"     "Robo Room 5"
-	"Group"         "PeTI / Robo Room"
-	"Icon"          "music/robo_room.png"
-	"Authors"       "Valve"
-	"Description"
-		{
-		""  "One of several tracks played in the Cooperative Testing Hub, and PeTI levels."
-		""  "This track is similar to the 1950s music tracks."
-		}
-	"Soundscript"   "music.ctc_b1_005"
-	"Sample"        "p2/ctc_b1_005.ogg"
-	}
-
-"Music"
-	{
-	"ID"            "VALVE_ROBO_ROOM_6"
-	"Name"          "Robot Waiting Room 6"
-	"ShortName"     "Robo Room 6"
-	"Group"         "PeTI / Robo Room"
-	"Icon"          "music/robo_room.png"
-	"Authors"       "Valve"
-	"Description"
-		{
-		""  "One of several tracks played in the Cooperative Testing Hub, but not in PTI levels.  "
-		""  "This track is similar to Robot Room 1, but slightly more dramatic."
-		}
-	// The soundscript for this doesn't use the actual sound, so we need to use the raw WAV.
-	"Soundscript"   "*)music/mp_coop_lobby_2_c1.wav"
-	"Sample"        "p2/mp_coop_lobby_2_c1.ogg"
-	}
-
-"Music"
-	{
-	"ID"            "VALVE_ROBO_ROOM_PTI"
-	"Sort_Key"      "Robot Waiting Room 7" // Name used for ordering in list.
-	"Name"          "Robot Waiting Room '7'"
-	"ShortName"     "Robo Room '7'"
-	"Group"         "PeTI / Robo Room"
-	"Icon"          "music/robo_room.png"
-	"Authors"       "Valve"
-	"Description"
-		{
-		""  "One of several tracks played in PeTI levels."
-		""  "This track does not appear in the original game soundtrack."
-		""  "It features trumbones and xylophone-like instruments."
-		}
-	"Soundscript"   "music.ctc_b1_006"
-	"Sample"        "p2/ctc_b1_006.ogg"
-	}

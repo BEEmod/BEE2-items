@@ -1,0 +1,47 @@
+// Customised version of music.sp_a2_turret_intro_x1.
+
+"music.BEE2_im_different_turret"
+	{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_NONE"
+	"volume"		"0.5"
+
+	"wave"	"*music/sp_a2_turret_intro_x1.wav"
+
+	"soundentry_version" "2"
+	"operator_stacks"
+		{
+		"start_stack"
+			{
+			"import_stack" "start_sync_to_entry"
+				
+			"elapsed_time"
+				{
+				"entry" "music.BEE2"
+				}
+			"duration_div"
+				{
+				"input2" "1"	
+				}
+			}
+		
+		"update_stack"
+			{
+			"import_stack" "update_music_stereo"
+			"import_stack" "update_stop_at_time"
+			"volume_fade_in"
+				{
+				"input_max" "1.0"
+				"input_map_min" "0.05"
+				}
+			"volume_fade_out"
+				{
+				"input_max" "5.0"
+				}
+			"usat_stop_time"
+				{
+				"input2" "4.0"
+				}
+			}
+		}
+	}

@@ -45,14 +45,6 @@
 		}
 
 		"TargetName"		"it"
-		"Inputs"
-		{
-			"CONNECTION_STANDARD"
-			{
-				"Activate"		"instance:tog;FireUser2"
-				"Deactivate"	"instance:tog;FireUser1"
-			}
-		}
 		"Offset"		"64 64 64"
 	}
 }
@@ -86,14 +78,6 @@
 		}
 
 		"TargetName"			"ip"
-		"Inputs"
-		{
-			"CONNECTION_STANDARD"
-			{
-				"Activate"		"instance:tx;FireUser2"
-				"Deactivate"	"instance:tx;FireUser1"
-			}
-		}
 		"Offset"		"64 64 64"
 	}
 }
@@ -129,10 +113,10 @@
 		"TargetName"			"ip"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"	 	"instance:tx;FireUser2"
-				"Deactivate" 	"instance:tx;FireUser1"
+				"Enable_Cmd"    "dial,FireUser2,,0.00,-1"
+				"Disable_Cmd"   "dial,FireUser1,,0.00,-1"
 			}
 		}
 		"Offset"		"64 64 64"

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "184"
+	"editorbuild" "7335"
+	"mapversion" "201"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "184"
+	"mapversion" "201"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -129,26 +129,6 @@ entity
 }
 entity
 {
-	"id" "2899"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "@relay_spawn_4"
-	connections
-	{
-		"OnTrigger" "branch_activeTest0-1"
-	}
-	"origin" "48 16 32"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 3000]"
-	}
-}
-entity
-{
 	"id" "2426"
 	"classname" "logic_branch"
 	"InitialValue" "1"
@@ -158,7 +138,7 @@ entity
 		"OnFalse" "track_lift_movelinearSetPosition00-1"
 		"OnTrue" "track_lift_movelinearSetPosition10-1"
 	}
-	"origin" "48 -16 48"
+	"origin" "48 -16 32"
 	editor
 	{
 		"color" "0 100 250"
@@ -171,63 +151,26 @@ entity
 {
 	"id" "1978"
 	"classname" "logic_relay"
-	"targetname" "relay_start_moving"
+	"spawnflags" "0"
+	"targetname" "move_rl"
 	connections
 	{
-		"OnTrigger" "branch_posTest0.05-1"
 		"OnTrigger" "cube_enable_motion_triggerEnable0-1"
 		"OnTrigger" "cube_enable_motion_triggerDisable0.01-1"
 		"OnTrigger" "track_lift_movelinearSetSpeed$speed0-1"
+		"OnTrigger" "branch_posTest0-1"
+		"OnUser1" "cube_enable_motion_triggerDisable0.01-1"
+		"OnUser1" "track_lift_movelinearSetSpeed00-1"
+		"OnUser1" "cube_enable_motion_triggerEnable0-1"
 	}
-	"origin" "48 -16 32"
+	"origin" "48 16 32"
 	editor
 	{
 		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "OnTrigger->Test must be after SetSpeed!"
 		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "2067"
-	"classname" "logic_branch"
-	"InitialValue" "$start_active"
-	"targetname" "branch_active"
-	connections
-	{
-		"OnTrue" "relay_start_movingTrigger0-1"
-		"OnFalse" "cube_enable_motion_triggerDisable0.01-1"
-		"OnFalse" "cube_enable_motion_triggerEnable0-1"
-		"OnFalse" "track_lift_movelinearSetSpeed00-1"
-	}
-	"origin" "48 0 16"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
-	"id" "1911"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_activeToggleTest0-1"
-		"OnChangedFromMax" "branch_activeToggleTest0-1"
-	}
-	"origin" "48 16 48"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -239,9 +182,9 @@ entity
 	"parm3" "$speed integer 100"
 	"parm4" "$travel_direction angle 0 90 0"
 	"parm5" "$starting_position float 0"
-	"parm6" "$start_active float 0"
-	"parm7" "$anim string horiz"
-	"origin" "48 16 16"
+	"parm6" "$start_active boolean 0"
+	"parm7" "$model string"
+	"origin" "48 0 16"
 	editor
 	{
 		"color" "220 30 220"
@@ -252,36 +195,19 @@ entity
 }
 entity
 {
-	"id" "1900"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "48 -16 16"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
 	"id" "2"
 	"classname" "func_movelinear"
 	"blockdamage" "0"
 	"disablereceiveshadows" "0"
+	"fademindist" "-1"
+	"fadescale" "1"
 	"movedir" "$travel_direction"
 	"movedistance" "$travel_distance"
 	"origin" "4.05 0 0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
-	"rendermode" "0"
+	"rendermode" "10"
 	"spawnflags" "0"
 	"speed" "$speed"
 	"startposition" "$starting_position"
@@ -294,82 +220,6 @@ entity
 		"OnFullyClosed" "track_lift_movelinearSetPosition10-1"
 		"OnFullyOpen" "branch_posSetValue00-1"
 		"OnFullyClosed" "branch_posSetValue10-1"
-	}
-	solid
-	{
-		"id" "3"
-		side
-		{
-			"id" "24"
-			"plane" "(-64 -64 -64) (-64 64 -64) (-64 64 64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 -29.4313] 0.25"
-			"vaxis" "[0 0 -1 -29.957] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "23"
-			"plane" "(-64 64 64) (-64 64 -64) (-56.0002 64 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 29.957] 0.25"
-			"vaxis" "[1 0 0 47.7822] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "22"
-			"plane" "(-64 -64 -64) (-64 -64 64) (-56.0002 -64 64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 29.957] 0.25"
-			"vaxis" "[1 0 0 47.7822] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "21"
-			"plane" "(-64 -64 64) (-64 64 64) (-56 64 64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 -29.4313] 0.25"
-			"vaxis" "[1 0 0 47.7822] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "20"
-			"plane" "(-64 64 -64) (-64 -64 -64) (-56 -64 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 -29.4313] 0.25"
-			"vaxis" "[1 0 0 47.7822] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "19"
-			"plane" "(-56.0002 64 -64) (-56 -64 -64) (-56.0002 -64 64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
 	}
 	solid
 	{
@@ -527,7 +377,7 @@ entity
 	"HoldAnimation" "1"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
-	"model" "models/anim_wp/arm_interior_192/arm_interior_128.mdl"
+	"model" "$model"
 	"parentname" "track_lift_movelinear"
 	"PerformanceMode" "0"
 	"pressuredelay" "0"
@@ -538,7 +388,7 @@ entity
 	"rendermode" "0"
 	"SetBodyGroup" "0"
 	"shadowdepthnocache" "0"
-	"skin" "0"
+	"skin" "$skin"
 	"solid" "6"
 	"spawnflags" "0"
 	"targetname" "track_lift_model"

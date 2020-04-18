@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "98"
+	"editorbuild" "7552"
+	"mapversion" "107"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,95 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "98"
+	"mapversion" "107"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+	solid
+	{
+		"id" "1850"
+		side
+		{
+			"id" "866"
+			"plane" "(-58 -55 -71) (-58 55 -71) (-58 55 -67)"
+			"material" "TOOLS/TOOLSBLOCKLIGHT"
+			"uaxis" "[0 -1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "867"
+			"plane" "(58 55 -71) (58 -55 -71) (58 -55 -67)"
+			"material" "TOOLS/TOOLSBLOCKLIGHT"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "868"
+			"plane" "(-58 55 -71) (-58 -55 -71) (58 -55 -71)"
+			"material" "TOOLS/TOOLSBLOCKLIGHT"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "869"
+			"plane" "(-58 -55 -67) (-58 55 -67) (58 55 -67)"
+			"material" "TOOLS/TOOLSBLOCKLIGHT"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "870"
+			"plane" "(-58 55 -67) (-58 55 -71) (58 55 -71)"
+			"material" "TOOLS/TOOLSBLOCKLIGHT"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "871"
+			"plane" "(58 -55 -67) (58 -55 -71) (-58 -55 -71)"
+			"material" "TOOLS/TOOLSBLOCKLIGHT"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "0 220 197"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
 	solid
 	{
 		"id" "1304"
@@ -1320,11 +1396,11 @@ entity
 	"classname" "light"
 	"_constant_attn" "10000000"
 	"_fifty_percent_distance" "72"
-	"_light" "218 76 26 10"
+	"_light" "255 255 255 30"
 	"_lightHDR" "-1 -1 -1 1"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
-	"_zero_percent_distance" "145"
+	"_zero_percent_distance" "96"
 	"origin" "0 0 -112"
 	editor
 	{
@@ -1340,7 +1416,6 @@ entity
 	"classname" "info_placement_helper"
 	"angles" "-90 270 0"
 	"force_placement" "1"
-	"parentname" "broken_panel_top"
 	"radius" "64"
 	"origin" "0 0 -60"
 	editor
@@ -1447,90 +1522,13 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 1"
 	"parm2" "$start_deployed integer 0"
-	"origin" "-2.09815e-006 -32 -48"
+	"origin" "-2.09815e-006 0 -48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "164"
-	"classname" "logic_branch"
-	"InitialValue" "$start_deployed"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnFalse" "flipping_panelopen0-1"
-		"OnTrue" "flipping_panelClose0-1"
-	}
-	"origin" "-32 -32 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "166"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-2.09815e-006 32 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "168"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "32 -32 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "224"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest0.1-1"
-	}
-	"origin" "24.4238 16.1739 -55"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2500]"
 	}
 }
 cameras

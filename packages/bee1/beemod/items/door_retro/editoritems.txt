@@ -4,17 +4,33 @@
 	"ItemClass"	"itemlightstrip"
 	"Editor"
 	{
+		"SubTypeProperty" "StartEnabled"
 		"SubType"
 		{
 			"Name"		"Door"
 			"Model"
 			{
-				"ModelName"		"under_door_bee_50s.3ds"
+				"ModelName"		"under_door_bee_closed_50s.3ds"
 			}
 			"Palette"
 			{
 				"Tooltip"	"DOOR"
-				"Image"		"palette/50s/door.png"
+				"Image"		"palette/placeable_door.png"
+			}
+			"Sounds"
+			{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+			}
+		}
+		"SubType"
+		{
+			"Name"		"Door"
+			"Model"
+			{
+				"ModelName"		"under_door_bee_opened_50s.3ds"
 			}
 			"Sounds"
 			{
@@ -61,10 +77,13 @@
 		"TargetName"		"dr"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+			"Type"        "AND"
+			"invertVar"   "$start_enabled"
+			"Enable_cmd"  "close_man,SetStateAFalse,,0,-1"
+			"Enable_cmd"   "anim_man,SetStateATrue,,0,-1"
+			"Disable_cmd" "close_man,SetStateATrue,,0,-1"
 			}
 		}
 		"Offset"		"64 64 64"

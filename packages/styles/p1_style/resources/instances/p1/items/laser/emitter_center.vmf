@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "103"
+	"editorbuild" "7552"
+	"mapversion" "109"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "103"
+	"mapversion" "109"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -714,90 +714,11 @@ world
 }
 entity
 {
-	"id" "701"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest0-1"
-	}
-	"origin" "0 0 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "667"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "laserTurnOn0-1"
-		"OnFalse" "laserTurnOff0-1"
-		"OnTrue" "lightTurnOn0-1"
-		"OnFalse" "lightTurnOff0-1"
-	}
-	"origin" "-24 -24 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "669"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-		"OnHitMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "24 -24 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "671"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "24 24 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
 	"id" "673"
 	"classname" "func_instance_parms"
-	"parm1" "$connectioncount integer"
-	"parm2" "$start_enabled integer"
-	"origin" "-24 24 -48"
+	"parm1" "$start_disabled boolean 0"
+	"parm2" "$start_enabled boolean 1"
+	"origin" "0 0 -24"
 	editor
 	{
 		"color" "220 30 220"
@@ -810,18 +731,18 @@ entity
 {
 	"id" "280"
 	"classname" "light"
-	"_light" "255 106 106 10"
+	"_light" "218 76 26 50"
 	"_lightHDR" "-1 -1 -1 1"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
-	"spawnflags" "1"
-	"targetname" "light"
-	"origin" "0 0 -24"
+	"spawnflags" "0"
+	"origin" "0 0 -40"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "The glow gives us always-on lights"
 		"logicalpos" "[0 -15768]"
 	}
 }
@@ -925,7 +846,7 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
-	"StartState" "1"
+	"StartState" "$start_disabled"
 	"targetname" "laser"
 	"origin" "0 0 -80"
 	editor

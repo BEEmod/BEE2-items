@@ -179,23 +179,23 @@
 			"Name"			"PORTAL2_PuzzleEditor_Item_gel_dropper"
 			"Model" // Repulsion
 			{
-				"ModelName"		"p1_gel_drop_blue.mdl"
+				"ModelName"		"paint_dropper_editor_blue.mdl"
 			}
 			"Model" // Propulsion
 			{
-				"ModelName"		"p1_gel_drop_oran.mdl"
+				"ModelName"		"paint_dropper_editor_orange.mdl"
 			}
 			"Model" // Conversion
 			{
-				"ModelName"		"p1_gel_drop_white.mdl"
+				"ModelName"		"paint_dropper_editor_white.mdl"
 			}
 			"Model" // Cleansing
 			{
-				"ModelName"		"p1_gel_drop_water.mdl"
+				"ModelName"		"paint_dropper_editor_water.mdl"
 			}
 			"Model" // Added for reflection gel!
 			{
-				"ModelName"		"p1_gel_drop_grey.mdl"
+				"ModelName"		"paint_dropper_editor_grey.mdl"
 			}
 		}
 		"MovementHandle"		"HANDLE_NONE"
@@ -269,9 +269,13 @@
 		}
 		"OccupiedVoxels"
 		{
-			"Voxel"
+			// New - don't include the bottom 1/4.
+			"SurfaceVolume"
 			{
-				"Pos"		"0 0 0"
+				"Pos"     "0 0 0"
+				
+				"SubPos1" "0 0 0"
+				"SubPos2" "3 3 2"
 			}
 		}
 		"ConnectionPoints"

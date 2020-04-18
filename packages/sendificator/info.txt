@@ -26,8 +26,6 @@
 				"Instances"
 					{
 					"0"          "instances/BEE2/50s/items/hmw/sendtor.vmf"
-					"las_center" "instances/BEE2/50s/items/hmw/sendtor_emitter_center.vmf"
-					"las_offset" "instances/BEE2/50s/items/hmw/sendtor_emitter_offset.vmf"
 					}
 				}
 			"BEE2_1970s"
@@ -55,20 +53,65 @@
 				"Instances"
 					{
 					"0"          "instances/BEE2/over/items/hmw/sendtor.vmf"
-					"las_center" "instances/BEE2/over/items/hmw/sendtor_emitter_center.vmf"
-					"las_offset" "instances/BEE2/over/items/hmw/sendtor_emitter_offset.vmf"
 					}
 				}
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "sendtor"
 				"Config" "sendtor_p1.cfg"
+				// No instance change, just on a support slab.
+				}
+			}
+		}
+	}
+	
+"Item"
+	{
+	"ID"    "ITEM_HMW_SENDIFICATOR_SLIM"
+	"Description"	
+		{
+		"" "A slimmer version of HMW's Sendificator made by Konclan. When activated, teleports cubes to the end of an attached laser beam."
+		"" ""
+		"" "* Connect the sendificator to a laser with an antline, and connect an activation input (usually a pedestal button)."
+		"" "* The laser can still be powered on and off via regular inputs, which also disables the Sendificator."
+		"" "* __The Sendificator will not recognise Reflection Gel__."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"     "sendtor_slim"
+			"BEE2_1950s"
+				{
+				"Folder" "sendtor_slim"
+				"Config" "sendtor_slim_50s.cfg"
 				"Instances"
 					{
-					// No instance change, just on a support slab.
-					"las_center" "instances/BEE2/p1/items/hmw/sendtor_emitter_center.vmf"
-					"las_offset" "instances/BEE2/p1/items/hmw/sendtor_emitter_offset.vmf"
+					"0" "instances/BEE2/50s/items/konclan/sendtor_slim.vmf"
 					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Config" "sendtor_slim_70s.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/70s/items/konclan/sendtor_slim.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Config" "sendtor_slim_80s.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/80s/items/konclan/sendtor_slim.vmf"
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "sendtor_slim"
+				"Config" "sendtor_slim_over.cfg"
 				}
 			}
 		}
@@ -90,86 +133,4 @@
 	{
 	"ID"   "BEE2_HMW_SENDTOR_TOP_SLAB_P1"
 	"File" "top_slab_p1.vmf"
-	}
-	
-"PackList"
-	{
-	// General logic required for all styles
-	"ID"     "PACK_HMW_SENDTOR_LOGIC"
-	"config" "logic"
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_HMW_SENDTOR_ANT_CLEAN"
-	"AddIfMat"  "BEE2/sendtor/sendificator_antlines"
-	"config" 
-		{
-		"File" "materials/BEE2/sendtor/sendificator_antlines.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_HMW_SENDTOR_ANT_CLEAN_BROKEN"
-	"AddIfMat"  "BEE2/sendtor/sendificator_antlines_broken"
-	"config" 
-		{
-		"" "materials/BEE2/sendtor/sendificator_antlines.vmt"
-		"" "materials/BEE2/sendtor/sendificator_antlines.vtf"
-		"" "materials/BEE2/sendtor/sendificator_antlines_broken.vtf"
-		}
-	}
-
-"PackList"
-	{
-	"ID"        "PACK_HMW_SENDTOR_ANT_RETRO"
-	"AddIfMat"  "BEE2/sendtor/sendificator_neon_indicator_1"
-	"AddIfMat"  "BEE2/sendtor/sendificator_neon_indicator_2"
-	"config" 
-		{
-		"File" "materials/BEE2/sendtor/sendificator_neon_indicator.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_HMW_SENDTOR_ANT_P1"
-	"AddIfMat"  "BEE2/sendtor/p1_ant_crn_floor"
-	"AddIfMat"  "BEE2/sendtor/p1_ant_crn_wall"
-	"AddIfMat"  "BEE2/sendtor/p1_ant_floor"
-	"AddIfMat"  "BEE2/sendtor/p1_ant_wall"
-	
-	"config"
-		{
-		"" "materials/BEE2/sendtor/p1_ant_crn_floor.vtf"
-		"" "materials/BEE2/sendtor/p1_ant_crn_wall.vtf"
-		"" "materials/BEE2/sendtor/p1_ant_floor.vtf"
-		"" "materials/BEE2/sendtor/p1_ant_wall.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_HMW_SENDTOR_CLEAN"
-	"config" "sendtor_clean"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_HMW_SENDTOR_DIRTY"
-	"config" "sendtor_dirty"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_HMW_SENDTOR_DIRTYISH"
-	"config" "sendtor_dirtyish"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_HMW_SENDTOR_RETRO"
-	// This isn't actually a model, just a bunch of textures.
-	"config" "sendtor_retro"
 	}

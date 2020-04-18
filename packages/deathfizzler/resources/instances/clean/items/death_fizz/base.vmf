@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "102"
+	"editorbuild" "7552"
+	"mapversion" "112"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "102"
+	"mapversion" "112"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -472,7 +472,7 @@ hidden
 		"HoldAnimation" "0"
 		"MaxAnimTime" "10"
 		"MinAnimTime" "5"
-		"model" "models/props_ingame/cust_fizz.mdl"
+		"model" "models/bee2/props_ingame/cust_fizz.mdl"
 		"PerformanceMode" "0"
 		"pressuredelay" "0"
 		"RandomAnimation" "0"
@@ -495,61 +495,6 @@ hidden
 			"visgroupautoshown" "1"
 			"logicalpos" "[0 1000]"
 		}
-	}
-}
-entity
-{
-	"id" "638"
-	"classname" "logic_branch"
-	"InitialValue" "$start_reversed"
-	"targetname" "branch_las"
-	connections
-	{
-		"OnTrue" "sndPlaySound0-1"
-		"OnFalse" "sndStopSound0-1"
-		"OnTrue" "brushEnable0-1"
-		"OnTrue" "hurtEnable0-1"
-		"OnFalse" "hurtDisable0-1"
-		"OnTrue" "mdlColor255 0 00-1"
-		"OnFalse" "brushDisable0-1"
-		"OnFalse" "manSetStateAFalse0-1"
-		"OnTrue" "manSetStateATrue0-1"
-	}
-	"origin" "0 -16 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "678"
-	"classname" "logic_coop_manager"
-	"DefaultPlayerStateA" "0"
-	"DefaultPlayerStateB" "0"
-	"targetname" "man"
-	connections
-	{
-		"OnChangeToAllFalse" "mdlSetAnimationclose0-1"
-		"OnChangeToAnyTrue" "mdlSetAnimationopen0-1"
-		"OnChangeToAnyFalse" "branch_fizzTest0-1"
-		"OnChangeToAllTrue" "mdlColor255 0 00-1"
-		"OnChangeToAnyFalse" "branch_lasTest0-1"
-		"OnChangeToAllTrue" "brushDisable0-1"
-		"OnChangeToAllTrue" "fizz_redEnable0-1"
-		"OnChangeToAllTrue" "fizz_blueDisable0-1"
-		"OnChangeToAnyFalse" "fizz_redDisable0-1"
-	}
-	"origin" "0 -9.53674e-007 -16"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 hidden
@@ -589,60 +534,40 @@ hidden
 }
 entity
 {
-	"id" "615"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_fizz"
-	connections
-	{
-		"OnFalse" "fizz_blueDisable0-1"
-		"OnTrue" "fizz_blueEnable0-1"
-		"OnTrue" "mdlColor100 150 2000-1"
-		"OnTrue" "manSetStateBTrue0-1"
-		"OnFalse" "manSetStateBFalse0-1"
-	}
-	"origin" "0 16 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "617"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "branch_lasToggleTest0-1"
-		"OnProxyRelay" "branch_fizzToggleTest0-1"
-	}
-	"origin" "16 0 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
 	"id" "619"
-	"classname" "logic_auto"
-	"spawnflags" "1"
+	"classname" "logic_script"
+	"targetname" "scr"
+	"vscripts" "bee2/death_fizz.nut"
 	connections
 	{
-		"OnMapSpawn" "branch_lasTest0.11-1"
-		"OnMapSpawn" "branch_fizzTest0.1-1"
+		"OnUser1" "mdlSetAnimationclose0-1"
+		"OnUser2" "mdlSetAnimationopen0-1"
+		"OnUser3" "mdlSetAnimationopen0-1"
+		"OnUser4" "mdlSetAnimationopen0-1"
+		"OnUser1" "fizz_blueDisable0-1"
+		"OnUser1" "fizz_redDisable0-1"
+		"OnUser1" "hurtDisable0-1"
+		"OnUser1" "brushDisable0-1"
+		"OnUser4" "mdlColor255 0 00-1"
+		"OnUser3" "mdlColor255 0 00-1"
+		"OnUser3" "hurtEnable0-1"
+		"OnUser4" "hurtEnable0-1"
+		"OnUser2" "brushDisable0-1"
+		"OnUser2" "hurtDisable0-1"
+		"OnUser2" "fizz_redDisable0-1"
+		"OnUser2" "fizz_blueEnable0-1"
+		"OnUser3" "brushEnable0-1"
+		"OnUser3" "fizz_redDisable0-1"
+		"OnUser3" "fizz_blueDisable0-1"
+		"OnUser4" "brushDisable0-1"
+		"OnUser4" "fizz_redEnable0-1"
+		"OnUser4" "fizz_blueDisable0-1"
+		"OnUser2" "mdlColor100 150 2000-1"
 	}
-	"origin" "0 4.76837e-007 16"
+	"origin" "16 4.76837e-007 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 200"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"

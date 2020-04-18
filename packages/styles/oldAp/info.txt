@@ -11,6 +11,7 @@
 	"Folder"		"1950s"
 	"Group"			"Old Aperture"
 	"Icon"			"styles/aperture_50s"
+	"IconLarge"  		"prev/aperture_50s"
 	"Has_Video"		"0"
 	"VPK_Name"      "VPK_BEE2_1950S"
 	"Description"
@@ -32,10 +33,38 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "50s"
 		"sp_entry"
 			{
-			"1"	"Lobby"
-			"4"	"Right Turn"
+			"1" {
+				"Name" "Lobby"
+				"Desc" "Test subjects enter through an office corridor. Several dynamic elements change based on chamber contents:
+
+* An information sign appears describing Repulsion Gel if present.
+* A \"Safety First\" sign appears if dangerous test elements are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+"
+				}
+			"2" {
+				"Name" "Straight Hallway"
+				"Desc" "A normal straight corridor. Several dynamic elements change based on chamber contents:
+
+* An information sign appears describing Repulsion Gel if present.
+* A reminder sign appears asking subjects to retrieve a Quantum Tunneling Device, if this is required.
+* A \"Safety First\" sign appears if dangerous test elements are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+"
+				}
+			"4" {
+				"Name" "Right Turn"
+				"Desc" "Test Subjects enter through a small waiting area.
+* An information sign appears describing Repulsion Gel if present.
+* A \"Safety First\" sign appears if dangerous test elements are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+* A warning about moving platforms appears if they are present.
+* A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
+"
+				}
 			}
 		"sp_exit"
 			{
@@ -57,6 +86,7 @@
 	"ShortName"		"1960s"
 	"Group"			"Old Aperture"
 	"Icon"			"styles/aperture_60s"
+	"IconLarge" 		"prev/aperture_60s"
 	"Folder"		"1960s"
 	"Base"			"BEE2_1950s"
 	"VPK_Name"      "VPK_BEE2_1950S" // The style has mostly the same textures..
@@ -78,6 +108,22 @@
 		"Music"		"VALVE_VIT_ORDER_2"
 		"Skybox"	"BEE2_SPHERE_INTERIOR"
 		}
+	"Corridors"
+		{
+		"icon_folder" "60s"
+		"sp_entry"
+			{
+			"1"	"Lobby"
+			}
+		"sp_exit"
+			{
+			"2"	"Lobby"
+			}
+		"coop"
+			{
+			"2"	"Office"
+			}
+		}
 	}
 
 "Style"
@@ -88,6 +134,7 @@
 	"ShortName"		"1970s"
 	"Group"			"Old Aperture"
 	"Icon"			"styles/aperture_70s"
+	"IconLarge"  		"prev/aperture_70s"
 	"Folder"		"1970s"
 	"Base"			"BEE2_1950s"
 	"VPK_Name"      "VPK_BEE2_1970S"
@@ -110,9 +157,36 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "70s"
 		"sp_entry"
 			{
-			"1"	"Lobby"
+			"1" {
+				"Name" "Lobby"
+				"Desc" "Test subjects enter through an office corridor. Several dynamic elements change based on chamber contents:
+
+* Conversion Gel will be spilled in splatters on the floor if present.
+* Semi-transparent versions of modern sigange appear for Crushers, Propulsion Gel and Repulsion Gel.
+* A sign warns of dangerous testing elements.
+* Another warns about \"Combatatron\" androids if Turrets are present.
+"
+				}
+			"3" {
+				"Name" "Low Ceiling"
+				"Desc" "The corridor contains a rather low ceiling. Several dynamic elements change based on chamber contents:
+* Semi-transparent versions of modern sigange appear for Discouragement Beams, Propulsion Gel, Repulsion Gel, Light Bridges, Toxic Goo, High Energy Pellets and Excursion Funnels.
+* A sign warns of dangerous testing elements.
+* Another warns about \"Combatatron\" androids if Turrets are present.
+"
+				}
+			"4" {
+				"Name" "Stairs"
+				"Desc" "Test subjects walk up a small staircase to enter the chamber. Several dynamic elements change based on chamber contents:
+* Repulsion Gel is spilled on the floor if present in the chamber.
+* Semi-transparent versions of modern sigange appear for Repulsion Gel and Crushers.
+* A sign warns of dangerous testing elements.
+* Another warns about \"Combatatron\" androids if Turrets are present.
+"
+				}
 			}
 		"sp_exit"
 			{
@@ -133,6 +207,7 @@
 	"ShortName"		"1980s"
 	"Group"			"Old Aperture"
 	"Icon"			"styles/aperture_80s"
+	"IconLarge" 		"prev/aperture_80s"
 	"VPK_Name"      "VPK_BEE2_1980S"
 	"Folder"		"1980s"
 	"Base"			"BEE2_1970s"
@@ -156,10 +231,16 @@
 		}
 	"Corridors"
 		{
+		"icon_folder" "80s"
 		"sp_entry"
 			{
 			"1"	"Lobby"
+			"2" "Elevated office"
 			"3"	"Office"
+			}
+		"sp_exit"
+			{
+			"2" "Presentation"
 			}
 		}
 	}
@@ -194,6 +275,7 @@
 	"ShortName"     "Sphere Interior"
 	"Group"         "2D"
 	"Icon"          "styles/aperture_60s.png" // Includes an enrichment sphere icon to show 'vitrified'
+	"IconLarge"     "prev/sky_sphere_int.png"
 	"Material"      "sky_black"
 	"Authors"       "Valve"
 	"Description"   "The fog used for the interior of Enrichment Spheres."
@@ -220,7 +302,7 @@
 	"ShortName"     "Sphere Exterior"
 	"Group"         "2D"
 	"Icon"          "skies/sphere_exterior.png"
-	"IconLarge"     "skies_lrg/sphere_exterior.png"
+	"IconLarge"     "prev/sky_sphere_ext.png"
 	"Material"      "sky_black"
 	"Authors"       "Valve"
 	"Description"   "The fog used for the exterior of Enrichment Spheres, or the partially-constructed 80s style."
@@ -353,15 +435,6 @@
 		"Style" "BEE2_1970s"
 		"Style" "BEE2_1980s"
 		}
-			
-	"StyleVar"
-		{
-		"ID"    "BlockPlayerGelBomb"
-		"Style" "BEE2_1950s"
-		"Style" "BEE2_1960s"
-		"Style" "BEE2_1970s"
-		"Style" "BEE2_1980s"
-		}
 	}
 
 "StyleVar"
@@ -387,273 +460,6 @@
 	{
 	"ID"       "VPK_BEE2_1980S"
 	"Filename" "1980s"
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_VIT_ORDER_1"
-	"Name"			"Vitrification Order Part 1"
-	"ShortName"		"Vit Order #1"
-	"Group"			"Old Aperture"
-	"Icon"			"music/vitrification_order_1"
-	"IconLarge"     "music_lrg/vitrification_order_1"
-	"Authors"		"Valve"
-	"Description"	"The music played during the trek through the base of Test Shaft 09."
-	"Sample"        "p2/sp_a3_01_b2.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a3_01_b2.wav"
-		"SpeedGel" 
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		"Tbeam" "music/sp_a3_01_b3.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_VIT_ORDER_2"
-	"Name"			"Vitrification Order Part 2"
-	"ShortName"		"Vit Order #2"
-	"Group"			"Old Aperture"
-	"Icon"			"music/vitrification_order_2"
-	"IconLarge"     "music_lrg/vitrification_order_2"
-	"Authors"		"Valve"
-	"Description"	"The second half of the music played during the trek through the base of Test Shaft 09."
-	"Sample"        "p2/sp_a3_01_b4.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a3_01_b4.wav"
-		"SpeedGel" 
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		"Tbeam" "music/sp_a3_01_b3.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_CAUSE_SCIENCE"
-	"Name"			"Forwarding The Cause of Science"
-	"ShortName"		"Cause of Science"
-	"Group"			"Old Aperture"
-	"Icon"			"music/cause_of_science"
-	"IconLarge"     "music_lrg/cause_of_science"
-	"Authors"		"Valve"
-	"Description"	"The music for the second 1950s Repulsion Gel Test."
-	"Sample"        "p2/sp_a3_bomb_flings_b1.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a3_bomb_flings_b1.wav"
-		"SpeedGel" 
-			{
-			"snd" "music/sp_a3_bomb_flings_z2.wav"
-			"snd" "music/sp_a3_bomb_flings_z2b.wav"
-			"snd" "music/sp_a3_bomb_flings_z2c.wav"
-			}
-		"Tbeam" "music/ctc_tbeam.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_CONTROL_GROUP"
-	"Name"			"You Are Not Part Of The Control Group"
-	"ShortName"		"Control Group"
-	"Group"			"Old Aperture"
-	"Icon"			"music/control_group"
-	"IconLarge"     "music_lrg/control_group"
-	"Authors"		"Valve"
-	"Description"	"The music for the first 1950s Repulsion Gel Test."
-	"Sample"        "p2/sp_a3_jump_intro_b1.ogg"
-	"SoundScript"
-		{
-		"Base" 
-			{
-			"snd" "music/sp_a3_jump_intro_b1.wav"
-			"snd" "music/sp_a3_jump_intro_b2.wav"
-			}
-		"SpeedGel" 
-			{
-			// Higher pitched sounds
-			"snd" "music/sp_a3_jump_intro_z1b.wav"
-			"snd" "music/sp_a3_jump_intro_z2b.wav"
-			}
-		"Tbeam" "music/ctc_tbeam.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			"snd" "music/sp_a3_jump_intro_z2.wav"
-			"snd" "music/sp_a3_jump_intro_z2c.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_MUSIC_SPHERES_1"
-	"Name"			"Music of The Spheres 1"
-	"ShortName"		"MoT Spheres 1"
-	"Group"			"Old Aperture"
-	"Icon"			"music/music_of_spheres_1"
-	"IconLarge"     "music_lrg/music_of_spheres_1"
-	"Authors"		"Valve"
-	"Description"	"The music played around the exterior of the 1950s Enrichment Spheres."
-	"Sample"        "p2/sp_a3_03_b1.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a3_03_b1.wav"
-		"Tbeam" "music/sp_a3_03_b2.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1b.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			
-			"snd" "music/sp_a3_jump_intro_z2.wav"
-			"snd" "music/sp_a3_jump_intro_z2b.wav"
-			"snd" "music/sp_a3_jump_intro_z2c.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_bomb_flings_z1.wav"
-			"snd" "music/sp_a3_bomb_flings_z1b.wav"
-			"snd" "music/sp_a3_bomb_flings_z1c.wav"
-			"snd" "music/sp_a3_bomb_flings_z1d.wav"
-			"snd" "music/sp_a3_bomb_flings_z1e.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_REUNION_PART_1"
-	"Name"			"The Reunion - Part 1"
-	"ShortName"     "The Reunion #1"
-	"Group"			"Old Aperture"
-	"Icon"			"music/the_reunion_1"
-	"IconLarge"     "music_lrg/the_reunion_1"
-	"Authors"		"Valve"
-	"Description"	"The music for the first 1970s Propulsion Gel Test."
-	"Sample"        "p2/sp_a3_speed_ramp_b1.ogg"
-	"SoundScript"
-		{
-		"Base"  "music/sp_a3_speed_ramp_b1.wav"
-		"Tbeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			// This one sounds a little different, so make it less common.
-			"snd" "music/sp_a3_speed_ramp_c3.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_REUNION_PART_2"
-	"Name"			"The Reunion - Part 2"
-	"ShortName"     "The Reunion #2"
-	"Group"			"Old Aperture"
-	"Icon"			"music/the_reunion_2"
-	"IconLarge"     "music_lrg/the_reunion_2"
-	"Authors"		"Valve"
-	"Description"	"The music for the second 1970s Propulsion Gel Test."
-	"Sample"        "p2/sp_a3_speed_ramp_b2.ogg"
-	"SoundScript"
-		{
-		"Base"  "music/sp_a3_speed_ramp_b2.wav"
-		"Tbeam" "music/sp_a4_tb_intro_tbin.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_z1.wav"
-			"snd" "music/sp_a3_speed_ramp_z1b.wav"
-			"snd" "music/sp_a3_speed_ramp_z1c.wav"
-			"snd" "music/sp_a3_speed_ramp_z1d.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			// This one sounds a little different, so make it less common.
-			"snd" "music/sp_a3_speed_ramp_c3.wav"
-			}
-		}
-	}
-	
-"Music"
-	{
-	"ID"			"VALVE_MUSIC_SPHERES_2"
-	"Name"			"Music of The Spheres 2 (Incendiary Lemons)"
-	"ShortName"		"MoT Spheres 2"
-	"Group"			"Old Aperture"
-	"Icon"			"music/music_of_spheres_2"
-	"IconLarge"     "music_lrg/music_of_spheres_2"
-	"Authors"		"Valve"
-	"Description"	"The music played in the first and only proper 1980s Conversion Gel Test."
-	"Sample"        "p2/sp_a3_portal_intro_b1.ogg"
-	"SoundScript"
-		{
-		"Base" "music/sp_a3_portal_intro_b1.wav"
-		"Tbeam" "music/sp_a3_portal_intro_b4_2.wav"
-		"BounceGel"
-			{
-			"snd" "music/sp_a3_jump_intro_z1.wav"
-			"snd" "music/sp_a3_jump_intro_z1c.wav"
-			"snd" "music/sp_a3_jump_intro_z2.wav"
-			"snd" "music/sp_a3_jump_intro_z2c.wav"
-			}
-		"SpeedGel"
-			{
-			"snd" "music/sp_a3_speed_ramp_c1.wav"
-			"snd" "music/sp_a3_speed_ramp_c2.wav"
-			}
-		}
 	}
 	
 "BrushTemplate"
@@ -1006,251 +812,16 @@
 	
 "PackList"
 	{
-	// 80s floor buttons - the destroyed models, but using clean skins.
-	"ID" "PACK_FLOOR_BUTTON_PROTOTYPE"
-	"Config"
+	"ID"       "PACK_LIGHT_BRIDGE_RETRO"
+	"Config" 
 		{
-		"File" "models/BEE2/props_ingame/floor_button_prototype_1.mdl"
-		"File" "models/BEE2/props_ingame/floor_button_prototype_2.mdl"
+		"" "models/BEE2/props_underground/light_bridge.mdl"
+		"" "materials/BEE2/models/props_underground/light_bridge_coils.vmt"
+		"" "materials/BEE2/models/props_underground/light_bridge_coils.vtf"
+		"" "materials/BEE2/models/props_underground/light_bridge_coils_n.vtf"
+		"" "materials/BEE2/models/props_underground/light_bridge_lamp.vmt"
+		"" "materials/BEE2/models/props_underground/light_bridge_lamp.vtf"
 		}
-	}
-	
-"PackList"
-	{
-	// Track Platform platform models
-	"ID" "PACK_RETRO_TRACK_PLAT_HORIZ"
-	"Config"
-		{
-		"File" "models/BEE2/props_underground/track_plat_horiz.mdl"
-		// The brush-materials we use. The motor reuses the original texture.
-		"File" "materials/BEE2/models/props_underground/metalwall_bts_005a.vmt"
-		"File" "materials/BEE2/models/props_underground/factory_metal_floor001a.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_RETRO_TRACK_PLAT_VERT"
-	"Config"
-		{
-		"File" "models/BEE2/props_underground/track_plat_vert.mdl"
-		"File" "materials/BEE2/models/props_underground/metalwall_bts_005a.vmt"
-		"File" "materials/BEE2/models/props_underground/factory_metal_floor001a.vmt"
-		}
-	}
-
-"Pack"
-	{
-	"ID" "PACK_RETRO_PIST_PLAT"
-	"Config"
-		{
-		"File" "models/BEE2/props_underground/piston_base.mdl"
-		"File" "models/BEE2/props_underground/piston_mid.mdl"
-		"File" "models/BEE2/props_underground/piston_top.mdl"
-		"File" "models/BEE2/props_underground/piston_plat.mdl"
-		"File" "materials/BEE2/models/props_underground/metalbeam_bts_001c.vmt"
-		"File" "materials/BEE2/models/props_underground/factory_metal_floor001a.vmt"
-		}
-	}
-	
-// There are 10 shapes, used in this order.
-// Pack them in these sets, so only the used ones are added.
-// It's not common to need more than 5, so in that case pack them all.
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SHAPE_1"
-	"AddIfMat" "BEE2/70s/signage_shape_cross"
-	"AddIfMat" "BEE2/70s/signage_shape_square"
-	"AddIfMat" "BEE2/70s/signage_shape_dot"
-	"Config"
-		{		
-		"File" "materials/BEE2/70s/signage_shape_cross.vtf"
-		"File" "materials/BEE2/70s/signage_shape_square.vtf"
-		"File" "materials/BEE2/70s/signage_shape_dot.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BEE2_70S_SHAPE_2"
-	"AddIfMat" "BEE2/70s/signage_shape_moon"
-	"AddIfMat" "BEE2/70s/signage_shape_slash"
-	
-	"Config"
-		{
-		"File" "materials/BEE2/70s/signage_shape_moon.vtf"
-		"File" "materials/BEE2/70s/signage_shape_slash.vtf"
-		}
-	}
-	
-"PackList"
-	{	
-	"ID" "PACK_BEE2_70S_SHAPE_3"
-	"AddIfMat" "BEE2/70s/signage_shape_triangle"
-	"AddIfMat" "BEE2/70s/signage_shape_sine"
-	"AddIfMat" "BEE2/70s/signage_shape_star"
-	"AddIfMat" "BEE2/70s/signage_shape_wavy"
-	"AddIfMat" "BEE2/70s/signage_shape_circle"
-	"Config"
-		{
-		"File" "materials/BEE2/70s/signage_shape_sine.vtf"
-		"File" "materials/BEE2/70s/signage_shape_triangle.vtf"
-		"File" "materials/BEE2/70s/signage_shape_star.vtf"
-		"File" "materials/BEE2/70s/signage_shape_wavy.vtf"
-		"File" "materials/BEE2/70s/signage_shape_circle.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_CRUSHER"
-	"AddIfMat" "BEE2/70s/signage_crusher"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_PELLET"
-	"AddIfMat" "BEE2/70s/signage_pellet"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_CATAPULT"
-	"AddIfMat" "BEE2/70s/signage_catapult"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_ARROW"
-	"AddIfMat" "BEE2/70s/signage_arrow"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_BALL_DROPPER"
-	"AddIfMat" "BEE2/70s/signage_ball_dispenser"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_BRIDGE"
-	"AddIfMat" "BEE2/70s/signage_bridge"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_EXIT"
-	"AddIfMat" "BEE2/70s/signage_exit"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_LASER_CATCHER"
-	"AddIfMat" "BEE2/70s/signage_laser_catcher"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_LASER_RELAY"
-	"AddIfMat" "BEE2/70s/signage_laser_relay"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_BOX_DROPPER"
-	"AddIfMat" "BEE2/70s/signage_overlay_boxdispenser"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_BOX_HURT"
-	"AddIfMat" "BEE2/70s/signage_overlay_boxhurt"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_DOTS_1"
-	"AddIfMat" "BEE2/70s/signage_overlay_dots1"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_DOTS_2"
-	"AddIfMat" "BEE2/70s/signage_overlay_dots2"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_DOTS_3"
-	"AddIfMat" "BEE2/70s/signage_overlay_dots3"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_DOTS_4"
-	"AddIfMat" "BEE2/70s/signage_overlay_dots4"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_GOO"
-	"AddIfMat" "BEE2/70s/signage_overlay_fountain"
-	"AddIfMat" "BEE2/70s/signage_overlay_toxic"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_TBEAM"
-	"AddIfMat" "BEE2/70s/signage_tractor_beam"
-	"AddIfMat" "BEE2/70s/signage_tractor_polarity"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70S_SIGN_GEL_DROPPER"
-	"AddIfMat" "BEE2/70s/signage_paint_dispenser"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_80S_SIGN_PAINT_JUMP"
-	"AddIfMat" "BEE2/80s/signage_paint_jump"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_70_SIGN_PELLET"
-	"AddIfMat" "BEE2/70s/signage_pellet"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_WORLD_SIGN_PAINT_JUMP"
-	"AddIfMat" "BEE2/world/signage_paint_jump"
-	"Config"
-		{
-		"File" "materials/BEE2/world/signage_paint_jump.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_WORLD_SIGN_PAINT_SPEED"
-	"AddIfMat" "BEE2/world/signage_paint_speed"
-	"Config"
-		{
-		"File" "materials/BEE2/world/signage_paint_speed.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BEE2_WORLD_SIGN_BRIDGE"
-	"AddIfMat" "BEE2/world/signage_bridge"
-	"Config"
-		{
-		"File" "materials/BEE2/world/signage_bridge.vtf"
-		} 
 	}
 	
 // A model with additional faces to fill holes in the dropper, and work properly on pillars.
@@ -1470,10 +1041,90 @@
 			"Name"		"Grating"
 			"Styles"
 				{
-				"BEE2_1950s"	"mandatory/50s/obs_grate"
-				"BEE2_1960s"	"mandatory/60s/obs_grate"
-				"BEE2_1970s"	"mandatory/70s/obs_grate"
-				"BEE2_1980s"	"mandatory/80s/obs_grate"
+				"BEE2_1950s"
+					{
+					"Folder" "mandatory/obs_grate"
+					"Instances"
+						{
+						"0" "instances/BEE2/50s/items/observation_grate_256.vmf"
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_obs_grate_256_50s.3ds"
+							"BEE2"  "50s/observation_grate.png"
+							"Icon"  "palette/50s/observation_grate.png"
+							}
+						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SP_OFF%" "-1024 1024 -832"
+							"%MP_OFF%" "-2464 4032 -320"
+							"%OBS_ROOM%" "instances/BEE2/50s/items/observation_room_256.vmf"
+							}
+						}
+					}
+				"BEE2_1960s"
+					{
+					// Appears same as 50s, but different location.
+					"Base" "BEE2_1950s"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SP_OFF%" "-2048 1536 -832"
+							"%MP_OFF%" "96 -576 -3392"
+							}
+						}
+					}
+				"BEE2_1970s"
+					{
+					"Folder" "mandatory/obs_grate"
+					"Instances"
+						{
+						"0" "instances/BEE2/70s/items/observation_grate_256.vmf"
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_obs_grate_256_70s.3ds"
+							"BEE2"  "70s/observation_grate.png"
+							"Icon"  "palette/70s/observation_grate.png"
+							}
+						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SP_OFF%" "-2560 2112 -832"
+							"%MP_OFF%" "96 -512 -3136"
+							"%OBS_ROOM%" "instances/BEE2/70s/items/observation_room_256.vmf"
+							}
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Folder" "mandatory/obs_grate"
+					"Instances"
+						{
+						"0" "instances/BEE2/80s/items/observation_grate_256.vmf"
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_obs_grate_256_80s.3ds"
+							"BEE2"  "80s/observation_grate.png"
+							"Icon"  "palette/80s/observation_grate.png"
+							}
+						}
+					// We need to specialise based on the open-sphere instance.
+					"Config" "mandatory/80s/obs_grate.cfg"
+					}
 				}
 			}
 			
@@ -1582,7 +1233,16 @@
 				}
 			}
 		}
-		
+	}
+	
+"BrushTemplate"
+	{
+	"ID"   "BEE2_BUTTON_80S_HOLE"
+	"File" "button_80s_hole.vmf"
+	}
+
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_SECONDARY_OBSERVATION_ROOM"
@@ -1633,25 +1293,286 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"light_warm"
-				"BEE2_1960s"		"light_cool_caged"
-				"BEE2_1970s"		"light_cool"
-				"BEE2_1980s"		"light_cool_noback"
-				}
-			}
-		}
-		
-	"Item"
-		{
-		"ID" "ITEM_LIGHT_PANEL_WARM"
-		"Version"
-			{
-			"Styles"
-				{
-				"BEE2_1950s"		"light_cool"
-				"BEE2_1960s"		"light_warm_caged"
-				"BEE2_1970s"		"light_warm"
-				"BEE2_1980s"		"light_warm_noback"
+				"BEE2_1950s"
+					{
+					"Base"   "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name" "instances/BEE2/50s/items/light_strip/common.vmf"
+							"EntityCount"		"4"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						// Swapped!
+						"bee2_cool" "instances/BEE2/50s/items/light_strip/warm.vmf"
+						"bee2_warm" "instances/BEE2/50s/items/light_strip/cool.vmf"
+						// The same.
+						"bee2_cold" "instances/BEE2/50s/items/light_strip/cold.vmf"
+						}
+					"Authors" "Carl Kenner, TeamSpen210"
+					"Description"
+						{
+						"" "A fluorescent light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" ""
+						"" "* _In the 1950s era, lighting is warm by default._"
+						"" "* The non-warm lights can be used to contrast or highlight areas."
+						"" "* Sphere-type is unused."
+						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "WARM NEON LIGHT"
+							"Name"     "Warm Neon Light"
+							"Model"    "under_light_warm.3ds"
+							"Icon"     "palette/50s/light_strip_warm.png"
+							"BEE2"     "50s/light_strip_warm.png"
+							}
+						"1"
+							{
+							"pal_name" "COOL NEON LIGHT"
+							"Name"     "Cool Neon Light"
+							"Model"    "under_light_cool.3ds"
+							"Icon"     "palette/50s/light_strip_cool.png"
+							"BEE2"     "50s/light_strip_cool.png"
+							}
+						"2"
+							{
+							"pal_name" "COLD NEON LIGHT"
+							"Name"     "Cold Neon Light"
+							"Model"    "under_light_cold.3ds"
+							"Icon"     "palette/50s/light_strip_cold.png"
+							"BEE2"     "50s/light_strip_cold.png"
+							}
+						// 3: Router, unstyled.
+						}
+					// Duplicates for backwards compatibility.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Name"     "Cool Neon Light"
+								"Model"    "under_light_cool.3ds"
+								}
+							"1"
+								{
+								"Name"     "Cold Neon Light"
+								"Model"    "under_light_cold.3ds"
+								}
+							}
+						}
+					}
+				"BEE2_1960s"
+					{
+					"Base"   "BEE2_1950s"
+					"Instances"
+						{
+						"0"
+							{
+							"Name" "instances/BEE2/60s/items/light_strip.vmf"
+							"EntityCount"		"4"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						}
+					"Authors" "Carl Kenner, TeamSpen210"
+					"Description"
+						{
+						"" "A fluorescent light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" ""
+						"" "* _In the 1960s era, lighting is warm by default._ They are also covered by protective grating."
+						"" "* The non-warm lights can be used to contrast or highlight areas."
+						"" "* Sphere-type is unused."
+						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "WARM NEON LIGHT"
+							"Name"     "Warm Neon Light"
+							"Model"    "under_light_warm_caged.3ds"
+							"Icon"     "palette/50s/light_strip_warm.png"
+							"BEE2"     "50s/light_strip_warm.png"
+							}
+						"1"
+							{
+							"pal_name" "COOL NEON LIGHT"
+							"Name"     "Cool Neon Light"
+							"Model"    "under_light_cool_caged.3ds"
+							"Icon"     "palette/50s/light_strip_cool.png"
+							"BEE2"     "50s/light_strip_cool.png"
+							}
+						"2"
+							{
+							"pal_name" "COLD NEON LIGHT"
+							"Name"     "Cold Neon Light"
+							"Model"    "under_light_cold_caged.3ds"
+							"Icon"     "palette/50s/light_strip_cold.png"
+							"BEE2"     "50s/light_strip_cold.png"
+							}
+						// 3: Router, unstyled.
+						}
+					// Duplicates for backwards compatibility.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Name"     "Cool Neon Light"
+								"Model"    "under_light_cool_caged.3ds"
+								}
+							"1"
+								{
+								"Name"     "Cold Neon Light"
+								"Model"    "under_light_cold_caged.3ds"
+								}
+							}
+						}
+					}
+				"BEE2_1970s"
+					{
+					"Base"   "BEE2_1950s"
+					"Instances"
+						{
+						"bee2_cool" "instances/BEE2/50s/items/light_strip/cool.vmf"
+						"bee2_warm" "instances/BEE2/50s/items/light_strip/warm.vmf"
+						}
+					"Authors" "Carl Kenner, TeamSpen210"
+					"Description"
+						{
+						"" "A fluorescent light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" ""
+						"" "* The non-cool lights can be used to contrast or highlight areas."
+						"" "* Sphere-type is unused."
+						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "COOL NEON LIGHT"
+							"Name"     "Cool Neon Light"
+							"Model"    "under_light_cool.3ds"
+							"Icon"     "palette/50s/light_strip_cool.png"
+							"BEE2"     "50s/light_strip_cool.png"
+							}
+						"1"
+							{
+							"pal_name" "WARM NEON LIGHT"
+							"Name"     "Warm Neon Light"
+							"Model"    "under_light_warm.3ds"
+							"Icon"     "palette/50s/light_strip_warm.png"
+							"BEE2"     "50s/light_strip_warm.png"
+							}
+						"2"
+							{
+							"pal_name" "COLD NEON LIGHT"
+							"Name"     "Cold Neon Light"
+							"Model"    "under_light_cold.3ds"
+							"Icon"     "palette/50s/light_strip_cold.png"
+							"BEE2"     "50s/light_strip_cold.png"
+							}
+						// 3: Router, unstyled.
+						}
+					// Duplicates for backwards compatibility.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Name"     "Warm Neon Light"
+								"Model"    "under_light_warm.3ds"
+								}
+							"1"
+								{
+								"Name"     "Cold Neon Light"
+								"Model"    "under_light_cold.3ds"
+								}
+							}
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Base"   "BEE2_1950s"
+					"Instances"
+						{
+						// Just the noportal volume.
+						"0"
+							{
+							"Name" "instances/BEE2/clean/items/light_strip/common.vmf"
+							"EntityCount"		"2"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						// Swapped!
+						"bee2_cool" "instances/BEE2/80s/items/light_strip/warm.vmf"
+						"bee2_warm" "instances/BEE2/80s/items/light_strip/cool.vmf"
+						// The same.
+						"bee2_cold" "instances/BEE2/80s/items/light_strip/cold.vmf"
+						}
+					"Authors" "Carl Kenner, TeamSpen210"
+					"Description"
+						{
+						"" "A fluorescent light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" ""
+						"" "* The non-cool lights can be used to contrast or highlight areas."
+						"" "* Sphere-type is unused."
+						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"pal_name" "COOL NEON LIGHT"
+							"Name"     "Cool Neon Light"
+							"Model"    "under_light_cool.3ds"
+							"Icon"     "palette/50s/light_strip_cool.png"
+							"BEE2"     "50s/light_strip_cool.png"
+							}
+						"1"
+							{
+							"pal_name" "WARM NEON LIGHT"
+							"Name"     "Warm Neon Light"
+							"Model"    "under_light_warm.3ds"
+							"Icon"     "palette/50s/light_strip_warm.png"
+							"BEE2"     "50s/light_strip_warm.png"
+							}
+						"2"
+							{
+							"pal_name" "COLD NEON LIGHT"
+							"Name"     "Cold Neon Light"
+							"Model"    "under_light_cold.3ds"
+							"Icon"     "palette/50s/light_strip_cold.png"
+							"BEE2"     "50s/light_strip_cold.png"
+							}
+						// 3: Router, unstyled.
+						}
+					// Duplicates for backwards compatibility.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Name"     "Warm Neon Light"
+								"Model"    "under_light_warm.3ds"
+								}
+							"1"
+								{
+								"Name"     "Cold Neon Light"
+								"Model"    "under_light_cold.3ds"
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1664,9 +1585,23 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"fizz"
-				"BEE2_1960s"		"fizz_sparky"
+				"BEE2_1960s"
+					{
+					"Folder" "fizz"
+					"Config" "fizz_sparky.cfg"
+					}
 				"BEE2_1970s"		"fizz"
-				"BEE2_1980s"		"fizz_improved"
+				"BEE2_1980s"
+					{
+					"Folder" "fizz"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%INST_FOLDER%" "instances/BEE2/80s/items/fizzler/"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1718,7 +1653,6 @@
 			"Styles"
 				{
 				"BEE2_1950s"		"bridge_50s"
-				"BEE2_1970s"		"bridge_70s"
 				"BEE2_1980s"		"bridge_80s"
 				}
 			}
@@ -1803,7 +1737,37 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"las_emitter_50s"
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_las_emitter_center.3ds"
+							}
+						}
+					"Instances"
+						{
+						"0"          "instances/BEE2/50s/items/laser/emitter_center.vmf"
+						"bee2_floor" "instances/BEE2/50s/items/laser/emitter_center.vmf"
+						}
+					"Extra"
+						{
+						"Instances"
+							{
+							"0"          "instances/BEE2/50s/items/laser/emitter_offset.vmf"
+							"bee2_floor" "instances/BEE2/50s/items/laser/emitter_offset.vmf"
+							}
+						"Palette"
+							{
+							"0"
+								{
+								"Model" "under_las_emitter_offset.3ds"
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1840,11 +1804,52 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"piston_plat_50s"
+				"BEE2_1950s"    "piston_plat"
+				"BEE2_1970s"
+					{
+					"Folder" "piston_plat"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%STATIC_0_METAL%"   "instances/BEE2/70s/items/pist_plat/static_0_metal.vmf"
+							"%GRATE_INST%"       "instances/BEE2/70s/items/pist_plat/grate.vmf"
+							"%STATIC_BASE%"      "instances/BEE2/70s/items/pist_plat/static_base.vmf"
+							"%STATIC_TOP_METAL%" "instances/BEE2/70s/items/pist_plat/static_top_gls.vmf"
+							"%STATIC_TOP_BRUSH%" "instances/BEE2/50s/items/pist_plat/static_top_brush.vmf"
+							}
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Folder" "piston_plat"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%STATIC_0_METAL%"   "instances/BEE2/80s/items/pist_plat/static_0_metal.vmf"
+							"%GRATE_INST%"       "instances/BEE2/80s/items/pist_plat/grate.vmf"
+							"%STATIC_BASE%"      "instances/BEE2/80s/items/pist_plat/static_base.vmf"
+							"%STATIC_TOP_METAL%" "instances/BEE2/70s/items/pist_plat/static_top_gls.vmf"
+							"%STATIC_TOP_BRUSH%" "instances/BEE2/80s/items/pist_plat/static_top_brush.vmf"
+							"%STATIC_PUSHOUT%"   "instances/bee2/80s/items/pist_plat/static_pushout.vmf"
+							"%VIS_PANEL%"        "pist_brush_80s"
+							}
+						}
+					}
 				}
 			}
 		}
-		
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_PISTON_PLATFORM_RETRO"
+	"File"  "piston_plat.vmf"
+	}
+	
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_TURRET"
@@ -1865,8 +1870,85 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"    "funnel_50s"
-				"BEE2_1970s"    "funnel_70s"
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+
+					"Authors"		"Valve, TeamSpen210"
+					"Tags"			"Portal 2; Test Elements"
+					"Description"	"50s Funnels are beamed into the chamber via a hole in the wall."
+					"Ent_Count"     "3"
+
+					"Config" {} // We don't need any configuration.
+					"Instances"
+						{
+						"0" "instances/BEE2/50s/items/tbeam/beam.vmf"
+						"1" "instances/BEE2/50s/items/tbeam/frame_white.vmf"
+						"2" "instances/BEE2/50s/items/tbeam/frame_black.vmf"
+						}
+					"Palette"
+						{
+						"0" 
+							{
+							// 50s funnels are beamed into the chamber through a gel tube..
+							"Model" "under_gel_drop_water.3ds"
+							}
+						}
+					}
+				"BEE2_1970s"
+					{
+					"Base" "BEE2_CLEAN"
+
+					"Authors"		"Valve, TeamSpen210"
+					"Tags"			"Portal 2; Test Elements"
+					"Description"	"In the 1970s era, this is produced by a prototype emitter."
+					"Ent_Count"     "3"
+
+					"Instances"
+						{
+						"0" "instances/BEE2/70s/items/tbeam/beam.vmf"
+						"1" "instances/BEE2/70s/items/tbeam/frame_white.vmf"
+						"2" "instances/BEE2/70s/items/tbeam/frame_black.vmf"
+						}
+					"IOConf"
+						{
+						"Type"              "DUAL"
+						"Init"              "Auto"
+						"DefaultDual"       "A"
+						
+						"InvertVar"         "$start_enabled"
+						"Enable_Cmd"        "tbeam,Enable,,0.00,-1"
+						"Disable_Cmd"       "tbeam,Disable,,0.00,-1"
+						"Enable_Cmd"        "asb,TurnOn,,0.00,-1"
+						"Disable_Cmd"       "asb,TurnOff,,0.00,-1"
+						
+						"Sec_InvertVar"     "$start_reversed"
+						"Sec_Enable_Cmd"    "mdl,FireUser4,,0.00,-1"
+						"Sec_Disable_Cmd"   "mdl,FireUser3,,0.00,-1"
+						}
+					"Config"
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance" "<ITEM_TBEAM:fun_emitter>"
+								"Condition"
+									{
+									"instvar" "$conn_count_b > 0"
+									"Result"
+										{
+										"AddOverlay" "instances/BEE2/70s/items/tbeam/polarity_inp.vmf"
+										}
+									"Else"
+										{
+										"AddOverlay" "instances/BEE2/70s/items/tbeam/polarity_static.vmf"
+										}
+									}
+								}
+							}
+						}
+					}
 				"BEE2_1980s"    "<BEE2_CLEAN>"
 				}
 			}
@@ -1883,7 +1965,30 @@
 				}
 			}
 		}
-		
+	}
+	
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_GLASS_TEMPLATE_50s"
+	"File"  "glass_template_50s.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_GLASS_TEMPLATE_70s"
+	"File"  "glass_template_70s.vmf"
+	}
+
+"BrushTemplate"
+	{
+	// No rotation, fitting the grid.
+	"ID"    "BEE2_GRATING_TEMPLATE_SQUARE"
+	"File"  "grating_template.vmf"
+	}
+	
+	
+"Overrides"
+	{		
 	"Item"
 		{
 		"ID" "ITEM_PANEL_ANGLED"
@@ -1891,9 +1996,26 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"  "angled_pan_50s"
-				"BEE2_1970s"  "angled_pan_70s"
-				"BEE2_1980s"  "angled_pan_80s"
+				"BEE2_1950s"  "angled_pan"
+				"BEE2_1970s"
+					{
+					"Folder" "angled_pan"
+					"Instances"
+						{
+						"0"         "instances/BEE2/70s/items/panel_angled.vmf"
+						"pan_logic" "instances/BEE2/70s/items/panel_logic.vmf"
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Folder" "angled_pan"
+					"Config" "angled_pan_80s.cfg"
+					"Instances"
+						{
+						"0"         "instances/BEE2/80s/items/panel_angled.vmf"
+						"pan_logic" "instances/BEE2/80s/items/panel_logic.vmf"
+						}
+					}
 				}
 			}
 		}
@@ -1919,13 +2041,185 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"  "track_plat/50s"
-				"BEE2_1970s"  "track_plat/70s"
-				"BEE2_1980s"  "track_plat/80s"
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Authors"		"Carl Kenner, TeamSpen210"
+					"Description"	"Old Aperture Track Platforms use a simpler design, with a pair of motors and tracks."
+					"Config" "track_plat.cfg"
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_50s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"1"
+							{
+							"Model" "under_rail_plat_black.3ds"
+							"Model" "under_rail_track_50s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"2"
+							{
+							"Model" "under_rail_plat_white.3ds"
+							"Model" "under_rail_track_50s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"3"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_50s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"4"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_50s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						}
+					"Instances"
+						{
+						"0" "instances/BEE2/50s/items/track/bottom_grate.vmf"
+						"1" "instances/BEE2/50s/items/track/bottom.vmf"
+						"2" "instances/BEE2/50s/items/track/middle.vmf"
+						"3" "instances/BEE2/50s/items/track/top.vmf"
+						"4" "instances/BEE2/50s/items/track/platform.vmf"
+						"5" "instances/BEE2/50s/items/track/platform_oscillate.vmf"
+						"6" "instances/BEE2/50s/items/track/single.vmf"
+						"bee2_static" "instances/BEE2/50s/items/track/static.vmf"
+						}
+					}
+				"BEE2_1970s"
+					{
+					"Base" "BEE2_1950s"
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_70s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"1"
+							{
+							"Model" "under_rail_plat_black.3ds"
+							"Model" "under_rail_track_70s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"2"
+							{
+							"Model" "under_rail_plat_white.3ds"
+							"Model" "under_rail_track_70s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"3"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_70s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"4"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_70s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						}
+					"Instances"
+						{
+						"0" "instances/BEE2/70s/items/track/bottom_grate.vmf"
+						"1" "instances/BEE2/70s/items/track/bottom.vmf"
+						"2" "instances/BEE2/70s/items/track/middle.vmf"
+						"3" "instances/BEE2/70s/items/track/top.vmf"
+						"4" "instances/BEE2/50s/items/track/platform.vmf"
+						"5" "instances/BEE2/50s/items/track/platform_oscillate.vmf"
+						"6" "instances/BEE2/70s/items/track/single.vmf"
+						"bee2_static" "instances/BEE2/70s/items/track/static.vmf"
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Base" "BEE2_1950s"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%decade%" "80s"
+							}
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance" "<ITEM_RAIL_PLATFORM:track_top, track_bottom>"
+								// These are all the same, just reuse 1 instance
+								"Result"
+									{
+									"ChangeInstance" "<ITEM_RAIL_PLATFORM:track_middle>"
+									}
+								}
+							}
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_80s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"1"
+							{
+							"Model" "under_rail_plat_black.3ds"
+							"Model" "under_rail_track_80s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"2"
+							{
+							"Model" "under_rail_plat_white.3ds"
+							"Model" "under_rail_track_80s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"3"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_80s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						"4"
+							{
+							"Model" "under_rail_plat.3ds"
+							"Model" "under_rail_track_80s.3ds"
+							"Model" "under_rail_track_noback.3ds"
+							}
+						}
+					"Instances"
+						{
+						"0" "instances/BEE2/80s/items/track/bottom_grate.vmf"
+						"1" "instances/BEE2/80s/items/track/track_bottom.vmf"
+						"2" "instances/BEE2/80s/items/track/track.vmf"
+						"3" "instances/BEE2/80s/items/track/track_top.vmf"
+						"4" "instances/BEE2/50s/items/track/platform.vmf"
+						"5" "instances/BEE2/50s/items/track/platform_oscillate.vmf"
+						"6" "instances/BEE2/80s/items/track/single.vmf"
+						"bee2_static" "instances/BEE2/80s/items/track/static.vmf"
+						}
+					}
 				}
 			}
 		}
-		
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_TRACK_PLAT_PANEL_RETRO"
+	"File" "track_panel.vmf"
+	}
+
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_PANEL_STAIRS"

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "252"
+	"editorbuild" "7552"
+	"mapversion" "254"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,13 +32,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "252"
+	"mapversion" "254"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2083,10 +2083,10 @@ entity
 	{
 		"OnChangeToAllTrue" "crushTrigger0.01-1"
 	}
-	"origin" "-80 -48 0"
+	"origin" "-64 -56 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 12500]"
@@ -2111,10 +2111,10 @@ entity
 		"OnTrigger" "hurt_backDisable4.5-1"
 		"OnSpawn" "manSetStateBTrue2.21"
 	}
-	"origin" "-64 -64 0"
+	"origin" "-88 -56 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 12500]"
@@ -2126,7 +2126,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm3" "$connectioncount string"
 	"parm4" "$start_enabled string"
-	"origin" "-48 -80 0"
+	"origin" "-40 -56 0"
 	editor
 	{
 		"color" "220 30 220"
@@ -2495,45 +2495,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 6000]"
-	}
-}
-entity
-{
-	"id" "3190"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "manToggleStateA0-1"
-		"OnChangedFromMax" "manToggleStateA0-1"
-	}
-	"origin" "-48 -48 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "3192"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-80 -80 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
 	}
 }
 entity

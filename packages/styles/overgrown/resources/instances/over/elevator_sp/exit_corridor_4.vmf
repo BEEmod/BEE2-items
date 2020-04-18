@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7378"
-	"mapversion" "359"
+	"mapversion" "366"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -50,7 +50,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "359"
+	"mapversion" "366"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -5559,7 +5559,7 @@ hidden
 		"origin" "64 -32 -496"
 		editor
 		{
-			"color" "220 30 220"
+			"color" "0 100 250"
 			"visgroupid" "36"
 			"visgroupshown" "0"
 			"visgroupautoshown" "1"
@@ -5585,7 +5585,7 @@ hidden
 		"origin" "64 -128 -184"
 		editor
 		{
-			"color" "220 30 220"
+			"color" "0 100 250"
 			"visgroupid" "37"
 			"visgroupshown" "0"
 			"visgroupautoshown" "1"
@@ -5612,7 +5612,7 @@ hidden
 		"origin" "16 0 -144"
 		editor
 		{
-			"color" "220 30 220"
+			"color" "200 0 0"
 			"visgroupid" "38"
 			"visgroupshown" "0"
 			"visgroupautoshown" "1"
@@ -14128,116 +14128,6 @@ entity
 }
 entity
 {
-	"id" "6483"
-	"classname" "trigger_multiple"
-	"origin" "64 0 -332"
-	"spawnflags" "4096"
-	"StartDisabled" "1"
-	"targetname" "@preview_restart_trigger"
-	"wait" "3"
-	connections
-	{
-		"OnTrigger" "@clientcommandCommandrestart_level2-1"
-		"OnTrigger" "@preview_complete_messageDisplay0-1"
-		"OnTrigger" "@screenshot2Trigger01"
-	}
-	solid
-	{
-		"id" "10308"
-		side
-		{
-			"id" "2889"
-			"plane" "(0 160 -160) (128 160 -160) (128 -160 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 32] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2888"
-			"plane" "(0 -96 -536) (128 -96 -536) (128 160 -536)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2887"
-			"plane" "(0 160 -536) (0 160 -160) (0 -160 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2886"
-			"plane" "(128 -96 -536) (128 -160 -472) (128 -160 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2885"
-			"plane" "(128 160 -536) (128 160 -160) (0 160 -160)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2884"
-			"plane" "(0 -160 -160) (128 -160 -160) (128 -160 -472)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2883"
-			"plane" "(0 -96 -536) (0 -160 -472) (128 -160 -472)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0.5547 -0.83205 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "6069"
 	"classname" "func_detail"
 	solid
@@ -16006,12 +15896,13 @@ entity
 	{
 		"OnOpen" "@exit_portal_chamber_sideOpen0-1"
 		"OnFullyClosed" "@exit_portal_chamber_sideClose0-1"
-		"OnUser1" "@autosaveSaveDangerous20-1"
+		"OnUser1" "@autosaveSaveDangerous0.50-1"
 		"OnUser1" "nofall_clipKill0.2-1"
 		"OnUser1" "@exit_airlock_doorOpen0.2-1"
 		"OnUser1" "oran_port_frame0-1"
 		"OnFullyOpen" "oran_portFireUser101"
 		"OnFullyOpen" "blue_portFireUser101"
+		"OnUser1" "@portalgunRunScriptCodepgun_btn_force()0-1"
 	}
 	"origin" "0 96 -549"
 	editor
@@ -16033,6 +15924,10 @@ entity
 	"rendercolor" "255 255 255"
 	"targetname" "@exit_portal_chamber_side"
 	"width" "64"
+	connections
+	{
+		"OnPlayerTeleportFromMe" "@portalgunRunScriptCodepgun_btn_unforce()0-1"
+	}
 	"origin" "64 96 -549"
 	editor
 	{
