@@ -97,10 +97,12 @@
 		"TargetName"		"doorexit"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
+			"Type"          "AND"
+			"InvertVar"     "!$start_locked"
+			"Enable_Cmd"    "script,RunScriptCode,inp_io(true),0.00,-1"
+			"Disable_Cmd"   "script,RunScriptCode,inp_io(false),0.00,-1"
 			}
 		}
 		"Offset"		"64 64 0"
