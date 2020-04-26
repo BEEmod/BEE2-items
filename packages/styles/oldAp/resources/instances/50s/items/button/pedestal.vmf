@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "52"
+	"editorbuild" "8037"
+	"mapversion" "56"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "52"
+	"mapversion" "56"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,17 +32,18 @@ entity
 {
 	"id" "52"
 	"classname" "logic_branch"
-	"targetname" "br"
+	"angles" "0 0 0"
+	"targetname" "branch_pressed"
 	connections
 	{
-		"OnTrue" "outFireUser10-1"
-		"OnTrue" "outFireUser20.01-1"
-		"OnFalse" "outFireUser20-1"
+		"OnTrue" "outputFireUser10-1"
+		"OnTrue" "outputFireUser20.01-1"
+		"OnFalse" "outputFireUser20-1"
 	}
-	"origin" "-24 0 -48"
+	"origin" "-48 0 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -54,7 +55,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$timer_delay float 3"
 	"parm2" "$timer_sound integer 0"
-	"origin" "-48 -36 -52"
+	"origin" "-48 0 16"
 	editor
 	{
 		"color" "220 30 220"
@@ -74,15 +75,13 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"solid" "1"
-	"targetname" "out"
+	"targetname" "output"
 	connections
 	{
-		"OnPressed" "brTest0-1"
-		"OnButtonReset" "brSetValue00-1"
-		"OnButtonReset" "outFireUser10-1"
-		"OnPressed" "brSetValue10.01-1"
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
+		"OnPressed" "branch_pressedTest0-1"
+		"OnButtonReset" "branch_pressedSetValue00-1"
+		"OnButtonReset" "outputFireUser10-1"
+		"OnPressed" "branch_pressedSetValue10.01-1"
 	}
 	"origin" "-48 0 -56"
 	editor
@@ -91,20 +90,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "22"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-48 36 -52"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras

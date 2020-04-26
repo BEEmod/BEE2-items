@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "37"
+	"editorbuild" "7552"
+	"mapversion" "39"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "37"
+	"mapversion" "39"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -53,6 +53,7 @@ entity
 	"mincpulevel" "0"
 	"mingpulevel" "0"
 	"model" "models/props/switch001.mdl"
+	"parentname" "output"
 	"PerformanceMode" "0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
@@ -74,6 +75,7 @@ entity
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "Parenting to output transmits use functionality to that entity."
 		"logicalpos" "[0 1000]"
 	}
 }
@@ -81,6 +83,7 @@ entity
 {
 	"id" "36"
 	"classname" "func_noportal_volume"
+	"origin" "-48 0 -60"
 	"spawnflags" "0"
 	solid
 	{
@@ -187,8 +190,9 @@ entity
 		"OnPressed" "!selfKill0.1-1"
 		"OnPressed" "mdlSetAnimationdown0-1"
 		"OnUser2" "proxyProxyRelay0-1"
+		"OnPressed" "mdlClearParent0-1"
 	}
-	"origin" "-46 0 -52"
+	"origin" "-48 0 -56"
 	editor
 	{
 		"color" "220 30 220"

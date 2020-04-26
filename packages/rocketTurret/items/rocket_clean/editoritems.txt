@@ -1,7 +1,6 @@
 "Item"
 	{
 	"Type"		"ITEM_BEE2_ROCKET_TURRET"
-	"ItemClass"	"itemButtonFloor"
 	"Editor"
 		{
 		"SubType"
@@ -52,11 +51,7 @@
 			{
 			"0"
 				{
-				"Name" "instances/BEE2/clean/items/rocket_turret/cap_white.vmf"
-				}
-			"1"
-				{
-				"Name" "instances/BEE2/clean/items/rocket_turret/cap_black.vmf"
+				"Name" "instances/BEE2/clean/items/rocket_turret/turret.vmf"
 				}
 			}
 
@@ -65,8 +60,10 @@
 			{
 			"CONNECTION_STANDARD"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type" "AND"
+				"InvertVar" "$start_enabled"
+				"Enable_Cmd" "man,SetStateATrue,,0.00,-1"
+				"Disable_Cmd" "man,SetStateAFalse,,0.00,-1"
 				}
 			}
 		"OccupiedVoxels"
@@ -118,28 +115,11 @@
 			}
 		"EmbedFace"
 			{
+			// Center 4x4 is removed by the template.
 			"Solid"
 				{
-				"Center"	"64 16 128"
-				"Dimensions"	"128 32 4"
-				"Grid"			"4x4"
-				}
-			"Solid"
-				{
-				"Center"	"64 112 128"
-				"Dimensions"	"128 32 4"
-				"Grid"			"4x4"
-				}
-			"Solid"
-				{
-				"Center"	"16 64 128"
-				"Dimensions"	"32 64 4"
-				"Grid"			"4x4"
-				}
-			"Solid"
-				{
-				"Center"	"112 64 128"
-				"Dimensions"	"32 64 4"
+				"Center"	"64 64 128"
+				"Dimensions"	"128 128 4"
 				"Grid"			"4x4"
 				}
 			}

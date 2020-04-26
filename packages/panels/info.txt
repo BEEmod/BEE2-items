@@ -75,13 +75,20 @@
 					{
 					"Replacements"
 						{
-						"%TEMP%" "50s"
+						"%DYN_THICK%" "2"
+						"%STATIC_THICK%" "4"
+						"%NODRAW_DYNAMIC%" "1"
+						"%NODRAW_STATIC%" "1"
+
+						"%TEMP_DYN_OUT%" "BEE2_HALF_PANEL_CLIPS:out"
+						"%TEMP_DYN_IN%" "BEE2_HALF_PANEL_CLIPS:in"
+						"%TEMP_STATIC_OUT%" "BEE2_HALF_PANEL_50s:static_out"
+						"%TEMP_STATIC_IN%" "BEE2_HALF_PANEL_50s:static_in"
 						}
 					"Conditions"
 						{
 						"Condition"
 							{
-							"Priority" "-10"
 							"instance" "<ITEM_TSPEN_PANEL_HALF_STATIC>"
 							"Result"
 								{
@@ -126,13 +133,20 @@
 					{
 					"Replacements"
 						{
-						"%TEMP%" "50s"
+						"%DYN_THICK%" "2"
+						"%STATIC_THICK%" "4"
+						"%NODRAW_DYNAMIC%" "1"
+						"%NODRAW_STATIC%" "1"
+
+						"%TEMP_DYN_OUT%" "BEE2_HALF_PANEL_CLIPS:out"
+						"%TEMP_DYN_IN%" "BEE2_HALF_PANEL_CLIPS:in"
+						"%TEMP_STATIC_OUT%" "BEE2_HALF_PANEL_70s:static_out"
+						"%TEMP_STATIC_IN%" "BEE2_HALF_PANEL_70s:static_in"
 						}
 					"Conditions"
 						{
 						"Condition"
 							{
-							"Priority" "-10"
 							"instance" "<ITEM_TSPEN_PANEL_HALF_STATIC>"
 							"Result"
 								{
@@ -177,7 +191,13 @@
 					{
 					"Replacements"
 						{
-						"%TEMP%" "80s"
+						"%DYN_THICK%" "4"
+						"%STATIC_THICK%" "8"
+						"%NODRAW_DYNAMIC%" "1"
+						"%NODRAW_STATIC%" "0"
+
+						"%TEMP_DYN_OUT%" "BEE2_HALF_PANEL_CLIPS:out"
+						"%TEMP_DYN_IN%" "BEE2_HALF_PANEL_CLIPS:in"
 						}
 					}
 				"Palette"
@@ -215,8 +235,13 @@
 
 "BrushTemplate"
 	{
-	"ID" "BEE2_HALF_PANEL_CLEAN"
-	"File" "half_panel_clean.vmf"
+	"ID" "BEE2_HALF_PANEL_TRANSFER"
+	"File" "half_panel_transfer.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID" "BEE2_HALF_PANEL_CLIPS"
+	"File" "half_panel_clips.vmf"
 	}
 
 "BrushTemplate"
@@ -233,8 +258,8 @@
 
 "BrushTemplate"
 	{
-	"ID" "BEE2_HALF_PANEL_80S"
-	"File" "half_panel_80s.vmf"
+	"ID" "BEE2_HALF_PANEL_70S"
+	"File" "half_panel_70s.vmf"
 	}
 	
 // Glass Door
@@ -371,10 +396,6 @@
 					{
 					"0" "instances/BEE2/70s/items/panel_covered.vmf"
 					}
-				"Replace"
-					{
-					"PACK_BEE2_COVERED_PAN_50s" "PACK_BEE2_COVERED_PAN_70s"
-					}
 				}
 			"BEE2_1980s"
 				{
@@ -382,10 +403,6 @@
 				"Instances"
 					{
 					"0" "instances/BEE2/80s/items/panel_covered.vmf"
-					}
-				"Replace"
-					{
-					"PACK_BEE2_COVERED_PAN_50s" "PACK_BEE2_COVERED_PAN_80s"
 					}
 				}
 			"BEE2_OVERGROWN"
@@ -418,55 +435,12 @@
 
 "BrushTemplate"
 	{
-	"ID" "BEE2_COVERED_ANGLED_PANEL_TOP_CLEAN"
-	"File" "covered_pan_top_clean.vmf"
+	"ID" "BEE2_COVERED_ANGLED_PANEL_TOP_P1"
+	"File" "covered_pan_top_p1.vmf"
 	}
 
 "BrushTemplate"
 	{
 	"ID" "BEE2_COVERED_ANGLED_PANEL_TOP_RETRO"
 	"File" "covered_pan_top_retro.vmf"
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BEE2_COVERED_PAN_50s"
-	"Config"
-		{
-		"" "models/BEE2/props_underground/covered_panel_50s.mdl"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BEE2_COVERED_PAN_70s"
-	"Config"
-		{
-		"" "models/BEE2/props_underground/covered_panel_70s.mdl"
-		"" "materials/BEE2/models/props_underground/underground_plywood_01a_bottom.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BEE2_COVERED_PAN_80s"
-	"Config"
-		{
-		"" "models/BEE2/props_underground/covered_panel_70s.mdl"
-		"" "materials/BEE2/models/props_p1/metalwall_wire.vmt"
-		}
-	}
-
-"PackList"
-	{
-	"ID" "PACK_BEE2_COVERED_PAN_P1"
-	"Config"
-		{
-		"" "models/BEE2/props_p1/covered_pan_top.mdl"
-		"" "materials/BEE2/models/props_p1/plasticwall_1.vmt"
-		"" "materials/BEE2/models/props_p1/plasticwall_3.vmt"
-		"" "materials/BEE2/models/props_p1/plasticwall_4.vmt"
-		"" "materials/BEE2/models/props_p1/metalwall_bts_6.vmt"
-		"" "materials/BEE2/models/props_p1/metal_lift.vmt"
-		}
 	}

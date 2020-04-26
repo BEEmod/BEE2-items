@@ -1,16 +1,17 @@
 Water
 	{
-
 	$basetexture "BEE2/p1/goo/p1_goo"
 	$surfaceprop "slime"
 	
 	%keywords "BEE2"
 	%tooltexture "BEE2/p1/goo/p1_goo"
 	%compileSlime 1
-	
+	%compileKeepLight 1 // For $lightmapwaterfog
+
 	$bottommaterial "BEE2/p1/goo/beneath"
 	$abovewater 1
 	
+	$lightmapwaterfog 1
 	$fogenable 1
 	$fogcolor "{72 70 10}"
 	$fogstart 1.00
@@ -24,7 +25,7 @@ Water
 	$flow_normaluvscale 160.0
 	$flow_worlduvscale 4
 	$flow_timeintervalinseconds 0.63 
-	$flow_uvscrolldistance 0.1 
+	$flow_uvscrolldistance 0.1
 	$flow_bumpstrength 1.0
 	$flow_noise_texture "liquids/water_noise"
 	$flow_noise_scale 0.00082
@@ -38,9 +39,5 @@ Water
 	
 	// This needs to be here for some reason, so just
 	// direct it to toolsblack.
-	$reflecttexture tools/toolsblack
-	$reflectamount 0
-	$reflectskyboxonly 1
-	$reflectonlymarkedentities 0
-	$reflectentities 0
+	$reflecttexture "tools/toolsblack"
 	}

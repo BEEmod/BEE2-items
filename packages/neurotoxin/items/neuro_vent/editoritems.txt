@@ -1,7 +1,6 @@
 "Item"
 	{
 	"Type"      "ITEM_BEE2_NEUROTOXIN_VENT"
-	"ItemClass" "ItemButtonFloor"
 	"Editor"
 		{
 		"SubType"
@@ -34,15 +33,6 @@
 		{
 		"Instances"
 			{
-			"0"
-				{
-				"Name"  "instances/BEE2/clean/items/neuro/vent_white.vmf"
-				}
-			"1"
-				{
-				"Name"  "instances/BEE2/clean/items/neuro/vent_black.vmf"
-				}
-			"bee2_part" "instances/BEE2/clean/items/neuro/vent.vmf"
 			}
 		"TargetName"    "neurov"
 		"Offset"	    "64 64 64"
@@ -60,9 +50,19 @@
 			}
 		"EmbeddedVoxels"
 			{
-			"Volume"
+			"Voxel"
 				{
 				"Pos"  "0 0 0"
+				}
+			}
+		"EmbedFace"
+			{
+			// We use this to determine the color of the tile.
+			"Solid"
+				{
+				"Center"        "64 64 128"
+				"Dimensions"	"128 128 4"
+				"Grid"			"4x4"
 				}
 			}
 		}

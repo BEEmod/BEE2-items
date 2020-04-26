@@ -123,7 +123,6 @@
 	"File"			"announcer_apoc"
 	"Name"			"Announcer (Apocalypse)"
 	"ShortName"		"Announcer (Apoc)"
-	"Group"			"Announcer"
 	"Characters"    "Announcer"
 	"Icon"			"voices/announcer"
 	"Authors"		"TeamSpen210"
@@ -138,7 +137,7 @@
 	"ShortName"		"GLaDOS (Apoc)"
 	"Group"			"GLaDOS"
 	"Characters"    "GLaDOS"
-	"Icon"			"voices/glados"
+	"Icon"			"voices/glados_apoc.png"
 	"Authors"		"TeamSpen210"
 	"Description"	"Pre-recorded GLaDOS guiding you through destroyed and wrecked chambers. This is an unused variant of the Announcer's lines, where GLaDOS played the role of this character."
 	}			
@@ -153,7 +152,27 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN"    "ped_button"
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config" "ped_button.cfg"
+					"Instances"
+						{
+						"0" "instances/BEE2/over/items/button/pedestal.vmf"
+						}
+					"Description"
+						{
+						"" "* Overgrown buttons on walls and ceilings may be hanging on broken cables."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Icon"     "palette/over/pedestal_button.png"
+							"BEE2"     "over/pedestal_button.png"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -166,7 +185,7 @@
 	"ID" "BEE2_OVER_PED_BASE"
 	"File" "pedestal_base.vmf"
 	}
-		
+
 "Overrides"
 	{
 	"Item"
@@ -586,7 +605,28 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN"	"faith"
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/over/items/faith_plate.vmf"
+							"EntityCount"		"3"
+							"BrushCount"		"3"
+							"BrushSideCount"	"22"
+							}
+						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SKIN_BLUE%" "2"
+							"%SKIN_ORAN%" "3"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -609,20 +649,6 @@
 							"EntityCount"		"1"
 							"BrushCount"		"3"
 							"BrushSideCount"	"22"
-							}
-						"1"
-							{
-							"Name"				"instances/BEE2/over/items/tbeam_frame_white.vmf"
-							"EntityCount"		"1"
-							"BrushCount"		"12"
-							"BrushSideCount"	"100"
-							}
-						"2"
-							{
-							"Name"				"instances/BEE2/over/items/tbeam_frame_black.vmf"
-							"EntityCount"		"1"
-							"BrushCount"		"12"
-							"BrushSideCount"	"100"
 							}
 						}
 					"Append" "funnel.cfg"

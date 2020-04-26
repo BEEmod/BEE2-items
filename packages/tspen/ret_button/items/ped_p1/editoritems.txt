@@ -1,7 +1,6 @@
 "Item"
 	{
 	"Type"      "ITEM_TSPEN_BUTTON_PEDESTAL_RETRACT"
-	"ItemClass" "ItemButtonFloor"
 	"Editor"
 		{
 		"SubType"
@@ -55,17 +54,10 @@
 			{
 			"0"
 				{
-				"Name"  "instances/BEE2/clean/items/tspen/ret_btn/ped_button_white.vmf"
+				"Name"  "instances/BEE2/p1/items/tspen/ret_btn/ped_button_common.vmf"
 				"EntityCount"       "11"
-				"BrushCount"        "28"
-				"BrushSideCount"    "174"
-				}
-			"1"
-				{
-				"Name"  "instances/BEE2/clean/items/tspen/ret_btn/ped_button_black.vmf"
-				"EntityCount"       "11"
-				"BrushCount"        "28"
-				"BrushSideCount"    "174" // 7*6 + 4*5 + 7*6 + 10 + 2*6 + 8*6
+				"BrushCount"        "10"
+				"BrushSideCount"    "56"
 				}
 			
 			"common" "instances/BEE2/p1/items/tspen/ret_btn/ped_button_common.vmf"
@@ -76,18 +68,28 @@
 		"TargetName"    "rbut"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"SpawnFire"		"always"
+				"Enable_Cmd"    "rl_open,Trigger,,0.00,-1"
+				"Disable_Cmd"   "rl_close,Trigger,,0.00,-1"
+
+				// Generate a logic_relay which plays the appropriate tick-tock sounds.
+				"timer_sound_pos"   "-16 0 -64"
+				"timer_done_cmd"    "@command,Command,cc_emit Portal.button_down,0.00,-1"
+				"timer_done_cmd"    "branch_pressed,SetValue,0,0.00,-1"
+				"timer_done_cmd"    "branch_pressed,FireUser1,,0.00,-1"
+				"timer_done_cmd"    "snd_rel,PlaySound,,0.00,-1"
 				}
 			}
 		"Outputs"
 			{
 			"CONNECTION_STANDARD"
 				{
-				"Activate"      "instance:rl_open;OnUser1"
-				"Deactivate"    "instance:rl_close;OnUser1"
+				"Activate"      "instance:mdl;OnUser2"
+				"Deactivate"    "instance:mdl;OnUser1"
 				}
 			}
 		"EmbeddedVoxels"
@@ -99,12 +101,12 @@
 			}
 		"EmbedFace"
 			{
-			// Generate the proper cover via templates.
+			// The proper shape will be generated later in templates.
 			"Solid"
 				{
 				"Center"        "64 64 128"
 				"Dimensions"    "128 128 4"
-				"Grid"          "4x4"
+				"Grid"          "Grid_Default"
 				}
 			}
 		"OccupiedVoxels"
