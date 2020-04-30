@@ -1,12 +1,6 @@
 active <- false;
 reverse <- false;
 
-function OnPostSpawn() {
-    // Figure out our instance name fixup
-    local name = self.GetName();
-    inst_fixup <- name.slice(0, name.find("-"));
-}
-
 function Update() {
     if (active) {
         if (reverse)
@@ -30,4 +24,11 @@ function SetActive(a) {
 function SetReverse(r) {
     reverse = r;
     Update();
+}
+
+function OnPostSpawn() {
+    // Figure out our instance name fixup
+    local name = self.GetName();
+    inst_fixup <- name.slice(0, name.find("-"));
+    Update()
 }
