@@ -9,7 +9,7 @@
 		{
 		"" "The Rocket Turret, ported from Portal 1."
 		"" "This aims and shoots explosive missiles at the player."
-		"" "The missiles are blocked by most physics objects, and will be fizzled."
+		"" "The missiles are blocked by most physics objects, and can be fizzled."
 		"" ""
 		"" "* In Coop, only ATLAS will be fired at."
 		}
@@ -18,9 +18,26 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"     "rocket_clean"
-			// Only needs texture changes.
+			// Use P1 (with the original model) as a base for everything
+			"BEE2_CLEAN"
+				{
+				"Base" 		"BEE2_PORTAL_1"
+				"Append" 	"rocket_clean.cfg"
+				"AppendDesc"
+					{
+					"" "* The Clean rocket turret texture was created by Byzarru."
+					}
+				}
 			"BEE2_PORTAL_1"  "rocket_clean"
+			"BEE2_OVERGROWN"
+				{
+				"Base" 		"BEE2_PORTAL_1"
+				"Append" 	"rocket_over.cfg"
+				"AppendDesc"
+					{
+					"" "* The Overgrown rocket turret texture is from Portal Stories: Mel, modified by Byzarru."
+					}
+				}
 			}
 		}
 	}
