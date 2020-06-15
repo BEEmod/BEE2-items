@@ -400,19 +400,32 @@
 			{
 			"Styles"
 				{
-				"BEE2_BTS"			"cube"
+				"BEE2_BTS"
+					{
+					"Base"        "BEE2_CLEAN"
+					"Config"      "cube_dropper.cfg"
+					"Description" "Cubes are dispensed from bare vactubes."
+					"Extra" // Modify the dropper.
+						{
+						"Instances"
+							{
+							"0" "instances/BEE2/bts/items/cube_dropper.vmf"
+							}
+						"IOConf"
+							{
+							"Type"          "AND"
+							"Enable_Cmd"    "dropper,Trigger,,0.00,-1"
+
+							"Out_Lock"      "dropper,OnTurnedOn,,0.00,-1"
+							"Out_Unlock"    "dropper,OnTurnedOff,,0.00,-1"
+							}
+						}
+					}
 				}
 			}
 		}
 	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_CUBE_DROPPER_BTS_CAP"
-	"File" "dropper_cap.vmf"
-	}
 
-	
 "Overrides"
 	{
 	"Item"
