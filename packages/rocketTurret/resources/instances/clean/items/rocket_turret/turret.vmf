@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8419"
-	"mapversion" "363"
+	"mapversion" "368"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "363"
+	"mapversion" "368"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -743,7 +743,7 @@ entity
 	"RocketLifetime" "100"
 	"RocketSpeed" "250"
 	"solid" "0"
-	"spawnflags" "1"
+	"spawnflags" "0"
 	"targetname" "RocketSentry"
 	"origin" "0 0 -64"
 	editor
@@ -762,12 +762,13 @@ entity
 	"spawnflags" "1"
 	connections
 	{
-		"OnMapSpawn" "manSetStateBTrue0-1"
+		"OnMapSpawn" "manSetStateBTrue0.15-1"
 		"OnMapSpawn" "beam_endSetLocalOrigin8192 0 00-1"
 		"OnMapSpawn" "beam_startSetLocalOrigin-16 0 00-1"
 		"OnMapSpawn" "beam_midSetLocalOrigin16 0 00-1"
 		"OnMapSpawn" "RocketSentryAddOutputmins 0 0 00.5-1"
 		"OnMapSpawn" "RocketSentryAddOutputmaxs 0 0 00.5-1"
+		"OnMapSpawn" "RocketSentryDisable0.1-1"
 	}
 	"origin" "0 0 0"
 	editor
@@ -775,6 +776,7 @@ entity
 		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "Changing the rocket turret's model causes it to reset to the default pose. Disabling it here instead of setting the flag ensures it retracts correctly."
 		"logicalpos" "[0 5000]"
 	}
 }
