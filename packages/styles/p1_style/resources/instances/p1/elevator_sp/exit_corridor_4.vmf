@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8419"
-	"mapversion" "253"
+	"mapversion" "260"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "253"
+	"mapversion" "260"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2984,7 +2984,7 @@ world
 		{
 			"id" "3489"
 			"plane" "(0 -128 -352) (0 -128 -224) (0 0 -224)"
-			"material" "CONCRETE/CONCRETE_MODULAR_FLOOR001C"
+			"material" "BEE2/P1/CONCRETE_MODULAR_FLOOR001B"
 			"uaxis" "[0 1 0 -256] 0.25"
 			"vaxis" "[0 0 -1 -256] 0.25"
 			"rotation" "0"
@@ -3605,6 +3605,31 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "65822"
+	"classname" "light"
+	"_constant_attn" "2"
+	"_distance" "0"
+	"_fifty_percent_distance" "0"
+	"_hardfalloff" "0"
+	"_light" "210 250 250 50"
+	"_lightHDR" "-1 -1 -1 1"
+	"_lightscaleHDR" "1"
+	"_linear_attn" "2"
+	"_quadratic_attn" "1"
+	"_zero_percent_distance" "0"
+	"angles" "0 0 0"
+	"style" "0"
+	"origin" "64 -128 -416"
+	editor
+	{
+		"color" "255 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -4428,28 +4453,6 @@ entity
 }
 entity
 {
-	"id" "64892"
-	"classname" "ambient_generic"
-	"angles" "0 0 0"
-	"health" "100"
-	"message" "BEE2.p1.fizzle_radio"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"spawnflags" "49"
-	"targetname" "radio_fizz_sound"
-	"origin" "46.5135 120 -218.282"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "The player must be nearby, so it's fine to be infinite range. Playing from the dead object doesn't work right..."
-		"logicalpos" "[500 10500]"
-	}
-}
-entity
-{
 	"id" "64739"
 	"classname" "func_detail"
 	solid
@@ -4819,7 +4822,7 @@ entity
 		{
 			"id" "3778"
 			"plane" "(235 -124 -100) (235 -124 -476) (235 124 -476)"
-			"material" "CONCRETE/CONCRETE_MODULAR_CEILING001A"
+			"material" "BEE2/P1/CONCRETE_MODULAR_CEILING001A"
 			"uaxis" "[0 1 0 -256] 0.25"
 			"vaxis" "[0 0 -1 -256] 0.25"
 			"rotation" "0"
@@ -5090,96 +5093,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "60602"
-	"classname" "prop_dynamic_override"
-	"_minlight" "2.0"
-	"angles" "75 270 -90"
-	"AnimateEveryFrame" "0"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"health" "0"
-	"MaxAnimTime" "10"
-	"MinAnimTime" "5"
-	"model" "models/props/table_reference.mdl"
-	"physdamagescale" "1.0"
-	"RandomAnimation" "0"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"SetBodyGroup" "0"
-	"skin" "0"
-	"solid" "6"
-	"spawnflags" "0"
-	"origin" "0.247463 110.666 -232.592"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 -10268]"
-	}
-}
-entity
-{
-	"id" "60604"
-	"classname" "ambient_generic"
-	"angles" "0 0 0"
-	"health" "100"
-	"message" "Portal.room1_Radio"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"SourceEntityName" "radio"
-	"spawnflags" "0"
-	"targetname" "@exit_radio_sound"
-	"origin" "31.2475 101.451 -231.859"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 10500]"
-	}
-}
-entity
-{
-	"id" "60607"
-	"classname" "prop_physics"
-	"allowfunnel" "1"
-	"angles" "-10.8815 270.598 -90.132"
-	"disablereceiveshadows" "0"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"inertiaScale" "1.0"
-	"model" "models/bee2/props_p1/radio_clean.mdl"
-	"physdamagescale" "0.1"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"rendermode" "0"
-	"skin" "0"
-	"solid" "6"
-	"spawnflags" "258"
-	"targetname" "radio"
-	connections
-	{
-		"OnHealthChanged" "@exit_radio_soundVolume00-1"
-		"OnBreak" "@exit_radio_soundVolume00-1"
-		"OnFizzled" "@exit_radio_soundVolume00-1"
-		"OnHealthChanged" "radio_fizz_soundPlaySound0-1"
-		"OnFizzled" "radio_fizz_soundPlaySound0-1"
-		"OnBreak" "radio_fizz_soundPlaySound0-1"
-	}
-	"origin" "24.0725 117.066 -231.987"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 9500]"
 	}
 }
 entity
@@ -6455,7 +6368,7 @@ entity
 	"startactive" "1"
 	"targetname" "@exit_portal_chamber_side"
 	"width" "64"
-	"origin" "64 -184 -416"
+	"origin" "64 -128.5 -416"
 	editor
 	{
 		"color" "220 30 220"
