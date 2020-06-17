@@ -7,6 +7,19 @@ function OnPostSpawn() {
     physimpact = Entities.FindByName(null, "@rocket_punch");
 }
 
+function fix_collisions() {
+	// Rocket turrets generate bone followers, but they don't actually move producing wrong collisions.
+	// They also sometimes duplicate when a save is reloaded, which can eventually lead to a crash.
+	// So we just delete them, it doesn't seem to cause any problems and we have our own clips anyway.
+	local ent = null;
+	while (ent = Entities.FindByClassname(ent, "phys_bone_follower")) {
+		// only delete if it's actually for a rocket turret
+		if (ent.GetModelName() == "models/props_bts/rocket_sentry.mdl") {
+			EntFireByHandle(ent, "Kill", "", 0, self, self)
+		}
+	}
+}
+
 function Think() {
 	local ent = null;
 	// Loop over every rocket in the map.
