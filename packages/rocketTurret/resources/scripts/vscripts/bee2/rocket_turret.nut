@@ -65,14 +65,17 @@ function Think() {
 	local targ_child = target.FirstMoveChild();
 	while (targ_child != null) {
 		EntFireByHandle(targ_child, "SetParent", "!activator", 0, ent, ent);
+		if (targ_child.GetName().find("turret_trig"))
+		{
+			// This trigger causes problems if it starts enabled, turn it on later
+			EntFireByHandle(targ_child, "Enable", "", 0.1, targ_child, targ_child)
+		}
 		targ_child = targ_child.NextMovePeer();
 	}
 	target.__KeyValueFromString("targetname", "@rocket_target_used");
 	EntFireByHandle(target, "Kill", "", 0.1, self, self);
 
 	physimpact.SetOrigin(origin - ent.GetForwardVector());
-	// physimpact.SetAngles(angles.x, angles.y, angles.z);
-	// EntFireByHandle(physimpact, "Impact", "", 0.0, self, self);
 	EntFireByHandle(physimpact, "Explode", "", 0.0, ent, self);
 
 	if (rockets.len() > 1) {
