@@ -17,7 +17,7 @@ function setup() {
 		EntFire(inst_fixup+"-man", "SetStateBTrue", "", 2.5);
 	} else {
 		// In SP, trigger immediately
-		EntFire(inst_fixup+"-man", "SetStateBTrue", "", 2.5);
+		EntFire(inst_fixup+"-man", "SetStateBTrue", "", 0.1);
 	}
 	
 }
