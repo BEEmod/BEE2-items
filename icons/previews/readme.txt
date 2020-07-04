@@ -12,7 +12,7 @@ Export your custom style with the recommended settings (skybox, etc.)
 Build and play TEST MAP in the PuzzleMaker.
 Set your video to the following settings: 
 * Widescreen 16:9 Aspect Ratio
-* 3840x2160 resolution
+* 3840x2160 resolution if available, otherwise 1920x1080 will work
 * 8x MSAA Anti-Aliasing
 * Anisotropic 16x Filtering mode
 * High effect, model, and shader details
@@ -29,7 +29,7 @@ Export the Original Clean style with your custom skybox.
 Build and play Skybox_Test in the PuzzleMaker.
 Set your video to the following settings: 
 * Widescreen 16:9 Aspect Ratio
-* 2048x1152 resolution
+* 2048x1152 resolution if available, otherwise 1920x1080 will work
 * 8x MSAA Anti-Aliasing
 * Anisotropic 16x Filtering mode
 * High effect, model, and shader details
