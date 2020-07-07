@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "136"
+	"editorbuild" "8419"
+	"mapversion" "141"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "136"
+	"mapversion" "141"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -182,10 +182,87 @@ world
 }
 entity
 {
+	"id" "1243"
+	"classname" "env_sprite"
+	"angles" "0 0 0"
+	"framerate" "10.0"
+	"GlowProxySize" "5"
+	"HDRColorScale" "1.0"
+	"model" "sprites/glow01.vmt"
+	"parentname" "arm,light_r"
+	"renderamt" "255"
+	"rendercolor" "0 255 255"
+	"rendermode" "9"
+	"scale" "0.4"
+	"spawnflags" "1"
+	"targetname" "spr"
+	"origin" "-4 38 -63"
+	editor
+	{
+		"color" "20 140 20"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "1247"
+	"classname" "env_sprite"
+	"angles" "0 0 0"
+	"framerate" "10.0"
+	"GlowProxySize" "5"
+	"HDRColorScale" "1.0"
+	"model" "sprites/glow01.vmt"
+	"parentname" "arm,light_l"
+	"renderamt" "255"
+	"rendercolor" "0 255 255"
+	"rendermode" "9"
+	"scale" "0.4"
+	"spawnflags" "1"
+	"targetname" "spr"
+	"origin" "-4 -38 -63"
+	editor
+	{
+		"color" "20 140 20"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "1251"
+	"classname" "env_sprite"
+	"angles" "0 0 0"
+	"framerate" "10.0"
+	"GlowProxySize" "5"
+	"HDRColorScale" "1.0"
+	"model" "sprites/glow01.vmt"
+	"parentname" "arm,light_c"
+	"renderamt" "255"
+	"rendercolor" "0 255 255"
+	"rendermode" "9"
+	"scale" "0.4"
+	"spawnflags" "1"
+	"targetname" "spr"
+	"origin" "4 0 -63"
+	editor
+	{
+		"color" "20 140 20"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "1236"
 	"classname" "comp_kv_setter"
+	"angles" "0 0 0"
+	"invert" "1"
 	"kv_name" "startDisabled"
-	"kv_value_global" "$start_disabled"
+	"kv_value_global" "$start_enabled"
 	"mode" "kv"
 	"target" "trigger"
 	connections
@@ -208,8 +285,8 @@ entity
 	"id" "1190"
 	"classname" "func_instance_parms"
 	"parm1" "$start_skin integer 0"
-	"parm2" "$used_skins string"
-	"parm3" "$start_disabled boolean 0"
+	"parm2" "$used_skins string 0"
+	"parm3" "$start_enabled boolean 0"
 	"origin" "16 0 -48"
 	editor
 	{

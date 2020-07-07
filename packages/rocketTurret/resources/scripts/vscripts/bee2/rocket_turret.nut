@@ -7,6 +7,19 @@ function OnPostSpawn() {
     physimpact = Entities.FindByName(null, "@rocket_punch");
 }
 
+function fix_collisions() {
+	// Rocket turrets generate bone followers, but they don't actually move producing wrong collisions.
+	// They also sometimes duplicate when a save is reloaded, which can eventually lead to a crash.
+	// So we just delete them, it doesn't seem to cause any problems and we have our own clips anyway.
+	local ent = null;
+	while (ent = Entities.FindByClassname(ent, "phys_bone_follower")) {
+		// only delete if it's actually for a rocket turret
+		if (ent.GetModelName() == "models/props_bts/rocket_sentry.mdl") {
+			EntFireByHandle(ent, "Kill", "", 0, self, self)
+		}
+	}
+}
+
 function Think() {
 	local ent = null;
 	// Loop over every rocket in the map.
@@ -52,14 +65,17 @@ function Think() {
 	local targ_child = target.FirstMoveChild();
 	while (targ_child != null) {
 		EntFireByHandle(targ_child, "SetParent", "!activator", 0, ent, ent);
+		if (targ_child.GetName().find("turret_trig"))
+		{
+			// This trigger causes problems if it starts enabled, turn it on later
+			EntFireByHandle(targ_child, "Enable", "", 0.1, targ_child, targ_child)
+		}
 		targ_child = targ_child.NextMovePeer();
 	}
 	target.__KeyValueFromString("targetname", "@rocket_target_used");
 	EntFireByHandle(target, "Kill", "", 0.1, self, self);
 
 	physimpact.SetOrigin(origin - ent.GetForwardVector());
-	// physimpact.SetAngles(angles.x, angles.y, angles.z);
-	// EntFireByHandle(physimpact, "Impact", "", 0.0, self, self);
 	EntFireByHandle(physimpact, "Explode", "", 0.0, ent, self);
 
 	if (rockets.len() > 1) {

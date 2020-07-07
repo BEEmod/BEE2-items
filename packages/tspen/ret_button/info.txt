@@ -51,13 +51,16 @@
 				"Instances"
 					{
 					// Shared among the styles
-					"bee2_logic" "instances/bee2/50s/items/tspen/ret_btn/floor_logic.vmf"
+					"bee2_common" "instances/bee2/50s/items/tspen/ret_btn/floor_logic.vmf"
 					// Base and brushes.
-					"bee2_common" "instances/bee2/50s/items/tspen/ret_btn/floor_base.vmf"
+					"bee2_decade" "instances/bee2/50s/items/tspen/ret_btn/floor_base.vmf"
 					
-					"bee2_floor"  "instances/bee2/50s/items/tspen/ret_btn/floor_btn.vmf"
-					"bee2_cube"   "instances/bee2/50s/items/tspen/ret_btn/cube_btn.vmf"
-					"bee2_ball"   "instances/bee2/50s/items/tspen/ret_btn/ball_btn.vmf"
+					"0"  "instances/bee2/50s/items/tspen/ret_btn/floor_btn.vmf"
+					"1"  "instances/bee2/50s/items/tspen/ret_btn/floor_btn.vmf"
+					"2"  "instances/bee2/50s/items/tspen/ret_btn/cube_btn.vmf"
+					"3"  "instances/bee2/50s/items/tspen/ret_btn/cube_btn.vmf"
+					"4"  "instances/bee2/50s/items/tspen/ret_btn/ball_btn.vmf"
+					"5"  "instances/bee2/50s/items/tspen/ret_btn/ball_btn.vmf"
 					}
 				}
 			"BEE2_1970s"
@@ -67,13 +70,13 @@
 					{
 					"Replacements"
 						{
-						"%vis_neg%" "neg,neg_70s"
-						"%vis_pos%" "pos,pos_70s"
+						"%vis_neg%" "neg,gls_neg_70s"
+						"%vis_pos%" "pos,gls_pos_70s"
 						}
 					}
 				"Instances"
 					{
-					"bee2_common" "instances/bee2/70s/items/tspen/ret_button_common.vmf"
+					"bee2_decade" "instances/bee2/70s/items/tspen/ret_button_common.vmf"
 					}
 				}
 			"BEE2_1980s"
@@ -81,29 +84,29 @@
 				"Base" "BEE2_1970s"
 				"Instances"
 					{
-					"bee2_common" "instances/bee2/80s/items/tspen/ret_btn/common.vmf"
-					"bee2_floor"  "instances/bee2/80s/items/tspen/ret_btn/floor_btn.vmf"
-					"bee2_cube"   "instances/bee2/80s/items/tspen/ret_btn/cube_btn.vmf"
-					"bee2_ball"   "instances/bee2/80s/items/tspen/ret_btn/ball_btn.vmf"
+					"bee2_decade" "instances/bee2/80s/items/tspen/ret_btn/common.vmf"
+
+					"0"           "instances/bee2/80s/items/tspen/ret_btn/floor_btn.vmf"
+					"1"           "instances/bee2/80s/items/tspen/ret_btn/floor_btn.vmf"
+					"2"           "instances/bee2/80s/items/tspen/ret_btn/cube_btn.vmf"
+					"3"           "instances/bee2/80s/items/tspen/ret_btn/cube_btn.vmf"
+					"4"           "instances/bee2/80s/items/tspen/ret_btn/ball_btn.vmf"
+					"5"           "instances/bee2/80s/items/tspen/ret_btn/ball_btn.vmf"
 					}
 				"Append"
 					{
-					"Replacements"
-						{
-						"%vis_neg%" "neg_70s,neg_80s"
-						"%vis_pos%" "pos_70s,pos_80s"
-						}
 					"Conditions"
 						{
 						"Condition"
 							{
-							"instance" "<ITEM_TSPEN_BUTTON_RETRACT_FLOOR:bee2_floor>"
+							"instance" "<ITEM_TSPEN_BUTTON_RETRACT_FLOOR:btn_floor>"
 							"Result"
 								{
 								"Random"
 									{	
-									 // Clean, Dest, V.Dest
+									// Clean, Dest, V.Dest
 									"Weights"	"1, 2, 3"
+									"SetInstVar" "$model models/props/portal_button.mdl"
 									"SetInstVar" "$model models/bee2/props_ingame/floor_button_prototype_2.mdl"
 									"SetInstVar" "$model models/bee2/props_ingame/floor_button_prototype_1.mdl"
 									}
@@ -118,14 +121,8 @@
 				"Config"  "ret_floor_button_over.cfg"
 				"Instances"
 					{
-					// Shared among the styles
-					"bee2_logic" "instances/bee2/over/items/tspen/ret_btn/floor_logic.vmf"
-					// Base and brushes.
-					"bee2_common" "instances/bee2/over/items/tspen/ret_btn/floor_base.vmf"
-					
-					"bee2_floor"  "instances/bee2/over/items/tspen/ret_btn/floor_btn.vmf"
-					"bee2_cube"   "instances/bee2/over/items/tspen/ret_btn/cube_btn.vmf"
-					"bee2_ball"   "instances/bee2/over/items/tspen/ret_btn/ball_btn.vmf"
+					// Base and logic.
+					"bee2_common" "instances/bee2/over/items/tspen/ret_btn/ret_button_common.vmf"
 					}
 				}
 			"BEE2_PORTAL_1"
@@ -160,6 +157,12 @@
 	{
 	"ID"    "TSPEN_RET_BTN_CLEAN"
 	"File"  "ret_button_clean.vmf"
+	}
+	
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_RET_BTN_OVER"
+	"File"  "ret_button_over.vmf"
 	}
 	
 "BrushTemplate"

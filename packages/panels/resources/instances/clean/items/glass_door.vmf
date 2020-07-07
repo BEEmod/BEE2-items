@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8037"
-	"mapversion" "74"
+	"editorbuild" "8419"
+	"mapversion" "78"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "74"
+	"mapversion" "78"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1066,6 +1066,29 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "5178"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "door"
+	connections
+	{
+		"OnTurnedOff" "rl_dnCancelPending0-1"
+		"OnTurnedOff" "rl_upTrigger0-1"
+		"OnTurnedOn" "rl_upCancelPending0-1"
+		"OnTurnedOn" "rl_dnTrigger0-1"
+	}
+	"origin" "0 0 16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -3343,7 +3366,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer"
 	"parm2" "$start_open boolean 0"
-	"origin" "0 48 0"
+	"origin" "0 0 -16"
 	editor
 	{
 		"color" "220 30 220"

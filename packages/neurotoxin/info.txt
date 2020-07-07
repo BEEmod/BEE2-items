@@ -68,7 +68,15 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN" "neuro_timer"
+			"BEE2_CLEAN"
+				{
+				"Folder" "neuro_timer"
+				"Instances"
+					{
+					"0"         "instances/BEE2/clean/items/neuro/timer.vmf"
+					"bee2_case" "instances/BEE2/clean/items/neuro/timer_case.vmf"
+					}
+				}
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "neuro_timer"
@@ -100,15 +108,11 @@
 				"Folder" "neuro_timer"
 				"Instances"
 					{
-					"0" "instances/BEE2/over/items/neuro/timer.vmf"
+					"0"         "instances/BEE2/clean/items/neuro/timer.vmf"
+					"bee2_case" "instances/BEE2/over/items/neuro/timer_case.vmf"
 					}
-				"Replace"
-					{
-					"BEE2_NEUROTOXIN_TIMER_COVER_CLEAN:left" "BEE2_NEUROTOXIN_TIMER_COVER_OVER_LEFT"
-					"BEE2_NEUROTOXIN_TIMER_COVER_CLEAN:right" "BEE2_NEUROTOXIN_TIMER_COVER_OVER_RIGHT"
-					
-					"0%" "80%"
-					}
+				// Randomly remove tiles.
+				"Append" "neuro_timer_over.cfg"
 				}
 			}
 		}
@@ -181,6 +185,12 @@
 	{
 	"ID"   "BEE2_NEUROTOXIN_TIMER_COVER_OVER_RIGHT"
 	"File" "timer_cover_over_right.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_NEUROTOXIN_TIMER_COVER_REMOVER"
+	"File" "timer_cover_remover.vmf"
 	}
 	
 "BrushTemplate"

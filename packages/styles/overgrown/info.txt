@@ -104,7 +104,7 @@
 	"ID"          "OverFunnelFlicker"
 	"Enabled"     "0"
 	"Name"        "Flickering Overgrown Funnel"
-	"Description" "Allow the Overgrown Excursion Funnel to randomly shut off briefly. Objects or players travelling in the funnel will not fall out when this occurs."
+	"Description" "Allow the Overgrown Excursion Funnel to randomly shut off briefly. This does not affect the transportation of players or objects."
 	"Style"       "BEE2_OVERGROWN"
 	}
 	
@@ -370,7 +370,22 @@
 				}
 			}
 		}
+	}
 
+"BrushTemplate"
+	{
+	"ID"   "BEE2_DOOR_FRAME_OVER"
+	"File" "door_frame.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_DOOR_FRAME_OVER_WITHCAM"
+	"File" "door_frame_withcam.vmf"
+	}
+
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_PANEL_STAIRS"
@@ -654,7 +669,7 @@
 					"Append" "funnel.cfg"
 					"AppendDesc"
 						{
-						"" "* In Overgrown Style, Funnels may randomly flicker if the option is enabled."
+						"" "* In Overgrown Style, Funnels emit more particles. They may also randomly flicker if the option is enabled."
 						}
 					}
 				}
