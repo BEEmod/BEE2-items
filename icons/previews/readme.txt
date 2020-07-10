@@ -4,7 +4,7 @@ Please follow this guide to create previews for styles and skyboxes in BEE 2.4.
 
 First, copy the .p2c files and their screenshots in p2c to:
 * C:\Program Files (x86)\Steam\steamapps\common\Portal 2\portal2\puzzles\[a number]\
-You should have two maps titled TEST MAP and Skybox_Test in your drafts. 
+You should have two maps titled Style Preview Map and Skybox Preview Map under Create Test Chambers. 
 Open your preferred image editor and create a file that is 400x300 pixels. An editor with layering support is recommended (Photoshop, paint.NET, etc.).
 
 Style previews: 
@@ -43,4 +43,5 @@ Add a line to your style in info.txt: "IconLarge"	"prev/sky_[yourstyle].png"
 
 Notes:
 * Do not modify the PuzzleMaker maps in any way. 
+* Do not move your camera after running the setpos/setang commands.
 * If you are using the wrong resolution while taking screenshots, resize them to 538x303 for styles and 574x323 for skyboxes.
