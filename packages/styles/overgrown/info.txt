@@ -235,8 +235,12 @@
 				"BEE2_OVERGROWN"
 					{
 					"Base" "BEE2_CLEAN"
-					"Config"
+					"Append"
 						{
+						"Replacements"
+							{
+							"%static_folder%" "instances/BEE2/over/static_panel/"
+							}
 						"Conditions"
 							{
 							"Condition"
@@ -253,20 +257,6 @@
 										"SetInstVar" "$skin 0" // Blue
 										"SetInstVar" "$skin 1" // Red
 										"SetInstVar" "$skin 2" // Off
-										}
-									}
-								"Condition"
-									{
-									"instvar" "$start_deployed 0"
-									"Result"
-										{
-										"GlobalInput"
-											{
-											"Target" "model_arms"
-											"Input"  "SetPlaybackRate"
-											"Param"  "-1"
-											"Delay"  "0.01"
-											}
 										}
 									}
 								}
