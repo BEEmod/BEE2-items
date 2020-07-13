@@ -25,20 +25,13 @@
 					{
 					"0" "instances/BEE2/p1/items/tspen/coop_checkpoint.vmf"
 					}
-				"Append"
+				"IOConf"
 					{
-					"Conditions"
-						{
-						"Condition"
-							{
-							"instance"  "<ITEM_TSPEN_COOP_CHECKPOINT>"
-							"Result"
-								{
-								// Camera in checkpoint room
-								"PrecacheModel" "bee2/props_p1/security_camera"
-								}
-							}
-						}
+					"Type"          "AND"
+					"invertVar"		"$start_open"
+					"spawnFire"     "always"
+					"Enable_Cmd"    "input,TurnOn,,0.00,-1"
+					"Disable_Cmd"   "input,TurnOff,,0.00,-1"
 					}
 				}
 			"BEE2_BTS"
