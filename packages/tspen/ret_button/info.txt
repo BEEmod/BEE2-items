@@ -184,21 +184,33 @@
 					{
 					"Replacements"
 						{
-						"%TEMP_ONESIGN%" "TSPEN_BTN_CUBE_P1"
-						"%TEMP_TWOSIGN%" "TSPEN_BTN_FLOOR_P1"
+						"%TEMP%" "TSPEN_RET_BTN_P1"
+						"%OFFSET%" "0 0 64"
+						"%THICK%" "4"
 
 						"%LEFT_PARENT%" "m2,cyl"
 						"%RIGHT_PARENT%" "m1,cyl"
 						}
+					}
+				"IOConf"
+					{
+					"Type"          "AND"
+					"InvertVar"     "$start_enabled"
+					"SpawnFire"		"always"
+					"Enable_Cmd"    "input,TurnOn,,0.00,-1"
+					"Disable_Cmd"   "input,TurnOff,,0.00,-1"
 					}
 				"Instances"
 					{
 					// Base and brushes.
 					"bee2_common"   "instances/BEE2/p1/items/tspen/ret_btn/ret_button_common.vmf"
 
-					"bee2_floor"    "instances/BEE2/p1/items/tspen/ret_btn/floor_button.vmf"
-					"bee2_ball"     "instances/BEE2/p1/items/tspen/ret_btn/ball_button.vmf"
-					"bee2_cube"     "instances/BEE2/p1/items/tspen/ret_btn/cube_button.vmf"
+					"0" "instances/BEE2/p1/items/tspen/ret_btn/floor_button.vmf"
+					"1" "instances/BEE2/p1/items/tspen/ret_btn/floor_button.vmf"
+					"2" "instances/BEE2/p1/items/tspen/ret_btn/ball_button.vmf"
+					"3" "instances/BEE2/p1/items/tspen/ret_btn/ball_button.vmf"
+					"4" "instances/BEE2/p1/items/tspen/ret_btn/cube_button.vmf"
+					"5" "instances/BEE2/p1/items/tspen/ret_btn/cube_button.vmf"
 					}
 				}
 			}
@@ -219,18 +231,12 @@
 	
 "BrushTemplate"
 	{
+	"ID"    "TSPEN_RET_BTN_P1"
+	"File"  "ret_button_p1.vmf"
+	}
+	
+"BrushTemplate"
+	{
 	"ID"    "TSPEN_BTN_FLOOR_RETRO"
 	"File"  "retro_floor_top.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "TSPEN_BTN_FLOOR_P1"
-	"File"  "pan_floor_p1.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "TSPEN_BTN_CUBE_P1"
-	"File"  "pan_cube_p1.vmf"
 	}
