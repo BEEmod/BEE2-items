@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "181"
+	"editorbuild" "8419"
+	"mapversion" "185"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "181"
+	"mapversion" "185"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,93 +30,19 @@ world
 }
 entity
 {
-	"id" "3167"
-	"classname" "logic_auto"
-	"spawnflags" "1"
+	"id" "2644"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "logic"
 	connections
 	{
-		"OnMapSpawn" "branchTest0.11"
+		"OnTurnedOn" "enable_motion_trigEnable0-1"
+		"OnTurnedOn" "enable_motion_trigDisable0.01-1"
+		"OnTurnedOn" "segment*StartForward0.01-1"
+		"OnTurnedOff" "segment*Stop0.01-1"
 	}
 	"origin" "0 0 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
-	"id" "2644"
-	"classname" "logic_branch"
-	"InitialValue" "$start_active"
-	"targetname" "branch"
-	connections
-	{
-		"OnTrue" "enable_motion_trigEnable0-1"
-		"OnTrue" "enable_motion_trigDisable0.01-1"
-		"OnTrue" "segment*StartForward0.01-1"
-		"OnFalse" "segment*Stop0-1"
-	}
-	"origin" "0 24 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
-	"id" "1911"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branchToggleTest0-1"
-		"OnChangedFromMax" "branchToggleTest0-1"
-	}
-	"origin" "0 -24 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1892"
-	"classname" "func_instance_parms"
-	"parm1" "$connectioncount integer 0"
-	"parm2" "$travel_distance integer 128"
-	"parm3" "$speed integer 100"
-	"parm4" "$travel_direction angle -90 0 0"
-	"parm5" "$start_active boolean 0"
-	"origin" "24 0 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
-	"id" "1900"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-23.9455 0 0"
 	editor
 	{
 		"color" "220 30 220"

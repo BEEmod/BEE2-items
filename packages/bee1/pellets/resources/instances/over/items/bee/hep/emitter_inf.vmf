@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "203"
+	"editorbuild" "8419"
+	"mapversion" "205"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "203"
+	"mapversion" "205"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -42,10 +42,10 @@ entity
 	"maxspeed" "$speed"
 	"MinLifeAfterPortal" "-1"
 	"minspeed" "$speed"
-	"origin" "0 0 -16"
 	"spawnflags" "4096"
 	"targetname" "launcher"
 	"thinkfunction" "Think"
+	"vscript_init_code" "$init_code"
 	"vscripts" "BEE2/inf_pellet.nut"
 	connections
 	{
@@ -54,6 +54,7 @@ entity
 		"OnPostSpawnBall" "LauncherPropSetAnimationclose0-1"
 		"OnUser1" "proxyProxyRelay0-1"
 	}
+	"origin" "0 0 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -74,6 +75,7 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/bee2/props_ingame/pellet_launcher_inf.mdl"
+	"physdamagescale" "1.0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "1"
@@ -96,6 +98,7 @@ entity
 	"parm1" "$connectioncount integer 0"
 	"parm2" "$start_enabled integer 1"
 	"parm3" "$speed integer 300"
+	"parm4" "$init_code string respawn <- false"
 	"origin" "0 0 16"
 	editor
 	{

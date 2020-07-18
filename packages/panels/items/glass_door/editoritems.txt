@@ -97,12 +97,25 @@
 				"Pos"		"0 0 2" // opposite side
 				}
 			}
+		"EmbedFace"
+			{
+			"Solid"
+				{
+				"Center"     "64 64 128"
+				"Dimensions" "128 128 4"
+				"Grid"       "4x4"
+				}
+			// Can't do the other side, so we don't know that portalability type.
+			}
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"invertVar"     "$start_open"
+				"SpawnFire"     "always"
+				"Enable_Cmd"    "door,TurnOn,,0.00,-1"
+				"Disable_Cmd"   "door,TurnOff,,0.00,-1"
 				}
 			}
 		"ConnectionPoints"

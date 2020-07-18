@@ -10,10 +10,19 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"	 "clean"
+			"BEE2_CLEAN"
+				{
+				"Folder" "ditch"
+				"Config" "ditch_clean.cfg"
+				"Instances"
+					{
+					"0" "instances/bee2/clean/items/tspen/ditch.vmf"
+					"1" "instances/bee2/clean/items/tspen/ditch.vmf"
+					}
+				}
 			"BEE2_OVERGROWN"
 				{
-				"Folder" "clean"
+				"Folder" "ditch"
 				"Config" "ditch_over.cfg"
 				"Authors" "TeamSpen210, Konclan"
 				"Description" "Overgrown ditches are tiles smashed into the ground."
@@ -23,10 +32,79 @@
 					"1" "instances/bee2/over/items/tspen/ditch/black.vmf"
 					}
 				}
-			"BEE2_1950s"	 "50s"
-			"BEE2_1970s"	 "70s"
-			"BEE2_1980s"	 "80s"
-			"BEE2_PORTAL_1"  "p1"
+			// The 50s circular ditch is too complicated for different sizes.
+			"BEE2_1950s"
+				{
+				"Folder" "ditch"
+				"Config" "ditch_no_template.cfg"
+				"Instances"
+					{
+					"0" "instances/bee2/50s/items/tspen/ditch/white.vmf"
+					"1" "instances/bee2/50s/items/tspen/ditch/black.vmf"
+					}
+				}
+			// 70s is just a grating, so no white/black variants.
+			"BEE2_1970s"
+				{
+				"Folder" "ditch"
+				"Config" "ditch_no_template.cfg"
+				"Instances"
+					{
+					"0" "instances/bee2/70s/items/tspen/ditch.vmf"
+					"1" "instances/bee2/70s/items/tspen/ditch.vmf"
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Folder" "ditch"
+				"Config" "ditch_80s.cfg"
+				"Instances"
+					{
+					"0" "instances/bee2/80s/items/tspen/ditch/common.vmf"
+					"1" "instances/bee2/80s/items/tspen/ditch/common.vmf"
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "ditch"
+				"Config" "ditch_p1.cfg"
+				"Instances"
+					{
+					"0" "instances/bee2/p1/items/tspen/ditch.vmf"
+					"1" "instances/bee2/p1/items/tspen/ditch.vmf"
+					}
+				}
 			}
 		}
 	}
+
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_DITCH_SOLID"
+	"File"  "ditch.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_DITCH_P1"
+	"File"  "ditch_p1.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_DITCH_80S_TOP"
+	"File"  "ditch_80s_top.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_DITCH_80S_WHITE"
+	"File"  "ditch_80s_white.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "TSPEN_DITCH_80S_BLACK"
+	"File"  "ditch_80s_black.vmf"
+	}
+

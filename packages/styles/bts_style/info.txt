@@ -24,13 +24,15 @@
 		{
 		"Quote"		"BEE2_ANNOUNCER_BTS"
 		"Music"		"VALVE_ROBO_GHOST"
-		"Skybox"	"VALVE_3D_FACTORY"
+		"Skybox"	"VALVE_2D_BTS"
 		}
 	"Corridors"
 		{
 		"icon_folder" "bts"
 		"Sp_entry"
 			{
+			"1"	"Right Turn"
+			"2"	"Vactube"
 			"3" "Danger"
 			"4"	"Conveyor"
 			"5" "(Not present)"
@@ -39,9 +41,17 @@
 			}
 		"Sp_exit"
 			{
+			"1"	"Left Turn"
+			"2"	"Office"
+			"3"	"(Not present)"
+			"4"	"(Not present)"
 			}
 		"Coop"
 			{
+			"1"	"(Not present)"
+			"2"	"(Not present)"
+			"3"	"(Not present)"
+			"4"	"(Not present)"
 			}
 		}
 	}
@@ -113,8 +123,8 @@
 	
 "BrushTemplate"
 	{
-	"ID"    "BEE2_STATIC_PAN_ANGLED_BTS"
-	"File"  "static_pan_angled.vmf"
+	"ID"    "BEE2_BTS_GLASS_TEMPLATE"
+	"File"  "glass_template.vmf"
 	}
 	
 "BrushTemplate"
@@ -137,214 +147,6 @@
 	{
 	"ID"    "BEE2_BALL_BUTTON_BASE_BTS"
 	"File"  "ball_btn_base.vmf"
-	}
-	
-// Needed for cube and gel dropper
-"PackList" 
-	{
-	"ID" "VAC_GLASS_DOUBLE_STRAIGHT"
-	"Config"
-		{
-		"" "models/props_bts/vactube_glass_bothsides/vactube_128_straight_glass.mdl"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BEE2_SWITCH_BTS"
-	"Config"
-		{
-		"" "models/BEE2/props_bts/circuit_breaker_anim.mdl"
-		}
-	}
-	
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_FAITH_PLATE_BTS"
-	"Config"
-		{
-		"" "models/BEE2/panels/panel_faith_small.mdl"
-		"" "materials/BEE2/models/props_ingame/circle_shield_red_lit.vmt"
-		"" "materials/BEE2/models/props_ingame/circle_shield_light.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_BTS_WHITE_FLOOR"
-	"AddIfMat"  "BEE2/bullseye/concrete_bts_floor002c_bts"
-	"Config"
-		{
-		"File"  "materials/BEE2/bullseye/concrete_bts_floor002c_bts.vmt"
-		"File"  "materials/BEE2/bullseye/concrete_bts_floor002c_bts.vtf"
-		"File"  "materials/BEE2/bullseye/command_target.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_BTS_UNDER_WHITE_TILE"
-	"AddIfMat"  "BEE2/bullseye/under_white_tile_bts"
-	"Config"
-		{
-		"File"  "materials/BEE2/bullseye/under_white_tile_bts.vmt"
-		"File"  "materials/BEE2/bullseye/under_white_tile_bts.vtf"
-		"File"  "materials/BEE2/bullseye/command_target.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_BTS_WHITE_CEIL"
-	"AddIfMat"  "BEE2/bullseye/observationwall_001a_bts"
-	"Config"
-		{
-		"File"  "materials/BEE2/bullseye/observationwall_001a_bts.vmt"
-		"File"  "materials/BEE2/bullseye/observationwall_001a_bts.vtf"
-		"File"  "materials/BEE2/bullseye/command_target.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_BTS_PLASTICWALL"
-	"AddIfMat"  "BEE2/bullseye/plasticwall002a_bts"
-	"AddIfMat"  "BEE2/bullseye/plasticwall003a_bts"
-	"Config"
-		{
-		"File"  "materials/BEE2/bullseye/plasticwall002a_bts.vmt"
-		"File"  "materials/BEE2/bullseye/plasticwall002a_bts.vtf"
-		"File"  "materials/BEE2/bullseye/plasticwall003a_bts.vmt"
-		"File"  "materials/BEE2/bullseye/plasticwall003a_bts.vtf"
-		"File"  "materials/BEE2/bullseye/command_target.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_BTS_FACTORYFLOOR"
-	"AddIfMat"  "BEE2/bullseye/factory_metal_floor001a"
-	"AddIfMat"  "BEE2/bullseye/factory_metal_floor001b"
-	"AddIfMat"  "BEE2/bullseye/factory_metal_floor001c"
-	"Config"
-		{
-		"File"  "materials/BEE2/bullseye/factory_metal_floor001a.vmt"
-		"File"  "materials/BEE2/bullseye/factory_metal_floor001b.vmt"
-		"File"  "materials/BEE2/bullseye/factory_metal_floor001c.vmt"
-		"File"  "materials/BEE2/bullseye/factory_metal_floor001a.vtf"
-		"File"  "materials/BEE2/bullseye/factory_metal_floor001b.vtf"
-		"File"  "materials/BEE2/bullseye/factory_metal_floor001c.vtf"
-		"File"  "materials/BEE2/bullseye/command_target.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_BTS_BACKPANELS"
-	"AddIfMat"  "BEE2/bullseye/backpanels_yellow_bts"
-	"Config"
-		{
-		"File"  "materials/BEE2/bullseye/backpanels_yellow_bts.vmt"
-		"File"  "materials/BEE2/bullseye/backpanels_yellow_bts.vtf"
-		"File"  "materials/BEE2/bullseye/command_target.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BTS_CATAPULT_TARGET"
-	"Config"
-		{
-		"File" "materials/BEE2/bts_target.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_BTS_FLOOR_001B"
-	"AddIfMat" "BEE2/metalwall_bts_001b"
-	"Config"
-		{
-		"File" "materials/BEE2/metalwall_bts_001b.vmt"
-		"File" "materials/BEE2/metalwall_bts_001b_normal.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_SQUAREBEAMS_BTS"
-	"AddIfMat" "BEE2/squarebeams_bts"
-	}
-	
-"PackList"
-	{
-	"ID"       "PACK_PETI_PROJECTOR"
-	"AddIfMat" "BEE2/world/pti_projector"
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BTS_SIGN_BUTTON"
-	"AddIfMat" "BEE2/bts/sign_button"
-	"Config"
-		{
-		"" "materials/BEE2/bts/sign_button.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BTS_SIGN_EXIT"
-	"AddIfMat" "BEE2/bts/sign_exit"
-	"Config"
-		{
-		"File" "materials/BEE2/bts/sign_exit.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BTS_SIGN_FUNNEL"
-	"AddIfMat" "BEE2/bts/sign_funnel"
-	"Config"
-		{
-		"File" "materials/BEE2/bts/sign_funnel.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BTS_SIGN_FUNNEL_POLARITY"
-	"AddIfMat" "BEE2/bts/sign_polarity"
-	"Config"
-		{
-		"File" "materials/BEE2/bts/sign_polarity.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BTS_SIGN_GEL_SPEED"
-	"AddIfMat" "BEE2/bts/sign_gel_speed"
-	"Config"
-		{
-		"File" "materials/BEE2/bts/sign_gel_speed.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_BTS_SIGN_GEL_BOUNCE"
-	"AddIfMat" "BEE2/bts/sign_gel_bounce"
-	"Config"
-		{
-		"File" "materials/BEE2/bts/sign_gel_bounce.vtf"
-		}
-	}
-
-"Packlist"
-	{
-	"ID" "PACK_BTS_SIGN_HAND_WASHING"
-	"Config"
-		{
-		"" "materials/BEE2/bts/sign_wash_hands.vtf"
-		}
 	}
 	
 "Overrides"
@@ -449,7 +251,16 @@
 				}
 			}
 		}
-		
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_FAITH_TRIGGER_BTS"
+	"File" "faith_trigger.vmf"
+	}
+
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_BUTTON_PEDESTAL"
@@ -469,7 +280,21 @@
 			{
 			"Styles"
 				{
-				"BEE2_BTS"		"glass"
+				"BEE2_BTS"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"1" "instances/BEE2/bts/items/barrier/frame_left_corner.vmf"
+						"2" "instances/BEE2/bts/items/barrier/frame_left_straight.vmf"
+						"3" "instances/BEE2/bts/items/barrier/frame_left_short.vmf"
+						"4" "instances/BEE2/bts/items/barrier/frame_left_convex_corner.vmf"
+						"5" "instances/BEE2/bts/items/barrier/frame_right_corner.vmf"
+						"6" "instances/BEE2/bts/items/barrier/frame_right_straight.vmf"
+						"7" "instances/BEE2/bts/items/barrier/frame_right_short.vmf"
+						"8" "instances/BEE2/bts/items/barrier/frame_right_convex_corner.vmf"
+						}
+					}
 				}
 			}
 		}
@@ -479,20 +304,9 @@
 		"ID" "ITEM_BUTTON_FLOOR"
 		"Version"
 			{
-			"ID"					"VER_DEFAULT"
-			"Name"					"Regular"
 			"Styles"
 				{
-				"BEE2_BTS"			"floor_button"
-				}
-			}
-		"Version"
-			{
-			"ID"					"VER_OLD_FLUSH"
-			"Name"					"Non-Recessed"
-			"Styles"
-				{
-				"BEE2_BTS"			"floor_button" 
+				"BEE2_BTS" "floor_button"
 				}
 			}
 		}
@@ -513,6 +327,7 @@
 						"bee2_warm" "instances/BEE2/bts/items/light_strip/warm.vmf"
 						"bee2_cold" "instances/BEE2/bts/items/light_strip/cold.vmf"
 						}
+					"Config" "light_strip.cfg"
 					"Authors" "Carl Kenner, TeamSpen210"
 					"Description"
 						{
@@ -595,19 +410,32 @@
 			{
 			"Styles"
 				{
-				"BEE2_BTS"			"cube"
+				"BEE2_BTS"
+					{
+					"Base"        "BEE2_CLEAN"
+					"Config"      "cube_dropper.cfg"
+					"Description" "Cubes are dispensed from bare vactubes."
+					"Extra" // Modify the dropper.
+						{
+						"Instances"
+							{
+							"0" "instances/BEE2/bts/items/cube_dropper.vmf"
+							}
+						"IOConf"
+							{
+							"Type"          "AND"
+							"Enable_Cmd"    "dropper,Trigger,,0.00,-1"
+
+							"Out_Lock"      "dropper,OnTurnedOn,,0.00,-1"
+							"Out_Unlock"    "dropper,OnTurnedOff,,0.00,-1"
+							}
+						}
+					}
 				}
 			}
 		}
 	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_CUBE_DROPPER_BTS_CAP"
-	"File" "dropper_cap.vmf"
-	}
 
-	
 "Overrides"
 	{
 	"Item"
@@ -618,18 +446,6 @@
 			"Styles"
 				{
 				"BEE2_BTS"			"gel"
-				}
-			}
-		}
-	
-	"Item"
-		{
-		"ID" "ITEM_PANEL_ANGLED"
-		"Version"
-			{
-			"Styles"
-				{
-				"BEE2_BTS"  "angled_pan"
 				}
 			}
 		}

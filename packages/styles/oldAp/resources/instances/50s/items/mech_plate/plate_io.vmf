@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "136"
+	"editorbuild" "8419"
+	"mapversion" "142"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "136"
+	"mapversion" "142"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,145 +30,33 @@ world
 }
 entity
 {
-	"id" "1223"
-	"classname" "env_texturetoggle"
-	"target" "ind"
-	"targetname" "toggle"
-	"origin" "0 0 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "1592"
-	"classname" "func_brush"
-	"disableflashlight" "0"
-	"disablereceiveshadows" "0"
-	"disableshadowdepth" "0"
-	"disableshadows" "1"
-	"drawinfastreflection" "1"
-	"InputFilter" "0"
-	"invert_exclusion" "0"
-	"origin" "0 0 -64.5"
-	"parentname" "arm"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"rendermode" "0"
-	"shadowdepthnocache" "0"
-	"solidbsp" "0"
-	"Solidity" "1"
-	"spawnflags" "2"
-	"StartDisabled" "0"
-	"targetname" "ind"
-	"vrad_brush_cast_shadows" "0"
-	solid
-	{
-		"id" "1579"
-		side
-		{
-			"id" "486"
-			"plane" "(-12 12 -64) (12 12 -64) (12 -12 -64)"
-			"material" "SIGNAGE/INDICATOR_LIGHTS/INDICATOR_NEON_STRAIGHT"
-			"uaxis" "[1 0 0 128] 0.125"
-			"vaxis" "[0 -1 0 128] 0.125"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "485"
-			"plane" "(-12 -12 -65) (12 -12 -65) (12 12 -65)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.5"
-			"vaxis" "[0 -1 0 0] 0.5"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "484"
-			"plane" "(-12 12 -64) (-12 -12 -64) (-12 -12 -65)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.5"
-			"vaxis" "[0 0 -1 -32] 0.03125"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "483"
-			"plane" "(12 12 -65) (12 -12 -65) (12 -12 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.5"
-			"vaxis" "[0 0 -1 -32] 0.03125"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "482"
-			"plane" "(12 12 -64) (-12 12 -64) (-12 12 -65)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.5"
-			"vaxis" "[0 0 -1 -32] 0.03125"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "481"
-			"plane" "(12 -12 -65) (-12 -12 -65) (-12 -12 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.5"
-			"vaxis" "[0 0 -1 -32] 0.03125"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "1199"
 	"classname" "trigger_push"
 	"alternateticksfix" "0"
 	"origin" "0 0 -60"
 	"pushdir" "-90 0 0"
+	"solid" "6"
 	"spawnflags" "4104"
 	"speed" "80"
 	"startdisabled" "0"
 	"targetname" "wake_trig"
+	connections
+	{
+		"OnUser2" "wake_trigDisable0.01-1"
+		"OnUser2" "triggerEnable0.01-1"
+		"OnUser2" "wake_trigEnable0-1"
+		"OnUser2" "armSkin00-1"
+		"OnUser1" "triggerDisable0.01-1"
+		"OnUser1" "wake_trigDisable0-1"
+		"OnUser1" "armSkin10-1"
+	}
 	solid
 	{
 		"id" "1200"
 		side
 		{
 			"id" "1"
-			"plane" "(-16 -8 -56) (-16 8 -56) (16 8 -56)"
+			"plane" "(-24 -8 -56) (-24 8 -56) (24 8 -56)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-1 0 0 21.3333] 0.375"
 			"vaxis" "[0 1 0 -24] 0.25"
@@ -179,7 +67,7 @@ entity
 		side
 		{
 			"id" "2"
-			"plane" "(-16 8 -64) (-16 -8 -64) (16 -8 -64)"
+			"plane" "(-24 8 -64) (-24 -8 -64) (24 -8 -64)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-1 0 0 21.3333] 0.375"
 			"vaxis" "[0 1 0 -24] 0.25"
@@ -190,7 +78,7 @@ entity
 		side
 		{
 			"id" "3"
-			"plane" "(16 8 -64) (16 -8 -64) (16 -8 -56)"
+			"plane" "(24 8 -64) (24 -8 -64) (24 -8 -56)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 -1 0 24] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -201,7 +89,7 @@ entity
 		side
 		{
 			"id" "4"
-			"plane" "(-16 -8 -64) (-16 8 -64) (-16 8 -56)"
+			"plane" "(-24 -8 -64) (-24 8 -64) (-24 8 -56)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 -1 0 24] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -212,7 +100,7 @@ entity
 		side
 		{
 			"id" "5"
-			"plane" "(16 -8 -64) (-16 -8 -64) (-16 -8 -56)"
+			"plane" "(24 -8 -64) (-24 -8 -64) (-24 -8 -56)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-1 0 0 21.3333] 0.375"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -223,7 +111,7 @@ entity
 		side
 		{
 			"id" "6"
-			"plane" "(-16 8 -64) (16 8 -64) (16 8 -56)"
+			"plane" "(-24 8 -64) (24 8 -64) (24 8 -56)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-1 0 0 21.3333] 0.375"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -253,77 +141,13 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 1"
 	"parm2" "$start_enabled integer 0"
-	"origin" "16 16 -48"
+	"origin" "0 16 -48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "1186"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-16 16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1188"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-16 -16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1190"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "triggerEnable0.01-1"
-		"OnFalse" "triggerDisable0.01-1"
-		"OnTrue" "toggleSetTextureIndex10-1"
-		"OnFalse" "toggleSetTextureIndex00-1"
-		"OnTrue" "wake_trigEnable0-1"
-		"OnTrue" "wake_trigDisable0.01-1"
-		"OnFalse" "wake_trigDisable0-1"
-	}
-	"origin" "16 -16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 cameras

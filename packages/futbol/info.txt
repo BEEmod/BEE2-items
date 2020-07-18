@@ -21,10 +21,56 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"        "futbol_clean"
-			"BEE2_PORTAL_1"     "futbol_p1"
-			"BEE2_1950s"        "futbol_50s"
-			"BEE2_OVERGROWN"    "futbol_over"
+			"BEE2_CLEAN"        "futbol"
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "futbol"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/futbol.vmf"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "BEE2_FUTBOL_SURF_BACK_P1"
+						"%SKIN%"     "0"
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "futbol"
+				"Description" "\nThe model was authored by Konclan."
+				"Authors"   "Valve, TeamSpen210, Konclan"
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "bee2_futbol_holder_retro.3ds"
+						}
+					}
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/futbol.vmf"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "" // No template.
+						"%OFFSET%" "-8 0 -4" // Shift back for the thinner slab, and over for the different geo.
+						}
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "futbol"
+				"Instances"
+					{
+					"0" "instances/BEE2/over/items/futbol.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -46,47 +92,7 @@
 	"ID"   "BEE2_FUTBOL_SURF_BACK_50S"
 	"file" "surf_50s.vmf"
 	}
-	
-// This is a static version of the model, so we can save an entity..
-"PackList"
-	{
-	"ID"   "BEE2_FUTBOL_MODEL"
-	"Config"
-		{
-		"" "models/BEE2/props_ingame/futbol_dispenser.mdl"
-		}
-	}
-	
-// This is slightly reskinned to match P2 styling more
-"PackList"
-	{
-	"ID"   "BEE2_FUTBOL_MODEL_CLEAN"
-	"Config"
-		{
-		"" "materials/BEE2/models/props_ingame/futbol_dispenser_p2.vmt"
-		"" "materials/BEE2/models/props_ingame/futbol_dispenser_p2.vtf"
-		
-		"" "models/BEE2/props_ingame/futbol_dispenser.mdl"
-		"" "models/BEE2/props_ingame/futbol_dispenser.phy"
-		"" "models/BEE2/props_ingame/futbol_dispenser.vvd"
-		"" "models/BEE2/props_ingame/futbol_dispenser.dx90.vtx"
-		}
-	}
-	
-// Dirty and rusty..
-"PackList"
-	{
-	"ID"   "BEE2_FUTBOL_MODEL_DIRTY"
-	"Config"
-		{
-		"" "materials/BEE2/models/props_ingame/futbol_dispenser_dirty.vmt"
-		"" "models/BEE2/props_ingame/futbol_dispenser.mdl"
-		"" "models/BEE2/props_ingame/futbol_dispenser.phy"
-		"" "models/BEE2/props_ingame/futbol_dispenser.vvd"
-		"" "models/BEE2/props_ingame/futbol_dispenser.dx90.vtx"
-		}
-	}
-	
+
 "EditorSound"
 	{
 	"ID" "Expand_Futbol"

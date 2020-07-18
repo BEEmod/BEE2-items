@@ -53,16 +53,6 @@
 		"Tooltip" "Set the available time for a Neurotoxin timer."
 		}
 	}
-	
-"PackList"
-	{
-	"ID" "BEE2_MON_SCREEN_DIRTY"
-	"Config"
-		{
-		"" "models/bee2/props_overgrown/glados_screen_curve.mdl"
-		"" "materials/BEE2/models/props_overgrown/glados_screen_dirty.vmt"
-		}
-	}
 
 "Item"
 	{
@@ -78,31 +68,21 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN" "neuro_timer"
+			"BEE2_CLEAN"
+				{
+				"Folder" "neuro_timer"
+				"Instances"
+					{
+					"0"         "instances/BEE2/clean/items/neuro/timer.vmf"
+					"bee2_case" "instances/BEE2/clean/items/neuro/timer_case.vmf"
+					}
+				}
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "neuro_timer"
 				"Instances"
 					{
 					"0" "instances/BEE2/p1/items/neuro/timer.vmf"
-					}
-				"Replace"
-					{
-					"BEE2_NEUROTOXIN_TIMER_COVER_CLEAN" "BEE2_NEUROTOXIN_TIMER_COVER_P1"
-					}
-				"Append"
-					{
-					"Conditions"
-						{
-						"Condition"
-							{
-							"instance" "<ITEM_BEE2_NEUROTOXIN_TIMER>"
-							"Result"
-								{
-								"Pack" "PACK_P1_METAL_LIFT"
-								}
-							}
-						}
 					}
 				}
 			"BEE2_1950s"
@@ -128,29 +108,11 @@
 				"Folder" "neuro_timer"
 				"Instances"
 					{
-					"0" "instances/BEE2/over/items/neuro/timer.vmf"
+					"0"         "instances/BEE2/clean/items/neuro/timer.vmf"
+					"bee2_case" "instances/BEE2/over/items/neuro/timer_case.vmf"
 					}
-				"Replace"
-					{
-					"BEE2_NEUROTOXIN_TIMER_COVER_CLEAN:left" "BEE2_NEUROTOXIN_TIMER_COVER_OVER_LEFT"
-					"BEE2_NEUROTOXIN_TIMER_COVER_CLEAN:right" "BEE2_NEUROTOXIN_TIMER_COVER_OVER_RIGHT"
-					
-					"0%" "80%"
-					}
-				"Append"
-					{
-					"Conditions"
-						{
-						"Condition"
-							{
-							"instance" "<ITEM_BEE2_NEUROTOXIN_TIMER>"
-							"Result"
-								{
-								"Pack" "BEE2_MON_SCREEN_DIRTY"
-								}
-							}
-						}
-					}
+				// Randomly remove tiles.
+				"Append" "neuro_timer_over.cfg"
 				}
 			}
 		}
@@ -167,51 +129,44 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN" "neuro_vent"
+			"BEE2_CLEAN" 
+				{
+				"Folder" "neuro_vent"
+				"Config" "neuro_vent_clean.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/clean/items/neuro/vent.vmf"
+					}
+				}
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "neuro_vent"
+				"Config" "neuro_vent_p1.cfg"
 				"Instances"
 					{
-					"bee2_part" "instances/BEE2/p1/items/neuro/vent.vmf"
-					}
-				"Replace"
-					{
-					"BEE2_NEUROTOXIN_VENT_CLEAN" "BEE2_NEUROTOXIN_VENT_P1"
+					"0" "instances/BEE2/p1/items/neuro/vent.vmf"
 					}
 				}
 			"BEE2_1950s"
 				{
 				"Folder" "neuro_vent"
+				"Config" "neuro_vent_50s.cfg"
 				"Instances"
 					{
-					"bee2_part" "instances/BEE2/50s/items/neuro/vent.vmf"
-					}
-				"Replace"
-					{
-					"BEE2_NEUROTOXIN_VENT_CLEAN" "BEE2_NEUROTOXIN_VENT_50S"
+					"0" "instances/BEE2/50s/items/neuro/vent.vmf"
 					}
 				}
 			"BEE2_1970s"
 				{
-				"Base" "BEE2_1950s"
+				"Folder" "neuro_vent"
+				"Config" "neuro_vent_70s.cfg"
 				"Instances"
 					{
-					"bee2_part" "instances/BEE2/70s/items/neuro/vent.vmf"
-					}
-				"Replace"
-					{
-					"BEE2_NEUROTOXIN_VENT_50S" ""
+					"0" "instances/BEE2/70s/items/neuro/vent.vmf"
 					}
 				}
 			}
 		}
-	}
-
-"BrushTemplate"
-	{
-	"ID"   "BEE2_NEUROTOXIN_TIMER_COVER_CLEAN"
-	"File" "timer_cover_clean.vmf"
 	}
 
 "BrushTemplate"
@@ -231,17 +186,17 @@
 	"ID"   "BEE2_NEUROTOXIN_TIMER_COVER_OVER_RIGHT"
 	"File" "timer_cover_over_right.vmf"
 	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_NEUROTOXIN_TIMER_COVER_REMOVER"
+	"File" "timer_cover_remover.vmf"
+	}
 	
 "BrushTemplate"
 	{
 	"ID"   "BEE2_NEUROTOXIN_VENT_CLEAN"
 	"File" "vent_clean.vmf"
-	}
-
-"BrushTemplate"
-	{
-	"ID"   "BEE2_NEUROTOXIN_VENT_50S"
-	"File" "vent_50s.vmf"
 	}
 
 "BrushTemplate"

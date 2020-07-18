@@ -2,6 +2,27 @@
 "Name"		"Unstationary Scaffold"
 "Desc"      "Adds dynamically-generated Unstationary Scaffolds, for following complex paths."
 
+
+"ConfigGroup"
+	{
+	"ID"    "BEE2_UNST_SCAFFOLD"
+	"Name"  "Unstationary Scaffold"
+	"Widget"
+		{
+		"ID"    "Speed"
+		"Label" "Speed"
+		"Type"  "slider"
+		"Default" "50"
+		
+		"Min"     "30"
+		"Max"     "200"
+		"Step"    "5"
+		
+		"Tooltip" "Set the speed of Scaffolds. A speed of 128 will cross a block in exactly 1 second. 
+* Portal 1 uses speeds from 30-80."
+		}
+	}
+
 "Item"
 	{
 	"ID"       "ITEM_BEE2_SCAFFOLD_SLOT"
@@ -14,15 +35,68 @@
 		"" "* The first slot will use its Start Enabled property as well as inputs to control the platform."
 		"" "   * The timer property controls the delay between platforms. (This is restricted to a minimum of 8.5 seconds)."
 		"" "   * If set to infinite, a platform will appear when the input is active, fizzling when the input is off."
-		"" "* In Portal 1, the TS 15 platform is set to 15 seconds, and the TS 19 platform is set to 25 seconds."
+		"" "* In Portal 1, the Test Chamber 15 platform is set to 15 seconds, and the Test Chamber 19 platform is set to 25 seconds."
 		"" "* The platform is always positioned upright."
 		}
 	"Version"
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"     "slot_clean"
-			"BEE2_PORTAL_1"  "slot_p1"
+			"BEE2_CLEAN"
+				{
+				"Folder" "slot_clean"
+				"Instances"
+					{
+					"0"
+						{
+						"Name"				"instances/BEE2/clean/items/scaffold/slot.vmf"
+						"EntityCount"		"46"
+						"BrushCount"		"15"
+						"BrushSideCount"	"106"
+						}
+					"bee2_tim_start"        "instances/BEE2/clean/items/scaffold/tim_start.vmf"
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "slot_clean"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMP%" "BEE2_UNST_SCAFFOLD_SLOT_P1"
+						}
+					// For all the logic locations, override the sounds used.
+					"Conditions"
+						{
+						"Condition"
+							{
+							"OR"
+								{
+								"instance" "instances/BEE2/clean/items/scaffold/tim_start.vmf"
+								"instance" "instances/BEE2/clean/items/scaffold/tim_start_inf.vmf"
+								"instance" "instances/BEE2/clean/items/scaffold/directional.vmf"
+								"instance" "instances/BEE2/clean/items/scaffold/osc_start.vmf"
+								}
+							"Result"
+								{
+								"addOverlay" "instances/BEE2/p1/items/scaffold/sounds.vmf"
+								}
+							}
+						}
+					}
+				"Instances"
+					{
+					"0"
+						{
+						"Name"				"instances/BEE2/p1/items/scaffold/slot.vmf"
+						"EntityCount"		"46"
+						"BrushCount"		"15"
+						"BrushSideCount"	"106"
+						}
+					"bee2_tim_start"        "instances/BEE2/clean/items/scaffold/tim_start.vmf"
+					}
+				}
 			"BEE2_1950s"     "slot_50s"
 			}
 		}
@@ -45,7 +119,8 @@
 		"Styles"
 			{
 			"BEE2_CLEAN"     "wall_clean"
-			"BEE2_PORTAL_1"  "wall_p1" // This is only used to switch out the logic items...
+			// The only change we need is to use the different sounds, which is done in the slot above.
+			"BEE2_PORTAL_1"  "wall_clean"
 			"BEE2_1950s"     "wall_50s"
 			}
 		}
@@ -69,10 +144,30 @@
 		"Styles"
 			{
 			"BEE2_CLEAN"     "pist_clean"
-			"BEE2_PORTAL_1"  "pist_p1"
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "pist_clean"
+				"Config" "pist_p1.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/scaffold/piston.vmf"
+					}
+				}
 			"BEE2_1950s"     "pist_50s"
 			"BEE2_1970s"     "pist_70s"
 			//"BEE2_OVERGROWN" "pist_over"
 			}
 		}
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_UNST_SCAFFOLD_SLOT_CLEAN"
+	"File" "slot_clean.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_UNST_SCAFFOLD_SLOT_P1"
+	"File" "slot_p1.vmf"
 	}

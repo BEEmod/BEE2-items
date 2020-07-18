@@ -6,6 +6,7 @@
 	{
 	"ID"            "ITEM_BEE2_MONITOR"
 	"Description"   "Monitors display the character set in Voice Lines."
+	"all_conf"		"monitor_all.cfg"
 	"Version"
 		{
 		"Styles"
@@ -64,12 +65,6 @@
 
 "BrushTemplate"
 	{
-	"ID"   "BEE2_MONITOR_COVER_CLEAN"
-	"file" "cover_clean.vmf"
-	}
-
-"BrushTemplate"
-	{
 	"ID"   "BEE2_MONITOR_COVER_RETRO"
 	"file" "cover_retro.vmf"
 	}
@@ -89,18 +84,6 @@
 		"" "materials/BEE2/models/props_overgrown/glados_screen_dirty.vmt"
 		}
 	}
-	
-// Glass model which is curved to match the screen, and doesn't have the lines on it.
-"PackList"
-	{
-	"ID" "BEE2_MONITOR_SHATTER_GLASS"
-	"Config"
-		{
-		"" "models/bee2/props_ingame/monitor_glass.mdl"
-		"" "materials/BEE2/models/props_ingame/monitor_glass.vmt"
-		}
-	}
-	
 
 "Item"
 	{
@@ -133,10 +116,17 @@
 			"BEE2_OVERGROWN"
 				{
 				"Folder" "cam"
-				"Config" "cam_over.cfg"
 				"Instances"
 					{
 					"0" "instances/BEE2/over/items/screen/camera_base.vmf"
+					}
+				"Config" "cam_clean.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%FOLDER%" "over"
+						}
 					}
 				}
 			"BEE2_1950s"
@@ -156,41 +146,10 @@
 			}
 		}
 	}
-	
-"PackList"
+
+"BrushTemplate"
 	{
-	"ID" "BEE2_MON_CAM_STATIC_CLEAN"
-	"Config"
-		{
-		"" "models/bee2/cam_parts/cam_lens_clean.mdl"
-		"" "models/bee2/cam_parts/cam_base_clean.mdl"
-		"" "models/bee2/cam_parts/cam_shaft_clean.mdl"
-		}
+	"ID"   "BEE2_CAMERA_SLAB"
+	"File" "camera_slab.vmf"
 	}
-	
-"PackList"
-	{
-	"ID" "BEE2_MON_CAM_STATIC_P1"
-	"Config"
-		{
-		"" "models/bee2/cam_parts/cam_lens_p1.mdl"
-		"" "models/bee2/cam_parts/cam_base_p1.mdl"
-		"" "models/bee2/cam_parts/cam_mount_p1.mdl"
-		// P2 includes the materials for us.
-		}
-	}
-	
-"PackList"
-	{
-	// This model was maed by Ultiman9711 for Mel.
-	"ID" "BEE2_MON_CAM_STATIC_RETRO"
-	"Config"
-		{
-		"" "models/bee2/cam_parts/cam_lens_retro.mdl"
-		"" "models/bee2/cam_parts/cam_truss_retro.mdl"
-		"" "models/bee2/cam_parts/cam_mount_retro.mdl"
-		
-		"" "materals/BEE2/models/props_underground/camera.vmt"
-		"" "materals/BEE2/models/props_underground/camera.vtf"
-		}
-	}
+

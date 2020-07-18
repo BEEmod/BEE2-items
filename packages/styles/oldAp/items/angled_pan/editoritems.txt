@@ -104,23 +104,22 @@
 	{
 		"Instances"
 		{
-			"0"
+		"0" 
 			{
-				"Name"				"instances/BEE2/50s/items/panel_angled.vmf"
-				"EntityCount"		"12"
-				"BrushCount"		"5"
-				"BrushSideCount"	"39"
+			"Name" "instances/BEE2/50s/items/panel_angled.vmf"
 			}
-			"pan_logic" "instances/BEE2/50s/items/panel_logic.vmf"
 		}
 
 		"TargetName"		"ap"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"invertVar"     "$start_deployed"
+				"SpawnFire"     "dynamic"
+				"Enable_Cmd"    "model_arms,FireUser2,,0.00,-1"
+				"Disable_Cmd"   "model_arms,FireUser1,,0.00,-1"
 			}
 		}
 		"Offset"		"64 64 64"

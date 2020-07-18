@@ -4,6 +4,8 @@
 This activates an output when pellets pass through.
 "
 
+// We need pellets for this to be useful.
+// The output relay is also required for it to connect to anything.
 "Prerequisites"
 	{
 	"Package" "BEE_PELLETS"
@@ -26,9 +28,12 @@ This activates an output when pellets pass through.
 			"BEE2_PORTAL_1"
 				{
 				"Base" "BEE2_CLEAN"
-				"Replace"
+				"Append"
 					{
-					"PACK_BEE2_CUST_FIZZ_MDL" "PACK_P1_CUST_FIZZLER"
+					"Replacements"
+						{
+						"%NODRAW%" "0"
+						}
 					}
 				"Instances"
 					{
@@ -52,15 +57,15 @@ This activates an output when pellets pass through.
 			"BEE2_1950s"
 				{
 				"Base" "BEE2_CLEAN"
-				"Replace"
+				"Append"
 					{
-					"PACK_BEE2_CUST_FIZZ_MDL" "PACK_CUST_FIZZLER_RETRO"
-					// Change closed-caption values.
-					"World.RobotNegInteractPitchedUp" "World.PaintSwitchOpen"
-					
-					// Different template for 3 beams matching Retro fizzlers
-					"REX_PELLET_FIELD_TEMP" "REX_PELLET_FIELD_TEMP_RETRO"
-					"PACK_REX_PELLET_FIELD" "PACK_REX_PELLET_FIELD_RETRO"
+					"Replacements"
+						{
+						"%NODRAW%" "0"
+						// Change closed-caption values.
+						"%CC_SND%" "World.PaintSwitchOpen"
+						"%TEMP%"   "REX_PELLET_FIELD_TEMP_RETRO"
+						}
 					}
 				"Instances"
 					{
@@ -83,65 +88,17 @@ This activates an output when pellets pass through.
 				}
 			"BEE2_1980s"
 				{
-				"Base" "BEE2_CLEAN"
-				"Replace"
-					{
-					"PACK_BEE2_CUST_FIZZ_MDL" "PACK_CUST_FIZZLER_RETRO"
-					// Change closed-caption values.
-					"World.RobotNegInteractPitchedUp" "World.PaintSwitchOpen"
-					
-					// Different template for 3 beams matching Retro fizzlers
-					"REX_PELLET_FIELD_TEMP" "REX_PELLET_FIELD_TEMP_RETRO"
-					"PACK_REX_PELLET_FIELD" "PACK_REX_PELLET_FIELD_RETRO"
-					}
+				"Base" "BEE2_1950s"
 				"Instances"
 					{
-					// Base changed for different texture & hit sounds
-					"bee2_toggle_base"  "instances/BEE2/50s/items/rex/pellet_field_base_toggle.vmf"
-					"bee2_timer_base"   "instances/BEE2/50s/items/rex/pellet_field_base_timer.vmf"
-					
 					"bee2_toggle_model" "instances/BEE2/80s/items/rex/pellet_field_model_toggle.vmf"
 					"bee2_timer_model"  "instances/BEE2/80s/items/rex/pellet_field_model_timer.vmf"
-					}
-				"Palette"
-					{
-					"0"
-						{
-						"Icon"  "palette/50s/rex_pellet_field.vtf"
-						"BEE2"  "50s/rex_pellet_field.png"
-						"Model" "under_rex_pellet_field.mdl"
-						}
 					}
 				}
 			}
 		}
 	}
-	
-"PackList"
-	{
-	"ID" "PACK_REX_PELLET_FIELD"
-	"Config"
-		{
-		"" "#scripts/bee2_snd/rex_sounds.txt"
-		"" "sound/BEE2/p1/hl1_bell.wav"
-		
-		"" "materials/BEE2/rex/beam_field_timer.vmt"
-		"" "materials/BEE2/rex/beam_field_toggle.vmt"
-		"" "materials/BEE2/rex/beam_field.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "PACK_REX_PELLET_FIELD_RETRO"
-	"Config"
-		{
-		"" "materials/BEE2/rex/beam_field_retro_timer.vmt"
-		"" "materials/BEE2/rex/beam_field_retro_toggle.vmt"
-		"" "materials/BEE2/rex/beam_field_retro.vtf"
-		}
-	}
-	
+
 "BrushTemplate"
 	{
 	"ID"   "REX_PELLET_FIELD_TEMP"
