@@ -57,10 +57,51 @@ This prevents players from shielding themselves with a cube, and discourages def
 		"Styles"
 			{
 			"BEE2_CLEAN"     "cube_def_clean"
-			"BEE2_PORTAL_1"  "cube_def_p1"
-			"BEE2_OVERGROWN" "cube_def_over"
-			"BEE2_1950s"     "cube_def_50s"
-			"BEE2_1980s"     "cube_def_80s"
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "cube_def_clean"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/rex/cube_holder.vmf"
+					}
+				"Replace"
+					{
+					"REX_CUBE_DEFLECTOR_TEMP_CLEAN" "REX_CUBE_DEFLECTOR_TEMP_P1"
+					}
+				"Palette"
+					{
+					"0" 
+						{
+						"Model" "rex_cube_holder_p1.mdl"
+						}
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Folder" "cube_def_clean"
+				"Append" "cube_def_over.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/over/items/rex/cube_holder.vmf"
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "cube_def_clean"
+				"Config" "cube_def_50s.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/rex/cube_holder.vmf"
+					}
+				"Palette"
+					{
+					"0"
+						{
+						"icon" "palette/50s/rex/cube_deflector.png"
+						"bee2" "50s/rex/cube_deflector.png"
+						}
+					}
+				}
 			}
 		}
 	}
@@ -79,67 +120,10 @@ This prevents players from shielding themselves with a cube, and discourages def
 	
 "BrushTemplate"
 	{
-	"ID"   "REX_CUBE_DEFLECTOR_TEMP_RETRO_WOOD"
-	"file" "cube_holder_retro_wood.vmf"
+	"ID"   "REX_CUBE_DEFLECTOR_TEMP_RETRO"
+	"file" "cube_holder_retro.vmf"
 	}
-	
-"BrushTemplate"
-	{
-	"ID"   "REX_CUBE_DEFLECTOR_TEMP_RETRO_METAL"
-	"file" "cube_holder_retro_metal.vmf"
-	}
-	
-	
-"PackList"
-	{
-	"ID" "REX_CUBE_DEFLECTOR_SOUNDS"
-	"Config"
-		{
-		"" "#scripts/bee2_snd/rex_sounds.txt"
-		"" "sound/BEE2/p1/button19.wav"
-		"" "sound/BEE2/p1/scanner_electric1.wav"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "REX_CUBE_DEFLECTOR_FX"
-	"Config"
-		{
-		"" "materials/BEE2/models/props_p1/rex/holder_side_beam.vmt"
-		"" "materials/BEE2/models/props_p1/rex/holder_side_beam.vtf"
-		"" "materials/BEE2/models/props_p1/rex/holder_base_beam.vmt"
-		
-		"" "models/BEE2/props_p1/rex/cube_holder_beam.mdl"
-		
-		"" "models/BEE2/props_p1/rex/cube_holder_center_beam.mdl"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "REX_CUBE_DEFLECTOR_SIDE_EMITTER"
-	"Config"
-		{
-		"" "materials/BEE2/models/props_p1/rex/side_emitter.vmt"
-		"" "materials/BEE2/models/props_p1/rex/side_emitter_dirty.vmt"
-		"" "materials/BEE2/models/props_p1/rex/side_emitter.vtf"
-		"" "models/BEE2/props_p1/rex/side_emitter.mdl"
-		}
-	}
-	
-"PackList"
-	{
-	"ID" "P1_LAB_FLOORLIGHT_LRG"
-	"Config"
-		{
-		"" "materials/BEE2/models/props_p1/lab_floorlight_dirty.vmt"
-		"" "materials/BEE2/models/props_p1/lab_floorlight_glass_dirty.vmt"
-		
-		"" "models/BEE2/props_p1/lab_floorlight_lrg.mdl"
-		}
-	}
-	
+
 "EditorSound"
 	{
 	"ID" "Expand_Rex_Cube_Holder"

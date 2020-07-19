@@ -75,10 +75,13 @@
 		"Offset"        "64 64 64"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+				"Type"        "AND"
+				"spawnFire"   "dynamic"
+				"invertVar"   "$start_enabled"
+				"Enable_Cmd"  "wake_trig,FireUser2,,0.00,-1"
+				"Disable_Cmd" "wake_trig,FireUser1,,0.00,-1"
 				}
 			}
 		"OccupiedVoxels"
@@ -110,7 +113,7 @@
 				"Solid"
 				{
 					"Center"        "64 64 128"
-					"Dimensions"	"64 64 4"
+					"Dimensions"	"128 128 4"
 					"Grid"			"4x4"
 				}
 			}

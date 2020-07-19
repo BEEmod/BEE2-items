@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "96"
+	"editorbuild" "8419"
+	"mapversion" "99"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "96"
+	"mapversion" "99"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -36,12 +36,34 @@ world
 }
 entity
 {
+	"id" "966"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "vis_control"
+	connections
+	{
+		"OnTurnedOn" "buttonEnableDraw0-1"
+		"OnTurnedOff" "buttonDisableDraw0-1"
+	}
+	"origin" "0 0 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "When closed, make the button invisible."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "954"
 	"classname" "comp_precache_model"
 	"angles" "0 0 0"
 	"model" "models/bee2/props_p1/cube_button.mdl"
 	"skin" "0"
-	"origin" "0 0 -44"
+	"origin" "0 0 -40"
 	editor
 	{
 		"color" "220 30 220"
@@ -57,6 +79,7 @@ entity
 	"classname" "prop_floor_cube_button"
 	"AcceptsBall" "0"
 	"angles" "0 0 0"
+	"lightingorigin" "snd_move"
 	"model" "models/props/box_socket.mdl"
 	"parentname" "base"
 	"renderamt" "255"
@@ -78,6 +101,7 @@ entity
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "Lighting origin keeps the glow on top."
 		"logicalpos" "[0 0]"
 	}
 }
@@ -89,10 +113,11 @@ entity
 	"_lightHDR" "251 159 57 8"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
+	"angles" "0 0 0"
 	"origin" "0 0 -67"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"

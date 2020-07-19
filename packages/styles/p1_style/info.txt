@@ -99,7 +99,7 @@
 	"ShortName"   "GLaDOS (P1)"
 	"Group"       "GLaDOS"
 	"Characters"  "GLaDOS"
-	"Icon"        "voices/glados"
+	"Icon"        "voices/glados_p1.png"
 	"Name"        "GLaDOS (Portal 1 Chambers)"
 	"Authors"     "Carl Kenner, TeamSpen210"
 	"Description" "GLaDOS with adjusted audio intended for Portal 1 chambers."
@@ -123,15 +123,17 @@
 		}
 	}
 
+// Special template used to alter the orientation of the squarebeams materials.
 "BrushTemplate"
 	{
-	"ID"    "BEE2_STATIC_PAN_FLAT_P1"
-	"File"  "static_pan_flat.vmf"
+	"ID"    "BEE2_PORTAL_1_TILING_TEMPLATE"
+	"File"  "tiling_template.vmf"
 	}
+
 "BrushTemplate"
 	{
 	"ID"    "BEE2_STATIC_PAN_ANGLED_P1"
-	"File"  "static_pan_angled.vmf"
+	"File"  "angled_pan_static.vmf"
 	}
 	
 // The moving brush for panels..
@@ -155,6 +157,7 @@
 	"File"  "grating_template.vmf"
 	}
 	
+// Special-case template used to generate reinforcing beams across floor glass.
 "BrushTemplate"
 	{
 	"ID"    "BEE2_P1_GLASS_BEAM"
@@ -222,6 +225,17 @@
 				}
 			}
 		}
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_EXIT_DOOR_FRAME_PORTAL1"
+	"File" "door_frame.vmf"
+	}
+
+
+"Overrides"
+	{
 	"Item"
 		{
 		"ID" "ITEM_OBSERVATION_ROOM"
@@ -275,6 +289,11 @@
 	"ID"   "BEE2_STAIRS_TOP_PORTAL_1"
 	"File" "stair_top.vmf"
 	}
+"BrushTemplate"
+	{
+	"ID"   "BEE2_STAIRS_BLOCK_PORTAL_1"
+	"File" "stair_block.vmf"
+	}
 
 
 "Overrides"
@@ -313,6 +332,21 @@
 				}
 			}
 		}
+	}
+
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CUBE_DROPPER_PORTAL1_CAP_SINGLE"
+	"File"  "cube_dropper_top_single.vmf"
+	}
+"BrushTemplate"
+	{
+	"ID"    "BEE2_CUBE_DROPPER_PORTAL1_CAP_MULTI"
+	"File"  "cube_dropper_top_multi.vmf"
+	}
+
+"Overrides"
+	{
 	"ITEM"
 		{
 		"ID" "ITEM_PISTON_PLATFORM"
@@ -346,7 +380,7 @@
 				"BEE2_PORTAL_1"
 					{
 					"Base"   "BEE2_CLEAN"
-					"Append" "light_strip.cfg"
+					"Config" "light_strip.cfg"
 					"Instances"
 						{
 						"bee2_cool" "instances/BEE2/p1/items/light_strip/cool.vmf"
@@ -573,14 +607,8 @@
 
 "BrushTemplate"
 	{
-	"ID"    "BEE2_FLOOR_BUTTON_BASE_P1_WHITE"
-	"File"  "button_base_white.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "BEE2_BALL_BUTTON_BASE_P1_WHITE"
-	"File"  "ball_base_white.vmf"
+	"ID"    "BEE2_FLOOR_BUTTON_BASE_P1"
+	"File"  "floor_button_base.vmf"
 	}
 
 
@@ -678,31 +706,7 @@
 				}
 			}
 		}
-		
-	"ITEM"
-		{
-		"ID" "ITEM_TBEAM"
-		"Version"
-			{
-			"Styles"
-				{
-				"BEE2_PORTAL_1"
-					{
-					"Base" "BEE2_CLEAN"
-					"Append" 
-						{
-						// Force specific tile textures on the frame.
-						"Replacements"
-							{
-							"%white%" "white special"
-							"%black%" "black 4x4"
-							}
-						}
-					}
-				}
-			}
-		}
-		
+
 	"Item"
 		{
 		"ID" "ITEM_CATAPULT"

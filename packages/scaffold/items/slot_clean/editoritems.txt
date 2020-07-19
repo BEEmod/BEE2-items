@@ -1,7 +1,6 @@
 "Item"
 {
 	"Type"		"ITEM_BEE2_SCAFFOLD_SLOT"
-	"ItemClass" "ItemButtonFloor"
 	"Editor"
 	{
 		"SubType"
@@ -51,39 +50,16 @@
 	{
 		"Instances"
 		{
-			"0"
-			{
-				"Name"				"instances/BEE2/clean/items/scaffold/slot_white.vmf"
-				"EntityCount"		"46"
-				"BrushCount"		"15"
-				"BrushSideCount"	"106"
-			}
-			"1"
-			{
-				"Name"				"instances/BEE2/clean/items/scaffold/slot_black.vmf"
-				"EntityCount"		"46"
-				"BrushCount"		"15"
-				"BrushSideCount"	"106"
-			}
 		}
 
 		"TargetName"		"unst_slot"
 		"Inputs"
-		{
-			"CONNECTION_STANDARD"
 			{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+			"BEE2"
+				{
+				"Force" "input output"
+				}
 			}
-		}
-		"Outputs"
-		{
-			"CONNECTION_STANDARD"
-			{
-				"Activate"		"SCAFFOLD"
-				"Deactivate"	"SCAFFOLD"
-			}
-		}
 		"Offset"        "64 64 64"
 		"EmbeddedVoxels"
 		{
@@ -96,14 +72,24 @@
 				"Pos"   "0 0 -1"
 			}
 		}
+		"EmbedFace"
+		{
+			"Solid"
+			{
+				"Center"        "64 64 128"
+				"Dimensions"	"128 128 4"
+				"Grid"			"4x4"
+			}
+		}
 		"OccupiedVoxels"
 		{
 			"Voxel"
 			{
 				"Pos"           "0 0 0"
-				"Surface"
+				"SurfaceVolume"
 				{
-					"Normal"    "0 0 1"
+					"SubPos1"	"0 0 0"
+					"SubPos1"	"3 1 0"
 				}
 			}
 		}

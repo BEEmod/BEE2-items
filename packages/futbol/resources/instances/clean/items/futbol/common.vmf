@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "79"
+	"editorbuild" "8419"
+	"mapversion" "89"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,126 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "79"
+	"mapversion" "91"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "1460"
+	"classname" "trigger_multiple"
+	"filtername" "@filter_futbol"
+	"origin" "-16 0 -16"
+	"solid" "6"
+	"spawnflags" "4104"
+	"StartDisabled" "0"
+	"targetname" "trig"
+	"wait" "0.1"
+	connections
+	{
+		"OnEndTouchAll" "snd_offPlaySound0-1"
+		"OnEndTouchAll" "snd_lpStopSound0-1"
+		"OnEndTouchAll" "coreStop0.50-1"
+		"OnStartTouch" "snd_onPlaySound0-1"
+		"OnStartTouch" "snd_lpPlaySound0-1"
+		"OnStartTouch" "coreStartCharge0.010-1"
+		"OnTouching" "!activatorBreak0-1"
+		"OnStartTouch" "!activatorDisableShadow0-1"
+		"OnEndTouch" "!activatorEnableShadow0-1"
+	}
+	solid
+	{
+		"id" "1461"
+		side
+		{
+			"id" "1"
+			"plane" "(-36 2 -14) (-36 2 -18) (4 2 -18)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 -24.06] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2"
+			"plane" "(4 -2 -14) (4 -2 -18) (-36 -2 -18)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 -24.06] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3"
+			"plane" "(4 2 -14) (4 2 -18) (4 -2 -18)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 -24] 0.25"
+			"vaxis" "[0 0 -1 -24.06] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "4"
+			"plane" "(-36 -2 -14) (-36 -2 -18) (-36 2 -18)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 -24] 0.25"
+			"vaxis" "[0 0 -1 -24.06] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "5"
+			"plane" "(4 -2 -14) (-36 -2 -14) (-36 2 -14)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 24] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "6"
+			"plane" "(4 2 -18) (-36 2 -18) (-36 -2 -18)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 24] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 3000]"
+	}
 }
 entity
 {
@@ -54,7 +161,7 @@ entity
 	"rendermode" "0"
 	"screenspacefade" "0"
 	"shadowdepthnocache" "0"
-	"skin" "1"
+	"skin" "$skin"
 	"solid" "6"
 	"origin" "-21.609 0 -24"
 	editor
@@ -69,6 +176,7 @@ entity
 {
 	"id" "498"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -88,7 +196,7 @@ entity
 	"spinup" "0"
 	"targetname" "snd_on"
 	"volstart" "0"
-	"origin" "-34 -3.37645e-006 8"
+	"origin" "-32 0 8"
 	editor
 	{
 		"color" "220 30 220"
@@ -101,6 +209,7 @@ entity
 {
 	"id" "539"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -120,7 +229,7 @@ entity
 	"spinup" "0"
 	"targetname" "snd_off"
 	"volstart" "0"
-	"origin" "-1.60902 2.25279e-006 8"
+	"origin" "0 0 8"
 	editor
 	{
 		"color" "220 30 220"
@@ -133,6 +242,7 @@ entity
 {
 	"id" "569"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -141,17 +251,18 @@ entity
 	"lfomodvol" "0"
 	"lforate" "0"
 	"lfotype" "0"
-	"message" "VFX.FizzlerVortexLp"
+	"message" "vfx/fizzler_vortex_lp_01.wav"
 	"pitch" "100"
 	"pitchstart" "100"
 	"preset" "0"
 	"radius" "128"
+	"sourceentityname" "holder"
 	"spawnflags" "16"
 	"spindown" "0"
 	"spinup" "0"
 	"targetname" "snd_lp"
 	"volstart" "0"
-	"origin" "-17.609 -5.44736e-007 -16"
+	"origin" "-16 0 8"
 	editor
 	{
 		"color" "220 30 220"
@@ -164,6 +275,7 @@ entity
 {
 	"id" "2"
 	"classname" "prop_glass_futbol_socket"
+	"angles" "0 0 0"
 	"rendermode" "10"
 	"targetname" "holder"
 	"origin" "-16 1.39876e-006 -16"
@@ -184,7 +296,7 @@ entity
 	"scale" "1"
 	"spawnflags" "0"
 	"targetname" "core"
-	"origin" "0.390984 1.02887e-006 -16"
+	"origin" "2.39098 1.02887e-006 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -201,7 +313,7 @@ entity
 	"scale" "1"
 	"spawnflags" "0"
 	"targetname" "core"
-	"origin" "-33.609 -1.9435e-006 -16"
+	"origin" "-35.609 -1.9435e-006 -16"
 	editor
 	{
 		"color" "220 30 220"

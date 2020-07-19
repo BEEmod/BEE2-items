@@ -24,36 +24,15 @@
 				"Replace"
 					{
 					"BEE2_CUBE_DROPPER_CLEAN_CAP" "BEE2_TURRET_DROPPER_P1_CAP"
-					"<pack_extra>"                "PACK_P1_CUBE_SND"
 					}
 				"Instances"
 					{
 					"0" "instances/BEE2/p1/items/dropper_turret.vmf"
 					}
-				"Append"
-					{
-					"Conditions"
-						{
-						"Condition"
-							{
-							"Priority"  "10"
-							"instance"	"<ITEM_BEE2_TURRET_DROPPER>"
-							"Result"
-								{
-								"PrecacheModel"  "models/BEE2/props_p1/turret_01.mdl" 
-								"Pack"           "PACK_BEE2_TURRET_P1" 
-								}
-							}
-						}
-					}
 				}
 			"BEE2_OVERGROWN"
 				{
 				"Base" "BEE2_CLEAN"
-				"Replace"
-					{
-					"<pack_extra>"  "PACK_BEE2_MODERN_DROPPER_WRECKED"
-					}
 				"Instances"
 					{
 					"0" "instances/BEE2/over/items/dropper_turret.vmf"
@@ -64,8 +43,7 @@
 				"Base" "BEE2_CLEAN"
 				"Replace"
 					{
-					"BEE2_CUBE_DROPPER_CLEAN_CAP" "BEE2_TURRET_DROPPER_50S_CAP"
-					"<pack_extra>" "PACK_BEE2_RETRO_CUBE_DROPPER"
+					"BEE2_CUBE_DROPPER_CLEAN_CAP" "BEE2_CUBE_DROPPER_RETRO_CAP"
 					// Distance extra to move
 					"22"    "166"
 					}
@@ -78,66 +56,26 @@
 							"instance"	"<ITEM_BEE2_TURRET_DROPPER>"
 							"Result"
 								{
-								"AddOverlay"
-									{
-									"File" "instances/BEE2/50s/items/dropper_turret_skel.vmf"
-									}
-								"PrecacheModel"  "models/BEE2/props_underground/turret_skeleton.mdl"
-								"PackFile"       "models/BEE2/props_underground/turret_skeleton.mdl"
+								"AddOverlay" "<ITEM_BEE2_TURRET_DROPPER:bee2_turr>"
 								}
 							}
 						}
 					}
 				"Instances"
 					{
-					"0" "instances/BEE2/50s/items/dropper_turret.vmf"
+					"0"         "instances/BEE2/50s/items/dropper_turret.vmf"
+					"bee2_turr" "instances/BEE2/50s/items/dropper_turret_skel.vmf"
 					}
 				}
 			"BEE2_1980s"
 				{
-				"Base" "BEE2_CLEAN"
-				"Replace"
-					{
-					"BEE2_CUBE_DROPPER_CLEAN_CAP" "BEE2_TURRET_DROPPER_50S_CAP"
-					"<pack_extra>" "PACK_BEE2_RETRO_CUBE_DROPPER"
-					// Distance extra to move
-					"22"    "166"
-					}
-				"Append"
-					{
-					"Conditions"
-						{
-						"Condition"
-							{
-							"instance"	"<ITEM_BEE2_TURRET_DROPPER>"
-							"Result"
-								{
-								"AddOverlay"
-									{
-									"File" "instances/BEE2/80s/items/dropper_turret_modern.vmf"
-									}
-								}
-							}
-						}
-					}
+				"Base" "BEE2_1950s"
 				"Instances"
 					{
-					"0" "instances/BEE2/50s/items/dropper_turret.vmf"
+					"bee2_turr" "instances/BEE2/80s/items/dropper_turret_modern.vmf"
 					}
 				}
 			}
-		}
-	}
-
-"PackList"
-	{
-	"ID" "BEE2_TURRET_DROPPER_COMMON"
-	"Config"
-		{
-		// Handles detecting when turrets have died, and replaces other ents.
-		"" "scripts/vscripts/bee2/turret_dropper.nut"
-		// Looped cable sounds
-		"" "sound/BEE2/claw_cable_lp.wav"
 		}
 	}
 	
@@ -145,11 +83,4 @@
 	{
 	"ID"    "BEE2_TURRET_DROPPER_P1_CAP"
 	"File"  "cap_p1.vmf"
-	}
-
-	
-"BrushTemplate"
-	{
-	"ID"    "BEE2_TURRET_DROPPER_50S_CAP"
-	"File"  "cap_50s.vmf"
 	}

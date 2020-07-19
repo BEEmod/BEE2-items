@@ -4,7 +4,7 @@
 
 "Item"
 	{
-	"ID"       "ITEM_WOM_CONDUCTOR"
+	"ID" "ITEM_WOM_CONDUCTOR"
 	"Description"	
 		{
 		"" "A conductive set of antlines that activates when a cube is placed on top of it. It also requires the attached input to be all enabled as well."
@@ -15,23 +15,31 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"    "plate_clean"
-			"BEE2_PORTAL_1" "plate_p1"
-			"BEE2_1950s"    "plate_50s"
+			"BEE2_CLEAN" "plate"
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "plate"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%temp%" "WOM_CONDUCTOR_P1"
+						"%offset%" "0 0 4"
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Folder" "plate"
+				"Config" "plate_50s.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/cond_plate.vmf"
+					}
+				}
 			// Use the clean overlays, but style-appropriate materials
-			"BEE2_1980s"    "plate_clean"
+			"BEE2_1980s" "plate"
 			}
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "WOM_CONDUCTOR_OVERLAY"
-	"AddIfMat"  "conductor_plate_indicator/conductor_plate_indicator"
-	"Config"
-		{
-		"" "materials/conductor_plate_indicator/conductor_plate_indicator.vmt"
-		"" "materials/conductor_plate_indicator/conductor_plate_indicator_diff.vtf"
 		}
 	}
 
@@ -49,11 +57,11 @@
 
 "BrushTemplate"
 	{
-	"ID"   "WOM_CONDUCTOR_50S_BLACK"
-	"file" "plate_50s_black.vmf"
+	"ID"   "WOM_CONDUCTOR_50S_METAL"
+	"file" "plate_50s_metal.vmf"
 	}
 "BrushTemplate"
 	{
-	"ID"   "WOM_CONDUCTOR_50S_WHITE"
-	"file" "plate_50s_white.vmf"
+	"ID"   "WOM_CONDUCTOR_50S_WOOD"
+	"file" "plate_50s_wood.vmf"
 	}

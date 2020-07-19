@@ -10,13 +10,12 @@
 			"Name" "Closed Solid Field"
 			"Model"
 				{
-				"ModelName" "laserfield.3ds"
+				"ModelName" "bee2/clean/tdb/closed_solid_field.3ds"
 				}
 			"Palette"
 				{
 				"Tooltip"   "CLOSED SOLID FIELD"
 				"Image"     "palette/clean/tdb/tdb_csfi.png"
-				"Position"  "1 6 0"
 				}
 			"Sounds"
 				{
@@ -31,7 +30,7 @@
 			"Name" "Closed Solid Field"
 			"Model"
 				{
-				"ModelName" "laserfield.3ds"
+				"ModelName" "bee2/clean/tdb/closed_solid_field.3ds"
 				}
 			"Sounds"
 				{
@@ -82,28 +81,22 @@
 		"TargetName" "tdb_csfi"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
-				}
-			"CONNECTION_HAZARD_MODEL"
-				{
-				"Activate"      "instance:mdl;FireUser2"
-				"Deactivate"    "instance:mdl;FireUser1"
-				}
-			"CONNECTION_HAZARD_BRUSH"
-				{
-				"Activate"      "Enable"
-				"Deactivate"    "Disable"
-				}
-			}
-		"Outputs"
-			{
-			"CONNECTION_HAZARD"
-				{
-				"Activate"      "instance:out;OnUser2"
-				"Deactivate"    "instance:out;OnUser1"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "mdl,SetAnimation,open,0.00,-1"
+				"Disable_Cmd"   "mdl,SetAnimation,close,0.00,-1"
+				"Enable_Cmd"    "fizz,Enable,,0.00,-1"
+				"Disable_Cmd"   "fizz,Disable,,0.00,-1"
+				"Enable_Cmd"    "clip,Enable,,0.01,-1"
+				"Disable_Cmd"   "clip,Disable,,0.01,-1"
+				"Disable_Cmd"   "clip,RemovePaint,,0.00,-1"
+				"Enable_Cmd"    "noportal,Activate,,0.00,-1"
+				"Disable_Cmd"   "noportal,Deactivate,,0.00,-1"
+
+				// The vphysics clip can't be set to be disabled on spawn.
+				"SpawnFire" "always"
 				}
 			}
 		"ConnectionPoints"

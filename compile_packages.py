@@ -28,9 +28,9 @@ def clean_vmf(vmf_path):
             inst.remove_ent(ent)
             continue
 
-        # Remove info_null entities
-        if ent['classname'] == 'info_null':
-            print('Removing info_null...')
+        # Remove hammer_notes entities
+        if ent['classname'] == 'hammer_notes':
+            print('Removing hammer_notes...')
             inst.remove_ent(ent)
             continue
             

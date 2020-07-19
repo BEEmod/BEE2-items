@@ -124,15 +124,20 @@
 				{
 				"Name"  "instances/BEE2/clean/items/lautaro/protrude_ped_right_black.vmf"
 				}
+			"bee2_ped_fwd" "instances/BEE2/clean/items/lautaro/protrude_ped.vmf"
+			"bee2_ped_rev" "instances/BEE2/clean/items/lautaro/protrude_ped_rev.vmf"
 			}
 		"TargetName"    "pro_ped"
 		"Offset"        "64 64 64"
 		"Outputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:output;OnUser2"
-				"Deactivate"    "instance:output;OnUser1"
+				"out_activate"   "instance:output;OnUser2"
+				"out_deactivate" "instance:output;OnUser1"
+				
+				"lock_cmd"       "lock_man,SetStateATrue,,0.00,-1"
+				"unlock_cmd"     "lock_man,SetStateAFalse,,0.00,-1"
 				}
 			}
 		"ConnectionPoints"

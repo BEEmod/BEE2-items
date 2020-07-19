@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "54"
+	"editorbuild" "8419"
+	"mapversion" "61"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,103 +20,13 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "54"
+	"mapversion" "61"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
-}
-entity
-{
-	"id" "117"
-	"classname" "func_noportal_volume"
-	"origin" "-54 0 -48"
-	"spawnflags" "0"
-	solid
-	{
-		"id" "118"
-		side
-		{
-			"id" "109"
-			"plane" "(-64 -16 -52) (-64 16 -52) (-32 16 -52)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "108"
-			"plane" "(-64 16 -96) (-64 -16 -96) (-32 -16 -96)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "107"
-			"plane" "(-64 16 -52) (-64 -16 -52) (-64 -16 -96)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[0 0 -1 -56] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "106"
-			"plane" "(-32 -16 -52) (-32 16 -52) (-32 16 -96)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 -56] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "105"
-			"plane" "(-32 16 -52) (-64 16 -52) (-64 16 -96)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -56] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "104"
-			"plane" "(-32 -16 -96) (-64 -16 -96) (-64 -16 -52)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -56] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
 }
 entity
 {
@@ -143,7 +53,9 @@ entity
 	"mincpulevel" "0"
 	"mingpulevel" "0"
 	"model" "models/props/switch001.mdl"
+	"parentname" "output"
 	"performancemode" "0"
+	"physdamagescale" "1.0"
 	"pressuredelay" "0"
 	"randomanimation" "0"
 	"renderamt" "255"
@@ -152,7 +64,7 @@ entity
 	"rendermode" "0"
 	"setbodygroup" "0"
 	"shadowdepthnocache" "0"
-	"skin" "0"
+	"skin" "$skin"
 	"solid" "6"
 	"spawnflags" "0"
 	"startdisabled" "0"
@@ -169,23 +81,9 @@ entity
 }
 entity
 {
-	"id" "81"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-16 0 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
 	"id" "83"
 	"classname" "prop_button"
-	"angles" "0 0 0"
+	"angles" "0 0 180"
 	"delay" "1"
 	"istimer" "0"
 	"model" "models/props/switch001.mdl"
@@ -201,9 +99,9 @@ entity
 		"OnPressed" "!selfLock0-1"
 		"OnPressed" "!selfKill0.1-1"
 		"OnPressed" "mdlSetAnimationdown0-1"
-		"OnUser2" "proxyProxyRelay0-1"
+		"OnPressed" "mdlClearParent0-1"
 	}
-	"origin" "-40 0 -52"
+	"origin" "-48 0 -56"
 	editor
 	{
 		"color" "220 30 220"

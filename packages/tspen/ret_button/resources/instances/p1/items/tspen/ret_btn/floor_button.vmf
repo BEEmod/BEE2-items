@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "73"
+	"editorbuild" "8419"
+	"mapversion" "77"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,41 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "73"
+	"mapversion" "77"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
+}
+entity
+{
+	"id" "119"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "vis_control"
+	connections
+	{
+		"OnTurnedOn" "buttonEnableDraw0-1"
+		"OnTurnedOff" "buttonDisableDraw0-1"
+	}
+	"origin" "0 0 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "When closed, make the button invisible."
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
@@ -42,12 +64,13 @@ entity
 	"_linear_attn" "0"
 	"_quadratic_attn" "1"
 	"_zero_percent_distance" "0"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"style" "0"
 	"origin" "-0.770093 9.53674e-007 -67.7465"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -58,6 +81,7 @@ entity
 	"id" "51"
 	"classname" "prop_floor_button"
 	"angles" "0 0 0"
+	"lightingorigin" "snd_move"
 	"model" "models/bee2/props_p1/floor_button.mdl"
 	"parentname" "base"
 	"renderamt" "255"
@@ -79,6 +103,7 @@ entity
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "Lighting origin keeps the glow on top."
 		"logicalpos" "[0 0]"
 	}
 }
