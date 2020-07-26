@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8419"
-	"mapversion" "64"
+	"mapversion" "55"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "64"
+	"mapversion" "55"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,14 +30,12 @@ world
 }
 entity
 {
-	"id" "2415"
-	"classname" "comp_kv_setter"
+	"id" "818"
+	"classname" "comp_precache_model"
 	"angles" "0 0 0"
-	"kv_name" "model"
-	"kv_value_global" "$model"
-	"mode" "kv"
-	"target" "button"
-	"origin" "0 -16 -40"
+	"model" "models/bee2/props_overgrown/box_socket.mdl"
+	"skin" "0"
+	"origin" "0 0 0"
 	editor
 	{
 		"color" "220 30 220"
@@ -48,27 +46,33 @@ entity
 }
 entity
 {
-	"id" "2408"
-	"classname" "func_instance_parms"
-	"parm1" "$model studio"
-	"origin" "0 16 -40"
+	"id" "131"
+	"classname" "light"
+	"_light" "251 159 57 15"
+	"_lightHDR" "251 159 57 8"
+	"_lightscaleHDR" "1"
+	"_quadratic_attn" "1"
+	"angles" "0 0 0"
+	"origin" "0 0 -47"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
 {
-	"id" "2310"
-	"classname" "prop_floor_button"
+	"id" "51"
+	"classname" "prop_floor_cube_button"
+	"AcceptsBall" "0"
 	"angles" "0 0 0"
-	"model" "models/props/portal_button.mdl"
+	"model" "models/bee2/props_overgrown/box_socket.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"targetname" "button"
+	"vscript_init_code" "function OnPostSpawn() {self.SetModel(`models/bee2/props_overgrown/box_socket.mdl`)}"
 	"origin" "0 0 -64"
 	editor
 	{
