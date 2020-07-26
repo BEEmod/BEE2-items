@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "224"
+	"editorbuild" "8419"
+	"mapversion" "226"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,13 +26,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "224"
+	"mapversion" "226"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -195,6 +195,24 @@ world
 }
 entity
 {
+	"id" "14127"
+	"classname" "comp_entity_mover"
+	"direction" "0 0 0"
+	"distance" "1"
+	"reference" "flash_shape_blend"
+	"target" "btn"
+	"origin" "48 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Push the button down, so it is offset correctly. We can't place it in the correct position since it'll be in the void."
+		"logicalpos" "[0 3500]"
+	}
+}
+entity
+{
 	"id" "13991"
 	"classname" "env_texturetoggle"
 	"angles" "0 0 0"
@@ -229,11 +247,14 @@ entity
 	"disablereceiveshadows" "1"
 	"disableshadowdepth" "1"
 	"disableshadows" "1"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
 	"rendermode" "10"
 	"shadowdepthnocache" "2"
-	"solid" "6"
-	"SuppressAnimSounds" "1"
-	"origin" "-9.53674e-007 7.62939e-006 -71"
+	"solid" "1"
+	"SuppressAnimSounds" "0"
+	"targetname" "btn"
+	"origin" "-9.53674e-007 7.62939e-006 -55"
 	editor
 	{
 		"color" "220 30 220"
