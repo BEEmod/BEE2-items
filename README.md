@@ -7,11 +7,7 @@
 # BEE2.4 Default Pack
 This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/BEE2.4). Packages contain resources for BEE2.4, such as items or styles.
 
-[Application Repository](https://github.com/BEEmod/BEE2.4)
-
-[Discord Server](https://discord.me/beemod)
-
-[Steam Group](https://steamcommunity.com/groups/beemod)
+[Discord Server](https://discord.gg/EvC8Fku)
 
 ## Download and Use
 
@@ -19,11 +15,11 @@ This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/B
 
 These are instructions to install the release version of BEE2.4. For the development version, see below.
 
-1. Download the BEE2.4 app and compiler from [here](https://github.com/BEEmod/BEE2.4/releases).
+1. Download the BEE2.4 app and compiler from [here](https://github.com/BEEmod/BEE2.4/releases). **Do not use the "Clone or download" button above, this will download the source files which do not include an executable.**
 2. Download the Default Pack from [here](https://github.com/BEEmod/BEE2-items/releases). Make sure to get the same version as the application, otherwise you may encounter errors.
 3. Extract the application zip to anywhere on your computer.
 4. Extract the contents of the Default Pack zip to the application folder you just extracted.
-5. To launch BEE2.4, go to the `bin` folder and open `BEE2.exe`.
+5. To launch BEE2.4, go to the extracted folder and open `BEE2.exe`.
 6. Once opened, select the game you want BEE2.4 to modify.
 
 You can add another game using `File > Add Game`. Any Source game can be added, but BEE2.4 will only work with Portal 2 and Aperture Tag. Thinking With Time Machine support is planned, but has not yet been implemented.
@@ -37,8 +33,8 @@ These are instructions to install the development version of the Default Pack. T
 
 For some things to work correctly, you may need to use this with the development version of the application/compiler. Instructions for how to install this can be found [here](https://github.com/BEEmod/BEE2.4#build-from-source-advanced-for-adding-to-bee24-program-windows).
 
-1. If you don't already have one, download and install a Git client such as [GitHub Desktop](https://desktop.github.com/).
-2. Clone this repository in your Git client. If you are using GitHub Desktop, the "Clone or Download" button above can be used to instantly begin cloning the repository to your computer.
+1. If you don't already have one, download and install a Git client such as [GitHub Desktop](https://desktop.github.com/), or [command-line Git](https://git-scm.com/).
+2. Clone this repository to your computer. If you are using GitHub Desktop, this can be done with the "Clone or Download" button above.
 3. Once it is finished, select the branch you want to sync changes from. `master`, the default branch, is the release version. `dev` contains features which will be in the next update. There are also various other branches available, for testing different features.
 4. Open `%appdata%/BEEMOD2/config/config.cfg` in a text editor. <!--TODO: Where are these files/directories located on Mac?-->
 5. Set the package directory to the `packages` folder within your cloned repository folder. If using GitHub Desktop, this will default to `C:\Users\<yourname>\Documents\GitHub\BEE2-items\packages`.
@@ -54,4 +50,4 @@ To continue recieving the latest changes, you must regularly pull commits from t
 
 The [BEE2.4 Default Pack wiki](https://github.com/BEEmod/BEE2-items/wiki) contains more in-depth explanations of items and styles, as well as development guides. The [BEE2.4 wiki](https://github.com/BEEmod/BEE2.4/wiki) has information on the application. Note that both of these wikis are missing a lot of content, you can help by contributing to them.
 
-If you have a question about BEE2.4, check the [FAQ](https://github.com/BEEmod/BEE2-items/wiki/FAQ) or ask on [Discord](https://discord.me/beemod). Please do not open an issue to ask a question.
+If you have a question about BEE2.4, check the [FAQ](https://github.com/BEEmod/BEE2-items/wiki/FAQ) or ask on [Discord](https://discord.gg/EvC8Fku). Please do not open an issue to ask a question.

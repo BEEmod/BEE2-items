@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "109"
+	"editorbuild" "7335"
+	"mapversion" "110"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "109"
+	"mapversion" "110"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -735,11 +735,12 @@ entity
 	"_lightHDR" "-1 -1 -1 1"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"origin" "0 0 -40"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"comments" "The glow gives us always-on lights"
@@ -750,7 +751,8 @@ entity
 {
 	"id" "272"
 	"classname" "func_noportal_volume"
-	"origin" "0 0 -79.5"
+	"origin" "0 0 -79"
+	"solid" "6"
 	"spawnflags" "0"
 	solid
 	{
@@ -758,7 +760,7 @@ entity
 		side
 		{
 			"id" "272"
-			"plane" "(-32 -32 -63) (-32 32 -63) (32 32 -63)"
+			"plane" "(-30 -30 -62) (-30 30 -62) (30 30 -62)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -769,9 +771,9 @@ entity
 		side
 		{
 			"id" "271"
-			"plane" "(-32 32 -96) (-32 -32 -96) (32 -32 -96)"
+			"plane" "(-30 30 -96) (-30 -30 -96) (30 -30 -96)"
 			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[1 0 0 0] 0.25"
+			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -780,7 +782,7 @@ entity
 		side
 		{
 			"id" "270"
-			"plane" "(-32 -32 -96) (-32 32 -96) (-32 32 -63)"
+			"plane" "(-30 -30 -96) (-30 30 -96) (-30 30 -62)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 -28] 0.25"
@@ -791,7 +793,7 @@ entity
 		side
 		{
 			"id" "269"
-			"plane" "(32 32 -96) (32 -32 -96) (32 -32 -63)"
+			"plane" "(30 30 -96) (30 -30 -96) (30 -30 -62)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 -28] 0.25"
@@ -802,7 +804,7 @@ entity
 		side
 		{
 			"id" "268"
-			"plane" "(-32 32 -96) (32 32 -96) (32 32 -63)"
+			"plane" "(-30 30 -96) (30 30 -96) (30 30 -62)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -28] 0.25"
@@ -813,7 +815,7 @@ entity
 		side
 		{
 			"id" "267"
-			"plane" "(32 -32 -96) (-32 -32 -96) (-32 -32 -63)"
+			"plane" "(30 -30 -96) (-30 -30 -96) (-30 -30 -62)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -28] 0.25"
@@ -846,6 +848,7 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
+	"solid" "6"
 	"StartState" "$start_disabled"
 	"targetname" "laser"
 	"origin" "0 0 -80"

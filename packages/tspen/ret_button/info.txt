@@ -13,7 +13,59 @@
 			"BEE2_CLEAN"        "ped_clean"
 			"BEE2_OVERGROWN"    "ped_over"
 			"BEE2_PORTAL_1"     "ped_p1"
-			"BEE2_1950s"        "ped_50s"
+			"BEE2_1950s"
+				{
+				"Description"   "1950s buttons are just disabled electronically when off."
+				"Folder" "ped_clean"
+				"Config" "ped_retro.cfg"
+				"IOConf"
+					{
+					"Out_Activate"   "instance:button;OnUser2"
+					"Out_Deactivate" "instance:button;OnUser1"
+
+					"Type"              "AND"
+					"InvertVar"         "$start_enabled"
+					"SpawnFire"         "always"
+					"Enable_Cmd"        "input,TurnOn,,0.00,-1"
+					"Disable_Cmd"       "input,TurnOff,,0.00,-1"
+					
+					// Generate a logic_relay which plays the appropriate tick-tock sounds.
+					"timer_sound_pos"   "-16 0 -32"
+					"timer_done_cmd"    "branch_pressed,SetValue,0,0.00,-1"
+					"timer_done_cmd"    "button,FireUser1,,0.00,-1"
+					"timer_done_cmd"    "snd_rel,PlaySound,,0.00,-1"
+					}
+				"Palette"
+					{
+					"0"
+						{
+						"name"     "Lockable Pedestal Button"
+						"pal_name" "PEDESTAL BUTTON - LOCKABLE"
+						"icon"     "palette/50s/tspen/pedestal_locked.png"
+						"BEE2"     "50s/tspen/pedestal_locked.png"
+						"Model"    "ts_ret_ped_button.mdl"
+						}
+					}
+				"Instances"
+					{
+					"0"
+						{
+						"Name"  "instances/BEE2/50s/items/tspen/ret_btn/ped_button_common.vmf"
+						"EntityCount"       "11"
+						"BrushCount"        "28"
+						"BrushSideCount"    "174"
+						}
+					"1"
+						{
+						"Name"  "instances/BEE2/50s/items/tspen/ret_btn/ped_button_common.vmf"
+						"EntityCount"       "11"
+						"BrushCount"        "28"
+						"BrushSideCount"    "174"
+						}
+					"timer"  "instances/BEE2/50s/items/tspen/ret_btn/ped_button_timer.vmf"
+					"perm"   "instances/BEE2/50s/items/tspen/ret_btn/ped_button_perm.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -132,21 +184,33 @@
 					{
 					"Replacements"
 						{
-						"%TEMP_ONESIGN%" "TSPEN_BTN_CUBE_P1"
-						"%TEMP_TWOSIGN%" "TSPEN_BTN_FLOOR_P1"
+						"%TEMP%" "TSPEN_RET_BTN_P1"
+						"%OFFSET%" "0 0 64"
+						"%THICK%" "4"
 
 						"%LEFT_PARENT%" "m2,cyl"
 						"%RIGHT_PARENT%" "m1,cyl"
 						}
+					}
+				"IOConf"
+					{
+					"Type"          "AND"
+					"InvertVar"     "$start_enabled"
+					"SpawnFire"		"always"
+					"Enable_Cmd"    "input,TurnOn,,0.00,-1"
+					"Disable_Cmd"   "input,TurnOff,,0.00,-1"
 					}
 				"Instances"
 					{
 					// Base and brushes.
 					"bee2_common"   "instances/BEE2/p1/items/tspen/ret_btn/ret_button_common.vmf"
 
-					"bee2_floor"    "instances/BEE2/p1/items/tspen/ret_btn/floor_button.vmf"
-					"bee2_ball"     "instances/BEE2/p1/items/tspen/ret_btn/ball_button.vmf"
-					"bee2_cube"     "instances/BEE2/p1/items/tspen/ret_btn/cube_button.vmf"
+					"0" "instances/BEE2/p1/items/tspen/ret_btn/floor_button.vmf"
+					"1" "instances/BEE2/p1/items/tspen/ret_btn/floor_button.vmf"
+					"2" "instances/BEE2/p1/items/tspen/ret_btn/ball_button.vmf"
+					"3" "instances/BEE2/p1/items/tspen/ret_btn/ball_button.vmf"
+					"4" "instances/BEE2/p1/items/tspen/ret_btn/cube_button.vmf"
+					"5" "instances/BEE2/p1/items/tspen/ret_btn/cube_button.vmf"
 					}
 				}
 			}
@@ -167,18 +231,12 @@
 	
 "BrushTemplate"
 	{
+	"ID"    "TSPEN_RET_BTN_P1"
+	"File"  "ret_button_p1.vmf"
+	}
+	
+"BrushTemplate"
+	{
 	"ID"    "TSPEN_BTN_FLOOR_RETRO"
 	"File"  "retro_floor_top.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "TSPEN_BTN_FLOOR_P1"
-	"File"  "pan_floor_p1.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "TSPEN_BTN_CUBE_P1"
-	"File"  "pan_cube_p1.vmf"
 	}

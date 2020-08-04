@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8037"
-	"mapversion" "50"
+	"editorbuild" "8419"
+	"mapversion" "52"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "64"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "50"
+	"mapversion" "52"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,7 +32,7 @@ entity
 {
 	"id" "89"
 	"classname" "func_noportal_volume"
-	"origin" "-54 0 -48"
+	"origin" "74 0 -48"
 	"solid" "6"
 	"spawnflags" "0"
 	solid
@@ -41,7 +41,7 @@ entity
 		side
 		{
 			"id" "1"
-			"plane" "(-76 -16 -64) (-76 16 -64) (-76 16 -32)"
+			"plane" "(52 -16 -64) (52 16 -64) (52 16 -32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -52,7 +52,7 @@ entity
 		side
 		{
 			"id" "2"
-			"plane" "(-32 16 -64) (-32 -16 -64) (-32 -16 -32)"
+			"plane" "(96 16 -64) (96 -16 -64) (96 -16 -32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -63,10 +63,10 @@ entity
 		side
 		{
 			"id" "3"
-			"plane" "(-76 16 -64) (-76 -16 -64) (-32 -16 -64)"
+			"plane" "(52 16 -64) (52 -16 -64) (96 -16 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[1 0 0 8] 0.25"
+			"vaxis" "[1 0 0 -56] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -74,10 +74,10 @@ entity
 		side
 		{
 			"id" "4"
-			"plane" "(-76 -16 -32) (-76 16 -32) (-32 16 -32)"
+			"plane" "(52 -16 -32) (52 16 -32) (96 16 -32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[1 0 0 8] 0.25"
+			"vaxis" "[1 0 0 -56] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -85,10 +85,10 @@ entity
 		side
 		{
 			"id" "5"
-			"plane" "(-76 16 -32) (-76 16 -64) (-32 16 -64)"
+			"plane" "(52 16 -32) (52 16 -64) (96 16 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 0 -1 0] 0.25"
-			"vaxis" "[1 0 0 8] 0.25"
+			"vaxis" "[1 0 0 -56] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -96,10 +96,10 @@ entity
 		side
 		{
 			"id" "6"
-			"plane" "(-32 -16 -32) (-32 -16 -64) (-76 -16 -64)"
+			"plane" "(96 -16 -32) (96 -16 -64) (52 -16 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[1 0 0 8] 0.25"
+			"vaxis" "[1 0 0 -56] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -147,13 +147,13 @@ entity
 	"rendermode" "0"
 	"setbodygroup" "0"
 	"shadowdepthnocache" "0"
-	"skin" "0"
+	"skin" "$skin"
 	"solid" "6"
 	"spawnflags" "0"
 	"startdisabled" "0"
 	"suppressanimsounds" "0"
 	"targetname" "mdl"
-	"origin" "-67.9984 0 -48"
+	"origin" "60.0016 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -174,6 +174,7 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"rendermode" "10"
+	"skin" "$skin"
 	"solid" "0"
 	"targetname" "output"
 	connections
@@ -184,7 +185,7 @@ entity
 		"OnPressed" "mdlSetAnimationdown0-1"
 		"OnPressed" "mdlClearParent0-1"
 	}
-	"origin" "-71.9984 0 -48"
+	"origin" "56.0016 0 -48"
 	editor
 	{
 		"color" "220 30 220"

@@ -25,20 +25,13 @@
 					{
 					"0" "instances/BEE2/p1/items/tspen/coop_checkpoint.vmf"
 					}
-				"Append"
+				"IOConf"
 					{
-					"Conditions"
-						{
-						"Condition"
-							{
-							"instance"  "<ITEM_TSPEN_COOP_CHECKPOINT>"
-							"Result"
-								{
-								// Camera in checkpoint room
-								"PrecacheModel" "bee2/props_p1/security_camera"
-								}
-							}
-						}
+					"Type"          "AND"
+					"invertVar"		"$start_open"
+					"spawnFire"     "always"
+					"Enable_Cmd"    "input,TurnOn,,0.00,-1"
+					"Disable_Cmd"   "input,TurnOff,,0.00,-1"
 					}
 				}
 			"BEE2_BTS"
@@ -256,10 +249,10 @@
 	"ID" "ITEM_BEE2_COOP_CHECKPOINT_SINGLE"
 	"Description"	
 		{
-		"" "Allow respawning Coop players at a new location.  "
+		"" "Allow respawning Coop players at a new location."
 		"" ""
-		"" "* The dropper will be activated when players walk in the 3x3 area underneath the dropper.  "
-		"" "* If two droppers are placed within 2 blocks of each other, the trigger will be merged together."
+		"" "* The dropper will be activated when players walk in the 3x3 area underneath the dropper."
+		"" "* If two droppers are placed within 2 blocks of each other, the trigger will be merged together.  "
 		"" "This ensures both droppers will always be activated."
 		}
 	"All_conf" "coop_check_single.cfg"
@@ -271,7 +264,6 @@
 			"BEE2_OVERGROWN"
 				{
 				"Base" "BEE2_CLEAN"
-				"Config" "coop_check_single_over.cfg"
 				"Instances"
 					{
 					"bee2_common" "instances/BEE2/over/items/tspen/single_checkpoint.vmf"
@@ -280,24 +272,42 @@
 			"BEE2_1950s"
 				{
 				"Base" "BEE2_CLEAN"
-				"Config" "coop_check_single_retro.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMP%" "BEE2_CUBE_DROPPER_RETRO_CAP"
+						}
+					}
 				"Instances"
 					{
-					"bee2_both"   "instances/BEE2/50s/items/tspen/single_checkpoint_both.vmf"
-					"bee2_blue"   "instances/BEE2/50s/items/tspen/single_checkpoint_blue.vmf"
-					"bee2_oran"   "instances/BEE2/50s/items/tspen/single_checkpoint_oran.vmf"
+					"0"   "instances/BEE2/50s/items/tspen/single_checkpoint_both.vmf"
+					"1"   "instances/BEE2/50s/items/tspen/single_checkpoint_both.vmf"
+					"2"   "instances/BEE2/50s/items/tspen/single_checkpoint_blue.vmf"
+					"3"   "instances/BEE2/50s/items/tspen/single_checkpoint_blue.vmf"
+					"4"   "instances/BEE2/50s/items/tspen/single_checkpoint_oran.vmf"
+					"5"   "instances/BEE2/50s/items/tspen/single_checkpoint_oran.vmf"
 					"bee2_common" "instances/BEE2/50s/items/tspen/single_checkpoint.vmf"
 					}
 				}
 			"BEE2_PORTAL_1"
 				{
 				"Base" "BEE2_CLEAN"
-				"Config" "coop_check_single_p1.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMP%" "TSPEN_CHECKPOINT_SINGLE_CAP_P1"
+						}
+					}
 				"Instances"
 					{
-					"bee2_both"   "instances/BEE2/p1/items/tspen/single_checkpoint_both.vmf"
-					"bee2_blue"   "instances/BEE2/p1/items/tspen/single_checkpoint_blue.vmf"
-					"bee2_oran"   "instances/BEE2/p1/items/tspen/single_checkpoint_oran.vmf"
+					"0"   "instances/BEE2/p1/items/tspen/single_checkpoint_both.vmf"
+					"1"   "instances/BEE2/p1/items/tspen/single_checkpoint_both.vmf"
+					"2"   "instances/BEE2/p1/items/tspen/single_checkpoint_blue.vmf"
+					"3"   "instances/BEE2/p1/items/tspen/single_checkpoint_blue.vmf"
+					"4"   "instances/BEE2/p1/items/tspen/single_checkpoint_oran.vmf"
+					"5"   "instances/BEE2/p1/items/tspen/single_checkpoint_oran.vmf"
 					"bee2_common" "instances/BEE2/p1/items/tspen/single_checkpoint.vmf"
 					}
 				}

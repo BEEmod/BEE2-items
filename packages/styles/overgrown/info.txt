@@ -235,8 +235,12 @@
 				"BEE2_OVERGROWN"
 					{
 					"Base" "BEE2_CLEAN"
-					"Config"
+					"Append"
 						{
+						"Replacements"
+							{
+							"%static_folder%" "instances/BEE2/over/static_panel/"
+							}
 						"Conditions"
 							{
 							"Condition"
@@ -253,20 +257,6 @@
 										"SetInstVar" "$skin 0" // Blue
 										"SetInstVar" "$skin 1" // Red
 										"SetInstVar" "$skin 2" // Off
-										}
-									}
-								"Condition"
-									{
-									"instvar" "$start_deployed 0"
-									"Result"
-										{
-										"GlobalInput"
-											{
-											"Target" "model_arms"
-											"Input"  "SetPlaybackRate"
-											"Param"  "-1"
-											"Delay"  "0.01"
-											}
 										}
 									}
 								}
@@ -405,18 +395,20 @@
 							"BrushCount"        "7"
 							"BrushSideCount"    "56"
 							}
+						"bee2_stairs_static" "instances/BEE2/over/items/stairs_static.vmf"
 						}
 					"Append"
 						{
 						"Replacements"
 							{
-							"%STATIC_TEX_TEMP%" "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
-							"%TOP_TEMP%"  "BEE2_OVER_STAIRS_TOP"
+							"%STATIC_TEX_TEMP%"   "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
+							"%TOP_TEMP%"          "BEE2_OVER_STAIRS_TOP"
+							"%STATIC_PANEL_TEMP%" "BEE2_STAIRS_TOP_STATIC_OVER"
 							// Chance to have a panel in each place
-							"%SPACE_PERC%"      "60%"
-							"%FORCE_VAR%"       "$disable_autorespawn"
-							"%EDGE_ORIG_TEX%"   "anim_wp/framework/squarebeams_rusty_01"
-							"%EDGE_PORTAL_TEX%" "BEE2/squarebeams_rusty_portal"
+							"%SPACE_PERC%"        "60%"
+							"%FORCE_VAR%"         "$disable_autorespawn"
+							"%EDGE_ORIG_TEX%"     "anim_wp/framework/squarebeams_rusty_01"
+							"%EDGE_PORTAL_TEX%"   "BEE2/squarebeams_rusty_portal"
 							}
 						}
 					"AppendDesc"
@@ -453,6 +445,12 @@
 	{
 	"ID"   "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
 	"File" "stairs_squarebeams.vmf"
+	}
+
+"BrushTemplate"
+	{
+	"ID"   "BEE2_STAIRS_TOP_STATIC_OVER"
+	"File" "stairs_static.vmf"
 	}
 	
 	

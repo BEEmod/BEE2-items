@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "47"
+	"editorbuild" "8419"
+	"mapversion" "48"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "47"
+	"mapversion" "48"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -45,6 +45,7 @@ entity
 	"renderfx" "0"
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
+	"solid" "6"
 	"solidbsp" "0"
 	"Solidity" "1"
 	"spawnflags" "2"
@@ -153,70 +154,11 @@ entity
 }
 entity
 {
-	"id" "621"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "32 -32 -56"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "669"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "bridgeEnable0-1"
-		"OnFalse" "bridgeDisable0-1"
-	}
-	"origin" "1.13687e-013 3.8147e-006 -24"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "613"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "32 32 -54"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "615"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 1"
 	"parm2" "$start_enabled integer 1"
-	"origin" "32 -1.39876e-006 -54"
+	"origin" "0 -1.39876e-006 -46"
 	editor
 	{
 		"color" "220 30 220"
@@ -233,6 +175,7 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "1"
+	"solid" "6"
 	"StartEnabled" "$start_enabled"
 	"targetname" "bridge"
 	"origin" "-5.30589e-014 0 -64"
