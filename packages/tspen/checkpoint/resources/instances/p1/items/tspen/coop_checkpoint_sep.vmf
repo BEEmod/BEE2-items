@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8419"
-	"mapversion" "310"
+	"mapversion" "374"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,25 +20,19 @@ visgroups
 		"visgroupid" "16"
 		"color" "101 234 227"
 	}
-	visgroup
-	{
-		"name" "model_swap"
-		"visgroupid" "37"
-		"color" "219 184 233"
-	}
 }
 viewsettings
 {
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "310"
+	"mapversion" "374"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -128,7 +122,7 @@ world
 		side
 		{
 			"id" "3483"
-			"plane" "(-64 1 -64) (64 1 -64) (64 -1 -64)"
+			"plane" "(-64 -1 -81) (-64 1 -81) (64 1 -81)"
 			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -139,7 +133,7 @@ world
 		side
 		{
 			"id" "3482"
-			"plane" "(-64 -1 -192) (64 -1 -192) (64 1 -192)"
+			"plane" "(-64 1 -192) (-64 -1 -192) (64 -1 -192)"
 			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -150,7 +144,7 @@ world
 		side
 		{
 			"id" "3481"
-			"plane" "(-64 1 -64) (-64 -1 -64) (-64 -1 -192)"
+			"plane" "(-64 -1 -192) (-64 1 -192) (-64 1 -81)"
 			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 32] 0.25"
@@ -161,7 +155,7 @@ world
 		side
 		{
 			"id" "3480"
-			"plane" "(64 1 -192) (64 -1 -192) (64 -1 -64)"
+			"plane" "(64 1 -192) (64 -1 -192) (64 -1 -81)"
 			"material" "TOOLS/TOOLSSKIP"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 32] 0.25"
@@ -172,7 +166,7 @@ world
 		side
 		{
 			"id" "3479"
-			"plane" "(64 1 -64) (-64 1 -64) (-64 1 -192)"
+			"plane" "(-64 1 -192) (64 1 -192) (64 1 -81)"
 			"material" "TOOLS/TOOLSHINT"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 32] 0.25"
@@ -183,7 +177,7 @@ world
 		side
 		{
 			"id" "3478"
-			"plane" "(64 -1 -192) (-64 -1 -192) (-64 -1 -64)"
+			"plane" "(64 -1 -192) (-64 -1 -192) (-64 -1 -81)"
 			"material" "TOOLS/TOOLSHINT"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 32] 0.25"
@@ -6589,6 +6583,26 @@ world
 	}
 	group
 	{
+		"id" "29079"
+		editor
+		{
+			"color" "120 137 0"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	group
+	{
+		"id" "29080"
+		editor
+		{
+			"color" "120 137 0"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	group
+	{
 		"id" "24718"
 		editor
 		{
@@ -6616,6 +6630,608 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "29081"
+	"classname" "prop_dynamic"
+	"angles" "-90 180 0"
+	"DefaultAnim" "idle"
+	"DisableBoneFollowers" "0"
+	"disablereceiveshadows" "0"
+	"ExplodeDamage" "0"
+	"ExplodeRadius" "0"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"HoldAnimation" "0"
+	"MaxAnimTime" "10"
+	"MinAnimTime" "5"
+	"model" "models/bee2/props_p1/switch.mdl"
+	"parentname" "btn_right"
+	"PerformanceMode" "0"
+	"physdamagescale" "1.0"
+	"pressuredelay" "0"
+	"RandomAnimation" "0"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"renderfx" "0"
+	"SetBodyGroup" "0"
+	"skin" "0"
+	"solid" "6"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"SuppressAnimSounds" "0"
+	"targetname" "btn_mdl_right"
+	"origin" "-64 -48 -368"
+	editor
+	{
+		"color" "120 137 0"
+		"groupid" "29080"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "29086"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"startDisabled" "0"
+	"targetname" "btn_timer_right"
+	connections
+	{
+		"OnTrigger" "btn_snd_tim_rightPlaySound0-1"
+		"OnTrigger" "btn_snd_tim_rightPlaySound1-1"
+		"OnTrigger" "br_right_btnSetValue02-1"
+		"OnTrigger" "@commandCommandcc_emit Portal.button_up2-1"
+		"OnTrigger" "@commandCommandcc_emit Portal.room1_TickTock1-1"
+		"OnTrigger" "@commandCommandcc_emit Portal.room1_TickTock0-1"
+	}
+	"origin" "-24 -48 -352"
+	editor
+	{
+		"color" "120 137 0"
+		"groupid" "29080"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 11]"
+	}
+}
+entity
+{
+	"id" "29088"
+	"classname" "ambient_generic"
+	"angles" "0 0 0"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "ambient/machines/ticktock1.wav"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"SourceEntityName" "btn_mdl_right"
+	"spawnflags" "48"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "btn_snd_tim_right"
+	"volstart" "0"
+	"origin" "-40 -48 -352"
+	editor
+	{
+		"color" "120 137 0"
+		"groupid" "29080"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "29092"
+	"classname" "ambient_generic"
+	"angles" "0 0 0"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "BEE2.P1.button_up"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"SourceEntityName" "btn_mdl_right"
+	"spawnflags" "48"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "btn_snd_rel_right"
+	"volstart" "0"
+	"origin" "-56 -48 -352"
+	editor
+	{
+		"color" "120 137 0"
+		"groupid" "29080"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "29096"
+	"classname" "func_button"
+	"disablereceiveshadows" "0"
+	"health" "0"
+	"locked_sentence" "0"
+	"locked_sound" "0"
+	"movedir" "0 0 0"
+	"origin" "-72 -48 -368"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"renderfx" "0"
+	"rendermode" "0"
+	"solid" "6"
+	"sounds" "0"
+	"spawnflags" "1025"
+	"speed" "5"
+	"targetname" "btn_right"
+	"unlocked_sentence" "0"
+	"unlocked_sound" "0"
+	"wait" "1"
+	connections
+	{
+		"OnPressed" "btn_mdl_rightSetAnimationpress0-1"
+		"OnPressed" "@commandCommandcc_emit Portal.button_down0-1"
+		"OnPressed" "br_right_btnSetValue10-1"
+		"OnPressed" "pan_rightStart0-1"
+		"OnPressed" "btn_timer_rightCancelPending0-1"
+		"OnPressed" "btn_timer_rightTrigger0.01-1"
+	}
+	solid
+	{
+		"id" "29097"
+		side
+		{
+			"id" "3684"
+			"plane" "(-80 -40 -376) (-80 -56 -376) (-64 -56 -376)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 -58] 0.25"
+			"vaxis" "[0 1 0 8] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3683"
+			"plane" "(-80 -56 -360) (-80 -40 -360) (-64 -40 -360)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 -58] 0.25"
+			"vaxis" "[0 1 0 8] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3682"
+			"plane" "(-80 -56 -376) (-80 -40 -376) (-80 -40 -360)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 -1 0 -8] 0.25"
+			"vaxis" "[0 0 1 26] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3681"
+			"plane" "(-64 -40 -376) (-64 -56 -376) (-64 -56 -360)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 -1 0 -8] 0.25"
+			"vaxis" "[0 0 1 26] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3680"
+			"plane" "(-64 -56 -376) (-80 -56 -376) (-80 -56 -360)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 -58] 0.25"
+			"vaxis" "[0 0 1 26] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3679"
+			"plane" "(-80 -40 -376) (-64 -40 -376) (-64 -40 -360)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 -58] 0.25"
+			"vaxis" "[0 0 1 26] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "120 137 0"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "120 137 0"
+		"groupid" "29080"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "."
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "29266"
+	"classname" "trigger_push"
+	"alternateticksfix" "0"
+	"origin" "-0 0 -80"
+	"pushdir" "-90 0 0"
+	"solid" "6"
+	"spawnflags" "11"
+	"speed" "120"
+	"StartDisabled" "1"
+	"targetname" "push"
+	solid
+	{
+		"id" "29267"
+		side
+		{
+			"id" "3696"
+			"plane" "(64 -128 -96) (-64 -128 -96) (-64 -128 -64)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 -1 0] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3695"
+			"plane" "(-64 128 -96) (64 128 -96) (64 128 -64)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 -1 0] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3694"
+			"plane" "(64 -128 -64) (-64 -128 -64) (-64 128 -64)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3693"
+			"plane" "(64 128 -96) (-64 128 -96) (-64 -128 -96)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3692"
+			"plane" "(64 128 -64) (64 128 -96) (64 -128 -96)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 -1 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3691"
+			"plane" "(-64 -128 -64) (-64 -128 -96) (-64 128 -96)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 -1 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
+	"id" "28360"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"startDisabled" "0"
+	"targetname" "btn_timer_left"
+	connections
+	{
+		"OnTrigger" "btn_snd_tim_leftPlaySound0-1"
+		"OnTrigger" "btn_snd_tim_leftPlaySound1-1"
+		"OnTrigger" "br_left_btnSetValue02-1"
+		"OnTrigger" "@commandCommandcc_emit Portal.button_up2-1"
+		"OnTrigger" "@commandCommandcc_emit Portal.room1_TickTock1-1"
+		"OnTrigger" "@commandCommandcc_emit Portal.room1_TickTock0-1"
+	}
+	"origin" "-24 48 -352"
+	editor
+	{
+		"color" "120 137 0"
+		"groupid" "29079"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 11]"
+	}
+}
+entity
+{
+	"id" "28484"
+	"classname" "ambient_generic"
+	"angles" "0 0 0"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "ambient/machines/ticktock1.wav"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"SourceEntityName" "btn_mdl_left"
+	"spawnflags" "48"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "btn_snd_tim_left"
+	"volstart" "0"
+	"origin" "-40 48 -352"
+	editor
+	{
+		"color" "120 137 0"
+		"groupid" "29079"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "27776"
+	"classname" "func_button"
+	"disablereceiveshadows" "0"
+	"health" "0"
+	"locked_sentence" "0"
+	"locked_sound" "0"
+	"movedir" "0 0 0"
+	"origin" "-72 48 -368"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"renderfx" "0"
+	"rendermode" "0"
+	"solid" "6"
+	"sounds" "0"
+	"spawnflags" "1025"
+	"speed" "5"
+	"targetname" "btn_left"
+	"unlocked_sentence" "0"
+	"unlocked_sound" "0"
+	"wait" "1"
+	connections
+	{
+		"OnPressed" "btn_mdl_leftSetAnimationpress0-1"
+		"OnPressed" "@commandCommandcc_emit Portal.button_down0-1"
+		"OnPressed" "br_left_btnSetValue10-1"
+		"OnPressed" "pan_leftStart0-1"
+		"OnPressed" "btn_timer_leftCancelPending0-1"
+		"OnPressed" "btn_timer_leftTrigger0.01-1"
+	}
+	solid
+	{
+		"id" "27777"
+		side
+		{
+			"id" "3672"
+			"plane" "(-80 56 -376) (-80 40 -376) (-64 40 -376)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 -58] 0.25"
+			"vaxis" "[0 1 0 -56] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3671"
+			"plane" "(-80 40 -360) (-80 56 -360) (-64 56 -360)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 -58] 0.25"
+			"vaxis" "[0 1 0 -56] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3670"
+			"plane" "(-80 40 -376) (-80 56 -376) (-80 56 -360)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 -1 0 56] 0.25"
+			"vaxis" "[0 0 1 26] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3669"
+			"plane" "(-64 56 -376) (-64 40 -376) (-64 40 -360)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 -1 0 56] 0.25"
+			"vaxis" "[0 0 1 26] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3668"
+			"plane" "(-64 40 -376) (-80 40 -376) (-80 40 -360)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 -58] 0.25"
+			"vaxis" "[0 0 1 26] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3667"
+			"plane" "(-80 56 -376) (-64 56 -376) (-64 56 -360)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 -58] 0.25"
+			"vaxis" "[0 0 1 26] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "120 137 0"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "120 137 0"
+		"groupid" "29079"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "."
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "27781"
+	"classname" "prop_dynamic"
+	"angles" "-90 180 0"
+	"DefaultAnim" "idle"
+	"DisableBoneFollowers" "0"
+	"disablereceiveshadows" "0"
+	"ExplodeDamage" "0"
+	"ExplodeRadius" "0"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"HoldAnimation" "0"
+	"MaxAnimTime" "10"
+	"MinAnimTime" "5"
+	"model" "models/bee2/props_p1/switch.mdl"
+	"parentname" "btn_left"
+	"PerformanceMode" "0"
+	"physdamagescale" "1.0"
+	"pressuredelay" "0"
+	"RandomAnimation" "0"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"renderfx" "0"
+	"SetBodyGroup" "0"
+	"skin" "0"
+	"solid" "6"
+	"spawnflags" "0"
+	"StartDisabled" "0"
+	"SuppressAnimSounds" "0"
+	"targetname" "btn_mdl_left"
+	"origin" "-64 48 -368"
+	editor
+	{
+		"color" "120 137 0"
+		"groupid" "29079"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "27786"
+	"classname" "ambient_generic"
+	"angles" "0 0 0"
+	"cspinup" "0"
+	"fadeinsecs" "0"
+	"fadeoutsecs" "0"
+	"health" "10"
+	"lfomodpitch" "0"
+	"lfomodvol" "0"
+	"lforate" "0"
+	"lfotype" "0"
+	"message" "BEE2.P1.button_up"
+	"pitch" "100"
+	"pitchstart" "100"
+	"preset" "0"
+	"radius" "1250"
+	"SourceEntityName" "btn_mdl_left"
+	"spawnflags" "48"
+	"spindown" "0"
+	"spinup" "0"
+	"targetname" "btn_snd_rel_left"
+	"volstart" "0"
+	"origin" "-56 48 -352"
+	editor
+	{
+		"color" "120 137 0"
+		"groupid" "29079"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -8756,7 +9372,7 @@ entity
 	"id" "23557"
 	"classname" "trigger_portal_cleanser"
 	"drawinfastreflection" "0"
-	"origin" "0 0 -424.5"
+	"origin" "4 0 -412"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"solid" "6"
@@ -8767,87 +9383,11 @@ entity
 	"Visible" "0"
 	solid
 	{
-		"id" "23558"
-		side
-		{
-			"id" "3515"
-			"plane" "(-64 -48 -416) (-64 -48 -440) (-64 48 -440)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3514"
-			"plane" "(64 48 -416) (64 48 -440) (64 -48 -440)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3513"
-			"plane" "(-64 48 -440) (-64 -48 -440) (64 -48 -440)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3512"
-			"plane" "(-64 48 -416) (-64 48 -440) (64 48 -440)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3511"
-			"plane" "(64 -48 -416) (64 -48 -440) (-64 -48 -440)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3510"
-			"plane" "(-64 -48 -416) (-64 48 -416) (64 48 -416)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	solid
-	{
 		"id" "23559"
 		side
 		{
 			"id" "3521"
-			"plane" "(-64 192 -416) (-64 192 -401) (-64 -192 -401)"
+			"plane" "(-64 192 -424) (-64 192 -401) (-64 -192 -401)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -8858,7 +9398,7 @@ entity
 		side
 		{
 			"id" "3520"
-			"plane" "(64 -192 -416) (64 -192 -401) (64 192 -401)"
+			"plane" "(64 -192 -424) (64 -192 -401) (64 192 -401)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -8880,7 +9420,7 @@ entity
 		side
 		{
 			"id" "3518"
-			"plane" "(-64 192 -401) (-64 192 -416) (64 192 -416)"
+			"plane" "(-64 192 -401) (-64 192 -424) (64 192 -424)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
@@ -8891,7 +9431,7 @@ entity
 		side
 		{
 			"id" "3517"
-			"plane" "(64 -192 -401) (64 -192 -416) (-64 -192 -416)"
+			"plane" "(64 -192 -401) (64 -192 -424) (-64 -192 -424)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
@@ -8902,7 +9442,7 @@ entity
 		side
 		{
 			"id" "3516"
-			"plane" "(-64 192 -416) (-64 -192 -416) (64 -192 -416)"
+			"plane" "(-64 192 -424) (-64 -192 -424) (64 -192 -424)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -9359,6 +9899,10 @@ entity
 		"OnEndTouchBluePlayer" "spr_blue_lHideSprite0-1"
 		"OnStartTouch" "br_left_trigSetValue10-1"
 		"OnEndTouchAll" "br_left_trigSetValue00-1"
+		"OnStartTouchBluePlayer" "side_chooserSetValue00-1"
+		"OnStartTouchOrangePlayer" "side_chooserSetValue10-1"
+		"OnEndTouchBluePlayer" "cam_lLookAtOrange0-1"
+		"OnEndTouchOrangePlayer" "cam_lLookAtBlue0-1"
 	}
 	solid
 	{
@@ -9466,6 +10010,10 @@ entity
 		"OnStartTouchBluePlayer" "spr_blue_rShowSprite0-1"
 		"OnEndTouchAll" "br_right_trigSetValue00-1"
 		"OnStartTouch" "br_right_trigSetValue10-1"
+		"OnStartTouchOrangePlayer" "side_chooserSetValue00-1"
+		"OnStartTouchBluePlayer" "side_chooserSetValue10-1"
+		"OnEndTouchOrangePlayer" "cam_rLookAtBlue0-1"
+		"OnEndTouchBluePlayer" "cam_rLookAtOrange0-1"
 	}
 	solid
 	{
@@ -9549,110 +10097,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[1000 9500]"
-	}
-}
-entity
-{
-	"id" "25640"
-	"classname" "prop_button"
-	"angles" "-90 180 0"
-	"Delay" "2"
-	"disablereceiveshadows" "0"
-	"istimer" "0"
-	"model" "models/bee2/props_p1/switch.mdl"
-	"preventfastreset" "0"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"skin" "0"
-	"solid" "1"
-	"targetname" "btn"
-	connections
-	{
-		"OnPressedBlue" "side_chooserSetValue00-1"
-		"OnPressedOrange" "side_chooserSetValue10-1"
-		"OnPressed" "pan_leftStart0-1"
-		"OnPressed" "br_left_btnSetValue10-1"
-		"OnButtonReset" "br_left_btnSetValue00-1"
-	}
-	"origin" "-64 48 -368"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 8000]"
-	}
-}
-entity
-{
-	"id" "25644"
-	"classname" "prop_button"
-	"angles" "-90 180 0"
-	"Delay" "2"
-	"disablereceiveshadows" "0"
-	"istimer" "0"
-	"model" "models/bee2/props_p1/switch.mdl"
-	"preventfastreset" "0"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"skin" "0"
-	"solid" "1"
-	"targetname" "btn"
-	connections
-	{
-		"OnPressedOrange" "side_chooserSetValue00-1"
-		"OnPressedBlue" "side_chooserSetValue10-1"
-		"OnPressed" "pan_rightStart0-1"
-		"OnButtonReset" "br_right_btnSetValue00-1"
-		"OnPressed" "br_right_btnSetValue10-1"
-	}
-	"origin" "-64 -48 -368"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 8000]"
-	}
-}
-entity
-{
-	"id" "25758"
-	"classname" "comp_precache_model"
-	"angles" "-90 180 0"
-	"model" "models/bee2/props_p1/switch.mdl"
-	"skin" "0"
-	"origin" "-44 -12 -368"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "37"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 8000]"
-	}
-}
-entity
-{
-	"id" "25780"
-	"classname" "logic_auto"
-	"angles" "0 0 0"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "btnRunScriptCodeself.SetModel(`models/bee2/props_p1/switch.mdl`)0-1"
-	}
-	"origin" "-44 12 -368"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupid" "37"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "Init Code doesn't seem to work for this."
-		"logicalpos" "[0 6500]"
 	}
 }
 entity
@@ -9987,7 +10431,7 @@ entity
 	"origin" "100.052 -12 -368"
 	editor
 	{
-		"color" "0 212 149"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 10000]"
@@ -12058,7 +12502,7 @@ entity
 		}
 		side
 		{
-			"id" "0"
+			"id" "3660"
 			"plane" "(-64 2 -352) (-64 -2 -352) (-62 -2 -350)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -12189,6 +12633,10 @@ entity
 	"targetname" "entry_door"
 	"unlocked_sentence" "0"
 	"wait" "-1"
+	connections
+	{
+		"OnFullyClosed" "pushKill0-1"
+	}
 	solid
 	{
 		"id" "14606"
@@ -14704,15 +15152,17 @@ entity
 	{
 		"OnTrigger" "exit_doorOpen0-1"
 		"OnTrigger" "side_chooserTest0-1"
-		"OnTrigger" "btnLock0-1"
+		"OnTrigger" "btn_leftLock0-1"
 		"OnTrigger" "pan_leftCheck0-1"
 		"OnTrigger" "pan_rightCheck0-1"
-		"OnTrigger" "btnCancelPress0-1"
+		"OnTrigger" "btn_timer*CancelPending0.01-1"
 		"OnTrigger" "entry_doorClose0-1"
 		"OnTrigger" "fizz_invisEnable0-1"
 		"OnTrigger" "fizz_invisDisable0.2-1"
 		"OnTrigger" "fizzEnable0-1"
 		"OnTrigger" "fizz_partStart0-1"
+		"OnTrigger" "btn_rightLock0-1"
+		"OnTrigger" "pushEnable0-1"
 	}
 	"origin" "-55 -16 -240"
 	editor
