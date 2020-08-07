@@ -1,0 +1,295 @@
+"Prop.Fizzled"
+{
+	"channel"		"CHAN_VOICE"
+	"soundlevel"		"SNDLVL_NORM"
+	"volume"	"0.01" // 0 pauses, might do something weird...
+
+	// TODO: This should be completely silent
+	"wave"		"common/null.wav"
+}
+
+"Mousetrap.Snap"
+{
+	"channel"		"CHAN_BODY"
+	"soundlevel"		"SNDLVL_NONE"
+	"volume"		"0.85"
+	"wave"		"props/mousetrap_snap.wav"
+}
+
+"Portal.Button_Locked"
+{
+	"channel"		"CHAN_BODY"
+	"soundlevel"		"SNDLVL_NORM"
+	"volume"		"0.85"
+	"wave"		"buttons/button2.wav"
+}
+
+"AndroidDispenser.Blocked"
+{
+	"channel"		"CHAN_BODY"
+	"soundlevel"		"SNDLVL_NORM"
+	"volume"		"0.85"
+	"wave"		"buttons/button2.wav"
+}
+
+"AndroidDispenser.Dispense"
+{
+	"channel"		"CHAN_BODY"
+	"soundlevel"		"SNDLVL_STATIC"
+	"volume"		"0.85"
+	"wave"		"physics/metal/metal_box_strain3.wav"
+}
+
+"Laser.BeamLoop"
+{
+	"channel"		"CHAN_VOICE"
+	"soundlevel"		"SNDLVL_55dB"
+	"volume"		"0.25"
+	"rndwave"
+	{
+		"wave"		"vfx/laser_beam_lp_02.wav"
+	}
+}
+
+"Laser.BeamLoopMega"
+{
+	"channel"		"CHAN_VOICE"
+	"soundlevel"		"SNDLVL_60dB"
+	"volume"		"0.35"
+	"rndwave"
+	{
+		"wave"		"vfx/laser_beam_lp_02.wav"
+	}
+}
+
+"LaserGreen.BeamLoop"
+{
+	"channel"		"CHAN_VOICE"
+	"soundlevel"		"SNDLVL_60dB"
+	"volume"		"0.5"
+	"wave"		"vfx/laser_beam_green_lp_01.wav"
+}
+
+"LaserGreen.PanelCut"
+{
+	"channel"		"CHAN_VOICE"
+	"soundlevel"		"SNDLVL_70dB"
+	"volume"		"0.7"
+	"pitch"		"95,105"
+	"wave"		"vfx/laser_beam_green_lp_01_cut.wav"
+}
+
+"glados.ding_on"
+{
+	"channel"		"CHAN_VOICE"
+	"soundlevel"		"SNDLVL_NONE"
+	"pitch"		"95,100"
+	"wave"		"labs/ding_on.wav"
+}
+
+"glados.ding_off"
+{
+	"channel"		"CHAN_VOICE"
+	"soundlevel"		"SNDLVL_NONE"
+	"pitch"		"95,100"
+	"wave"		"labs/ding_off.wav"
+}
+
+"xray.beep"
+{
+	"channel"		"CHAN_BODY"
+	"soundlevel"		"SNDLVL_65dB"
+	"volume"		"0.30"
+	"wave"		"npc/xray/beep.wav"
+}
+
+
+"prop_portal_door.close"
+{
+	"channel"		"CHAN_AUTO"
+	"soundlevel"		"SNDLVL_85dB"
+	"wave"		")plats/door_round_blue_close_01.wav"
+
+	"soundentry_version" "2"
+
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			"import_stack"	"P2_null_player_start"
+			
+			"play_entry"
+			{
+				"entry_name" "World.DoorRoundBlueClose" //Replace with the sound you want to play.
+			}
+		}
+	}
+}
+
+"prop_portal_door.open"
+{
+	"channel"		"CHAN_AUTO"
+	"soundlevel"		"SNDLVL_85dB"
+	"wave"		")plats/door_round_blue_open_01.wav"
+
+	"soundentry_version" "2"
+
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			"import_stack"	"P2_null_player_start"
+			
+			"play_entry"
+			{
+				"entry_name" "World.DoorRoundBlueUnlock" //Replace with the sound you want to play.
+			}
+		}
+	}
+}
+
+"prop_laser_catcher.poweron"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"		"SNDLVL_95dB"
+	"volume"		"1.0"
+	"wave"		"world\laser_node_power_on.wav"
+}
+
+"prop_laser_catcher.poweroff"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"		"SNDLVL_95dB"
+	"volume"		"1.0"
+	"wave"		"world\laser_node_power_off.wav"
+}
+
+"prop_laser_catcher.powerloop"
+{
+	"channel"		"CHAN_AUTO"
+	"soundlevel"		"SNDLVL_80dB"
+	"volume"		"0.80"
+	"wave"		"world\laser_node_lp_01.wav"
+
+	"soundentry_version" "2"
+
+	"operator_stacks"
+	{		
+	
+		"update_stack"
+		{
+			"import_stack"	"p2_update_default_pitch_ramp"
+
+			"volume_fade_in"
+			{
+				"input_max" "0.75" //fade in time
+			}			
+			
+			"volume_fade_out"
+			{
+				"input_max" "1.0" //fade out time
+			}
+			
+			"pitch_fade_in"
+			{
+				"input_map_min" "0.5" //pitch to fade in from
+				"input_map_max" "1.0" //pitch to fade in to
+				"default_to_max" "false"	
+			}
+		}
+	}
+}
+
+"RelaxationAnnouncer.PreMessage"
+{
+	"channel"		"CHAN_AUTO"
+	"soundlevel"		"SNDLVL_75dB"
+	"volume"		"1.0"
+	"wave"		"props/pre_message_announcer_01.wav"
+}
+
+"RelaxationAnnouncer.PostMessage"
+{
+	"channel"		"CHAN_AUTO"
+	"soundlevel"		"SNDLVL_75dB"
+	"volume"		"1.0"
+	"wave"		"props/post_message_announcer_01.wav"
+}
+
+"Relaxation.AlarmClock"
+{
+	"channel"		"CHAN_AUTO"
+	"soundlevel"		"SNDLVL_95dB"
+	"volume"		"1.0"
+	"wave"		"props/relaxing_alarm_clock_lp_01.wav"
+}
+
+"catapult.powerdown"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"	"SNDLVL_70dB"
+	"wave"		"world\laser_node_power_off.wav"
+}
+
+"catapult.powerup"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"	"SNDLVL_75dB"
+	"wave"		"world\laser_node_power_on.wav"
+}
+
+"Object.GooDissolve"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"85, 100"
+	"soundlevel"	"SNDLVL_85dB"
+	"rndwave"
+	{
+		"wave"		"props\dissolve\object_dissolve_in_goo_01.wav"
+		"wave"		"props\dissolve\object_dissolve_in_goo_02.wav"
+		"wave"		"props\dissolve\object_dissolve_in_goo_03.wav"
+		"wave"		"props\dissolve\object_dissolve_in_goo_04.wav"
+		"wave"		"props\dissolve\object_dissolve_in_goo_05.wav"
+	}
+}
+
+"Object.MagmaDissolve"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"85, 100"
+	"soundlevel"	"SNDLVL_85dB"
+	"rndwave"
+	{
+		"wave"		"props\dissolve\object_dissolve_in_goo_01.wav"
+		"wave"		"props\dissolve\object_dissolve_in_goo_02.wav"
+		"wave"		"props\dissolve\object_dissolve_in_goo_03.wav"
+		"wave"		"props\dissolve\object_dissolve_in_goo_04.wav"
+		"wave"		"props\dissolve\object_dissolve_in_goo_05.wav"
+	}
+
+	"soundentry_version" "2"
+
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"import_stack"	"p2_offset_start_update"
+		
+			"time_elapsed_trigger"
+			{
+				"input2" "0.00" //Elapsed time in seconds goes here.
+			}
+		
+			"play_entry"
+			{
+				"entry_name" "Physics.WaterSplash"	
+			}
+		}
+	}
+}
