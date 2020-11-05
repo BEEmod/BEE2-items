@@ -30,6 +30,21 @@ world
 }
 entity
 {
+	"id" "7"
+	"classname" "func_instance_parms"
+	"parm1" "$super_damage integer 0"
+	"parm2" "$shoot_through_portals integer 0"
+	"origin" "0.145911 -16 17.0168"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
 	"id" "4"
 	"classname" "point_template"
 	"spawnflags" "2"
@@ -48,7 +63,7 @@ entity
 {
 	"id" "2"
 	"classname" "npc_portal_turret_floor"
-	"AllowShootThroughPortals" "0"
+	"AllowShootThroughPortals" "$shoot_through_portals"
 	"angles" "0 180 0"
 	"CollisionType" "0"
 	"DamageForce" "1"
@@ -64,7 +79,7 @@ entity
 	"targetname" "turret"
 	"TurretRange" "1024"
 	"UsedAsActor" "0"
-	"UseSuperDamageScale" "0"
+	"UseSuperDamageScale" "$super_damage"
 	connections
 	{
 		"OnExplode" "@voice_turret_diedFireUser10-1"
