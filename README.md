@@ -1,9 +1,9 @@
 [![BEE2-items Releases](https://img.shields.io/github/downloads/BEEmod/BEE2-items/total.svg?label=Packages)](https://github.com/BEEmod/BEE2-items/releases)
 [![BEE2.4 Releases](https://img.shields.io/github/downloads/BEEmod/BEE2.4/total.svg?label=App)](https://github.com/BEEmod/BEE2.4/releases)
 
-### Please read the [Contributing Guidelines](https://github.com/BEEmod/BEE2-items/blob/master/.github/contributing.md), [FAQ](https://github.com/BEEmod/BEE2-items/wiki/FAQ), and [known issues list](https://github.com/BEEmod/BEE2-items/wiki/Known-Issues) before opening an issue.
+### Please read the [Contributing Guidelines](https://github.com/BEEmod/.github/blob/master/contributing.md), [FAQ](https://github.com/BEEmod/BEE2-items/wiki/FAQ), and [known issues list](https://github.com/BEEmod/BEE2-items/wiki/Known-Issues) before opening an issue.
 
-![BEE2 Icon](https://raw.githubusercontent.com/BEEmod/BEE2.4/master/bee2.ico)
+![BEE2 Icon](https://raw.githubusercontent.com/BEEmod/BEE2.4/master/BEE2.ico)
 # BEE2.4 Default Pack
 This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/BEE2.4). Packages contain resources for BEE2.4, such as items or styles.
 
