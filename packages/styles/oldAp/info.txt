@@ -1477,8 +1477,55 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"bridge_50s"
-				"BEE2_1980s"		"bridge_80s"
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Description"	"1950s emitters use a prototype device to project the bridge from equipment outside the sphere."
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "under_light_bridge.3ds"
+							}
+						}
+					"Instances"
+						{
+						"0"
+							{
+							"Name"			"instances/BEE2/50s/items/bridge.vmf"
+							"EntityCount"	"5"
+							}
+						}
+					"IOConf"
+						{
+						"Type"              "AND"
+						"InvertVar"         "$start_enabled"
+						"Enable_Cmd"        "bridge,Enable,,0.00,-1"
+						"Disable_Cmd"       "bridge,Disable,,0.00,-1"
+						"Enable_Cmd"        "pfx,Start,,0.00,-1"
+						"Disable_Cmd"       "pfx,Stop,,0.00,-1"
+						}
+					}
+				"BEE2_1980s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Description"	"1980s emitters are now modern."
+					"Instances"
+						{
+						"0"
+							{
+							"Name"			"instances/BEE2/80s/items/bridge.vmf"
+							"EntityCount"	"1"
+							}
+						}
+					"IOConf"
+						{
+						"Type"              "AND"
+						"InvertVar"         "$start_enabled"
+						"Enable_Cmd"        "bridge,Enable,,0.00,-1"
+						"Disable_Cmd"       "bridge,Disable,,0.00,-1"
+						}
+					}
 				}
 			}
 		}	
@@ -2130,14 +2177,6 @@
 						{
 						"0" "instances/BEE2/70s/items/stairs.vmf"
 						}
-					"Palette"
-						{
-						"0"
-							{
-							"Model" "BEE2_oldap_stair_up_70s.3ds"
-							"Model" "BEE2_oldap_stair_dn_70s.3ds"
-							}
-						}
 					}
 				"BEE2_1980s"
 					{
@@ -2151,14 +2190,6 @@
 					"Instances"
 						{
 						"0" "instances/BEE2/80s/items/stairs.vmf"
-						}
-					"Palette"
-						{
-						"0"
-							{
-							"Model" "BEE2_oldap_stair_up_80s.3ds"
-							"Model" "BEE2_oldap_stair_dn_80s.3ds"
-							}
 						}
 					}
 				}

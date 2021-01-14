@@ -33,6 +33,8 @@ entity
 	"id" "61"
 	"classname" "func_instance_parms"
 	"parm1" "$turr_name target_destination turr"
+	"parm2" "$shoot_through_portals integer 0"
+	"parm3" "$super_damage integer 0"
 	"origin" "0 0 32"
 	editor
 	{
@@ -206,7 +208,7 @@ entity
 {
 	"id" "2"
 	"classname" "npc_portal_turret_floor"
-	"AllowShootThroughPortals" "0"
+	"AllowShootThroughPortals" "$super_damage"
 	"angles" "0 180 0"
 	"CollisionType" "0"
 	"DamageForce" "1"
@@ -220,7 +222,7 @@ entity
 	"targetname" "turr"
 	"TurretRange" "1024"
 	"UsedAsActor" "0"
-	"UseSuperDamageScale" "0"
+	"UseSuperDamageScale" "$shoot_through_portals"
 	connections
 	{
 		"OnExplode" "@voice_turret_diedFireUser10-1"

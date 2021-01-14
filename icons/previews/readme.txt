@@ -9,7 +9,7 @@ Open your preferred image editor and create a file that is 400x300 pixels. An ed
 
 Style previews: 
 Export your custom style with the recommended settings (skybox, etc.)
-Build and play TEST MAP in the PuzzleMaker.
+Build and play Style Preview Map in the PuzzleMaker.
 Set your video to the following settings: 
 * Widescreen 16:9 Aspect Ratio
 * 3840x2160 resolution if available, otherwise 1920x1080 will work
@@ -26,7 +26,7 @@ Add a line to your style in info.txt: "IconLarge"	"prev/[yourstyle].png"
 
 Skybox previews:
 Export the Original Clean style with your custom skybox.
-Build and play Skybox_Test in the PuzzleMaker.
+Build and play Skybox Preview Map in the PuzzleMaker.
 Set your video to the following settings: 
 * Widescreen 16:9 Aspect Ratio
 * 2048x1152 resolution if available, otherwise 1920x1080 will work
@@ -42,6 +42,6 @@ Save your icon as sky_[yourskybox].png in [package]/resources/BEE2/prev/.
 Add a line to your style in info.txt: "IconLarge"	"prev/sky_[yourstyle].png"
 
 Notes:
-* Do not modify the PuzzleMaker maps in any way. 
+* Do not modify the Puzzlemaker maps in any way. 
 * Do not move your camera after running the setpos/setang commands.
 * If you are using the wrong resolution while taking screenshots, resize them to 538x303 for styles and 574x323 for skyboxes.

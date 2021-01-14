@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "72"
+	"editorbuild" "8419"
+	"mapversion" "73"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "64"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "72"
+	"mapversion" "73"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -38,7 +38,7 @@ entity
 		side
 		{
 			"id" "25"
-			"plane" "(-12 -64 -62) (-12 64 -62) (12 64 -62)"
+			"plane" "(-12 -64 2) (-12 64 2) (12 64 2)"
 			"material" "CONCRETE/UNDERGROUND_CONCRETE_TILE001B"
 			"uaxis" "[1 0 0 48] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -49,7 +49,7 @@ entity
 		side
 		{
 			"id" "26"
-			"plane" "(-12 64 -64) (-12 -64 -64) (12 -64 -64)"
+			"plane" "(-12 64 0) (-12 -64 0) (12 -64 0)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 -63.594] 0.25"
 			"vaxis" "[0 1 0 -13.984] 0.25"
@@ -60,9 +60,9 @@ entity
 		side
 		{
 			"id" "27"
-			"plane" "(-12 -64 -64) (-12 64 -64) (-12 64 -62)"
+			"plane" "(-12 -64 0) (-12 64 0) (-12 64 2)"
 			"material" "CONCRETE/UNDERGROUND_CONCRETE_TILE001B"
-			"uaxis" "[0 0 1 248] 0.25"
+			"uaxis" "[0 0 1 -8] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -71,9 +71,9 @@ entity
 		side
 		{
 			"id" "28"
-			"plane" "(12 64 -64) (12 -64 -64) (12 -64 -62)"
+			"plane" "(12 64 0) (12 -64 0) (12 -64 2)"
 			"material" "CONCRETE/UNDERGROUND_CONCRETE_TILE001B"
-			"uaxis" "[0 0 -1 -152] 0.25"
+			"uaxis" "[0 0 -1 104] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -82,10 +82,10 @@ entity
 		side
 		{
 			"id" "29"
-			"plane" "(-12 64 -64) (12 64 -64) (12 64 -62)"
+			"plane" "(-12 64 0) (12 64 0) (12 64 2)"
 			"material" "CONCRETE/UNDERGROUND_CONCRETE_TILE001B"
 			"uaxis" "[1 0 0 48] 0.25"
-			"vaxis" "[0 0 1 248] 0.25"
+			"vaxis" "[0 0 1 -8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -93,10 +93,10 @@ entity
 		side
 		{
 			"id" "30"
-			"plane" "(12 -64 -64) (-12 -64 -64) (-12 -64 -62)"
+			"plane" "(12 -64 0) (-12 -64 0) (-12 -64 2)"
 			"material" "CONCRETE/UNDERGROUND_CONCRETE_TILE001B"
 			"uaxis" "[1 0 0 48] 0.25"
-			"vaxis" "[0 0 -1 264] 0.25"
+			"vaxis" "[0 0 -1 520] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -128,9 +128,6 @@ entity
 	"drawinfastreflection" "1"
 	"ExplodeDamage" "0"
 	"ExplodeRadius" "0"
-	"fademaxdist" "0"
-	"fademindist" "-1"
-	"fadescale" "1"
 	"HoldAnimation" "0"
 	"MaxAnimTime" "10"
 	"maxcpulevel" "0"
@@ -140,6 +137,7 @@ entity
 	"mingpulevel" "0"
 	"model" "models/bee2/props_ingame/retro_cust_fizz.mdl"
 	"PerformanceMode" "0"
+	"physdamagescale" "1.0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
 	"renderamt" "255"
@@ -147,12 +145,13 @@ entity
 	"renderfx" "0"
 	"SetBodyGroup" "0"
 	"skin" "0"
+	"skinset" "0"
 	"solid" "6"
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"SuppressAnimSounds" "0"
 	"targetname" "mdl"
-	"origin" "0.250011 0 -46"
+	"origin" "0.250011 0 18"
 	editor
 	{
 		"color" "220 30 220"

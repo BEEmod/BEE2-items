@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "61"
+	"editorbuild" "8419"
+	"mapversion" "64"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "61"
+	"mapversion" "64"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,10 +30,28 @@ world
 }
 entity
 {
+	"id" "2415"
+	"classname" "comp_kv_setter"
+	"angles" "0 0 0"
+	"kv_name" "model"
+	"kv_value_global" "$model"
+	"mode" "kv"
+	"target" "button"
+	"origin" "0 -16 -40"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "2408"
 	"classname" "func_instance_parms"
 	"parm1" "$model studio"
-	"origin" "0 0 -24"
+	"origin" "0 16 -40"
 	editor
 	{
 		"color" "220 30 220"
@@ -47,15 +65,10 @@ entity
 	"id" "2310"
 	"classname" "prop_floor_button"
 	"angles" "0 0 0"
-	"model" "$model"
+	"model" "models/props/portal_button.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"targetname" "button"
-	connections
-	{
-		"OnPressed" "proxyProxyRelay0-1"
-		"OnUnPressed" "proxyProxyRelay0-1"
-	}
 	"origin" "0 0 -64"
 	editor
 	{
@@ -63,20 +76,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "53"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "0 0 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras
