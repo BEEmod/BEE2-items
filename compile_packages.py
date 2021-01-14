@@ -93,8 +93,8 @@ def search_folder(zip_path, path):
             yield from search_folder(zip_path, package_path)
             continue
 
-        print('| ' + package + '.zip')
-        pack_zip_path = os.path.join(zip_path, package) + '.zip'
+        print('| ' + package + '.bee_pack')
+        pack_zip_path = os.path.join(zip_path, package) + '.bee_pack'
 
         yield package_path, pack_zip_path, zip_path
 
