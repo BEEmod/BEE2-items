@@ -1,9 +1,9 @@
 [![BEE2-items Releases](https://img.shields.io/github/downloads/BEEmod/BEE2-items/total.svg?label=Packages)](https://github.com/BEEmod/BEE2-items/releases)
 [![BEE2.4 Releases](https://img.shields.io/github/downloads/BEEmod/BEE2.4/total.svg?label=App)](https://github.com/BEEmod/BEE2.4/releases)
 
-### Please read the [Contributing Guidelines](https://github.com/BEEmod/BEE2-items/blob/master/.github/contributing.md), [FAQ](https://github.com/BEEmod/BEE2-items/wiki/FAQ), and [known issues list](https://github.com/BEEmod/BEE2-items/wiki/Known-Issues) before opening an issue.
+### Please read the [Contributing Guidelines](https://github.com/BEEmod/.github/blob/master/contributing.md), [FAQ](https://github.com/BEEmod/BEE2-items/wiki/FAQ), and [known issues list](https://github.com/BEEmod/BEE2-items/wiki/Known-Issues) before opening an issue.
 
-![BEE2 Icon](https://raw.githubusercontent.com/BEEmod/BEE2.4/master/bee2.ico)
+![BEE2 Icon](https://raw.githubusercontent.com/BEEmod/BEE2.4/master/BEE2.ico)
 # BEE2.4 Default Pack
 This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/BEE2.4). Packages contain resources for BEE2.4, such as items or styles.
 
@@ -34,7 +34,7 @@ These are instructions to install the development version of the Default Pack. T
 For some things to work correctly, you may need to use this with the development version of the application/compiler. Instructions for how to install this can be found [here](https://github.com/BEEmod/BEE2.4#build-from-source-advanced-for-adding-to-bee24-program-windows).
 
 1. If you don't already have one, download and install a Git client such as [GitHub Desktop](https://desktop.github.com/), or [command-line Git](https://git-scm.com/).
-2. Clone this repository to your computer. If you are using GitHub Desktop, this can be done with the "Clone or Download" button above.
+2. Clone this repository to your computer. If you are using GitHub Desktop, this can be done with the green "download" button at the top of this page.
 3. Once it is finished, select the branch you want to sync changes from. `master`, the default branch, is the release version. `dev` contains features which will be in the next update. There are also various other branches available, for testing different features.
 4. Open `%appdata%/BEEMOD2/config/config.cfg` in a text editor. <!--TODO: Where are these files/directories located on Mac?-->
 5. Set the package directory to the `packages` folder within your cloned repository folder. If using GitHub Desktop, this will default to `C:\Users\<yourname>\Documents\GitHub\BEE2-items\packages`.
