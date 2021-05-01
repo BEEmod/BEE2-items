@@ -340,7 +340,7 @@
 					"ANIM_REAPPEAR"				"4"
 				}
 			}
-		"MovementHandle"		"HANDLE_NONE"
+		"MovementHandle"		"HANDLE_4_DIRECTIONS"
 		"InvalidSurface"		"WALL FLOOR"
 		}
 	"Properties"
@@ -397,21 +397,17 @@
 		"TargetName"		"cd"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
+				"Type"          "AND"
+				"Enable_Cmd"    "spawn_man,SetStateATrue,,0.00,-1"
 				}
-			"CONNECTION_BOX_DROPPER"
-				{
-				"Activate"		"instance:cube_dropper_autorespawn_relay;Trigger"
-				}
+			"CONNECTION_BOX_DROPPER" {}
 			}
 		"Outputs"
 			{
 			"CONNECTION_BOX_DROPPER"
 				{
-				"Activate"		"instance:cube_dropper_drop_relay;OnTrigger"
 				}
 			}
 		"Offset"		"64 64 64"
