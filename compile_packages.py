@@ -187,13 +187,19 @@ def main():
     # will specify an output path. if not specified, args.output will be set to None, and nothing will be moved then
     parser.add_argument("-o", "--output", default=None,
                         help="Will specify an output folder, otherwise \"./zips\" will be used.", dest="output")
+    # since after moving output files to output destination (specified above), there remains lot of junk files
+    # that looks like was for debugging and its safe to delete them. specifying this option will prevent that.
+    parser.add_argument("-p", "--preserve-temp", action="store_const", const=True, default=False,
+                        help="Will not delete temporary files", dest="preserve_temp")
+    # if NOT specified, then args.zip will be set to None, if specified BUT NOT set to any string value, then
+    # args.zip will be set to "" (empty string). Later, if args.zip remains set to "", then no zip will be created
     parser.add_argument("--zip", nargs="?", default=None, const="",
                         help="Will put all generated files in one zip. Also skips the prompt at the end. "
                              "Using this option with a string, followed after it, will create a zip with a "
                              "specified name. Using this option without a string will just skip prompt "
                              "without creating zip. Not using this option will generate a prompt at the end",
                         dest="zip")
-
+    # if there is something left inside parse_args() brackets, then probably i forgot to remove after debugging
     args = parser.parse_args()
     inp_list = args.input
     output = args.output
