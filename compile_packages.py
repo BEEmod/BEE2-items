@@ -87,6 +87,7 @@ def search_list_of_dirs(list_of_dirs, zip_path):
     
     zip_path is the folder the zips will be saved in, 
     and list_of_dirs is the list of locations to search.
+    returns pairs (original_file_path, result_zip_path)
     """
     for dir_path in list_of_dirs:
         if not os.path.isdir(dir_path):  # it's a file
@@ -170,15 +171,20 @@ def main():
                                                  "IMPORTANT NOTE: your packages should NOT be zipped before "
                                                  "compilation, also they should all have different names, "
                                                  "since they all will be dumped in the same directory.")
+    # argument that accepts one or more filepaths that then will be recursively searched and
+    # compiled all found stuff
     parser.add_argument("input", nargs="+",
                         help="Specifies an input path or several input paths. If an input path is a "
                              "single package, then it will be compiled, otherwise, if an input path is "
                              "a folder, then it will be recursively searched for packages, and will compile "
                              "all it finds")
+    # will give args.optimize True value is specified, False otherwise;
     parser.add_argument("-op", "--optimize", action="store_const", const=True, default=False,
                         help="Will optimize zips (recommended).", dest="optimize")
+    # will give args.skip_confirm True value is specified, False otherwise;
     parser.add_argument("-c", "--confirm", action="store_const", const=True, default=False,
                         help="Will skip a confirmation prompt.", dest="skip_confirm")
+    # will specify an output path. if not specified, args.output will be set to None, and nothing will be moved then
     parser.add_argument("-o", "--output", default=None,
                         help="Will specify an output folder, otherwise \"./zips\" will be used.", dest="output")
     parser.add_argument("--zip", nargs="?", default=None, const="",
@@ -197,43 +203,84 @@ def main():
     if not args.skip_confirm:
         print("You specified these folders:")
         print("\n".join(inp_list))
+        # shows list with all files specified (in case using CLI is not
+        # so intuitive), also tells if you have chosen to optimize output (below)
         print("These will be optimized" if OPTIMISE else "These will NOT be optimized")
         if not conv_bool(input("Continue? (y/n) ")):
-            sys.exit(0)
+            sys.exit(0)             # confirmation just in case
 
-    if output is None:
-        zip_path = os.path.join(
-            os.getcwd(),
-            'zips',
-            'sml' if OPTIMISE else 'lrg',
-        )
-    else:
-        zip_path = output
+    # will dump all temporary files to 'zips' folder. also, all compiled packages will be left in
+    # zips/sml or zips/lrg depending on whether you chose to optimize it or not
+    zip_path = os.path.join(
+        os.getcwd(),
+        'zips',
+        'sml' if OPTIMISE else 'lrg',
+    )
+
+    # if there is no such dir, then create it. if there is, and its empty,
+    # then use it. if there is and its not empty - throw error (since whole directory will be erased)
     if os.path.isdir(zip_path):
         if os.listdir(zip_path):
             raise ValueError("The output directory is not empty")
     else:
         os.makedirs(zip_path, exist_ok=True)
 
-    # A list of all the package zips.
+    # yield will return found packages one by one, so it is easy to iterate them
+    # without the need to process everything at once
     for package in search_list_of_dirs(inp_list, zip_path):
         build_package(*package)
     print('Done!')
 
+    # confusing section, determining whether it need to create main zip and how to name it if not specified
+    # makes it blank by default
     pack_name = ""
     if do_zip is None:
         if conv_bool(input("Zip it all in one file? (y/n) ")):
             pack_name = 'BEE{}_packages.zip'.format(input('Version: '))
     else:
-        pack_name = do_zip
+        pack_name = do_zip      # do_zip also can be blank
+    # if pack_name remained blank to this stage, then no zip will be created
     if pack_name != "":
         print('Building main zip...')
-
         with ZipFile(os.path.join('zips', pack_name), 'w', compression=ZIP_DEFLATED) as zip_file:
             for file in os.listdir(zip_path):
                 zip_file.write(os.path.join(zip_path, file), os.path.join('packages/', file))
                 print('.', end='', flush=True)
         print('Done!')
+        if output is not None:
+            print("Moving zip to output destination")
+            shutil.move(os.path.join('zips', pack_name), output)
+            print('Done!')
+            if not args.preserve_temp:
+                print("Deleting temporary files")
+                shutil.rmtree("zips")
+                print("Done!")
+        else:
+            if not args.preserve_temp:
+                print("Deleting temporary files")
+                shutil.rmtree("zips/hammer")
+                if OPTIMISE:
+                    shutil.rmtree("zips/sml")
+                else:
+                    shutil.rmtree("zips/lrg")
+                print("Done!")
+    else:
+        # dont make zip
+        if output is not None:
+            print("Moving files to output destination")
+            if OPTIMISE:
+                shutil.move("zips/sml", output)
+            else:
+                shutil.move("zips/lrg", output)
+            if not args.preserve_temp:
+                print("Deleting temporary files")
+                shutil.rmtree("zips")
+                print("Done!")
+        else:
+            if not args.preserve_temp:
+                print("Deleting temporary files")
+                shutil.rmtree("zips/hammer")
+                print("Done!")
 
 
 if __name__ == '__main__':
