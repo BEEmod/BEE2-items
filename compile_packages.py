@@ -180,7 +180,8 @@ def main():
                              "all it finds")
     # will give args.optimize True value is specified, False otherwise;
     parser.add_argument("-op", "--optimize", action="store_const", const=True, default=False,
-                        help="Will optimize zips (recommended).", dest="optimize")
+                        help="Will optimize zips (not recommended and may make packages "
+                             "unloadable for bee in current version).", dest="optimize")
     # will give args.skip_confirm True value is specified, False otherwise;
     parser.add_argument("-c", "--confirm", action="store_const", const=True, default=False,
                         help="Will skip a confirmation prompt.", dest="skip_confirm")
@@ -190,7 +191,8 @@ def main():
     # since after moving output files to output destination (specified above), there remains lot of junk files
     # that looks like was for debugging and its safe to delete them. specifying this option will prevent that.
     parser.add_argument("-p", "--preserve-temp", action="store_const", const=True, default=False,
-                        help="Will not delete temporary files", dest="preserve_temp")
+                        help="Will not delete temporary and hammer files (you probably won't need hammer files "
+                             "if you are not planning to use hammer)", dest="preserve_temp")
     # if NOT specified, then args.zip will be set to None, if specified BUT NOT set to any string value, then
     # args.zip will be set to "" (empty string). Later, if args.zip remains set to "", then no zip will be created
     parser.add_argument("--zip", nargs="?", default=None, const="",
@@ -258,12 +260,12 @@ def main():
             shutil.move(os.path.join('zips', pack_name), output)
             print('Done!')
             if not args.preserve_temp:
-                print("Deleting temporary files")
+                print("Deleting temporary and hammer files")
                 shutil.rmtree("zips")
                 print("Done!")
         else:
             if not args.preserve_temp:
-                print("Deleting temporary files")
+                print("Deleting temporary and hammer files")
                 shutil.rmtree("zips/hammer")
                 if OPTIMISE:
                     shutil.rmtree("zips/sml")
@@ -279,12 +281,12 @@ def main():
             else:
                 shutil.move("zips/lrg", output)
             if not args.preserve_temp:
-                print("Deleting temporary files")
+                print("Deleting temporary and hammer files")
                 shutil.rmtree("zips")
                 print("Done!")
         else:
             if not args.preserve_temp:
-                print("Deleting temporary files")
+                print("Deleting hammer files")
                 shutil.rmtree("zips/hammer")
                 print("Done!")
 
