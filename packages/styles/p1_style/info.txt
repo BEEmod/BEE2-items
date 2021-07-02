@@ -10,8 +10,9 @@
 	"ShortName"	"P1"
 	"Folder"	"p1"
 	"VPK_Name"  "VPK_BEE2_PORTAL_1"
-	"Icon"   	"styles/portal1"
-	"IconLarge"  	"prev/portal1.png"
+				// Use the 2x2 black tile texture for the icon.
+	"Icon"   	"BEE2_PORTAL_1:BEE2/p1/metalwall048b_med.vtf"  	
+	"IconLarge" "prev/portal1.png"
 	"Has_Video"	"0"
 	"Base"		""
 	"Description"
@@ -126,8 +127,8 @@
 "StyleVar"
 	{
 	"ID"            "P1_DOORLESS_ENTRY"
-	"Name"          "Doorless P1 Entrance"
-	"Description"   "Do not add doors or fizzlers to the Portal 1 singleplayer entrance. This is more accurate to the original game, but may break some puzzles by allowing portal surfaces in the corridor to be used."
+	"Name"          "Open P1 Entrance"
+	"Description"   "Don't add doors or fizzlers to the Portal 1 singleplayer entrance. This is more accurate to the original game, but may break some puzzles by allowing portal surfaces in the corridor to be used."
 	"Enabled"       "1"
 	"Style"         "BEE2_PORTAL_1"
 	}
@@ -141,47 +142,6 @@
 		}
 	}
 
-// Special template used to alter the orientation of the squarebeams materials.
-"BrushTemplate"
-	{
-	"ID"    "BEE2_PORTAL_1_TILING_TEMPLATE"
-	"File"  "tiling_template.vmf"
-	}
-
-"BrushTemplate"
-	{
-	"ID"    "BEE2_STATIC_PAN_ANGLED_P1"
-	"File"  "angled_pan_static.vmf"
-	}
-	
-// The moving brush for panels..
-"BrushTemplate"
-	{
-	"ID"    "BEE2_DYNAMIC_PAN_ANGLED_P1"
-	"File"  "angled_pan_dynamic.vmf"
-	}
-	
-
-// The UV axis data from these brushes are used to define the
-// rotation of brushes.
-"BrushTemplate"
-	{
-	"ID"    "BEE2_P1_GLASS_TEMPLATE"
-	"File"  "glass_template.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE2_P1_GRATING_TEMPLATE"
-	"File"  "grating_template.vmf"
-	}
-	
-// Special-case template used to generate reinforcing beams across floor glass.
-"BrushTemplate"
-	{
-	"ID"    "BEE2_P1_GLASS_BEAM"
-	"File"  "glass_floor_beam.vmf"
-	}
-	
 "Overrides"
 	{
 	"StyleVar"
@@ -243,17 +203,7 @@
 				}
 			}
 		}
-	}
 
-"BrushTemplate"
-	{
-	"ID"   "BEE2_EXIT_DOOR_FRAME_PORTAL1"
-	"File" "door_frame.vmf"
-	}
-
-
-"Overrides"
-	{
 	"Item"
 		{
 		"ID" "ITEM_OBSERVATION_ROOM"
@@ -300,22 +250,7 @@
 				}
 			}
 		}
-	}
 
-"BrushTemplate"
-	{
-	"ID"   "BEE2_STAIRS_TOP_PORTAL_1"
-	"File" "stair_top.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_STAIRS_BLOCK_PORTAL_1"
-	"File" "stair_block.vmf"
-	}
-
-
-"Overrides"
-	{
 	"Item"
 		{
 		"ID" "ITEM_SECONDARY_OBSERVATION_ROOM"
@@ -350,21 +285,7 @@
 				}
 			}
 		}
-	}
 
-"BrushTemplate"
-	{
-	"ID"    "BEE2_CUBE_DROPPER_PORTAL1_CAP_SINGLE"
-	"File"  "cube_dropper_top_single.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE2_CUBE_DROPPER_PORTAL1_CAP_MULTI"
-	"File"  "cube_dropper_top_multi.vmf"
-	}
-
-"Overrides"
-	{
 	"ITEM"
 		{
 		"ID" "ITEM_PISTON_PLATFORM"
@@ -376,18 +297,7 @@
 				}
 			}
 		}
-	}
-	
 
-"BrushTemplate"
-	{
-	"ID"    "BEE2_PISTON_PLATFORM_PORTAL_1"
-	"File"  "piston_plat.vmf"
-	}
-
-	
-"Overrides"
-	{
 	"ITEM"
 		{
 		"ID" "ITEM_LIGHT_PANEL"
@@ -585,31 +495,7 @@
 				}
 			}
 		}
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "BEE2_TRACK_SCAFFOLD_P1_TOP_VERT"
-	"File"  "track_platform_top_vert.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE2_TRACK_SCAFFOLD_P1_TOP_HORIZ"
-	"File"  "track_platform_top_horiz.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE2_TRACK_PLAT_PANEL_P1"
-	"File"  "track_platform_panel_top.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE2_TRACK_PLAT_GOO_P1"
-	"File"  "track_platform_goo.vmf"
-	}
-
-"Overrides"
-	{		
+		
 	"ITEM"
 		{
 		"ID" "ITEM_BUTTON_FLOOR"
@@ -621,17 +507,7 @@
 				}
 			}
 		}
-	}
 
-"BrushTemplate"
-	{
-	"ID"    "BEE2_FLOOR_BUTTON_BASE_P1"
-	"File"  "floor_button_base.vmf"
-	}
-
-
-"Overrides"
-	{
 	"ITEM"
 		{
 		"ID" "ITEM_BUTTON_PEDESTAL"
