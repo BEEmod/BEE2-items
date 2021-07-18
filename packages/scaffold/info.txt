@@ -23,6 +23,21 @@
 		}
 	}
 
+// The scaffold items use a common naming scheme to link up the individual instances, and communicate.
+// These use the fact that fixups can appear in the middle of a keyvalue, as long as they are defined.
+// The compiler sets $group to a unique number for each scaffold system.
+// Then in each instance, $ind is set to the position in the track, and $next to the position of the next
+// one (except for the end).
+
+// On the tracktrain, User4 is triggered when it reaches the end.
+
+// The path_tracks use the name pattern "@scaff_track_grp$group_$ind".
+
+// The env_beams use the name pattern "@scaff_beam_grp$group_$ind".
+// - User1 is fired to switch to 'deactivated' effects.
+// - User2 is fired to switch to 'activated' effects.
+
+
 "Item"
 	{
 	"ID"       "ITEM_BEE2_SCAFFOLD_SLOT"
