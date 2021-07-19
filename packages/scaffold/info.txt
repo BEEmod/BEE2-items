@@ -49,7 +49,7 @@
 		"" "* Place an emitter of another type in the same block for best effect if the platform turns immediately."
 		"" "* The first slot will use its Start Enabled property as well as inputs to control the platform."
 		"" "   * The timer property controls the delay between platforms. (This is restricted to a minimum of 8.5 seconds)."
-		"" "   * If set to infinite, a platform will appear when the input is active, fizzling when the input is off."
+		"" "   * If set to infinite, a platform will appear each time the input is activated, fizzling to ensure only one is present at any time."
 		"" "* In Portal 1, the Test Chamber 15 platform is set to 15 seconds, and the Test Chamber 19 platform is set to 25 seconds."
 		"" "* The platform is always positioned upright."
 		}
@@ -162,7 +162,13 @@
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "pist_clean"
-				"Config" "pist_p1.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%PIST_STYLE%" "p1"
+						}
+					}
 				"Instances"
 					{
 					"0" "instances/BEE2/p1/items/scaffold/piston.vmf"
