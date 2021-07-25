@@ -5,7 +5,7 @@
 "Style"
 	{
 	"ID"			"BEE2_1950s"
-	"Authors"		"Carl Kenner, TeamSpen210"
+	"Authors"		"Carl Kenner, TeamSpen210, Critfish"
 	"Name"			"1950s Old Aperture"
 	"ShortName"		"1950s"
 	"Folder"		"1950s"
@@ -35,12 +35,13 @@
 		"sp_entry"
 			{
 			"1" {
-				"Name" "Lobby"
-				"Desc" "Test subjects enter through an office corridor. Several dynamic elements change based on chamber contents:
+				"Name" "Straight Hallway"
+				"Desc" "A straight hallway with framework ceilings. Several dynamic elements change based on chamber contents:
 
-* An information sign appears describing Repulsion Gel if present.
+* A pair of signs indicate if Repulsion or Propulsion Gel is present.
 * A \"Safety First\" sign appears if dangerous test elements are present.
 * A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+* A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
 "
 				}
 			"2" {
@@ -55,11 +56,21 @@
 				}
 			"4" {
 				"Name" "Right Turn"
-				"Desc" "Test Subjects enter through a small waiting area.
-* An information sign appears describing Repulsion Gel if present.
-* A \"Safety First\" sign appears if dangerous test elements are present.
+				"Desc" "A corridor with a bend to the right, with a grate floor showing a goo pool underneath. Several dynamic elements change based on chamber contents:
+
+* A pair of signs indicate if Repulsion or Propulsion Gel is present.
+* A \"Know Your Hazardous Materials\" sign appears if dangerous test elements are present.
 * A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
-* A warning about moving platforms appears if they are present.
+* A warning about moving platforms appears if they are present, but and no dangerous elements are.
+* A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
+"
+				}
+			"7" {
+				"Name" "Left Turn"
+				"Desc" "A corridor with a bend to the left, with missing wall panelling showing some pipes inside the wall. Several dynamic elements change based on chamber contents:
+
+* A pair of signs indicate if Repulsion or Propulsion Gel is present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
 * A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
 "
 				}
@@ -79,7 +90,7 @@
 "Style"
 	{
 	"ID"			"BEE2_1960s"
-	"Authors"		"Carl Kenner, TeamSpen210"
+	"Authors"		"Carl Kenner, TeamSpen210, Critfish"
 	"Name"			"1960s Old Aperture"
 	"ShortName"		"1960s"
 	"Group"			"Old Aperture"
@@ -111,7 +122,16 @@
 		"icon_folder" "60s"
 		"sp_entry"
 			{
-			"1"	"Lobby"
+			"1"	{
+				"Name" "Straight w/ Framework"
+				"Desc" "A straight corridor with a framework ceiling and warm lighting. Several dynamic elements change based on chamber contents:
+
+* A pair of signs indicate if Repulsion or Propulsion Gel is present, along with an additional sign if any Gel Droppers are present.
+* A \"Know Your Hazardous Materials\" sign appears if dangerous test elements are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+* A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
+"
+			}
 			}
 		"sp_exit"
 			{
@@ -666,7 +686,8 @@
 						{
 						"Replacements"
 							{
-							"%SP_OFF%" "-2048 1536 -832"
+							"%SP_OFF%" "-1664 1152 -192"
+							"%SP_YAW%" "180"
 							"%MP_OFF%" "96 -576 -3392"
 							}
 						}
