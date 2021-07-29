@@ -500,6 +500,7 @@
 	"Name"		"Opened Enrichment Sphere"
 	"Description"	"Use an alternate enrichment sphere map with a damaged/incomplete sphere, showing the Test Shaft surrounding the map. The added complexity of the map greatly increases compile times, however."
 	"Enabled"	"1"
+	"Style"		"BEE2_1950s"
 	"Style"		"BEE2_1980s"
 	}
 	
@@ -712,8 +713,11 @@
 						{
 						"Replacements"
 							{
-							"%SP_OFF%" "-1024 1024 -832"
-							"%MP_OFF%" "-2464 4032 -320"
+							"%SP_OPEN_OFF%"  "-4992 3328 -704"
+							"%SP_CLOSE_OFF%" "-1024 1024 -832"
+
+							"%MP_OPEN_OFF%"  "-2464 4032 -320"
+							"%MP_CLOSE_OFF%" "-2464 4032 -320"
 							"%OBS_ROOM%" "instances/BEE2/50s/items/observation_room_256.vmf"
 							}
 						}
@@ -726,9 +730,10 @@
 						{
 						"Replacements"
 							{
-							"%SP_OFF%" "-1664 1152 -192"
+							"%SP_OPEN_OFF%"  "-1664 1152 -192"
+							"%SP_CLOSE_OFF%" "-1664 1152 -192"
 							"%SP_YAW%" "180"
-							"%MP_OFF%" "96 -576 -3392"
+							"%MP_CLOSE_OFF%" "96 -576 -3392"
 							}
 						}
 					}
@@ -752,8 +757,10 @@
 						{
 						"Replacements"
 							{
-							"%SP_OFF%" "-2560 2112 -832"
-							"%MP_OFF%" "96 -512 -3136"
+							"%SP_OPEN_OFF%"  "-2560 2112 -832"
+							"%SP_CLOSE_OFF%" "-2560 2112 -832"
+							"%MP_OPEN_OFF%"  "96 -512 -3136"
+							"%MP_CLOSE_OFF%" "96 -512 -3136"
 							"%OBS_ROOM%" "instances/BEE2/70s/items/observation_room_256.vmf"
 							}
 						}
@@ -774,8 +781,17 @@
 							"Icon"  "palette/80s/observation_grate.png"
 							}
 						}
-					// We need to specialise based on the open-sphere instance.
-					"Config" "mandatory/80s/obs_grate.cfg"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SP_OPEN_OFF%"  "-7088 464 -768"
+							"%SP_CLOSE_OFF%" "-3024 4560 -832"
+							"%MP_OPEN_OFF%"  "-4000 -4096 -3264"
+							"%MP_CLOSE_OFF%" "96 -512 -3264"
+							"%OBS_ROOM%" "instances/BEE2/80s/items/observation_room_256.vmf"
+							}
+						}
 					}
 				}
 			}
