@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8973"
-	"mapversion" "8"
+	"mapversion" "11"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -44,19 +44,31 @@ visgroups
 		"visgroupid" "15"
 		"color" "156 157 114"
 	}
+	visgroup
+	{
+		"name" "gel_dropper"
+		"visgroupid" "17"
+		"color" "155 216 185"
+	}
+	visgroup
+	{
+		"name" "pgun"
+		"visgroupid" "18"
+		"color" "252 189 130"
+	}
 }
 viewsettings
 {
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "8"
+	"mapversion" "11"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -446,6 +458,52 @@ world
 }
 entity
 {
+	"id" "286"
+	"classname" "info_null"
+	"angles" "0 0 0"
+	"origin" "-96 0 0"
+	editor
+	{
+		"color" "200 0 0"
+		"visgroupid" "18"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Creates blank visgroups matching the other corridors."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "302"
+	"classname" "info_overlay"
+	"angles" "0 0 0"
+	"BasisNormal" "-1 0 0"
+	"BasisOrigin" "-128 88 112"
+	"BasisU" "0 1 0"
+	"BasisV" "0 0 -1"
+	"endu" "0"
+	"endv" "1"
+	"fademindist" "-1"
+	"material" "bee2/50s/paint_dispenser"
+	"sides" "34"
+	"startu" "1"
+	"startv" "0"
+	"uv0" "-16 -16 0"
+	"uv1" "-16 16 0"
+	"uv2" "16 16 0"
+	"uv3" "16 -16 0"
+	"origin" "-128 88 112"
+	editor
+	{
+		"color" "80 150 225"
+		"visgroupid" "17"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "247"
 	"classname" "info_overlay"
 	"angles" "0 0 0"
@@ -719,7 +777,7 @@ entity
 	"discard_brushes" "0"
 	"temp_type" "default"
 	"template_id" "BEE2_50s_CORRIDOR_4"
-	"origin" "-32 0 16"
+	"origin" "-64 0 16"
 	editor
 	{
 		"color" "220 30 220"

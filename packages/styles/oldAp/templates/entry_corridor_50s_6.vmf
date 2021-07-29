@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8973"
-	"mapversion" "3"
+	"mapversion" "4"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -34,7 +34,7 @@ visgroups
 	}
 	visgroup
 	{
-		"name" "safetyfirst"
+		"name" "danger"
 		"visgroupid" "8"
 		"color" "107 88 169"
 	}
@@ -43,6 +43,18 @@ visgroups
 		"name" "spallation"
 		"visgroupid" "13"
 		"color" "88 185 174"
+	}
+	visgroup
+	{
+		"name" "pgun"
+		"visgroupid" "17"
+		"color" "134 95 220"
+	}
+	visgroup
+	{
+		"name" "platform"
+		"visgroupid" "18"
+		"color" "147 160 81"
 	}
 }
 viewsettings
@@ -56,13 +68,13 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "3"
+	"mapversion" "4"
 	"classname" "worldspawn"
-	"skyname" "sky_black_nofog"
-	"maxpropscreenwidth" "-1"
-	"detailvbsp" "detail.vbsp"
 	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
 	solid
 	{
 		"id" "12"
@@ -290,6 +302,23 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "112"
+	"classname" "info_null"
+	"angles" "0 0 0"
+	"origin" "-96 0 0"
+	editor
+	{
+		"color" "200 0 0"
+		"visgroupid" "17"
+		"visgroupid" "18"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Creates blank visgroups matching the other corridors."
+		"logicalpos" "[0 0]"
 	}
 }
 entity
