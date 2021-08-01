@@ -179,16 +179,17 @@ This doesn't affect cube nudging. When the bomb explodes like this, it does not 
 			}
 		}
 	}
-	
+
+// This is the only PackList in the entire mod that's still needed,
+// since Reflection Gel resources aren't directly referenced in maps.
 "PackList"
 	{
 	"ID"     "PACK_REFLECTION_GEL"
-	"Config" "reflection_gel"
+	"Config"
+		{
+		"" "materials/paintblobs/blob_surface_stick.vmt"
+		"" "materials/paintblobs/blob_surface_grey.vtf"
+		"" "particles/paint_splats_fx_reflect.pcf"
+		"" "particles/paint_bomb_fx_reflect.pcf"
+		}
 	}
-	
-"PackList"
-	{
-	"ID"     "PACK_REFLECTION_DROPPER_CLEAN"
-	"Config" "reflection_dropper"
-	}
-
