@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "179"
+	"editorbuild" "8419"
+	"mapversion" "189"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "179"
+	"mapversion" "189"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -46,6 +46,24 @@ world
 }
 entity
 {
+	"id" "9848"
+	"classname" "comp_entity_mover"
+	"direction" "0 0 0"
+	"distance" "1"
+	"reference" "flash_shape_blend"
+	"target" "btn"
+	"origin" "48 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Push the button down, so it is offset correctly. We can't place it in the correct position since it'll be in the void."
+		"logicalpos" "[0 3500]"
+	}
+}
+entity
+{
 	"id" "9299"
 	"classname" "prop_under_floor_button"
 	"angles" "0 0 0"
@@ -53,11 +71,14 @@ entity
 	"disablereceiveshadows" "1"
 	"disableshadowdepth" "1"
 	"disableshadows" "1"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
 	"rendermode" "10"
 	"shadowdepthnocache" "2"
-	"solid" "6"
-	"SuppressAnimSounds" "1"
-	"origin" "0 0 -71"
+	"solid" "1"
+	"SuppressAnimSounds" "0"
+	"targetname" "btn"
+	"origin" "0 0 -55"
 	editor
 	{
 		"color" "220 30 220"
@@ -887,6 +908,7 @@ entity
 	"Collide" "0"
 	"Dangling" "0"
 	"MoveSpeed" "64"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "25"
 	"spawnflags" "0"
@@ -1432,6 +1454,7 @@ entity
 	"Dangling" "0"
 	"MoveSpeed" "64"
 	"NextKey" "r2"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "120"
 	"spawnflags" "0"
@@ -1459,6 +1482,7 @@ entity
 	"Collide" "0"
 	"Dangling" "0"
 	"MoveSpeed" "64"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "25"
 	"spawnflags" "0"

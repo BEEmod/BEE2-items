@@ -179,23 +179,23 @@
 			"Name"			"PORTAL2_PuzzleEditor_Item_gel_dropper"
 			"Model" // Repulsion
 			{
-				"ModelName"		"p1_gel_drop_blue.mdl"
+				"ModelName"		"bee2/p1/paint_dropper_bounce.mdl"
 			}
 			"Model" // Propulsion
 			{
-				"ModelName"		"p1_gel_drop_oran.mdl"
+				"ModelName"		"bee2/p1/paint_dropper_speed.mdl"
 			}
 			"Model" // Conversion
 			{
-				"ModelName"		"p1_gel_drop_white.mdl"
+				"ModelName"		"bee2/p1/paint_dropper_portal.mdl"
 			}
 			"Model" // Cleansing
 			{
-				"ModelName"		"p1_gel_drop_water.mdl"
+				"ModelName"		"bee2/p1/paint_dropper_cleanse.mdl"
 			}
 			"Model" // Added for reflection gel!
 			{
-				"ModelName"		"p1_gel_drop_grey.mdl"
+				"ModelName"		"bee2/p1/paint_dropper_reflect.mdl"
 			}
 		}
 		"MovementHandle"		"HANDLE_NONE"
@@ -261,10 +261,12 @@
 		"TargetName"		"pd"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "sprayer,Start,,0.00,-1"
+				"Disable_Cmd"   "sprayer,Stop,,0.00,-1"
 			}
 		}
 		"OccupiedVoxels"

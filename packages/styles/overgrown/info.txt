@@ -104,7 +104,7 @@
 	"ID"          "OverFunnelFlicker"
 	"Enabled"     "0"
 	"Name"        "Flickering Overgrown Funnel"
-	"Description" "Allow the Overgrown Excursion Funnel to randomly shut off briefly. Objects or players travelling in the funnel will not fall out when this occurs."
+	"Description" "Allow the Overgrown Excursion Funnel to randomly shut off briefly. This does not affect the transportation of players or objects."
 	"Style"       "BEE2_OVERGROWN"
 	}
 	
@@ -123,7 +123,6 @@
 	"File"			"announcer_apoc"
 	"Name"			"Announcer (Apocalypse)"
 	"ShortName"		"Announcer (Apoc)"
-	"Group"			"Announcer"
 	"Characters"    "Announcer"
 	"Icon"			"voices/announcer"
 	"Authors"		"TeamSpen210"
@@ -138,7 +137,7 @@
 	"ShortName"		"GLaDOS (Apoc)"
 	"Group"			"GLaDOS"
 	"Characters"    "GLaDOS"
-	"Icon"			"voices/glados"
+	"Icon"			"voices/glados_apoc.png"
 	"Authors"		"TeamSpen210"
 	"Description"	"Pre-recorded GLaDOS guiding you through destroyed and wrecked chambers. This is an unused variant of the Announcer's lines, where GLaDOS played the role of this character."
 	}			
@@ -153,22 +152,31 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN"    "ped_button"
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config" "ped_button.cfg"
+					"Instances"
+						{
+						"0" "instances/BEE2/over/items/button/pedestal.vmf"
+						}
+					"Description"
+						{
+						"" "* Overgrown buttons on walls and ceilings may be hanging on broken cables."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Icon"     "palette/over/pedestal_button.png"
+							"BEE2"     "over/pedestal_button.png"
+							}
+						}
+					}
 				}
 			}
 		}
-	}
-// The overgrown pedestal base is 4-units, to match P1 bases.
-// It has a hole in it if the pedestal is hanging down, and the sides 
-// may have missing tiles.
-"BrushTemplate"
-	{
-	"ID" "BEE2_OVER_PED_BASE"
-	"File" "pedestal_base.vmf"
-	}
-		
-"Overrides"
-	{
+
 	"Item"
 		{
 		"ID" "ITEM_BUTTON_FLOOR"
@@ -180,32 +188,7 @@
 				}
 			}
 		}
-	}
 
-"BrushTemplate"
-	{
-	"ID"   "BEE2_OVER_FLOOR_BUTTON_BASE"
-	"File" "floor_base.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_OVER_BALL_BUTTON_BASE"
-	"File" "ball_btn_base.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_OVER_CUBE_BUTTON_BASE"
-	"File" "cube_btn_base.vmf"
-	}
-
-"BrushTemplate"
-	{
-	"ID"   "BEE2_OVER_OBSERVATION_CEILING_TILES_1"
-	"File" "observation_ceiling_tiles_1"
-	}
-
-"Overrides"
-	{
 	"Item"
 		{
 		"ID" "ITEM_PANEL_ANGLED"
@@ -216,8 +199,12 @@
 				"BEE2_OVERGROWN"
 					{
 					"Base" "BEE2_CLEAN"
-					"Config"
+					"Append"
 						{
+						"Replacements"
+							{
+							"%static_folder%" "instances/BEE2/over/static_panel/"
+							}
 						"Conditions"
 							{
 							"Condition"
@@ -234,20 +221,6 @@
 										"SetInstVar" "$skin 0" // Blue
 										"SetInstVar" "$skin 1" // Red
 										"SetInstVar" "$skin 2" // Off
-										}
-									}
-								"Condition"
-									{
-									"instvar" "$start_deployed 0"
-									"Result"
-										{
-										"GlobalInput"
-											{
-											"Target" "model_arms"
-											"Input"  "SetPlaybackRate"
-											"Param"  "-1"
-											"Delay"  "0.01"
-											}
 										}
 									}
 								}
@@ -371,18 +344,20 @@
 							"BrushCount"        "7"
 							"BrushSideCount"    "56"
 							}
+						"bee2_stairs_static" "instances/BEE2/over/items/stairs_static.vmf"
 						}
 					"Append"
 						{
 						"Replacements"
 							{
-							"%STATIC_TEX_TEMP%" "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
-							"%TOP_TEMP%"  "BEE2_OVER_STAIRS_TOP"
+							"%STATIC_TEX_TEMP%"   "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
+							"%TOP_TEMP%"          "BEE2_OVER_STAIRS_TOP"
+							"%STATIC_PANEL_TEMP%" "BEE2_STAIRS_TOP_STATIC_OVER"
 							// Chance to have a panel in each place
-							"%SPACE_PERC%"      "60%"
-							"%FORCE_VAR%"       "$disable_autorespawn"
-							"%EDGE_ORIG_TEX%"   "anim_wp/framework/squarebeams_rusty_01"
-							"%EDGE_PORTAL_TEX%" "BEE2/squarebeams_rusty_portal"
+							"%SPACE_PERC%"        "60%"
+							"%FORCE_VAR%"         "$disable_autorespawn"
+							"%EDGE_ORIG_TEX%"     "anim_wp/framework/squarebeams_rusty_01"
+							"%EDGE_PORTAL_TEX%"   "BEE2/squarebeams_rusty_portal"
 							}
 						}
 					"AppendDesc"
@@ -393,37 +368,7 @@
 				}
 			}
 		}
-	}
 
-"BrushTemplate"
-	{
-	"ID"   "BEE2_OVER_STAIRS_TOP_1"
-	"File" "stair_top_1.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_OVER_STAIRS_TOP_2"
-	"File" "stair_top_2.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_OVER_STAIRS_TOP_3"
-	"File" "stair_top_3.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_OVER_STAIRS_TOP_4"
-	"File" "stair_top_4.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_STATIC_STAIRS_STATIC_BEAMS_OVER"
-	"File" "stairs_squarebeams.vmf"
-	}
-	
-	
-"Overrides"
-	{
 	"Item"
 		{
 		"ID" "ITEM_LIGHT_PANEL"
@@ -458,18 +403,7 @@
 				}
 			}
 		}
-	}
-	
 
-"BrushTemplate"
-	{
-	// No rotation, fitting the grid.
-	"ID"    "BEE2_GRATING_TEMPLATE_SQUARE"
-	"File"  "grating_template.vmf"
-	}
-	
-"Overrides"
-	{
 	"Item"
 		{
 		"ID" "ITEM_BARRIER_HAZARD"
@@ -586,7 +520,28 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN"	"faith"
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/over/items/faith_plate.vmf"
+							"EntityCount"		"3"
+							"BrushCount"		"3"
+							"BrushSideCount"	"22"
+							}
+						}
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SKIN_BLUE%" "2"
+							"%SKIN_ORAN%" "3"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -610,25 +565,11 @@
 							"BrushCount"		"3"
 							"BrushSideCount"	"22"
 							}
-						"1"
-							{
-							"Name"				"instances/BEE2/over/items/tbeam_frame_white.vmf"
-							"EntityCount"		"1"
-							"BrushCount"		"12"
-							"BrushSideCount"	"100"
-							}
-						"2"
-							{
-							"Name"				"instances/BEE2/over/items/tbeam_frame_black.vmf"
-							"EntityCount"		"1"
-							"BrushCount"		"12"
-							"BrushSideCount"	"100"
-							}
 						}
 					"Append" "funnel.cfg"
 					"AppendDesc"
 						{
-						"" "* In Overgrown Style, Funnels may randomly flicker if the option is enabled."
+						"" "* In Overgrown Style, Funnels emit more particles. They may also randomly flicker if the option is enabled."
 						}
 					}
 				}

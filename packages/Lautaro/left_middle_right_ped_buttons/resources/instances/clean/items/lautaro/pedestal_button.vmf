@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "63"
+	"editorbuild" "8419"
+	"mapversion" "71"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "63"
+	"mapversion" "71"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,111 +30,20 @@ world
 }
 entity
 {
-	"id" "346"
-	"classname" "func_noportal_volume"
-	"origin" "-54 0 -48"
-	"spawnflags" "0"
-	solid
-	{
-		"id" "347"
-		side
-		{
-			"id" "131"
-			"plane" "(-64 -16 -52) (-64 16 -52) (-32 16 -52)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "132"
-			"plane" "(-64 16 -96) (-64 -16 -96) (-32 -16 -96)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "133"
-			"plane" "(-64 16 -52) (-64 -16 -52) (-64 -16 -96)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[0 0 -1 -56] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "134"
-			"plane" "(-32 -16 -52) (-32 16 -52) (-32 16 -96)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 -56] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "135"
-			"plane" "(-32 16 -52) (-64 16 -52) (-64 16 -96)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -56] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "136"
-			"plane" "(-32 -16 -96) (-64 -16 -96) (-64 -16 -52)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -56] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "222"
 	"classname" "logic_branch"
+	"angles" "0 0 0"
 	"targetname" "output"
 	connections
 	{
 		"OnTrue" "!selfFireUser10-1"
 		"OnTrue" "!selfFireUser20.01-1"
 		"OnFalse" "!selfFireUser20-1"
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
 	}
-	"origin" "-32 0 -47.9"
+	"origin" "-24 8 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -146,7 +55,8 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$timer_delay float 3"
 	"parm2" "$timer_sound integer 0"
-	"origin" "-32 -24 -47.9"
+	"parm3" "$skin integer 0"
+	"origin" "-24 -8 -56"
 	editor
 	{
 		"color" "220 30 220"
@@ -166,6 +76,7 @@ entity
 	"preventfastreset" "0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
+	"skin" "$skin"
 	"solid" "1"
 	"targetname" "button"
 	connections
@@ -175,27 +86,13 @@ entity
 		"OnButtonReset" "outputFireUser10-1"
 		"OnPressed" "outputSetValue10.01-1"
 	}
-	"origin" "-48 0 -55.9"
+	"origin" "-48.1 0 -56"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "22"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-32 24 -47.9"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras

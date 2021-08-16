@@ -25,25 +25,13 @@
 					{
 					"0" "instances/BEE2/p1/items/tspen/coop_checkpoint.vmf"
 					}
-				"Append"
+				"IOConf"
 					{
-					"Conditions"
-						{
-						"Condition"
-							{
-							"instance"  "<ITEM_TSPEN_COOP_CHECKPOINT>"
-							"Result"
-								{
-								"Pack" "PACK_P1_CUBE_SND"
-								"Pack" "PACK_P1_FLOOR_BUTTON_SND"
-								"Pack" "PACK_P1_METAL_LIFT"
-								
-								"Pack" "PACK_P1_BLACK_WALL_LARGE"
-								"Pack" "PACK_P1_BLACK_WALL_MED"
-								"Pack" "PACK_P1_BLACK_WALL_SML_FADE_WHITE"
-								}
-							}
-						}
+					"Type"          "AND"
+					"invertVar"		"$start_open"
+					"spawnFire"     "always"
+					"Enable_Cmd"    "input,TurnOn,,0.00,-1"
+					"Disable_Cmd"   "input,TurnOff,,0.00,-1"
 					}
 				}
 			"BEE2_BTS"
@@ -131,7 +119,16 @@
 		"Styles"
 			{
 			"BEE2_CLEAN"      "coop_check_sep_clean"
-			"BEE2_OVERGROWN"  "coop_check_sep_over"
+			// Not actually implemented
+			// "BEE2_OVERGROWN"  "coop_check_sep_over"
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "coop_check_sep_clean"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/tspen/coop_checkpoint_sep.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -145,7 +142,9 @@
 		"" ""
 		"" "* This will trigger its output permanently when the door closes, as well as autosave."
 		"" "* If Portalgun On/Off buttons are present in the map, this will contain an Absolute Fizzler and dissolve cubes on On/Off Buttons when walked through."
+		"" "* Alternatively, in Aperture Tag it will disable the paint gun."
 		}
+	"All_conf" "sp_check.cfg"
 	"Version"
 		{
 		"Styles"
@@ -176,8 +175,14 @@
 				"Instances"
 					{
 					"bee2_decade" "instances/BEE2/50s/items/tspen/chamberlock_50s.vmf"
-					"bee2_white"  "instances/BEE2/50s/items/tspen/chamberlock_white.vmf"
-					"bee2_black"  "instances/BEE2/50s/items/tspen/chamberlock_black.vmf"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%LIGHT%" "250 230 170"
+						"%TEMPLATE%" "TSPEN_CHAMBERLOCK_50s"
+						}
 					}
 				"IOConf"
 					{
@@ -195,14 +200,13 @@
 				"Instances"
 					{
 					"bee2_decade" "instances/BEE2/70s/items/tspen/chamberlock_70s.vmf"
-					"bee2_white"  "instances/BEE2/70s/items/tspen/chamberlock_white.vmf"
-					"bee2_black"  "instances/BEE2/70s/items/tspen/chamberlock_black.vmf"
 					}
 				"Append"
 					{
 					"Replacements"
 						{
 						"%LIGHT%" "200 220 230"
+						"%TEMPLATE%" "TSPEN_CHAMBERLOCK_70s"
 						}
 					}
 				}
@@ -223,9 +227,10 @@
 			"BEE2_OVERGROWN"
 				{
 				"Folder" "sp_check"
+				"Config" "sp_check_clean.cfg"
 				"Instances"
 					{
-					"bee2_logic"    "instances/BEE2/over/items/tspen/chamberlock_logic.vmf"
+					"0"             "instances/BEE2/over/items/tspen/chamberlock.vmf"
 					"bee2_fizz_tag" "instances/BEE2/over/items/tspen/chamberlock_tag.vmf"
 					"bee2_fizz_p2"  "instances/BEE2/over/items/tspen/chamberlock_p2.vmf"
 					"bee2_fizz_abs" "instances/BEE2/over/items/tspen/chamberlock_abs_fizz.vmf"
@@ -235,27 +240,15 @@
 		}
 	}
 
-"BrushTemplate"
-	{
-	"ID"   "TSPEN_CHAMBERLOCK_CLEAN"
-	"File" "chamberlock_clean.vmf"
-	}
-
-"BrushTemplate"
-	{
-	"ID"   "TSPEN_CHAMBERLOCK_P1"
-	"File" "chamberlock_p1.vmf"
-	}
-
 "Item"
 	{
 	"ID" "ITEM_BEE2_COOP_CHECKPOINT_SINGLE"
 	"Description"	
 		{
-		"" "Allow respawning Coop players at a new location.  "
+		"" "Allow respawning Coop players at a new location."
 		"" ""
-		"" "* The dropper will be activated when players walk in the 3x3 area underneath the dropper.  "
-		"" "* If two droppers are placed within 2 blocks of each other, the trigger will be merged together."
+		"" "* The dropper will be activated when players walk in the 3x3 area underneath the dropper."
+		"" "* If two droppers are placed within 2 blocks of each other, the trigger will be merged together.  "
 		"" "This ensures both droppers will always be activated."
 		}
 	"All_conf" "coop_check_single.cfg"
@@ -267,7 +260,6 @@
 			"BEE2_OVERGROWN"
 				{
 				"Base" "BEE2_CLEAN"
-				"Config" "coop_check_single_over.cfg"
 				"Instances"
 					{
 					"bee2_common" "instances/BEE2/over/items/tspen/single_checkpoint.vmf"
@@ -276,24 +268,42 @@
 			"BEE2_1950s"
 				{
 				"Base" "BEE2_CLEAN"
-				"Config" "coop_check_single_retro.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMP%" "BEE2_CUBE_DROPPER_RETRO_CAP"
+						}
+					}
 				"Instances"
 					{
-					"bee2_both"   "instances/BEE2/50s/items/tspen/single_checkpoint_both.vmf"
-					"bee2_blue"   "instances/BEE2/50s/items/tspen/single_checkpoint_blue.vmf"
-					"bee2_oran"   "instances/BEE2/50s/items/tspen/single_checkpoint_oran.vmf"
+					"0"   "instances/BEE2/50s/items/tspen/single_checkpoint_both.vmf"
+					"1"   "instances/BEE2/50s/items/tspen/single_checkpoint_both.vmf"
+					"2"   "instances/BEE2/50s/items/tspen/single_checkpoint_blue.vmf"
+					"3"   "instances/BEE2/50s/items/tspen/single_checkpoint_blue.vmf"
+					"4"   "instances/BEE2/50s/items/tspen/single_checkpoint_oran.vmf"
+					"5"   "instances/BEE2/50s/items/tspen/single_checkpoint_oran.vmf"
 					"bee2_common" "instances/BEE2/50s/items/tspen/single_checkpoint.vmf"
 					}
 				}
 			"BEE2_PORTAL_1"
 				{
 				"Base" "BEE2_CLEAN"
-				"Config" "coop_check_single_p1.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMP%" "TSPEN_CHECKPOINT_SINGLE_CAP_P1"
+						}
+					}
 				"Instances"
 					{
-					"bee2_both"   "instances/BEE2/p1/items/tspen/single_checkpoint_both.vmf"
-					"bee2_blue"   "instances/BEE2/p1/items/tspen/single_checkpoint_blue.vmf"
-					"bee2_oran"   "instances/BEE2/p1/items/tspen/single_checkpoint_oran.vmf"
+					"0"   "instances/BEE2/p1/items/tspen/single_checkpoint_both.vmf"
+					"1"   "instances/BEE2/p1/items/tspen/single_checkpoint_both.vmf"
+					"2"   "instances/BEE2/p1/items/tspen/single_checkpoint_blue.vmf"
+					"3"   "instances/BEE2/p1/items/tspen/single_checkpoint_blue.vmf"
+					"4"   "instances/BEE2/p1/items/tspen/single_checkpoint_oran.vmf"
+					"5"   "instances/BEE2/p1/items/tspen/single_checkpoint_oran.vmf"
 					"bee2_common" "instances/BEE2/p1/items/tspen/single_checkpoint.vmf"
 					}
 				}

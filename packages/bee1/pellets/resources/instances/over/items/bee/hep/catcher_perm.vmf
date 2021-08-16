@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "135"
+	"editorbuild" "8419"
+	"mapversion" "139"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "135"
+	"mapversion" "139"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -33,6 +33,7 @@ entity
 {
 	"id" "3484"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"health" "10"
 	"message" "BEE2.pellet_catcher"
 	"pitch" "100"
@@ -41,7 +42,7 @@ entity
 	"SourceEntityName" "CatcherProp"
 	"spawnflags" "48"
 	"targetname" "snd_on"
-	"origin" "48 32 -48"
+	"origin" "48 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -52,67 +53,17 @@ entity
 }
 entity
 {
-	"id" "3466"
-	"classname" "func_instance_parms"
-	"parm1" "$timer_delay integer 99999999999"
-	"origin" "-48 -48 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
-	"id" "3193"
-	"classname" "logic_relay"
-	"StartDisabled" "0"
-	"targetname" "out"
-	connections
-	{
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnSpawn" "sprSetParentAttachmentball_attachment01"
-		"OnSpawn" "pellet_mdlSetParentAttachmentball_attachment01"
-	}
-	"origin" "-48 0 -48"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "2136"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-48 48 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
-	}
-}
-entity
-{
 	"id" "9"
 	"classname" "trigger_once"
 	"filtername" "@filter_pellet"
 	"origin" "0 0 -60"
+	"solid" "6"
 	"spawnflags" "64"
 	"StartDisabled" "0"
 	"targetname" "catcher_trigger"
 	connections
 	{
 		"OnTrigger" "!activatorKill0.01-1"
-		"OnTrigger" "catcher_triggerDisable0-1"
 		"OnTrigger" "CatcherPropSetAnimationclose0-1"
 		"OnTrigger" "pellet_mdlEnable0-1"
 		"OnTrigger" "spotLightOff0-1"
@@ -120,119 +71,118 @@ entity
 		"OnTrigger" "sprShowSprite0-1"
 		"OnTrigger" "stop_emEnable0-1"
 		"OnTrigger" "!activatorBallCaught0-1"
-		"OnTrigger" "outFireUser20-1"
 		"OnTrigger" "lightTurnOff0-1"
 		"OnTrigger" "@commandCommandcc_emit ScriptedSequence.GladosReawaken0-1"
 	}
 	solid
 	{
-		"id" "10"
+		"id" "3636"
 		side
 		{
-			"id" "110"
-			"plane" "(-32 -4.19629e-006 -72) (-22.2031 -22.8008 -72) (4.19629e-006 -32 -72)"
+			"id" "111"
+			"plane" "(-23 23 -72) (-32 0 -72) (-23 -23 -72)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 -47] 1"
-			"vaxis" "[-1 0 0 -12] 1"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "109"
-			"plane" "(-22.209 -22.7891 -48) (-32 -4.19629e-006 -48) (-22.2144 22.7855 -48)"
+			"id" "112"
+			"plane" "(0 32 -48) (23 23 -48) (32 -0 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 -47] 1"
-			"vaxis" "[-1 0 0 -12] 1"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "108"
-			"plane" "(-22.207 -22.7969 -72) (-32 -4.19629e-006 -72) (-32 -4.19629e-006 -48)"
+			"id" "113"
+			"plane" "(0 32 -72) (23 23 -72) (23 23 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 -47] 1"
-			"vaxis" "[0 0 1 11] 1"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "107"
-			"plane" "(4.19629e-006 -32 -72) (-22.207 -22.7949 -72) (-22.2031 -22.7949 -48)"
+			"id" "114"
+			"plane" "(23 23 -72) (32 -0 -72) (32 -0 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 12] 1"
-			"vaxis" "[0 0 1 11] 1"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "106"
-			"plane" "(22.2031 -22.7969 -72) (4.19629e-006 -32 -72) (4.19629e-006 -32 -48)"
+			"id" "115"
+			"plane" "(32 -0 -72) (23 -23 -72) (23 -23 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 12] 1"
-			"vaxis" "[0 0 1 11] 1"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "105"
-			"plane" "(32 4.19629e-006 -72) (22.2012 -22.7969 -72) (22.2057 -22.7958 -48)"
+			"id" "116"
+			"plane" "(23 -23 -72) (-0 -32 -72) (-0 -32 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 -47] 1"
-			"vaxis" "[0 0 1 11] 1"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "104"
-			"plane" "(22.207 22.7852 -72) (32 4.19629e-006 -72) (32 4.19629e-006 -48)"
+			"id" "117"
+			"plane" "(-0 -32 -72) (-23 -23 -72) (-23 -23 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 -47] 1"
-			"vaxis" "[0 0 1 11] 1"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "103"
-			"plane" "(-4.19629e-006 32 -72) (22.207 22.7851 -72) (22.2077 22.7835 -48)"
+			"id" "118"
+			"plane" "(-23 -23 -72) (-32 0 -72) (-32 0 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 12] 1"
-			"vaxis" "[0 0 1 11] 1"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "102"
-			"plane" "(-22.2142 22.7859 -72) (-4.19629e-006 32 -72) (-4.19629e-006 32 -48)"
+			"id" "119"
+			"plane" "(-32 0 -72) (-23 23 -72) (-23 23 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 12] 1"
-			"vaxis" "[0 0 1 11] 1"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "101"
-			"plane" "(-32 -4.19629e-006 -72) (-22.2124 22.7863 -72) (-22.2145 22.7855 -48)"
+			"id" "120"
+			"plane" "(-23 23 -72) (0 32 -72) (0 32 -48)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 -47] 1"
-			"vaxis" "[0 0 1 11] 1"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -261,13 +211,11 @@ entity
 	"drawinfastreflection" "1"
 	"ExplodeDamage" "0"
 	"ExplodeRadius" "0"
-	"fademaxdist" "0"
-	"fademindist" "-1"
-	"fadescale" "1"
 	"HoldAnimation" "1"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props/combine_ball_catcher.mdl"
+	"physdamagescale" "1.0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
 	"renderamt" "255"
@@ -279,7 +227,7 @@ entity
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"targetname" "CatcherProp"
-	"origin" "0.03 -0.0299969 -56"
+	"origin" "0 0 -56"
 	editor
 	{
 		"color" "220 30 220"
@@ -295,6 +243,7 @@ entity
 	"angles" "-90 270 0"
 	"disablereceiveshadows" "0"
 	"disableX360" "0"
+	"haloscale" "60"
 	"HDRColorScale" "0.7"
 	"maxcpulevel" "0"
 	"maxgpulevel" "0"
@@ -337,7 +286,7 @@ entity
 	"origin" "-2.50119e-013 1.90735e-006 -48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 4000]"

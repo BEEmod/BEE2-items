@@ -1,7 +1,6 @@
 "Item"
 {
 	"Type"		"ITEM_HIGH_ENERGY_PELLET_CATCHER"
-	"ItemClass" "ItemButtonFloor"
 	"Editor"
 	{
 		"SubType"
@@ -48,21 +47,18 @@
 				"BrushCount"      "15"
 				"BrushSideCount"  "98"
 			}
-			"1"
-			{
-				"Name"            "instances/BEE2/50s/items/BEE/hep/catcher_black.vmf"
-				"EntityCount"     "12"
-				"BrushCount"      "5"
-				"BrushSideCount"  "34"
-			}
 		}
 		"TargetName"		"pc"
 		"Outputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"		"instance:out;OnUser2"
-				"Deactivate"	"instance:out;OnUser1"
+				"Out_Activate"      "instance:catcher_trigger;OnTrigger"
+				"Out_Deactivate"    "instance:catcher_trigger;OnUser1"
+				"out_timer_stop"    "" // Can't be interrupted.
+				"timer_sound_pos"   "0 0 8"
+				"timer_done_cmd"    "catcher_trigger,FireUser1,,0.0,-1"
+				"force_timer_sound" "0" // If infinite, nope.
 			}
 		}
 		"Offset"		"64 64 64"
@@ -94,6 +90,15 @@
 			"Voxel"
 			{
 				"Pos"		"0 0 0"
+			}
+		}
+		"EmbedFace"
+		{
+			"Solid"
+			{
+				"Center"        "64 64 128"
+				"Dimensions"	"128 128 4"
+				"Grid"			"4x4"
 			}
 		}
 		"ConnectionPoints"

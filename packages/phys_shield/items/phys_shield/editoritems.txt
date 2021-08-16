@@ -42,7 +42,7 @@
 				}
 			}
 		"MovementHandle" "HANDLE_6_POSITIONS"
-		"DesiredFacing" "DESIRES_HORIZONTAL"
+		"DesiredFacing"  "DESIRES_HORIZONTAL"
 		}
 	"Properties"
 		{
@@ -67,7 +67,6 @@
 		"Instances"
 			{
 			"bee2_static" "instances/BEE2/clean/items/physler/model_static.vmf"
-			"bee2_static_base" "instances/BEE2/clean/items/physler/base_static.vmf"
 			"0"
 				{
 				"Name" "instances/BEE2/clean/items/physler/base.vmf"
@@ -82,10 +81,21 @@
 		"TargetName" "phys_shield"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate" "instance:counter;Add"
-				"Deactivate" "instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				// We need to always fire the StartFloatLerp input, since before an input is fired
+				// the material modify reuses previously rendered brushes.
+				// Vphysics clips also can't be turned off by keyvalue.
+				"SpawnFire"		"always"
+
+				"Enable_Cmd"    "mdl,SetAnimation,open,0.00,-1"
+				"Disable_Cmd"   "mdl,SetAnimation,close,0.00,-1"
+				"Enable_Cmd"    "clip,Enable,,0.00,-1"
+				"Disable_Cmd"   "clip,Disable,,0.00,-1"
+				"Enable_Cmd"    "mat_mod,StartFloatLerp,0 1 1.0 0,0.00,-1"
+				"Disable_Cmd"   "mat_mod,StartFloatLerp,1 0 1.0 0,0.00,-1"
 				}
 			"CONNECTION_HAZARD_MODEL"
 				{
@@ -102,8 +112,6 @@
 			{
 			"CONNECTION_HAZARD"
 				{
-				"Activate" "instance:out;OnUser2"
-				"Deactivate" "instance:out;OnUser1"
 				}
 			}
 		"ConnectionPoints"

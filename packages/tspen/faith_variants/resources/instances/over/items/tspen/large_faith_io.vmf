@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "131"
+	"editorbuild" "8874"
+	"mapversion" "147"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
-	"bShow3DGrid" "0"
+	"nGridSpacing" "32"
+	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "131"
+	"mapversion" "147"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,8 +30,39 @@ world
 }
 entity
 {
+	"id" "1316"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "plate"
+	connections
+	{
+		"OnTurnedOn" "triggerEnable0.01-1"
+		"OnTurnedOn" "wake_trigDisable0.01-1"
+		"OnTurnedOn" "armSkin20-1"
+		"OnTurnedOn" "wake_trigEnable0-1"
+		"OnTurnedOn" "flash_timDisable0-1"
+		"OnTurnedOn" "flash_timResetTimer0-1"
+		"OnTurnedOn" "sprColor0 255 2550-1"
+		"OnTurnedOff" "triggerDisable0.01-1"
+		"OnTurnedOff" "flash_timEnable0-1"
+		"OnTurnedOff" "armSkin30-1"
+		"OnTurnedOff" "sprColor255 128 00-1"
+	}
+	"origin" "0 0 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "1211"
 	"classname" "logic_timer"
+	"angles" "0 0 0"
 	"RefireTime" "0.5"
 	"spawnflags" "1"
 	"StartDisabled" "$start_enabled"
@@ -41,11 +72,13 @@ entity
 	{
 		"OnTimerLow" "armSkin30-1"
 		"OnTimerHigh" "armSkin20-1"
+		"OnTimerLow" "sprColor255 128 00-1"
+		"OnTimerHigh" "sprColor0 255 2550-1"
 	}
-	"origin" "16 16 -48"
+	"origin" "0 -16 -48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -58,10 +91,15 @@ entity
 	"alternateticksfix" "0"
 	"origin" "0 0 -60"
 	"pushdir" "-90 0 0"
+	"solid" "6"
 	"spawnflags" "4104"
 	"speed" "80"
-	"startdisabled" "0"
+	"startdisabled" "1"
 	"targetname" "wake_trig"
+	connections
+	{
+		"OnStartTouch" "!activatorExitDisabledState0-1"
+	}
 	solid
 	{
 		"id" "1200"
@@ -160,73 +198,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "1186"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-16 16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1188"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-16 -16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1190"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "triggerEnable0.01-1"
-		"OnFalse" "triggerDisable0.01-1"
-		"OnTrue" "armSkin20-1"
-		"OnTrue" "wake_trigEnable0-1"
-		"OnTrue" "wake_trigDisable0.01-1"
-		"OnFalse" "wake_trigDisable0-1"
-		"OnTrue" "flash_timDisable0-1"
-		"OnFalse" "flash_timEnable0-1"
-		"OnTrue" "flash_timResetTimer0-1"
-		"OnFalse" "armSkin30-1"
-	}
-	"origin" "16 -16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 cameras

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "113"
+	"editorbuild" "8419"
+	"mapversion" "114"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "113"
+	"mapversion" "114"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,20 +30,17 @@ world
 }
 entity
 {
-	"id" "51"
-	"classname" "prop_floor_button"
+	"id" "58"
+	"classname" "comp_kv_setter"
 	"angles" "0 0 0"
-	"model" "$model"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"targetname" "btn"
-	"vscripts" "bee2/enlarge_portal_button.nut"
-	connections
-	{
-		"OnUnPressed" "proxyProxyRelay0-1"
-		"OnPressed" "proxyProxyRelay0-1"
-	}
-	"origin" "0 0 -55.9"
+	"conv_ang" "0"
+	"invert" "0"
+	"kv_name" "model"
+	"kv_value_global" "$model"
+	"mode" "kv"
+	"rotate" "0"
+	"target" "btn"
+	"origin" "0 0 -31.9"
 	editor
 	{
 		"color" "220 30 220"
@@ -54,16 +51,21 @@ entity
 }
 entity
 {
-	"id" "53"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "0 0 -32"
+	"id" "51"
+	"classname" "prop_floor_button"
+	"angles" "0 0 0"
+	"model" "models/props/portal_button_damaged01.mdl"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"targetname" "btn"
+	"vscripts" "bee2/enlarge_portal_button.nut"
+	"origin" "0 0 -55.9"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
+		"logicalpos" "[0 0]"
 	}
 }
 cameras

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "482"
+	"editorbuild" "8419"
+	"mapversion" "483"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "482"
+	"mapversion" "483"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -48,6 +48,7 @@ entity
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "0"
+	"solid" "6"
 	"spawnflags" "0"
 	"speed" "200"
 	"startposition" "0"
@@ -57,7 +58,7 @@ entity
 		"OnFullyOpen" "door_lowerClose0.5-1"
 		"OnFullyOpen" "sndPlaySound0.5-1"
 		"OnFullyOpen" "turr_expStart0-1"
-		"OnFullyOpen" "scriptRunScriptCoderelease_turret()0.01-1"
+		"OnFullyOpen" "scriptCallScriptFunctionrelease_turret0.01-1"
 		"OnFullyOpen" "sndStopSound0-1"
 		"OnFullyClosed" "iris_clipEnable0-1"
 		"OnFullyClosed" "lidSetAnimationclose0-1"
@@ -67,7 +68,7 @@ entity
 		"OnFullyOpen" "door_lowerSetSpeed1000.5-1"
 		"OnFullyOpen" "door_lowerSetSpeed2000.7-1"
 		"OnFullyOpen" "snd_expPlaySound0-1"
-		"OnFullyClosed" "scriptRunScriptCodeconf_ready_to_spawn = true2.15-1"
+		"OnFullyClosed" "scriptCallScriptFunctionis_ready_to_spawn2.15-1"
 		"OnFullyClosed" "portalClose2.1-1"
 		"OnFullyOpen" "supportDisable0-1"
 	}
@@ -226,7 +227,7 @@ entity
 	"classname" "info_particle_system"
 	"angles" "0 0 180"
 	"drawinfastreflection" "0"
-	"effect_name" "impact_metal"
+	"effect_name" "hi-five_success_01"
 	"parentname" "door_lower"
 	"spawnflags" "1"
 	"start_active" "0"
@@ -234,7 +235,7 @@ entity
 	"origin" "-5.5 0 -162"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"comments" "Explosive cutting the wire."
@@ -254,7 +255,11 @@ entity
 	"LoadAlternativeModels" "0"
 	"model" "models/npcs/turret/turret.mdl"
 	"ModelIndex" "0"
+	"physdamagescale" "1.0"
 	"PickupEnabled" "1"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"solid" "6"
 	"spawnflags" "64"
 	"targetname" "turret"
 	"TurretRange" "1024"
@@ -269,7 +274,7 @@ entity
 	"origin" "0 0 -104"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 200 200"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
@@ -291,6 +296,7 @@ entity
 	"mingpulevel" "0"
 	"MoveSpeed" "64"
 	"parentname" "door_lower"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "25"
 	"spawnflags" "0"

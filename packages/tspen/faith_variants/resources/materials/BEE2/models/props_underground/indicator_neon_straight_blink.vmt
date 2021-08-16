@@ -1,0 +1,40 @@
+UnlitGeneric
+{
+$baseTexture "signage/indicator_lights/indicator_neon_straight"
+$surfaceprop glass
+$model 1
+
+$frame 1
+$blue 0
+$oran 1
+$period 1.5
+
+$offset 0
+$zero 0
+$sine 0
+Proxies
+	{
+	// Compute $frame = sine(time, randomOff) > 0 ? 1 : 0
+	EntityRandom
+		{
+		scale $period
+		resultVar $offset
+		}
+	Sine
+		{
+		sinemin -1
+		sinemax 1
+		sineperiod $period
+		timeoffset $offset
+		resultVar $sine
+		}
+	LessOrEqual
+		{
+		srcVar1 $sine
+		srcVar2 $zero
+		lessEqualVar $blue
+		greaterVar $oran
+		resultVar $frame
+		}
+	}
+}

@@ -81,8 +81,8 @@ This doesn't affect cube nudging. When the bomb explodes like this, it does not 
 		"" "* Place Propulsion or Repulsion Gel splats on top of Cubes or Droppers to make them spawn already painted with that color.  "
 		"" "  Repulsion Gel will be applied as it leaves the dropper."
 		"" "* Set the `Timer Delay` on a dropperless Cube and Dropper to the same value to link them together.  "
-		"" "  The cube will then respawn from the dropper. This is useful to precisely position cubes, or respawn at a"
-		"" "  more convenient location.  "
+		"" "  The cube will then respawn from the dropper."
+		"" "  This is useful to precisely position cubes, or respawn at a more convenient location.  "
 		"" "  Infinite and a delay of 3 disable this behaviour."
 		}
 	"all_conf"	"cube"
@@ -93,11 +93,6 @@ This doesn't affect cube nudging. When the bomb explodes like this, it does not 
 			"BEE2_CLEAN"	"cube"
 			}
 		}
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_CUBE_DROPPER_CLEAN_CAP"
-	"file" "cube_dropper_cap.vmf"
 	}
 
 "Item"
@@ -111,21 +106,6 @@ This doesn't affect cube nudging. When the bomb explodes like this, it does not 
 			{
 			"BEE2_CLEAN"	"funnel"
 			}
-		}
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_TBEAM_FRAME"
-	"file" "tbeam_frame.vmf"
-	}
-"PackList"
-	{
-	"ID" "BEE2_TBEAM_ORAN_BACK"
-	"Config"
-		{
-		"" "models/BEE2/props_clean/tractor_beam_back_oran.mdl"
-		"" "materials/BEE2/models/props_clean/tbeam_back_oran.vmt"
-		"" "materials/BEE2/models/props_clean/tbeam_back_oran.vtf"
 		}
 	}
 	
@@ -199,95 +179,17 @@ This doesn't affect cube nudging. When the bomb explodes like this, it does not 
 			}
 		}
 	}
-	
+
+// This is the only PackList in the entire mod that's still needed,
+// since Reflection Gel resources aren't directly referenced in maps.
 "PackList"
 	{
 	"ID"     "PACK_REFLECTION_GEL"
-	"Config" "reflection_gel"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_REFLECTION_DROPPER_CLEAN"
-	"Config" "reflection_dropper"
-	}
-
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_NOPAINT_CATAPULT_SIGN"
 	"Config"
 		{
-		"File"  "materials/BEE2/no_paint/signage_arrow_world.vmt"
-		"File"  "materials/BEE2/no_paint/signage_catapult1_world.vmt"
-		"File"  "materials/BEE2/no_paint/signage_catapult2_world.vmt"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_CATAPULT_TOGGLE"
-	"Config"
-		{
-		"File"  "models/BEE2/props_ingame/faith_plate_toggle.mdl"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_CLEAN_WHITE_CEIL"
-	"AddIfMat"  "BEE2/bullseye/white_ceiling_tile"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/white_ceiling_tile.vmt"
-		"File" "materials/BEE2/bullseye/white_ceiling_tile.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_CLEAN_WHITE_FLOOR"
-	"AddIfMat"  "BEE2/bullseye/white_floor_tile"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/white_floor_tile.vmt"
-		"File" "materials/BEE2/bullseye/white_floor_tile.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_CLEAN_WHITE_WALL"
-	"AddIfMat"  "BEE2/bullseye/white_wall_tile"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/white_wall_tile.vmt"
-		"File" "materials/BEE2/bullseye/white_wall_tile.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-	
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_CLEAN_BLACK_FLOORCEIL"
-	"AddIfMat"  "BEE2/bullseye/black_ceiling_metal"
-	"AddIfMat"  "BEE2/bullseye/black_floor_metal"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/black_ceiling_metal.vmt"
-		"File" "materials/BEE2/bullseye/black_floor_metal.vmt"
-		"File" "materials/BEE2/bullseye/black_floor_metal.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
-		}
-	}
-"PackList"
-	{
-	"ID"        "PACK_BEE2_BULLSEYE_CLEAN_WHITE_WALL"
-	"AddIfMat"  "BEE2/bullseye/black_wall_metal"
-	"Config"
-		{
-		"File" "materials/BEE2/bullseye/black_wall_metal.vmt"
-		"File" "materials/BEE2/bullseye/black_wall_metal.vtf"
-		"File" "materials/BEE2/bullseye/bullseye_glow.vtf"
+		"" "materials/paintblobs/blob_surface_stick.vmt"
+		"" "materials/paintblobs/blob_surface_grey.vtf"
+		"" "particles/paint_splats_fx_reflect.pcf"
+		"" "particles/paint_bomb_fx_reflect.pcf"
 		}
 	}

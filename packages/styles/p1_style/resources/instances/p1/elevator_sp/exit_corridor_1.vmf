@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "173"
+	"editorbuild" "8874"
+	"mapversion" "175"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "173"
+	"mapversion" "175"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2310,83 +2310,6 @@ world
 }
 entity
 {
-	"id" "35296"
-	"classname" "ambient_generic"
-	"health" "100"
-	"message" "BEE2.p1.fizzle_radio"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"spawnflags" "49"
-	"targetname" "radio_fizz_sound"
-	"origin" "25.2475 -40 -312"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "The player must be nearby, so it's fine to be infinite range. Playing from the dead object doesn't work right..."
-		"logicalpos" "[500 10500]"
-	}
-}
-entity
-{
-	"id" "34658"
-	"classname" "ambient_generic"
-	"health" "100"
-	"message" "Portal.room1_Radio"
-	"pitch" "100"
-	"pitchstart" "100"
-	"radius" "1250"
-	"SourceEntityName" "radio"
-	"spawnflags" "16"
-	"targetname" "@exit_radio_sound"
-	"origin" "25.2475 -40.5915 -292.803"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 10500]"
-	}
-}
-entity
-{
-	"id" "34661"
-	"classname" "prop_physics"
-	"allowfunnel" "1"
-	"angles" "-19.1169 89.3785 90.1844"
-	"disablereceiveshadows" "0"
-	"fademindist" "-1"
-	"fadescale" "1"
-	"inertiaScale" "1.0"
-	"model" "models/bee2/props_p1/radio_clean.mdl"
-	"physdamagescale" "0.1"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"rendermode" "0"
-	"skin" "0"
-	"spawnflags" "258"
-	"targetname" "radio"
-	connections
-	{
-		"OnHealthChanged" "@exit_radio_soundVolume00-1"
-		"OnBreak" "@exit_radio_soundVolume00-1"
-		"OnFizzled" "@exit_radio_soundVolume00-1"
-		"OnFizzled" "radio_fizz_soundPlaySound0-1"
-	}
-	"origin" "0.344013 -50.3664 -293.595"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 9500]"
-	}
-}
-entity
-{
 	"id" "7999"
 	"classname" "func_detail"
 	solid
@@ -2915,213 +2838,6 @@ entity
 }
 entity
 {
-	"id" "32639"
-	"classname" "prop_static"
-	"angles" "-90 180 0"
-	"disableselfshadowing" "false"
-	"disableshadows" "false"
-	"disablevertexlighting" "false"
-	"fademaxdist" "0.0"
-	"fademindist" "-1.0"
-	"fadescale" "1.0"
-	"model" "models/props/sign_frame02/sign_frame02.mdl"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"skin" "0"
-	"solid" "0"
-	"origin" "143.275 27.6461 -60"
-	editor
-	{
-		"color" "255 255 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[7500 500]"
-	}
-}
-entity
-{
-	"id" "32645"
-	"classname" "func_brush"
-	"disableflashlight" "0"
-	"disablereceiveshadows" "0"
-	"disableshadowdepth" "0"
-	"disableshadows" "0"
-	"drawinfastreflection" "0"
-	"InputFilter" "0"
-	"invert_exclusion" "0"
-	"origin" "64 8 -80"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"rendermode" "0"
-	"shadowdepthnocache" "0"
-	"solidbsp" "0"
-	"Solidity" "1"
-	"spawnflags" "2"
-	"StartDisabled" "0"
-	"vrad_brush_cast_shadows" "0"
-	solid
-	{
-		"id" "32646"
-		side
-		{
-			"id" "2414"
-			"plane" "(127 -6.35351 -60) (127 25.6453 -60) (159 25.6453 -60)"
-			"material" "SIGNAGE/SIGNAGE_EXIT"
-			"uaxis" "[0 -1 0 102.584] 0.25"
-			"vaxis" "[-1 0 0 -4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "4"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2413"
-			"plane" "(127 25.6453 -64) (127 -6.35352 -64) (159 -6.35352 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 47] 0.25"
-			"vaxis" "[-1 0 0 -8] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2412"
-			"plane" "(127 -6.35352 -64) (127 -6.35351 -60) (159 -6.35351 -60)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 -32] 0.25"
-			"vaxis" "[-1 0 0 12] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2411"
-			"plane" "(159 25.6453 -64) (159 25.6453 -60) (127 25.6453 -60)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 -32] 0.25"
-			"vaxis" "[-1 0 0 -8] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2410"
-			"plane" "(127 25.6453 -64) (127 25.6453 -60) (127 -6.35351 -60)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 -32] 0.25"
-			"vaxis" "[0 1 0 -22.5843] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2409"
-			"plane" "(159 -6.35352 -64) (159 -6.35351 -60) (159 25.6453 -60)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 -32] 0.25"
-			"vaxis" "[0 -1 0 54.5843] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	solid
-	{
-		"id" "32644"
-		side
-		{
-			"id" "2408"
-			"plane" "(127 29.6465 -60) (127 61.6453 -60) (159 61.6453 -60)"
-			"material" "SIGNAGE/SIGNAGE_ARROW"
-			"uaxis" "[0 -1 0 -9.41568] 0.25"
-			"vaxis" "[-1 0 0 -4] 0.25"
-			"rotation" "0"
-			"lightmapscale" "4"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2407"
-			"plane" "(127 61.6453 -64) (127 29.6465 -64) (159 29.6465 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 47] 0.25"
-			"vaxis" "[-1 0 0 -8] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2406"
-			"plane" "(127 29.6465 -64) (127 29.6465 -60) (159 29.6465 -60)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 1 32] 0.25"
-			"vaxis" "[-1 0 0 -8] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2405"
-			"plane" "(159 61.6453 -64) (159 61.6453 -60) (127 61.6453 -60)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 -32] 0.25"
-			"vaxis" "[-1 0 0 12] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2404"
-			"plane" "(127 61.6453 -64) (127 61.6453 -60) (127 29.6465 -60)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 -32] 0.25"
-			"vaxis" "[0 1 0 -38.5843] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2403"
-			"plane" "(159 29.6465 -64) (159 29.6465 -60) (159 61.6453 -60)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 0 -1 -32] 0.25"
-			"vaxis" "[0 -1 0 6.5843] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[3500 -5768]"
-	}
-}
-entity
-{
 	"id" "33746"
 	"classname" "light"
 	"_constant_attn" "2"
@@ -3134,12 +2850,13 @@ entity
 	"_linear_attn" "2"
 	"_quadratic_attn" "1"
 	"_zero_percent_distance" "0"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"style" "0"
 	"origin" "48 -1.02679 -372.319"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"

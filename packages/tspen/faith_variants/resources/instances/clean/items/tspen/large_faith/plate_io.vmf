@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "137"
+	"editorbuild" "8874"
+	"mapversion" "146"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "137"
+	"mapversion" "146"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,71 +30,29 @@ world
 }
 entity
 {
-	"id" "1294"
-	"classname" "env_sprite"
-	"framerate" "10.0"
-	"GlowProxySize" "5"
-	"HDRColorScale" "1.0"
-	"model" "sprites/glow01.vmt"
-	"parentname" "arm,light_r"
-	"renderamt" "255"
-	"rendercolor" "$start_color"
-	"rendermode" "9"
-	"scale" "0.4"
-	"spawnflags" "1"
-	"targetname" "spr"
-	"origin" "-4 38 -65"
-	editor
+	"id" "1316"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "plate"
+	connections
 	{
-		"color" "20 140 20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"OnTurnedOn" "triggerEnable0.01-1"
+		"OnTurnedOn" "wake_trigDisable0.01-1"
+		"OnTurnedOn" "armSkin00-1"
+		"OnTurnedOn" "wake_trigEnable0-1"
+		"OnTurnedOn" "flash_timDisable0-1"
+		"OnTurnedOn" "flash_timResetTimer0-1"
+		"OnTurnedOn" "sprColor0 255 2550-1"
+		"OnTurnedOff" "triggerDisable0.01-1"
+		"OnTurnedOff" "flash_timEnable0-1"
+		"OnTurnedOff" "armSkin10-1"
+		"OnTurnedOff" "sprColor255 128 00-1"
 	}
-}
-entity
-{
-	"id" "1298"
-	"classname" "env_sprite"
-	"framerate" "10.0"
-	"GlowProxySize" "5"
-	"HDRColorScale" "1.0"
-	"model" "sprites/glow01.vmt"
-	"parentname" "arm,light_l"
-	"renderamt" "255"
-	"rendercolor" "$start_color"
-	"rendermode" "9"
-	"scale" "0.4"
-	"spawnflags" "1"
-	"targetname" "spr"
-	"origin" "-4 -38 -65"
+	"origin" "0 0 -48"
 	editor
 	{
-		"color" "20 140 20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1302"
-	"classname" "env_sprite"
-	"framerate" "10.0"
-	"GlowProxySize" "5"
-	"HDRColorScale" "1.0"
-	"model" "sprites/glow01.vmt"
-	"parentname" "arm,light_c"
-	"renderamt" "255"
-	"rendercolor" "$start_color"
-	"rendermode" "9"
-	"scale" "0.4"
-	"spawnflags" "1"
-	"targetname" "spr"
-	"origin" "4 0 -65"
-	editor
-	{
-		"color" "20 140 20"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -104,6 +62,7 @@ entity
 {
 	"id" "1211"
 	"classname" "logic_timer"
+	"angles" "0 0 0"
 	"RefireTime" "0.5"
 	"spawnflags" "1"
 	"StartDisabled" "$start_enabled"
@@ -132,24 +91,14 @@ entity
 	"alternateticksfix" "0"
 	"origin" "0 0 -60"
 	"pushdir" "-90 0 0"
+	"solid" "6"
 	"spawnflags" "4104"
 	"speed" "80"
 	"startdisabled" "1"
 	"targetname" "wake_trig"
 	connections
 	{
-		"OnUser2" "wake_trigDisable0.01-1"
-		"OnUser2" "triggerEnable0.01-1"
-		"OnUser2" "sprColor0 255 2550-1"
-		"OnUser2" "flash_timResetTimer0-1"
-		"OnUser2" "flash_timDisable0-1"
-		"OnUser2" "wake_trigEnable0-1"
-		"OnUser2" "armSkin00-1"
-		"OnUser1" "triggerDisable0.01-1"
-		"OnUser1" "sprColor255 128 00-1"
-		"OnUser1" "armSkin10-1"
-		"OnUser1" "flash_timEnable0-1"
-		"OnUser1" "wake_trigDisable0-1"
+		"OnStartTouch" "!activatorExitDisabledState0-1"
 	}
 	solid
 	{
@@ -242,7 +191,6 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 1"
 	"parm2" "$start_enabled integer 0"
-	"parm3" "$start_color string"
 	"origin" "0 16 -48"
 	editor
 	{

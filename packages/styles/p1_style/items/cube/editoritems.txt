@@ -260,12 +260,6 @@
 				"Name"			"instances/BEE2/p1/items/cube/monster.vmf"
 				"EntityCount"	"2"
 			}
-			
-			"bee2_dropper_standard" "instances/BEE2/p1/items/cube/drp_standard.vmf"
-			"bee2_dropper_companion" "instances/BEE2/p1/items/cube/drp_companion.vmf"
-			"bee2_dropper_reflect" "instances/BEE2/p1/items/cube/drp_reflection.vmf"
-			"bee2_dropper_sphere" "instances/BEE2/p1/items/cube/drp_sphere.vmf"
-			"bee2_dropper_franken" "instances/BEE2/p1/items/cube/drp_monster.vmf"
 		}
 
 		"TargetName"		"cu"
@@ -397,22 +391,11 @@
 		"TargetName"		"cd"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
-			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
-			}
-			"CONNECTION_BOX_DROPPER"
-			{
-				"Activate"		"instance:cube_dropper_autorespawn_relay;Trigger"
-			}
-		}
-		"Outputs"
-		{
-			"CONNECTION_BOX_DROPPER"
-			{
-				"Activate"		"instance:cube_dropper_drop_relay;OnTrigger"
-			}
+			"BEE2"
+				{
+				"Type"          "AND"
+				"Enable_Cmd"    "spawn_man,SetStateATrue,,0.00,-1"
+				}
 		}
 		"Offset"		"64 64 64"
 		"OccupiedVoxels"
@@ -422,6 +405,18 @@
 				"Pos"		"0 0 0"
 			}
 		}
+		"EmbedFace"
+			{
+			// We need the surface to be generated, so it includes
+			// the colors for the tiles that we then replace with
+			// a properly-cut hole.
+			"Solid"
+				{
+				"Center"        "64 64 128"
+				"Dimensions"	"128 128 4"
+				"Grid"			"4x4"
+				}
+			}
 		"EmbeddedVoxels"
 		{
 			"Voxel"

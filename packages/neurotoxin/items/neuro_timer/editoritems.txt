@@ -59,10 +59,12 @@
 		"Offset"	    "64 64 64"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "manager,SetStateATrue,,0.00,-1"
+				"Disable_Cmd"   "manager,SetStateAFalse,,0.00,-1"
 				}
 			}
 
@@ -99,13 +101,13 @@
 			"Solid"
 				{
 				"Center"        "64 64 128"
-				"Dimensions"    "64 64 4"
+				"Dimensions"    "128 128 4"
 				"Grid"          "2x2"
 				}
 			"Solid"
 				{
 				"Center"        "64 192 128"
-				"Dimensions"    "64 64 4"
+				"Dimensions"    "128 128 4"
 				"Grid"          "2x2"
 				}
 			}

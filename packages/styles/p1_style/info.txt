@@ -10,8 +10,9 @@
 	"ShortName"	"P1"
 	"Folder"	"p1"
 	"VPK_Name"  "VPK_BEE2_PORTAL_1"
-	"Icon"   	"styles/portal1"
-	"IconLarge"  	"prev/portal1.png"
+				// Use the 2x2 black tile texture for the icon.
+	"Icon"   	"BEE2_PORTAL_1:BEE2/p1/metalwall048b_med.vtf"  	
+	"IconLarge" "prev/portal1.png"
 	"Has_Video"	"0"
 	"Base"		""
 	"Description"
@@ -24,7 +25,7 @@
 			"" "* Brown metal walls"
 			"" "* White concrete walls"
 			"" "* Portal 1 Portal Gun and Portal sound effects."
-			"" "* Old Security Cameras (unless the Sentient Cloud has taken over)"
+			"" "* Old security cameras"
 			"" "* Complementary Victory Lifts"
 			"" "* Vital Apparatus Vents dispensing original cubes, and spheres."
 			"" "* Portal 1 Fizzlers"
@@ -85,12 +86,12 @@
         "density"   "1"
         
         "primaryColor"      "58 82 101"
+		"shadowColor"	"128 128 128"
         
-        "tonemap_rate"          "0.25"
-        "tonemap_brightpixels"  "5"
-        "tonemap_exposure_min"  "0.75"
-        "tonemap_exposure_max"  "1.3"
-        "tonemap_bloom_scale"   "0.2"
+        "tonemap_rate"			"1.0"
+		"tonemap_exposure_min"  "0.75"
+        "tonemap_exposure_max"  "1.5"
+        "tonemap_bloom_scale"   "0.3"
 		}
 	}
 
@@ -101,7 +102,7 @@
 	"ShortName"   "GLaDOS (P1)"
 	"Group"       "GLaDOS"
 	"Characters"  "GLaDOS"
-	"Icon"        "voices/glados"
+	"Icon"        "voices/glados_p1.png"
 	"Name"        "GLaDOS (Portal 1 Chambers)"
 	"Authors"     "Carl Kenner, TeamSpen210"
 	"Description" "GLaDOS with adjusted audio intended for Portal 1 chambers."
@@ -115,6 +116,24 @@
 	"Enabled"       "1"
 	"Style"         "BEE2_PORTAL_1"
 	}
+
+"StyleVar"
+	{
+	"ID"            "P1_OLD_DISSOLVE"
+	"Name"          "Use P1 Fizzler FX"
+	"Description"   "Use the Portal 1 fizzler effects instead of the Portal 2 ones. This also removes the sounds."
+	"Enabled"       "1"
+	"Style"         "BEE2_PORTAL_1"
+	}
+
+"StyleVar"
+	{
+	"ID"            "P1_DOORLESS_ENTRY"
+	"Name"          "Open P1 Entrance"
+	"Description"   "Don't add doors or fizzlers to the Portal 1 singleplayer entrance. This is more accurate to the original game, but may break some puzzles by allowing portal surfaces in the corridor to be used."
+	"Enabled"       "1"
+	"Style"         "BEE2_PORTAL_1"
+	}
 	
 "Overrides"
 	{
@@ -125,44 +144,6 @@
 		}
 	}
 
-"BrushTemplate"
-	{
-	"ID"    "BEE2_STATIC_PAN_FLAT_P1"
-	"File"  "static_pan_flat.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE2_STATIC_PAN_ANGLED_P1"
-	"File"  "static_pan_angled.vmf"
-	}
-	
-// The moving brush for panels..
-"BrushTemplate"
-	{
-	"ID"    "BEE2_DYNAMIC_PAN_ANGLED_P1"
-	"File"  "angled_pan_dynamic.vmf"
-	}
-	
-
-// The UV axis data from these brushes are used to define the
-// rotation of brushes.
-"BrushTemplate"
-	{
-	"ID"    "BEE2_P1_GLASS_TEMPLATE"
-	"File"  "glass_template.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE2_P1_GRATING_TEMPLATE"
-	"File"  "grating_template.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "BEE2_P1_GLASS_BEAM"
-	"File"  "glass_floor_beam.vmf"
-	}
-	
 "Overrides"
 	{
 	"StyleVar"
@@ -224,6 +205,7 @@
 				}
 			}
 		}
+
 	"Item"
 		{
 		"ID" "ITEM_OBSERVATION_ROOM"
@@ -270,17 +252,7 @@
 				}
 			}
 		}
-	}
 
-"BrushTemplate"
-	{
-	"ID"   "BEE2_STAIRS_TOP_PORTAL_1"
-	"File" "stair_top.vmf"
-	}
-
-
-"Overrides"
-	{
 	"Item"
 		{
 		"ID" "ITEM_SECONDARY_OBSERVATION_ROOM"
@@ -315,6 +287,7 @@
 				}
 			}
 		}
+
 	"ITEM"
 		{
 		"ID" "ITEM_PISTON_PLATFORM"
@@ -326,18 +299,7 @@
 				}
 			}
 		}
-	}
-	
 
-"BrushTemplate"
-	{
-	"ID"    "BEE2_PISTON_PLATFORM_PORTAL_1"
-	"File"  "piston_plat.vmf"
-	}
-
-	
-"Overrides"
-	{
 	"ITEM"
 		{
 		"ID" "ITEM_LIGHT_PANEL"
@@ -348,7 +310,7 @@
 				"BEE2_PORTAL_1"
 					{
 					"Base"   "BEE2_CLEAN"
-					"Append" "light_strip.cfg"
+					"Config" "light_strip.cfg"
 					"Instances"
 						{
 						"bee2_cool" "instances/BEE2/p1/items/light_strip/cool.vmf"
@@ -535,31 +497,7 @@
 				}
 			}
 		}
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "BEE2_TRACK_SCAFFOLD_P1_TOP_VERT"
-	"File"  "track_platform_top_vert.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE2_TRACK_SCAFFOLD_P1_TOP_HORIZ"
-	"File"  "track_platform_top_horiz.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE2_TRACK_PLAT_PANEL_P1"
-	"File"  "track_platform_panel_top.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE2_TRACK_PLAT_GOO_P1"
-	"File"  "track_platform_goo.vmf"
-	}
-
-"Overrides"
-	{		
+		
 	"ITEM"
 		{
 		"ID" "ITEM_BUTTON_FLOOR"
@@ -571,23 +509,7 @@
 				}
 			}
 		}
-	}
 
-"BrushTemplate"
-	{
-	"ID"    "BEE2_FLOOR_BUTTON_BASE_P1_WHITE"
-	"File"  "button_base_white.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "BEE2_BALL_BUTTON_BASE_P1_WHITE"
-	"File"  "ball_base_white.vmf"
-	}
-
-
-"Overrides"
-	{
 	"ITEM"
 		{
 		"ID" "ITEM_BUTTON_PEDESTAL"
@@ -680,31 +602,7 @@
 				}
 			}
 		}
-		
-	"ITEM"
-		{
-		"ID" "ITEM_TBEAM"
-		"Version"
-			{
-			"Styles"
-				{
-				"BEE2_PORTAL_1"
-					{
-					"Base" "BEE2_CLEAN"
-					"Append" 
-						{
-						// Force specific tile textures on the frame.
-						"Replacements"
-							{
-							"%white%" "white special"
-							"%black%" "black 4x4"
-							}
-						}
-					}
-				}
-			}
-		}
-		
+
 	"Item"
 		{
 		"ID" "ITEM_CATAPULT"

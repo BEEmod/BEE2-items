@@ -13,6 +13,7 @@
 		"" "* Having these in a map will prevent the player from firing the autoportal's type - place a orange autoportal to give the player a blue-only gun."
 		"" "* Blue Autoportals will be disabled permanently if the player picks up a blue-only or dual portal device, and similarly with Orange autoportals."
 		"" "* The rotation handle is on the \"floor\" side of the portal."
+		"" "* If another autoportal of the same colour is turned on, existing ones will be turned off until their input is toggled off and on. If a permanent Pedestal Button is the only input, this will be unlocked to allow the portal to be reopened."
 		}
 	"Version"
 		{
@@ -33,17 +34,26 @@
 					"4" "instances/BEE2/p1/items/BEE/autoportal_frame.vmf"
 					"5" "instances/BEE2/p1/items/BEE/autoportal_frame.vmf"
 					
-					"portal"  "instances/BEE2/p1/items/BEE/autoportal.vmf"
+					"bee2_portal"  "instances/BEE2/p1/items/BEE/autoportal.vmf"
 					}
 				"Palette"
 					{
+					"all"
+						{
+						"Icon"  "palette/p1/BEE/autoportal_both.png"
+						"BEE2"  "p1/autoportal_both.png"
+						}
 					"0"
 						{
 						"Model" "bee_autoportal_oran_p1.3ds"
+						"Icon"  "palette/p1/BEE/autoportal_orange.png"
+						"BEE2"  "p1/autoportal_orange.png"
 						}
 					"1"
 						{
 						"Model" "bee_autoportal_blue_p1.3ds"
+						"Icon"  "palette/p1/BEE/autoportal_blue.png"
+						"BEE2"  "p1/autoportal_blue.png"
 						}
 					"2"
 						{
@@ -63,17 +73,12 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"		"pedestal"
+			"BEE2_CLEAN"    "pedestal"
+			"BEE2_PORTAL_1" "pedestal"
 			}
 		}
 	}
 	
-"BrushTemplate"
-	{
-	"ID"    "BEE_PGUN_BASE"
-	"file"  "pgun_base.vmf"
-	}
-
 "Signage"
 	{
 	"ID" "SIGN_AUTOPORTAL"
@@ -81,6 +86,12 @@
 	"Styles"
 		{
 		"BEE2_CLEAN"
+			{
+			"world"   "BEE2/signage/signage_autoportal"
+			"overlay" "BEE2/signage/signage_autoportal"
+			"icon"    "items/clean/BEE/signage/autoportal.png"
+			}
+		"BEE2_PORTAL_1"
 			{
 			"world"   "BEE2/signage/signage_autoportal"
 			"overlay" "BEE2/signage/signage_autoportal"

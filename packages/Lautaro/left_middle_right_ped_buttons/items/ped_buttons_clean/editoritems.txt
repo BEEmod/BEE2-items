@@ -99,40 +99,45 @@
 			{
 			"0"
 				{
-				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_left_white.vmf"
+				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_left.vmf"
 				}
 			"1"
 				{
-				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_left_black.vmf"
+				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_left.vmf"
 				}
 				
 			"2"
 				{
-				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_mid_white.vmf"
+				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_mid.vmf"
 				}
 				
 			"3"
 				{
-				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_mid_black.vmf"
+				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_mid.vmf"
 				}
 					
 			"4"
 				{
-				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_right_white.vmf"
+				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_right.vmf"
 				}	
 			"5"
 				{
-				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_right_black.vmf"
+				"Name"  "instances/BEE2/clean/items/lautaro/pedestal_ped_right.vmf"
 				}
+			"bee2_btn_fwd" "instances/BEE2/clean/items/lautaro/pedestal_button.vmf"
+			"bee2_btn_rev" "instances/BEE2/clean/items/lautaro/pedestal_button_rev.vmf"
 			}
 		"TargetName"    "pro_ped"
 		"Offset"        "64 64 64"
 		"Outputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:output;OnUser2"
-				"Deactivate"    "instance:output;OnUser1"
+				"out_activate"   "instance:output;OnUser2"
+				"out_deactivate" "instance:output;OnUser1"
+				
+				"lock_cmd"       "lock_man,SetStateATrue,,0.00,-1"
+				"unlock_cmd"     "lock_man,SetStateAFalse,,0.00,-1"
 				}
 			}
 		"ConnectionPoints"

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "224"
+	"editorbuild" "7335"
+	"mapversion" "225"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "224"
+	"mapversion" "225"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -656,7 +656,7 @@ entity
 	"origin" "0 0 -60"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1671,6 +1671,7 @@ entity
 {
 	"id" "3003"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"health" "10"
 	"message" "Player.ExitBouncePaint"
 	"pitch" "100"
@@ -1690,15 +1691,15 @@ entity
 entity
 {
 	"id" "950"
-	"classname" "logic_relay"
-	"spawnflags" "0"
-	"targetname" "anim_rl"
+	"classname" "comp_kv_setter"
+	"mode" "kv"
+	"target" "trigger"
 	connections
 	{
-		"OnTrigger" "catapult_soundPlaySound0.1-1"
-		"OnTrigger" "@music_faith_playTrigger0-1"
-		"OnTrigger" "mistStop1-1"
-		"OnTrigger" "mistStart0-1"
+		"OnCatapulted" "catapult_soundPlaySound0.1-1"
+		"OnCatapulted" "@music_faith_playTrigger0-1"
+		"OnCatapulted" "mistStop1-1"
+		"OnCatapulted" "mistStart0-1"
 	}
 	"origin" "16 -16 -40"
 	editor
@@ -1727,6 +1728,7 @@ entity
 {
 	"id" "604"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"health" "10"
 	"message" "Player.JumpPowerUse"
 	"pitch" "100"

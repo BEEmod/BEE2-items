@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "89"
+	"editorbuild" "8037"
+	"mapversion" "94"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "89"
+	"mapversion" "94"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,117 +30,34 @@ world
 }
 entity
 {
-	"id" "19"
-	"classname" "func_button"
-	"disablereceiveshadows" "0"
-	"health" "0"
-	"locked_sentence" "0"
-	"locked_sound" "0"
-	"movedir" "0 0 0"
-	"origin" "-16 0 -99"
-	"parentname" "movelinear"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"rendermode" "0"
-	"sounds" "0"
-	"spawnflags" "1025"
-	"speed" "5"
-	"targetname" "button"
-	"unlocked_sentence" "0"
-	"unlocked_sound" "0"
-	"wait" "1"
+	"id" "24"
+	"classname" "comp_kv_setter"
+	"kv_name" "wait"
+	"kv_value_global" "-1"
+	"mode" "kv"
+	"target" "button"
 	connections
 	{
-		"OnPressed" "rl_closeTrigger0.011"
-		"OnPressed" "buttonLock0.011"
-		"OnPressed" "branch_toggleKill01"
-		"OnPressed" "rl_openFireUser10.021"
+		"OnPressed" "mdlFireUser201"
 		"OnPressed" "mdlSetAnimationdown01"
+		"OnPressed" "door_topClose1.5-1"
+		"OnPressed" "movelinearClose0.5-1"
+		"OnPressed" "buttonLock0-1"
+		"OnPressed" "rl_openCancelPending0-1"
+		"OnPressed" "rl_closeCancelPending0-1"
+		"OnPressed" "rl_closeDisable0-1"
+		"OnPressed" "rl_openDisable0-1"
+		"OnPressed" "rl_openKill0.01-1"
+		"OnPressed" "rl_closeKill0.01-1"
+		"OnPressed" "movelinearOpen0.01-1"
 	}
-	solid
-	{
-		"id" "20"
-		side
-		{
-			"id" "1"
-			"plane" "(-8 -8 -75) (-8 -8 -123) (-24 -8 -123)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -12.5656] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2"
-			"plane" "(-24 8 -75) (-24 8 -123) (-8 8 -123)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -12.5656] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3"
-			"plane" "(-24 -8 -75) (-24 -8 -123) (-24 8 -123)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 0 -1 -12.5656] 0.25"
-			"vaxis" "[0 1 0 35.4344] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4"
-			"plane" "(-8 8 -75) (-8 8 -123) (-8 -8 -123)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 0 1 12.5656] 0.25"
-			"vaxis" "[0 1 0 35.4344] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "5"
-			"plane" "(-8 -8 -75) (-24 -8 -75) (-24 8 -75)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 1 0 35.4344] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "6"
-			"plane" "(-8 8 -123) (-24 8 -123) (-24 -8 -123)"
-			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 1 0 35.4344] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
+	"origin" "0 0 -56"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "."
-		"logicalpos" "[0 500]"
+		"logicalpos" "[0 0]"
 	}
 }
 cameras

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "86"
+	"editorbuild" "8419"
+	"mapversion" "88"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "86"
+	"mapversion" "88"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,11 +32,12 @@ entity
 {
 	"id" "1019"
 	"classname" "material_modify_control"
+	"angles" "0 0 0"
 	"materialName" "BEE2/rex/beam_field"
 	"materialVar" "$status"
 	"parentname" "field"
 	"targetname" "mod"
-	"origin" "-8 0 24"
+	"origin" "-16 0 8"
 	editor
 	{
 		"color" "0 100 250"
@@ -49,6 +50,7 @@ entity
 {
 	"id" "1013"
 	"classname" "point_tesla"
+	"angles" "0 0 0"
 	"beamcount_max" "12"
 	"beamcount_min" "4"
 	"interval_max" "2"
@@ -62,7 +64,7 @@ entity
 	"texture" "sprites/grav_beam.vmt"
 	"thick_max" "5"
 	"thick_min" "4"
-	"origin" "8 0 24"
+	"origin" "16 0 8"
 	editor
 	{
 		"color" "200 200 0"
@@ -75,46 +77,26 @@ entity
 {
 	"id" "615"
 	"classname" "logic_branch"
+	"angles" "0 0 0"
 	"InitialValue" "0"
 	"targetname" "out"
 	connections
 	{
 		"OnUser4" "outToggleTest0-1"
-		"OnTrue" "outFireUser20-1"
-		"OnFalse" "outFireUser10-1"
 		"OnTrue" "mdlColor200 0 00.1-1"
 		"OnFalse" "mdlColor0 0 2000.1-1"
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnUser1" "proxyProxyRelay0-1"
 		"OnFalse" "modStartFloatLerp1 0 0.2 00-1"
 		"OnTrue" "modStartFloatLerp0 1 0.2 00-1"
+		"OnTrue" "!selfFireUser20-1"
+		"OnFalse" "!selfFireUser10-1"
 	}
-	"origin" "-8 0 -24"
+	"origin" "0 0 -8"
 	editor
 	{
 		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "617"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "8 0 -24"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
 	}
 }
 cameras

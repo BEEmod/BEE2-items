@@ -18,11 +18,27 @@
 		"Name"		"Gel-Plate"
 		"Styles"
 			{
-			"BEE2_CLEAN"        "large_clean"
-			"BEE2_BTS"          "large_bts"
+			"BEE2_CLEAN"
+				{
+				"Folder" "large"
+				"Instances"
+					{
+					"0"     "instances/BEE2/clean/items/tspen/large_faith/plate.vmf"
+					"logic" "instances/BEE2/clean/items/tspen/large_faith/plate_io.vmf"
+					}
+				}
+			"BEE2_BTS"
+				{
+				"Folder" "large"
+				"Instances"
+					{
+					"0"     "instances/BEE2/bts/items/tspen/large_faith/plate.vmf"
+					"logic" "instances/BEE2/bts/items/tspen/large_faith/plate_io.vmf"
+					}
+				}
 			"BEE2_OVERGROWN"
 				{
-				"Base" "BEE2_CLEAN"
+				"Folder" "large"
 				"Append"
 					{
 					"Replacements"
@@ -33,6 +49,7 @@
 					}
 				"Instances"
 					{
+					"0"     "instances/BEE2/clean/items/tspen/large_faith/plate.vmf"
 					"logic" "instances/BEE2/over/items/tspen/large_faith_io.vmf"
 					}
 				}
@@ -45,35 +62,10 @@
 		"Name"		"Mechanical Plate"
 		"Styles"
 			{
-			"BEE2_1950s"        "large_retro_mech"
-			
 			"BEE2_CLEAN"        "<VER_DEFAULT:BEE2_CLEAN>"
 			"BEE2_BTS"          "<VER_DEFAULT:BEE2_BTS>"
 			"BEE2_OVERGROWN"    "<VER_DEFAULT:BEE2_OVERGROWN>"
+			"BEE2_1950s"        "large_retro_mech"
 			}
 		}
-	}
-
-"BrushTemplate"
-	{
-	"ID"    "TSPEN_LARGE_FAITH_TRIG"
-	"File"  "large_trigger.vmf"
-	}
-// Most styles don't have an 'orientation', so make the trigger square.
-"BrushTemplate"
-	{
-	"ID"    "TSPEN_LARGE_FAITH_TRIG_SQUARE"
-	"File"  "large_trigger_square.vmf"
-	}
-
-"BrushTemplate"
-	{
-	"ID"    "TSPEN_LARGE_FAITH_RETRO_BORDER"
-	"File"  "retro_gel_frame.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "TSPEN_LARGE_FAITH_RETRO_MECH_BACK"
-	"File"  "retro_mech_back.vmf"
 	}

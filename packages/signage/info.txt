@@ -42,13 +42,8 @@
 					{
 					"0"
 						{
-						"Model" "bee2_signage_fwd_over.mdl"
 						"icon"  "signage_overlay_dots3.png"
 						"bee2"  "over/BEE/signage.png"
-						}
-					"1"
-						{
-						"Model" "bee2_signage_rev_over.mdl"
 						}
 					}
 				"Folder" "sign"
@@ -64,13 +59,8 @@
 					{
 					"0"
 						{
-						"Model" "bee2_signage_fwd_50s.mdl"
 						"icon"  "palette/50s/BEE2/signage.png"
 						"bee2"  "50s/BEE/signage.png"
-						}
-					"1"
-						{
-						"Model" "bee2_signage_rev_50s.mdl"
 						}
 					}
 				}
@@ -82,13 +72,8 @@
 					{
 					"0"
 						{
-						"Model" "bee2_signage_fwd_70s.mdl"
 						"icon"  "palette/70s/BEE2/signage.png"
 						"bee2"  "70s/BEE/signage.png"
-						}
-					"1"
-						{
-						"Model" "bee2_signage_rev_70s.mdl"
 						}
 					}
 				}
@@ -223,11 +208,49 @@
 	}
 
 
-"BrushTemplate"
+// Special definition block, the source images to load for the model texture.
+"SignageLegend"
 	{
-	"ID"   "BEE2_SIGNAGE_70S"
-	"file" "sign_70s.vmf"
+	"ID" "BEE2_CLEAN"
+	"Overlay" "signage/clean.png"
+	"Blank"   "items/clean/BEE/signage/blank.png"
 	}
+
+"SignageLegend"
+	{
+	"ID" "BEE2_1980s"
+	"Overlay" "signage/clean.png"
+	"Blank"   "items/clean/BEE/signage/blank.png"
+	}
+
+"SignageLegend"
+	{
+	"ID" "BEE2_PORTAL_1"
+	"Overlay" "signage/clean.png"
+	"Blank"   "items/clean/BEE/signage/blank.png"
+	}
+
+"SignageLegend"
+	{
+	"ID" "BEE2_OVERGROWN"
+	"Overlay" "signage/over.png"
+	"Background" "signage/over_bg.png"
+	}
+
+"SignageLegend"
+	{
+	"ID" "BEE2_1950s"
+	"Overlay"    "signage/50s.png"
+	"Background" "signage/50s_bg.png"
+	}
+
+"SignageLegend"
+	{
+	"ID" "BEE2_1970s"
+	"Overlay" "signage/70s.png"
+	"Background" "signage/70s_bg.png"
+	}
+
 
 "Signage"
 	{
@@ -451,7 +474,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/exit"
-			"icon"    "items/50s/BEE/signage/exit.png"
 			}
 		"BEE2_1970s"
 			{
@@ -485,7 +507,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/box_dropper"
-			"icon"    "items/50s/BEE/signage/box_dropper.png"
 			}
 		"BEE2_1970s"
 			{
@@ -518,7 +539,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/box_hurt"
-			"icon"    "items/50s/BEE/signage/box_hurt.png"
 			}
 		"BEE2_1970s"
 			{
@@ -552,7 +572,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/ball_dropper"
-			"icon"    "items/50s/BEE/signage/ball_dropper.png"
 			}
 		"BEE2_1970s"
 			{
@@ -586,7 +605,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/laser_cube"
-			"icon"    "items/50s/BEE/signage/laser_cube.png"
 			}
 		"BEE2_1970s"
 			{
@@ -634,7 +652,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/box_handoff"
-			"icon"    "items/50s/BEE/signage/box_handoff.png"
 			}
 		"BEE2_1970s"
 			{
@@ -667,7 +684,11 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/turret"
-			"icon"    "items/50s/BEE/signage/turret.png"
+			"icon"
+				{
+				"img" "items/50s/BEE/signage/background.png"
+				"img" "BEE2/50s/turret.vtf"
+				}
 			}
 		"BEE2_1970s"
 			{
@@ -749,7 +770,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/laser_relay"
-			"icon"    "items/50s/BEE/signage/laser_relay.png"
 			}
 		"BEE2_1970s"
 			{
@@ -802,7 +822,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/funnel"
-			"icon"    "items/50s/BEE/signage/funnel.png"
 			}
 		"BEE2_1970s"
 			{
@@ -836,7 +855,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/funnel_polarity"
-			"icon"    "items/50s/BEE/signage/funnel_polarity.png"
 			}
 		"BEE2_1970s"
 			{
@@ -869,7 +887,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/toxic_goo"
-			"icon"    "items/50s/BEE/signage/toxic_goo.png"
 			}
 		"BEE2_1970s"
 			{
@@ -896,7 +913,6 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fountain_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fountain"
-			"icon"    "items/over/BEE/signage/fountain.png"
 			}
 		"BEE2_1970s"
 			{
@@ -924,12 +940,10 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bridge_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_bridge"
-			"icon"    "items/over/BEE/signage/bridge.png"
 			}
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/light_bridge"
-			"icon"    "items/50s/BEE/signage/light_bridge.png"
 			}
 		"BEE2_1970s"
 			{
@@ -976,7 +990,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/bridge_shoot"
-			"icon"    "items/50s/BEE/signage/bridge_shoot.png"
 			}
 		"BEE2_1970s"
 			{
@@ -997,6 +1010,7 @@
 		"BEE2_CLEAN"
 			{
 			"overlay" "BEE2/signage/jose_signage_gears"
+			// Detailed texture needs to be resized offline.
 			"icon"    "items/clean/BEE/signage/jose_gears.png"
 			}
 		"BEE2_PORTAL_1" "BEE2_CLEAN"
@@ -1004,13 +1018,11 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_mechanism_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_mechanism"
-			"icon"    "items/over/BEE/signage/jose_gears.png"
 			}
 		"BEE2_1950s"
 			{
 			"world"   "BEE2/50s/jose_gears"
 			"overlay" "BEE2/50s/jose_gears"
-			"icon"    "items/50s/BEE/signage/jose_gears.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1037,12 +1049,10 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_paint_dispenser_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_paint_dispenser"
-			"icon"    "items/over/BEE/signage/paint_dispenser.png"
 			}
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/paint_dispenser"
-			"icon"    "items/50s/BEE/signage/paint_dispenser.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1069,7 +1079,6 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_wash_cube_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_wash_cube"
-			"icon"    "items/over/BEE/signage/wash_cube.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1134,7 +1143,6 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_speed_gel_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_speed_gel"
-			"icon"    "items/over/BEE/signage/speed_gel.png"
 			}
 		"BEE2_1950s"
 			{
@@ -1167,12 +1175,10 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laserfield_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_laserfield"
-			"icon"    "items/over/BEE/signage/laserfield.png"
 			}
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/laserfield"
-			"icon"    "items/50s/BEE/signage/laserfield.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1199,7 +1205,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/pedestal_button"
-			"icon"    "items/50s/BEE/signage/pedestal_button.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1227,7 +1232,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/crusher"
-			"icon"    "items/50s/BEE/signage/crusher.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1257,12 +1261,10 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult"
-			"icon"    "items/over/BEE/signage/catapult.png"
 			}
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/catapult_gel"
-			"icon"    "items/50s/BEE/signage/catapult_gel.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1291,12 +1293,10 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult1_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult1"
-			"icon"    "items/clean/BEE/signage/catapult1.png"
 			}
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/catapult1_gel"
-			"icon"    "items/50s/BEE/signage/catapult1_gel.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1325,12 +1325,10 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_catapult2"
-			"icon"    "items/clean/BEE/signage/catapult2.png"
 			}
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/catapult2"
-			"icon"    "items/50s/BEE/signage/catapult2.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1351,18 +1349,20 @@
 			{
 			"world"   "BEE2/signage/signage_recycle"
 			"overlay" "BEE2/signage/signage_recycle"
-			"icon"    "items/clean/BEE/signage/recycle.png"
 			}
 		"BEE2_PORTAL_1" "BEE2_CLEAN"
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/recycle"
-			"icon"    "items/50s/BEE/signage/recycle.png"
 			}
 		"BEE2_1970s"
 			{
 			"overlay" "BEE2/70s/signage_recycle"
-			"icon"    "items/70s/BEE/signage/recycle.png"
+			"icon"
+				{
+				"img" "items/70s/BEE/signage/background_1.png"
+				"img" "BEE2/signage/signage_recycle.vtf"
+				}
 			}
 		"BEE2_1980s" "BEE2_CLEAN"
 		}
@@ -1379,18 +1379,20 @@
 			{
 			"world"   "BEE2/signage/signage_no_recycle"
 			"overlay" "BEE2/signage/signage_no_recycle"
-			"icon"    "items/clean/BEE/signage/no_recycle.png"
 			}
 		"BEE2_PORTAL_1" "BEE2_CLEAN"
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/no_recycle"
-			"icon"    "items/50s/BEE/signage/no_recycle.png"
 			}
 		"BEE2_1970s"
 			{
 			"overlay" "BEE2/70s/signage_no_recycle"
-			"icon"    "items/70s/BEE/signage/no_recycle.png"
+			"icon"
+				{
+				"img" "items/70s/BEE/signage/background_4.png"
+				"img" "BEE2/signage/signage_no_recycle.vtf"
+				}
 			}
 		"BEE2_1980s" "BEE2_CLEAN"
 		}
@@ -1414,12 +1416,10 @@
 			{
 			"world"   "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fling_world"
 			"overlay" "BEE2/josepezdj/signage_wasted/jose_wasted_signage_fling"
-			"icon"    "items/over/BEE/signage/fling.png"
 			}
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/fling1"
-			"icon"    "items/50s/BEE/signage/fling1.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1446,7 +1446,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/fling2"
-			"icon"    "items/50s/BEE/signage/fling2.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1473,7 +1472,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/midair1"
-			"icon"    "items/50s/BEE/signage/midair1.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1500,7 +1498,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/midair2"
-			"icon"    "items/50s/BEE/signage/midair2.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1526,7 +1523,6 @@
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/player_button"
-			"icon"    "items/50s/BEE/signage/player_button.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1554,12 +1550,10 @@
 			{
 			"world"   "bee2/josepezdj/signage_wasted/jose_wasted_signage_box_button_world"
 			"overlay" "bee2/josepezdj/signage_wasted/jose_wasted_signage_box_button"
-			"icon"    "item/over/BEE/signage/box_button.png"
 			}
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/box_button"
-			"icon"    "items/50s/BEE/signage/box_button.png"
 			}
 		"BEE2_1970s"
 			{
@@ -1587,12 +1581,10 @@
 			{
 			"world"   "bee2/josepezdj/signage_wasted/jose_wasted_signage_ball_button_world"
 			"overlay" "bee2/josepezdj/signage_wasted/jose_wasted_signage_ball_button"
-			"icon"    "item/over/BEE/signage/ball_button.png"
 			}
 		"BEE2_1950s"
 			{
 			"overlay" "BEE2/50s/ball_button"
-			"icon"    "items/50s/BEE/signage/ball_button.png"
 			}
 		"BEE2_1970s"
 			{

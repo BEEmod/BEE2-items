@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "67"
+	"editorbuild" "8419"
+	"mapversion" "69"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,20 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "67"
+	"mapversion" "69"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
+	"underwaterparticle" "underwater_default"
 }
 entity
 {
@@ -42,7 +43,7 @@ entity
 	"origin" "-48 0 -42"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -52,6 +53,7 @@ entity
 {
 	"id" "204"
 	"classname" "phys_ballsocket"
+	"angles" "0 0 0"
 	"attach1" "phys"
 	"forcelimit" "0"
 	"spawnflags" "0"
@@ -61,7 +63,7 @@ entity
 	"origin" "-48 0 -62"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "128 128 128"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -118,6 +120,7 @@ entity
 	"MoveSpeed" "64"
 	"NextKey" "r3"
 	"parentname" "phys"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "25"
 	"spawnflags" "0"
@@ -139,6 +142,7 @@ entity
 {
 	"id" "535"
 	"classname" "env_physexplosion"
+	"angles" "0 0 0"
 	"inner_radius" "0"
 	"magnitude" "80"
 	"parentname" "button"
@@ -157,7 +161,7 @@ entity
 	"origin" "-38 0 6"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "128 128 128"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
@@ -188,6 +192,7 @@ entity
 	"notsolid" "0"
 	"origin" "-48 0 -39.5"
 	"PerformanceMode" "0"
+	"physdamagescale" "1.0"
 	"preferredcarryangles" "0 0 0"
 	"pressuredelay" "0"
 	"propdata" "0"
@@ -196,6 +201,7 @@ entity
 	"renderfx" "0"
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
+	"solid" "6"
 	"spawnflags" "6823936"
 	"targetname" "phys"
 	connections
@@ -410,19 +416,18 @@ entity
 {
 	"id" "52"
 	"classname" "logic_branch"
+	"angles" "0 0 0"
 	"targetname" "output"
 	connections
 	{
 		"OnTrue" "!selfFireUser10-1"
 		"OnTrue" "!selfFireUser20.01-1"
 		"OnFalse" "!selfFireUser20-1"
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
 	}
-	"origin" "-32 0 -48"
+	"origin" "-48 32 -48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -433,6 +438,7 @@ entity
 	"id" "36"
 	"classname" "func_noportal_volume"
 	"origin" "-48 0 -60"
+	"solid" "6"
 	"spawnflags" "0"
 	solid
 	{
@@ -564,20 +570,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "22"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-48 32 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras
