@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8973"
-	"mapversion" "1"
+	"mapversion" "2"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,19 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "1"
+	"mapversion" "2"
 	"classname" "worldspawn"
-	"skyname" "sky_black_nofog"
-	"maxpropscreenwidth" "-1"
-	"detailvbsp" "detail.vbsp"
 	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
 }
 entity
 {
@@ -36,7 +36,7 @@ entity
 	"drawinfastreflection" "0"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
-	"origin" "129 0 -103.5"
+	"origin" "-103.5 -0.02 129"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
@@ -52,10 +52,10 @@ entity
 		side
 		{
 			"id" "1"
-			"plane" "(128 128 -96) (130 128 -96) (130 -128 -96)"
+			"plane" "(-96 127.982 128) (-96 -128.018 128) (-96 -128.018 130)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 1 0 0.0712504] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -63,10 +63,10 @@ entity
 		side
 		{
 			"id" "2"
-			"plane" "(128 -128 -111) (130 -128 -111) (130 128 -111)"
+			"plane" "(-111 -128.018 128) (-111 127.982 128) (-111 127.982 130)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 1 0 0.0712504] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -74,10 +74,10 @@ entity
 		side
 		{
 			"id" "3"
-			"plane" "(128 128 -96) (128 -128 -96) (128 -128 -111)"
+			"plane" "(-111 127.982 128) (-111 -128.018 128) (-96 -128.018 128)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 -1 0 -0.0712504] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -85,10 +85,10 @@ entity
 		side
 		{
 			"id" "4"
-			"plane" "(130 128 -111) (130 -128 -111) (130 -128 -96)"
+			"plane" "(-111 -128.018 130) (-111 127.982 130) (-96 127.982 130)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 -1 0 -0.0712504] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -96,10 +96,10 @@ entity
 		side
 		{
 			"id" "5"
-			"plane" "(130 128 -96) (128 128 -96) (128 128 -111)"
+			"plane" "(-111 -128.018 128) (-111 -128.018 130) (-96 -128.018 130)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -107,10 +107,10 @@ entity
 		side
 		{
 			"id" "6"
-			"plane" "(130 -128 -111) (128 -128 -111) (128 -128 -96)"
+			"plane" "(-111 127.982 130) (-111 127.982 128) (-96 127.982 128)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -135,7 +135,7 @@ entity
 	"id" "6"
 	"classname" "trigger_portal_cleanser"
 	"drawinfastreflection" "0"
-	"origin" "64 0 -112"
+	"origin" "-112 -0.02 64"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"solid" "6"
@@ -149,10 +149,10 @@ entity
 		side
 		{
 			"id" "24"
-			"plane" "(128 -128 -111) (128 -128 -113) (0 -128 -113)"
+			"plane" "(-111 127.982 128) (-113 127.982 128) (-113 127.982 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -160,10 +160,10 @@ entity
 		side
 		{
 			"id" "23"
-			"plane" "(0 128 -111) (0 128 -113) (128 128 -113)"
+			"plane" "(-111 -128.018 0) (-113 -128.018 0) (-113 -128.018 128)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -171,10 +171,10 @@ entity
 		side
 		{
 			"id" "22"
-			"plane" "(0 -128 -111) (0 -128 -113) (0 128 -113)"
+			"plane" "(-111 127.982 0) (-113 127.982 0) (-113 -128.018 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[0 1 0 0] 0.25"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 -0.0712504] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -182,10 +182,10 @@ entity
 		side
 		{
 			"id" "21"
-			"plane" "(128 128 -111) (128 128 -113) (128 -128 -113)"
+			"plane" "(-111 -128.018 128) (-113 -128.018 128) (-113 127.982 128)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 0] 0.25"
-			"vaxis" "[0 1 0 0] 0.25"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 -0.0712504] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -193,10 +193,10 @@ entity
 		side
 		{
 			"id" "20"
-			"plane" "(128 -128 -111) (0 -128 -111) (0 128 -111)"
+			"plane" "(-111 127.982 128) (-111 127.982 0) (-111 -128.018 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 1 0 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 -1 0 -0.0712504] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -204,10 +204,10 @@ entity
 		side
 		{
 			"id" "19"
-			"plane" "(128 128 -113) (0 128 -113) (0 -128 -113)"
+			"plane" "(-113 -128.018 128) (-113 -128.018 0) (-113 127.982 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 1 0 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 -1 0 -0.0712504] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -235,7 +235,7 @@ entity
 	"drawinfastreflection" "0"
 	"maxdxlevel" "0"
 	"mindxlevel" "0"
-	"origin" "-1 0 -103.5"
+	"origin" "-103.5 -0.02 -1"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
@@ -251,10 +251,10 @@ entity
 		side
 		{
 			"id" "30"
-			"plane" "(-2 128 -96) (0 128 -96) (0 -128 -96)"
+			"plane" "(-96 127.982 -2) (-96 -128.018 -2) (-96 -128.018 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 1 0 0.0712504] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -262,10 +262,10 @@ entity
 		side
 		{
 			"id" "29"
-			"plane" "(-2 -128 -111) (0 -128 -111) (0 128 -111)"
+			"plane" "(-111 -128.018 -2) (-111 127.982 -2) (-111 127.982 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 1 0 0.0712504] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -273,10 +273,10 @@ entity
 		side
 		{
 			"id" "28"
-			"plane" "(-2 128 -96) (-2 -128 -96) (-2 -128 -111)"
+			"plane" "(-111 127.982 -2) (-111 -128.018 -2) (-96 -128.018 -2)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 -1 0 -0.0712504] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -284,10 +284,10 @@ entity
 		side
 		{
 			"id" "27"
-			"plane" "(0 128 -111) (0 -128 -111) (0 -128 -96)"
+			"plane" "(-111 -128.018 0) (-111 127.982 0) (-96 127.982 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 -1 0 -0.0712504] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -295,10 +295,10 @@ entity
 		side
 		{
 			"id" "26"
-			"plane" "(0 128 -96) (-2 128 -96) (-2 128 -111)"
+			"plane" "(-111 -128.018 -2) (-111 -128.018 0) (-96 -128.018 0)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -306,10 +306,10 @@ entity
 		side
 		{
 			"id" "25"
-			"plane" "(0 -128 -111) (-2 -128 -111) (-2 -128 -96)"
+			"plane" "(-111 127.982 0) (-111 127.982 -2) (-96 127.982 -2)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -333,7 +333,7 @@ entity
 {
 	"id" "14"
 	"classname" "prop_static"
-	"angles" "90 0 0"
+	"angles" "0 180 0"
 	"fademindist" "-1"
 	"fadescale" "1"
 	"model" "models/props/portal_cleanser_1.mdl"
@@ -341,7 +341,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "64 -118 -112"
+	"origin" "-112 117.982 64"
 	editor
 	{
 		"color" "255 255 0"
@@ -354,10 +354,10 @@ entity
 {
 	"id" "18"
 	"classname" "info_particle_system"
-	"angles" "0 270 -90"
+	"angles" "0 90 0"
 	"effect_name" "portal_cleanser"
 	"start_active" "1"
-	"origin" "66 0 -112"
+	"origin" "-112 -0.0178072 66"
 	editor
 	{
 		"color" "200 200 0"
@@ -370,7 +370,7 @@ entity
 {
 	"id" "83"
 	"classname" "prop_static"
-	"angles" "-90 180 0"
+	"angles" "0 0 0"
 	"fademindist" "-1"
 	"fadescale" "1"
 	"model" "models/props/portal_cleanser_1.mdl"
@@ -378,7 +378,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "64 118 -112"
+	"origin" "-112 -118.018 64"
 	editor
 	{
 		"color" "255 255 0"
@@ -391,10 +391,10 @@ entity
 {
 	"id" "87"
 	"classname" "info_particle_system"
-	"angles" "0 90 90"
+	"angles" "0 270 0"
 	"effect_name" "Cleanser_edge_1"
 	"start_active" "1"
-	"origin" "64 128 -112"
+	"origin" "-112 -128.018 64"
 	editor
 	{
 		"color" "200 200 0"
@@ -407,10 +407,10 @@ entity
 {
 	"id" "152"
 	"classname" "info_particle_system"
-	"angles" "0 270 -90"
+	"angles" "0 90 0"
 	"effect_name" "Cleanser_edge_1"
 	"start_active" "1"
-	"origin" "64 -128 -112"
+	"origin" "-112 127.982 64"
 	editor
 	{
 		"color" "200 200 0"
