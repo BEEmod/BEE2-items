@@ -13,11 +13,11 @@ class LaserTarget {
 	ent = null; // Relay or catcher ent.
 	attach = 0; // Attachment point index.
 	targ = null; // The point_laser_target which does detection.
-	hit_count = 0; // Number of cubes for deduplication.
+	hitters = null; // Table used as a set, to indicate the cubes targetting this.
 	spr = null; // Sprite we placed.
 	constructor (las_ent) {
 		ent = las_ent;
-		hit_count = 0;
+		hitters = {};
 		spr = null;
 		local child = las_ent.FirstMoveChild();
 		while(child) {
@@ -33,6 +33,23 @@ class LaserTarget {
 	function _tostring() { return tostring() }
 	function tostring() {
 	    return "<Catcher \"" + ent.GetName() + "\">";
+	}
+
+	function add_cube(las) {
+		if (!(las.entindex() in hitters)) {
+			hitters[las.entindex()] <- true;
+			if (hitters.len() == 1) {
+				EntFireByHandle(spr, "ShowSprite", "", 0.0, las, las);
+			}
+		}
+	}
+	function remove_cube(las) {
+		if (las.entindex() in hitters) {
+			delete hitters[las.entindex()];
+			if (hitters.len() == 0) {
+				EntFireByHandle(spr, "HideSprite", "", 0.0, las, las);
+			}
+		}
 	}
 }
 
@@ -52,11 +69,11 @@ function OnPostSpawn() {
 	}
 }
 
-
 function pickup() {
     drop_loc = null;
     EntFireByHandle(self, "FireUser2", "", 0, self, self);
     self.__KeyValueFromString("thinkfunction", "heldThink");
+    heldThink(); // Fire immediately to update.
 }
 
 function dropped() {
@@ -65,14 +82,16 @@ function dropped() {
 }
 
 // Reset our lasers.
-function fizzled() {
-
+function reset() {
+	foreach (idx, target in ::laser_relay_catcher_list) {
+		target.remove_cube(self);
+	}
 }
 
 // Sitting, not doing anything.
 function inactiveThink() {
 	// Avoid thinking on the same frame.
-	return RandomFloat(0.5, 1.5);
+	return RandomFloat(0.25, 1.0);
 }
 
 // From https://gamemath.com/book/geomtests.html#intersection_ray_aabb
@@ -196,9 +215,9 @@ function heldThink() {
 		local pos = target.targ.GetOrigin();
 		local intersect = rayIntersect(origin - pos, delta, mins, maxs);
 		if (intersect) {
-			EntFireByHandle(target.spr, "ShowSprite", "", 0.0, cube, self);
-		} else { //if (target.spr != null) {
-			EntFireByHandle(target.spr, "HideSprite", "", 0.0, cube, self);
+			target.add_cube(self);
+		} else {
+			target.remove_cube(self);
 		}
 	}
 	return 0.01; // Important, update quickly.
@@ -217,9 +236,11 @@ function settleThink() {
     	EntFireByHandle(self, "FireUser1", "", 0, self, self);
     	drop_loc = null;
     	self.__KeyValueFromString("thinkfunction", "inactiveThink");
+		reset();
     	return 0.5;
 	} else {
 		last_loc = cube_loc;
+		heldThink(); // Continue updating.
 		return 0.1;
 	}
 }
