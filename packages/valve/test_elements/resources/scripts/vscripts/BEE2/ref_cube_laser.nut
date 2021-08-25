@@ -4,7 +4,8 @@
 
 drop_loc <- null;
 last_loc <- Vector(-100, -100, -100);
-TRACE_DIST <- 2048;
+TARGET <- null;
+TRACE_DIST <- 1024;
 
 state <- 0;
 
@@ -66,6 +67,15 @@ function OnPostSpawn() {
 		while(ent = Entities.FindByClassname(ent, "prop_laser_relay")) {
 			::laser_relay_catcher_list.append(LaserTarget(ent));
 		}
+	}
+	// Find our laser target.
+	ent = self.GetMoveParent().FirstMoveChild();
+	while (ent) {
+		if (ent.GetName().find("cube_las_targ") != null) {
+			TARGET = ent;
+			break;
+		}
+		ent = ent.NextMovePeer();
 	}
 }
 
@@ -203,11 +213,21 @@ function heldThink() {
 	local cube = self.GetMoveParent();
 	local origin = cube.GetOrigin();
 	local forward = cube.GetForwardVector();
-	local end = origin + forward * TRACE_DIST;
 
-	local frac = TraceLine(origin, end, cube);
-	local delta = forward * (frac * TRACE_DIST);
-	local hit = origin + delta;
+	local frac = TraceLine(origin, origin + forward * TRACE_DIST, cube);
+	local dist = frac * TRACE_DIST;
+	local mid = origin;
+	// Repeat traces with a small gap, to skip through glass.
+	while (dist < 4 * TRACE_DIST) {
+		local mid = mid + forward * (dist + 4);
+		frac = TraceLine(mid, mid + forward * TRACE_DIST, cube);
+		if (frac < 0.01) {
+			break;
+		}
+		dist += frac * TRACE_DIST;
+	}
+	local delta = forward * dist;
+	TARGET.SetAbsOrigin(origin + delta);
 
 	foreach (idx, target in ::laser_relay_catcher_list) {
 		local mins = target.targ.GetBoundingMins();
