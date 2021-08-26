@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "98"
+	"editorbuild" "8973"
+	"mapversion" "101"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "98"
+	"mapversion" "101"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -48,6 +48,7 @@ entity
 {
 	"id" "9338"
 	"classname" "env_explosion"
+	"angles" "0 0 0"
 	"fireballsprite" "sprites/zerogxplode.spr"
 	"iMagnitude" "100"
 	"iRadiusOverride" "0"
@@ -58,7 +59,7 @@ entity
 	"origin" "-62 0 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -68,21 +69,24 @@ entity
 {
 	"id" "8692"
 	"classname" "env_beam"
+	"angles" "0 0 0"
 	"BoltWidth" "2"
 	"ClipStyle" "0"
 	"damage" "0"
 	"decalname" "Bigshot"
+	"dissolvetype" "-1"
 	"framerate" "0"
 	"framestart" "2"
 	"HDRColorScale" "1.0"
 	"life" "0"
-	"LightningEnd" "$beam_name"
+	"LightningEnd" "@scaff_beam_grp$group_$ind"
 	"LightningStart" "b1"
 	"NoiseAmplitude" "0"
 	"Radius" "0"
 	"renderamt" "128"
 	"rendercolor" "50 200 20"
 	"renderfx" "0"
+	"rendermode" "1"
 	"spawnflags" "129"
 	"StrikeTime" "1"
 	"targetname" "b1"
@@ -93,7 +97,7 @@ entity
 	"origin" "-30 3.8147e-006 -314"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -142,6 +146,7 @@ entity
 	"MoveSpeed" "64"
 	"NextKey" "r3"
 	"parentname" "train"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "120"
 	"spawnflags" "0"
@@ -172,6 +177,7 @@ entity
 	"MoveSpeed" "64"
 	"NextKey" "r1"
 	"parentname" "train"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "120"
 	"spawnflags" "0"
@@ -211,6 +217,7 @@ entity
 	"renderfx" "0"
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
+	"solid" "6"
 	"solidbsp" "0"
 	"spawnflags" "516"
 	"targetname" "spinner"
@@ -1199,6 +1206,7 @@ entity
 	"renderfx" "0"
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
+	"solid" "6"
 	"solidbsp" "0"
 	"Solidity" "1"
 	"spawnflags" "2"
@@ -3466,10 +3474,12 @@ entity
 {
 	"id" "4092"
 	"classname" "env_beam"
+	"angles" "0 0 0"
 	"BoltWidth" "2"
 	"ClipStyle" "0"
 	"damage" "0"
 	"decalname" "Bigshot"
+	"dissolvetype" "-1"
 	"framerate" "0"
 	"framestart" "0"
 	"HDRColorScale" "1.0"
@@ -3481,7 +3491,8 @@ entity
 	"Radius" "0"
 	"renderamt" "200"
 	"rendercolor" "50 200 20"
-	"renderfx" "15"
+	"renderfx" "4"
+	"rendermode" "1"
 	"spawnflags" "129"
 	"StrikeTime" "1"
 	"targetname" "las_1"
@@ -3504,10 +3515,12 @@ entity
 {
 	"id" "4099"
 	"classname" "env_beam"
+	"angles" "0 0 0"
 	"BoltWidth" "2"
 	"ClipStyle" "0"
 	"damage" "0"
 	"decalname" "Bigshot"
+	"dissolvetype" "-1"
 	"framerate" "0"
 	"framestart" "0"
 	"HDRColorScale" "1.0"
@@ -3519,7 +3532,8 @@ entity
 	"Radius" "0"
 	"renderamt" "200"
 	"rendercolor" "50 200 20"
-	"renderfx" "15"
+	"renderfx" "4"
+	"rendermode" "1"
 	"spawnflags" "129"
 	"StrikeTime" "1"
 	"targetname" "las_3"
@@ -3542,10 +3556,12 @@ entity
 {
 	"id" "4106"
 	"classname" "env_beam"
+	"angles" "0 0 0"
 	"BoltWidth" "2"
 	"ClipStyle" "0"
 	"damage" "0"
 	"decalname" "Bigshot"
+	"dissolvetype" "-1"
 	"framerate" "0"
 	"framestart" "0"
 	"HDRColorScale" "1.0"
@@ -3557,7 +3573,8 @@ entity
 	"Radius" "0"
 	"renderamt" "200"
 	"rendercolor" "50 200 20"
-	"renderfx" "15"
+	"renderfx" "4"
+	"rendermode" "1"
 	"spawnflags" "129"
 	"StrikeTime" "1"
 	"targetname" "las_2"
@@ -3580,10 +3597,12 @@ entity
 {
 	"id" "4113"
 	"classname" "env_beam"
+	"angles" "0 0 0"
 	"BoltWidth" "2"
 	"ClipStyle" "0"
 	"damage" "0"
 	"decalname" "Bigshot"
+	"dissolvetype" "-1"
 	"framerate" "0"
 	"framestart" "0"
 	"HDRColorScale" "1.0"
@@ -3595,7 +3614,8 @@ entity
 	"Radius" "0"
 	"renderamt" "200"
 	"rendercolor" "50 200 20"
-	"renderfx" "15"
+	"renderfx" "4"
+	"rendermode" "1"
 	"spawnflags" "129"
 	"StrikeTime" "1"
 	"targetname" "las_4"
@@ -3637,6 +3657,7 @@ entity
 	"renderfx" "0"
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
+	"solid" "6"
 	"spawnflags" "531"
 	"speed" "30"
 	"StartSound" "container.enginestart"
@@ -3673,7 +3694,7 @@ entity
 		"OnUser1" "r3Break01"
 		"OnUser1" "r4Break01"
 		"OnUser1" "spinnerStop01"
-		"OnUser1" "!selfKill1.91"
+		"OnUser1" "!selfKillHierarchy1.91"
 		"OnUser1" "spinnerKill0.151"
 		"OnUser1" "!selfDisableDraw0.151"
 		"OnUser1" "!selfStop01"
@@ -4200,6 +4221,7 @@ entity
 	"MoveSpeed" "64"
 	"NextKey" "r4"
 	"parentname" "train"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "120"
 	"spawnflags" "0"
@@ -4237,6 +4259,7 @@ entity
 	"renderfx" "0"
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
+	"solid" "6"
 	"solidbsp" "1"
 	"Solidity" "2"
 	"spawnflags" "2"
@@ -4694,6 +4717,7 @@ entity
 {
 	"id" "3378"
 	"classname" "logic_coop_manager"
+	"angles" "0 0 0"
 	"DefaultPlayerStateA" "0"
 	"DefaultPlayerStateB" "1"
 	"targetname" "spawn_man"
@@ -4707,28 +4731,7 @@ entity
 	"origin" "-24 0 -56"
 	editor
 	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "3299"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest2.2-1"
-		"OnMapSpawn" "$all_beamsColor50 200 200-1"
-		"OnMapSpawn" "$all_beamsWidth20-1"
-		"OnMapSpawn" "$all_beamsFireUser20-1"
-	}
-	"origin" "-8 -16 -56"
-	editor
-	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -4738,6 +4741,7 @@ entity
 {
 	"id" "417"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -4789,24 +4793,27 @@ entity
 {
 	"id" "885"
 	"classname" "env_beam"
+	"angles" "0 0 0"
 	"BoltWidth" "2"
 	"ClipStyle" "0"
 	"damage" "0"
 	"decalname" "Bigshot"
+	"dissolvetype" "-1"
 	"framerate" "0"
 	"framestart" "2"
 	"HDRColorScale" "1.0"
 	"life" "0"
-	"LightningEnd" "$next_beam"
-	"LightningStart" "$beam_name"
+	"LightningEnd" "@scaff_beam_grp$group_$next"
+	"LightningStart" "@scaff_beam_grp$group_$ind"
 	"NoiseAmplitude" "0"
 	"Radius" "0"
 	"renderamt" "128"
 	"rendercolor" "50 200 20"
 	"renderfx" "0"
+	"rendermode" "1"
 	"spawnflags" "1"
 	"StrikeTime" "1"
-	"targetname" "$beam_name"
+	"targetname" "@scaff_beam_grp$group_$ind"
 	"targetpoint" "-32 0 0"
 	"texture" "sprites/laserbeam.vmt"
 	"TextureScroll" "0"
@@ -4821,7 +4828,7 @@ entity
 	"origin" "-32 3.8147e-006 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -4836,11 +4843,12 @@ entity
 	"radius" "0"
 	"spawnflags" "0"
 	"speed" "30"
-	"target" "$next_track"
-	"targetname" "$track_name"
+	"target" "@scaff_track_grp$group_$next"
+	"targetname" "@scaff_track_grp$group_$ind"
 	connections
 	{
 		"OnPass" "spawn_manSetStateBTrue0-1"
+		"OnPass" "unlock_inputTrigger0-1"
 	}
 	"origin" "-26 3.8147e-006 0"
 	editor
@@ -4880,7 +4888,7 @@ entity
 	"Radius" "0"
 	"spawnflags" "0"
 	"speed" "0"
-	"target" "$track_name"
+	"target" "@scaff_track_grp$group_$ind"
 	"targetname" "t2"
 	"origin" "-24 3.8147e-006 -88"
 	editor
@@ -4895,6 +4903,7 @@ entity
 {
 	"id" "2608"
 	"classname" "point_template"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"targetname" "temp"
 	"Template01" "train"
@@ -4907,86 +4916,6 @@ entity
 	"Template08" "las_*"
 	"Template09" "r*"
 	"origin" "-16 -16 0"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "3031"
-	"classname" "logic_branch"
-	"InitialValue" "$start_enabled"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "spawn_manSetStateATrue0-1"
-	}
-	"origin" "-24 16 -56"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "3033"
-	"classname" "math_counter"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-8 16 -56"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "3035"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "8 -16 -56"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
-	"id" "3037"
-	"classname" "func_instance_parms"
-	"parm1" "$connectioncount integer 0"
-	"parm2" "$start_enabled integer 0"
-	"parm3" "$beam_name string"
-	"parm4" "$next_track string"
-	"parm5" "$track_name string"
-	"parm6" "$next_beam string"
-	"parm7" "$all_beams string"
-	"parm8" "$timer_delay integer 3"
-	"parm9" "$spawn_track target_destination"
-	"origin" "8 16 -56"
 	editor
 	{
 		"color" "220 30 220"

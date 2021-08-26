@@ -34,9 +34,13 @@
 // The path_tracks use the name pattern "@scaff_track_grp$group_$ind".
 
 // The env_beams use the name pattern "@scaff_beam_grp$group_$ind".
+
+// The citadel cores use the name pattern "@scaff_fx_grp$group", and pass on IO to other bits:
 // - User1 is fired to switch to 'deactivated' effects.
 // - User2 is fired to switch to 'activated' effects.
-
+// In Old Aperture only:
+// - User3 is fired to do reverse activated effects.
+// - User4 is fired to stop the spinning motor but keep the beam, when the platform is reversing.
 
 "Item"
 	{
@@ -112,7 +116,7 @@
 					"bee2_tim_start"        "instances/BEE2/clean/items/scaffold/tim_start.vmf"
 					}
 				}
-			"BEE2_1950s"     "slot_50s"
+			// "BEE2_1950s"     "slot_50s"
 			}
 		}
 	}
@@ -133,10 +137,31 @@
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"     "wall_clean"
-			// The only change we need is to use the different sounds, which is done in the slot above.
-			"BEE2_PORTAL_1"  "wall_clean"
-			"BEE2_1950s"     "wall_50s"
+			"BEE2_CLEAN"
+				{
+				"Folder" "wall_clean"
+				"Instances"
+					{
+					"0"
+						{
+						"Name"				"instances/BEE2/clean/items/scaffold/wall.vmf"
+						"EntityCount"		"46"
+						"BrushCount"		"15"
+						"BrushSideCount"	"106"
+						}
+					}
+				}
+			// The only change we need is to use the different sounds, which is done in the slot config above.
+			"BEE2_PORTAL_1"  "<BEE2_CLEAN>"
+
+			"BEE2_1950s"
+				{
+				"Folder" "wall_clean"
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/scaffold/wall.vmf"
+					}
+				}
 			}
 		}
 	}
@@ -174,7 +199,28 @@
 					"0" "instances/BEE2/p1/items/scaffold/piston.vmf"
 					}
 				}
-			"BEE2_1950s"     "pist_50s"
+			"BEE2_1950s"
+				{
+				"Folder" "pist_clean"
+				"Config" "pist_50s.cfg"
+				"Palette"
+					{
+					"0" 
+						{
+						"Model" "under_bee2_scaff_pist_grate.mdl"
+						"Model" "under_bee2_scaff_pist_1.mdl"
+						"Model" "under_bee2_scaff_pist_2.mdl"
+						"Model" "under_bee2_scaff_pist_3.mdl"
+						"Model" "under_bee2_scaff_pist.mdl"
+						"Model" "BEE2/empty.mdl" // Outline of moving position, we don't move.
+						"Model" "BEE2/empty.mdl" // Topmost piston, we don't need it.
+						}
+					}
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/scaffold/piston.vmf"
+					}
+				}
 			"BEE2_1970s"     "pist_70s"
 			//"BEE2_OVERGROWN" "pist_over"
 			}
