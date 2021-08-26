@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8973"
-	"mapversion" "21"
+	"mapversion" "24"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -10,9 +10,15 @@ visgroups
 {
 	visgroup
 	{
-		"name" "spallation"
-		"visgroupid" "10"
-		"color" "124 221 242"
+		"name" "airpockets"
+		"visgroupid" "16"
+		"color" "107 152 89"
+	}
+	visgroup
+	{
+		"name" "danger"
+		"visgroupid" "11"
+		"color" "255 128 64"
 	}
 	visgroup
 	{
@@ -22,21 +28,33 @@ visgroups
 	}
 	visgroup
 	{
+		"name" "gel_dropper"
+		"visgroupid" "17"
+		"color" "142 231 116"
+	}
+	visgroup
+	{
 		"name" "gel_speed"
 		"visgroupid" "15"
 		"color" "180 133 90"
 	}
 	visgroup
 	{
-		"name" "airpockets"
-		"visgroupid" "16"
-		"color" "107 152 89"
+		"name" "platform"
+		"visgroupid" "19"
+		"color" "123 88 105"
 	}
 	visgroup
 	{
-		"name" "safetyfirst"
-		"visgroupid" "11"
-		"color" "214 175 204"
+		"name" "pgun"
+		"visgroupid" "20"
+		"color" "220 173 82"
+	}
+	visgroup
+	{
+		"name" "spallation"
+		"visgroupid" "10"
+		"color" "124 221 242"
 	}
 }
 viewsettings
@@ -44,13 +62,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "21"
+	"mapversion" "24"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -208,6 +226,24 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "239"
+	"classname" "info_null"
+	"angles" "0 0 0"
+	"origin" "-96 0 0"
+	editor
+	{
+		"color" "200 0 0"
+		"visgroupid" "17"
+		"visgroupid" "19"
+		"visgroupid" "20"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Creates blank visgroups matching the other corridors."
+		"logicalpos" "[0 0]"
 	}
 }
 entity

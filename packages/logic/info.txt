@@ -1,0 +1,303 @@
+"ID"		"BEE_LOGIC"
+"Name"		"BEEMOD LOGIC ITEMS"
+"Desc"      "Logic items like gates, triggers, and more."
+
+"Item"
+	{
+	"ID" "ITEM_BEE_LOGIC"
+	"Unstyled"	"1"
+	"Version"
+		{
+		"Styles"
+			{
+			"<LOGIC>"	"logic_gate"
+			}
+		}
+	}
+
+
+"Item"
+	{
+	"ID" "ITEM_BEE_LOGIC_STRIP"
+	"Unstyled"	"1"
+	"Version"
+		{
+		"Styles"
+			{
+			"<LOGIC>"	"logic_strip"
+			}
+		}
+	}
+
+
+"Item"
+	{
+	"ID" "ITEM_TRIGGERS"
+	"Unstyled"	"1"
+	"Version"
+		{
+		"Styles"
+			{
+			"<LOGIC>"	"trigger"
+			}
+		}
+	}
+	
+"ConfigGroup"
+	{
+	"ID"    "BEEMOD"
+	"Name"  "BEEmod"
+	"Widget"
+		{
+		"ID"	  "SHOW_TRIGGER"
+		"Label"   "Show Triggers ingame"
+		"Tooltip" "Show transparent overlays of triggers when in preview mode. These never appear in the published maps."
+		"Type"    "Checkbox"
+		"Default" "0"
+		}
+	}
+	
+"Item"
+	{
+	"ID"       "ITEM_TSPEN_ANT_ROUTER"
+	"Unstyled" "1"
+	"Version"
+		{
+		"Styles"
+			{
+			"ANY"	"router"
+			}
+		}
+	}
+	
+"Item"
+	{
+	"ID"       "ITEM_TSPEN_ANT_MAGNET"
+	"Unstyled" "1"
+	"Version"
+		{
+		"Styles"
+			{
+			"ANY"	"magnet"
+			}
+		}
+	}
+	
+"Item"
+	{
+	"ID"       "ITEM_TSPEN_FLIP_FLOP"
+	"Unstyled" "1"
+	"Version"
+		{
+		"Styles"
+			{
+			"ANY"	"flip_flop"
+			}
+		}
+	}
+	
+"Item"
+	{
+	"ID"       "ITEM_TSPEN_LOGIC_INPUTS_SR"
+	"Unstyled" "1"
+	"Version"
+		{
+		"Styles"
+			{
+			"ANY"	"input_ab"
+			}
+		}
+	}
+
+"Item"
+	{
+	"ID"       "ITEM_TSPEN_LOGIC_DELAYER"
+	"Unstyled" "1"
+	"Description"
+		{
+		"" "Add a delay between the input and output."
+		"" ""
+		"" "* The activation delayer waits before activating, but deactivates instantly."
+		"" "* The shutdown delayer activates instantly, but waits before deactivating. (Like a Pedestal Button.)"
+		"" "* The 'both' delayer delays both activation and deactivation."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"ANY"   "delayer"
+			}
+		}
+	}
+	
+"Item"
+	{
+	"ID" "ITEM_PORTAL_MAGNET"
+	"Unstyled" "1"
+	"Version"
+		{
+		"Name"			"Regular"
+		"Styles"
+			{
+			"<LOGIC>"	"portal_magnet"
+			}
+		}
+	}
+	
+"Item"
+	{
+	"ID" "ITEM_SAVEPOINT"
+	
+	// Depricated
+	"Unstyled" "1"
+	"Version"
+		{
+		"Styles"
+			{
+			"<LOGIC>"	"save_point"
+			}
+		}
+	}
+	
+"Item"
+	{
+	"ID" "ITEM_LOGIC_GATE"
+	
+	 // Don't allow the different versions to fallback to each other, 
+	 // so they'll give Clean style in those cases.
+	"isolate_versions" "1"
+	
+	"Version"
+		{
+		"ID"   "VER_EUROPEAN"
+		"Name" "European Icons"
+		"Styles"
+			{
+			"BEE2_CLEAN"
+				{
+				"Folder" "logic_gate_visible"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%ICON_FOLDER%" "instances/BEE2/clean/items/hmw/logic/frame_eu"
+						}
+					}
+				}
+			"BEE2_PORTAL_1" "<BEE2_CLEAN>"
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/50s/items/hmw/logic/frame.vmf"
+					
+					"bee2_and"   "instances/BEE2/50s/items/hmw/logic/and.vmf"
+					"bee2_or"    "instances/BEE2/50s/items/hmw/logic/or.vmf"
+					"bee2_xor"   "instances/BEE2/50s/items/hmw/logic/xor.vmf"
+					
+					"bee2_nand"  "instances/BEE2/50s/items/hmw/logic/nand.vmf"
+					"bee2_nor"   "instances/BEE2/50s/items/hmw/logic/nor.vmf"
+					"bee2_xnor"  "instances/BEE2/50s/items/hmw/logic/xnor.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/70s/items/hmw/logic_frame.vmf"
+					}
+				}
+			}
+		}
+	"Version"
+		{
+		"ID"   "VER_GERMAN"
+		"Name" "German Icons"
+		"Styles"
+			{
+			"BEE2_CLEAN"
+				{
+				"Folder" "logic_gate_visible"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%ICON_FOLDER%" "instances/BEE2/clean/items/hmw/logic/frame_ger"
+						}
+					}
+				}
+			"BEE2_PORTAL_1" "<BEE2_CLEAN>"
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/50s/items/hmw/logic/frame.vmf"
+					
+					"bee2_and"   "instances/BEE2/50s/items/hmw/logic/and.vmf"
+					"bee2_or"    "instances/BEE2/50s/items/hmw/logic/or.vmf"
+					"bee2_xor"   "instances/BEE2/50s/items/hmw/logic/xor.vmf"
+					
+					"bee2_nand"  "instances/BEE2/50s/items/hmw/logic/nand.vmf"
+					"bee2_nor"   "instances/BEE2/50s/items/hmw/logic/nor.vmf"
+					"bee2_xnor"  "instances/BEE2/50s/items/hmw/logic/xnor.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/70s/items/hmw/logic_frame.vmf"
+					}
+				}
+			}
+		}
+	"Version"
+		{
+		"ID"   "VER_TEXT"
+		"Name" "Textual Icons"
+		"Styles"
+			{
+			"BEE2_CLEAN"
+				{
+				"Folder" "logic_gate_visible"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%ICON_FOLDER%" "instances/BEE2/clean/items/hmw/logic/frame_txt"
+						"%PACK_LIST%"   "HMW_LOGIC_NAMES"
+						}
+					}
+				}
+			"BEE2_PORTAL_1" "<BEE2_CLEAN>"
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/50s/items/hmw/logic/frame.vmf"
+					
+					"bee2_and"   "instances/BEE2/50s/items/hmw/logic/and.vmf"
+					"bee2_or"    "instances/BEE2/50s/items/hmw/logic/or.vmf"
+					"bee2_xor"   "instances/BEE2/50s/items/hmw/logic/xor.vmf"
+					
+					"bee2_nand"  "instances/BEE2/50s/items/hmw/logic/nand.vmf"
+					"bee2_nor"   "instances/BEE2/50s/items/hmw/logic/nor.vmf"
+					"bee2_xnor"  "instances/BEE2/50s/items/hmw/logic/xnor.vmf"
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Instances"
+					{
+					"bee2_frame" "instances/BEE2/70s/items/hmw/logic_frame.vmf"
+					}
+				}
+			}
+		}
+	}
