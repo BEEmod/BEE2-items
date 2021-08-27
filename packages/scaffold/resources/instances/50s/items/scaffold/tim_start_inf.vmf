@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8973"
-	"mapversion" "101"
+	"mapversion" "111"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "101"
+	"mapversion" "111"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -46,6 +46,45 @@ world
 }
 entity
 {
+	"id" "9585"
+	"classname" "comp_kv_setter"
+	"angles" "0 0 0"
+	"conv_ang" "0"
+	"invert" "0"
+	"kv_name" "2"
+	"kv_value_global" "1"
+	"mode" "flags"
+	"rotate" "0"
+	"target" "@scaff_fx_grp$group"
+	"origin" "-8 16 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Start the core on."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "9465"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "unlock_input"
+	"origin" "-24 16 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Unlock the input pedestal button after spawn is finished, if it is one."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "9338"
 	"classname" "env_explosion"
 	"angles" "0 0 0"
@@ -54,7 +93,7 @@ entity
 	"iRadiusOverride" "0"
 	"parentname" "train"
 	"rendermode" "5"
-	"spawnflags" "1265"
+	"spawnflags" "1201"
 	"targetname" "exp"
 	"origin" "-62 0 0"
 	editor
@@ -3659,9 +3698,9 @@ entity
 	"shadowdepthnocache" "0"
 	"solid" "6"
 	"spawnflags" "531"
-	"speed" "30"
+	"speed" "$speed"
 	"StartSound" "container.enginestart"
-	"startspeed" "30"
+	"startspeed" "$speed"
 	"StopSound" "container.enginestop"
 	"target" "t1"
 	"targetname" "train"
@@ -4727,6 +4766,7 @@ entity
 		"OnChangeToAllTrue" "spawn_manSetStateAFalse0-1"
 		"OnChangeToAllTrue" "spawn_manSetStateBFalse0-1"
 		"OnChangeToAllTrue" "train*FireUser10-1"
+		"OnUser2" "spawn_manSetStateATrue0.01-1"
 	}
 	"origin" "-24 0 -56"
 	editor
@@ -4842,7 +4882,7 @@ entity
 	"orientationtype" "0"
 	"radius" "0"
 	"spawnflags" "0"
-	"speed" "30"
+	"speed" "0"
 	"target" "@scaff_track_grp$group_$next"
 	"targetname" "@scaff_track_grp$group_$ind"
 	connections
@@ -4867,7 +4907,7 @@ entity
 	"orientationtype" "1"
 	"Radius" "0"
 	"spawnflags" "16"
-	"speed" "30"
+	"speed" "0"
 	"target" "t2"
 	"targetname" "t1"
 	"origin" "-24 0 -252"
