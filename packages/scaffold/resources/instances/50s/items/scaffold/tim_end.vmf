@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "35"
+	"editorbuild" "8973"
+	"mapversion" "40"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "35"
+	"mapversion" "40"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,24 +32,27 @@ entity
 {
 	"id" "885"
 	"classname" "env_beam"
+	"angles" "0 0 0"
 	"BoltWidth" "3"
 	"ClipStyle" "0"
 	"damage" "0"
 	"decalname" "Bigshot"
+	"dissolvetype" "-1"
 	"framerate" "0"
 	"framestart" "2"
 	"HDRColorScale" "1.0"
 	"life" "0"
 	"LightningEnd" "beam_end"
-	"LightningStart" "$beam_name"
+	"LightningStart" "@scaff_beam_grp$group_$ind"
 	"NoiseAmplitude" "0"
 	"Radius" "0"
 	"renderamt" "128"
 	"rendercolor" "30 80 0"
 	"renderfx" "0"
+	"rendermode" "1"
 	"spawnflags" "257"
 	"StrikeTime" "1"
-	"targetname" "$beam_name"
+	"targetname" "@scaff_beam_grp$group_$ind"
 	"targetpoint" "-32 0 0"
 	"texture" "sprites/laserbeam.vmt"
 	"TextureScroll" "0"
@@ -57,7 +60,7 @@ entity
 	"origin" "-32 3.8147e-006 0"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "200 200 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -71,9 +74,9 @@ entity
 	"orientationtype" "0"
 	"radius" "0"
 	"spawnflags" "0"
-	"speed" "30"
+	"speed" "0"
 	"target" "t1"
-	"targetname" "$track_name"
+	"targetname" "@scaff_track_grp$group_$ind"
 	"origin" "-26 3.8147e-006 0"
 	editor
 	{
@@ -90,13 +93,6 @@ entity
 	"angles" "0 0 0"
 	"spawnflags" "1"
 	"targetname" "beam_end"
-	connections
-	{
-		"OnUser1" "coreStop10-1"
-		"OnUser2" "coreStartDischarge0-1"
-		"OnUser1" "coreFireUser10-1"
-		"OnUser2" "coreFireUser20-1"
-	}
 	"origin" "-26 3.8147e-006 -315"
 	editor
 	{
@@ -137,16 +133,9 @@ entity
 	"orientationtype" "1"
 	"Radius" "0"
 	"spawnflags" "0"
-	"speed" "30"
+	"speed" "0"
 	"target" "t2"
 	"targetname" "t1"
-	connections
-	{
-		"OnUser1" "coreStop10-1"
-		"OnUser2" "coreStartDischarge0-1"
-		"OnUser1" "coreFireUser10-1"
-		"OnUser2" "coreFireUser20-1"
-	}
 	"origin" "-21 3.8147e-006 -88"
 	editor
 	{

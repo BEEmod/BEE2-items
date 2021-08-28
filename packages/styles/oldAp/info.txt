@@ -45,13 +45,23 @@
 "
 				}
 			"2" {
-				"Name" "Straight Hallway"
-				"Desc" "A normal straight corridor. Several dynamic elements change based on chamber contents:
+				"Name" "Bendy Hall"
+				"Desc" "A bendy corridor with angled support struts. Several dynamic elements change based on chamber  contents:
 
-* An information sign appears describing Repulsion Gel if present.
-* A reminder sign appears asking subjects to retrieve a Quantum Tunneling Device, if this is required.
+* A pair of signs indicate if Repulsion or Propulsion Gel is present.
+* A \"Know Your Hazardous Materials\" sign appears if dangerous test elements are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+* A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
+"
+				}
+			"3" {
+				"Name" "Straight & Spacious"
+				"Desc" "A straight, spacious, boxy corridor, with neutral lighting and large framework ceilings. Several dynamic elements change based on chamber contents:
+
+* A trio of signs indicate if Repulsion or Propulsion Gel, or gel droppers, are present.
 * A \"Safety First\" sign appears if dangerous test elements are present.
 * A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+* A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
 "
 				}
 			"4" {
@@ -62,6 +72,25 @@
 * A \"Know Your Hazardous Materials\" sign appears if dangerous test elements are present.
 * A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
 * A warning about moving platforms appears if they are present, but and no dangerous elements are.
+* A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
+"
+				}
+			"5" {
+				"Name" "Construction"
+				"Desc" "A bendy corridor that appears to be unfinished, with plenty of bare framework and an air duct visible. Several dynamic elements change based on chamber contents:
+
+* A trio of signs indicate if Repulsion or Propulsion Gel, or gel droppers, are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+* A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
+"
+				}
+			"6" {
+				"Name" "Upward Stairs"
+				"Desc" "A square room with stairs leading to a raised floor. The ceiling has plenty of exposed framework and air ducts. Several dynamic elements change based on chamber contents:
+
+* A trio of signs indicate if Repulsion or Propulsion Gel, or gel droppers, are present.
+* A \"Safety First\" sign appears if dangerous test elements are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
 * A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
 "
 				}
@@ -131,7 +160,18 @@
 * A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
 * A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
 "
-			}
+				}
+			"2" {
+				"Name" "Narrow"
+
+				"Desc" "A cramped, narrow hallway with angled ceiling supports and neutral lighting. Several dynamic elements change depending on chamber contents:
+
+* A pair of signs indicate if Repulsion or Propulsion Gel is present.
+* A \"Know Your Hazardous Materials\" sign appears if dangerous test elements are present.
+* A sign warns about dangerous, unfamiliar materials if Excursion Funnels are present.
+* A warning about possibly flooded Enrichment Spheres appears if Toxic Goo is present.
+"
+				}
 			}
 		"sp_exit"
 			{
@@ -353,20 +393,20 @@
 	"Description" "GLaDOS lines from the Coop Gel course. GLaDOS talks about freeing humans and reaching the vault door."
 	}
 	
-"QuotePack"
-	{
-	"ID"			"BEE2_CAVE_GENERIC"
-	"File"			"cave_generic"
-	"ShortName"		"Cave (All)"
-	"Group"			"Cave Johnson"
-	"Characters"    "Cave Johnson"
-	"Icon"			"voices/cave_50s"
-	"Name"			"Cave Johnson (Generic)"
-	"Authors"		"Carl Kenner, TeamSpen210"
-	"Description"	"A mix of the various Cave lines, for styles without a specific decade focus. Test subjects are still _Astronauts_, _War Heroes_ and _Olympians_."
+// "QuotePack"
+// 	{
+// 	"ID"			"BEE2_CAVE_GENERIC"
+// 	"File"			"cave_generic"
+// 	"ShortName"		"Cave (All)"
+// 	"Group"			"Cave Johnson"
+// 	"Characters"    "Cave Johnson"
+// 	"Icon"			"voices/cave_50s"
+// 	"Name"			"Cave Johnson (Generic)"
+// 	"Authors"		"Carl Kenner, TeamSpen210"
+// 	"Description"	"A mix of the various Cave lines, for styles without a specific decade focus. Test subjects are still _Astronauts_, _War Heroes_ and _Olympians_."
 	
-	"CaveSkin"      "0"
-	}
+// 	"CaveSkin"      "0"
+// 	}
 	
 "QuotePack"
 	{
@@ -460,6 +500,8 @@
 	"Name"		"Opened Enrichment Sphere"
 	"Description"	"Use an alternate enrichment sphere map with a damaged/incomplete sphere, showing the Test Shaft surrounding the map. The added complexity of the map greatly increases compile times, however."
 	"Enabled"	"1"
+	"Inherit"   "0"
+	"Style"		"BEE2_1950s"
 	"Style"		"BEE2_1980s"
 	}
 	
@@ -492,30 +534,6 @@
 	{
 	"ID"       "VPK_BEE2_1980S"
 	"Filename" "1980s"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_BEE2_RETRO_COMPANION"
-	"Config" "comp_cube"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_RUSTY_REFLECT"
-	"Config" "reflect"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_RUSTY_CUBE"
-	"Config" "rusty_cube"
-	}
-	
-"PackList"
-	{
-	"ID"     "PACK_RUSTY_BALL"
-	"Config" "rusty_ball"
 	}
 	
 "EditorSound"
@@ -672,8 +690,11 @@
 						{
 						"Replacements"
 							{
-							"%SP_OFF%" "-1024 1024 -832"
-							"%MP_OFF%" "-2464 4032 -320"
+							"%SP_OPEN_OFF%"  "-4992 3328 -704"
+							"%SP_CLOSE_OFF%" "-1024 1024 -832"
+
+							"%MP_OPEN_OFF%"  "-2464 4032 -320"
+							"%MP_CLOSE_OFF%" "-2464 4032 -320"
 							"%OBS_ROOM%" "instances/BEE2/50s/items/observation_room_256.vmf"
 							}
 						}
@@ -686,9 +707,10 @@
 						{
 						"Replacements"
 							{
-							"%SP_OFF%" "-1664 1152 -192"
+							"%SP_OPEN_OFF%"  "-1664 1152 -192"
+							"%SP_CLOSE_OFF%" "-1664 1152 -192"
 							"%SP_YAW%" "180"
-							"%MP_OFF%" "96 -576 -3392"
+							"%MP_CLOSE_OFF%" "96 -576 -3392"
 							}
 						}
 					}
@@ -712,8 +734,10 @@
 						{
 						"Replacements"
 							{
-							"%SP_OFF%" "-2560 2112 -832"
-							"%MP_OFF%" "96 -512 -3136"
+							"%SP_OPEN_OFF%"  "-2560 2112 -832"
+							"%SP_CLOSE_OFF%" "-2560 2112 -832"
+							"%MP_OPEN_OFF%"  "96 -512 -3136"
+							"%MP_CLOSE_OFF%" "96 -512 -3136"
 							"%OBS_ROOM%" "instances/BEE2/70s/items/observation_room_256.vmf"
 							}
 						}
@@ -734,8 +758,17 @@
 							"Icon"  "palette/80s/observation_grate.png"
 							}
 						}
-					// We need to specialise based on the open-sphere instance.
-					"Config" "mandatory/80s/obs_grate.cfg"
+					"Append"
+						{
+						"Replacements"
+							{
+							"%SP_OPEN_OFF%"  "-5120 -1536 -832"
+							"%SP_CLOSE_OFF%" "-1024 2560 -832"
+							"%MP_OPEN_OFF%"  "-4000 -4096 -3264"
+							"%MP_CLOSE_OFF%" "96 -512 -3264"
+							"%OBS_ROOM%" "instances/BEE2/80s/items/observation_room_256.vmf"
+							}
+						}
 					}
 				}
 			}

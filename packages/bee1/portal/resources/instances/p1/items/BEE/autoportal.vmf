@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "109"
+	"editorbuild" "8973"
+	"mapversion" "111"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,13 +26,74 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "109"
+	"mapversion" "111"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2155"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "@relay_spawn_on_entrance"
+	connections
+	{
+		"OnTrigger" "manSetStateBTrue0-1"
+	}
+	"origin" "-40 16 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "2157"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "$glob_relay"
+	connections
+	{
+		"OnTrigger" "closeTrigger0-1"
+		"OnUser4" "closeFireUser40-1"
+	}
+	"origin" "-40 0 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "2159"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "@map_won"
+	connections
+	{
+		"OnTrigger" "manSetStateBFalse0-1"
+	}
+	"origin" "-40 -16 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
@@ -76,6 +137,7 @@ entity
 	"id" "2021"
 	"classname" "env_shake"
 	"amplitude" "4"
+	"angles" "0 0 0"
 	"duration" "1"
 	"frequency" "2.5"
 	"radius" "500"
@@ -94,6 +156,7 @@ entity
 {
 	"id" "1987"
 	"classname" "logic_coop_manager"
+	"angles" "0 0 0"
 	"DefaultPlayerStateA" "$start_enabled"
 	"DefaultPlayerStateB" "0"
 	"targetname" "man"
@@ -117,6 +180,7 @@ entity
 {
 	"id" "1825"
 	"classname" "point_template"
+	"angles" "0 0 0"
 	"spawnflags" "2"
 	"targetname" "temp"
 	"Template01" "portal"
@@ -135,6 +199,7 @@ hidden
 	{
 		"id" "1788"
 		"classname" "logic_relay"
+		"angles" "0 0 0"
 		"spawnflags" "0"
 		"StartDisabled" "0"
 		"targetname" "@close_blue_autoportals"
@@ -202,6 +267,7 @@ entity
 {
 	"id" "111"
 	"classname" "logic_relay"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"targetname" "close"
@@ -227,6 +293,7 @@ entity
 {
 	"id" "122"
 	"classname" "logic_relay"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"targetname" "open"
