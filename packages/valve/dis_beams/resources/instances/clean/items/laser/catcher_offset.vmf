@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "63"
+	"editorbuild" "8037"
+	"mapversion" "66"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "63"
+	"mapversion" "66"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -492,12 +492,13 @@ entity
 	"_linear_attn" "0"
 	"_quadratic_attn" "1"
 	"_zero_percent_distance" "96"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"style" "0"
 	"origin" "-32 0 -48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
@@ -508,13 +509,8 @@ entity
 	"id" "418"
 	"classname" "func_noportal_volume"
 	"origin" "-31.49 0 -79.5"
+	"solid" "6"
 	"spawnflags" "0"
-	"targetname" "output"
-	connections
-	{
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnUser1" "proxyProxyRelay0-1"
-	}
 	solid
 	{
 		"id" "419"
@@ -601,20 +597,6 @@ entity
 }
 entity
 {
-	"id" "350"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-32 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
 	"id" "387"
 	"classname" "prop_laser_catcher"
 	"angles" "-90 180 0"
@@ -623,14 +605,9 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"SkinType" "0"
-	"targetname" "laser_catcher"
-	connections
-	{
-		"OnPowered" "outputFireUser20-1"
-		"OnPowered" "!selfSkin10-1"
-		"OnUnpowered" "!selfSkin00-1"
-		"OnUnpowered" "outputFireUser10-1"
-	}
+	"solid" "6"
+	"src_fix_skins" "1"
+	"targetname" "catcher"
 	"origin" "-31.95 0 -80"
 	editor
 	{

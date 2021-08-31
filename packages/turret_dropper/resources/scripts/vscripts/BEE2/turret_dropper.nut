@@ -63,6 +63,11 @@ function spawn() {
 	}
 }
 
+// Called when the turret is fully respawned.
+function is_ready_to_spawn() {
+    conf_ready_to_spawn = true
+}
+
 // When the turret starts lowering..
 function start_lower() {
 	is_lowering = true
@@ -121,6 +126,7 @@ function fizzle_active_turret() {
 		// Dissolve activator, and pass the turret along as that.
 		EntFireByHandle(fizzler, "Dissolve", "!activator", 0.00, turret_spawned, self)
 		turr_land_pos = null
+		turret_spawned = null
 	}
 }
 

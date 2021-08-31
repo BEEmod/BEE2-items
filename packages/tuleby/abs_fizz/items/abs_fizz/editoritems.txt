@@ -81,28 +81,15 @@
 		"TargetName"	"tul_abs_fizz"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"	"instance:counter;Subtract"
-				}
-			"CONNECTION_HAZARD_MODEL"
-				{
-				"Activate"		"instance:mdl;FireUser2" // Unused
-				"Deactivate"	"instance:mdl;FireUser1"
-				}
-			"CONNECTION_HAZARD_BRUSH"
-				{
-				"Activate"		"Enable" // Unused
-				"Deactivate"	"Disable"
-				}
-			}
-		"Outputs"
-			{
-			"CONNECTION_HAZARD"
-				{
-				"Activate"		"instance:out;OnUser2" // Not actually used
-				"Deactivate"	"instance:out;OnUser1"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"SpawnFire"     "Never"
+				"Enable_Cmd"    "mdl,SetAnimation,open,0.00,-1"
+				"Disable_Cmd"   "mdl,SetAnimation,close,0.00,-1"
+				"Enable_Cmd"    "fizz,Enable,,0.00,-1"
+				"Disable_Cmd"   "fizz,Disable,,0.00,-1"
 				}
 			}
 		"ConnectionPoints"

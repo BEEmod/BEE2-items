@@ -144,10 +144,12 @@
 		"TargetName"    "raillift"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_active"
+				"Enable_Cmd"    "logic,TurnOn,,0.00,-1"
+				"Disable_Cmd"   "logic,TurnOff,,0.00,-1"
 				}
 			}
 		"Offset"		"64 64 64"

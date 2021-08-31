@@ -10,116 +10,125 @@
 		"" "Pedestal buttons that can be placed in 3 different positions (Left, Middle, and Right) by using their ButtonType property."
 		"" ""
 		"" "* TIP: Use Antline Router Strips to control antline placements."
-		"" "* It is active for a configurable time, or permanently active once pushed."
+		"" "* Use the timer to adjust the length of the output, or make it permanent."
 		}
 	"All_conf" "ped_buttons.cfg" // Common and shared by all styled variants.            
 	"Version"
 		{
 		"Styles"
 			{
-			"BEE2_CLEAN"        "ped_buttons_clean" // One editoritem´s file to all styled variants, styled pallete icons and editor models are defined on the file: info.txt... Properties.txt shares descriptions with the one from here.
+			"BEE2_CLEAN"  "ped_buttons_clean" // One editoritem´s file to all styled variants, styled pallete icons and editor models are defined on the file: info.txt... Properties.txt shares descriptions with the one from here.
 			"BEE2_OVERGROWN"
 				{
 				"Base" "BEE2_CLEAN"
-				"Config" "ped_buttons_over.cfg" // The explicit config for the respective style.
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PEDESTAL_BASE_OVER"
+						"%SKIN%"     "1"
+						}
+					}
 				"Palette"  // A new block format into the info file, that replaces the editoritem´s names from models and icons. This saves space from having to make duplicate folders for each model / icon that is styled.
 					{
 					"0"
 						{
 						"Model" "over_pedestal_button_left.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/over/pedestal_button_left.png"
+						"bee2" "over/ped_button_left_middle_right/pedestal_button_left.png"	
 						}
 					"1"
 						{
 						"Model" "over_pedestal_button_middle.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/over/pedestal_button_middle.png"
+						"bee2" "over/ped_button_left_middle_right/pedestal_button_middle.png"
 						}
 					"2"
 						{
 						"Model" "over_pedestal_button_right.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/over/pedestal_button_right.png"
+						"bee2" "over/ped_button_left_middle_right/pedestal_button_right.png"
 						}
-					"0"
-						{
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/over/pedestal_button_left.png"
-						}
-					"1"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/over/pedestal_button_middle.png"
-						}
-					"2"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/over/pedestal_button_right.png"	
-						}											
-					"0"
-						{						
-						"bee2" "over/ped_button_left_middle_right/pedestal_button_left.png"	
-                        }
-					"1"
-						{						
-						"bee2" "over/ped_button_left_middle_right/pedestal_button_middle.png"	
-                        }
-					"2"
-						{						
-						"bee2" "over/ped_button_left_middle_right/pedestal_button_right.png"	
-                        }
 					"all"
-						{	
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/over/pedestal_button_combined.png"							
+						{
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/over/pedestal_button_combined.png"
 						"bee2" "over/ped_button_left_middle_right/pedestal_button_combined.png"
-                        }										
+						}
 					}
-				}				
+				}
 			"BEE2_PORTAL_1"
 				{
 				"Base" "BEE2_CLEAN"
-				"Config" "ped_buttons_p1.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PEDESTAL_BASE_P1"
+						}
+					}
 				"Palette"  // A new block format into the info file, that replaces the editoritem´s names from models and icons. This saves space from having to make duplicate folders for each model / icon that is styled.
 					{
 					"0"
 						{
 						"Model" "p1_pedestal_button_left.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/p1/pedestal_button_left.png"
+						"bee2" "p1/ped_button_left_middle_right/pedestal_button_left.png"	
 						}
 					"1"
 						{
 						"Model" "p1_pedestal_button_middle.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/p1/pedestal_button_middle.png"
+						"bee2" "p1/ped_button_left_middle_right/pedestal_button_middle.png"	
 						}
 					"2"
 						{
 						"Model" "p1_pedestal_button_right.3ds"
-						}
-					"0"
-						{
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/p1/pedestal_button_left.png"
-						}
-					"1"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/p1/pedestal_button_middle.png"
-						}
-					"2"
-						{						
 						"icon" "palette/lautaro/pedestal_button_left_middle_right/p1/pedestal_button_right.png"	
-						}											
-					"0"
-						{						
-						"bee2" "p1/ped_button_left_middle_right/pedestal_button_left.png"	
-                        }
-					"1"
-						{						
-						"bee2" "p1/ped_button_left_middle_right/pedestal_button_middle.png"	
-                        }
-					"2"
-						{						
-						"bee2" "p1/ped_button_left_middle_right/pedestal_button_right.png"	
-                        }
+						"bee2" "p1/ped_button_left_middle_right/pedestal_button_right.png"
+						}
 					"all"
-						{	
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/p1/pedestal_button_combined.png"							
+						{
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/p1/pedestal_button_combined.png"
 						"bee2" "p1/ped_button_left_middle_right/pedestal_button_combined.png"
-                        }										
+						}
 					}
-				}				
+				"IOConf"
+					{
+					"out_activate"   "instance:output;OnUser2"
+					"out_deactivate" "instance:output;OnUser1"
+					
+					"lock_cmd"       "lock_man,SetStateATrue,,0.00,-1"
+					"unlock_cmd"     "lock_man,SetStateAFalse,,0.00,-1"
+
+					// Generate a logic_relay which plays the appropriate tick-tock sounds.
+					"timer_sound_pos"   "-96 0 -48"
+					"timer_done_cmd"    "@command,Command,cc_emit Portal.button_down,0.00,-1"
+					"timer_done_cmd"    "output,SetValue,0,0.00,-1"
+					"timer_done_cmd"    "output,FireUser1,,0.00,-1"
+					"timer_done_cmd"    "snd_rel,PlaySound,,0.00,-1"
+					}
+				"Instances"
+					{
+					"bee2_btn_fwd" "instances/BEE2/p1/items/lautaro/pedestal_button.vmf"
+					"bee2_btn_rev" "instances/BEE2/p1/items/lautaro/pedestal_button_rev.vmf"
+					}
+				}
 			"BEE2_1950s"
 				{
 				"Base" "BEE2_CLEAN"
-				"Config" "ped_buttons_50s.cfg"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PEDESTAL_BASE_50s"
+						}
+					}
+				"Instances"
+					{
+					// The same.
+					"bee2_btn_fwd" "instances/BEE2/50s/items/lautaro/pedestal_button.vmf"
+					"bee2_btn_rev" "instances/BEE2/50s/items/lautaro/pedestal_button.vmf"
+					}
 				"Description"  // A new block format into the info file, that replaces the propertie´s description file. This saves space from having to make duplicate folders for each description depending on styles.
 					{
 					"" "* In Old Aperture, the _Start Reversed_ property has no effect, since buttons are symmetrical."
@@ -130,246 +139,81 @@
 					"0"
 						{
 						"Model" "retro_pedestal_button_left.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_left.png"
+						"bee2" "retro/ped_button_left_middle_right/pedestal_button_left.png"
 						}
 					"1"
 						{
 						"Model" "retro_pedestal_button_middle.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_middle.png"
+						"bee2" "retro/ped_button_left_middle_right/pedestal_button_middle.png"	
 						}
 					"2"
 						{
 						"Model" "retro_pedestal_button_right.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_right.png"
+						"bee2" "retro/ped_button_left_middle_right/pedestal_button_right.png"
 						}
-					"0"
-						{
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_left.png"
-						}
-					"1"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_middle.png"
-						}
-					"2"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_right.png"	
-						}											
-					"0"
-						{						
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_left.png"	
-                        }
-					"1"
-						{						
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_middle.png"	
-                        }
-					"2"
-						{						
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_right.png"	
-                        }
 					"all"
-						{	
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_combined.png"							
+						{
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_combined.png"
 						"bee2" "retro/ped_button_left_middle_right/pedestal_button_combined.png"
-                        }										
+                        }
 					}
-				}		
-				"BEE2_1970s"
+				}
+			"BEE2_1970s"
 				{
-				"Base" "BEE2_CLEAN"
-				"Config" "ped_buttons_70s.cfg"
-				"Description"  // A new block format into the info file, that replaces the propertie´s description file. This saves space from having to make duplicate folders for each description depending on styles.
+				"Base" "BEE2_1950s"
+				"Append"
 					{
-					"" "* In Old Aperture, the _Start Reversed_ property has no effect, since buttons are symmetrical."
-					"" "* For more knowledge and tips on this item, hit on __More Info>>__ at the lower right corner of the window."
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PEDESTAL_BASE_70s"
+						}
 					}
-				"Palette" // A new block format into the info file, that replaces the editoritem´s names from models and icons. This saves space from having to make duplicate folders for each model / icon that is styled.
-					{
-					"0"
-						{
-						"Model" "retro_pedestal_button_left.3ds"
-						}
-					"1"
-						{
-						"Model" "retro_pedestal_button_middle.3ds"
-						}
-					"2"
-						{
-						"Model" "retro_pedestal_button_right.3ds"
-						}
-					"0"
-						{
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_left.png"
-						}
-					"1"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_middle.png"
-						}
-					"2"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_right.png"	
-						}											
-					"0"
-						{						
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_left.png"	
-                        }
-					"1"
-						{						
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_middle.png"	
-                        }
-					"2"
-						{						
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_right.png"	
-                        }
-					"all"
-						{	
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_combined.png"							
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_combined.png"
-                        }										
-					}
-				}		
+				}
 			"BEE2_1980s"
 				{
-				"Base" "BEE2_CLEAN"
-				"Config" "ped_buttons_80s.cfg"
-				"Description" // A new block format into the info file, that replaces the propertie´s description file. This saves space from having to make duplicate folders for each description depending on styles.
+				"Base" "BEE2_1950s"
+				"Append"
 					{
-					"" "* In Old Aperture, the _Start Reversed_ property has no effect, since buttons are symmetrical."
-					"" "* For more knowledge and tips on this item, hit on __More Info>>__ at the lower right corner of the window."
-					}
-				"Palette" // A new block format into the info file, that replaces the editoritem´s names from models and icons. This saves space from having to make duplicate folders for each model / icon that is styled.
-					{
-					"0"
+					"Replacements"
 						{
-						"Model" "retro_pedestal_button_left.3ds"
+						"%TEMPLATE%" "LAUTARO_PEDESTAL_BASE_80s"
 						}
-					"1"
-						{
-						"Model" "retro_pedestal_button_middle.3ds"
-						}
-					"2"
-						{
-						"Model" "retro_pedestal_button_right.3ds"
-						}
-					"0"
-						{
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_left.png"
-						}
-					"1"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_middle.png"
-						}
-					"2"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_right.png"	
-						}											
-					"0"
-						{						
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_left.png"	
-                        }
-					"1"
-						{						
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_middle.png"	
-                        }
-					"2"
-						{						
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_right.png"	
-                        }
-					"all"
-						{	
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_combined.png"							
-						"bee2" "retro/ped_button_left_middle_right/pedestal_button_combined.png"
-                        }										
 					}
 				}		
-				"BEE2_BTS"  
+			"BEE2_BTS"  
 				{
 				"Base" "BEE2_CLEAN"
-				"Config" "ped_buttons_bts.cfg"						
+				"Config" "ped_buttons_bts.cfg"
 				"Palette" // A new block format into the info file, that replaces the editoritem´s names from models and icons. This saves space from having to make duplicate folders for each model / icon that is styled.
 					{
-					"0" // We need to make Palette Icons for them...
+					"0" 
 						{
 						"Model" "bts_ped_button_left.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/bts/pedestal_button_left.png"
+						"bee2" "bts/ped_button_left_middle_right/pedestal_button_left.png"	
 						}
 					"1"
 						{
 						"Model" "bts_ped_button_middle.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/bts/pedestal_button_middle.png"
+						"bee2" "bts/ped_button_left_middle_right/pedestal_button_middle.png"
 						}
 					"2"
 						{
 						"Model" "bts_ped_button_right.3ds"
-						}
-						"0"
-						{
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/bts/pedestal_button_left.png"
-						}
-					"1"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/bts/pedestal_button_middle.png"
-						}
-					"2"
-						{						
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/bts/pedestal_button_right.png"	
-						}											
-					"0"
-						{						
-						"bee2" "bts/ped_button_left_middle_right/pedestal_button_left.png"	
-                        }
-					"1"
-						{						
-						"bee2" "bts/ped_button_left_middle_right/pedestal_button_middle.png"	
-                        }
-					"2"
-						{						
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/bts/pedestal_button_right.png"
 						"bee2" "bts/ped_button_left_middle_right/pedestal_button_right.png"	
-                        }
+						}
 					"all"
-						{	
-						"icon" "palette/lautaro/pedestal_button_left_middle_right/bts/pedestal_button_combined.png"							
+						{
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/bts/pedestal_button_combined.png"
 						"bee2" "bts/ped_button_left_middle_right/pedestal_button_combined.png"
-                        }										
+						}
 					}
 				}
-			}	
+			}
 		}
-	}	
-	
-"BrushTemplate"
-	{
-	"ID"    "LAUTARO_PEDESTAL_BASE_CLEAN"
-	"File"  "pedestal_base_clean.vmf"
 	}
-	
-"BrushTemplate"
-	{
-	"ID"    "LAUTARO_PEDESTAL_BASE_OVER"
-	"File"  "pedestal_base_over.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "LAUTARO_PEDESTAL_BASE_RETRO"
-	"File"  "pedestal_base_retro.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "LAUTARO_PEDESTAL_BASE_80S"
-	"File"  "pedestal_base_80s.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"    "LAUTARO_PEDESTAL_BASE_P1"
-	"File"  "pedestal_base_p1.vmf"
-	}
-
-"BrushTemplate"
-	{
-	"ID"    "LAUTARO_PEDESTAL_BASE_BTS" 
-	"File"  "pedestal_base_bts.vmf"
-	}
-
-"BrushTemplate"
-	{
-	"ID"    "LAUTARO_PEDESTAL_BASE_BTS_REV" 
-	"File"  "pedestal_base_bts_rev.vmf"
-	}		
-	

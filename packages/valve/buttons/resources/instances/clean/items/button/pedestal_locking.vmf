@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "47"
+	"editorbuild" "8419"
+	"mapversion" "49"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "47"
+	"mapversion" "49"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,6 +32,7 @@ entity
 {
 	"id" "59"
 	"classname" "logic_coop_manager"
+	"angles" "0 0 0"
 	"DefaultPlayerStateA" "0"
 	"DefaultPlayerStateB" "1"
 	"targetname" "lock_man"
@@ -47,7 +48,7 @@ entity
 		"OnChangeToAllFalse" "lock_manSetStateBTrue0-1"
 		"OnChangeToAllFalse" "outputFireUser10-1"
 	}
-	"origin" "-48 16 -16"
+	"origin" "-48 0 -24"
 	editor
 	{
 		"color" "0 100 250"
@@ -83,6 +84,7 @@ entity
 	"mingpulevel" "0"
 	"model" "models/props/switch001.mdl"
 	"PerformanceMode" "0"
+	"physdamagescale" "1.0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
 	"renderamt" "255"
@@ -111,6 +113,7 @@ entity
 	"id" "36"
 	"classname" "func_noportal_volume"
 	"origin" "-48 0 -60"
+	"solid" "6"
 	"spawnflags" "0"
 	solid
 	{
@@ -212,9 +215,7 @@ entity
 	"targetname" "output"
 	connections
 	{
-		"OnUser2" "proxyProxyRelay0-1"
 		"OnPressed" "lock_manSetStateATrue0-1"
-		"OnUser1" "proxyProxyRelay0-1"
 	}
 	"origin" "-46 0 -52"
 	editor
@@ -223,20 +224,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "22"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-48 -16 -16"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras

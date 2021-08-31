@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "76"
+	"editorbuild" "8419"
+	"mapversion" "77"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "76"
+	"mapversion" "77"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,6 +32,7 @@ entity
 {
 	"id" "1025"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -52,9 +53,6 @@ entity
 	"volstart" "0"
 	connections
 	{
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnUser4" "mdlColor200 0 00-1"
 		"OnUser4" "repeat_branchTest0-1"
 	}
 	"origin" "-16 0 0"
@@ -70,6 +68,7 @@ entity
 {
 	"id" "1013"
 	"classname" "point_tesla"
+	"angles" "0 0 0"
 	"beamcount_max" "12"
 	"beamcount_min" "4"
 	"interval_max" "2"
@@ -96,6 +95,7 @@ entity
 {
 	"id" "615"
 	"classname" "logic_branch"
+	"angles" "0 0 0"
 	"InitialValue" "0"
 	"targetname" "repeat_branch"
 	connections
@@ -109,27 +109,13 @@ entity
 		"OnTrue" "repeat_branchSetValue10.01-1"
 		"OnFalse" "repeat_branchSetValue10-1"
 	}
-	"origin" "-16 0 -16"
+	"origin" "0 0 -16"
 	editor
 	{
 		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "617"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "16 0 -16"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
 	}
 }
 cameras

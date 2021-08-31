@@ -1,7 +1,6 @@
 "Item"
 	{
 	"Type"      "ITEM_TSPEN_BUTTON_PEDESTAL_RETRACT"
-	"ItemClass" "ItemButtonFloor"
 	"Editor"
 		{
 		"SubType"
@@ -55,20 +54,12 @@
 			{
 			"0"
 				{
-				"Name"  "instances/BEE2/clean/items/tspen/ret_btn/ped_button_white.vmf"
+				"Name"  "instances/BEE2/clean/items/tspen/ret_btn/ped_button_common.vmf"
 				"EntityCount"       "11"
-				"BrushCount"        "28"
-				"BrushSideCount"    "174"
+				"BrushCount"        "10"
+				"BrushSideCount"    "56"
 				}
-			"1"
-				{
-				"Name"  "instances/BEE2/clean/items/tspen/ret_btn/ped_button_black.vmf"
-				"EntityCount"       "11"
-				"BrushCount"        "28"
-				"BrushSideCount"    "174" // 7*6 + 4*5 + 7*6 + 10 + 2*6 + 8*6
-				}
-			
-			"common" "instances/BEE2/clean/items/tspen/ret_btn/ped_button_common.vmf"
+
 			"timer"  "instances/BEE2/clean/items/tspen/ret_btn/ped_button_timer.vmf"
 			"perm"   "instances/BEE2/clean/items/tspen/ret_btn/ped_button_perm.vmf"
 			}
@@ -76,10 +67,13 @@
 		"TargetName"    "rbut"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:counter;Add"
-				"Deactivate"    "instance:counter;Subtract"
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"SpawnFire"		"always"
+				"Enable_Cmd"    "rl_open,Trigger,,0.00,-1"
+				"Disable_Cmd"   "rl_close,Trigger,,0.00,-1"
 				}
 			}
 		"Outputs"
@@ -99,12 +93,12 @@
 			}
 		"EmbedFace"
 			{
-			// Generate the proper cover via templates.
+			// The proper shape will be generated later in templates.
 			"Solid"
 				{
 				"Center"        "64 64 128"
 				"Dimensions"    "128 128 4"
-				"Grid"          "4x4"
+				"Grid"          "Grid_Default"
 				}
 			}
 		"OccupiedVoxels"
@@ -138,7 +132,7 @@
 
 		"ConnectionPoints"
 			{
-			// Left
+			// Left - Front of the button
 			"Point"
 				{
 				"Dir"				"1 0 0"
@@ -176,7 +170,7 @@
 				"GroupID"	"2"
 				}
 
-			// Left
+			// Behind the button
 			"Point"
 				{
 				"Dir"				"-1 0 0"

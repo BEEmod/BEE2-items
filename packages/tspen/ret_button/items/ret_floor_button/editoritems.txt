@@ -90,48 +90,45 @@
 		{
 		"Instances"
 			{
-			"bee2_floor"    "instances/BEE2/clean/items/tspen/ret_btn/floor_button.vmf"
-			"bee2_ball"     "instances/BEE2/clean/items/tspen/ret_btn/ball_button.vmf"
-			"bee2_cube"     "instances/BEE2/clean/items/tspen/ret_btn/cube_button.vmf"
 			"bee2_common"   "instances/BEE2/clean/items/tspen/ret_btn/ret_button_common.vmf"
 			"0"
 				{
-				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/floor_white.vmf"
+				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/floor_button.vmf"
 				"EntityCount"		"3"
 				"BrushCount"		"41"
 				"BrushSideCount"	"286"
 				}
 			"1"
 				{
-				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/floor_black.vmf"
+				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/floor_button.vmf"
 				"EntityCount"		"3"
 				"BrushCount"		"41"
 				"BrushSideCount"	"286"
 				}
 			"2"
 				{
-				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/cube_white.vmf"
+				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/cube_button.vmf"
 				"EntityCount"		"4"
 				"BrushCount"		"12"
 				"BrushSideCount"	"88"
 				}
 			"3"
 				{
-				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/cube_black.vmf"
+				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/cube_button.vmf"
 				"EntityCount"		"4"
 				"BrushCount"		"12"
 				"BrushSideCount"	"88"
 				}
 			"4"
 				{
-				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/ball_white.vmf"
+				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/ball_button.vmf"
 				"EntityCount"		"4"
 				"BrushCount"		"18"
 				"BrushSideCount"	"152"
 				}
 			"5"
 				{
-				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/ball_black.vmf"
+				"Name"				"instances/BEE2/clean/items/tspen/ret_btn/ball_button.vmf"
 				"EntityCount"		"4"
 				"BrushCount"		"18"
 				"BrushSideCount"	"152"
@@ -144,10 +141,10 @@
 			"BEE2"
 				{
 				"Type"          "AND"
-				"InvertVar"     "$start_deployed"
+				"InvertVar"     "$start_enabled"
 				"SpawnFire"		"always"
 				"Enable_Cmd"    "and,FireUser2,,0.00,-1"
-				"Disable_Cmd"   "and,FireUSer1,,0.00,-1"
+				"Disable_Cmd"   "and,FireUser1,,0.00,-1"
 				}
 			}
 		"Outputs"
@@ -270,17 +267,25 @@
 			}
 		"EmbedFace"
 			{
+			// Just fill the entire tile space.
+			// The config will add panel options to split these.
 			"Solid"
 				{
-				"Center"		"64 -96 128"
-				"Dimensions"	"128 64 4"
-				"Grid"			"2x2"
+				"Center"		"64 -64 128"
+				"Dimensions"	"128 128 4"
+				"Grid"			"Grid_Default"
 				}
 			"Solid"
 				{
-				"Center"		"64 224 128"
-				"Dimensions"	"128 64 4"
-				"Grid"			"2x2"
+				"Center"		"64 64 128"
+				"Dimensions"	"128 128 4"
+				"Grid"			"Grid_Default"
+				}
+			"Solid"
+				{
+				"Center"		"64 192 128"
+				"Dimensions"	"128 128 4"
+				"Grid"			"Grid_Default"
 				}
 			}
 		"ConnectionPoints"

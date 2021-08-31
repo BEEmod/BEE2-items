@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "48"
+	"editorbuild" "8419"
+	"mapversion" "54"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "48"
+	"mapversion" "54"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -200,10 +200,11 @@ entity
 	"_lightHDR" "251 159 57 20"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
+	"angles" "0 0 0"
 	"origin" "-0.105621 0.302551 -48.1844"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[1000 4500]"
@@ -216,11 +217,11 @@ entity
 	"angles" "0 0 0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
-	"targetname" "button"
+	"targetname" "btn"
 	connections
 	{
-		"OnUnPressed" "proxyProxyRelay0-1"
-		"OnPressed" "proxyProxyRelay0-1"
+		"OnPressed" "outTurnOn0-1"
+		"OnUnPressed" "outTurnOff0-1"
 	}
 	"origin" "0 0 -72"
 	editor
@@ -229,20 +230,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[500 -16268]"
-	}
-}
-entity
-{
-	"id" "53"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "0 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras

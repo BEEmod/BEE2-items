@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "209"
+	"editorbuild" "8037"
+	"mapversion" "211"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "209"
+	"mapversion" "211"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,6 +32,7 @@ entity
 {
 	"id" "18640"
 	"classname" "filter_multi"
+	"angles" "0 0 0"
 	"Filter01" "$ball_filter"
 	"filtertype" "0"
 	"Negated" "0"
@@ -62,6 +63,7 @@ entity
 {
 	"id" "18805"
 	"classname" "env_physexplosion"
+	"angles" "0 0 0"
 	"inner_radius" "0"
 	"magnitude" "100"
 	"radius" "56"
@@ -80,6 +82,7 @@ entity
 {
 	"id" "18948"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -250,8 +253,8 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/bee2/props_p1/rex/cube_holder_center_beam.mdl"
-	"parentname" "spin"
 	"PerformanceMode" "0"
+	"physdamagescale" "1.0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
 	"renderamt" "255"
@@ -311,6 +314,7 @@ entity
 	"MinAnimTime" "5"
 	"model" "models/bee2/props_p1/rex/cube_holder_beam.mdl"
 	"PerformanceMode" "0"
+	"physdamagescale" "1.0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
 	"renderamt" "255"
@@ -339,6 +343,9 @@ entity
 	"drawinfastreflection" "0"
 	"filtername" "@isbox"
 	"origin" "-20 20 0"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"solid" "6"
 	"spawnflags" "8"
 	"StartDisabled" "1"
 	"targetname" "box_killer"
@@ -436,6 +443,7 @@ entity
 {
 	"id" "17575"
 	"classname" "filter_activator_class"
+	"angles" "0 0 0"
 	"filterclass" "prop_monster_box"
 	"Negated" "Allow entities that match criteria"
 	"targetname" "filter_monster"
@@ -459,6 +467,7 @@ entity
 	"id" "17606"
 	"classname" "point_teleport"
 	"angles" "25 135 0"
+	"model" "models/editor/angle_helper.mdl"
 	"spawnflags" "0"
 	"targetname" "tele_monst"
 	"origin" "-20 20 0"
@@ -474,6 +483,7 @@ entity
 {
 	"id" "14529"
 	"classname" "logic_relay"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"targetname" "reset_relay"
@@ -508,6 +518,7 @@ entity
 	"classname" "func_clip_vphysics"
 	"filtername" "@isbox"
 	"origin" "-20 20 -19"
+	"solid" "6"
 	"StartDisabled" "1"
 	"targetname" "phys_clip"
 	solid
@@ -600,6 +611,7 @@ entity
 	"classname" "trigger_multiple"
 	"filtername" "@isbox"
 	"origin" "-20 20 0"
+	"solid" "6"
 	"spawnflags" "8"
 	"StartDisabled" "0"
 	"targetname" "start_trig"
@@ -710,6 +722,7 @@ entity
 	"id" "9907"
 	"classname" "point_teleport"
 	"angles" "0 315 0"
+	"model" "models/editor/angle_helper.mdl"
 	"spawnflags" "0"
 	"targetname" "tele_norm"
 	"origin" "-20 20 0"
@@ -726,6 +739,7 @@ entity
 	"id" "123"
 	"classname" "func_noportal_volume"
 	"origin" "0 0 -56"
+	"solid" "6"
 	"spawnflags" "0"
 	solid
 	{
@@ -817,6 +831,7 @@ entity
 	"classname" "trigger_multiple"
 	"filtername" "@isbox"
 	"origin" "-20 20 0"
+	"solid" "6"
 	"spawnflags" "8"
 	"StartDisabled" "0"
 	"targetname" "trigger_off"
@@ -913,6 +928,7 @@ entity
 {
 	"id" "448"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -945,6 +961,7 @@ entity
 {
 	"id" "457"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -979,6 +996,7 @@ entity
 	"classname" "trigger_multiple"
 	"filtername" "@filter_pellet"
 	"origin" "-20 20 0"
+	"solid" "6"
 	"spawnflags" "8"
 	"StartDisabled" "1"
 	"targetname" "fail_trig"
@@ -1230,6 +1248,7 @@ entity
 	"classname" "func_clip_vphysics"
 	"filtername" "@filter_pellet"
 	"origin" "-4 4 0"
+	"solid" "6"
 	"StartDisabled" "0"
 	"targetname" "ball_collide"
 	solid
@@ -1326,6 +1345,7 @@ entity
 	"model" "models/props/metal_box.mdl"
 	"parentname" "beam,holo_cube"
 	"PerformanceMode" "0"
+	"physdamagescale" "1.0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
 	"renderamt" "100"
@@ -1351,8 +1371,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-3.75869 -84.157 70.7161]"
-		"look" "[-1.19744 -43.4464 21.4081]"
+		"position" "[-25.9732 -51.1639 -3.19445]"
+		"look" "[-27.1974 7.28444 -29.223]"
 	}
 }
 cordons

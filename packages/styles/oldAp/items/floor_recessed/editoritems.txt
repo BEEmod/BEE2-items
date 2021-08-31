@@ -10,7 +10,7 @@
 			"Name"			"PORTAL2_PuzzleEditor_Item_portal_button"
 			"Model"
 				{
-				"ModelName"		"50s_btn_floor.mdl"
+				"ModelName"		"bee2/50s/btn_floor.mdl"
 				}
 			"Palette"
 				{
@@ -30,7 +30,7 @@
 			"Name"		"PORTAL2_PuzzleEditor_Item_cube_button"
 			"Model"
 				{
-				"ModelName"		"50s_btn_cube.mdl"
+				"ModelName"		"bee2/50s/btn_cube.mdl"
 				}
 			"Palette"
 				{
@@ -50,7 +50,7 @@
 			"Name"		"PORTAL2_PuzzleEditor_Item_sphere_button"
 			"Model"
 				{
-				"ModelName"		"50s_btn_sphere.3ds"
+				"ModelName"		"bee2/50s/btn_sphere.3ds"
 				}
 			"Palette"
 				{
@@ -79,6 +79,13 @@
 		{
 		"Instances"
 			{
+			// If the space is embedded, use versions flat on top.
+			// This can juse use the 70s instance.
+			"bee2_flat_floor" "instances/BEE2/70s/items/button/btn_floor.vmf"
+			// These need a different one to be still made of metal.
+			"bee2_flat_cube"  "instances/BEE2/50s/items/button/btn_cube_flat.vmf"
+			"bee2_flat_ball"  "instances/BEE2/50s/items/button/btn_ball_flat.vmf"
+
 			"0"
 				{
 				"Name"				"instances/BEE2/50s/items/button/btn_floor.vmf"
@@ -88,7 +95,7 @@
 				}
 			"1"
 				{
-				"Name"				"instances/BEE2/50s/items/button/btn_floor_black.vmf"
+				"Name"				"instances/BEE2/50s/items/button/btn_floor.vmf"
 				"EntityCount"		"3"
 				"BrushCount"		"41"
 				"BrushSideCount"	"286"
@@ -102,7 +109,7 @@
 				}
 			"3"
 				{
-				"Name"				"instances/BEE2/50s/items/button/cube_black.vmf"
+				"Name"				"instances/BEE2/50s/items/button/btn_cube.vmf"
 				"EntityCount"		"4"
 				"BrushCount"		"12"
 				"BrushSideCount"	"88"
@@ -116,7 +123,7 @@
 				}
 			"5"
 				{
-				"Name"				"instances/BEE2/50s/items/button/btn_ball_black.vmf"
+				"Name"				"instances/BEE2/50s/items/button/btn_ball.vmf"
 				"EntityCount"		"4"
 				"BrushCount"		"18"
 				"BrushSideCount"	"152"
@@ -128,8 +135,8 @@
 			{
 			"CONNECTION_STANDARD"
 				{
-				"Activate"		"instance:out;OnUser2"
-				"Deactivate"	"instance:out;OnUser1"
+				"Activate"      "instance:btn;OnPressed"
+				"Deactivate"    "instance:btn;OnUnPressed"
 				}
 			}
 		"OccupiedVoxels"
@@ -141,13 +148,6 @@
 					{
 					"Normal"	"0 0 1"
 					}
-				}
-			}
-		"EmbeddedVoxels"
-			{
-			"Voxel"
-				{
-				"Pos"		"0 0 0"
 				}
 			}
 		"ConnectionPoints"

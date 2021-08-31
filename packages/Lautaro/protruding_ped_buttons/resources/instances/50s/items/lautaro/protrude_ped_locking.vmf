@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "78"
+	"editorbuild" "8419"
+	"mapversion" "81"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "64"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "78"
+	"mapversion" "81"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,25 +32,24 @@ entity
 {
 	"id" "628"
 	"classname" "logic_coop_manager"
+	"angles" "0 0 0"
 	"DefaultPlayerStateA" "0"
 	"DefaultPlayerStateB" "1"
-	"targetname" "output"
+	"targetname" "lock_man"
 	connections
 	{
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnChangeToAllTrue" "outputSetStateBFalse0-1"
-		"OnChangeToAllFalse" "outputSetStateBTrue0-1"
-		"OnChangeToAllTrue" "!selfFireUser20-1"
-		"OnChangeToAllFalse" "!selfFireUser10-1"
+		"OnChangeToAllTrue" "lock_manSetStateBFalse0-1"
+		"OnChangeToAllFalse" "lock_manSetStateBTrue0-1"
+		"OnChangeToAllTrue" "outputFireUser20-1"
+		"OnChangeToAllFalse" "outputFireUser10-1"
 	}
-	"origin" "-48 0 -32"
+	"origin" "56 0 -32"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "A is the current state, B is the next state to become. This prvents double-triggering the outputs."
+		"comments" "A is the current state, B is the next state to become. This prevents double-triggering the outputs."
 		"logicalpos" "[0 1000]"
 	}
 }
@@ -60,7 +59,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$timer_delay float 3"
 	"parm2" "$timer_sound integer 0"
-	"origin" "-48.1 -16 -32"
+	"origin" "39.9 0 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -80,36 +79,18 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"solid" "1"
-	"targetname" "button"
+	"targetname" "output"
 	connections
 	{
-		"OnPressed" "outputSetStateATrue0-1"
+		"OnPressed" "lock_manSetStateATrue0-1"
 	}
-	"origin" "-64.1 0 -48"
+	"origin" "63.9 0 -48"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "22"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "outputSetStateAFalse0-1"
-	}
-	"origin" "-48.1 16 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "138"
+	"editorbuild" "8419"
+	"mapversion" "143"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,46 +20,19 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "138"
+	"mapversion" "143"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
-	group
-	{
-		"id" "9854"
-		editor
-		{
-			"color" "182 179 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-}
-entity
-{
-	"id" "9857"
-	"classname" "logic_auto"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest0-1"
-	}
-	"origin" "0 8 -56"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
 }
 entity
 {
 	"id" "9214"
 	"classname" "logic_branch"
+	"angles" "0 0 0"
 	"InitialValue" "$start_enabled"
 	"targetname" "branch_on"
 	connections
@@ -69,46 +42,18 @@ entity
 		"OnTrue" "sprColor0 255 00.11"
 		"OnTrue" "lightColor130 255 1300.11"
 		"OnTrue" "sprShowSprite0.11"
-		"OnTrue" "trigKill01"
+		"OnTrue" "snd_noKill01"
 		"OnTrue" "timKill01"
-		"OnTrue" "toggleSetTextureIndex101"
-		"OnTrue" "counterKill01"
-		"OnTrue" "toggleFireUser201"
-		"OnTrue" "buttonLock01"
+		"OnTrue" "buttonFireUser201"
+		"OnTrue" "branch_onKill01"
 	}
-	"origin" "0 -8 -56"
+	"origin" "-8 0 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "6"
-	"classname" "prop_under_button"
-	"angles" "0 90 0"
-	"Delay" "$timer_delay"
-	"istimer" "1"
-	"preventfastreset" "0"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"solid" "1"
-	"targetname" "button"
-	connections
-	{
-		"OnPressed" "branch_onTest0-1"
-	}
-	"origin" "-24 0 -63"
-	editor
-	{
-		"color" "182 179 0"
-		"groupid" "9854"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
 	}
 }
 cameras

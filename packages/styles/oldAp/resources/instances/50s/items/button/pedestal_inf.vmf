@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "66"
+	"editorbuild" "8973"
+	"mapversion" "70"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "66"
+	"mapversion" "70"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -34,7 +34,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$timer_delay float 3"
 	"parm2" "$timer_sound integer 0"
-	"origin" "-48 -32 -48"
+	"origin" "-48 0 0"
 	editor
 	{
 		"color" "220 30 220"
@@ -55,13 +55,10 @@ entity
 	"rendercolor" "255 255 255"
 	"rendermode" "0"
 	"solid" "1"
-	"targetname" "out"
+	"targetname" "output"
 	connections
 	{
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnPressed" "outFireUser201"
-		"OnPressed" "!selfLock01"
+		"OnPressed" "!selfFireUser201"
 	}
 	"origin" "-48 0 -56"
 	editor
@@ -71,20 +68,6 @@ entity
 		"visgroupautoshown" "1"
 		"comments" "These buttons aren't as high-tech as clean ones - they don't stay in."
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "22"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-48 32 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras

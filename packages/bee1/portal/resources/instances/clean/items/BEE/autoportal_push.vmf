@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "7"
+	"editorbuild" "8037"
+	"mapversion" "9"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "7"
+	"mapversion" "9"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,11 +30,32 @@ world
 }
 entity
 {
+	"id" "14"
+	"classname" "comp_kv_setter"
+	"mode" "kv"
+	"target" "man"
+	connections
+	{
+		"OnChangeToAllTrue" "pushEnable0-1"
+		"OnChangeToAllTrue" "pushDisable0.1-1"
+	}
+	"origin" "-24 0 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "7"
 	"classname" "trigger_push"
 	"alternateticksfix" "0"
 	"origin" "0 0 -60"
 	"pushdir" "-90 0 0"
+	"solid" "6"
 	"spawnflags" "1098"
 	"speed" "1"
 	"StartDisabled" "1"

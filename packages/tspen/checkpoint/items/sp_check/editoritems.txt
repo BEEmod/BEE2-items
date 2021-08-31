@@ -1,7 +1,6 @@
 "Item"
 	{
 	"Type"			"ITEM_TSPEN_SP_CHECKPOINT"
-	"ItemClass"		"ItemButtonFloor"
 	"Editor"
 		{
 		"SubTypeProperty" "StartEnabled"
@@ -50,33 +49,11 @@
 			{
 			"0"
 				{
-				"Name"				"instances/BEE2/clean/items/tSpen/chamberlock_white.vmf"
+				"Name"				"instances/BEE2/clean/items/tSpen/chamberlock.vmf"
 				"EntityCount"		"55"
 				"BrushCount"		"48"
 				"BrushSideCount"	"310"
 				}
-			"1"
-				{
-				"Name"              "instances/BEE2/clean/items/tSpen/chamberlock_black.vmf"
-				"EntityCount"       "9"
-				"BrushCount"        "48"
-				"BrushSideCount"	"310"
-				}
-			"2"
-				{
-				"Name"				"instances/BEE2/clean/items/tSpen/chamberlock_white.vmf"
-				"EntityCount"		"55"
-				"BrushCount"		"48"
-				"BrushSideCount"	"310"
-				}
-			"3"
-				{
-				"Name"              "instances/BEE2/clean/items/tSpen/chamberlock_black.vmf"
-				"EntityCount"       "9"
-				"BrushCount"        "48"
-				"BrushSideCount"	"310"
-				}
-			"bee2_logic" "instances/BEE2/clean/items/tspen/chamberlock_logic.vmf"
 			"bee2_fizz_tag" "instances/BEE2/clean/items/tspen/chamberlock_tag.vmf"
 			"bee2_fizz_p2" "instances/BEE2/clean/items/tspen/chamberlock_p2.vmf"
 
@@ -90,6 +67,10 @@
 				{
 				"Type"          "AND"
 				"invertVar"		"$start_enabled"
+				"spawnFire"     "always"
+				// This does door->Open, but we route through the trigger
+				// so that the input is blocked off when the player touches
+				// the trigger.
 				"Enable_Cmd"    "trig,FireUser1,,0.00,-1"
 				"Disable_Cmd"   "block_trig,TouchTest,,0.00,-1"
 				}
@@ -98,7 +79,7 @@
 			{
 			"CONNECTION_STANDARD"
 				{
-				"Activate"		"instance:close_rl;OnUser2"
+				"Activate"		"instance:trig;OnTrigger"
 				}
 			}
 		"Offset"		"64 64 64"
@@ -144,7 +125,15 @@
 				"Pos"		"0 -1 0"
 				}
 			}
-
+		"EmbedFace"
+			{
+			"Solid"
+				{
+				"Center"		"64 64 128"
+				"Dimensions"	"128 128 4"
+				"Grid"			"Grid_Default"
+				}
+			}
 		"ConnectionPoints"
 			{
 			// top edge left to right

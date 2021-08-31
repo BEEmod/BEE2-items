@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "140"
+	"editorbuild" "8419"
+	"mapversion" "145"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,59 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "140"
+	"mapversion" "145"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2072"
+	"classname" "comp_kv_setter"
+	"angles" "0 270 0"
+	"conv_ang" "0"
+	"invert" "0"
+	"kv_name" "model"
+	"kv_value_global" "$model"
+	"mode" "kv"
+	"rotate" "0"
+	"target" "mdl"
+	"origin" "8 0 20"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1500 3500]"
+	}
+}
+entity
+{
+	"id" "2173"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"targetname" "plat"
+	connections
+	{
+		"OnTurnedOn" "cube_enable_motion_triggerDisable0.01-1"
+		"OnTurnedOn" "cube_enable_motion_triggerEnable0-1"
+		"OnTurnedOn" "track_lift_movelinearSetPosition10-1"
+		"OnTurnedOff" "cube_enable_motion_triggerDisable0.01-1"
+		"OnTurnedOff" "cube_enable_motion_triggerEnable0-1"
+		"OnTurnedOff" "track_lift_movelinearSetPosition00-1"
+	}
+	"origin" "24 0 20"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1500 3500]"
+	}
 }
 entity
 {
@@ -44,9 +90,10 @@ entity
 	"HoldAnimation" "0"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
-	"model" "$model"
+	"model" "models/bee2/props_underground/track_plat_horiz.mdl"
 	"parentname" "track_lift_movelinear"
 	"PerformanceMode" "0"
+	"physdamagescale" "1.0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
 	"renderamt" "255"
@@ -79,6 +126,7 @@ entity
 	"Dangling" "0"
 	"MoveSpeed" "64"
 	"parentname" "track_lift_movelinear"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "110"
 	"spawnflags" "1"
@@ -131,6 +179,7 @@ entity
 	"filtername" "@is_mbox"
 	"origin" "0 0 0"
 	"parentname" "track_lift_movelinear"
+	"solid" "6"
 	"spawnflags" "4104"
 	"StartDisabled" "1"
 	"targetname" "cube_enable_motion_trigger"
@@ -256,21 +305,13 @@ entity
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "0"
+	"solid" "6"
 	"spawnflags" "0"
 	"speed" "$speed"
 	"startposition" "0"
 	"startsound" "World.a3JumpIntroPlatformTravel"
 	"stopsound" "World.a3JumpIntroPlatformArrive"
 	"targetname" "track_lift_movelinear"
-	connections
-	{
-		"OnUser2" "cube_enable_motion_triggerDisable0.01-1"
-		"OnUser2" "track_lift_movelinearSetPosition10-1"
-		"OnUser2" "cube_enable_motion_triggerEnable0-1"
-		"OnUser1" "cube_enable_motion_triggerDisable0.01-1"
-		"OnUser1" "track_lift_movelinearSetPosition00-1"
-		"OnUser1" "cube_enable_motion_triggerEnable0-1"
-	}
 	solid
 	{
 		"id" "1177"

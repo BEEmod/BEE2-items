@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "84"
+	"editorbuild" "8419"
+	"mapversion" "88"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "84"
+	"mapversion" "88"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -35,7 +35,7 @@ entity
 	"angles" "0 0 0"
 	"model" "models/bee2/props_p1/cube_button.mdl"
 	"skin" "0"
-	"origin" "0 0 4"
+	"origin" "0 0 0"
 	editor
 	{
 		"color" "220 30 220"
@@ -54,12 +54,11 @@ entity
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"rendermode" "0"
-	"targetname" "button"
+	"solid" "6"
+	"targetname" "btn"
 	"vscript_init_code" "function OnPostSpawn() { self.SetModel(`models/bee2/props_p1/cube_button.mdl`) }"
 	connections
 	{
-		"OnPressed" "pTrigger0-1"
-		"OnUnPressed" "pFireUser10-1"
 		"OnPressed" "@glados_cube_buttonStart0-1"
 		"OnUnPressed" "@commandCommandcc_emit Portal.ButtonRelease0-1"
 		"OnPressed" "@commandCommandcc_emit Portal.ButtonDepress0-1"
@@ -75,54 +74,20 @@ entity
 }
 entity
 {
-	"id" "701"
-	"classname" "logic_relay"
-	"StartDisabled" "0"
-	"targetname" "p"
-	connections
-	{
-		"OnTrigger" "proxyProxyRelay0-1"
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnSpawn" "buttonRunScriptCodep1_cube_button()01"
-	}
-	"origin" "-48 16 -48"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "131"
 	"classname" "light"
 	"_light" "251 159 57 15"
 	"_lightHDR" "251 159 57 8"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
-	"origin" "0 0 -39"
+	"angles" "0 0 0"
+	"origin" "0 0 -44"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "53"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "48 -16 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras

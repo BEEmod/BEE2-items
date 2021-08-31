@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "112"
+	"editorbuild" "8419"
+	"mapversion" "119"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "112"
+	"mapversion" "119"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -53,6 +53,7 @@ hidden
 		"renderfx" "14"
 		"rendermode" "0"
 		"shadowdepthnocache" "0"
+		"solid" "6"
 		"solidbsp" "0"
 		"Solidity" "1"
 		"spawnflags" "2"
@@ -156,6 +157,9 @@ hidden
 		"classname" "trigger_portal_cleanser"
 		"drawinfastreflection" "0"
 		"origin" "0 -16 16"
+		"renderamt" "255"
+		"rendercolor" "255 255 255"
+		"solid" "6"
 		"spawnflags" "4105"
 		"StartDisabled" "0"
 		"targetname" "fizz_blue"
@@ -258,6 +262,9 @@ hidden
 		"classname" "trigger_portal_cleanser"
 		"drawinfastreflection" "0"
 		"origin" "0 16 16"
+		"renderamt" "255"
+		"rendercolor" "255 255 255"
+		"solid" "6"
 		"spawnflags" "4105"
 		"StartDisabled" "0"
 		"targetname" "fizz_red"
@@ -364,6 +371,7 @@ hidden
 		"damagetype" "1024"
 		"nodmgforce" "1"
 		"origin" "0 48 16"
+		"solid" "6"
 		"spawnflags" "4105"
 		"StartDisabled" "0"
 		"targetname" "hurt"
@@ -474,6 +482,7 @@ hidden
 		"MinAnimTime" "5"
 		"model" "models/bee2/props_ingame/cust_fizz.mdl"
 		"PerformanceMode" "0"
+		"physdamagescale" "1.0"
 		"pressuredelay" "0"
 		"RandomAnimation" "0"
 		"renderamt" "255"
@@ -503,6 +512,7 @@ hidden
 	{
 		"id" "629"
 		"classname" "ambient_generic"
+		"angles" "0 0 0"
 		"cspinup" "0"
 		"fadeinsecs" "0"
 		"fadeoutsecs" "0"
@@ -536,7 +546,9 @@ entity
 {
 	"id" "619"
 	"classname" "logic_script"
+	"angles" "0 0 0"
 	"targetname" "scr"
+	"vscript_init_code" "init($start_enabled, $start_reversed)"
 	"vscripts" "bee2/death_fizz.nut"
 	connections
 	{
@@ -564,7 +576,7 @@ entity
 		"OnUser4" "fizz_blueDisable0-1"
 		"OnUser2" "mdlColor100 150 2000-1"
 	}
-	"origin" "16 4.76837e-007 0"
+	"origin" "0 4.76837e-007 0"
 	editor
 	{
 		"color" "200 200 200"
@@ -577,9 +589,10 @@ entity
 {
 	"id" "623"
 	"classname" "func_instance_parms"
-	"parm1" "$connectioncount integer"
-	"parm2" "$start_enabled integer"
-	"parm3" "$start_reversed string"
+	"parm1" "$connectioncount integer 0"
+	"parm2" "$start_enabled integer 0"
+	"parm3" "$start_reversed integer 0"
+	"parm4" "$start_enabled$start_reversed string Ignore this"
 	"origin" "-16 0 0"
 	editor
 	{
