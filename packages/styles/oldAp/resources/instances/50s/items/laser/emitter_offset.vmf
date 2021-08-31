@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "98"
+	"editorbuild" "8973"
+	"mapversion" "101"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "98"
+	"mapversion" "101"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -936,6 +936,7 @@ entity
 	"id" "3446"
 	"classname" "func_noportal_volume"
 	"origin" "1 0 -64"
+	"solid" "6"
 	"spawnflags" "0"
 	solid
 	{
@@ -1030,6 +1031,8 @@ entity
 	"disableshadowdepth" "0"
 	"disableshadows" "0"
 	"drawinfastreflection" "0"
+	"fademindist" "-1"
+	"fadescale" "1"
 	"InputFilter" "0"
 	"invert_exclusion" "0"
 	"origin" "0 0 -66"
@@ -1038,6 +1041,7 @@ entity
 	"renderfx" "0"
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
+	"solid" "6"
 	"solidbsp" "0"
 	"Solidity" "1"
 	"spawnflags" "2"
@@ -1250,8 +1254,9 @@ entity
 {
 	"id" "223"
 	"classname" "func_instance_parms"
-	"parm1" "$start_enabled integer 1"
-	"parm2" "$start_disabled integer 0"
+	"parm1" "$start_enabled boolean 1"
+	"parm2" "$start_disabled boolean 0"
+	"parm3" "$autoaim boolean 1"
 	"origin" "0 0 -24"
 	editor
 	{
@@ -1266,13 +1271,15 @@ entity
 	"id" "12"
 	"classname" "env_portal_laser"
 	"angles" "-90 90 0"
-	"AutoAimEnabled" "1"
+	"AutoAimEnabled" "$autoaim"
+	"fademindist" "-1"
+	"fadescale" "1"
 	"model" "models/props/laser_emitter_center.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"rendermode" "10"
-	"scalevalue" "0"
 	"skin" "0"
+	"solid" "6"
 	"StartState" "$start_disabled"
 	"targetname" "laser"
 	"origin" "0 0 -126"

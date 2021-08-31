@@ -1,61 +1,6 @@
 "ID"		"BEEMOD_1"
 "Name"		"BEEMOD 1"
-"Desc"      "Items added in the original BEEMOD 1. This includes Crushers, Triggers, Logic Gates, Diversity Vents, Drawbridges, and Doors."
-
-"Item"
-	{
-	"ID" "ITEM_BEE_LOGIC"
-	"Unstyled"	"1"
-	"Version"
-		{
-		"Styles"
-			{
-			"<LOGIC>"	"logic"
-			}
-		}
-	}
-
-
-"Item"
-	{
-	"ID" "ITEM_BEE_LOGIC_STRIP"
-	"Unstyled"	"1"
-	"Version"
-		{
-		"Styles"
-			{
-			"<LOGIC>"	"logic_strip"
-			}
-		}
-	}
-
-
-"Item"
-	{
-	"ID" "ITEM_TRIGGERS"
-	"Unstyled"	"1"
-	"Version"
-		{
-		"Styles"
-			{
-			"<LOGIC>"	"trigger"
-			}
-		}
-	}
-	
-"ConfigGroup"
-	{
-	"ID"    "BEEMOD"
-	"Name"  "BEEmod"
-	"Widget"
-		{
-		"ID"	  "SHOW_TRIGGER"
-		"Label"   "Show Triggers ingame"
-		"Tooltip" "Show transparent overlays of triggers when in preview mode. These never appear in the published maps."
-		"Type"    "Checkbox"
-		"Default" "0"
-		}
-	}
+"Desc"      "Items added in the original BEEMOD 1. This includes Crushers, Diversity Vents, Drawbridges, and Doors."
 
 "Item"
 	{
@@ -217,51 +162,24 @@
 		}
 	}
 	
-"BrushTemplate"
-	{
-	"ID"   "BEE_DRAW_BRIDGE_CLEAN"
-	"file" "drawbridge_clean.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE_DRAW_BRIDGE_OVER"
-	"file" "drawbridge_over.vmf"
-	}
-	
-"BrushTemplate"
-	{
-	"ID"   "BEE2_P1_DRAWBRIDGE_DOWN"
-	"file" "drawbridge_p1_down.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE2_P1_DRAWBRIDGE_UP"
-	"file" "drawbridge_p1_up.vmf"
-	}
-	
 
 "Item"
 	{
 	"ID" "ITEM_VENT"
+	"all_conf" "vent.cfg"
 	"Version"
 		{
 		"Styles"
 			{
 			"BEE2_CLEAN" "vent"
 			"BEE2_1950s" "vent_50s"
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "vent"
+				"Config" "vent_p1"
+				}
 			}
 		}
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE_VENT_BASE_CLEAN"
-	"file"  "vent_base_clean.vmf"
-	}
-"BrushTemplate"
-	{
-	"ID"    "BEE_VENT_BASE_50S"
-	"file"  "vent_base_50s.vmf"
 	}
 	
 "Item"
@@ -352,11 +270,6 @@
 				}
 			}
 		}
-	}
-"BrushTemplate"
-	{
-	"ID"   "BEE_DOOR_COWL_MODERN"
-	"file" "bee_door_modern.vmf"
 	}
 	
 "EditorSound"

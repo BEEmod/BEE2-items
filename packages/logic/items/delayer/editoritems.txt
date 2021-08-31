@@ -1,0 +1,203 @@
+"Item"
+	{
+	"ItemClass" "ItemButtonFloor"
+	"Type"		"ITEM_TSPEN_LOGIC_DELAYER"
+	"Editor"
+		{
+		"SubTypeProperty" "ButtonType"
+		"SubType"
+			{
+			"Name"		"Delayer (Both)"
+			"Model"
+				{
+				"ModelName"		"tspen_logic_delayer_both.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"DELAYER - BOTH"
+				"Image"			"palette/logic/tspen/timer/delayer_both.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"		"Activation Delayer"
+			"Model"
+				{
+				"ModelName"		"tspen_logic_delayer_rising.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"ON DELAYER"
+				"Image"			"palette/logic/tspen/timer/delayer_rising.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"		"Shutdown Delayer"
+			"Model"
+				{
+				"ModelName"		"tspen_logic_delayer_falling.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"OFF DELAYER"
+				"Image"			"palette/logic/tspen/timer/delayer_falling.png"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"    "HANDLE_NONE"
+		}
+	"Properties"
+		{
+		"ButtonType"
+			{
+			"DefaultValue"  "0"
+			"Index"         "0"
+			}
+		"ConnectionCount"
+			{
+			"DefaultValue"  "0"
+			"Index"         "1"
+			}
+		"TimerDelay"
+			{
+			"DefaultValue"  "1"
+			"Index"         "2"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_both.vmf"
+				"EntityCount"	"6"
+				}
+			"1"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_both.vmf"
+				"EntityCount"	"6"
+				}
+			"2"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_rising.vmf"
+				"EntityCount"	"5"
+				}
+			"3"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_rising.vmf"
+				"EntityCount"	"5"
+				}
+			"4"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_falling.vmf"
+				"EntityCount"	"5"
+				}
+			"5"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_falling.vmf"
+				"EntityCount"	"5"
+				}
+			}
+
+		"TargetName"		"delay"
+		"Inputs"
+			{
+			// Each item type is defined in the config.
+			"BEE2"
+				{
+				"Force" "input"
+				"Out_Activate"      "instance:out;OnUser2"
+				"Out_Deactivate"    "instance:out;OnUser1"
+				}
+			}
+		"ConnectionPoints"
+			{
+			// left
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 3 0"
+				"SignageOffset"		"-2 2 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 4 0"
+				"SignageOffset"		"-2 5 0"
+				"Priority"  "0"
+				}
+
+			// right
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"8 3 0"
+				"SignageOffset"		"9 2 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"8 4 0"
+				"SignageOffset"		"9 5 0"
+				"Priority"  "0"
+				}
+
+			// up
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"3 -1 0"
+				"SignageOffset"		"2 -2 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"4 -1 0"
+				"SignageOffset"		"5 -2 0"
+				"Priority"  "0"
+				}
+
+			// down
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"3 8 0"
+				"SignageOffset"		"2 9 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"4 8 0"
+				"SignageOffset"		"5 9 0"
+				"Priority"  "0"
+				}
+			}
+		"Offset"	"64 64 64"
+		}
+	}

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "19"
+	"editorbuild" "8952"
+	"mapversion" "20"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "19"
+	"mapversion" "20"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,8 +30,28 @@ world
 }
 entity
 {
+	"id" "1305"
+	"classname" "comp_scriptvar_setter"
+	"angles" "0 0 0"
+	"const" "$bomb_time"
+	"mode" "const"
+	"origin" "-16 0 0"
+	"target" "box"
+	"variable" "cube_bomb_time"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Assign the configured time to the bomb cube script's var."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "1237"
 	"classname" "env_explosion"
+	"angles" "0 0 0"
 	"fireballsprite" "sprites/zerogxplode.spr"
 	"ignoredEntity" "box"
 	"iMagnitude" "250"

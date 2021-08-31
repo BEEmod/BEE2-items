@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "139"
+	"editorbuild" "8874"
+	"mapversion" "142"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "139"
+	"mapversion" "142"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -423,6 +423,10 @@ entity
 	"speed" "80"
 	"startdisabled" "0"
 	"targetname" "wake_trig"
+	connections
+	{
+		"OnStartTouch" "!activatorExitDisabledState0-1"
+	}
 	solid
 	{
 		"id" "1230"
@@ -547,7 +551,7 @@ entity
 	"targetname" "arm"
 	connections
 	{
-		"OnUser4" "wake_trigDisable0.01-1"
+		"OnUser4" "wake_trigDisable0.1-1"
 		"OnUser4" "triggerEnable0.01-1"
 		"OnUser4" "sprColor0 255 2550-1"
 		"OnUser4" "flash_timResetTimer0-1"

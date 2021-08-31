@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "262"
+	"editorbuild" "8874"
+	"mapversion" "271"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "262"
+	"mapversion" "271"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,9 +30,101 @@ world
 }
 entity
 {
+	"id" "14808"
+	"classname" "func_areaportal"
+	"PortalVersion" "1"
+	"StartOpen" "1"
+	"targetname" "entry_portal"
+	solid
+	{
+		"id" "14809"
+		side
+		{
+			"id" "3008"
+			"plane" "(0 -48 -65) (0 48 -65) (128 48 -65)"
+			"material" "TOOLS/TOOLSAREAPORTAL"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3007"
+			"plane" "(0 48 -69) (0 -48 -69) (128 -48 -69)"
+			"material" "TOOLS/TOOLSAREAPORTAL"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3006"
+			"plane" "(0 -48 -69) (0 48 -69) (0 48 -65)"
+			"material" "TOOLS/TOOLSAREAPORTAL"
+			"uaxis" "[0 -1 0 0] 0.25"
+			"vaxis" "[0 0 -1 11] 1"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3005"
+			"plane" "(128 48 -69) (128 -48 -69) (128 -48 -65)"
+			"material" "TOOLS/TOOLSAREAPORTAL"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 11] 1"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3004"
+			"plane" "(0 48 -69) (128 48 -69) (128 48 -65)"
+			"material" "TOOLS/TOOLSAREAPORTAL"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 11] 1"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3003"
+			"plane" "(128 -48 -69) (0 -48 -69) (0 -48 -65)"
+			"material" "TOOLS/TOOLSAREAPORTAL"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 11] 1"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "0 255 255"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "0 255 255"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
 	"id" "14759"
 	"classname" "trigger_once"
 	"origin" "40 0 -24"
+	"solid" "6"
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	connections
@@ -40,7 +132,6 @@ entity
 		"OnTrigger" "@entrance_door_closeTrigger0-1"
 		"OnTrigger" "@relay_lights_onTrigger1-1"
 		"OnTrigger" "@relay_spawn_on_entranceTrigger0-1"
-		"OnTrigger" "@entrance_areaportalClose2-1"
 		"OnTrigger" "@entrance_portal_insideClose2-1"
 		"OnTrigger" "@voice_enterTrigger0-1"
 		"OnTrigger" "@music_startTrigger0-1"
@@ -445,6 +536,7 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props_underground/test_chamber_door.mdl"
+	"physdamagescale" "1.0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
@@ -463,22 +555,22 @@ entity
 entity
 {
 	"id" "14779"
-	"classname" "logic_relay"
-	"spawnflags" "2"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
 	"targetname" "@entrance_door_close"
 	connections
 	{
 		"OnTrigger" "door_propSetAnimationclose0-1"
 		"OnTrigger" "door_propSetDefaultAnimationclose_idle0.1-1"
-		"OnTrigger" "@entrance_door_openCancelPending0-1"
 		"OnTrigger" "door_pushersEnable0-1"
 		"OnTrigger" "door_pushersDisable1-1"
-		"OnTrigger" "@entrance_areaportalClose2-1"
+		"OnTrigger" "entry_portalClose2-1"
 	}
 	"origin" "97 44 -124"
 	editor
 	{
-		"color" "0 100 250"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8000]"
@@ -487,21 +579,21 @@ entity
 entity
 {
 	"id" "14781"
-	"classname" "logic_relay"
-	"spawnflags" "3"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
 	"targetname" "@entrance_door_open"
 	connections
 	{
 		"OnTrigger" "door_propSetAnimationopen0-1"
 		"OnTrigger" "door_propSetDefaultAnimationopen_idle0.1-1"
-		"OnTrigger" "@entrance_door_closeCancelPending0-1"
-		"OnTrigger" "door_pushersDisable0-1"
-		"OnTrigger" "@entrance_areaportalOpen0-1"
+		"OnTrigger" "entry_portalOpen0-1"
+		"OnTrigger" "@autosaveSave0-1"
 	}
 	"origin" "121 44 -124"
 	editor
 	{
-		"color" "0 100 250"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 8000]"
@@ -514,6 +606,7 @@ entity
 	"alternateticksfix" "0"
 	"origin" "65 0 -54.01"
 	"pushdir" "0 180 0"
+	"solid" "6"
 	"spawnflags" "9"
 	"speed" "150"
 	"StartDisabled" "1"
@@ -600,188 +693,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
-	"id" "14788"
-	"classname" "func_areaportal"
-	"PortalVersion" "1"
-	"StartOpen" "0"
-	"targetname" "@entrance_areaportal"
-	solid
-	{
-		"id" "14789"
-		side
-		{
-			"id" "2996"
-			"plane" "(0 -48 -68) (0 48 -68) (128 48 -68)"
-			"material" "TOOLS/TOOLSAREAPORTAL"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2995"
-			"plane" "(0 48 -69) (0 -48 -69) (128 -48 -69)"
-			"material" "TOOLS/TOOLSAREAPORTAL"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2994"
-			"plane" "(0 -48 -69) (0 48 -69) (0 48 -68)"
-			"material" "TOOLS/TOOLSAREAPORTAL"
-			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2993"
-			"plane" "(128 48 -69) (128 -48 -69) (128 -48 -68)"
-			"material" "TOOLS/TOOLSAREAPORTAL"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2992"
-			"plane" "(0 48 -69) (128 48 -69) (128 48 -68)"
-			"material" "TOOLS/TOOLSAREAPORTAL"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2991"
-			"plane" "(128 -48 -69) (0 -48 -69) (0 -48 -68)"
-			"material" "TOOLS/TOOLSAREAPORTAL"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 255 255"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "0 255 255"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "7879"
-	"classname" "trigger_autosave"
-	"DangerousTimer" "0"
-	"MinimumHitPoints" "0"
-	"NewLevelUnit" "0"
-	solid
-	{
-		"id" "7869"
-		side
-		{
-			"id" "2324"
-			"plane" "(192 -176 -96) (192 -176 -112) (-64 -176 -112)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 -32] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2323"
-			"plane" "(-64 176 -96) (-64 176 -112) (192 176 -112)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 32.0039] 0.25"
-			"vaxis" "[-1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2322"
-			"plane" "(192 175.999 -96) (192 175.999 -112) (192 -176 -112)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 32.0039] 0.25"
-			"vaxis" "[0 1 0 -0.146496] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2321"
-			"plane" "(-64 -176 -96) (-64 -176 -112) (-64 175.999 -112)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 32.0039] 0.25"
-			"vaxis" "[0 1 0 -0.146496] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2320"
-			"plane" "(192 -176 -96) (-64 -176 -96) (-64 175.999 -96)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 -0.144531] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "2319"
-			"plane" "(192 175.999 -112) (-64 175.999 -112) (-64 -176 -112)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 -32] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
 	}
 }
 cameras
