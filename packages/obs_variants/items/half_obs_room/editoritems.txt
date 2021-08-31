@@ -1,0 +1,159 @@
+"Item"
+{
+	"Type"		"BEE2_HALF_OBS_ROOM"
+	"ItemClass"	"ItemButtonFloor"
+	"Editor"
+	{	
+		"SubTypeProperty"	"ButtonType"
+		"SubType"
+		{
+			"Name"		"Half Observation Room - Left"
+			"Model"
+			{
+				"ModelName"		"bee2/clean/half_obs_left.3ds"
+			}
+			"Sounds"
+			{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+			}
+		}
+		"SubType"
+		{
+			"Name"		"Half Observation Room"
+			"Model"
+			{
+				"ModelName"		"bee2/clean/half_obs_center.3ds"
+			}
+			"Palette"
+			{
+				"Tooltip"	"HALF OBSERVATION ROOM"
+				"Image"		"palette/bee2/clean/half_obs_room.png"
+			}
+			"Sounds"
+			{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+			}
+		}
+		"SubType"
+		{
+			"Name"		"Half Observation Room - Right"
+			"Model"
+			{
+				"ModelName"		"bee2/clean/half_obs_right.3ds"
+			}
+			"Sounds"
+			{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+			}
+		}
+		"MovementHandle"		"HANDLE_NONE"
+		// No floor/ceiling variants yet
+		"InvalidSurface"		"CEILING FLOOR"
+		"DesiredFacing"			"DESIRES_UP"
+	}
+	"Properties"
+	{
+		"ButtonType"
+		{
+			"Index"	"1"
+			"DefaultValue"	"1"
+		}
+	}
+	"Exporting"
+	{
+		"Instances"
+		{
+			"0"
+			{
+				"Name"				"instances/BEE2/clean/items/half_obs_room/left.vmf"
+				"EntityCount"		"5"
+				"BrushCount"		"9"
+				"BrushSideCount"	"54"
+			}
+			"1"
+			{
+				"Name"				"instances/BEE2/clean/items/half_obs_room/left.vmf"
+				"EntityCount"		"5"
+				"BrushCount"		"9"
+				"BrushSideCount"	"54"
+			}
+			"2"
+			{
+				"Name"				"instances/BEE2/clean/items/half_obs_room/center.vmf"
+				"EntityCount"		"5"
+				"BrushCount"		"9"
+				"BrushSideCount"	"54"
+			}
+			"3"
+			{
+				"Name"				"instances/BEE2/clean/items/half_obs_room/center.vmf"
+				"EntityCount"		"5"
+				"BrushCount"		"9"
+				"BrushSideCount"	"54"
+			}
+			"4"
+			{
+				"Name"				"instances/BEE2/clean/items/half_obs_room/right.vmf"
+				"EntityCount"		"5"
+				"BrushCount"		"9"
+				"BrushSideCount"	"54"
+			}
+			"5"
+			{
+				"Name"				"instances/BEE2/clean/items/half_obs_room/right.vmf"
+				"EntityCount"		"5"
+				"BrushCount"		"9"
+				"BrushSideCount"	"54"
+			}
+
+			// These are the actual instances used
+			"bee2_common"  "instances/BEE2/clean/items/half_obs_room/common.vmf"
+			"bee2_left_common" "instances/BEE2/clean/items/half_obs_room/left_common.vmf"
+			"bee2_left_furniture" "instances/BEE2/clean/items/half_obs_room/left_furniture.vmf"
+			"bee2_right_common" "instances/BEE2/clean/items/half_obs_room/right_common.vmf"
+			"bee2_right_furniture" "instances/BEE2/clean/items/half_obs_room/right_furniture.vmf"
+		}
+
+		"TargetName"		"half_obs"
+		"Offset"		"64 64 64"
+		// We can't change the collisions based on button type, so just always occupy the full tile
+		"OccupiedVoxels"
+		{
+			"Voxel"
+			{
+				"Pos"		"0 0 0"
+				"Surface"
+				{
+					"Normal"	"0 0 1"
+				}
+			}
+		}
+		"EmbeddedVoxels"
+		{
+			"Volume"
+			{
+				"Pos1"		"1 -1 0"
+				"Pos2"		"-1 1 -1"
+			}
+		}
+		// Added to allow surrounding tiles to be colored.
+		"EmbedFace"
+		{
+			"Solid"
+			{
+				"Center"     "64 64 128"
+				"Dimensions" "128 128 4"
+				"Grid"       "4x4"
+			}
+		}
+	}
+}
