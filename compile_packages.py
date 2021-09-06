@@ -271,7 +271,7 @@ def main():
     pack_name = ""
     if do_zip is None:
         if conv_bool(input("Zip it all in one file? (y/n) ")):
-            pack_name = 'BEE{}_packages.zip'.format(input('Version: '))
+            pack_name = 'BEE2_v{}_packages.zip'.format(input('Version: '))
     else:
         pack_name = do_zip      # do_zip also can be blank
         # if its not blank, and not ending with .zip, then add .zip to filename
