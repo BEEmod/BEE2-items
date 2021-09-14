@@ -1,0 +1,38 @@
+VertexLitGeneric
+	{
+	$basetexture "BEE2/models/props_p1/box_dropper_light/light"
+    $frame 1
+    $selfillum 1
+
+    $blue 1
+    $oran 2
+    $sine 0
+    $offset 0
+    $half 0.5
+    Proxies
+		{
+		// Offset so different droppers don't match.
+		EntityRandom
+			{
+			scale 1
+			resultVar $offset
+			}
+		// Then swap every second.
+		Sine
+			{
+			sineperiod 2
+			sinemin 0
+			sinemax 1
+			timeoffset $offset
+			resultVar $sine
+			}
+		LessOrEqual
+			{
+			srcVar1 $sine
+			srcVar2 $half
+			lessEqualVar $blue
+			greaterVar $oran
+			resultVar $frame
+			}
+		}
+	}
