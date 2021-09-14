@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8973"
-	"mapversion" "27"
+	"mapversion" "30"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "27"
+	"mapversion" "30"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -39,13 +39,12 @@ entity
 	"targetname" "spawn_blue"
 	connections
 	{
-		"OnUser1" "switch_timDisable01"
 		"OnUser1" "spawn_blueSetAsActiveSpawn0.011"
 		"OnUser1" "spawn_blueEnable01"
-		"OnUser1" "mdlSkin00.011"
-		"OnUser1" "both_manSetStateATrue01"
+		"OnUser1" "both_manSetStateATrue0.011"
+		"OnUser1" "light_blueTrigger01"
 	}
-	"origin" "0 0 224"
+	"origin" "0 1.11901e-005 224"
 	editor
 	{
 		"color" "0 255 0"
@@ -65,13 +64,12 @@ entity
 	"targetname" "spawn_oran"
 	connections
 	{
-		"OnUser1" "switch_timDisable01"
 		"OnUser1" "spawn_oranEnable01"
-		"OnUser1" "mdlSkin10.011"
 		"OnUser1" "spawn_oranSetAsActiveSpawn0.011"
-		"OnUser1" "both_manSetStateBTrue01"
+		"OnUser1" "both_manSetStateBTrue0.011"
+		"OnUser1" "light_oranTrigger01"
 	}
-	"origin" "0 2.18279e-011 144"
+	"origin" "0 1.11901e-005 140"
 	editor
 	{
 		"color" "0 255 0"
@@ -90,10 +88,10 @@ entity
 	"targetname" "both_man"
 	connections
 	{
-		"OnChangeToAllTrue" "switch_timEnable01"
 		"OnChangeToAllTrue" "!selfKill01"
+		"OnChangeToAllTrue" "light_bothTrigger0.11"
 	}
-	"origin" "0 6.91216e-011 120"
+	"origin" "0 1.11901e-005 120"
 	editor
 	{
 		"color" "0 100 250"

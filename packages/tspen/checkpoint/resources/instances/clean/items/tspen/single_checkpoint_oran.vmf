@@ -14,7 +14,7 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "128"
 	"bShow3DGrid" "0"
 }
 world
@@ -30,22 +30,20 @@ world
 }
 entity
 {
-	"id" "564"
+	"id" "562"
 	"classname" "info_coop_spawn"
 	"angles" "0 180 0"
 	"Enabled" "0"
-	"model" "models/player/eggbot/eggbot.mdl"
+	"model" "models/editor/playerstart.mdl"
 	"StartingTeam" "2"
 	"targetname" "spawn_oran"
 	connections
 	{
-		"OnUser1" "switch_timDisable01"
-		"OnUser1" "spawn_oranEnable01"
-		"OnUser1" "mdlSkin10.011"
-		"OnUser1" "spawn_oranSetAsActiveSpawn0.011"
-		"OnUser1" "both_manSetStateBTrue01"
+		"OnUser1" "!selfSetAsActiveSpawn0.011"
+		"OnUser1" "!selfEnable01"
+		"OnUser1" "light_oranTrigger0.011"
 	}
-	"origin" "0 2.18279e-011 224"
+	"origin" "0 1.11901e-005 224"
 	editor
 	{
 		"color" "0 255 0"
