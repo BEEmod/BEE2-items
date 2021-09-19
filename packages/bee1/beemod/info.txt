@@ -1,6 +1,6 @@
 "ID"		"BEEMOD_1"
 "Name"		"BEEMOD 1"
-"Desc"      "Items added in the original BEEMOD 1. This includes Crushers, Diversity Vents, Drawbridges, and Doors."
+"Desc"      "Items added in the original BEEMOD 1. This includes Diversity Vents, Drawbridges, and Doors."
 
 "Item"
 	{
@@ -181,38 +181,6 @@
 			}
 		}
 	}
-	
-"Item"
-	{
-	"ID" "ITEM_CRUSHER"
-	"Version"
-		{
-		"Styles"
-			{
-			"BEE2_CLEAN"        "crusher"
-			"BEE2_OVERGROWN"
-				{
-				"Folder" "crusher"
-				"Config" "crusher_over.cfg"
-				"Instances"
-					{
-					"0"
-						{
-						"Name"				"instances/BEE2/over/items/BEE/crusher.vmf"
-						"EntityCount"		"20"
-						"BrushCount"		"20"
-						"BrushSideCount"	"20"
-						}
-					"vines" "instances/BEE2/over/items/BEE/crusher_vines.vmf"
-					"vines_static" "instances/BEE2/over/items/BEE/crusher_static_vines.vmf"
-					}
-				}
-			"BEE2_PORTAL_1"     "crusher_p1"
-			"BEE2_1950s"        "crusher_50s"
-			"BEE2_1960s"        "60s_flamethrower"
-			}
-		}
-	}
 
 "Item"
 	{
@@ -263,70 +231,6 @@
 				"Instances"
 					{
 					"bee2_trim" "instances/BEE2/80s/items/bee/door_trim.vmf"
-					}
-				}
-			}
-		}
-	}
-	
-"EditorSound"
-	{
-	"ID" "Expand_Crusher"
-	// Play the regular expand sound, and in addition play crusher impacts
-	"Keys"
-		{
-		"channel" "CHAN_AUTO"
-		"soundlevel" "SNDLVL_NONE"
-		"volume"	"0.5"
-		"pitch"		"90, 100"
-		"rndwave"
-		{
-			"wave"	"world/crusher_impact_01.wav"
-			"wave"	"world/crusher_impact_02.wav"
-			"wave"	"world/crusher_impact_03.wav"
-		}
-		"soundentry_version" "2"
-		"operator_stacks"
-			{
-			"start_stack"
-				{
-				"play_entry"
-					{
-					"operator" "sys_start_entry"
-					"input_execute"	"1"
-					"input_start" "1"
-					"entry_name" "P2Editor.ExpandOther"
-					}
-				}
-			}
-		}
-	}
-		
-"EditorSound"
-	{
-	"ID" "Collapse_Crusher"
-	// Play the regular expand sound, and in addition play crusher impacts
-	"Keys"
-		{
-		"channel" "CHAN_AUTO"
-		"soundlevel" "SNDLVL_NONE"
-		"volume"	"0.5"
-		"rndwave"
-		{
-			"wave"		"world\crusher_separate_01.wav"
-			"wave"		"world\crusher_separate_02.wav"
-		}
-		"soundentry_version" "2"
-		"operator_stacks"
-			{
-			"start_stack"
-				{
-				"play_entry"
-					{
-					"operator" "sys_start_entry"
-					"input_execute"	"1"
-					"input_start" "1"
-					"entry_name" "P2Editor.CollapseOther"
 					}
 				}
 			}
