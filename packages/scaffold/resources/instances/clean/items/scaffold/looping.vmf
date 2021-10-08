@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8973"
-	"mapversion" "70"
+	"mapversion" "75"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "70"
+	"mapversion" "75"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -35,44 +35,18 @@ entity
 	"classname" "comp_relay"
 	"ctrl_type" "0"
 	"ctrl_value" "1"
-	"targetname" "input"
+	"delay" "0.0"
+	"targetname" "@scaff_io_$group"
 	connections
 	{
-		"OnTurnedOn" "effectsTurnOn0-1"
 		"OnTurnedOn" "trainStartForward0-1"
-		"OnTurnedOff" "effectsTurnOn0-1"
-		"OnTurnedOff" "trainStartBackward0-1"
-	}
-	"origin" "-16 0 40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1622"
-	"classname" "comp_relay"
-	"ctrl_type" "0"
-	"ctrl_value" "1"
-	"targetname" "effects"
-	connections
-	{
-		"OnTurnedOff" "@scaff_beam_grp$group_*FireUser10-1"
-		"OnTurnedOff" "@scaff_beam_grp$group_*Width20-1"
-		"OnTurnedOff" "@scaff_beam_grp$group_*Color38 50 680-1"
-		"OnTurnedOff" "beam_soundStopSound0-1"
-		"OnTurnedOff" "train_coreStop10-1"
-		"OnTurnedOn" "train_coreStartDischarge0-1"
+		"OnTurnedOff" "trainStop0-1"
 		"OnTurnedOn" "beam_soundPlaySound0-1"
-		"OnTurnedOn" "@scaff_beam_grp$group_*Color176 217 2470-1"
-		"OnTurnedOn" "@scaff_beam_grp$group_*Width100-1"
-		"OnTurnedOn" "@scaff_beam_grp$group_*FireUser20-1"
+		"OnTurnedOn" "train_coreStartDischarge0-1"
+		"OnTurnedOff" "train_coreStop10-1"
+		"OnTurnedOff" "beam_soundStopSound0-1"
 	}
-	"origin" "16 0 40"
+	"origin" "0 0 40"
 	editor
 	{
 		"color" "220 30 220"
@@ -548,7 +522,7 @@ entity
 	"spinup" "0"
 	"targetname" "beam_sound"
 	"volstart" "0"
-	"origin" "0 0 48"
+	"origin" "0 0 56"
 	editor
 	{
 		"color" "220 30 220"
@@ -630,10 +604,6 @@ entity
 	"velocitytype" "0"
 	"volume" "10"
 	"wheels" "50"
-	connections
-	{
-		"OnUser4" "effectsTurnOff0-1"
-	}
 	solid
 	{
 		"id" "420"
@@ -1172,10 +1142,6 @@ entity
 	"speed" "100"
 	"target" "@scaff_track_grp$group_$next"
 	"targetname" "@scaff_track_grp$group_$ind"
-	connections
-	{
-		"OnPass" "effectsTurnOff0-1"
-	}
 	"origin" "0 0 0"
 	editor
 	{

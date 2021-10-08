@@ -1,0 +1,67 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "8973"
+	"mapversion" "3"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "64"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "3"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "input"
+	connections
+	{
+		"OnTurnedOff" "@scaff_beam_grp$group_*FireUser10-1"
+		"OnTurnedOff" "@scaff_beam_grp$group_*Width20-1"
+		"OnTurnedOff" "@scaff_beam_grp$group_*Color38 50 680-1"
+		"OnTurnedOn" "@scaff_beam_grp$group_*Color176 217 2470-1"
+		"OnTurnedOn" "@scaff_beam_grp$group_*Width100-1"
+		"OnTurnedOn" "@scaff_beam_grp$group_*FireUser20-1"
+		"OnTurnedOn" "@scaff_io_$groupTurnOn0-1"
+		"OnTurnedOff" "@scaff_io_$groupTurnOff0-1"
+	}
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Redirects the input to all the platforms."
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
