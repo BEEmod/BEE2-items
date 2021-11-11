@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8973"
-	"mapversion" "93"
+	"mapversion" "108"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "93"
+	"mapversion" "108"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,13 +30,13 @@ world
 }
 entity
 {
-	"id" "1023"
+	"id" "1067"
 	"classname" "comp_scriptvar_setter"
 	"angles" "0 0 0"
-	"const" "0"
+	"const" "$is_timer"
 	"mode" "const"
-	"origin" "0 0 24"
-	"target" "fizz"
+	"origin" "-16 0 16"
+	"target" "field"
 	"variable" "timer"
 	editor
 	{
@@ -48,17 +48,27 @@ entity
 }
 entity
 {
-	"id" "1019"
-	"classname" "material_modify_control"
-	"angles" "0 0 0"
-	"materialName" "BEE2/rex/beam_field"
-	"materialVar" "$status"
-	"parentname" "field"
-	"targetname" "mod"
-	"origin" "0 0 8"
+	"id" "1063"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "io"
+	connections
+	{
+		"OnTurnedOn" "fieldEnable0-1"
+		"OnTurnedOff" "fieldDisable0-1"
+		"OnTurnedOff" "fxStopPlayEndCap0-1"
+		"OnTurnedOn" "fxStart0-1"
+		"OnTurnedOn" "mdlSetAnimationopen0-1"
+		"OnTurnedOff" "mdlSetAnimationclose0-1"
+		"OnTurnedOn" "mdlSetDefaultAnimationidle0.1-1"
+		"OnTurnedOff" "mdlSetDefaultAnimationcloseIdle0.1-1"
+	}
+	"origin" "16 0 16"
 	editor
 	{
-		"color" "0 100 250"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -66,25 +76,15 @@ entity
 }
 entity
 {
-	"id" "615"
-	"classname" "logic_branch"
+	"id" "1043"
+	"classname" "info_target"
 	"angles" "0 0 0"
-	"InitialValue" "0"
-	"targetname" "out"
-	connections
-	{
-		"OnUser4" "outToggleTest0-1"
-		"OnTrue" "mdlColor200 0 00.1-1"
-		"OnFalse" "mdlColor0 0 2000.1-1"
-		"OnFalse" "modStartFloatLerp1 0 0.2 00-1"
-		"OnTrue" "modStartFloatLerp0 1 0.2 00-1"
-		"OnTrue" "!selfFireUser20-1"
-		"OnFalse" "!selfFireUser10-1"
-	}
-	"origin" "0 0 -8"
+	"spawnflags" "3"
+	"targetname" "fx_color"
+	"origin" "0 0 0"
 	editor
 	{
-		"color" "0 100 250"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
