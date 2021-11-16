@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "34"
+	"editorbuild" "8973"
+	"mapversion" "36"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "34"
+	"mapversion" "36"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -71,7 +71,7 @@ entity
 		side
 		{
 			"id" "2"
-			"plane" "(0 16 -136) (11 11 -136) (16 1.90735e-006 -136)"
+			"plane" "(0 16 -116) (11 11 -116) (16 0 -116)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -82,7 +82,7 @@ entity
 		side
 		{
 			"id" "3"
-			"plane" "(0 16 -192) (11 11 -192) (11 11 -136)"
+			"plane" "(0 16 -192) (11 11 -192) (11 11 -116)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -61.3263] 0.25"
@@ -93,7 +93,7 @@ entity
 		side
 		{
 			"id" "4"
-			"plane" "(11 11 -192) (16 1.90735e-006 -192) (16 1.90735e-006 -136)"
+			"plane" "(11 11 -192) (16 0 -192) (16 0 -116)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 -61.3263] 0.25"
@@ -104,7 +104,7 @@ entity
 		side
 		{
 			"id" "5"
-			"plane" "(16 1.90735e-006 -192) (11 -11 -192) (11 -11 -136)"
+			"plane" "(16 0 -192) (11 -11 -192) (11 -11 -116)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 -61.3263] 0.25"
@@ -115,7 +115,7 @@ entity
 		side
 		{
 			"id" "6"
-			"plane" "(11 -11 -192) (0 -16 -192) (0 -16 -136)"
+			"plane" "(11 -11 -192) (0 -16 -192) (0 -16 -116)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -61.3263] 0.25"
@@ -126,7 +126,7 @@ entity
 		side
 		{
 			"id" "7"
-			"plane" "(0 -16 -192) (-11 -11 -192) (-11 -11 -136)"
+			"plane" "(0 -16 -192) (-11 -11 -192) (-11 -11 -116)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -61.3263] 0.25"
@@ -137,7 +137,7 @@ entity
 		side
 		{
 			"id" "8"
-			"plane" "(-11 -11 -192) (-16 1.90735e-006 -192) (-16 1.90735e-006 -136)"
+			"plane" "(-11 -11 -192) (-16 0 -192) (-16 0 -116)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 -61.3263] 0.25"
@@ -148,7 +148,7 @@ entity
 		side
 		{
 			"id" "9"
-			"plane" "(-16 1.90735e-006 -192) (-11 11 -192) (-11 11 -136)"
+			"plane" "(-16 0 -192) (-11 11 -192) (-11 11 -116)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 -61.3263] 0.25"
@@ -159,7 +159,7 @@ entity
 		side
 		{
 			"id" "10"
-			"plane" "(-11 11 -192) (0 16 -192) (0 16 -136)"
+			"plane" "(-11 11 -192) (0 16 -192) (0 16 -116)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 -61.3263] 0.25"
@@ -260,7 +260,7 @@ entity
 	"HDRColorScale" "1.0"
 	"life" "0"
 	"LightningEnd" "core_2"
-	"LightningStart" "side_beam"
+	"LightningStart" "@scaff_beam_grp$group_$ind_side"
 	"NoiseAmplitude" "0"
 	"Radius" "0"
 	"renderamt" "255"
@@ -269,11 +269,17 @@ entity
 	"rendermode" "2"
 	"spawnflags" "257"
 	"StrikeTime" "1"
-	"targetname" "side_beam"
+	"targetname" "@scaff_beam_grp$group_$ind_side"
 	"targetpoint" "0 0 0"
 	"texture" "effects/laser1.vmt"
 	"TextureScroll" "-15"
 	"TouchType" "0"
+	connections
+	{
+		"OnUser2" "cap_modelSetAnimationmovedown01"
+		"OnUser2" "core_2StartDischarge0-1"
+		"OnUser1" "core_2Stop10-1"
+	}
 	"origin" "0 0 0"
 	editor
 	{
@@ -308,16 +314,6 @@ entity
 	"scale" "0.5"
 	"spawnflags" "0"
 	"targetname" "core"
-	connections
-	{
-		"OnUser1" "core_2Stop10-1"
-		"OnUser2" "core_2StartDischarge0-1"
-		"OnUser2" "cap_modelSetAnimationmovedown01"
-		"OnUser2" "side_beamColor176 217 2470-1"
-		"OnUser2" "side_beamWidth100-1"
-		"OnUser1" "side_beamColor38 50 680-1"
-		"OnUser1" "side_beamWidth20-1"
-	}
 	"origin" "-15.9387 0.0089016 0.00891113"
 	editor
 	{

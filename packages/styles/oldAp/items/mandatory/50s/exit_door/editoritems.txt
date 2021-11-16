@@ -102,11 +102,15 @@
 		"TargetName"		"doorexit"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
+			"BEE2"
 			{
-				"Activate"			"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
+			"Type"        "AND"
+			"spawnFire"   "never"
+			"invertVar"   "$start_open"
+			"Enable_Cmd"  "@exit_door_open,Trigger,,0.00,-1"
+			"Disable_Cmd" "@exit_door_close,Trigger,,0.00,-1"
 			}
+			
 		}
 		"Offset"		"64 64 0"
 		"OccupiedVoxels"

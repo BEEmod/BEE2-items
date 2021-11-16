@@ -1,0 +1,108 @@
+"ID"		"BEE2_OBS_VARIANTS"
+"Name"		"Observation Room Variants"
+"Desc"      "Additional types of Observation Rooms"
+
+"Item"
+{
+	"ID" "BEE2_HALF_OBS_ROOM"
+	"Description"
+	{
+		"" "An observation room which is only half the size of a block."
+        "" ""
+        "" "* Use Button Type to position it in the center or on either side."
+		"" "* Due to editor limitations, it will still collide with other items anywhere on the tile."
+	}
+	"Version"
+	{
+		"Styles"
+		{
+			"BEE2_CLEAN" "half_obs_room"
+			"BEE2_PORTAL_1"
+			{
+				"Base"	"BEE2_CLEAN"
+				"Config"  "half_obs_p1.cfg"
+				"Instances"
+				{
+					"bee2_common" 	"instances/BEE2/p1/items/half_obs_room/common.vmf"
+					"bee2_room"		"instances/BEE2/p1/items/half_obs_room/room.vmf"
+				}
+				"Palette"
+				{
+					"0"
+					{
+						"Model"    "bee2/p1/half_obs_left.3ds"
+						// TODO: add these
+						// "Icon"     "palette/bee2/p1/half_obs_room.png"
+						// "BEE2"     "p1/half_obs_room.png"
+					}
+					"1"
+					{
+						"Model"    "bee2/p1/half_obs_center.3ds"
+					}
+					"2"
+					{
+						"Model"    "bee2/p1/half_obs_right.3ds"
+					}
+				}
+			}
+			"BEE2_OVERGROWN"
+			{
+				// Overgrown uses destroyed versions of the P1 rooms
+				"Base"	"BEE2_CLEAN"
+				"Config"  "half_obs_p1.cfg"
+				"Instances"
+				{
+					"bee2_common" 	"instances/BEE2/over/items/half_obs_room/common.vmf"
+					"bee2_room"		"instances/BEE2/over/items/half_obs_room/room.vmf"
+				}
+			}
+			"BEE2_1950s"
+			{
+				"Base"	"BEE2_CLEAN"
+				"Config" "half_obs_old.cfg"
+				"Instances"
+				{
+					"bee2_common"  "instances/BEE2/50s/items/half_obs_room/common.vmf"
+				}
+				"Palette"
+				{
+					"0"
+					{
+						"pal_name" "HALF OBSERVATION GRATE"
+						"Name"     "Half Observation Grate"
+						// TODO: add these
+						// "Model"    "bee2/50s/half_obs_left.3ds"
+						// "Icon"     "palette/bee2/50s/half_obs_room.png"
+						// "BEE2"     "50s/half_obs_room.png"
+					}
+					"1"
+					{
+						// TODO: add these
+						// "Model"    "bee2/50s/half_obs_center.3ds"
+					}
+					"2"
+					{
+						// TODO: add these
+						// "Model"    "bee2/50s/half_obs_right.3ds"
+					}
+				}
+			}
+            "BEE2_1970s"
+			{
+				"Base"	"BEE2_1950s"
+				"Instances"
+				{
+					"bee2_common"  "instances/BEE2/70s/items/half_obs_room/common.vmf"
+				}
+			}
+			"BEE2_1980s"
+			{
+				"Base"	"BEE2_1950s"
+				"Instances"
+				{
+					"bee2_common"  "instances/BEE2/80s/items/half_obs_room/common.vmf"
+				}
+			}
+		}
+	}
+}

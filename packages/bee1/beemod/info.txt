@@ -1,61 +1,6 @@
 "ID"		"BEEMOD_1"
 "Name"		"BEEMOD 1"
-"Desc"      "Items added in the original BEEMOD 1. This includes Crushers, Triggers, Logic Gates, Diversity Vents, Drawbridges, and Doors."
-
-"Item"
-	{
-	"ID" "ITEM_BEE_LOGIC"
-	"Unstyled"	"1"
-	"Version"
-		{
-		"Styles"
-			{
-			"<LOGIC>"	"logic"
-			}
-		}
-	}
-
-
-"Item"
-	{
-	"ID" "ITEM_BEE_LOGIC_STRIP"
-	"Unstyled"	"1"
-	"Version"
-		{
-		"Styles"
-			{
-			"<LOGIC>"	"logic_strip"
-			}
-		}
-	}
-
-
-"Item"
-	{
-	"ID" "ITEM_TRIGGERS"
-	"Unstyled"	"1"
-	"Version"
-		{
-		"Styles"
-			{
-			"<LOGIC>"	"trigger"
-			}
-		}
-	}
-	
-"ConfigGroup"
-	{
-	"ID"    "BEEMOD"
-	"Name"  "BEEmod"
-	"Widget"
-		{
-		"ID"	  "SHOW_TRIGGER"
-		"Label"   "Show Triggers ingame"
-		"Tooltip" "Show transparent overlays of triggers when in preview mode. These never appear in the published maps."
-		"Type"    "Checkbox"
-		"Default" "0"
-		}
-	}
+"Desc"      "Items added in the original BEEMOD 1. This includes Crushers, Diversity Vents, Drawbridges, and Doors."
 
 "Item"
 	{
@@ -148,7 +93,7 @@
 			"BEE2_PORTAL_1"
 				{
 				"Folder" "drawbridge"
-				"Config" "drawbridge_80s.cfg" // 80s doesn't use ropes.
+				"Config" "drawbridge_p1.cfg"
 				"Instances"
 					{
 					"0"
@@ -221,12 +166,18 @@
 "Item"
 	{
 	"ID" "ITEM_VENT"
+	"all_conf" "vent.cfg"
 	"Version"
 		{
 		"Styles"
 			{
 			"BEE2_CLEAN" "vent"
 			"BEE2_1950s" "vent_50s"
+			"BEE2_PORTAL_1"
+				{
+				"Folder" "vent"
+				"Config" "vent_p1"
+				}
 			}
 		}
 	}
@@ -271,15 +222,12 @@
 		"" "A placeable mid-chamber door."
 		"" ""
 		"" "* Cubes and players are able to obstruct the door, preventing it from closing."
-		"" "* Set Start Reversed to True to reverse the orientation of the door."
-		"" "* Players should always go from the Portal-figure side to the blank side!"
 		}
 	"Version"
 		{
 		"Styles"
 			{
 			"BEE2_CLEAN"        "door"
-			"BEE2_BTS"          "door_bts"
 			"BEE2_PORTAL_1"     "door_p1"
 			"BEE2_1950s"        "door_retro"
 			"BEE2_1970s"
