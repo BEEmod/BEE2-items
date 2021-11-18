@@ -7,38 +7,31 @@
 		"SubTypeProperty" "HazardType"
 		"SubType"
 			{
-			"Name" "Physics Repulsion Field"
-			"Model"
-				{
-				"ModelName" "fg_physler.3ds"
-				}
+			"Name"  "Physics Repulsion Field"
+			"Model" "bee2/clean/fg_physler.mdl"
 			"Palette"
 				{
-				"Tooltip" "PHYSICS REPULSION FIELD"
-				"Image" "palette/clean/BEE2/phys_shield.png"
-				"Position" "1 6 0"
+				"Tooltip"  "PHYSICS REPULSION FIELD"
+				"Image"    "palette/clean/BEE2/phys_shield.vtf"
 				}
 			"Sounds"
 				{
-				"SOUND_CREATED" "P2Editor.PlaceOther"
-				"SOUND_EDITING_ACTIVATE" "P2Editor.ExpandOther"
+				"SOUND_CREATED"            "P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"   "P2Editor.ExpandOther"
 				"SOUND_EDITING_DEACTIVATE" "P2Editor.CollapseOther"
-				"SOUND_DELETED" "P2Editor.RemoveOther"
+				"SOUND_DELETED"            "P2Editor.RemoveOther"
 				}
 			}
 		"SubType"
 			{
-			"Name" "Physics Repulsion Field"
-			"Model"
-				{
-				"ModelName" "fg_physler.3ds"
-				}
+			"Name"  "Physics Repulsion Field"
+			"Model" "bee2/clean/fg_physler.mdl"
 			"Sounds"
 				{
-				"SOUND_CREATED" "P2Editor.PlaceOther"
-				"SOUND_EDITING_ACTIVATE" "P2Editor.ExpandOther"
+				"SOUND_CREATED"            "P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"   "P2Editor.ExpandOther"
 				"SOUND_EDITING_DEACTIVATE" "P2Editor.CollapseOther"
-				"SOUND_DELETED" "P2Editor.RemoveOther"
+				"SOUND_DELETED"            "P2Editor.RemoveOther"
 				}
 			}
 		"MovementHandle" "HANDLE_6_POSITIONS"
@@ -75,7 +68,7 @@
 			"1"
 				{
 				"Name" "instances/BEE2/clean/items/physler/model.vmf"
-				"EntityCount" "5"
+				"EntityCount" "1"
 				}
 			}
 		"TargetName" "phys_shield"
@@ -92,26 +85,12 @@
 
 				"Enable_Cmd"    "mdl,SetAnimation,open,0.00,-1"
 				"Disable_Cmd"   "mdl,SetAnimation,close,0.00,-1"
+				"Enable_Cmd"    "mdl,SetDefaultAnimation,idle,0.00,-1"
+				"Disable_Cmd"   "mdl,SetDefaultAnimation,closeIdle,0.00,-1"
 				"Enable_Cmd"    "clip,Enable,,0.00,-1"
 				"Disable_Cmd"   "clip,Disable,,0.00,-1"
 				"Enable_Cmd"    "mat_mod,StartFloatLerp,0 1 1.0 0,0.00,-1"
 				"Disable_Cmd"   "mat_mod,StartFloatLerp,1 0 1.0 0,0.00,-1"
-				}
-			"CONNECTION_HAZARD_MODEL"
-				{
-				"Activate" "instance:mdl;FireUser2"
-				"Deactivate" "instance:mdl;FireUser1"
-				}
-			"CONNECTION_HAZARD_BRUSH"
-				{
-				"Activate" "Enable"
-				"Deactivate" "Disable"
-				}
-			}
-		"Outputs"
-			{
-			"CONNECTION_HAZARD"
-				{
 				}
 			}
 		"ConnectionPoints"

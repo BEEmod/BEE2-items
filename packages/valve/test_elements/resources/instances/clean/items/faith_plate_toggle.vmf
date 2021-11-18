@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8874"
-	"mapversion" "142"
+	"editorbuild" "8973"
+	"mapversion" "146"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "142"
+	"mapversion" "146"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -261,7 +261,7 @@ world
 		side
 		{
 			"id" "418"
-			"plane" "(64 -32 -64) (-64 -32 -64) (-64 32 -64)"
+			"plane" "(-64 -32 -64) (-64 32 -64) (64 32 -64)"
 			"material" "BEE2/NODRAW_GLASS"
 			"uaxis" "[0 1 0 -32] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
@@ -272,7 +272,7 @@ world
 		side
 		{
 			"id" "417"
-			"plane" "(-62 -32 -66) (-64 -32 -64) (64 -32 -64)"
+			"plane" "(-64 -32 -64) (64 -32 -64) (60 -32 -68)"
 			"material" "BEE2/NODRAW_GLASS"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -283,7 +283,7 @@ world
 		side
 		{
 			"id" "416"
-			"plane" "(64 32 -64) (-64 32 -64) (-62 32 -66)"
+			"plane" "(-64 32 -64) (-60 32 -68) (60 32 -68)"
 			"material" "BEE2/NODRAW_GLASS"
 			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -294,7 +294,7 @@ world
 		side
 		{
 			"id" "415"
-			"plane" "(-62 32 -66) (-64 32 -64) (-64 -32 -64)"
+			"plane" "(-64 32 -64) (-64 -32 -64) (-60 -32 -68)"
 			"material" "BEE2/NODRAW_GLASS"
 			"uaxis" "[0 1 0 -32] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -305,7 +305,7 @@ world
 		side
 		{
 			"id" "414"
-			"plane" "(62 -32 -66) (64 -32 -64) (64 32 -64)"
+			"plane" "(64 -32 -64) (64 32 -64) (60 32 -68)"
 			"material" "BEE2/NODRAW_GLASS"
 			"uaxis" "[0 1 0 -32] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -316,7 +316,7 @@ world
 		side
 		{
 			"id" "413"
-			"plane" "(62 32 -66) (-62 32 -66) (-62 -32 -66)"
+			"plane" "(-60 32 -68) (-60 -32 -68) (60 -32 -68)"
 			"material" "BEE2/NODRAW_GLASS"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -367,13 +367,13 @@ entity
 	"framerate" "10.0"
 	"GlowProxySize" "5"
 	"HDRColorScale" "1.0"
-	"model" "sprites/glow01.vmt"
+	"model" "sprites/glow02.vmt"
 	"parent_attachment_point" "light"
 	"parentname" "arm"
 	"renderamt" "255"
 	"rendercolor" "$start_color"
 	"rendermode" "9"
-	"scale" "0.4"
+	"scale" "0.3"
 	"spawnflags" "1"
 	"targetname" "spr"
 	"origin" "3.75 1.35 -63.6"
@@ -536,8 +536,7 @@ entity
 	"id" "2"
 	"classname" "prop_dynamic"
 	"angles" "0 180 0"
-	"fademindist" "-1"
-	"fadescale" "1"
+	"lightingorigin" "trigger"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/bee2/props_ingame/faith_plate_toggle.mdl"

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "120"
+	"editorbuild" "8973"
+	"mapversion" "123"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "120"
+	"mapversion" "123"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -62,6 +62,7 @@ entity
 	"classname" "comp_relay"
 	"ctrl_type" "0"
 	"ctrl_value" "1"
+	"delay" "0.0"
 	"targetname" "io"
 	connections
 	{
@@ -71,6 +72,8 @@ entity
 		"OnTurnedOff" "mdlSetAnimationclose0-1"
 		"OnTurnedOn" "mdl_beam_*TurnOn0-1"
 		"OnTurnedOff" "mdl_beam_*TurnOff0-1"
+		"OnTurnedOn" "mdlSetDefaultAnimationidle0.1-1"
+		"OnTurnedOff" "mdlSetDefaultAnimationcloseIdle0.1-1"
 	}
 	"origin" "0 0 0"
 	editor

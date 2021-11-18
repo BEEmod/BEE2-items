@@ -51,7 +51,7 @@ function Think() {
 	// All the other ents are parented to this, so we can easily loop over them.
 	local target = null;
 	while(target = Entities.FindByClassnameWithin(target, "info_target", origin, 16.0)) {
-		printl("Targ: \"" + target.GetName() + "\"")
+		// printl("Targ: \"" + target.GetName() + "\"")
 		if (target.GetPreTemplateName() == "@rocket_target") {
 			break;
 		}
@@ -69,6 +69,13 @@ function Think() {
 		{
 			// This trigger causes problems if it starts enabled, turn it on later
 			EntFireByHandle(targ_child, "Enable", "", 0.1, targ_child, targ_child)
+			// Kill this trigger when the rocket is fizzled
+			EntFireByHandle(ent, "AddOutput", "OnFizzled "+targ_child.GetName()+":Kill::0:-1", 0, targ_child, targ_child)
+		}
+		if (targ_child.GetName().find("player_trig"))
+		{
+			// Kill this trigger when the rocket is fizzled
+			EntFireByHandle(ent, "AddOutput", "OnFizzled "+targ_child.GetName()+":Kill::0:-1", 0, targ_child, targ_child)
 		}
 		targ_child = targ_child.NextMovePeer();
 	}

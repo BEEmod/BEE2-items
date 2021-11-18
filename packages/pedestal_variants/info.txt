@@ -1,0 +1,257 @@
+"ID" "BEE2_PEDESTAL_VARIANTS"
+"Name" "Modified Pedestal Buttons"
+"Desc" "Pedestal buttons in non-standard layouts."
+
+"Item"
+	{
+	"ID" "ITEM_LAUTARO_PEDESTAL_BUTTONS" 
+	"Description"
+		{
+		"" "A variant of the pedestal button with additional placement options."
+		"" ""
+		"" "* Use Button Type to position it in the left, middle, or right of the block."
+		"" "* Use the timer to adjust the length of the output, or make it permanent."
+		}
+	"All_conf" "ped_buttons.cfg" // Common and shared by all styled variants.            
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"  "ped_buttons_clean"
+			"BEE2_OVERGROWN"
+				{
+				"Base" "BEE2_CLEAN"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PEDESTAL_BASE_OVER"
+						"%SKIN%"     "1"
+						}
+					}
+				"Palette"
+					{
+					"1"
+						{
+						"Model" "over_pedestal_button_middle.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/over/pedestal_button_combined.png"
+						"bee2" "over/ped_button_left_middle_right/pedestal_button_combined.png"
+						}
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Base" "BEE2_CLEAN"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PEDESTAL_BASE_P1"
+						}
+					}
+				"Palette"
+					{
+					"1"
+						{
+						"Model" "p1_pedestal_button_middle.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/p1/pedestal_button_combined.png"
+						"bee2" "p1/ped_button_left_middle_right/pedestal_button_combined.png"	
+						}
+					}
+				"IOConf"
+					{
+					"out_activate"   "instance:output;OnUser2"
+					"out_deactivate" "instance:output;OnUser1"
+					
+					"lock_cmd"       "lock_man,SetStateATrue,,0.00,-1"
+					"unlock_cmd"     "lock_man,SetStateAFalse,,0.00,-1"
+
+					// Generate a logic_relay which plays the appropriate tick-tock sounds.
+					"timer_sound_pos"   "-96 0 -48"
+					"timer_done_cmd"    "@command,Command,cc_emit Portal.button_down,0.00,-1"
+					"timer_done_cmd"    "output,SetValue,0,0.00,-1"
+					"timer_done_cmd"    "output,FireUser1,,0.00,-1"
+					"timer_done_cmd"    "snd_rel,PlaySound,,0.00,-1"
+					}
+				"Instances"
+					{
+					"bee2_btn_fwd" "instances/BEE2/p1/items/lautaro/pedestal_button.vmf"
+					"bee2_btn_rev" "instances/BEE2/p1/items/lautaro/pedestal_button_rev.vmf"
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PEDESTAL_BASE_50s"
+						}
+					}
+				"Instances"
+					{
+					// The same.
+					"bee2_btn_fwd" "instances/BEE2/50s/items/lautaro/pedestal_button.vmf"
+					"bee2_btn_rev" "instances/BEE2/50s/items/lautaro/pedestal_button.vmf"
+					}
+				"Description"
+					{
+					"" "* In Old Aperture, Start Reversed has no effect, since buttons are symmetrical."
+					}
+				"Palette"
+					{
+					"1"
+						{
+						"Model" "retro_pedestal_button_middle.3ds"
+						"icon" "palette/lautaro/pedestal_button_left_middle_right/retro/pedestal_button_combined.png"
+						"bee2" "retro/ped_button_left_middle_right/pedestal_button_combined.png"	
+						}
+					}
+				}
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PEDESTAL_BASE_70s"
+						}
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PEDESTAL_BASE_80s"
+						}
+					}
+				}		
+			}
+		}
+	}
+
+"Item"
+	{
+	"ID" "ITEM_LAUTARO_PROTRUDING_PEDESTAL" 
+	"Description"
+		{
+		"" "A pedestal button which is placed on a protrusion from the wall."
+		"" ""
+		"" "* Use Button Type to position it in the left, middle, or right of the block."
+		"" "* Use the timer to adjust the length of the output, or make it permanent."
+		"" "* If needed, use Antline Router Strips or Antline Corners to control antline placements."
+		}
+	"All_conf" "protruding.cfg" // Common and shared by all styled variants.        
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"        "protruding_clean"
+			"BEE2_OVERGROWN"
+				{
+				"Base" "BEE2_CLEAN"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PROTRUDING_PED_BASE_OVER"
+						"%SKIN%" "1"
+						}
+					}
+				"Palette"
+					{
+					"1"
+						{
+						"Model" "over_protruding_ped_middle.3ds"
+						"icon" "palette/lautaro/protruding_ped/over/protruding_ped_middle.png"
+						"bee2" "over/protruding_ped/protruding_ped_middle.png"	
+						}
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Base" "BEE2_CLEAN"
+				"Palette"
+					{
+					"1"
+						{
+						"Model" "p1_protruding_ped_middle.3ds"
+						"icon" "palette/lautaro/protruding_ped/p1/protruding_ped_middle.png"
+						"bee2" "p1/protruding_ped/protruding_ped_middle.png"
+						}
+					}
+				"Instances"
+					{
+					"bee2_ped" "instances/BEE2/p1/items/lautaro/protrude_ped.vmf"
+					}
+				"IOConf"
+					{
+					"out_activate"   "instance:output;OnUser2"
+					"out_deactivate" "instance:output;OnUser1"
+					
+					"lock_cmd"       "lock_man,SetStateATrue,,0.00,-1"
+					"unlock_cmd"     "lock_man,SetStateAFalse,,0.00,-1"
+
+					// Generate a logic_relay which plays the appropriate tick-tock sounds.
+					"timer_sound_pos"   "-96 0 -48"
+					"timer_done_cmd"    "@command,Command,cc_emit Portal.button_down,0.00,-1"
+					"timer_done_cmd"    "output,SetValue,0,0.00,-1"
+					"timer_done_cmd"    "output,FireUser1,,0.00,-1"
+					"timer_done_cmd"    "snd_rel,PlaySound,,0.00,-1"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%TEMPLATE%" "LAUTARO_PROTRUDING_PED_BASE_P1"
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Config" "protruding_retro.cfg"
+				"Description"
+					{
+					"" "* In Old Aperture, Start Reversed has no effect, since buttons are symmetrical."
+					}
+				"Palette"
+					{
+					"1"
+						{
+						"Model" "lautaro_retro_protruding_ped_button_middle.3ds"
+						"icon" "palette/lautaro/protruding_ped/retro/protruding_ped_middle.png"
+						"bee2" "retro/protruding_ped/protruding_ped_middle.png"	
+						}
+					}
+				}		
+			"BEE2_1970s"
+				{
+				"Base" "BEE2_1950s"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%DECADE%" "70s"
+						}
+					}
+				}
+			"BEE2_1980s"
+				{
+				"Base" "BEE2_1950s"
+				"Append"
+					{
+					"Replacements"
+						{
+						"%DECADE%" "80s"
+						}
+					}
+				}
+			}	
+		}
+	}
