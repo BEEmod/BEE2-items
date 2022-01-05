@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "255"
+	"editorbuild" "8973"
+	"mapversion" "260"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "255"
+	"mapversion" "260"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,6 +32,7 @@ entity
 {
 	"id" "3986"
 	"classname" "logic_coop_manager"
+	"angles" "0 0 0"
 	"DefaultPlayerStateA" "$start_enabled"
 	"DefaultPlayerStateB" "0"
 	"targetname" "man"
@@ -54,6 +55,7 @@ entity
 {
 	"id" "3901"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -86,6 +88,7 @@ entity
 {
 	"id" "3362"
 	"classname" "env_sprite"
+	"angles" "0 0 0"
 	"disablereceiveshadows" "0"
 	"disableX360" "0"
 	"framerate" "10.0"
@@ -115,57 +118,9 @@ entity
 }
 entity
 {
-	"id" "3366"
-	"classname" "env_sprite"
-	"disablereceiveshadows" "0"
-	"disableX360" "0"
-	"framerate" "10.0"
-	"GlowProxySize" "2.0"
-	"HDRColorScale" "1.0"
-	"maxcpulevel" "0"
-	"maxgpulevel" "0"
-	"mincpulevel" "0"
-	"mingpulevel" "0"
-	"model" "sprites/redlaserglow.vmt"
-	"parentname" "pedestal"
-	"renderamt" "255"
-	"rendercolor" "$spr_color"
-	"renderfx" "0"
-	"rendermode" "9"
-	"scale" "1"
-	"spawnflags" "0"
-	"targetname" "spr_front"
-	connections
-	{
-		"OnUser1" "!selfShowSprite0-1"
-		"OnUser2" "!selfHideSprite0.3-1"
-		"OnUser1" "!selfSetScale0.40.05-1"
-		"OnUser1" "!selfSetScale0.60.1-1"
-		"OnUser1" "!selfSetScale0.80.15-1"
-		"OnUser1" "!selfSetScale1.20.25-1"
-		"OnUser1" "!selfSetScale10.2-1"
-		"OnUser2" "!selfSetScale0.40.2-1"
-		"OnUser2" "!selfSetScale0.60.15-1"
-		"OnUser2" "!selfSetScale0.80.1-1"
-		"OnUser2" "!selfSetScale10.05-1"
-		"OnUser2" "!selfSetScale1.20-1"
-		"OnUser2" "!selfSetScale0.20.25-1"
-		"OnUser1" "!selfSetScale0.20-1"
-		"OnUser1" "!selfSetScale1.50.3-1"
-	}
-	"origin" "-10 0 -1"
-	editor
-	{
-		"color" "20 140 20"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 4000]"
-	}
-}
-entity
-{
 	"id" "3381"
 	"classname" "ambient_generic"
+	"angles" "0 0 0"
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
@@ -207,11 +162,11 @@ entity
 	"cpoint6_parent" "0 0 -16"
 	"cpoint7_parent" "0 0 -16"
 	"drawinfastreflection" "0"
-	"effect_name" "dissolve"
+	"effect_name" "$pfx"
 	"parentname" "pedestal"
 	"start_active" "0"
 	"targetname" "fx"
-	"origin" "-12 8.74228e-007 0"
+	"origin" "-9 8.74228e-007 0"
 	editor
 	{
 		"color" "200 200 0"
@@ -247,6 +202,8 @@ entity
 	"parm2" "$start_disabled integer 1"
 	"parm3" "$close_rl string @close_orange_autoportals"
 	"parm4" "$spr_color color255 255 128 64"
+	"parm5" "$start_enabled string"
+	"parm6" "$pfx particlesystem portal_1_charge"
 	"origin" "0 0 16"
 	editor
 	{
@@ -260,6 +217,7 @@ entity
 {
 	"id" "3811"
 	"classname" "logic_timer"
+	"angles" "0 0 0"
 	"RefireTime" "5"
 	"spawnflags" "0"
 	"StartDisabled" "1"
@@ -270,8 +228,6 @@ entity
 		"OnTimer" "rotateOpen0-1"
 		"OnTimer" "rotateClose3-1"
 		"OnTimer" "snd_chargePlaySound3-1"
-		"OnTimer" "spr_frontFireUser13-1"
-		"OnTimer" "spr_frontFireUser24-1"
 		"OnTimer" "gun$portal_cmd4-1"
 		"OnTimer" "$close_rlTrigger3.99-1"
 		"OnTimer" "fxStop4-1"
@@ -296,8 +252,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[42.5002 -55.3569 40.2172]"
-		"look" "[-27.2337 164.468 -84.4792]"
+		"position" "[-28.1084 -67.057 26.4187]"
+		"look" "[42.5394 166.942 -68.3895]"
 	}
 	camera
 	{
