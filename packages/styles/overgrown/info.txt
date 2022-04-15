@@ -111,15 +111,6 @@
 	"Style" "BEE2_OVERGROWN"
 	}
 	
-"StyleVar"
-	{
-	"ID"          "OverFunnelFlicker"
-	"Enabled"     "0"
-	"Name"        "Flickering Overgrown Funnel"
-	"Description" "Allow the Overgrown Excursion Funnel to randomly shut off briefly. This does not affect the transportation of players or objects."
-	"Style"       "BEE2_OVERGROWN"
-	}
-	
 "Overrides"
 	{
 	"StyleVar"
@@ -572,16 +563,40 @@
 						{
 						"0"
 							{
-							"Name"				"instances/BEE2/over/items/tbeam.vmf"
+							"Name"              "instances/BEE2/over/items/tbeam.vmf"
 							"EntityCount"		"1"
 							"BrushCount"		"3"
 							"BrushSideCount"	"22"
 							}
+						// TODO: remove this instance entirely once blank filenames work correctly
+						"bee2_pol_reverse"      "instances/BEE2/over/items/tbeam_rev.vmf"
+						"bee2_pol_both"         "instances/BEE2/over/items/tbeam_rev.vmf"
 						}
-					"Append" "funnel.cfg"
+					"IOConf"
+						{
+						"Type"              "DUAL"
+						"Init"              "Auto"
+						"DefaultDual"       "A"
+						
+						"InvertVar"         "$start_enabled"
+						"Enable_Cmd"        "tbeam,Enable,,0.00,-1"
+						"Disable_Cmd"       "tbeam,Disable,,0.00,-1"
+						
+						"Sec_InvertVar"     "$start_reversed"
+						"Sec_Enable_Cmd"    "tbeam,SetLinearForce,-$force,0.00,-1"
+						"Sec_Enable_Cmd"    "mdl,Skin,1,0.00,-1"
+						"Sec_Enable_Cmd"    "light_o,TurnOn,,0.00,-1"
+						"Sec_Enable_Cmd"    "light_b,TurnOff,,0.00,-1"
+						
+						"Sec_Disable_Cmd"   "tbeam,SetLinearForce,$force,0.00,-1"
+						"Sec_Disable_Cmd"   "mdl,Skin,0,0.00,-1"
+						"Sec_Disable_Cmd"   "light_o,TurnOff,,0.00,-1"
+						"Sec_Disable_Cmd"   "light_b,TurnOn,,0.00,-1"
+						}
+					"Authors" "Valve, Erin-Rose"
 					"AppendDesc"
 						{
-						"" "* In Overgrown Style, Funnels emit more particles. They may also randomly flicker if the option is enabled."
+						"" "In Overgrown style, Funnels have a visibly damaged emitter (model by Erin-Rose)."
 						}
 					}
 				}
