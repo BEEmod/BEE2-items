@@ -2,25 +2,31 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8997"
-	"mapversion" "971"
+	"mapversion" "977"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
+	visgroup
+	{
+		"name" "old_beam"
+		"visgroupid" "28"
+		"color" "156 189 242"
+	}
 }
 viewsettings
 {
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "971"
+	"mapversion" "977"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -10677,7 +10683,7 @@ entity
 	"scale" "1"
 	"spawnflags" "2"
 	"targetname" "elevator_glow"
-	"origin" "-352 -32 206.09"
+	"origin" "-352 -32 206"
 	editor
 	{
 		"color" "220 30 220"
@@ -10887,11 +10893,11 @@ entity
 	"cpoint5_parent" "0 -32 192"
 	"cpoint6_parent" "0 -32 192"
 	"cpoint7_parent" "0 -32 192"
-	"effect_name" "portal_1_projectile_stream"
+	"effect_name" "elevator_beam"
 	"parentname" "elevator_body_middle"
 	"start_active" "1"
 	"targetname" "elevator_beam_target"
-	"origin" "-352 -32 192"
+	"origin" "-352 -32 198"
 	editor
 	{
 		"color" "200 200 0"
@@ -10900,36 +10906,40 @@ entity
 		"logicalpos" "[1000 -12768]"
 	}
 }
-entity
+hidden
 {
-	"id" "135845"
-	"classname" "env_beam"
-	"angles" "0 0 0"
-	"BoltWidth" "15"
-	"decalname" "Bigshot"
-	"dissolvetype" "-1"
-	"HDRColorScale" "1.0"
-	"life" "1"
-	"LightningEnd" "elevator_beam_target"
-	"LightningStart" "elevator_beam"
-	"Radius" "256"
-	"renderamt" "100"
-	"rendercolor" "176 217 247"
-	"renderfx" "0"
-	"rendermode" "1"
-	"spawnflags" "1"
-	"StrikeTime" "1"
-	"targetname" "elevator_beam"
-	"targetpoint" "-352 -32 568"
-	"texture" "effects/bluelaser1.vmt"
-	"TextureScroll" "35"
-	"origin" "-352 -32 595"
-	editor
+	entity
 	{
-		"color" "200 200 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 -12268]"
+		"id" "135845"
+		"classname" "env_beam"
+		"angles" "0 0 0"
+		"BoltWidth" "15"
+		"decalname" "Bigshot"
+		"dissolvetype" "-1"
+		"HDRColorScale" "1.0"
+		"life" "1"
+		"LightningEnd" "elevator_beam_target"
+		"LightningStart" "elevator_beam"
+		"Radius" "256"
+		"renderamt" "100"
+		"rendercolor" "176 217 247"
+		"renderfx" "0"
+		"rendermode" "1"
+		"spawnflags" "1"
+		"StrikeTime" "1"
+		"targetname" "elevator_beam"
+		"targetpoint" "-352 -32 568"
+		"texture" "effects/bluelaser1.vmt"
+		"TextureScroll" "35"
+		"origin" "-352 -32 595"
+		editor
+		{
+			"color" "200 200 0"
+			"visgroupid" "28"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[1000 -12268]"
+		}
 	}
 }
 entity
@@ -15763,8 +15773,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-542.434 -23.6096 129.549]"
-		"look" "[-513.324 -67.4092 94.6073]"
+		"position" "[-314.704 -33.7631 205.881]"
+		"look" "[-375.842 -27.3486 191.463]"
 	}
 	camera
 	{

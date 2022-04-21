@@ -1,26 +1,32 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8973"
-	"mapversion" "1008"
+	"editorbuild" "8997"
+	"mapversion" "1014"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
+	visgroup
+	{
+		"name" "old_beam"
+		"visgroupid" "29"
+		"color" "88 169 206"
+	}
 }
 viewsettings
 {
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "1008"
+	"mapversion" "1014"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -6450,36 +6456,40 @@ entity
 		"logicalpos" "[0 500]"
 	}
 }
-entity
+hidden
 {
-	"id" "173746"
-	"classname" "env_beam"
-	"angles" "0 0 0"
-	"BoltWidth" "15"
-	"decalname" "Bigshot"
-	"dissolvetype" "-1"
-	"HDRColorScale" "1.0"
-	"life" "1"
-	"LightningEnd" "elevator_beam_target"
-	"LightningStart" "elevator_beam"
-	"Radius" "256"
-	"renderamt" "100"
-	"rendercolor" "176 217 247"
-	"renderfx" "0"
-	"rendermode" "1"
-	"spawnflags" "1"
-	"StrikeTime" "1"
-	"targetname" "elevator_beam"
-	"targetpoint" "95.03 696.42 -296"
-	"texture" "effects/bluelaser1.vmt"
-	"TextureScroll" "35"
-	"origin" "96 672 -294.174"
-	editor
+	entity
 	{
-		"color" "200 200 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[1000 -12268]"
+		"id" "173746"
+		"classname" "env_beam"
+		"angles" "0 0 0"
+		"BoltWidth" "15"
+		"decalname" "Bigshot"
+		"dissolvetype" "-1"
+		"HDRColorScale" "1.0"
+		"life" "1"
+		"LightningEnd" "elevator_beam_target"
+		"LightningStart" "elevator_beam"
+		"Radius" "256"
+		"renderamt" "100"
+		"rendercolor" "176 217 247"
+		"renderfx" "0"
+		"rendermode" "1"
+		"spawnflags" "1"
+		"StrikeTime" "1"
+		"targetname" "elevator_beam"
+		"targetpoint" "95.03 696.42 -296"
+		"texture" "effects/bluelaser1.vmt"
+		"TextureScroll" "35"
+		"origin" "96 672 -294.174"
+		editor
+		{
+			"color" "200 200 0"
+			"visgroupid" "29"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[1000 -12268]"
+		}
 	}
 }
 entity
@@ -6746,11 +6756,11 @@ entity
 	"id" "173849"
 	"classname" "info_particle_system"
 	"angles" "-90 90 0"
-	"effect_name" "portal_1_projectile_stream"
+	"effect_name" "elevator_beam"
 	"parentname" "elevator_body_middle"
 	"start_active" "1"
 	"targetname" "elevator_beam_target"
-	"origin" "96 672 -577"
+	"origin" "96 672 -571"
 	editor
 	{
 		"color" "200 200 0"
@@ -12170,8 +12180,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[145.697 810.236 -440.298]"
-		"look" "[101.083 824.725 -482.535]"
+		"position" "[72.4156 712.113 -563.322]"
+		"look" "[106.978 659.311 -562]"
 	}
 	camera
 	{
