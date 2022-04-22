@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8997"
-	"mapversion" "552"
+	"mapversion" "562"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,13 +26,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "552"
+	"mapversion" "562"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2211,7 +2211,7 @@ world
 		side
 		{
 			"id" "4695"
-			"plane" "(-224 80 192) (-224 -80 192) (-224 -80 208)"
+			"plane" "(-224 -80 192) (-224 -80 208) (-224 80 208)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -2222,7 +2222,7 @@ world
 		side
 		{
 			"id" "4694"
-			"plane" "(-288 -128 192) (-288 128 192) (-288 128 208)"
+			"plane" "(-288 128 192) (-288 128 208) (-288 -128 208)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -2233,7 +2233,7 @@ world
 		side
 		{
 			"id" "4693"
-			"plane" "(-288 -128 208) (-288 128 208) (-224 80 208)"
+			"plane" "(-288 128 208) (-224 80 208) (-224 -80 208)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -2244,7 +2244,7 @@ world
 		side
 		{
 			"id" "4692"
-			"plane" "(-288 128 192) (-288 -128 192) (-224 -80 192)"
+			"plane" "(-288 -128 192) (-224 -80 192) (-224 80 192)"
 			"material" "BEE2/P1/CONCRETE_MODULAR_CEILING001A"
 			"uaxis" "[1 0 0 128] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -2255,7 +2255,7 @@ world
 		side
 		{
 			"id" "4691"
-			"plane" "(-288 128 208) (-288 128 192) (-224 80 192)"
+			"plane" "(-288 128 192) (-224 80 192) (-224 80 208)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -2266,7 +2266,7 @@ world
 		side
 		{
 			"id" "4690"
-			"plane" "(-288 -128 192) (-288 -128 208) (-224 -80 208)"
+			"plane" "(-224 -80 192) (-288 -128 192) (-288 -128 208)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -3267,6 +3267,22 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "33344"
+	"classname" "filter_player_held"
+	"angles" "0 0 0"
+	"negated" "1"
+	"targetname" "filter_held"
+	"origin" "-256 -64 16"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -8444,6 +8460,7 @@ entity
 {
 	"id" "26114"
 	"classname" "trigger_multiple"
+	"filtername" "filter_held"
 	"origin" "-400 0 96"
 	"solid" "6"
 	"spawnflags" "4104"
@@ -8463,7 +8480,7 @@ entity
 		side
 		{
 			"id" "5649"
-			"plane" "(-544 63.9999 3.05176e-005) (-544 -64.0001 3.05176e-005) (-480 -128 3.05176e-005)"
+			"plane" "(-544 -64 -64) (-480 -128 -64) (-288 -128 -64)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -8474,7 +8491,7 @@ entity
 		side
 		{
 			"id" "5648"
-			"plane" "(-544 -64.0001 192) (-544 63.9999 192) (-480 128 192)"
+			"plane" "(-544 64 192) (-480 128 192) (-288 128 192)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -8485,7 +8502,7 @@ entity
 		side
 		{
 			"id" "5647"
-			"plane" "(-544 -64.0001 3.05176e-005) (-544 63.9999 3.05176e-005) (-544 63.9999 192)"
+			"plane" "(-544 64 -64) (-544 64 192) (-544 -64 192)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -8496,7 +8513,7 @@ entity
 		side
 		{
 			"id" "5646"
-			"plane" "(-210 64 0) (-210 -64 0) (-210 -64 192)"
+			"plane" "(-224 -64 -64) (-224 -64 192) (-224 64 192)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -8507,7 +8524,7 @@ entity
 		side
 		{
 			"id" "5645"
-			"plane" "(-288 -128 0) (-480 -128 3.05176e-005) (-480 -128 192)"
+			"plane" "(-480 -128 -64) (-480 -128 192) (-288 -128 192)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -8518,7 +8535,7 @@ entity
 		side
 		{
 			"id" "5644"
-			"plane" "(-288 128 192) (-480 128 192) (-480 128 3.05176e-005)"
+			"plane" "(-288 128 -64) (-288 128 192) (-480 128 192)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -8529,7 +8546,7 @@ entity
 		side
 		{
 			"id" "5643"
-			"plane" "(-210 64 192) (-288 128 192) (-288 128 0)"
+			"plane" "(-224 64 -64) (-224 64 192) (-288 128 192)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[-0.707107 0.707107 0 0] 0.25"
@@ -8540,7 +8557,7 @@ entity
 		side
 		{
 			"id" "5642"
-			"plane" "(-480 128 192) (-544 63.9999 192) (-544 63.9999 3.05176e-005)"
+			"plane" "(-480 128 -64) (-480 128 192) (-544 64 192)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[-0.707107 -0.707107 0 0] 0.25"
@@ -8551,7 +8568,7 @@ entity
 		side
 		{
 			"id" "5641"
-			"plane" "(-480 -128 3.05176e-005) (-544 -64.0001 3.05176e-005) (-544 -64.0001 192)"
+			"plane" "(-544 -64 -64) (-544 -64 192) (-480 -128 192)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[-0.707107 0.707107 0 0] 0.25"
@@ -8562,7 +8579,7 @@ entity
 		side
 		{
 			"id" "5640"
-			"plane" "(-210 -64 0) (-288 -128 0) (-288 -128 192)"
+			"plane" "(-288 -128 -64) (-288 -128 192) (-224 -64 192)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[-0.707107 -0.707107 0 0] 0.25"
@@ -8582,8 +8599,8 @@ entity
 		"id" "26260"
 		side
 		{
-			"id" "5650"
-			"plane" "(-304 112 480) (-512 112 480) (-512 112 192)"
+			"id" "7474"
+			"plane" "(-304 112 192) (-304 112 480) (-512 112 480)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -8593,8 +8610,8 @@ entity
 		}
 		side
 		{
-			"id" "5651"
-			"plane" "(-304 -112 192) (-512 -112 192) (-512 -112 480)"
+			"id" "7473"
+			"plane" "(-512 -112 192) (-512 -112 480) (-304 -112 480)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -8604,8 +8621,8 @@ entity
 		}
 		side
 		{
-			"id" "5652"
-			"plane" "(-304 112 192) (-512 112 192) (-512 -112 192)"
+			"id" "7472"
+			"plane" "(-512 112 192) (-512 -112 192) (-304 -112 192)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -8615,8 +8632,8 @@ entity
 		}
 		side
 		{
-			"id" "5653"
-			"plane" "(-304 -112 480) (-512 -112 480) (-512 112 480)"
+			"id" "7471"
+			"plane" "(-512 -112 480) (-512 112 480) (-304 112 480)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -8626,8 +8643,8 @@ entity
 		}
 		side
 		{
-			"id" "5654"
-			"plane" "(-304 112 480) (-304 112 192) (-304 -112 192)"
+			"id" "7470"
+			"plane" "(-304 112 192) (-304 -112 192) (-304 -112 480)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
@@ -8637,8 +8654,8 @@ entity
 		}
 		side
 		{
-			"id" "5655"
-			"plane" "(-512 -112 480) (-512 -112 192) (-512 112 192)"
+			"id" "7469"
+			"plane" "(-512 -112 192) (-512 112 192) (-512 112 480)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 0 -1 0] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
