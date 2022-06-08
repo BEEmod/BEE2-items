@@ -404,10 +404,6 @@
 	"Corridors"
 		{
 		"icon_folder" "60s"
-		"sp_exit"
-			{
-			"2"	"Lobby"
-			}
 		"coop"
 			{
 			"2"	"Office"
@@ -672,22 +668,6 @@
 	"Corridors"
 		{
 		"icon_folder" "70s"
-		"sp_entry"
-			{
-			"4" {
-				"Name" "Stairs"
-				"Desc" "Test subjects walk up a small staircase to enter the chamber. Several dynamic elements change based on chamber contents:
-* Repulsion Gel is spilled on the floor if present in the chamber.
-* Semi-transparent versions of modern signage appear for Repulsion Gel and Crushers.
-* A sign warns of dangerous testing elements.
-* Another warns about \"Combatatron\" androids if Turrets are present.
-"
-				}
-			}
-		"sp_exit"
-			{
-			"2"	"Lobby"
-			}
 		"coop"
 			{
 			"2"	"Office"
@@ -788,6 +768,22 @@
 			"$door"        "testchamber_conditional"
 			"$frame"       "exit_corridor_1"
 			"$fizz_folder" "instances/bee2/50s/sphere_sp/exit_fizz_"
+			}
+		}
+	"sp_exit"
+		{
+		"name" "Lobby"
+		"authors" "Carl Kenner"
+		"image" "BEE2_OLD_AP:corr/70s/sp_exit/lobby_1.jpg"
+		"DefaultIndex" "2"
+		"Description" "Players exit into what was a large waiting lobby, with some chairs and a portrait of Cave Johnson. It has fallen into disrepair over time."
+
+		"instance" "instances/BEE2/70s/sphere_sp/exit_corridor_lobby.vmf"
+		"Fixups"
+			{
+			"$door"        "testchamber_conditional"
+			"$frame"       "exit_corridor_lobby"
+			"$fizz_folder" "instances/bee2/50s/sphere_sp/exit_corr_lobby/fizz_"
 			}
 		}
 	}
