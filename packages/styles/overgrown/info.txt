@@ -41,14 +41,6 @@
 		"icon_folder" "overgrown"
 		"Sp_entry"
 			{
-			"1" {
-				"Name" "Right Turn"
-				"Desc" "A large corridor where players turn the corner to enter the chamber."
-				}
-			"2" {
-				"Name" "Staircase"
-				"Desc" "The corridor is lowered, dropping players downward before allowing them to enter up a staircase."
-				}
 			"3"	{
 				"Name" "White Left"
 				"Desc" "This portalable corridor turns leftward."
@@ -72,8 +64,6 @@
 			}
 		"Sp_exit"
 			{
-			"1"	"Black"
-			"2"	"White"
 			"3" {
 				"Name" "Floor BTS"
 				"Desc" "The floor is collapsed, driving players to walk through a small BTS area into the elevator."
@@ -100,6 +90,68 @@
 	{
 	"ID"       "VPK_BEE2_OVERGROWN"
 	"Filename" "overgrown"
+	}
+
+"CorridorGroup"
+	{
+	"ID" "BEE2_OVERGROWN"
+	"sp_entry"
+		{
+		"name" "Right Turn"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/over/sp_entry/right_turn.jpg"
+		"DefaultIndex" "1"
+		"Description" "A large corridor where players turn the corner to enter the chamber."
+		"instance" "instances/BEE2/over/elevator_sp/entrance_corridor_right_turn.vmf"
+		"Fixups"
+			{
+			"$dropdown" "0"
+			"$wportal"  "1"
+			"$door"     "testchamber"
+			}
+		}
+	"sp_entry"
+		{
+		"name" "Staircase"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/over/sp_entry/staircase.jpg"
+		"DefaultIndex" "2"
+		"Description" "The corridor is lowered, dropping players downward before allowing them to enter up a staircase."
+		"instance" "instances/BEE2/over/elevator_sp/entrance_corridor_staircase.vmf"
+		"Fixups"
+			{
+			"$dropdown" "1"
+			"$wportal"  ""
+			"$door"     "testchamber"
+			}
+		}
+
+	"sp_exit"
+		{
+		"name" "Black"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/over/sp_exit/black.jpg"
+		"DefaultIndex" "1"
+		"Description" ""
+		"instance" "instances/BEE2/over/elevator_sp/exit_corridor_black.vmf"
+		"Fixups"
+			{
+			"$door"     "testchamber"
+			}
+		}
+	"sp_exit"
+		{
+		"name" "White"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/over/sp_exit/white.jpg"
+		"DefaultIndex" "1"
+		"Description" ""
+		"instance" "instances/BEE2/over/elevator_sp/exit_corridor_white.vmf"
+		"Fixups"
+			{
+			"$door"     "testchamber"
+			}
+		}
 	}
 	
 "StyleVar"
