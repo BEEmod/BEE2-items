@@ -41,10 +41,6 @@
 		"icon_folder" "overgrown"
 		"Sp_exit"
 			{
-			"3" {
-				"Name" "Floor BTS"
-				"Desc" "The floor is collapsed, driving players to walk through a small BTS area into the elevator."
-				}
 			"4" {
 				"Name" "Floor Goo"
 				"Desc" "The floor is collapsed, preventing players from walking through the room. If Repulsion Gel is present in the chamber, the walls are covered with gel to allow bouncing to the exit. If playing Aperture Tag, the gel gun is activated to allow doing this. Otherwise, portals are used (with autoportals being inserted if required)."
@@ -238,13 +234,32 @@
 		"name" "White"
 		"authors" "TeamSpen210"
 		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/white.jpg"
-		"DefaultIndex" "1"
+		"DefaultIndex" "2"
 		"Description" ""
 		"instance" "instances/BEE2/over/elevator_sp/exit_corridor_white.vmf"
 		"Fixups"
 			{
 			"$fizz_frame" "exit_2_fizz_frame"
 			"$door"       "testchamber"
+			}
+		}
+	"sp_exit"
+		{
+		"name" "Floor BTS"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/floor_bts_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/floor_bts_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/floor_bts_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/floor_bts_4.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/floor_bts_5.jpg"
+		"DefaultIndex" "3"
+		"Description" "The floor is collapsed, driving players to walk through a small BTS area into the elevator."
+		"instance" "instances/BEE2/over/elevator_sp/exit_floor_bts_corridor.vmf"
+		"Fixups"
+			{
+			"$fizz_frame"      "exit_floor_bts_fizz_frame"
+			"$door"            "testchamber"
+			"$collapsedStairs" "1"
 			}
 		}
 	}
