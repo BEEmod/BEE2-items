@@ -402,14 +402,6 @@
 		"Music"     "VALVE_REUNION_PART_1"
 		"Music"     "VALVE_REUNION_PART_2"
 		}
-	"Corridors"
-		{
-		"icon_folder" "60s"
-		"coop"
-			{
-			"2"	"Office"
-			}
-		}
 	}
 
 "CorridorGroup"
@@ -653,12 +645,29 @@
 		{
 		"name" "Corridor"
 		"authors" "Carl Kenner"
-		"image" "BEE2_OLD_AP:corr/60s/sp_exit/1_1.jpg"
-		"image" "BEE2_OLD_AP:corr/60s/sp_exit/1_2.jpg"
+		"image" "BEE2_OLD_AP:corr/60s/coop_exit/1_1.jpg"
+		"image" "BEE2_OLD_AP:corr/60s/coop_exit/1_2.jpg"
 		"DefaultIndex" "1"
 		"Description" ""
 
 		"instance" "instances/BEE2/60s/sphere_coop/exit_corridor_1.vmf"
+		"Fixups"
+			{
+			"$door"        "testchamber"
+			"$fizz_folder" "instances/bee2/50s/sphere_sp/exit_fizz_"
+			}
+		}
+	"coop_exit"
+		{
+		"name" "Office"
+		"authors" "Carl Kenner"
+		"image" "BEE2_OLD_AP:corr/60s/coop_exit/office_1.jpg"
+		"image" "BEE2_OLD_AP:corr/60s/coop_exit/office_2.jpg"
+		"image" "BEE2_OLD_AP:corr/60s/coop_exit/office_3.jpg"
+		"DefaultIndex" "2"
+		"Description" "A small office built into the exit corridor."
+
+		"instance" "instances/BEE2/60s/sphere_coop/exit_corridor_office.vmf"
 		"Fixups"
 			{
 			"$door"        "testchamber"
