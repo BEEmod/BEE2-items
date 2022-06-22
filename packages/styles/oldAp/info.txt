@@ -1047,16 +1047,17 @@
 		"Description" "Test subjects enter through a waiting lobby. Several dynamic elements change based on chamber contents:
 
 * _Conversion Gel_ will be spilled in splatters on the floor if present.
-* Semi-transparent versions of modern signage appear for the following elements:
+* Modern signage appears for the following elements:
 	* _Propulsion Gel_
 	* _Repulsion Gel_
 	* _Crushers_
 	* _Goo_
+	* _Turret_ burning
 	* _Laser Catchers_
 	* _Light Bridges_
 	* _Turrets_
 	* _Excursion Funnels_
-* A sign warns of _dangerous_ testing elements.
+* If _dangerous_ testing elements are present, a sign reminds you to ignore warnings from your future self.
 "
 		"instance" "instances/BEE2/80s/sphere_sp/entrance_lobby_corridor.vmf"
 		"Fixups"
@@ -1074,7 +1075,43 @@
 		"DefaultIndex" "2"
 		"Description" "Test subjects enter through an office corridor overlooking the actual test entrance. Several dynamic elements change based on chamber contents:
 
-* Semi-transparent versions of modern signage appear for the following elements:
+* Modern signage appears for the following elements:
+	* _Propulsion Gel_
+	* _Repulsion Gel_
+	* _Light Bridges_
+	* _High Energy Pellets_
+	* _Turret_ burning
+	* _Reflection Cubes_
+	* _Cube Droppers_
+	* _Cube Buttons_
+	* _Ball Buttons_
+	* _Ball Droppers_
+* If _Crushers_ are present, a sign warns people not to enter if pistons are active, due to an \"architectual flaw\".
+* If _Conversion Gel_ or _Neurotoxin_ is present, a sign reminds test subjects to wear a respirator.
+* If _Conversion Gel_ is present a sign is added reminding employees not to test if allergic to lunar sediment.
+* If  _Turrets_ are present, a poster praising robots is present as well as a spraypainted caution.
+* If _dangerous_ testing elements are present, a sign reminds you to ignore warnings from your future self.
+"
+		"instance" "instances/BEE2/80s/sphere_sp/entrance_split_office_corridor.vmf"
+		"Fixups"
+			{
+			"$template" "BEE2_80s_CORRIDOR_SPLIT_OFFICE"
+			"$door"     "testchamber"
+			}
+		}
+	"sp_entry"
+		{
+		"name" "Half Office"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OLD_AP:corr/80s/sp_entry/half_office_1.jpg"
+		"image" "BEE2_OLD_AP:corr/80s/sp_entry/half_office_2.jpg"
+		"image" "BEE2_OLD_AP:corr/80s/sp_entry/half_office_3.jpg"
+
+		"icon"  "BEE2_OLD_AP:corr/80s/sp_entry/half_office_2.jpg"
+		"DefaultIndex" "3"
+		"Description" "Test subjects enter through an incomplete office corridor, which gives way to a testing environment:
+
+* Modern signage appears for the following elements:
 	* _Propulsion Gel_
 	* _Repulsion Gel_
 	* _Excursion Funnels_
@@ -1086,14 +1123,15 @@
 	* _Ball Droppers_
 * If _Crushers_ are present, a sign warns people not to enter if pistons are active, due to an \"architectual flaw\".
 * If _Conversion Gel_ or _Neurotoxin_ is present, a sign reminds test subjects to wear a respirator.
-* If _Conversion Gel_ is present reminding employees not to test if allergic to lunar sediment.
+* If _Conversion Gel_ is present a sign is added reminding employees not to test if allergic to lunar sediment.
 * If _Turrets_ are present, a poster praising robots is present.
-* A sign warns of _dangerous_ testing elements.
+* If _dangerous_ testing elements are present, a sign reminds you to ignore warnings from your future self.
+* If _Cleansing Gel_ is present, a leaking pipe is present in the office.
 "
-		"instance" "instances/BEE2/80s/sphere_sp/entrance_split_office_corridor.vmf"
+		"instance" "instances/BEE2/80s/sphere_sp/entrance_half_office_corridor.vmf"
 		"Fixups"
 			{
-			"$template" "BEE2_80s_CORRIDOR_SPLIT_OFFICE"
+			"$template" "BEE2_80s_CORRIDOR_HALF_OFFICE"
 			"$door"     "testchamber"
 			}
 		}
