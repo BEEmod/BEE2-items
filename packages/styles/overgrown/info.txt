@@ -36,64 +36,6 @@
 		"Music"     "VALVE_HAUNTED_PANELS"
 		"Music"     "VALVE_OVERGROWTH"
 		}
-	"Corridors"
-		{
-		"icon_folder" "overgrown"
-		"Sp_entry"
-			{
-			"1" {
-				"Name" "Right Turn"
-				"Desc" "A large corridor where players turn the corner to enter the chamber."
-				}
-			"2" {
-				"Name" "Staircase"
-				"Desc" "The corridor is lowered, dropping players downward before allowing them to enter up a staircase."
-				}
-			"3"	{
-				"Name" "White Left"
-				"Desc" "This portalable corridor turns leftward."
-				}
-			"4"	{
-				"Name" "Collapsed"
-				"Desc" "The entryway is collapsed, dropping debris in the path. If Repulsion Gel is present in the map, the gel has spilled to allow jumping over. If playing Aperture Tag, the gel gun is activated to allow doing this. Otherwise, portals are used (with autoportals being inserted if required)."
-				}
-			"5"	{
-				"Name" "Small Right"
-				"Desc" "A cramped corridor, with a collapsed wall to the side revealing background destruction."
-				}
-			"6" {
-				"Name" "Flooded"
-				"Desc" "This corridor is heavily flooded, with the floor collapsed and water raining in from the ceiling."
-				}
-			"7"	{
-				"Name" "Tilted"
-				"Desc" "This corridor is tilted to the side substantially."
-				}
-			}
-		"Sp_exit"
-			{
-			"1"	"Black"
-			"2"	"White"
-			"3" {
-				"Name" "Floor BTS"
-				"Desc" "The floor is collapsed, driving players to walk through a small BTS area into the elevator."
-				}
-			"4" {
-				"Name" "Floor Goo"
-				"Desc" "The floor is collapsed, preventing players from walking through the room. If Repulsion Gel is present in the chamber, the walls are covered with gel to allow bouncing to the exit. If playing Aperture Tag, the gel gun is activated to allow doing this. Otherwise, portals are used (with autoportals being inserted if required)."
-				}
-			}
-		"Coop"
-			{
-			"1"	"Black Left"
-			"2"	"White S-Bend"
-			"3"	"Small White"
-			"4"	{
-				"Name" "Tilted"
-				"Desc" "This chamber is tilted sideways."
-				}
-			}
-		}
 	}
 	
 "StyleVPK"
@@ -101,7 +43,318 @@
 	"ID"       "VPK_BEE2_OVERGROWN"
 	"Filename" "overgrown"
 	}
-	
+
+"CorridorGroup"
+	{
+	"ID" "BEE2_OVERGROWN"
+	"sp_entry"
+		{
+		"name" "Right Turn"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/right_turn_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/right_turn_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/right_turn_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/right_turn_4.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/right_turn_5.jpg"
+		"DefaultIndex" "1"
+		"Description" "A large corridor where players turn the corner to enter the chamber."
+		"instance" "instances/BEE2/over/elevator_sp/entrance_corridor_right_turn.vmf"
+		"Fixups"
+			{
+			"$dropdown" "0"
+			"$wportal1" "1"
+			"$wportal2" "2"
+			"$door"     "testchamber"
+			}
+		}
+	"sp_entry"
+		{
+		"name" "Staircase"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/staircase_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/staircase_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/staircase_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/staircase_4.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/staircase_5.jpg"
+
+		"icon"  "BEE2_OVERGROWN:corr/overgrown/sp_entry/staircase_2.jpg" // Show chamber not the entry drop.
+		"DefaultIndex" "2"
+		"Description" "The corridor is lowered, dropping players downward before allowing them to enter up a staircase."
+		"instance" "instances/BEE2/over/elevator_sp/entrance_corridor_staircase.vmf"
+		"Fixups"
+			{
+			"$dropdown" "1"
+			"$wportal1" ""
+			"$wportal2" ""
+			"$door"     "testchamber"
+			}
+		}
+	"sp_entry"
+		{
+		"name" "White Left"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/white_left_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/white_left_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/white_left_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/white_left_4.jpg"
+		"DefaultIndex" "3"
+		"Description" "This portalable corridor turns leftward."
+		"instance" "instances/BEE2/over/elevator_sp/entrance_corridor_white_left.vmf"
+		"Fixups"
+			{
+			"$dropdown" "0"
+			"$wportal1" "2"
+			"$wportal2" ""
+			"$door"     "testchamber"
+			}
+		}
+	"sp_entry"
+		{
+		"name" "Collapsed"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/collapsed_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/collapsed_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/collapsed_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/collapsed_4.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/collapsed_5.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/collapsed_6.jpg"
+		"DefaultIndex" "4"
+		"Description" 
+			{
+			"" "The entryway is collapsed, dropping debris in the path."
+			"" ""
+			"" "* If Repulsion Gel is present in the map, the gel has spilled to allow jumping over."
+			"" "* If playing Aperture Tag, the gel gun is activated to allow doing this."
+			"" "* Otherwise, portals are used (with autoportals being inserted if required)."
+			}
+		"instance" "instances/BEE2/over/elevator_sp/entrance_corridor_collapsed.vmf"
+		"Fixups"
+			{
+			"$dropdown" "0"
+			"$wportal1" "3"
+			"$wportal2" ""
+			"$door"     "testchamber"
+			}
+		}
+	"sp_entry"
+		{
+		"name" "Small Right"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/small_right_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/small_right_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/small_right_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/small_right_4.jpg"
+		"DefaultIndex" "5"
+		"Description" "A cramped corridor, with a collapsed wall to the side revealing background destruction."
+		"instance" "instances/BEE2/over/elevator_sp/entrance_corridor_small_right.vmf"
+		"Fixups"
+			{
+			"$dropdown" "0"
+			"$wportal1" "3"
+			"$wportal2" ""
+			"$door"     "testchamber"
+			}
+		}
+	"sp_entry"
+		{
+		"name" "Flooded"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/flooded_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/flooded_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/flooded_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/flooded_4.jpg"
+		"DefaultIndex" "6"
+		"Description" "This corridor is heavily flooded, with the floor collapsed and water raining in from the ceiling."
+		"instance" "instances/BEE2/over/elevator_sp/entrance_corridor_flooded.vmf"
+		"Fixups"
+			{
+			"$dropdown" "0"
+			"$wportal1" "4"
+			"$wportal2" ""
+			"$door"     "testchamber"
+			}
+		}
+	"sp_entry"
+		{
+		"name" "Tilted"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/tilted_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/tilted_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/tilted_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_entry/tilted_4.jpg"
+		"DefaultIndex" "7"
+		"Description" "A cramped corridor, with a collapsed wall to the side revealing background destruction."
+		"instance" "instances/BEE2/over/elevator_sp/entrance_corridor_tilted.vmf"
+		"Fixups"
+			{
+			"$dropdown" "0"
+			"$wportal1" "5"
+			"$wportal2" ""
+			"$door"     "testchamber"
+			}
+		}
+
+	"sp_exit"
+		{
+		"name" "Black"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/black.jpg"
+		"DefaultIndex" "1"
+		"Description" ""
+		"instance" "instances/BEE2/over/elevator_sp/exit_corridor_black.vmf"
+		"Fixups"
+			{
+			"$fizz_frame" "exit_1_fizz_frame"
+			"$door"       "testchamber"
+			}
+		}
+	"sp_exit"
+		{
+		"name" "White"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/white.jpg"
+		"DefaultIndex" "2"
+		"Description" ""
+		"instance" "instances/BEE2/over/elevator_sp/exit_corridor_white.vmf"
+		"Fixups"
+			{
+			"$fizz_frame" "exit_2_fizz_frame"
+			"$door"       "testchamber"
+			}
+		}
+	"sp_exit"
+		{
+		"name" "Floor BTS"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/floor_bts_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/floor_bts_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/floor_bts_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/floor_bts_4.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/floor_bts_5.jpg"
+		"DefaultIndex" "3"
+		"Description" "The floor is collapsed, driving players to walk through a small BTS area into the elevator."
+		"instance" "instances/BEE2/over/elevator_sp/exit_floor_bts_corridor.vmf"
+		"Fixups"
+			{
+			"$fizz_frame"      "exit_floor_bts_fizz_frame"
+			"$door"            "testchamber"
+			"$collapsedStairs" "1"
+			}
+		}
+	"sp_exit"
+		{
+		"name" "Floor Collapsed"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/collapsed_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/collapsed_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/collapsed_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/collapsed_4.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/sp_exit/collapsed_5.jpg"
+		"DefaultIndex" "4"
+		"Description"
+			{
+			"" "The floor is collapsed, preventing players from walking through the room."
+			"" ""
+			"" "* If Repulsion Gel is present in the chamber, the walls are covered with gel to allow bouncing to the exit."
+			"" "* If playing Aperture Tag, the gel gun is activated to allow doing this."
+			"" "* Otherwise, portals are used (with autoportals being inserted if required)."
+			}
+		"instance" "instances/BEE2/over/elevator_sp/exit_collapsed_corridor.vmf"
+		"Fixups"
+			{
+			"$fizz_frame" ""
+			"$door"       "testchamber"
+			}
+		}
+
+
+	"coop_entry"
+		{
+		"name" "Dropper Spawn"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_entry/horiz_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_entry/horiz_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_entry/horiz_3.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_entry/horiz_4.jpg"
+		"DefaultIndex" "1"
+		"Description" "Coop robots drop into the intro room through cube dropper vents."
+		"instance" "instances/BEE2/over/elevator_coop/spawn_room.vmf"
+		"Fixups"
+			{
+			"$atlas_pos"   "-360 64 304"
+			"$atlas_ang"   "0 0 0"
+			"$tag_fizz"    "instances/bee2/over/elevator_coop/spawn_room_tag.vmf"
+			"$no_tag_fizz" "instances/bee2/over/elevator_coop/spawn_room_no_tag.vmf"
+			}
+		}
+
+	"coop_exit"
+		{
+		"name" "Black Left"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_exit/black_left_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_exit/black_left_2.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_exit/black_left_3.jpg"
+		"DefaultIndex" "1"
+		"Description" ""
+		"instance" "instances/BEE2/over/elevator_coop/exit_black_left_corridor.vmf"
+		"Fixups"
+			{
+			"$door"        "testchamber"
+			"$tag_fizz"    "instances/BEE2/over/elevator_coop/exit_black_left_fizz_tag.vmf"
+			"$no_tag_fizz" "instances/BEE2/over/elevator_coop/exit_black_left_fizz_frame_p2.vmf"
+			}
+		}
+	"coop_exit"
+		{
+		"name" "White S-Bend"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_exit/white_sbend_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_exit/white_sbend_2.jpg"
+		"DefaultIndex" "2"
+		"Description" ""
+		"instance" "instances/BEE2/over/elevator_coop/exit_white_sbend_corridor.vmf"
+		"Fixups"
+			{
+			"$door"        "testchamber"
+			"$tag_fizz"    "instances/BEE2/over/elevator_coop/exit_tag_fizz_192.vmf"
+			"$no_tag_fizz" ""
+			}
+		}
+	"coop_exit"
+		{
+		"name" "Small White"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_exit/small_white_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_exit/small_white_2.jpg"
+		"DefaultIndex" "3"
+		"Description" ""
+		"instance" "instances/BEE2/over/elevator_coop/exit_small_white_corridor.vmf"
+		"Fixups"
+			{
+			"$door"        "testchamber"
+			"$tag_fizz"    "instances/BEE2/over/elevator_coop/exit_tag_fizz_256.vmf"
+			"$no_tag_fizz" ""
+			}
+		}
+	"coop_exit"
+		{
+		"name" "Tilted"
+		"authors" "TeamSpen210"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_exit/tilted_1.jpg"
+		"image" "BEE2_OVERGROWN:corr/overgrown/coop_exit/tilted_2.jpg"
+		"DefaultIndex" "4"
+		"Description" "This chamber is tilted sideways."
+		"instance" "instances/BEE2/over/elevator_coop/exit_tilted_corridor.vmf"
+		"Fixups"
+			{
+			"$door"        "testchamber"
+			"$tag_fizz"    "instances/BEE2/over/elevator_coop/exit_tilted_tag_fizz.vmf"
+			"$no_tag_fizz" ""
+			}
+		}
+	}
+
 "StyleVar"
 	{
 	"ID"        "BEE2_GOO_DEBRIS"

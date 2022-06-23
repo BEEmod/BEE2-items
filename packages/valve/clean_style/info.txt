@@ -28,26 +28,8 @@
 		"Skybox" "BEE2_CLEAN"
 		"Elev"   "VALVE_APERTURE_LOGO"
 		}
-	"Corridors"
-		{
-		"icon_folder" "clean"
-		"sp_entry"
-			{
-			"2"	"Right Turn"
-			"3"	"Right S-Bend"
-			"6"	"Stairs"
-			"7"	"Left Turn"
-			}
-		"sp_exit"
-			{
-			}
-		"coop"
-			{
-			"4" "Drop"
-			}
-		}
 	}
-	
+
 "Style"
 	{
 	"ID"          "BEE2_CLEAN_ORIGINAL"
@@ -72,25 +54,348 @@
 		"Skybox" "BEE2_CLEAN"
 		"Elev"   "<NONE>" // This means random-video
 		}
-	"Corridors"
+	}
+
+
+"CorridorGroup"
+	{
+	"ID" "BEE2_CLEAN"
+	"sp_entry"
 		{
-		"icon_folder" "clean"
-		"sp_entry"
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_1.vmf"
+		"name" "Corridor 1"
+		"authors" "Valve"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/1.jpg"
+		"DefaultIndex" "1"
+		"Legacy" "1" // TODO
+		"Fixups"
 			{
-			"2"	"Right Turn"
-			"3"	"Right S-Bend"
-			"6"	"Stairs"
-			"7"	"Left Turn"
+			"$horiz_cam" "1"
+			"$frame" "door"
 			}
-		"sp_exit"
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/entrance_right_tubes/corridor.vmf"
+		"config" "entry_door/corr_right_tubes.cfg"
+		"name" "Right Turn"
+		"authors" "Valve, TeamSpen210"
+		"Description"
 			{
+			"" "A right hand turn into the test chamber. "
+			"" "Some panels are missing, showing a vactube which contains different gels depending on the contents of the chamber."
 			}
-		"coop"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/2.jpg"
+		"DefaultIndex" "2"
+		"Legacy" "1" // TODO
+		"Fixups"
 			{
-			"4" "Drop"
+			"$horiz_cam" "1"
+			"$frame" "door"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_3.vmf"
+		"name" "Right S-Bend"
+		"authors" "Valve"
+		"Description" "Players shift slightly to the right to enter the chamber."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/3.jpg"
+		"DefaultIndex" "3"
+		"Legacy" "1" // TODO
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_4.vmf"
+		"name" "Corridor 4"
+		"authors" "Valve"
+		"Description" "A straight corridor with a little nook on either side."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/4.jpg"
+		"DefaultIndex" "4"
+		"Legacy" "1" // TODO
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_5.vmf"
+		"name" "Corridor 5"
+		"authors" "Valve"
+		"Description" "A straight corridor with a little nook on either side and lowered ceiling."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/5.jpg"
+		"DefaultIndex" "5"
+		"Legacy" "1" // TODO
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_6.vmf"
+		"name" "Stairs"
+		"authors" "Valve, TeamSpen210"
+		"Description" "Players must climb up some stairs to reach the chamber."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/6.jpg"
+		"DefaultIndex" "6"
+		"Legacy" "1" // TODO
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_7.vmf"
+		"name" "Left Turn"
+		"authors" "Valve"
+		"Description" "A corridor with a left hand turn into the chamber."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/7.jpg"
+		"DefaultIndex" "7"
+		"Legacy" "1" // TODO
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			}
+		}
+
+	"sp_entry_up"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_up_track.vmf"
+		"name" "Track Lift"
+		"authors" "Valve"
+		"Description" "Players are raised on a platform into the chamber."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/3.jpg"
+		"DefaultIndex" "1"
+		"Fixups"
+			{
+			"$horiz_cam" "0"
+			"$frame" "remove"
+			}
+		}
+	"sp_entry_down"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_down_piston.vmf"
+		"name" "Piston Drop"
+		"authors" "Valve"
+		"Description" "Players drop through the floor into the chamber. The ceiling is then closed."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/3.jpg"
+		"DefaultIndex" "1"
+		"Fixups"
+			{
+			"$horiz_cam" "0"
+			"$frame" "remove"
+			}
+		}
+
+	"sp_exit"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_exit_1.vmf"
+		"name" "Warm #1"
+		"authors" "Valve"
+		"Description" "A straight corridor to the exit, with warm lighting. The ceiling is fully intact."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/1.jpg"
+		"DefaultIndex" "1"
+		"Legacy" "1"
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			"$exit_folder" "instances/BEE2/clean/elevator_sp/exit_fizz_"
+			}
+		}
+	"sp_exit"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_exit_2.vmf"
+		"name" "Warm #2"
+		"authors" "Valve"
+		"Description" "A straight corridor to the exit, with warm lighting. The ceiling is missing showing exposed framework."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/2.jpg"
+		"DefaultIndex" "2"
+		"Legacy" "1"
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			"$exit_folder" "instances/BEE2/clean/elevator_sp/exit_"
+			}
+		}
+	"sp_exit"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_exit_3.vmf"
+		"name" "Warm #3"
+		"authors" "Valve"
+		"Description" "A straight corridor to the exit, with warm lighting. The ceiling and walls are unfinished with exposed framework."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/3.jpg"
+		"DefaultIndex" "3"
+		"Legacy" "1"
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			"$exit_folder" "instances/BEE2/clean/elevator_sp/exit_"
+			}
+		}
+	"sp_exit"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_exit_4.vmf"
+		"name" "Cool #1"
+		"authors" "Valve"
+		"Description" "A straight corridor to the exit, with cool lighting. The ceiling is missing showing exposed framework."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/4.jpg"
+		"DefaultIndex" "4"
+		"Legacy" "1"
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			"$exit_folder" "instances/BEE2/clean/elevator_sp/exit_"
+			}
+		}
+
+	"sp_exit_up"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_exit_up_stair/corridor.vmf"
+		"config" "entry_door/corr_up_stairs.cfg"
+		"name" "Upward Catch"
+		"authors" "TeamSpen210"
+		"Description" "The exit is a small room in the ceiling, which catches you when you fling up."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/3.jpg"
+		"DefaultIndex" "1"
+		"Fixups"
+			{
+			"$horiz_cam" "0"
+			"$frame" "remove"
+			"$exit_folder" "instances/BEE2/clean/elevator_sp/door_exit_up_stair/"
+			}
+		}
+
+	"sp_exit_down"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_exit_down_square/corridor.vmf"
+		"name" "Square Drop"
+		"authors" "TeamSpen210"
+		"Description" "The exit is a square room placed on the floor."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/3.jpg"
+		"DefaultIndex" "1"
+		"Fixups"
+			{
+			"$horiz_cam" "0"
+			"$frame" "remove"
+			"$exit_folder" "instances/BEE2/clean/elevator_sp/door_exit_down_square/"
+			}
+		}
+
+	"coop_entry"
+		{
+		"name" "Dropper Spawn"
+		"authors" "Valve"
+		"Description" "Coop robots drop into the intro room through cube dropper vents."
+		"image" "corr/clean/coop_entry/horiz_1.jpg"
+		"image" "corr/clean/coop_entry/horiz_2.jpg"
+
+		"instance" "instances/BEE2/clean/elevator_coop/spawn_room.vmf"
+		"DefaultIndex" "1"
+		"Fixups"
+			{
+			"$atlas_pos" "-352 96 352"
+			"$atlas_ang" "0 0 0"
+			"$tag_fizz" "instances/bee2/clean/elevator_coop/entry_fizz_tag.vmf"
+			}
+		}
+
+	"coop_entry_down"
+		{
+		"name" "Dropper Chamber Spawn"
+		"authors" "Valve"
+		"Description" "Coop robots drop into the chamber through cube dropper vents. Note that the entry sign is not present, since you immediately leave the room."
+		"image" "corr/clean/coop_entry/down_cham_1.jpg"
+		"image" "corr/clean/coop_entry/down_cham_2.jpg"
+		"image" "corr/clean/coop_entry/down_cham_3.jpg"
+
+		"instance" "instances/BEE2/clean/elevator_coop/spawn_room_down_chamber.vmf"
+		"DefaultIndex" "1"
+		"Fixups"
+			{
+			"$atlas_pos" "-32 0 464"
+			"$atlas_ang" "0 90 0"
+			"$tag_fizz"  "instances/bee2/clean/elevator_coop/entry_fizz_tag_down.vmf"
+			}
+		}
+
+	"coop_exit"
+		{
+		"instance" "instances/BEE2/clean/elevator_coop/door_exit_1.vmf"
+		"name" "Warm #1"
+		"authors" "Valve"
+		"Description" "A straight corridor to the exit, with warm lighting. The ceiling is incomplete showing exposed framework."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/coop/1.jpg"
+		"DefaultIndex" "1"
+		"Legacy" "1"
+		"Fixups"
+			{
+			"$horiz_cam" "0"
+			"$frame" "door_wcam"
+			}
+		}
+	"coop_exit"
+		{
+		"instance" "instances/BEE2/clean/elevator_coop/door_exit_2.vmf"
+		"name" "Warm #2"
+		"authors" "Valve"
+		"Description" "A straight corridor to the exit, with warm lighting. The ceiling is mostly missing showing exposed framework."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/coop/2.jpg"
+		"DefaultIndex" "2"
+		"Legacy" "1" // TODO
+		"Fixups"
+			{
+			"$horiz_cam" "0"
+			"$frame" "door_wcam"
+			}
+		}
+	"coop_exit"
+		{
+		"instance" "instances/BEE2/clean/elevator_coop/door_exit_3.vmf"
+		"name" "Warm #3"
+		"authors" "Valve"
+		"Description" "A straight corridor to the exit, with warm lighting. The ceiling and walls are unfinished with exposed framework."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/coop/3.jpg"
+		"DefaultIndex" "3"
+		"Legacy" "1" // TODO
+		"Fixups"
+			{
+			"$horiz_cam" "0"
+			"$frame" "door_wcam"
+			}
+		}
+	"coop_exit"
+		{
+		"instance" "instances/BEE2/clean/elevator_coop/door_exit_4.vmf"
+		"name" "Drop"
+		"authors" "Valve"
+		"Description" "To exit the chamber both players must drop down to a lower level."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/coop/4.jpg"
+		"DefaultIndex" "4"
+		"Legacy" "1" // TODO
+		"Fixups"
+			{
+			"$horiz_cam" "0"
+			"$frame" "door_wcam"
 			}
 		}
 	}
+
 
 "QuotePack"
 	{
