@@ -1,8 +1,9 @@
 """This converts each folder in packages/ into a zip, saving the zips into zips/.
 
 This way it's easy to edit them.
-Additionally all resources are saved into zips/resources.zip.
+Additionally, all resources are saved into zips/resources.zip.
 """
+from __future__ import annotations
 import os
 import shutil
 import sys
@@ -14,7 +15,7 @@ import argparse
 
 OPTIMISE = False
 # path to a folder, where all useful hammer files will be created, if it stated that they need to be created
-HAMMER_PATH = None
+HAMMER_PATH: str | None = None
 
 
 def clean_vmf(vmf_path):
@@ -84,7 +85,7 @@ def clean_vmf(vmf_path):
 DELETE_EXTENSIONS = ['vmx', 'log', 'bsp', 'prt', 'lin']
 
 
-def search_list_of_dirs(list_of_dirs, zip_path):
+def search_list_of_dirs(list_of_dirs, zip_path: str, include_test: bool):
     """Search the given list of folders for packages
     
     zip_path is the folder the zips will be saved in, 
@@ -96,12 +97,16 @@ def search_list_of_dirs(list_of_dirs, zip_path):
             continue
         if 'info.txt' not in os.listdir(dir_path):  # it's a folder, probably with packages
             # go search its contents
-            yield from search_list_of_dirs([os.path.join(dir_path, i) for i in os.listdir(dir_path)], zip_path)
+            yield from search_list_of_dirs([os.path.join(dir_path, i) for i in os.listdir(dir_path)], zip_path, include_test)
             continue
 
         # do not preserve original file structure, dump all found packs in root of zip_path
         pack_name = os.path.split(dir_path)[-1]
         pack_zip_path = os.path.join(zip_path, pack_name) + ".bee_pack"
+        # Special package used to test the app,
+        if pack_name == 'test' and not include_test:
+            continue
+
         print('| ' + pack_name + '.bee_pack')
 
         yield dir_path, pack_zip_path
@@ -189,11 +194,9 @@ def main():
                              "single package, then it will be compiled, otherwise, if an input path is "
                              "a folder, then it will be recursively searched for packages, and will compile "
                              "all it finds")
-    # will give args.optimize True value is specified, False otherwise;
     parser.add_argument("-op", "--optimize", action="store_const", const=True, default=False,
                         help="Will optimize zips (not recommended and may make packages "
                              "unloadable for bee in current version).", dest="optimize")
-    # will give args.skip_confirm True value is specified, False otherwise;
     parser.add_argument("-c", "--confirm", action="store_const", const=True, default=False,
                         help="Will skip a confirmation prompt.", dest="skip_confirm")
     # will specify an output path. if not specified, args.output will be set to None, and nothing will be moved then
@@ -212,7 +215,11 @@ def main():
                              "specified name. Using this option without a string will just skip prompt "
                              "without creating zip. Not using this option will generate a prompt at the end",
                         dest="zip")
-    # if there is something left inside parse_args() brackets, then probably i forgot to remove after debugging
+    parser.add_argument("--include-test", action="store_const", const=True, default=False,
+                        help="Include the test package, which has sample objects to test "
+                             "application features.This is not useful in a release.",
+                        dest="include_test",
+                        )
     args = parser.parse_args()
     inp_list = args.input
     output = args.output
@@ -227,12 +234,13 @@ def main():
             print("|", inp)
         print("-------------------------------")
         print("Selected options:")
-        print("* Optimization: " + ("ON" if OPTIMISE else "OFF"))
-        print("* Output folder: \"" + output + "\"")
-        print("* Hammer folder: " + ("OFF" if (HAMMER_PATH is None) else ("\"" + HAMMER_PATH + "\"")))
+        print(f'* Optimization: {"ON" if OPTIMISE else "OFF"}')
+        print(f'* Output folder: "{output}"')
+        print("* Hammer folder: " + ("OFF" if (HAMMER_PATH is None) else f'"{HAMMER_PATH}"'))
         print("* Final zip: " + ("skip prompt" if do_zip == "" else
                                  ("not skip prompt" if do_zip is None else
                                   do_zip)))
+        print(f"* Include test: {args.include_test}")
         print()
         if not conv_bool(input("---> Continue? (y/n) ")):
             sys.exit(0)             # confirmation just in case
@@ -260,7 +268,7 @@ def main():
     packages_list = []      # list with filenames of all packages
     # yield will return found packages one by one, so it is easy to iterate them
     # without the need to process everything at once
-    for package in search_list_of_dirs(inp_list, zip_path):
+    for package in search_list_of_dirs(inp_list, zip_path, args.include_test):
         # package is a tuple (raw_package_directory, path_to_compiled_version)
         packages_list.append(os.path.relpath(package[1], zip_path))
         build_package(*package)
@@ -293,10 +301,7 @@ def main():
         for file in packages_list:
             os.remove(os.path.join(zip_path, file))
         print("Done!")
-    else:
-        # dont make zip
-        # we dont actually need to do anything else
-        pass
+    # else: No zip required.
 
 
 if __name__ == '__main__':
