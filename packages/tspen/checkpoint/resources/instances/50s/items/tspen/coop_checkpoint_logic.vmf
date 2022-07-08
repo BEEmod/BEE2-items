@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8997"
-	"mapversion" "209"
+	"mapversion" "210"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "209"
+	"mapversion" "210"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1458,6 +1458,30 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "25746"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "input"
+	connections
+	{
+		"OnTurnedOff" "rl_closeTrigger0-1"
+		"OnTurnedOn" "rl_closeCancelPending0-1"
+		"OnTurnedOn" "entry_door_uOpen0-1"
+		"OnTurnedOn" "entry_door_lOpen0-1"
+	}
+	"origin" "-248 -16 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -4404,8 +4428,12 @@ entity
 		"OnTrigger" "pushDisable0.35-1"
 		"OnTrigger" "entry_door_uClose0-1"
 		"OnTrigger" "entry_door_lClose0-1"
+		"OnMapSpawn" "branch_toggleTest0.11"
+		"OnMapSpawn" "btn_downmodelDisable01"
+		"OnMapSpawn" "drp_binstance:initial_spawn;Disable01"
+		"OnMapSpawn" "drp_oinstance:initial_spawn;Disable01"
 	}
-	"origin" "-248 16.0002 8.93308e-006"
+	"origin" "-248 0.000200272 8.93308e-006"
 	editor
 	{
 		"color" "0 100 250"
@@ -4420,7 +4448,7 @@ entity
 	"classname" "trigger_push"
 	"alternateticksfix" "0"
 	"origin" "-112 0 0"
-	"pushdir" "-90 0 0"
+	"pushdir" "0 0 0"
 	"solid" "6"
 	"spawnflags" "11"
 	"speed" "120"
@@ -4528,97 +4556,11 @@ entity
 }
 entity
 {
-	"id" "14"
-	"classname" "math_counter"
-	"angles" "0 0 0"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "branch_toggleToggleTest0-1"
-		"OnChangedFromMax" "branch_toggleToggleTest0-1"
-	}
-	"origin" "-264 -15.9998 1.15398e-005"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "16"
-	"classname" "logic_branch"
-	"angles" "0 0 0"
-	"InitialValue" "$start_open"
-	"targetname" "branch_toggle"
-	connections
-	{
-		"OnTrue" "entry_door_lOpen0-1"
-		"OnTrue" "entry_door_uOpen0-1"
-		"OnFalse" "rl_closeTrigger0-1"
-		"OnTrue" "rl_closeCancelPending0-1"
-	}
-	"origin" "-264 16.0002 1.15398e-005"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "True=open door"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "18"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-248 32.0002 1.08404e-005"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
-	"id" "20"
-	"classname" "logic_auto"
-	"angles" "0 0 0"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "branch_toggleTest0.1-1"
-		"OnMapSpawn" "drp_oinstance:initial_spawn;Disable0-1"
-		"OnMapSpawn" "drp_binstance:initial_spawn;Disable0-1"
-		"OnMapSpawn" "btn_downmodelDisable0-1"
-	}
-	"origin" "-248 -15.9998 1.08404e-005"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
 	"id" "22"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer"
 	"parm2" "$start_open integer"
-	"origin" "-248 -31.9998 1.08404e-005"
+	"origin" "-248 16.0002 1.08404e-005"
 	editor
 	{
 		"color" "220 30 220"
