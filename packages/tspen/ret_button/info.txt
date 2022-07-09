@@ -194,11 +194,14 @@
 					}
 				"IOConf"
 					{
-					"Type"          "AND"
-					"InvertVar"     "$start_enabled"
-					"SpawnFire"		"always"
-					"Enable_Cmd"    "input,TurnOn,,0.00,-1"
-					"Disable_Cmd"   "input,TurnOff,,0.00,-1"
+					"Type"           "AND"
+					"InvertVar"      "$start_enabled"
+					"SpawnFire"	     "always"
+					"Enable_Cmd"     "input,TurnOn,,0.00,-1"
+					"Disable_Cmd"    "input,TurnOff,,0.00,-1"
+
+					"Out_Activate"	 "instance:and;OnChangeToAllTrue"
+					"Out_Deactivate" "instance:and;OnChangeToAnyFalse"
 					}
 				"Instances"
 					{
