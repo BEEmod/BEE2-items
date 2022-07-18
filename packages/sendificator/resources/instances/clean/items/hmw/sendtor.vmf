@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "114"
+	"editorbuild" "8997"
+	"mapversion" "118"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,41 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "114"
+	"mapversion" "118"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2042"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "reset_rl"
+	connections
+	{
+		"OnTrigger" "targetSetTextureIndex00-1"
+	}
+	"origin" "64 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Used to reset attached pedestal buttons."
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
@@ -73,7 +95,7 @@ entity
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "User1 comes from the script, on sucess."
+		"comments" "User1 comes from the script, on sucess. User2 is fired on failure. "
 		"logicalpos" "[0 6500]"
 	}
 }
@@ -743,6 +765,7 @@ entity
 {
 	"id" "643"
 	"classname" "func_door"
+	"angles" "0 0 0"
 	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "0"
@@ -957,11 +980,11 @@ entity
 	"targetname" "flash_shape_blend"
 	connections
 	{
-		"OnUser1" "targetSetTextureIndex01-1"
 		"OnUser1" "targetRunScriptCode::sendtor_platform <- self;0-1"
 		"OnUser1" "switch_openPlaySound0.2-1"
 		"OnUser1" "beam_moveOpen0-1"
 		"OnUser1" "switch_closePlaySound0-1"
+		"OnUser1" "reset_rlTrigger1-1"
 	}
 	"origin" "48 -6.0112e-006 0"
 	editor
@@ -969,7 +992,7 @@ entity
 		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "This is the item input too."
+		"comments" "This is the item input too. User2 is used to unlock button inputs."
 		"logicalpos" "[0 500]"
 	}
 }

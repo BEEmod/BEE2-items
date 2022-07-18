@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8037"
-	"mapversion" "188"
+	"editorbuild" "8997"
+	"mapversion" "191"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,7 +32,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "188"
+	"mapversion" "191"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -58,6 +58,28 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "11112"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "reset_rl"
+	connections
+	{
+		"OnTrigger" "targetSetTextureIndex00-1"
+	}
+	"origin" "64 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Resets any attached pedestal buttons."
+		"logicalpos" "[0 3500]"
 	}
 }
 entity
@@ -141,7 +163,7 @@ entity
 	"targetname" "flash_shape_blend"
 	connections
 	{
-		"OnUser1" "targetSetTextureIndex01-1"
+		"OnUser1" "reset_rlTrigger1-1"
 		"OnUser1" "switch_openPlaySound0.2-1"
 		"OnUser1" "switch_closePlaySound0-1"
 		"OnUser1" "beam_moveOpen0-1"
@@ -617,6 +639,7 @@ entity
 {
 	"id" "8008"
 	"classname" "func_door"
+	"angles" "0 0 0"
 	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "0"
@@ -857,20 +880,6 @@ entity
 }
 entity
 {
-	"id" "8040"
-	"classname" "env_cubemap"
-	"origin" "0 0 0"
-	editor
-	{
-		"color" "0 0 255"
-		"visgroupid" "38"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "8712"
 	"classname" "env_muzzleflash"
 	"angles" "90 0 0"
@@ -923,6 +932,7 @@ entity
 	"Collide" "0"
 	"Dangling" "0"
 	"MoveSpeed" "64"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "25"
 	"spawnflags" "0"
@@ -1468,6 +1478,7 @@ entity
 	"Dangling" "0"
 	"MoveSpeed" "64"
 	"NextKey" "r2"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "120"
 	"spawnflags" "0"
@@ -1495,6 +1506,7 @@ entity
 	"Collide" "0"
 	"Dangling" "0"
 	"MoveSpeed" "64"
+	"positioninterpolator" "2"
 	"RopeMaterial" "cable/cable.vmt"
 	"Slack" "25"
 	"spawnflags" "0"
