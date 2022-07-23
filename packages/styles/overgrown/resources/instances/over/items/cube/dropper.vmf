@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "331"
+	"editorbuild" "8997"
+	"mapversion" "334"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -56,13 +56,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "331"
+	"mapversion" "334"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -316,31 +316,11 @@ entity
 }
 entity
 {
-	"id" "1458"
-	"classname" "math_counter"
-	"angles" "0 0 0"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnHitMax" "spawn_manSetStateATrue0-1"
-	}
-	"origin" "-48 16 48"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupid" "16"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "11"
 	"classname" "prop_dynamic"
 	"angles" "0 270 180"
 	"DefaultAnim" "item_dropper_idle_closed"
+	"disablebonefollowers" "1"
 	"disableshadows" "1"
 	"drawinfastreflection" "1"
 	"fademindist" "-1"
@@ -582,7 +562,7 @@ entity
 	"filtername" "box*"
 	"Negated" "Allow entities that match criteria"
 	"targetname" "cube_dropper_box_filter"
-	"origin" "48 16 48"
+	"origin" "-16 -48 56"
 	editor
 	{
 		"color" "0 255 0"
@@ -607,7 +587,7 @@ entity
 		"OnEntitySpawned" "box*FireUser40-1"
 		"OnEntitySpawned" "settle_trigEnable0-1"
 	}
-	"origin" "16 48 48"
+	"origin" "16 48 56"
 	editor
 	{
 		"color" "220 30 220"
@@ -627,22 +607,20 @@ entity
 	"targetname" "spawn_man"
 	connections
 	{
-		"OnChangeToAllTrue" "spawn_manSetStateAFalse0-1"
+		"OnChangeToAllTrue" "spawn_manSetStateAFalse0.1-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSkin02-1"
 		"OnChangeToAllTrue" "cube_dropper_box_drop_clipDisable1.1-1"
-		"OnChangeToAllTrue" "cube_dropper_gate_relayEnable1-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetDefaultAnimationitem_dropper_idle0.2-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationitem_dropper_open0.1-1"
 		"OnChangeToAllTrue" "box*FireUser10.01-1"
 		"OnChangeToAllTrue" "cube_dropper_box_reenter_clipDisable0-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSkin10-1"
 		"OnChangeToAllTrue" "spawn_manSetStateBFalse0-1"
-		"OnChangeToAllTrue" "cube_dropper_gate_relayDisable0-1"
 		"OnChangeToAllTrue" "close_trigEnable0-1"
 		"OnChangeToAllTrue" "box*EnableDrawInFastReflection0.1-1"
 		"OnChangeToAllTrue" "spawn_manFireUser10.01-1"
 	}
-	"origin" "16 -48 48"
+	"origin" "16 -48 56"
 	editor
 	{
 		"color" "0 100 250"
@@ -655,17 +633,15 @@ entity
 entity
 {
 	"id" "46"
-	"classname" "logic_relay"
+	"classname" "logic_auto"
 	"angles" "0 0 0"
-	"spawnflags" "0"
-	"StartDisabled" "0"
+	"spawnflags" "1"
 	"targetname" "cube_dropper_gate_relay"
 	connections
 	{
-		"OnTrigger" "spawn_manSetStateATrue0-1"
-		"OnSpawn" "cube_templateForceSpawn0.11"
+		"OnMapSpawn" "cube_templateForceSpawn0.1-1"
 	}
-	"origin" "-16 48 48"
+	"origin" "-16 48 56"
 	editor
 	{
 		"color" "0 100 250"
@@ -673,27 +649,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[500 2000]"
-	}
-}
-entity
-{
-	"id" "650"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-		"OnProxyRelay" "cube_dropper_gate_relayTrigger01"
-	}
-	"origin" "48 -16 48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "18"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2500]"
 	}
 }
 entity
@@ -707,7 +662,7 @@ entity
 	"parm5" "$item_fall_straight_down boolean 1"
 	"parm6" "$indicator_lights string"
 	"parm7" "$start_reversed boolean 1"
-	"origin" "-48 -16 48"
+	"origin" "0 0 56"
 	editor
 	{
 		"color" "220 30 220"

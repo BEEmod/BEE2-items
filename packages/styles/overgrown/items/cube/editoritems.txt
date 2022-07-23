@@ -392,22 +392,14 @@
 		"TargetName"		"cd"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
-			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
-			}
-			"CONNECTION_BOX_DROPPER"
-			{
-				"Activate"		"instance:cube_dropper_autorespawn_relay;Trigger"
-			}
-		}
-		"Outputs"
-		{
-			"CONNECTION_BOX_DROPPER"
-			{
-				"Activate"		"instance:cube_dropper_drop_relay;OnTrigger"
-			}
+			"BEE2"
+				{
+				"Type"          "AND"
+				"Enable_Cmd"    "spawn_man,SetStateATrue,,0.00,-1"
+
+				// Don't lock the pedestal button when respawning.
+				"out_unlock"    "instance:close_trig;OnEndTouchAll"
+				}
 		}
 		"Offset"		"64 64 64"
 		"OccupiedVoxels"
