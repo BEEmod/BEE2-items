@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7378"
-	"mapversion" "76"
+	"editorbuild" "8997"
+	"mapversion" "80"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "76"
+	"mapversion" "80"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -32,19 +32,18 @@ entity
 {
 	"id" "222"
 	"classname" "logic_branch"
+	"angles" "0 0 0"
 	"targetname" "output"
 	connections
 	{
 		"OnTrue" "!selfFireUser10-1"
 		"OnTrue" "!selfFireUser20.01-1"
 		"OnFalse" "!selfFireUser20-1"
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnUser2" "proxyProxyRelay0-1"
 	}
-	"origin" "-32 0 -40"
+	"origin" "14 0 -48"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -56,7 +55,7 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$timer_delay float 3"
 	"parm2" "$timer_sound integer 0"
-	"origin" "-32 -24 -40"
+	"origin" "14 0 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -84,27 +83,13 @@ entity
 		"OnButtonReset" "outputFireUser10-1"
 		"OnPressed" "outputSetValue10.01-1"
 	}
-	"origin" "-48 0 -56"
+	"origin" "0 0 -56"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "22"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-32 24 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
 	}
 }
 cameras
