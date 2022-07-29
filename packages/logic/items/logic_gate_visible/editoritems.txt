@@ -139,10 +139,12 @@
 		"Offset"        "64 64 64"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:in;FireUser2"
-				"Deactivate"    "instance:in;FireUser1"
+				"Type"        "DEFAULT" // Pass every enable/disable directly.
+				"InvertVar"   "0"
+				"Enable_Cmd"  "in,FireUser2,,0,-1"
+				"Disable_Cmd" "in,FireUser1,,0,-1"
 				}
 			}
 		"Outputs"

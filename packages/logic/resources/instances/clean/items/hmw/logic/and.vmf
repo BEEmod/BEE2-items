@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "101"
+	"editorbuild" "8997"
+	"mapversion" "102"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "101"
+	"mapversion" "102"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,30 +30,11 @@ world
 }
 entity
 {
-	"id" "1836"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "inFireUser10-1"
-		"OnProxyRelay" "inFireUser20-1"
-	}
-	"origin" "16 16 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "1842"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 1"
 	"parm2" "$start_enabled integer 1"
-	"origin" "-16 16 -32"
+	"origin" "0 0 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -66,6 +47,7 @@ entity
 {
 	"id" "1844"
 	"classname" "math_counter"
+	"angles" "0 0 0"
 	"max" "$connectioncount"
 	"min" "0"
 	"StartDisabled" "0"
@@ -82,7 +64,7 @@ entity
 		"OnHitMax" "blueDisable0-1"
 		"OnChangedFromMax" "blueEnable0-1"
 	}
-	"origin" "-16 -16 -32"
+	"origin" "16 0 -32"
 	editor
 	{
 		"color" "0 100 250"
@@ -95,6 +77,7 @@ entity
 {
 	"id" "1860"
 	"classname" "logic_relay"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"targetname" "out"
@@ -103,7 +86,7 @@ entity
 		"OnUser2" "proxyProxyRelay0-1"
 		"OnUser1" "proxyProxyRelay0-1"
 	}
-	"origin" "16 -16 -32"
+	"origin" "-16 0 -32"
 	editor
 	{
 		"color" "0 100 250"
