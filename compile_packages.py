@@ -180,7 +180,32 @@ def build_package(package_path, pack_zip_path):
     print('Finished "{}"'.format(package_path))
 
 
-def main():
+def clear_output_folder(folder: str, desc: str, overwrite: bool) -> None:
+    """Ensure this output folder exists and is empty.
+
+    If overwrite is true, existing contents will be removed. Otherwise, it must be empty
+    or nonexistent (if so it'll be created).
+    """
+    try:
+        existing = os.listdir(folder)
+    except FileNotFoundError:
+        # Not present at all, make it and parent dirs.
+        os.makedirs(folder, exist_ok=True)
+        return
+
+    if not existing:
+        return  # Empty folder, we're good.
+    if not overwrite:
+        raise ValueError(f"The {desc} directory is not empty!")
+    for path in existing:
+        if os.path.isdir(os.path.join(folder, path)):
+            shutil.rmtree(os.path.join(folder, path))
+        else:
+            os.remove(os.path.join(folder, path))
+
+
+def main() -> None:
+    """Main program."""
     parser = argparse.ArgumentParser(description="This is package compiler, which can compress packages "
                                                  "in order for them to be lighter. "
                                                  "Also provides an option to optimize them.\n"
@@ -199,6 +224,9 @@ def main():
                              "unloadable for bee in current version).", dest="optimize")
     parser.add_argument("-c", "--confirm", action="store_true",
                         help="Will skip a confirmation prompt.", dest="skip_confirm")
+    parser.add_argument("--overwrite", action="store_true",
+                        help="Overwrite the output directory if non-empty."
+                        )
     # will specify an output path. if not specified, args.output will be set to None, and nothing will be moved then
     parser.add_argument("-o", "--output", default="zips",
                         help="Will specify an output folder, otherwise \"./zips\" will be used.", dest="output")
@@ -222,7 +250,7 @@ def main():
                         )
     args = parser.parse_args()
     inp_list = args.input
-    output = args.output
+    zip_path = args.output
     global OPTIMISE, HAMMER_PATH
     OPTIMISE = args.optimize
     do_zip = args.zip
@@ -235,7 +263,7 @@ def main():
         print("-------------------------------")
         print("Selected options:")
         print(f'* Optimization: {"ON" if OPTIMISE else "OFF"}')
-        print(f'* Output folder: "{output}"')
+        print(f'* Output folder: "{zip_path}"')
         print("* Hammer folder: " + ("OFF" if (HAMMER_PATH is None) else f'"{HAMMER_PATH}"'))
         print("* Final zip: " + ("skip prompt" if do_zip == "" else
                                  ("not skip prompt" if do_zip is None else
@@ -245,25 +273,9 @@ def main():
         if not conv_bool(input("---> Continue? (y/n) ")):
             sys.exit(0)             # confirmation just in case
 
-    zip_path = output
-
-    # if there is no such dir, then create it. if there is, and its empty,
-    # then use it. if there is and its not empty - throw error (since whole directory will be erased)
-    if os.path.isdir(zip_path):
-        if os.listdir(zip_path):
-            raise ValueError("The output directory is not empty")
-    else:
-        os.makedirs(zip_path, exist_ok=True)
-
-    # if hammer path was specified then
+    clear_output_folder(zip_path, 'output', args.overwrite)
     if HAMMER_PATH:
-        # if there is no such dir, then create it. if there is, and its empty,
-        # then use it. if there is and its not empty - throw error (why not)
-        if os.path.isdir(HAMMER_PATH):
-            if os.listdir(HAMMER_PATH):
-                raise ValueError("The hammer files directory is not empty")
-        else:
-            os.makedirs(HAMMER_PATH, exist_ok=True)
+        clear_output_folder(HAMMER_PATH, 'Hammer files', args.overwrite)
 
     packages_list = []      # list with filenames of all packages
     # yield will return found packages one by one, so it is easy to iterate them
