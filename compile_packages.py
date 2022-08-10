@@ -194,10 +194,10 @@ def main():
                              "single package, then it will be compiled, otherwise, if an input path is "
                              "a folder, then it will be recursively searched for packages, and will compile "
                              "all it finds")
-    parser.add_argument("-op", "--optimize", action="store_const", const=True, default=False,
+    parser.add_argument("-op", "--optimize", action="store_true",
                         help="Will optimize zips (not recommended and may make packages "
                              "unloadable for bee in current version).", dest="optimize")
-    parser.add_argument("-c", "--confirm", action="store_const", const=True, default=False,
+    parser.add_argument("-c", "--confirm", action="store_true",
                         help="Will skip a confirmation prompt.", dest="skip_confirm")
     # will specify an output path. if not specified, args.output will be set to None, and nothing will be moved then
     parser.add_argument("-o", "--output", default="zips",
@@ -215,7 +215,7 @@ def main():
                              "specified name. Using this option without a string will just skip prompt "
                              "without creating zip. Not using this option will generate a prompt at the end",
                         dest="zip")
-    parser.add_argument("--include-test", action="store_const", const=True, default=False,
+    parser.add_argument("--include-test", action="store_true",
                         help="Include the test package, which has sample objects to test "
                              "application features.This is not useful in a release.",
                         dest="include_test",
