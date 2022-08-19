@@ -2,6 +2,13 @@
 
 # Version `<dev>`
 
+### Enhancements:
+* Rebuilt Rexurua Cube Deflector to be more reliable:
+	* Redirected pellets align more precisly to the grid.
+	* Fix #1599: Cubes will slightly resist being removed.
+	* Fix #2206: Deflectors can now be placed on walls and ceilings.
+	* Visual effects have been remade using particle systems.
+
 ### Bugfixes
 * #1875: Fix orientation of Clean door camera.
 * Fix Overgrown static non-block Stairs having incorrect panel positions.
