@@ -2,6 +2,51 @@
 
 
 ## Version <dev>
+* New corridor selection system
+	* Each corridor can now be individually enabled/disabled, you can have any number active.
+	* UCPs can easily add new corridors to the mix
+	* Corridor designs can be added for the floor/ceiling.
+	* As a side effect, all corridors have been tidied up a little, and have better lighting.
+* Fix #3996: outdated description of P1 light strips
+* Fix #3999: Incorrect orientation of Overgrown fizzler emitters.
+* Fix #3937: Bad lighting behind Clean angled panels
+* Implement #4002: use Wii2's technique for reversible funnel models.
+* Fix #4007: 70s Funnels can have a missing top model.
+* Fix #4006: Missing editor model for 50s Funnel.
+* Fix #3645: Invisible Overgrown / 80s Cube Button.
+* Fix BEEmod/BEE2.4#1776: Funnel lighting not functioning correctly.
+* Fix #4027: Missing Repulsion Gel music samples for Robot Waiting Room
+* Fix #3584: Make Cube Droppers "lock" pedestal button inputs, so it does not play timer sounds and has an appropriate delay.
+* Add new broken/dirty Overgrown Funnel, made by Erin-Rose.
+* Port the original Portal 1 Portalgun Pedestal particle effects.
+* HMW's logic gates now have editor models for all variants, and have a table displaying them in the description.
+* Fix #4052: 80s Chamberlock is bricked up.
+* Fix #4085: Remove broken shatter logic from Old Aperture monitors.
+* Fix #4083: `r_portal_fastpath` is now disabled in BEE maps, fixing issues with rendering many portals onscreen at once.
+* Dropperless cubes now use the "6 position" handle, allowing them to be positioned offset in a voxel. By switching to and from the reflection cube, you can both offset and rotate them.
+* Old Aperture Edgeless Safety Cubes now have a custom model, made by ARES Agent 228.
+* Old Aperture Cube and Ball Buttons now have a custom model, made by Erin Rose.
+* Fixed position of Old Aperture Flip Panel wheel.
+* Fix #3375: P1 Camera cables were too thick.
+* Fix #2454: Unstyled Overgrown static Closed Solid Field
+* #3853: Old Aperture Stairs now have a unique non-block static variant.
+* The Antline Corner item description has a diagram showing valid placements.
+* Fix #3177: Reflection Gel splatter editor model is rotated 90 degrees.
+* Fix #4122: Bad smoothing groups with PGun buttons.
+* Fix #3255: 80s Coop Checkpoint not switching checkmark/timer sign at all.
+* Improve lighting in Old Aperture Coop Checkpoints, optimise logic.
+* Old Aperture "locking" pedestal buttons will no longer make timer sounds.
+* Fix #2387: Add colourised Bomb Cube model.
+* Fix #3962: Missing outputs on P1 Retractable Floor Buttons
+* #3017: Small Glass Holes no longer have clips, allowing things like pellets to pass through.
+* When Sendificating Frankenturrets, pop them out of box form at the destination.
+* Fix Old Aperture Sendificator Slim having broken antlines
+* Sendificators also lock attached pedestal buttons, making their timer delay sync with the animation.
+* Fix #2112: Clean FR fizzler models used for laserfield mode in Old Aperture.
+* Fix #1944: Add Old Aperture editor models for CSFI and Physlers.
+* Fix #4164: Add missing 70s/80s window instances.
+* Fix BEEmod/BEE2.4#1854: Add delay to inverted logic items.
+* #3102: Overgrown static Stairs now use piston arms, like in Portal 1.
 
 ## Version 4.41.0
 * The music packages have been split into a separate download, since they make up a large amount of the download size.
