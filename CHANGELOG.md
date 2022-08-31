@@ -1,52 +1,59 @@
 # Changelog
 
-
 ## Version <dev>
+### New Features:
 * New corridor selection system
 	* Each corridor can now be individually enabled/disabled, you can have any number active.
 	* UCPs can easily add new corridors to the mix
 	* Corridor designs can be added for the floor/ceiling.
 	* As a side effect, all corridors have been tidied up a little, and have better lighting.
-* Fix #3996: outdated description of P1 light strips
-* Fix #3999: Incorrect orientation of Overgrown fizzler emitters.
-* Fix #3937: Bad lighting behind Clean angled panels
+* Old Aperture Edgeless Safety Cubes now have a custom model, made by ARES Agent 228.
+* Old Aperture Cube and Ball Buttons now have a custom model, made by Erin Rose.
+* Add new broken/dirty Overgrown Funnel, made by Erin-Rose.
+
+### Enhancements
 * Implement #4002: use Wii2's technique for reversible funnel models.
-* Fix #4007: 70s Funnels can have a missing top model.
-* Fix #4006: Missing editor model for 50s Funnel.
-* Fix #3645: Invisible Overgrown / 80s Cube Button.
+* Port the original Portal 1 Portalgun Pedestal particle effects.
+* Dropperless cubes now use the "6 position" handle, allowing them to be positioned offset in a voxel. By switching to and from the reflection cube, you can both offset and rotate them.
+* The Antline Corner item description has a diagram showing valid placements.
+* HMW's logic gates now have editor models for all variants, and have a table displaying them in the description.
+* Improve lighting in Old Aperture Coop Checkpoints, optimise logic.
+* #2387: Add colourised Bomb Cube model.
+* #3017: Small Glass Holes no longer have clips, allowing things like pellets to pass through.
+* When Sendificating Frankenturrets, pop them out of box form at the destination.
+* Sendificators also lock attached pedestal buttons, making their timer delay sync with the animation.
+* Old Aperture "locking" pedestal buttons will no longer make timer sounds.
+* Fix #1944: Add Old Aperture editor models for CSFI and Physlers.
+* #3102: Overgrown static Stairs now use piston arms, like in Portal 1.
+* #3853: Old Aperture Stairs now have a unique non-block static variant.
+
+### Bugfixes
+* #3996: Fix outdated description of P1 light strips
+* #3999: Fix Incorrect orientation of Overgrown fizzler emitters.
+* #3937: Fix bad lighting behind Clean angled panels
+* #4007: Fix 70s Funnels can have a missing top model.
+* #4006: Fix missing editor model for 50s Funnel.
+* #3645: Fix invisible Overgrown / 80s Cube Button.
 * Fix BEEmod/BEE2.4#1776: Funnel lighting not functioning correctly.
 * Fix #4027: Missing Repulsion Gel music samples for Robot Waiting Room
 * Fix #3584: Make Cube Droppers "lock" pedestal button inputs, so it does not play timer sounds and has an appropriate delay.
-* Add new broken/dirty Overgrown Funnel, made by Erin-Rose.
-* Port the original Portal 1 Portalgun Pedestal particle effects.
-* HMW's logic gates now have editor models for all variants, and have a table displaying them in the description.
+* Fix P1 entrances not detecting people portalling out.
 * Fix #4052: 80s Chamberlock is bricked up.
 * Fix #4085: Remove broken shatter logic from Old Aperture monitors.
 * Fix #4083: `r_portal_fastpath` is now disabled in BEE maps, fixing issues with rendering many portals onscreen at once.
-* Dropperless cubes now use the "6 position" handle, allowing them to be positioned offset in a voxel. By switching to and from the reflection cube, you can both offset and rotate them.
-* Old Aperture Edgeless Safety Cubes now have a custom model, made by ARES Agent 228.
-* Old Aperture Cube and Ball Buttons now have a custom model, made by Erin Rose.
 * Fixed position of Old Aperture Flip Panel wheel.
 * Fix #3375: P1 Camera cables were too thick.
 * Fix #2454: Unstyled Overgrown static Closed Solid Field
-* #3853: Old Aperture Stairs now have a unique non-block static variant.
-* The Antline Corner item description has a diagram showing valid placements.
 * Fix #3177: Reflection Gel splatter editor model is rotated 90 degrees.
 * Fix #4122: Bad smoothing groups with PGun buttons.
 * Fix #3255: 80s Coop Checkpoint not switching checkmark/timer sign at all.
-* Improve lighting in Old Aperture Coop Checkpoints, optimise logic.
-* Old Aperture "locking" pedestal buttons will no longer make timer sounds.
-* Fix #2387: Add colourised Bomb Cube model.
-* Fix #3962: Missing outputs on P1 Retractable Floor Buttons
-* #3017: Small Glass Holes no longer have clips, allowing things like pellets to pass through.
-* When Sendificating Frankenturrets, pop them out of box form at the destination.
-* Fix Old Aperture Sendificator Slim having broken antlines
-* Sendificators also lock attached pedestal buttons, making their timer delay sync with the animation.
+* Fix #3962: Missing outputs on P1 Retractable Floor Buttons.
+* Fix Old Aperture Sendificator Slim having broken antlines.
 * Fix #2112: Clean FR fizzler models used for laserfield mode in Old Aperture.
-* Fix #1944: Add Old Aperture editor models for CSFI and Physlers.
 * Fix #4164: Add missing 70s/80s window instances.
 * Fix BEEmod/BEE2.4#1854: Add delay to inverted logic items.
-* #3102: Overgrown static Stairs now use piston arms, like in Portal 1.
+
+------------------------------------------
 
 ## Version 4.41.0
 * The music packages have been split into a separate download, since they make up a large amount of the download size.
@@ -63,6 +70,8 @@
 * Selector windows now save/load their position and group expand/contract state.
 * The pipes in Enrichment Spheres now can appear in several random positions.
 
+------------------------------------------
+
 ## Version 4.40.0
 * New Item: Antlaser, a nonsolid laser which can be used to connect antlines through the air. The model was created by Konclan.
 * Add some Old Aperture/BTS editor textures, made by @saismee/@seagemgames
@@ -78,11 +87,15 @@
 * The P1 SP exit corridor 4's observation room will only use a worldportal now if it needs to.
 * Fixed some issues with P1 piston platforms.
 
+------------------------------------------
+
 ## Version 4.39.1
 * Fixes missing resources for Surface Lacquer
 * Fix item inputs and collisions being broken
 * Convert Standing/Reclined Fizzlers to have 1 palette icon, also fixing configuration
 * Convert Vactubes to have 1 palette icon also
+
+------------------------------------------
 
 ## Version 4.39.0
 * New item: "Surface Lacquer"
@@ -90,6 +103,8 @@
     * It affects the surface it's applied directly on, plus any block/panel items inside the voxel.
 *  Use new RotateInst result in Protruding Pedestal Buttons to avoid having extra instances.
 * Improve brushes generated by Glass Hole.
+
+------------------------------------------
 
 ## Version 4.38.0
 * Update Fizzler Output Relay  description (via @micheledicosomo)
@@ -118,6 +133,8 @@
 * Remake a bunch of the bullsye materials.
 * Port P1's original color correction filter
 
+------------------------------------------
+
 ## Version 4.37.0
 Bottomless Pits and Cutout Tiles are currently disabled in this version, and do nothing. These will be reimplemented later.
 This is a fairly massive update, bringing a large internal change. The floor/wall/ceiling tiles are now entirely generated by the BEE2 compiler. This brings the following upgrades:
@@ -136,6 +153,8 @@ Additionally:
 * New models for Old Aperture and Portal 1 Gel Droppers from @Konclan, plus Old Aperture Futbols.
 * Fix far too many bugs to list!
 
+------------------------------------------
+
 ## Version 4.36.0
 - Add "Disable Laser Collision" checkbox.
 - Add "no-recycle" signage.
@@ -149,6 +168,8 @@ Additionally:
 - Fix #3043: 1970s Indicator Panels not working.
 - Fix Blue Portalgun On/Off buttons being non-functional.
 - Fix Timed Pellet Emitters and Force Deflection Fields not being able to Start Disabled correctly.
+
+------------------------------------------
 
 ## Version 4.35.0
 * Rebuild Signage - allowing users to customise what icons are available.
@@ -164,6 +185,8 @@ Additionally:
 * Fix Death Fizzlers not working in Portal 1 style.
 * Fix for antline routers gridding the wall behind it.
 * Fix #2967: NOT gates without inputs crashing.
+
+------------------------------------------
 
 # Version 4.34.0
 * Remove duplicate Antline Router Strip item.
