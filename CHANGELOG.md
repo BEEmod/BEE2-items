@@ -28,6 +28,7 @@
 * When Sendificating Frankenturrets, pop them out of box form at the destination.
 
 ### Bugfixes
+* #803: Remove modern conveyor belts props from Old Aperture Conveyors.
 * #2112: Fix clean FR fizzler models used for laserfield mode in Old Aperture.
 * #2454: Fix unstyled Overgrown static Closed Solid Field.
 * #3177: Fix rotation of Reflection Gel splatter editor model.
@@ -35,9 +36,10 @@
 * #3375: Thin down P1 Camera cables to match originals.
 * #3584: Make Cube Droppers "lock" pedestal button inputs, so it does not play timer sounds and has an appropriate delay.
 * #3645: Fix invisible Overgrown / 80s Cube Button.
-* #3937: Fix bad lighting behind Clean angled panels
+* #3937: Fix bad lighting behind Clean angled panels.
 * #3962: Fix missing outputs on P1 Retractable Floor Buttons.
-* #3996: Fix outdated description of P1 light strips
+* #3977: Make Old Aperture Conveyors function properly.
+* #3996: Fix outdated description of P1 light strips.
 * #3999: Fix Incorrect orientation of Overgrown fizzler emitters.
 * #4006: Fix missing editor model for 50s Funnel.
 * #4007: Fix 70s Funnels can have a missing top model.
