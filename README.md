@@ -1,6 +1,6 @@
 [![BEE2-items Releases](https://img.shields.io/github/downloads/BEEmod/BEE2-items/total.svg?label=Packages)](https://github.com/BEEmod/BEE2-items/releases)
 [![BEE2.4 Releases](https://img.shields.io/github/downloads/BEEmod/BEE2.4/total.svg?label=App)](https://github.com/BEEmod/BEE2.4/releases)
-[![Discord Server](https://img.shields.io/discord/293435914598744064?color=%235865F2&label=Discord)](https://discord.gg/EvC8Fku)
+[![Discord Server](https://img.shields.io/discord/293435914598744064?color=%235865F2&label=Discord)](https://discord.gg/hnGFJrz)
 
 ### Please read the [Contributing Guidelines](https://github.com/BEEmod/.github/blob/master/contributing.md) and [FAQ](https://github.com/BEEmod/BEE2-items/wiki/FAQ) before opening an issue.
 
@@ -43,4 +43,4 @@ To continue recieving the latest changes, you must regularly pull commits from t
 
 The [wiki](https://github.com/BEEmod/BEE2-items/wiki) contains more in-depth explanations of items and styles, as well as development guides. The wiki is missing a lot of content, you can help by contributing to it.
 
-If you have a question about BEE2.4, check the [FAQ](https://github.com/BEEmod/BEE2.4/blob/master/FAQ.md) or ask on [Discord](https://discord.gg/EvC8Fku). Please do not open an issue to ask a question.
+If you have a question about BEE2.4, check the [FAQ](https://github.com/BEEmod/.github/blob/master/FAQ.md) or ask on [Discord](https://discord.gg/hnGFJrz). Please do not open an issue to ask a question.
