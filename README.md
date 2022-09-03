@@ -43,4 +43,4 @@ To continue recieving the latest changes, you must regularly pull commits from t
 
 The [wiki](https://github.com/BEEmod/BEE2-items/wiki) contains more in-depth explanations of items and styles, as well as development guides. The wiki is missing a lot of content, you can help by contributing to it.
 
-If you have a question about BEE2.4, check the [FAQ](https://github.com/BEEmod/BEE2.4/blob/master/FAQ.md) or ask on [Discord](https://discord.gg/hnGFJrz). Please do not open an issue to ask a question.
+If you have a question about BEE2.4, check the [FAQ](https://github.com/BEEmod/.github/blob/master/FAQ.md) or ask on [Discord](https://discord.gg/hnGFJrz). Please do not open an issue to ask a question.
