@@ -25,7 +25,7 @@
 * Port the original Portal 1 Portalgun Pedestal particle effects.
 * Sendificators also lock attached pedestal buttons, making their timer delay sync with the animation.
 * The Antline Corner item description has a diagram showing valid placements.
-* When Sendificating Frankenturrets, pop them out of box form at the destination.
+* When Sendificating Frankenturrets, they are popped out of box form at the destination.
 
 ### Bugfixes
 * #803: Remove modern conveyor belts props from Old Aperture Conveyors.
