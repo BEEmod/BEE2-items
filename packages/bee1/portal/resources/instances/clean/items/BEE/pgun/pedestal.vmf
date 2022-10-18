@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8037"
-	"mapversion" "244"
+	"editorbuild" "8973"
+	"mapversion" "252"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "244"
+	"mapversion" "252"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -583,20 +583,6 @@ entity
 }
 entity
 {
-	"id" "8038"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "0 0 16"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "1797"
 	"classname" "trigger_once"
 	"origin" "0 0 16"
@@ -703,20 +689,13 @@ entity
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "0"
 	"disableshadows" "0"
-	"disableX360" "0"
 	"drawinfastreflection" "1"
 	"ExplodeDamage" "0"
 	"ExplodeRadius" "0"
-	"fademaxdist" "0"
-	"fademindist" "-1"
-	"fadescale" "1"
 	"HoldAnimation" "1"
+	"lightingorigin" "pedestal_base"
 	"MaxAnimTime" "10"
-	"maxcpulevel" "0"
-	"maxgpulevel" "0"
 	"MinAnimTime" "5"
-	"mincpulevel" "0"
-	"mingpulevel" "0"
 	"model" "models/props/pedestal_base_reference.mdl"
 	"PerformanceMode" "0"
 	"physdamagescale" "1.0"
@@ -739,6 +718,7 @@ entity
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "Set lighting origin to self to prevent sampling from inside the floor."
 		"logicalpos" "[0 0]"
 	}
 }
@@ -753,20 +733,13 @@ entity
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "0"
 	"disableshadows" "0"
-	"disableX360" "0"
 	"drawinfastreflection" "1"
 	"ExplodeDamage" "0"
 	"ExplodeRadius" "0"
-	"fademaxdist" "0"
-	"fademindist" "-1"
-	"fadescale" "1"
 	"HoldAnimation" "1"
+	"lightingorigin" "pedestal_base"
 	"MaxAnimTime" "10"
-	"maxcpulevel" "0"
-	"maxgpulevel" "0"
 	"MinAnimTime" "5"
-	"mincpulevel" "0"
-	"mingpulevel" "0"
 	"model" "models/bee2/props_ingame/pgun_pedestal.mdl"
 	"parentname" "rotate"
 	"PerformanceMode" "0"
@@ -787,7 +760,6 @@ entity
 	"targetname" "pedestal"
 	connections
 	{
-		"OnUser1" "proxyProxyRelay0-1"
 		"OnUser4" "pedestalFireUser10-1"
 		"OnUser4" "pedestalKill4.5-1"
 		"OnUser4" "pedestal_baseSetAnimationclose2-1"
@@ -799,6 +771,7 @@ entity
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "Set lighting origin to the base so they blend in together."
 		"logicalpos" "[0 0]"
 	}
 }
@@ -931,8 +904,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[29.8757 -66.5353 -14.9296]"
-		"look" "[-20.1522 112.643 -199.666]"
+		"position" "[-4.43379 -58.1583 31.6539]"
+		"look" "[31.1412 128.337 -149.146]"
 	}
 	camera
 	{

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "113"
+	"editorbuild" "8997"
+	"mapversion" "115"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "113"
+	"mapversion" "115"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -410,6 +410,28 @@ world
 }
 entity
 {
+	"id" "4754"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "reset_rl"
+	connections
+	{
+		"OnTrigger" "targetSetTextureIndex00-1"
+	}
+	"origin" "40 -32 -26"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "This resets attached pedestal buttons."
+		"logicalpos" "[0 3500]"
+	}
+}
+entity
+{
 	"id" "4691"
 	"classname" "env_muzzleflash"
 	"angles" "-90 0 0"
@@ -433,6 +455,8 @@ entity
 	"disablereceiveshadows" "1"
 	"disableshadowdepth" "1"
 	"disableshadows" "1"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
 	"rendermode" "10"
 	"shadowdepthnocache" "2"
 	"solid" "6"
@@ -457,7 +481,7 @@ entity
 	"targetname" "flash_shape_blend"
 	connections
 	{
-		"OnUser1" "targetSetTextureIndex01-1"
+		"OnUser1" "reset_rlTrigger01-1"
 		"OnUser1" "targetRunScriptCode::sendtor_platform <- self;0-1"
 		"OnUser1" "switch_openPlaySound0.2-1"
 		"OnUser1" "switch_closePlaySound0-1"

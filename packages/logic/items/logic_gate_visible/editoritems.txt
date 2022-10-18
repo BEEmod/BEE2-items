@@ -8,10 +8,7 @@
 		"SubType"
 			{
 			"Name"      "Logical AND Gate"
-			"Model"
-				{
-				"ModelName"     "hmw_and_gate.3ds"
-				}
+			// Models are in info.txt
 			"Palette"
 				{
 				"Tooltip"   "AND GATE"
@@ -28,10 +25,6 @@
 		"SubType"
 			{
 			"Name"      "Logical OR Gate"
-			"Model"
-				{
-				"ModelName"     "hmw_or_gate.3ds"
-				}
 			"Palette"
 				{
 				"Tooltip"   "OR GATE"
@@ -48,10 +41,6 @@
 		"SubType"
 			{
 			"Name"      "Logical XOR Gate"
-			"Model"
-				{
-				"ModelName"     "hmw_xor_gate.3ds"
-				}
 			"Palette"
 				{
 				"Tooltip"   "XOR GATE"
@@ -150,10 +139,12 @@
 		"Offset"        "64 64 64"
 		"Inputs"
 			{
-			"CONNECTION_STANDARD"
+			"BEE2"
 				{
-				"Activate"      "instance:in;FireUser2"
-				"Deactivate"    "instance:in;FireUser1"
+				"Type"        "DEFAULT" // Pass every enable/disable directly.
+				"InvertVar"   "0"
+				"Enable_Cmd"  "in,FireUser2,,0,-1"
+				"Disable_Cmd" "in,FireUser1,,0,-1"
 				}
 			}
 		"Outputs"
@@ -185,6 +176,15 @@
 					{
 					"Pos"   "2 2 0"
 					}
+				}
+			}
+		"Collisions"
+			{
+			"BBox"
+				{
+				"Type" "SOLID"
+				"Pos1" "-32 -32 -72"
+				"Pos2" "32 32 -64"
 				}
 			}
 		"EmbeddedVoxels"

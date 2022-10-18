@@ -37,8 +37,20 @@
 			"BEE2_1950s"
 				{
 				"Folder" "coop_check_clean"
+				"IOConf"
+					{
+					"Type"          "AND"
+					"invertVar"		"$start_open"
+					"spawnFire"     "always"
+					"Enable_Cmd"    "input,TurnOn,,0.00,-1"
+					"Disable_Cmd"   "input,TurnOff,,0.00,-1"
+					}
 				"Config"
 					{
+					"Replacements"
+						{
+						"%DECADE%" "50s"
+						}
 					"Conditions" 
 					    { 
 					    "Condition" 
@@ -46,10 +58,11 @@
 					        "instance"  "<ITEM_TSPEN_COOP_CHECKPOINT>" 
 					        "Result" 
 					            { 
+								"switchOrientation" "wall"
 					            "AddOverlay" 
 					                {
-					                // Shared by 50s/60s/70s/80s maps				                	
-					                "file"   "instances/BEE2/50s/items/tspen/coop_checkpoint_logic.vmf"
+					                // Shared by 50s/60s/70s maps				                	
+					                "file"   "instances/BEE2/%DECADE%/items/tspen/coop_checkpoint_logic.vmf"
 					                } 
 					            } 
 					        } 
@@ -82,6 +95,14 @@
 				"Instances"
 					{
 					"0" "instances/BEE2/80s/items/tspen/coop_checkpoint.vmf"
+					}
+				// The logic is different, due to using modern indicators.
+				"Append"
+					{
+					"Replacements"
+						{
+						"%DECADE%" "80s"
+						}
 					}
 				}
 			}

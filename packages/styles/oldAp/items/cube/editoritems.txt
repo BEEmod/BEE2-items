@@ -195,7 +195,7 @@
 				"ANIM_GROUND_TO_FALLING_EDITING"	"8"
 				}
 			}
-		"MovementHandle"		"HANDLE_NONE"
+		"MovementHandle"		"HANDLE_6_POSITIONS"
 		"InvalidSurface"		"CEILING WALL"
 		"CanAnchorOnBarriers"	"1"
 		"CanAnchorOnGoo"		"1"
@@ -401,6 +401,9 @@
 				{
 				"Type"          "AND"
 				"Enable_Cmd"    "spawn_man,SetStateATrue,,0.00,-1"
+				
+				// Don't lock the pedestal button when respawning.
+				"out_unlock"    "instance:cube_dropper_close_trigger;OnEndTouchAll"
 				}
 			"CONNECTION_BOX_DROPPER" {}
 			}
@@ -435,6 +438,15 @@
 				"Center"        "64 64 128"
 				"Dimensions"	"128 128 4"
 				"Grid"			"4x4"
+				}
+			}
+		"Collisions"
+			{
+			"BBox"
+				{
+				"Type" "SOLID"
+				"Pos1" "-63 -63 -64"
+				"Pos2" "63 63 40"
 				}
 			}
 		"ConnectionPoints"

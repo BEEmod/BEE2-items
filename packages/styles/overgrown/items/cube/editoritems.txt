@@ -191,7 +191,7 @@
 				"ANIM_GROUND_TO_FALLING_EDITING"	"8"
 			}
 		}
-		"MovementHandle"			"HANDLE_36_DIRECTIONS"
+		"MovementHandle"			"HANDLE_6_POSITIONS"
 		"InvalidSurface"			"CEILING WALL"
 		"CanAnchorOnBarriers"		"1"
 		"CanAnchorOnGoo"			"1"
@@ -392,22 +392,14 @@
 		"TargetName"		"cd"
 		"Inputs"
 		{
-			"CONNECTION_STANDARD"
-			{
-				"Activate"		"instance:counter;Add"
-				"Deactivate"		"instance:counter;Subtract"
-			}
-			"CONNECTION_BOX_DROPPER"
-			{
-				"Activate"		"instance:cube_dropper_autorespawn_relay;Trigger"
-			}
-		}
-		"Outputs"
-		{
-			"CONNECTION_BOX_DROPPER"
-			{
-				"Activate"		"instance:cube_dropper_drop_relay;OnTrigger"
-			}
+			"BEE2"
+				{
+				"Type"          "AND"
+				"Enable_Cmd"    "spawn_man,SetStateATrue,,0.00,-1"
+
+				// Don't lock the pedestal button when respawning.
+				"out_unlock"    "instance:close_trig;OnEndTouchAll"
+				}
 		}
 		"Offset"		"64 64 64"
 		"OccupiedVoxels"
@@ -424,6 +416,15 @@
 				"Pos"		"0 0 0"
 			}
 		}
+		"Collisions"
+			{
+			"BBox"
+				{
+				"Type" "SOLID"
+				"Pos1" "-60 -60 -96"
+				"Pos2" "60 60 46"
+				}
+			}
 		
 		"EmbedFace"
 		{

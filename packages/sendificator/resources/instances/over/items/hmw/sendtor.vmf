@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "107"
+	"editorbuild" "8997"
+	"mapversion" "108"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,62 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "107"
+	"mapversion" "108"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "4380"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "reset_rl"
+	connections
+	{
+		"OnTrigger" "targetSetTextureIndex00-1"
+	}
+	"origin" "64 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Used to reset attached pedestal buttons."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "4382"
+	"classname" "material_modify_control"
+	"angles" "0 0 0"
+	"materialName" "models/hmw/props/sendificator_beam"
+	"materialVar" "$alpha"
+	"parentname" "flash_shape"
+	"targetname" "flash_shape_blend"
+	connections
+	{
+		"OnUser1" "targetRunScriptCode::sendtor_platform <- self;0-1"
+		"OnUser1" "switch_openPlaySound0.2-1"
+		"OnUser1" "beam_moveOpen0-1"
+		"OnUser1" "switch_closePlaySound0-1"
+		"OnUser1" "reset_rlTrigger1-1"
+	}
+	"origin" "48 -6.0112e-006 0"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "This is the item input too. User2 is used to unlock button inputs."
+		"logicalpos" "[0 500]"
+	}
 }
 entity
 {
@@ -917,33 +966,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
-	}
-}
-entity
-{
-	"id" "4208"
-	"classname" "material_modify_control"
-	"angles" "0 0 0"
-	"materialName" "models/hmw/props/sendificator_beam"
-	"materialVar" "$alpha"
-	"parentname" "flash_shape"
-	"targetname" "flash_shape_blend"
-	connections
-	{
-		"OnUser1" "targetSetTextureIndex01-1"
-		"OnUser1" "targetRunScriptCode::sendtor_platform <- self;0-1"
-		"OnUser1" "switch_openPlaySound0.2-1"
-		"OnUser1" "beam_moveOpen0-1"
-		"OnUser1" "switch_closePlaySound0-1"
-	}
-	"origin" "48 -6.0112e-006 0"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "This is the item input too."
-		"logicalpos" "[0 500]"
 	}
 }
 entity

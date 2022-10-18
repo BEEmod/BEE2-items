@@ -53,7 +53,11 @@
 					"Enable_Cmd"  "flash_shape_blend,FireUser1,,0,-1"
 					"Disable_Cmd" ""
 
-					"Force" "output"
+					"Force" "output" // Specially handled by compiler.
+					
+					// Act as a locking item to suppress input timers.
+					"out_lock"    "instance:flash_shape_blend;OnUser1"
+					"out_unlock"  "instance:reset_rl;OnTrigger"
 					}
 				}
 			"OccupiedVoxels"

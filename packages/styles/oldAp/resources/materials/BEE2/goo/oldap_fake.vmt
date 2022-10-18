@@ -1,0 +1,27 @@
+LightmappedGeneric
+{
+// For underneath grating in various rooms, not actual water so it doesn't use RT textures.
+
+$basetexture "liquids/toxicslime_color"
+$color "[.3 .3 .3]"
+$bumpmap "dev/water_normal"
+
+$envmap "cubemaps/cheapgoo"
+$envmaptint "[0.5 0.5 0.5]"
+$envmaplightscale 0.8
+
+%nopaint 1
+%noportal 1
+$nodecal 1
+$surfaceprop water
+
+Proxies
+	{
+	AnimatedTexture
+		{
+		animatedtexturevar $bumpmap
+		animatedtextureframenumvar $bumpframe
+		animatedtextureframerate 16
+		}
+	}
+}

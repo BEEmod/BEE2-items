@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "189"
+	"editorbuild" "8997"
+	"mapversion" "192"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "189"
+	"mapversion" "192"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -42,6 +42,28 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "10066"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "reset_rl"
+	connections
+	{
+		"OnTrigger" "targetSetTextureIndex00-1"
+	}
+	"origin" "64 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "This resets attached pedestal buttons."
+		"logicalpos" "[0 3500]"
 	}
 }
 entity
@@ -409,150 +431,6 @@ entity
 }
 entity
 {
-	"id" "7940"
-	"classname" "trigger_multiple"
-	"filtername" "@sendtor_monster_box_filter"
-	"origin" "0 0 -48"
-	"solid" "6"
-	"spawnflags" "4104"
-	"StartDisabled" "0"
-	"wait" "1"
-	connections
-	{
-		"OnStartTouch" "!activatorBecomeBox0-1"
-		"OnEndTouch" "!activatorBecomeMonster0-1"
-	}
-	solid
-	{
-		"id" "7941"
-		side
-		{
-			"id" "646"
-			"plane" "(8 -3.31658 -40) (3.31683 -8 -40) (-3.31388 -8 -40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "645"
-			"plane" "(-3.3125 8 -56) (-8 3.3125 -56) (-8 -3.31502 -56)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "644"
-			"plane" "(-8 3.3125 -56) (-3.3125 8 -56) (-3.3125 8 -40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "643"
-			"plane" "(8 -3.32049 -56) (3.32074 -8 -56) (3.32031 -8 -40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "642"
-			"plane" "(3.32014 8 -56) (8 3.31989 -56) (8 3.32031 -40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "641"
-			"plane" "(-3.3125 -8 -56) (-8 -3.3125 -56) (-8 -3.3125 -40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "640"
-			"plane" "(-8 -3.31445 -56) (-8 3.32031 -56) (-8 3.32031 -40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "639"
-			"plane" "(-3.32031 8 -56) (3.31818 8 -56) (3.31861 8 -40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "638"
-			"plane" "(8 3.31793 -56) (8 -3.31268 -56) (8 -3.31641 -40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "637"
-			"plane" "(3.30859 -8 -56) (-3.31445 -8 -56) (-3.31445 -8 -40)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "32"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "220 30 220"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupid" "38"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 4000]"
-	}
-}
-entity
-{
 	"id" "7943"
 	"classname" "info_particle_system"
 	"angles" "0 180 0"
@@ -574,6 +452,7 @@ entity
 {
 	"id" "8008"
 	"classname" "func_door"
+	"angles" "0 0 0"
 	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "0"
@@ -795,7 +674,7 @@ entity
 	"targetname" "flash_shape_blend"
 	connections
 	{
-		"OnUser1" "targetSetTextureIndex01-1"
+		"OnUser1" "reset_rlTrigger01-1"
 		"OnUser1" "switch_openPlaySound0.2-1"
 		"OnUser1" "switch_closePlaySound0-1"
 		"OnUser1" "beam_moveOpen0-1"

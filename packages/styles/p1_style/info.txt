@@ -10,61 +10,240 @@
 	"ShortName"	"P1"
 	"Folder"	"p1"
 	"VPK_Name"  "VPK_BEE2_PORTAL_1"
-				// Use the 2x2 black tile texture for the icon.
-	"Icon"   	"BEE2_PORTAL_1:BEE2/p1/metalwall048b_med.vtf"  	
+	"Icon"
+		{
+		// Use the 2x2 black tile texture for the icon.	We don't need its alpha value, it's an envmap mask.
+		"noalpha" "BEE2_PORTAL_1:BEE2/p1/metalwall048b_med.vtf"  	
+		}
 	"IconLarge" "prev/portal1.png"
 	"Has_Video"	"0"
 	"Base"		""
 	"Description"
 		{
-			"" "Portal 1 style test chamber, using more dirty/grimy environments, and pistons instead of robotic Panel arms."
-			"" "There's an orange glow coming from behind pistons.  "
-			"" "Includes:"
-			"" ""
-			"" "* Portal 1 style elevators"
-			"" "* Brown metal walls"
-			"" "* White concrete walls"
-			"" "* Portal 1 Portal Gun and Portal sound effects."
-			"" "* Old security cameras"
-			"" "* Complementary Victory Lifts"
-			"" "* Vital Apparatus Vents dispensing original cubes, and spheres."
-			"" "* Portal 1 Fizzlers"
+		"" "Portal 1 style test chamber, using more dirty/grimy environments, and pistons instead of robotic Panel arms."
+		"" "There's an orange glow coming from behind pistons.  "
+		"" "Includes:"
+		"" ""
+		"" "* Portal 1 style elevators"
+		"" "* Brown metal walls"
+		"" "* White concrete walls"
+		"" "* Portal 1 Portal Gun and Portal sound effects."
+		"" "* Old security cameras"
+		"" "* Complementary Victory Lifts"
+		"" "* Vital Apparatus Vents dispensing original cubes, and spheres."
+		"" "* Portal 1 Fizzlers"
 		}
 	"Suggested"
 		{
 		"Quote"		"BEE2_GLADOS_P1"
 		"Skybox"	"BEE2_PORTAL_1"
 		}
-	"Corridors"
-		{
-		"icon_folder" "p1"
-		"Sp_entry"
-			{
-			"1"	"Left Turn"
-			"2" "Right Stairs"
-			"3"	"<Not present>"
-			"4"	"<Not present>"
-			"5"	"<Not present>"
-			"6"	"Left Small"
-			"7" "Right Straight"
-			}
-		"Sp_exit"
-			{
-			"1"	"Black Straight"
-			"2"	"White Straight"
-			"3" "Black Right"
-			"4" "Vertical Door"
-			}
-		"Coop"
-			{
-			"1"	"Downstairs"
-			"2"	"White Large"
-			"3"	"Turrets"
-			"4"	"Left Turn"
-			}
-		}
 	}
 	
+"CorridorGroup"
+	{
+	"ID" "BEE2_PORTAL_1"
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/p1/elevator_sp/entrance_corridor_1.vmf"
+		"name" "Left Turn"
+		"authors" "Carl Kenner"
+		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/1.jpg"
+		"DefaultIndex" "1"
+		"Fixups"
+			{
+			"$fizz_size" "160"
+			"$door_type" "norm"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/p1/elevator_sp/entrance_corridor_2.vmf"
+		"config" "entry_door/corr_right_stairs.cfg"
+		"name" "Right Stairs"
+		"authors" "Luke18033"
+		"Description"
+			{
+			"" "A right hand turn with stairs into the test chamber. "
+			"" "Some panels are missing, showing a vactube which contains a cube, contains gel, or is shattered depending on the contents of the chamber."
+			}
+		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/2.jpg"
+		"DefaultIndex" "2"
+		"Fixups"
+			{
+			"$fizz_size" "256"
+			"$door_type" "norm"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/p1/elevator_sp/entrance_corridor_6.vmf"
+		"name" "Left Small"
+		"authors" "Carl Kenner"
+		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/6.jpg"
+		"DefaultIndex" "6"
+		"Fixups"
+			{
+			"$fizz_size" "128"
+			"$door_type" "norm"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/p1/elevator_sp/entrance_corridor_7.vmf"
+		"name" "Wide Straight"
+		"authors" "TeamSpen210"
+		"Description" "A wide open corridor with portalable walls."
+		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/7.jpg"
+		"DefaultIndex" "7"
+		"Fixups"
+			{
+			"$fizz_size" "128"
+			"$door_type" "norm"
+			}
+		}
+
+	"sp_entry_down"
+		{
+		"instance" "instances/BEE2/p1/elevator_sp/entrance_corridor_down_piston.vmf"
+		"name" "Piston Drop"
+		"authors" "TeamSpen210"
+		"Description" "Players drop through the floor into the chamber. The ceiling is then closed."
+		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/down_piston_1.jpg"
+		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/down_piston_2.jpg"
+		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/down_piston_3.jpg"
+		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/down_piston_4.jpg"
+		"DefaultIndex" "1"
+		"Fixups"
+			{
+			"$door_type" "remove"
+			}
+		}
+
+	"sp_exit"
+		{
+		"instance" "instances/BEE2/p1/elevator_sp/exit_corridor_1.vmf"
+		"name" "Black Straight"
+		"authors" "Carl Kenner"
+		"Description" "A straight corridor to the exit with non-portalable walls."
+		"image" "BEE2_PORTAL_1:corr/p1/sp_exit/1.jpg"
+		"DefaultIndex" "1"
+		"Fixups" 
+			{
+			"$door_type" "norm"
+			"$door_color" "black"
+			"$fizz_size" "128"
+			}
+		}
+	"sp_exit"
+		{
+		"instance" "instances/BEE2/p1/elevator_sp/exit_corridor_2.vmf"
+		"name" "White Straight"
+		"authors" "Carl Kenner"
+		"Description" "A straight corridor to the exit with portalable walls."
+		"image" "BEE2_PORTAL_1:corr/p1/sp_exit/2.jpg"
+		"DefaultIndex" "2"
+		"Fixups" 
+			{
+			"$door_type" "norm"
+			"$door_color" "white"
+			"$fizz_size" "128"
+			}
+		}
+	"sp_exit"
+		{
+		"instance" "instances/BEE2/p1/elevator_sp/exit_corridor_3.vmf"
+		"name" "Black Right"
+		"authors" "Carl Kenner"
+		"Description" "A right turn corridor with non-portalable walls."
+		"image" "BEE2_PORTAL_1:corr/p1/sp_exit/3.jpg"
+		"DefaultIndex" "3"
+		"Fixups" 
+			{
+			"$door_type" "norm"
+			"$door_color" "black"
+			"$fizz_size" "128"
+			}
+		}
+	"sp_exit"
+		{
+		"instance" "instances/BEE2/p1/elevator_sp/exit_corridor_4.vmf"
+		"name" "Vertical Door"
+		"authors" "Carl Kenner, TeamSpen210"
+		"Description"
+			{
+			"" "A wide open corridor with portalable walls and an observation room. "
+			"" "Changes the exit to a vertical door instead of a standard door."
+			}
+		"image" "BEE2_PORTAL_1:corr/p1/sp_exit/4.jpg"
+		"DefaultIndex" "4"
+		"config" "exit_door/corr_vert_door.cfg"
+		"Fixups" 
+			{
+			"$door_type" "vert"
+			"$fizz_size" "256"
+			}
+		}
+
+	"coop_entry"
+		{
+		"name" "Elevator Spawn"
+		"authors" "TeamSpen210"
+		"Description" "The Coop robots enter the chamber in an elevator."
+		"image" "corr/p1/coop_entry/horiz_1.jpg"
+		"image" "corr/p1/coop_entry/horiz_2.jpg"
+	
+		"instance" "instances/BEE2/p1/elevator_coop/spawn_room.vmf"
+		"DefaultIndex" "1"
+		"Fixups"
+			{
+			"$atlas_pos" "-144 -32 312"
+			"$atlas_ang" "1 0 0"
+			}
+		}
+
+	"coop_exit"
+		{
+		"instance" "instances/BEE2/p1/elevator_coop/exit_corridor_1.vmf"
+		"name" "Downstairs"
+		"authors" "TeamSpen210"
+		"Description" "A straight corridor to the exit, with a short set of stairs in the middle."
+		"image" "BEE2_PORTAL_1:corr/p1/coop/1.jpg"
+		"DefaultIndex" "1"
+		}
+	"coop_exit"
+		{
+		"instance" "instances/BEE2/p1/elevator_coop/exit_corridor_2.vmf"
+		"name" "White Large"
+		"authors" "TeamSpen210"
+		"Description" "A large open corridor with portalable walls."
+		"image" "BEE2_PORTAL_1:corr/p1/coop/2.jpg"
+		"DefaultIndex" "2"
+		}
+	"coop_exit"
+		{
+		"instance" "instances/BEE2/p1/elevator_coop/exit_corridor_3.vmf"
+		"name" "Turrets"
+		"authors" "TeamSpen210"
+		"Description"
+			{
+			"" "A straight corridor with claws holding turrets visible on the left. "
+			"" "If turrets are in the map, they retract."
+			}
+		"image" "BEE2_PORTAL_1:corr/p1/coop/3.jpg"
+		"DefaultIndex" "3"
+		}
+	"coop_exit"
+		{
+		"instance" "instances/BEE2/p1/elevator_coop/exit_corridor_4.vmf"
+		"name" "Left Turn"
+		"authors" "TeamSpen210"
+		"Description" "A non-portalable corridor which turns off to the left."
+		"image" "BEE2_PORTAL_1:corr/p1/coop/4.jpg"
+		"DefaultIndex" "4"
+		}
+	}
+
 "StyleVPK"
 	{
 	"ID"       "VPK_BEE2_PORTAL_1"
@@ -323,7 +502,7 @@
 					"Authors" "Carl Kenner, BenVlodgi, Rantis, Lautaro, TeamSpen210"
 					"Description"
 						{
-						"" "A small hole that emits that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
+						"" "A glass-covered light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
 						"" ""
 						"" "* The non-cool lights can be used to contrast or highlight areas."
 						"" "* Sphere-type is unused."
@@ -333,102 +512,26 @@
 						{
 						"0"
 							{
-							"pal_name" "WHITE LIGHT BOX"
-							"Name"     "White Light Box"
+							"pal_name" "WHITE LIGHT STRIP"
+							"Name"     "White Light Strip"
 							"Model"    "BEE2/p1/lights/lightstrip_cool.mdl"
 							"Icon"     "palette/p1/light_strip_cool.vtf"
 							}
 						"1"
 							{
-							"pal_name" "ORANGE LIGHT BOX"
-							"Name"     "Orange Light Box"
+							"pal_name" "ORANGE LIGHT STRIP"
+							"Name"     "Orange Light Strip"
 							"Model"    "BEE2/p1/lights/lightstrip_warm.mdl"
 							"Icon"     "palette/p1/light_strip_warm.vtf"
 							}
 						"2"
 							{
-							"pal_name" "BLUE LIGHT BOX"
-							"Name"     "Blue Light Box"
+							"pal_name" "BLUE LIGHT STRIP"
+							"Name"     "Blue Light Strip"
 							"Model"    "BEE2/p1/lights/lightstrip_cold.mdl"
 							"Icon"     "palette/p1/light_strip_cold.vtf"
 							}
 						// 3: Router, unstyled.
-						}
-					}
-				}
-			}
-		}
-		
-	"ITEM"
-		{
-		"ID" "ITEM_LIGHT_HOLE"
-		"Version"
-			{
-			"Styles"
-				{
-				"BEE2_PORTAL_1"
-					{
-					"Base"   "BEE2_CLEAN"
-					"Config" "light_hole.cfg"
-					"Instances"
-						{
-						"bee2_cool" "instances/BEE2/p1/items/light_hole/cool.vmf"
-						"bee2_warm" "instances/BEE2/p1/items/light_hole/warm.vmf"
-						"bee2_cold" "instances/BEE2/p1/items/light_hole/cold.vmf"
-						}
-					"Authors" "Carl Kenner, BenVlodgi, Rantis, Lautaro, TeamSpen210"
-					"Description"
-						{
-						"" "A small hole that emits that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
-						"" ""
-						"" "* The non-cool lights can be used to contrast or highlight areas."
-						"" "* Sphere-type is unused."
-						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
-						}
-					"Palette"
-						{
-						"0"
-							{
-							"pal_name" "WHITE HOLE LIGHT"
-							"Name"     "White Hole Light"
-							"Model"    "BEE2/p1/lights/lightstrip_cool.3ds"
-							"Icon"     "palette/p1/light_strip_cool.png"
-							"BEE2"     "p1/light_strip_cool.png"
-							}
-						"1"
-							{
-							"pal_name" "ORANGE HOLE LIGHT"
-							"Name"     "Orange Hole Light"
-							"Model"    "BEE2/p1/lights/lightstrip_warm.3ds"
-							"Icon"     "palette/p1/light_strip_warm.png"
-							"BEE2"     "p1/light_strip_warm.png"
-							}
-						"2"
-							{
-							"pal_name" "BLUE HOLE LIGHT"
-							"Name"     "Blue Hole Light"
-							"Model"    "BEE2/p1/lights/lightstrip_cold.3ds"
-							"Icon"     "palette/p1/light_strip_cold.png"
-							"BEE2"     "p1/light_strip_cold.png"
-							}
-						// 3: Router, unstyled.
-						}
-					// Duplicates for backwards compatibility.
-					"Extra"
-						{
-						"Palette"
-							{
-							"0"
-								{
-								"Name"     "Orange Hole Light"
-								"Model"    "p1_light_warm.3ds"
-								}
-							"1"
-								{
-								"Name"     "Blue Hole Light"
-								"Model"    "p1_light_cold.3ds"
-								}
-							}
 						}
 					}
 				}

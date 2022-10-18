@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "140"
+	"editorbuild" "8419"
+	"mapversion" "143"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "140"
+	"mapversion" "143"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -69,13 +69,14 @@ entity
 	"_linear_attn" "0"
 	"_quadratic_attn" "1"
 	"_zero_percent_distance" "52"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"style" "0"
 	"targetname" "light"
 	"origin" "0 0 -88"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 -3768]"
@@ -106,54 +107,10 @@ entity
 	"origin" "0 0 -56"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 -3768]"
-	}
-}
-entity
-{
-	"id" "6954"
-	"classname" "logic_relay"
-	"StartDisabled" "0"
-	"targetname" "out"
-	connections
-	{
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnSpawn" "fx_waitingStartDischarge01"
-	}
-	"origin" "-48.03 -16 -57"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "6958"
-	"classname" "info_particle_system"
-	"angles" "-90 270 0"
-	"cpoint1_parent" "0 0 -73"
-	"cpoint2_parent" "0 0 -73"
-	"cpoint3_parent" "0 0 -73"
-	"cpoint4_parent" "0 0 -73"
-	"cpoint5_parent" "0 0 -73"
-	"cpoint6_parent" "0 0 -73"
-	"cpoint7_parent" "0 0 -73"
-	"effect_name" "dissolve"
-	"targetname" "fx_reset"
-	"origin" "0 0 -73"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 3500]"
 	}
 }
 entity
@@ -162,14 +119,15 @@ entity
 	"classname" "trigger_multiple"
 	"filtername" "@filter_pellet"
 	"origin" "0 0 -64"
+	"solid" "6"
 	"spawnflags" "8"
 	"StartDisabled" "0"
-	"targetname" "trigger_balltrap"
+	"targetname" "catcher_trigger"
 	"wait" "1"
 	connections
 	{
 		"OnStartTouch" "!activatorKill0.1-1"
-		"OnStartTouch" "trigger_balltrapKill0.12-1"
+		"OnStartTouch" "catcher_triggerKill0.12-1"
 		"OnStartTouch" "!activatorBallCaught0.1-1"
 		"OnStartTouch" "spot_brushDisable0.1-1"
 		"OnStartTouch" "ballEnableDraw0.1-1"
@@ -181,7 +139,6 @@ entity
 		"OnStartTouch" "spotLightOff0.1-1"
 		"OnStartTouch" "trigger_balltrapDisable0.1-1"
 		"OnStartTouch" "stop_emEnable0.1-1"
-		"OnStartTouch" "outFireUser20.1-1"
 		"OnStartTouch" "fx_waitingStop0.50.1-1"
 		"OnStartTouch" "snd_onPlaySound0.1-1"
 		"OnStartTouch" "fx_pellet_catchStart0.1-1"
@@ -278,6 +235,7 @@ entity
 	"angles" "-90 0 0"
 	"disablereceiveshadows" "0"
 	"disableX360" "0"
+	"haloscale" "60"
 	"HDRColorScale" "1.0"
 	"maxcpulevel" "0"
 	"maxgpulevel" "0"
@@ -449,6 +407,7 @@ entity
 	"renderfx" "0"
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
+	"solid" "6"
 	"solidbsp" "0"
 	"Solidity" "1"
 	"spawnflags" "2"
@@ -581,20 +540,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 6500]"
-	}
-}
-entity
-{
-	"id" "2136"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-48 48 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2000]"
 	}
 }
 cameras

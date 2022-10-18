@@ -654,13 +654,15 @@ function dest_confirm(cargo, location)
         if (is_monster_cube(cargo)) {
             platform_fx = platform_fx_mon;
             destination_fx = destination_fx_mon;
+            // The Sendificator forced it to box mode.
+            EntFireByHandle(cargo, "BecomeMonster", "", freeze_time, self, self);
         }
         else if (is_round_cube(cargo)) {
             platform_fx = platform_fx_sphere;
             destination_fx = destination_fx_sphere;
         }
 
-        EntFireByHandle(cargo, "DisableMotion", "", 0, null, null);
+        EntFireByHandle(cargo, "DisableMotion", "", 0, self, self);
         platform_fx.SpawnEntityAtLocation(cargo.GetOrigin(),
                                           cargo.GetAngles());
 
@@ -675,7 +677,7 @@ function dest_confirm(cargo, location)
         }
 
         cargo.SetOrigin(location);
-        EntFireByHandle(cargo, "EnableMotion", "", freeze_time, null, null);
+        EntFireByHandle(cargo, "EnableMotion", "", freeze_time, self, self);
         destination_fx.SpawnEntityAtLocation(location, cargo.GetAngles());
 
         // add ripple effects
