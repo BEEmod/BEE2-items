@@ -1,6 +1,11 @@
 # Changelog
 
-## Version <dev>
+# Version `<dev>`
+
+------------------------------------------
+
+# Version 4.42.0
+
 ### New Features:
 * New corridor selection system
 	* Each corridor can now be individually enabled/disabled, you can have any number active.
