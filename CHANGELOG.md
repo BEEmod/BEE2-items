@@ -2,6 +2,9 @@
 
 # Version `<dev>`
 
+### Bugfixes
+* Fix orientation of Clean door camera.
+
 ------------------------------------------
 
 # Version 4.42.0
