@@ -6,7 +6,8 @@
 * #1875: Fix orientation of Clean door camera.
 * Fix Overgrown static non-block Stairs having incorrect panel positions.
 * #4150: Fix Paint Fizzlers not cleaning cubes that were prepainted with gel.
-* Fix #3671: Incorrect palette icon for Overgrown Signage item
+* Fix #3671: Incorrect palette icon for Overgrown Signage item.
+* Fix P1 not restarting when you enter the elevator in preview mode.
 
 ------------------------------------------
 
