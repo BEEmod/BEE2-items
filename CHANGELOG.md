@@ -4,6 +4,7 @@
 
 ### Bugfixes
 * Fix orientation of Clean door camera.
+* Fix Overgrown static non-block Stairs having incorrect panel positions.
 
 ------------------------------------------
 
