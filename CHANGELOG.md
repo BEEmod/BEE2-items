@@ -3,8 +3,9 @@
 # Version `<dev>`
 
 ### Bugfixes
-* Fix orientation of Clean door camera.
+* #1875: Fix orientation of Clean door camera.
 * Fix Overgrown static non-block Stairs having incorrect panel positions.
+* #4150: Fix Paint Fizzlers not cleaning cubes that were prepainted with gel.
 
 ------------------------------------------
 
