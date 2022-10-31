@@ -9,6 +9,7 @@
 * Fix #3671: Incorrect palette icon for Overgrown Signage item.
 * Fix P1 not restarting when you enter the elevator in preview mode.
 * Fix incorrect name and description for Absolute Fizzler package.
+* Fix duplicate description for Overgrown Gels.
 
 ------------------------------------------
 
