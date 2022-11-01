@@ -11,6 +11,7 @@
 * Fix incorrect name and description for Absolute Fizzler package.
 * Fix duplicate description for Overgrown Gels.
 * Fix some bad optimisation in Overgrown SP entry elevator.
+* Fix Overgrown "staircase" entrance not opening worldportal in preview mode.
 
 ------------------------------------------
 
