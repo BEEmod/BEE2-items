@@ -132,6 +132,10 @@ def build_package(package_path, pack_zip_path):
                     print('\nX   \\' + rel_path)
                     os.remove(full_path)
                     continue
+                # Skip translation sources, but don't delete them.
+                if file.endswith(('.po', '.pot')):
+                    print('\nS   \\' + rel_path)
+                    continue
 
                 hammer_path = os.path.relpath(rel_path, 'resources/')
                 if hammer_path.startswith('..'):
