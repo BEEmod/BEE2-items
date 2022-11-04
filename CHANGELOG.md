@@ -12,6 +12,7 @@
 * Fix duplicate description for Overgrown Gels.
 * Fix some bad optimisation in Overgrown SP entry elevator.
 * Fix Overgrown "staircase" entrance not opening worldportal in preview mode.
+* Fix #4247: Prevent portal bumping onto P1 ceiling Small Observation Room.
 
 ------------------------------------------
 
