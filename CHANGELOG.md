@@ -3,7 +3,7 @@
 # Version `<dev>`
 
 ### Enhancements:
-* #647: Re-add Overgrown Separated Coop Checkpoint.
+* #647: Re-add P1 and Overgrown Separated Coop Checkpoint.
 
 ### Bugfixes
 * #1875: Fix orientation of Clean door camera.

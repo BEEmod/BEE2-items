@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8997"
-	"mapversion" "162"
+	"mapversion" "163"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -44,7 +44,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "162"
+	"mapversion" "163"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -7292,10 +7292,10 @@ entity
 	"targetname" "br_listener"
 	connections
 	{
-		"OnAllTrue" "btnCancelPress01"
+		"OnAllTrue" "btn_leftCancelPress01"
 		"OnAllTrue" "pan_rightCheck01"
 		"OnAllTrue" "pan_leftCheck01"
-		"OnAllTrue" "btnLock01"
+		"OnAllTrue" "btn_leftLock01"
 		"OnAllTrue" "side_chooserTest01"
 		"OnAllTrue" "exit_door_r_bottomSetAnimation90degdown01"
 		"OnAllTrue" "exit_door_l_bottomSetAnimation90degdown01"
@@ -7305,6 +7305,8 @@ entity
 		"OnAllTrue" "entry_door_topSetAnimation90degup01"
 		"OnAllTrue" "exit_door_l_topSetAnimation90degdown01"
 		"OnAllTrue" "exit_door_r_topSetAnimation90degdown01"
+		"OnAllTrue" "btn_rightLock01"
+		"OnAllTrue" "btn_rightCancelPress01"
 	}
 	"origin" "-240 -2.09815e-005 16"
 	editor
@@ -7434,7 +7436,7 @@ entity
 	"renderfx" "0"
 	"skin" "1"
 	"solid" "1"
-	"targetname" "btn"
+	"targetname" "btn_left"
 	connections
 	{
 		"OnPressedBlue" "side_chooserSetValue00-1"
@@ -7468,7 +7470,7 @@ entity
 	"renderfx" "0"
 	"skin" "1"
 	"solid" "1"
-	"targetname" "btn"
+	"targetname" "btn_right"
 	connections
 	{
 		"OnPressedOrange" "side_chooserSetValue00-1"
@@ -14277,38 +14279,6 @@ entity
 		"visgroupautoshown" "1"
 		"comments" "Nodraw prevents players sneaking portals around gaps"
 		"logicalpos" "[500 15000]"
-	}
-}
-entity
-{
-	"id" "7127"
-	"classname" "logic_relay"
-	"angles" "0 0 0"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "switch_relay"
-	connections
-	{
-		"OnTrigger" "exit_door_l_topSetAnimation90degdown0-1"
-		"OnTrigger" "entry_door_topSetAnimation90degup0.05-1"
-		"OnTrigger" "br_rightTest0-1"
-		"OnTrigger" "br_leftTest0-1"
-		"OnTrigger" "btnLock0-1"
-		"OnTrigger" "pan_leftCheck0-1"
-		"OnTrigger" "pan_rightCheck0-1"
-		"OnTrigger" "btnCancelPress0-1"
-		"OnTrigger" "exit_door_r_bottomSetAnimation90degdown0.05-1"
-		"OnTrigger" "exit_door_r_topSetAnimation90degdown0-1"
-		"OnTrigger" "exit_door_l_bottomSetAnimation90degdown0.1-1"
-		"OnTrigger" "entry_door_bottomSetAnimation90degup0-1"
-	}
-	"origin" "-240 16.0001 -56"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 7500]"
 	}
 }
 entity
