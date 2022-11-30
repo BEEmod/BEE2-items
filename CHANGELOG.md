@@ -17,6 +17,7 @@
 * Fix Overgrown "staircase" entrance not opening worldportal in preview mode.
 * Fix #4247: Prevent portal bumping onto P1 ceiling Small Observation Room.
 * Fix internal dimensions for Clean Large Observation Room.
+* Fix 80s SP Lobby entrance not working.
 
 ------------------------------------------
 
