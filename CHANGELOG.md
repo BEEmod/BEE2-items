@@ -20,6 +20,7 @@
 * Fix internal dimensions for Clean Large Observation Room.
 * Fix 80s SP Lobby entrance not working.
 * Fix Overgrown Excursion Funnels and reversed funnels not being visible in published maps.
+* Fix #4263: 50s SP entrances having a few compile errors.
 
 ------------------------------------------
 
