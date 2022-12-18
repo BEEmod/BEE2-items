@@ -22,6 +22,7 @@
 * Fix Overgrown Excursion Funnels and reversed funnels not being visible in published maps.
 * Fix #4263: 50s SP entrances having a few compile errors.
 * Improve areaportals in Clean upward SP exit.
+* Fix positioning of P1 Coop corridors.
 
 ------------------------------------------
 
