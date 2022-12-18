@@ -23,6 +23,7 @@
 * Fix #4263: 50s SP entrances having a few compile errors.
 * Improve areaportals in Clean upward SP exit.
 * Fix positioning of P1 Coop corridors.
+* Fix #4266: Sendificator Slim not working in Clean, Overgrown, P1.
 
 ------------------------------------------
 
