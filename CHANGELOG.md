@@ -5,6 +5,7 @@
 ### Enhancements:
 * #647: Re-add all styled versions of Separated Coop Checkpoint.
 * Removed subtle fade when swapping Funnel polarity. It didn't match with any of the actual effects.
+* Improve areaportals in Clean upward SP exit.
 
 ### Bugfixes
 * Fix #1875: orientation of Clean door camera.
@@ -22,9 +23,9 @@
 * Fix #4264: 70s SP entrances having a few compile errors.
 * Fix 80s SP Lobby entrance not working.
 * Fix Overgrown Excursion Funnels and reversed funnels not being visible in published maps.
-* Improve areaportals in Clean upward SP exit.
 * Fix positioning of P1 Coop corridors.
 * Fix #4266: Sendificator Slim not working in Clean, Overgrown, P1.
+* Fix #3960: Remake P1 Sendificator antlines to remove green tint.
 
 ------------------------------------------
 
