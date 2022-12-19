@@ -26,6 +26,7 @@
 * Fix positioning of P1 Coop corridors.
 * Fix #4266: Sendificator Slim not working in Clean, Overgrown, P1.
 * Fix #3960: Remake P1 Sendificator antlines to remove green tint.
+* Fix #4269: Old Aperture checkpoints not functioning.
 
 ------------------------------------------
 

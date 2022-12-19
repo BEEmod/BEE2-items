@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8997"
-	"mapversion" "210"
+	"mapversion" "215"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "210"
+	"mapversion" "215"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2374,8 +2374,7 @@ entity
 	"StartDisabled" "0"
 	connections
 	{
-		"OnTrigger" "counterKill0-1"
-		"OnTrigger" "branch_toggleSetValueTest10-1"
+		"OnTrigger" "rl_closeKill0-1"
 	}
 	solid
 	{
@@ -2458,7 +2457,7 @@ entity
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "locks door open once one player has entered"
+		"comments" "Locks door open once one player has entered."
 		"logicalpos" "[0 1500]"
 	}
 }
@@ -2636,7 +2635,6 @@ entity
 	"DisableBoneFollowers" "0"
 	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
-	"disableshadowdepth" "0"
 	"disableshadows" "0"
 	"drawinfastreflection" "0"
 	"ExplodeDamage" "0"
@@ -2645,7 +2643,6 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props_underground/underground_testchamber_button.mdl"
-	"PerformanceMode" "0"
 	"physdamagescale" "1.0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
@@ -2653,12 +2650,10 @@ entity
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "0"
-	"SetBodyGroup" "0"
-	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
 	"spawnflags" "256"
-	"StartDisabled" "0"
+	"StartDisabled" "1"
 	"SuppressAnimSounds" "0"
 	"targetname" "btn_downmodel"
 	"origin" "-440 -160 -64"
@@ -2679,7 +2674,6 @@ entity
 	"DisableBoneFollowers" "0"
 	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
-	"disableshadowdepth" "0"
 	"disableshadows" "0"
 	"drawinfastreflection" "0"
 	"ExplodeDamage" "0"
@@ -2688,7 +2682,6 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props_underground/underground_testchamber_button.mdl"
-	"PerformanceMode" "0"
 	"physdamagescale" "1.0"
 	"pressuredelay" "0"
 	"RandomAnimation" "0"
@@ -2696,12 +2689,10 @@ entity
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "0"
-	"SetBodyGroup" "0"
-	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "6"
 	"spawnflags" "256"
-	"StartDisabled" "0"
+	"StartDisabled" "1"
 	"SuppressAnimSounds" "0"
 	"targetname" "btn_downmodel"
 	"origin" "-440 160 -64"
@@ -3108,7 +3099,7 @@ entity
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "0"
 	"disableshadows" "0"
-	"dmg" "0"
+	"dmg" "99"
 	"drawinfastreflection" "0"
 	"forceclosed" "0"
 	"health" "0"
@@ -3125,7 +3116,7 @@ entity
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
 	"solid" "6"
-	"spawnflags" "4"
+	"spawnflags" "12"
 	"spawnpos" "0"
 	"speed" "256"
 	"targetname" "entry_door_l"
@@ -3230,7 +3221,7 @@ entity
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "0"
 	"disableshadows" "0"
-	"dmg" "0"
+	"dmg" "99"
 	"drawinfastreflection" "0"
 	"forceclosed" "0"
 	"health" "0"
@@ -3247,7 +3238,7 @@ entity
 	"rendermode" "0"
 	"shadowdepthnocache" "0"
 	"solid" "6"
-	"spawnflags" "4"
+	"spawnflags" "12"
 	"spawnpos" "0"
 	"speed" "256"
 	"targetname" "entry_door_u"
@@ -4233,7 +4224,7 @@ entity
 		"OnTrigger" "trigKill0-1"
 		"OnTrigger" "toggle_oranSetTextureIndex10-1"
 		"OnTrigger" "toggle_blueSetTextureIndex10-1"
-		"OnTrigger" "branch_toggleSetValueTest00.1-1"
+		"OnTrigger" "entry_door_uClose0.1-1"
 		"OnTrigger" "fizzEnable0-1"
 		"OnTrigger" "drp_binstance:relay_set_enabled_active;Trigger0.1-1"
 		"OnTrigger" "drp_oinstance:relay_set_enabled_active;Trigger0.1-1"
@@ -4244,6 +4235,7 @@ entity
 		"OnTrigger" "btn_oranKill0.01-1"
 		"OnTrigger" "btn_downmodelEnable0-1"
 		"OnTrigger" "exit_portOpen0-1"
+		"OnTrigger" "entry_door_lClose0.1-1"
 	}
 	"origin" "-568 16.0002 120"
 	editor
@@ -4428,10 +4420,6 @@ entity
 		"OnTrigger" "pushDisable0.35-1"
 		"OnTrigger" "entry_door_uClose0-1"
 		"OnTrigger" "entry_door_lClose0-1"
-		"OnMapSpawn" "branch_toggleTest0.11"
-		"OnMapSpawn" "btn_downmodelDisable01"
-		"OnMapSpawn" "drp_binstance:initial_spawn;Disable01"
-		"OnMapSpawn" "drp_oinstance:initial_spawn;Disable01"
 	}
 	"origin" "-248 0.000200272 8.93308e-006"
 	editor
@@ -4544,6 +4532,7 @@ entity
 	"classname" "func_instance"
 	"angles" "-0 180 0"
 	"file" "instances/bee2/50s/items/tspen/coop_dropper_blue.vmf"
+	"replace01" "$start_enabled 0"
 	"targetname" "drp_b"
 	"origin" "-384 -160 256"
 	editor
@@ -4575,6 +4564,7 @@ entity
 	"classname" "func_instance"
 	"angles" "-0 180 0"
 	"file" "instances/bee2/50s/items/tspen/coop_dropper_orange.vmf"
+	"replace01" "$start_enabled 0"
 	"targetname" "drp_o"
 	"origin" "-384 160 256"
 	editor
