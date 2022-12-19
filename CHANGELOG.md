@@ -18,9 +18,10 @@
 * Fix Overgrown "staircase" entrance not opening worldportal in preview mode.
 * Fix #4247: Prevent portal bumping onto P1 ceiling Small Observation Room.
 * Fix internal dimensions for Clean Large Observation Room.
+* Fix #4263: 50s SP entrances having a few compile errors.
+* Fix #4264: 70s SP entrances having a few compile errors.
 * Fix 80s SP Lobby entrance not working.
 * Fix Overgrown Excursion Funnels and reversed funnels not being visible in published maps.
-* Fix #4263: 50s SP entrances having a few compile errors.
 * Improve areaportals in Clean upward SP exit.
 * Fix positioning of P1 Coop corridors.
 * Fix #4266: Sendificator Slim not working in Clean, Overgrown, P1.
