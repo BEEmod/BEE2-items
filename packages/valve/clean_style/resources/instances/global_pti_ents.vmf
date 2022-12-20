@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8997"
-	"mapversion" "99"
+	"mapversion" "104"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "99"
+	"mapversion" "104"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -486,6 +486,24 @@ world
 }
 entity
 {
+	"id" "535"
+	"classname" "filter_activator_context"
+	"angles" "0 0 0"
+	"Negated" "1"
+	"responsecontext" "nofizzle"
+	"targetname" "@can_fizzle"
+	"origin" "-40 0 -40"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Entities with this context are ignored by fizzlers, except Absolute Fizzlers."
+		"logicalpos" "[0 12500]"
+	}
+}
+entity
+{
 	"id" "447"
 	"classname" "game_text"
 	"angles" "0 0 0"
@@ -638,24 +656,6 @@ entity
 	"filterclass" "npc_portal_turret_floor"
 	"Negated" "0"
 	"targetname" "@isturret"
-	connections
-	{
-		"OnTrigger" "end_soundPlaySound0.6-1"
-		"OnTrigger" "start_soundPlaySound0-1"
-		"OnTrigger" "PropSetAnimationNoResetsmash_in0-1"
-		"OnTrigger" "isreadySetValue00-1"
-		"OnTrigger" "PropSetAnimationNoResetsmash_out1.7-1"
-		"OnTrigger" "isreadySetValue14.5-1"
-		"OnTrigger" "killerEnable0.1-1"
-		"OnTrigger" "cleanserEnable0.1-1"
-		"OnTrigger" "cleanserDisable1.4-1"
-		"OnTrigger" "killerDisable1.4-1"
-		"OnTrigger" "deciderTest4.51-1"
-		"OnTrigger" "cleanser2Enable1.4-1"
-		"OnTrigger" "cleanser2Disable4.5-1"
-		"OnTrigger" "killer2Enable1.4-1"
-		"OnTrigger" "killer2Disable4.5-1"
-	}
 	"origin" "-24 16 -40"
 	editor
 	{
@@ -673,24 +673,6 @@ entity
 	"filterclass" "npc_portal_turret_floor"
 	"Negated" "1"
 	"targetname" "@noturret"
-	connections
-	{
-		"OnTrigger" "end_soundPlaySound0.6-1"
-		"OnTrigger" "start_soundPlaySound0-1"
-		"OnTrigger" "PropSetAnimationNoResetsmash_in0-1"
-		"OnTrigger" "isreadySetValue00-1"
-		"OnTrigger" "PropSetAnimationNoResetsmash_out1.7-1"
-		"OnTrigger" "isreadySetValue14.5-1"
-		"OnTrigger" "killerEnable0.1-1"
-		"OnTrigger" "cleanserEnable0.1-1"
-		"OnTrigger" "cleanserDisable1.4-1"
-		"OnTrigger" "killerDisable1.4-1"
-		"OnTrigger" "deciderTest4.51-1"
-		"OnTrigger" "cleanser2Enable1.4-1"
-		"OnTrigger" "cleanser2Disable4.5-1"
-		"OnTrigger" "killer2Enable1.4-1"
-		"OnTrigger" "killer2Disable4.5-1"
-	}
 	"origin" "-8 16 -40"
 	editor
 	{
@@ -708,24 +690,6 @@ entity
 	"filterclass" "func_physbox"
 	"Negated" "0"
 	"targetname" "@is_physbox"
-	connections
-	{
-		"OnTrigger" "end_soundPlaySound0.6-1"
-		"OnTrigger" "start_soundPlaySound0-1"
-		"OnTrigger" "PropSetAnimationNoResetsmash_in0-1"
-		"OnTrigger" "isreadySetValue00-1"
-		"OnTrigger" "PropSetAnimationNoResetsmash_out1.7-1"
-		"OnTrigger" "isreadySetValue14.5-1"
-		"OnTrigger" "killerEnable0.1-1"
-		"OnTrigger" "cleanserEnable0.1-1"
-		"OnTrigger" "cleanserDisable1.4-1"
-		"OnTrigger" "killerDisable1.4-1"
-		"OnTrigger" "deciderTest4.51-1"
-		"OnTrigger" "cleanser2Enable1.4-1"
-		"OnTrigger" "cleanser2Disable4.5-1"
-		"OnTrigger" "killer2Enable1.4-1"
-		"OnTrigger" "killer2Disable4.5-1"
-	}
 	"origin" "-40 16 -40"
 	editor
 	{
@@ -812,7 +776,6 @@ entity
 	"angles" "0 0 0"
 	"hull_name" "TINY_HULL"
 	"model" "models/editor/axis_helper.mdl"
-	"physdamagescale" "1.0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"

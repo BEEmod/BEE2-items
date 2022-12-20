@@ -9,6 +9,8 @@
 * Altered exit doors and checkpoints to use `NeedsAbsFizz` chamber attribute, instead of 
   `PortalGunOnOff`. This way items can get the Absolute Fizzlers in the exit without the portal gun
   changes.
+ * Added a filter to all cube-fizzling fizzlers (except Absolute Fizzlers), allowing creating 
+   fizzler-proof cubes and the like. Simply add the `nofizzle:1` response context to the object.
 
 ### Bugfixes
 * Fix #1875: orientation of Clean door camera.
