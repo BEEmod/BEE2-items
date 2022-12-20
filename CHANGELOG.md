@@ -32,6 +32,7 @@
 * Fix #4269: Old Aperture checkpoints not functioning.
 * Fix P1 Entrance 2 causing leaks.
 * Fix name and icon for Old Aperture Coop Spawn Room.
+* Fix fizzlers in 60s SP lobby Exits.
 
 ------------------------------------------
 
