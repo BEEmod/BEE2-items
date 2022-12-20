@@ -6,6 +6,9 @@
 * #647: Re-add all styled versions of Separated Coop Checkpoint.
 * Removed subtle fade when swapping Funnel polarity. It didn't match with any of the actual effects.
 * Improve areaportals in Clean upward SP exit.
+* Altered exit doors and checkpoints to use `NeedsAbsFizz` chamber attribute, instead of 
+  `PortalGunOnOff`. This way items can get the Absolute Fizzlers in the exit without the portal gun
+  changes.
 
 ### Bugfixes
 * Fix #1875: orientation of Clean door camera.
