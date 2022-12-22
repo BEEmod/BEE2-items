@@ -2,6 +2,7 @@
 
 disabled_coll <- {};
 spawned <- false;
+dying <- false;
 next_coll <- 0.0;
 // ghost_color, ghost_alpha: From compiler.
 
@@ -13,7 +14,9 @@ function Think() {
 		if (disabled_coll.len() > 256) {
 			disabled_coll = {};
 		} 
-		disable_collision("projected_wall_entity");
+		if (disable_collision("projected_wall_entity")) {
+			EntFireByHandle(self, "Wake", "", 0.0, self, self);
+		}
 		disable_collision("prop_energy_ball");
 	}
 	self.__KeyValueFromString("rendercolor", ghost_color);
@@ -23,6 +26,7 @@ function Think() {
 
 function disable_collision(classname) {
 	local ent = null;
+	local found = false;
 	while(ent = Entities.FindByClassname(ent, classname)) {
 		local name = ent.GetName();
 		if (name == "") {
@@ -38,7 +42,9 @@ function disable_collision(classname) {
 		EntFireByHandle(collision_pair, "DisableCollisions", "", 0, null, null);
 		EntFireByHandle(collision_pair, "Kill", "", 0.01, null, null);
 		disabled_coll[name] <- null;
+		found = true;
 	}
+	return found;
 }
 
 function Spawned() {
@@ -52,6 +58,21 @@ function FizzleIfOutside() {
 }
 
 function Fizzle() {
-	dissolver = Entities.FindByName(null, "@superpos_dissolver");
-	EntFireByHandle(dissolver, "Dissolve", "!activator", 0.0, self, self);
+	if (!dying) {
+		local dissolver = Entities.FindByName(null, "@superpos_dissolver");
+		EntFireByHandle(dissolver, "Dissolve", "!activator", 0.0, self, self);
+		call_respawn();
+	}
+}
+
+function FellInGoo() {
+	call_respawn();
+}
+
+function call_respawn() {
+	// find the instance name from "inst_name-box&0123"
+	local name = self.GetName();
+	name = name.slice(0, name.find("-box")) + "_respawn_rl";
+	EntFire(name, "Trigger");
+	dying = true;  // Don't repeat.
 }
