@@ -6,6 +6,8 @@ dest_real  <- EntityGroup[2];
 dest_ghost <- EntityGroup[3];
 force_drop_filter <- EntityGroup[4];
 
+// FIZZLE_TOGETHER: From scriptvar setter.
+
 cube_real <- null;
 cube_ghost <- null;
 
@@ -23,11 +25,19 @@ function SpawnedReal() {
 function FizzledGhost() {
 	cube_ghost <- null;
 	printl("Ghost cube fizzled");
+	if (FIZZLE_TOGETHER && cube_real != null) {
+		EntFireByHandle(cube_real, "Dissolve", "", 0.0, self, self);
+		cube_real = null;
+	}
 }
 
 function FizzledReal() {
 	cube_real <- null;
 	printl("Real cube fizzled");
+	if (FIZZLE_TOGETHER && cube_ghost != null) {
+		EntFireByHandle(cube_ghost, "CallScriptFunction", "FizzleIfOutside", 0.0, self, self);
+		cube_ghost = null;
+	}
 }
 
 function DoSwap() {
