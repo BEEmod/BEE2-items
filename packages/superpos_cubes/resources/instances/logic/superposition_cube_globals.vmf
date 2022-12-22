@@ -1,0 +1,78 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "8997"
+	"mapversion" "120"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "8"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "120"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2950"
+	"classname" "env_entity_dissolver"
+	"angles" "0 0 0"
+	"dissolvetype" "0"
+	"magnitude" "250"
+	"target" "!activator"
+	"targetname" "@superpos_dissolver"
+	"origin" "8 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "2940"
+	"classname" "filter_player_held"
+	"angles" "0 0 0"
+	"negated" "0"
+	"targetname" "@superpos_force_drop"
+	connections
+	{
+		"OnPass" "!callerDisableMotion0-1"
+		"OnPass" "!callerEnableMotion0.01-1"
+	}
+	"origin" "-8 0 0"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "If the cube is tested and succeeds, disable motion to force it to be dropped."
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
