@@ -1,0 +1,131 @@
+"Item"
+	{
+	"Type"		"ITEM_BEE2_SUPERPOS_ENTANGLER"
+	"Editor"
+		{
+		"SubType"
+			{
+			"Name"  "Superposition Entangler"
+			"Model"
+				{
+				"ModelName" "bee2/logic/cube_coloriser.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"   "SUPERPOSITION ENTANGLER"
+				"Image"     "palette/clean/BEE2/superposition_cube.vtf"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"             "P2Editor.PlaceCube"
+				"SOUND_EDITING_ACTIVATE"    "P2Editor.ExpandCube"
+				"SOUND_EDITING_DEACTIVATE"  "P2Editor.CollapseCube"
+				"SOUND_DELETED"             "P2Editor.RemoveCube"
+				}
+			}
+		"MovementHandle"    "HANDLE_NONE"
+		"OccupiesVoxel"     "0"
+		}
+	"Properties"
+		{
+		"ConnectionCount"
+			{
+			"DefaultValue"  "0"
+			"Index"         "1"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"			"instances/BEE2/logic/superposition_cube.vmf"
+				"EntityCount"	"5"
+				}
+			}
+		"TargetName"    "superpos"
+		"Offset"		"64 64 64"
+		"Inputs"
+			{
+			"BEE2"
+				{
+				"Type"          "AND"
+				"Enable_Cmd"    "swap_rl,Trigger,,0.00,-1"
+
+				// Don't lock the pedestal button when respawning.
+				"out_unlock"    "instance:swap_rl;OnUser1"
+
+				// For linking to ghost dropper, handled by compiler.
+				"Force" "output"
+				}
+			}
+
+		"ConnectionPoints"
+			{
+			// left
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 3 0"
+				"SignageOffset"		"-2 2 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"1 0 0"
+				"Pos"				"-1 4 0"
+				"SignageOffset"		"-2 5 0"
+				"Priority"  "0"
+				}
+
+			// right
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"8 3 0"
+				"SignageOffset"		"9 2 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"-1 0 0"
+				"Pos"				"8 4 0"
+				"SignageOffset"		"9 5 0"
+				"Priority"  "0"
+				}
+
+			// up
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"3 -1 0"
+				"SignageOffset"		"2 -2 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"0 1 0"
+				"Pos"				"4 -1 0"
+				"SignageOffset"		"5 -2 0"
+				"Priority"  "0"
+				}
+
+			// down
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"3 8 0"
+				"SignageOffset"		"2 9 0"
+				"Priority"  "0"
+				}
+			"Point"
+				{
+				"Dir"				"0 -1 0"
+				"Pos"				"4 8 0"
+				"SignageOffset"		"5 9 0"
+				"Priority"  "0"
+				}
+			}
+		}
+	}
