@@ -210,6 +210,13 @@
 		"Description" "A straight corridor to the exit, with a short set of stairs in the middle."
 		"image" "BEE2_PORTAL_1:corr/p1/coop/1.jpg"
 		"DefaultIndex" "1"
+		"Fixups" 
+			{
+			"$door_type"   "norm"
+			"$door_color"  "black"
+			"$tag_fizz"    "instances/bee2/p1/elevator_coop/exit_fizz_tag.vmf"
+			"$no_tag_fizz" "instances/bee2/p1/elevator_coop/exit_fizz_p2.vmf"
+			}
 		}
 	"coop_exit"
 		{
@@ -219,12 +226,20 @@
 		"Description" "A large open corridor with portalable walls."
 		"image" "BEE2_PORTAL_1:corr/p1/coop/2.jpg"
 		"DefaultIndex" "2"
+		"Fixups" 
+			{
+			"$door_type"   "norm"
+			"$door_color"  "black"
+			"$tag_fizz"    "instances/bee2/p1/elevator_coop/exit_fizz_tag.vmf"
+			"$no_tag_fizz" "instances/bee2/p1/elevator_coop/exit_fizz_p2.vmf"
+			}
 		}
 	"coop_exit"
 		{
-		"instance" "instances/BEE2/p1/elevator_coop/exit_corridor_3.vmf"
+		"instance" "instances/BEE2/p1/elevator_coop/exit_corr_turret/corridor.vmf"
 		"name" "Turrets"
 		"authors" "TeamSpen210"
+		"Config" "coop_exit/corr_turret.cfg"
 		"Description"
 			{
 			"" "A straight corridor with claws holding turrets visible on the left. "
@@ -232,6 +247,13 @@
 			}
 		"image" "BEE2_PORTAL_1:corr/p1/coop/3.jpg"
 		"DefaultIndex" "3"
+		"Fixups" 
+			{
+			"$door_type"   "norm"
+			"$door_color"  "black"
+			"$tag_fizz"    "instances/bee2/p1/elevator_coop/exit_fizz_tag.vmf"
+			"$no_tag_fizz" "instances/bee2/p1/elevator_coop/exit_fizz_p2.vmf"
+			}
 		}
 	"coop_exit"
 		{
@@ -241,6 +263,13 @@
 		"Description" "A non-portalable corridor which turns off to the left."
 		"image" "BEE2_PORTAL_1:corr/p1/coop/4.jpg"
 		"DefaultIndex" "4"
+		"Fixups" 
+			{
+			"$door_type"   "norm"
+			"$door_color"  "black"
+			"$tag_fizz"    "instances/bee2/p1/elevator_coop/exit_fizz_tag.vmf"
+			"$no_tag_fizz" "instances/bee2/p1/elevator_coop/exit_fizz_p2.vmf"
+			}
 		}
 	}
 
@@ -396,7 +425,23 @@
 			{
 			"Styles"
 				{
-				"BEE2_PORTAL_1"	"obs_room_large"
+				"BEE2_PORTAL_1"
+					{
+					"Base" "BEE2_CLEAN"
+					"Authors" "Carl Kenner"
+					"Config" "obs_room_large.cfg" // Todo: Cave portrait?
+					"Instances"
+						{
+						"0" "instances/BEE2/p1/items/observation_room_256_horiz.vmf"
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "bee2/p1/obs_room_large.3ds"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -442,7 +487,24 @@
 			{
 			"Styles"
 				{
-				"BEE2_PORTAL_1"	"obs_room"
+				"BEE2_PORTAL_1"
+					{
+					"Base"   "BEE2_CLEAN"
+					"Config" "obs_room_small.cfg"
+					"Instances"
+						{
+						"0" "instances/BEE2/p1/items/observation_room_128.vmf"
+						}
+					"Authors" "Carl Kenner"
+					"ent_count"  "6"
+					"Palette"
+						{
+						"0"
+							{
+							"Model"    "bee2/p1/obs_room_small.mdl"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -500,14 +562,6 @@
 						"bee2_cold" "instances/BEE2/p1/items/light_strip/cold.vmf"
 						}
 					"Authors" "Carl Kenner, BenVlodgi, Rantis, Lautaro, TeamSpen210"
-					"Description"
-						{
-						"" "A glass-covered light that emits various colors of lighting. It may also be used to block portal placement or antline wiring."
-						"" ""
-						"" "* The non-cool lights can be used to contrast or highlight areas."
-						"" "* Sphere-type is unused."
-						"" "* Franken-type is an Antline Router the size of a light strip. This is removed from the map but may conflict with other items in the editor."
-						}
 					"Palette"
 						{
 						"0"

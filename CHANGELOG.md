@@ -4,6 +4,45 @@
 
 ------------------------------------------
 
+# Version 4.43.0
+
+### Enhancements:
+* #647: Re-add all styled versions of Separated Coop Checkpoint.
+* Removed subtle fade when swapping Funnel polarity. It didn't match with any of the actual effects.
+* Improve areaportals in Clean upward SP exit.
+* Altered exit doors and checkpoints to use `NeedsAbsFizz` chamber attribute, instead of 
+  `PortalGunOnOff`. This way items can get the Absolute Fizzlers in the exit without the portal gun
+  changes.
+ * Added a filter to all cube-fizzling fizzlers (except Absolute Fizzlers), allowing creating 
+   fizzler-proof cubes and the like. Simply add the `nofizzle:1` response context to the object.
+
+### Bugfixes
+* Fix #1875: orientation of Clean door camera.
+* Fix Overgrown static non-block Stairs having incorrect panel positions.
+* Fix #4150: Paint Fizzlers not cleaning cubes that were prepainted with gel.
+* Fix #3671: Incorrect palette icon for Overgrown Signage item.
+* Fix P1 not restarting when you enter the elevator in preview mode.
+* Fix incorrect name and description for Absolute Fizzler package.
+* Fix duplicate description for Overgrown Gels.
+* Fix some bad optimisation in Overgrown SP entry elevator.
+* Fix Overgrown "staircase" entrance not opening worldportal in preview mode.
+* Fix #4247: Prevent portal bumping onto P1 ceiling Small Observation Room.
+* Fix internal dimensions for Clean Large Observation Room.
+* Fix #4263: 50s SP entrances having a few compile errors.
+* Fix #4264: 70s SP entrances having a few compile errors.
+* Fix 80s SP Lobby entrance not working.
+* Fix Overgrown Excursion Funnels and reversed funnels not being visible in published maps.
+* Fix positioning of P1 Coop corridors.
+* Fix #4266: Sendificator Slim not working in Clean, Overgrown, P1.
+* Fix #3960: Remake P1 Sendificator antlines to remove green tint.
+* Fix #4269: Old Aperture checkpoints not functioning.
+* Fix P1 Entrance 2 causing leaks.
+* Fix name and icon for Old Aperture Coop Spawn Room.
+* Fix fizzlers in 60s SP lobby Exits.
+* Fix #4110: Recompile signage frame props, remove duplicates.
+
+------------------------------------------
+
 # Version 4.42.0
 
 ### New Features:
