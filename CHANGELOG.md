@@ -2,6 +2,10 @@
 
 # Version `<dev>`
 
+------------------------------------------
+
+# Version 4.43.0
+
 ### Enhancements:
 * #647: Re-add all styled versions of Separated Coop Checkpoint.
 * Removed subtle fade when swapping Funnel polarity. It didn't match with any of the actual effects.
