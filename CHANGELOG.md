@@ -2,6 +2,9 @@
 
 # Version `<dev>`
 
+### Bugfixes:
+* Improve entry door logic to prevent being able to portal past the door-close trigger.
+
 ------------------------------------------
 
 # Version 4.43.0
@@ -16,7 +19,7 @@
  * Added a filter to all cube-fizzling fizzlers (except Absolute Fizzlers), allowing creating 
    fizzler-proof cubes and the like. Simply add the `nofizzle:1` response context to the object.
 
-### Bugfixes
+### Bugfixes:
 * Fix #1875: orientation of Clean door camera.
 * Fix Overgrown static non-block Stairs having incorrect panel positions.
 * Fix #4150: Paint Fizzlers not cleaning cubes that were prepainted with gel.
