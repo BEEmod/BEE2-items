@@ -5,6 +5,7 @@
 ### Bugfixes:
 * Improve entry door logic to prevent being able to portal past the door-close trigger.
 * #4288: Change origin of `static_phys.mdl` to fix leaks if angled panels are facing a wall at a corner.
+* #3878: Fix missing frames in 70s/80s Half Glass Door.
 
 ------------------------------------------
 
