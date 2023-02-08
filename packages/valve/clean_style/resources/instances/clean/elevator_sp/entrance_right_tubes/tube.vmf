@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8997"
-	"mapversion" "254"
+	"mapversion" "259"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,45 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "254"
+	"mapversion" "259"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
+}
+entity
+{
+	"id" "18438"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "entrance_door_close_rl"
+	connections
+	{
+		"OnTrigger" "gelStop0-1"
+		"OnTrigger" "gelKill2-1"
+		"OnTrigger" "blob_targKill2-1"
+		"OnTrigger" "blob_sndFadeOut2.50-1"
+		"OnTrigger" "blob_sndKill5-1"
+	}
+	"origin" "-512 0 -128"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "When door closes, cleanup."
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
@@ -61,13 +87,13 @@ entity
 	"pitch" "100"
 	"pitchstart" "100"
 	"preset" "0"
-	"radius" "192"
+	"radius" "1250"
 	"spawnflags" "0"
 	"spindown" "0"
 	"spinup" "0"
 	"targetname" "blob_snd"
 	"volstart" "0"
-	"origin" "-512 0 -128"
+	"origin" "-464 -32 -80"
 	editor
 	{
 		"color" "220 30 220"

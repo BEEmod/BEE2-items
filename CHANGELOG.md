@@ -2,6 +2,15 @@
 
 # Version `<dev>`
 
+### Bugfixes:
+* Improve entry door logic to prevent being able to portal past the door-close trigger.
+* #4288: Change origin of `static_phys.mdl` to fix leaks if angled panels are facing a wall at a corner.
+* #3878: Fix missing frames in 70s/80s Half Glass Door.
+
+------------------------------------------
+
+# Version 4.43.0
+
 ### Enhancements:
 * #647: Re-add all styled versions of Separated Coop Checkpoint.
 * Removed subtle fade when swapping Funnel polarity. It didn't match with any of the actual effects.
@@ -12,7 +21,7 @@
  * Added a filter to all cube-fizzling fizzlers (except Absolute Fizzlers), allowing creating 
    fizzler-proof cubes and the like. Simply add the `nofizzle:1` response context to the object.
 
-### Bugfixes
+### Bugfixes:
 * Fix #1875: orientation of Clean door camera.
 * Fix Overgrown static non-block Stairs having incorrect panel positions.
 * Fix #4150: Paint Fizzlers not cleaning cubes that were prepainted with gel.
