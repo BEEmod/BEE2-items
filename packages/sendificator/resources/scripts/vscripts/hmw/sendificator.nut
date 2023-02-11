@@ -317,13 +317,22 @@ function find_cube_to_send(platform_origin)
 {
     // Return the cube currently on the indicated platform.
     // Return null if platform is empty.
-    local cube = Entities.FindByClassnameNearest(
-            "prop_weighted_cube", platform_origin, 32);
-    if (cube == null) {
-        cube = Entities.FindByClassnameNearest(
-                "prop_monster_box", platform_origin, 32);
+    local best = null;
+    local best_len = 9999999999;
+    local ent = null;
+    while(ent = Entities.FindInSphere(ent, platform_origin, 32.0)) {
+        local cls = ent.GetClassname();
+        if (cls == "prop_weighted_cube" || cls == "prop_monster_box" || cls == "npc_portal_turret_floor" ||
+            // Special case: look for Superposition ghosts, which are regular prop_physics.
+            (cls == "prop_physics" && ent.GetScriptScope() != null && "is_superpos_ghost" in ent.GetScriptScope())) {
+            local length = (ent.GetOrigin() - platform_origin).LengthSqr();
+            if (length < (32*32) && length < best_len) {
+                best = ent;
+                best_len = length;
+            }
+        }
     }
-    return cube;
+    return best;
 }
 
 
@@ -660,6 +669,13 @@ function dest_confirm(cargo, location)
         else if (is_round_cube(cargo)) {
             platform_fx = platform_fx_sphere;
             destination_fx = destination_fx_sphere;
+        } else if (cargo.GetClassname() == "npc_portal_turret_floor") {
+            // Easter egg, burn em.
+            EntFireByHandle(cargo, "Ignite", "", freeze_time, self, self);
+            EntFireByHandle(cargo, "SelfDestructImmediately", "", freeze_time + 0.5, self, self);
+            location.z -= 32.0;
+            platform_fx = platform_fx_sphere;
+            destination_fx = null;
         }
 
         EntFireByHandle(cargo, "DisableMotion", "", 0, self, self);
@@ -678,7 +694,9 @@ function dest_confirm(cargo, location)
 
         cargo.SetOrigin(location);
         EntFireByHandle(cargo, "EnableMotion", "", freeze_time, self, self);
-        destination_fx.SpawnEntityAtLocation(location, cargo.GetAngles());
+        if (destination_fx != null) {
+            destination_fx.SpawnEntityAtLocation(location, cargo.GetAngles());
+        }
 
         // add ripple effects
         laser_ripple_dir <- null;
