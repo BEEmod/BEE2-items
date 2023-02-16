@@ -1,7 +1,7 @@
-// The rocket turret beam will sometimes stop rendering, it tends to happen when the end target moves outside the map.
-// This script uses a traceline so that doesn't happen.
+// Ensure the rocket turret beam target stays inside the map, otherwise it can turn invisible
 
-max_dist <- 3200; // maximum size of a puzzlemaker map
+max_dist <- 5000; // bigger than the maximum size of a puzzlemaker map
+extra_dist <- 32 // Extend beam by this many units, avoids end of beam jittering near walls
 
 inst_fixup <- self.GetName().slice(0, self.GetName().find("-"));
 beam_start <- Entities.FindByName(null, inst_fixup+"-beam_start");
@@ -12,6 +12,6 @@ active <- false
 function beam_think() {
 	if (active) {
 		local dist = TraceLine(beam_start.GetOrigin(), beam_start.GetOrigin() + (beam_start.GetForwardVector() * max_dist), self) * max_dist;
-		beam_end.SetOrigin(Vector(dist, 0, 0));
+		beam_end.SetOrigin(Vector(dist + extra_dist, 0, 0));
 	}
 }
