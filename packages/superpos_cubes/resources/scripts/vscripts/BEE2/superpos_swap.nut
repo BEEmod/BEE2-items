@@ -13,14 +13,13 @@ cube_ghost <- null;
 
 function SpawnedGhost() {
 	cube_ghost <- activator;
-	printl("Ghost cube: " + cube_ghost);
+	// printl("Ghost cube: " + cube_ghost);
 }
 
 function SpawnedReal() {
 	cube_real <- activator;
-	printl("Real cube: " + cube_real);
+	// printl("Real cube: " + cube_real);
 }
-
 
 function FizzledGhost() {
 	cube_ghost <- null;
@@ -54,7 +53,7 @@ function DoSwap() {
 	local ghost_pos = cube_ghost.GetOrigin();
 	local ghost_ang = cube_ghost.GetAngles();
 
-	printl("Swapping " + real_pos + " @ " + real_ang + " <-> " + ghost_pos + " @ " + ghost_ang);
+	// printl("Swapping " + real_pos + " @ " + real_ang + " <-> " + ghost_pos + " @ " + ghost_ang);
 
 	tele_real.SetOrigin(real_pos);
 	tele_ghost.SetOrigin(ghost_pos);

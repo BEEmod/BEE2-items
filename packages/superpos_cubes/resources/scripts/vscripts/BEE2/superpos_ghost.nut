@@ -5,6 +5,7 @@ spawned <- false;
 dying <- false;
 next_coll <- 0.0;
 // ghost_color, ghost_alpha: From compiler.
+is_superpos_ghost <- true;  // So other VScripts can recognise.
 
 function Think() {
 	if (next_coll < Time() ) {
@@ -21,7 +22,7 @@ function Think() {
 	}
 	self.__KeyValueFromString("rendercolor", ghost_color);
 	self.__KeyValueFromInt("renderamt", ghost_alpha);
-	return 0.01;
+	return 0.001;
 }
 
 function disable_collision(classname) {
