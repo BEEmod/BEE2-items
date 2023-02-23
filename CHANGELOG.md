@@ -8,6 +8,7 @@
 * #3878: Fix missing frames in 70s/80s Half Glass Door.
 * Use a model for the sides/back of P1 Piston Platforms, to fix collision (especially with portals) and allow them to be lit dynamically.
 * Disallow Scaffold Slot items from being used as a midpoint.
+* Set a minimum light value on flip panels, to partially mitigate #4022.
 
 ------------------------------------------
 
