@@ -7,6 +7,7 @@
 * #4288: Change origin of `static_phys.mdl` to fix leaks if angled panels are facing a wall at a corner.
 * #3878: Fix missing frames in 70s/80s Half Glass Door.
 * Use a model for the sides/back of P1 Piston Platforms, to fix collision (especially with portals) and allow them to be lit dynamically.
+* Disallow Scaffold Slot items from being used as a midpoint.
 
 ------------------------------------------
 
