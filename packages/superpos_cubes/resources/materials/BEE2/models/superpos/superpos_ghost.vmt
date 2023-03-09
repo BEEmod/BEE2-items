@@ -1,0 +1,34 @@
+UnLitGeneric
+	{
+	// Give a little bit of texture to the section, so it doesn't
+	// look like pure color.
+	$basetexture "effects/laserplane_atmosphere"
+	$basetexturetransform "center .5 .5 scale 1 1 rotate 0 translate 0 0"
+
+	$model 1
+	// $NoCull 1
+	$nodecal 1
+	$translucent 1
+	$alpha 0.4
+
+	// Randomise offsets
+	$offset "[0 0]"
+	Proxies
+		{
+		EntityRandom
+			{
+			scale 1.0
+			resultVar "$offset[0]"
+			}
+		EntityRandom
+			{
+			scale 512.0
+			resultVar "$offset[1]"
+			}
+		TextureTransform
+			{
+			translateVar $offset
+			resultVar $basetexturetransform
+			}
+		}
+	}
