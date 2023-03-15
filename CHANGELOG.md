@@ -12,6 +12,7 @@
 * Use a model for the sides/back of P1 Piston Platforms, to fix collision (especially with portals) and allow them to be lit dynamically.
 * Disallow Scaffold Slot items from being used as a midpoint.
 * Set a minimum light value on flip panels, to partially mitigate #4022.
+* Antline toggle, checkmark and timer items are now defined as proper items instead of directly in the style. This ensures they can be inherited as normal.
 
 ------------------------------------------
 
