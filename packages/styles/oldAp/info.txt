@@ -1824,6 +1824,142 @@
 	{
 	"Item"
 		{
+		"ID" "ITEM_INDICATOR_PANEL"  // Antline checkmark
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/50s/indicator_check.vmf"
+							"EntityCount"		"5"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						}
+					// This is just an overlay, so it can be switched by the
+					// texturetoggle. No inputs required.
+					"IOConf"
+						{
+						"Force" "input"
+						}
+					"Config"
+						{
+						"Options"
+							{
+							"ind_pan_check_switching" "external"
+							}
+						}
+					}
+				// 80s uses a modern checkmark, which needs inputs.
+				"BEE2_1980s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/80s/indicator_panel.vmf"
+							"EntityCount"		"5"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						}
+					"IOConf"
+						{
+						"Enable_Cmd"    "pan,Check,,0.00,-1"
+						"Disable_Cmd"   "pan,Uncheck,,0.00,-1"
+						}
+					"Config"
+						{
+						"Options"
+							{
+							"ind_pan_check_switching" "internal"
+							}
+						}
+					}
+				}
+			}
+		}
+
+	"Item"
+		{
+		"ID" "ITEM_INDICATOR_PANEL_TIMER"  // Antline tick/tock timer.
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/50s/indicator_timer.vmf" 
+							"EntityCount"		"5"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						}
+					// Mechanical rotating dial.
+					"IOConf"
+						{
+						"Enable_Cmd"    "dial,FireUser2,,0.00,-1"
+						"Disable_Cmd"   "dial,FireUser1,,0.00,-1"
+						}
+					"Config"
+						{
+						"Options"
+							{
+							// The timer is complex, it doesn't have any optimisations to do.
+    						"ind_pan_timer_switching" "custom"
+							}
+						}
+					}
+				// 80s uses a modern timer dial, which contains a texturetoggle to use.
+				// But we can't use it, since it doesn't turn on when prematurely stopped.
+				"BEE2_1980s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"           "instances/BEE2/80s/indicator_panel.vmf"
+							"EntityCount"    "5"
+							"BrushCount"     "2"
+							"BrushSideCount" "12"
+							}
+						}
+					"IOConf"
+						{
+						"Enable_Cmd"    "pan,Start,,0.00,-1"
+						"Disable_Cmd"   "pan,Reset,,0.00,-1"
+						}
+					"Config"
+						{
+						"Options"
+							{
+    						"ind_pan_timer_switching" "custom"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+"Overrides"
+	{
+	"Item"
+		{
 		"ID" "ITEM_BUTTON_FLOOR"
 		"Version"
 			{
