@@ -759,8 +759,89 @@
 			}
 		}
 	}
-	
-	
+
+"Overrides"
+	{
+	"Item"
+		{
+		"ID" "ITEM_INDICATOR_PANEL"  // Antline checkmark
+		"Version"
+			{
+			"Styles"
+				{
+				// 80s uses a modern checkmark, which needs inputs.
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/over/indicator_check.vmf"
+							"EntityCount"		"5"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						}
+					"IOConf"
+						{
+						"Enable_Cmd"    "tog,SetTextureIndex,1,0.00,-1"
+						"Disable_Cmd"   "tog,SetTextureIndex,0,0.00,-1"
+						}
+					"Config"
+						{
+						"Options"
+							{
+							// Because of the flickering, this needs a specific name,
+							// so it can't share the texturetoggle. :(
+							"ind_pan_check_switching" "custom"
+							}
+						}
+					}
+				}
+			}
+		}
+
+	"Item"
+		{
+		"ID" "ITEM_INDICATOR_PANEL_TIMER"  // Antline tick/tock timer.
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/over/indicator_timer.vmf"
+							"EntityCount"		"5"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						}
+					"IOConf"
+						{
+						"Enable_Cmd"    "pan,Start,,0.00,-1"
+						"Disable_Cmd"   "pan,Reset,,0.00,-1"
+						}
+					"Config"
+						{
+						// We can't use the inbuilt texturetoggle, since it doesn't turn
+						// off when prematurely stopped.
+						"Options"
+							{
+    						"ind_pan_timer_switching" "custom"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 "Overrides"
 	{
 	"Item"
