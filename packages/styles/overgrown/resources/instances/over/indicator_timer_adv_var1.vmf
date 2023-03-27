@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8997"
-	"mapversion" "142"
+	"mapversion" "125"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,51 +14,105 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "142"
+	"mapversion" "125"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
-	group
+}
+entity
+{
+	"id" "1186"
+	"classname" "prop_dynamic"
+	"angles" "0 270 0"
+	"animateeveryframe" "0"
+	"body" "10"
+	"disablebonefollowers" "0"
+	"disableflashlight" "0"
+	"disablereceiveshadows" "0"
+	"disableshadows" "0"
+	"drawinfastreflection" "0"
+	"explodedamage" "0"
+	"explodemagnitude" "0"
+	"exploderadius" "0"
+	"health" "0"
+	"holdanimation" "0"
+	"maxanimtime" "10"
+	"minanimtime" "5"
+	"minhealthdmg" "0"
+	"model" "models/bee2/props_clean/indicator_panel.mdl"
+	"performancemode" "0"
+	"physdamagescale" "1.0"
+	"pressuredelay" "0"
+	"randomanimation" "0"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"renderfx" "0"
+	"rendermode" "0"
+	"skin" "0"
+	"solid" "6"
+	"spawnflags" "0"
+	"startdisabled" "0"
+	"suppressanimsounds" "0"
+	"targetname" "pan"
+	"updatechildren" "0"
+	"vscripts" "bee2/clean_timer.nut"
+	"origin" "0 0 -54"
+	editor
 	{
-		"id" "1651"
-		editor
-		{
-			"color" "137 158 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
 	}
 }
 entity
 {
-	"id" "1695"
+	"id" "1191"
+	"classname" "material_modify_control"
+	"angles" "0 0 0"
+	"materialname" "BEE2/models/props_clean/indicator/slices_fade.vmt"
+	"materialvar" "$progress"
+	"parentname" "pan"
+	"targetname" "mat_mod"
+	"origin" "0 0 -56"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 2500]"
+	}
+}
+entity
+{
+	"id" "1180"
 	"classname" "func_detail"
 	solid
 	{
-		"id" "1696"
+		"id" "1181"
 		side
 		{
-			"id" "308"
+			"id" "1"
 			"plane" "(-16 -16 -62) (-16 16 -62) (16 16 -62)"
-			"material" "METAL/BLACK_WALL_METAL_005B"
-			"uaxis" "[0 -1 0 64] 0.25"
-			"vaxis" "[-1 0 0 64] 0.25"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 -1 0 0] 0.25"
+			"vaxis" "[-1 0 0 0] 0.25"
 			"rotation" "270"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "307"
+			"id" "2"
 			"plane" "(-16 16 -64) (-16 -16 -64) (16 -16 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -69,7 +123,7 @@ entity
 		}
 		side
 		{
-			"id" "306"
+			"id" "3"
 			"plane" "(-16 -16 -64) (-16 16 -64) (-16 16 -62)"
 			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS_RUSTY_01"
 			"uaxis" "[0 0 1 257] 0.25"
@@ -80,7 +134,7 @@ entity
 		}
 		side
 		{
-			"id" "305"
+			"id" "4"
 			"plane" "(16 16 -64) (16 -16 -64) (16 -16 -62)"
 			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS_RUSTY_01"
 			"uaxis" "[0 0 1 257] 0.25"
@@ -91,7 +145,7 @@ entity
 		}
 		side
 		{
-			"id" "304"
+			"id" "5"
 			"plane" "(-16 16 -64) (16 16 -64) (16 16 -62)"
 			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS_RUSTY_01"
 			"uaxis" "[0 0 1 257] 0.25"
@@ -102,7 +156,7 @@ entity
 		}
 		side
 		{
-			"id" "303"
+			"id" "6"
 			"plane" "(16 -16 -64) (-16 -16 -64) (-16 -16 -62)"
 			"material" "ANIM_WP/FRAMEWORK/SQUAREBEAMS_RUSTY_01"
 			"uaxis" "[0 0 1 257] 0.25"
@@ -128,77 +182,12 @@ entity
 }
 entity
 {
-	"id" "1704"
-	"classname" "info_overlay"
-	"angles" "0 270 0"
-	"BasisNormal" "0 0 1"
-	"BasisOrigin" "0 0 -54"
-	"BasisU" "-4.37114e-008 -1 0"
-	"BasisV" "1 -4.37114e-008 0"
-	"EndU" "1"
-	"EndV" "0"
-	"fademindist" "-1"
-	"material" "signage/signage_doorstate"
-	"sides" "308"
-	"StartU" "0"
-	"StartV" "1"
-	"targetname" "ind"
-	"uv0" "-16 -16 0"
-	"uv1" "-16 16 0"
-	"uv2" "16 16 0"
-	"uv3" "16 -16 0"
-	"origin" "0 0 -54"
-	editor
-	{
-		"color" "80 150 225"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "1652"
-	"classname" "env_texturetoggle"
-	"angles" "0 0 0"
-	"target" "ind"
-	"targetname" "tog"
-	"origin" "5.48363e-006 -8 -48"
-	editor
-	{
-		"color" "137 158 0"
-		"groupid" "1651"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "1149"
 	"classname" "func_instance_parms"
 	"parm1" "$timer_delay integer 3"
 	"parm2" "$is_timer integer 0"
-	"origin" "-8 8 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2500]"
-	}
-}
-entity
-{
-	"id" "1175"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "togFireUser10-1"
-		"OnProxyRelay" "togFireUser20-1"
-	}
-	"origin" "8 8 -48"
+	"parm3" "$progress string"
+	"origin" "0 0 -40"
 	editor
 	{
 		"color" "220 30 220"
