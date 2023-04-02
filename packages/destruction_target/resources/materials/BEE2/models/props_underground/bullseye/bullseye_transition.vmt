@@ -1,0 +1,68 @@
+VertexLitGeneric
+	{
+	$basetexture "BEE2/models/props_underground/bullseye/bullseye_transition"
+
+	$alphatest 1
+	$nocull 1
+	$bumpmap "BEE2/models/props_underground/bullseye/bullseye_transition_normal"
+
+	$basetexturetransform "center .5 .5 scale 1 .5 rotate 0 translate 0 0.25"
+
+	$time 4.0
+	$starttime 3.0
+	$duration 1.5
+	$offset 0.0
+	$scale "[1 .5]"
+	$position "[0 0]"
+
+	// Transition from 0.25 -> 0.75
+	$start 0.25
+	$end 0.75
+	$start_off 0.5
+	$speed 2.0
+	Proxies
+		{
+		MaterialModify {}
+		CurrentTime
+			{
+			resultVar $time
+			}
+		Subtract
+			{
+			srcVar1 $time
+			srcVar2 $starttime
+			resultVar $time
+			}
+		Subtract
+			{
+			srcVar1 $time
+			srcVar2 $start_off
+			resultVar $time
+			}
+		Divide
+			{
+			srcVar1 $time
+			srcVar2 $duration
+			resultVar $offset
+			}
+		Divide
+			{
+			srcVar1 $offset
+			srcVar2 $speed
+			resultVar $offset
+			}
+		Clamp
+			{
+			min $start
+			max $end
+			srcVar1 $offset
+			resultVar "$position[1]"
+			}
+		TextureTransform
+			{
+			translateVar $position
+			scaleVar $scale
+			resultVar $basetexturetransform
+			}
+		}
+	}
