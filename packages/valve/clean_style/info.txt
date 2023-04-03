@@ -308,13 +308,14 @@
 			"$atlas_pos" "-352 96 352"
 			"$atlas_ang" "0 0 0"
 			"$tag_fizz" "instances/bee2/clean/elevator_coop/entry_fizz_tag.vmf"
+			"$frame"  "remove"
 			}
 		}
 
 	"coop_entry_down"
 		{
-		"name" "Dropper Chamber Spawn"
-		"authors" "Valve"
+		"name" "Ceiling Dropper Spawn"
+		"authors" "TeamSpen210"
 		"Description" "Coop robots drop into the chamber through cube dropper vents. Note that the entry sign is not present, since you immediately leave the room."
 		"image" "corr/clean/coop_entry/down_cham_1.jpg"
 		"image" "corr/clean/coop_entry/down_cham_2.jpg"
@@ -327,6 +328,26 @@
 			"$atlas_pos" "-32 0 464"
 			"$atlas_ang" "0 90 0"
 			"$tag_fizz"  "instances/bee2/clean/elevator_coop/entry_fizz_tag_down.vmf"
+			"$frame"  "remove"
+			}
+		}
+
+	"coop_entry_up"
+		{
+		"name" "Dropper Chamber Spawn"
+		"authors" "TeamSpen210"
+		"Description" "Coop robots are blown into the chamber through upside-down cube dropper vents. Note that the entry sign is not present, since you immediately leave the room."
+		"image" "corr/clean/coop_entry/up_dropper.jpg"
+
+		"instance" "instances/BEE2/clean/elevator_coop/spawn_room_up_dropper.vmf"
+		"DefaultIndex" "1"
+		"Config" "coop_spawn/corr_up_dropper.cfg"
+		"Fixups"
+			{
+			"$atlas_pos" "0 0 -380"
+			"$atlas_ang" "0 90 0"
+			// No tag fizzler, just spawn with an inactive gun. You can't re-enter the droppers.
+			"$tag_fizz" "" 
 			}
 		}
 

@@ -4,6 +4,7 @@
 
 ### Enhancements:
 * Added tint mask for ARES 228's Old Aperture ball, when being coloured.
+* Added a new Clean coop corridor, which shoots the bots up out of the floor.
 
 ### Bugfixes:
 * Improve entry door logic to prevent being able to portal past the door-close trigger.
