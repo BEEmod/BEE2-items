@@ -15,6 +15,7 @@
 * Set a minimum light value on flip panels, to partially mitigate #4022.
 * Antline toggle, checkmark and timer items are now defined as proper items instead of directly in the style. This ensures they can be inherited as normal.
 * #4312: Fix blank Glass/Grating item descriptions.
+* Fix compile failure if 80s lobby entry is used with crushers.
 
 ------------------------------------------
 
