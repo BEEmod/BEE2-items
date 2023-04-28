@@ -5,6 +5,7 @@
 ### Enhancements:
 * Added tint mask for ARES 228's Old Aperture ball, when being coloured.
 * Added a new Clean coop corridor, which shoots the bots up out of the floor.
+* #4315 & #1100: Track Platforms can now have their speed customised.
 
 ### Bugfixes:
 * Improve entry door logic to prevent being able to portal past the door-close trigger.
