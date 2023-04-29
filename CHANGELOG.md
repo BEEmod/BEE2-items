@@ -19,6 +19,7 @@
 * Fix compile failure if 80s lobby entry is used with crushers.
 * Remove duplicate sign in Clean SP downward exit, if the regular sign is present.
 * Add clips to panels in Clean SP upward exit.
+* When spawning in Clean corridors, make the test chamber sign start illuminated.
 
 ------------------------------------------
 

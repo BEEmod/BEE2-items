@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8997"
-	"mapversion" "225"
+	"editorbuild" "9672"
+	"mapversion" "226"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "2"
-	"mapversion" "225"
+	"mapversion" "226"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -4970,6 +4970,27 @@ world
 }
 entity
 {
+	"id" "16023"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "@spawn_corridor_rl"
+	connections
+	{
+		"OnTrigger" "info_signinstance:info_panel;SetActive0-1"
+	}
+	"origin" "-184 0 -48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "15905"
 	"classname" "func_detail"
 	solid
@@ -7292,6 +7313,7 @@ entity
 	"_lighthdr" "-1 -1 -1 1"
 	"_lightscalehdr" "1"
 	"_quadratic_attn" "1"
+	"_shadoworiginoffset" "0 0 0"
 	"angles" "0 0 0"
 	"origin" "-360 112 64"
 	editor

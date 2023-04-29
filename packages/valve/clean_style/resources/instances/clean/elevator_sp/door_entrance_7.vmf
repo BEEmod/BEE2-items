@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8997"
-	"mapversion" "276"
+	"editorbuild" "9672"
+	"mapversion" "278"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "276"
+	"mapversion" "278"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -4835,6 +4835,27 @@ world
 }
 entity
 {
+	"id" "16501"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "@spawn_corridor_rl"
+	connections
+	{
+		"OnTrigger" "info_signinstance:info_panel;SetActive0-1"
+	}
+	"origin" "-192 0 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "16287"
 	"classname" "func_detail"
 	solid
@@ -6343,6 +6364,7 @@ entity
 	"_lightHDR" "-1 -1 -1 1"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
+	"_shadoworiginoffset" "0 0 0"
 	"angles" "0 0 0"
 	"origin" "-272 6.73858e-006 128"
 	editor
@@ -6362,6 +6384,7 @@ entity
 	"_lightHDR" "-1 -1 -1 1"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
+	"_shadoworiginoffset" "0 0 0"
 	"angles" "0 0 0"
 	"origin" "-368 -112 64"
 	editor
@@ -6511,6 +6534,10 @@ entity
 	"model" "models/editor/angle_helper.mdl"
 	"target" "!player"
 	"targetname" "@player_start_teleport"
+	connections
+	{
+		"OnUser1" "info_signinstance:info_panel;SetActive0-1"
+	}
 	"origin" "-160 1.65299e-005 -56"
 	editor
 	{
@@ -8308,7 +8335,6 @@ entity
 	"id" "7407"
 	"classname" "trigger_once"
 	"origin" "-415.98 72 0"
-	"solid" "6"
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	connections
