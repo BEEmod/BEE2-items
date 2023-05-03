@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8874"
-	"mapversion" "334"
+	"editorbuild" "9672"
+	"mapversion" "337"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,19 +20,49 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "334"
+	"mapversion" "337"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
+}
+entity
+{
+	"id" "20557"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "input"
+	connections
+	{
+		"OnTurnedOn" "wake_trigDisable0.01-1"
+		"OnTurnedOn" "triggerEnable0.01-1"
+		"OnTurnedOn" "clipOpen0-1"
+		"OnTurnedOn" "rotClose0-1"
+		"OnTurnedOn" "wake_trigEnable0-1"
+		"OnTurnedOff" "triggerDisable0.01-1"
+		"OnTurnedOff" "clipClose0-1"
+		"OnTurnedOff" "rotOpen0-1"
+		"OnTurnedOff" "wake_trigDisable0-1"
+	}
+	"origin" "16 16 -42"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupid" "3"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
 }
 entity
 {
@@ -60,7 +90,7 @@ entity
 	"id" "18142"
 	"classname" "trigger_push"
 	"alternateticksfix" "0"
-	"origin" "0 0 -60"
+	"origin" "0 0 -58"
 	"pushdir" "-90 0 0"
 	"solid" "6"
 	"spawnflags" "4104"
@@ -77,7 +107,7 @@ entity
 		side
 		{
 			"id" "5321"
-			"plane" "(-24 -8 -56) (-24 8 -56) (24 8 -56)"
+			"plane" "(-24 -8 -52) (-24 8 -52) (24 8 -52)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-1 0 0 32] 0.25"
 			"vaxis" "[0 1 0 -24] 0.25"
@@ -99,10 +129,10 @@ entity
 		side
 		{
 			"id" "5323"
-			"plane" "(24 8 -64) (24 -8 -64) (24 -8 -56)"
+			"plane" "(24 8 -64) (24 -8 -64) (24 -8 -52)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 -1 0 24] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"vaxis" "[0 0 -1 16] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -110,10 +140,10 @@ entity
 		side
 		{
 			"id" "5324"
-			"plane" "(-24 -8 -64) (-24 8 -64) (-24 8 -56)"
+			"plane" "(-24 -8 -64) (-24 8 -64) (-24 8 -52)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 -1 0 24] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"vaxis" "[0 0 -1 16] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -121,10 +151,10 @@ entity
 		side
 		{
 			"id" "5325"
-			"plane" "(24 -8 -64) (-24 -8 -64) (-24 -8 -56)"
+			"plane" "(24 -8 -64) (-24 -8 -64) (-24 -8 -52)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-1 0 0 32] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"vaxis" "[0 0 -1 16] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -132,10 +162,10 @@ entity
 		side
 		{
 			"id" "5326"
-			"plane" "(-24 8 -64) (24 8 -64) (24 8 -56)"
+			"plane" "(-24 8 -64) (24 8 -64) (24 8 -52)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-1 0 0 32] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
+			"vaxis" "[0 0 -1 16] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1056,18 +1086,6 @@ entity
 	"parentname" "dr"
 	"start_active" "0"
 	"targetname" "mist"
-	connections
-	{
-		"OnUser2" "triggerEnable0.01-1"
-		"OnUser2" "wake_trigDisable0.01-1"
-		"OnUser2" "wake_trigEnable0-1"
-		"OnUser2" "rotClose0-1"
-		"OnUser2" "clipOpen0-1"
-		"OnUser1" "triggerDisable0.01-1"
-		"OnUser1" "wake_trigDisable0-1"
-		"OnUser1" "rotOpen0-1"
-		"OnUser1" "clipClose0-1"
-	}
 	"origin" "0 0 -62"
 	editor
 	{
@@ -1091,7 +1109,7 @@ entity
 	"SourceEntityName" "mist"
 	"spawnflags" "48"
 	"targetname" "catapult_sound"
-	"origin" "-32 16 -48"
+	"origin" "-16 16 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -1115,7 +1133,7 @@ entity
 		"OnCatapulted" "mistStop1-1"
 		"OnCatapulted" "mistStart0-1"
 	}
-	"origin" "0 -16 -48"
+	"origin" "16 -16 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -1132,7 +1150,7 @@ entity
 	"parm1" "$catapult_speed integer"
 	"parm2" "$connectioncount string"
 	"parm3" "$start_enabled string"
-	"origin" "0 16 -48"
+	"origin" "16 0 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -1155,7 +1173,7 @@ entity
 	"SourceEntityName" "mist"
 	"spawnflags" "48"
 	"targetname" "catapult_sound"
-	"origin" "-32 -16 -48"
+	"origin" "-16 -16 -48"
 	editor
 	{
 		"color" "220 30 220"
