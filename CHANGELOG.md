@@ -6,6 +6,7 @@
 * Added tint mask for ARES 228's Old Aperture ball, when being coloured.
 * Added a new Clean coop corridor, which shoots the bots up out of the floor.
 * #4315 & #1100: Piston and Track Platforms can now have their speed customised.
+* Large and Small Faith Plate items have now been merged together. This means the "faith_variants" package has been removed entirely.
 
 ### Bugfixes:
 * Improve entry door logic to prevent being able to portal past the door-close trigger.
