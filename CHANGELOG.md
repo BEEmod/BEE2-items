@@ -2,6 +2,9 @@
 
 # Version `<dev>`
 
+### New Features:
+* Added the Destruction Target, a bullseye that turrets shoot to fire outputs.
+
 ### Enhancements:
 * Added tint mask for ARES 228's Old Aperture ball, when being coloured.
 * Added a new Clean coop corridor, which shoots the bots up out of the floor.
