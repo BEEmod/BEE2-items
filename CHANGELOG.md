@@ -10,6 +10,7 @@
 * Added a new Clean coop corridor, which shoots the bots up out of the floor.
 * #4315 & #1100: Piston and Track Platforms can now have their speed customised.
 * Large and Small Faith Plate items have now been merged together. This means the "faith_variants" package has been removed entirely.
+* Add compiler error if unused cube types on piston/track platforms.
 
 ### Bugfixes:
 * Improve entry door logic to prevent being able to portal past the door-close trigger.
