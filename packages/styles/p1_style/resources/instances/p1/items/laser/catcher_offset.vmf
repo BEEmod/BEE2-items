@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "74"
+	"editorbuild" "9672"
+	"mapversion" "77"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "4"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "74"
+	"mapversion" "77"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -480,27 +480,40 @@ world
 }
 entity
 {
-	"id" "583"
-	"classname" "light"
-	"_constant_attn" "0"
-	"_distance" "0"
-	"_fifty_percent_distance" "56"
-	"_hardfalloff" "0"
-	"_light" "179 243 255 15"
-	"_lightHDR" "-1 -1 -1 1"
-	"_lightscaleHDR" "1"
-	"_linear_attn" "0"
-	"_quadratic_attn" "1"
-	"_zero_percent_distance" "96"
-	"spawnflags" "0"
-	"style" "0"
-	"origin" "-32 0 -48"
+	"id" "678"
+	"classname" "func_instance_parms"
+	"parm1" "$yaw float 0.0"
+	"parm2" "$offset_mdl boolean 0"
+	"origin" "-12 20 -52"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 1500]"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "680"
+	"classname" "comp_kv_setter"
+	"angles" "0 0 0"
+	"conv_ang" "0"
+	"ctrl_type" "0"
+	"ctrl_value" "$offset_mdl"
+	"invert" "0"
+	"kv_name" "model"
+	"kv_value_global" "models/bee2/props_p1/laser_catcher_offset.mdl"
+	"mode" "kv"
+	"rotate" "0"
+	"target" "catcher"
+	"origin" "-52 -20 -52"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -672,36 +685,18 @@ entity
 }
 entity
 {
-	"id" "350"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "-32 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
 	"id" "387"
 	"classname" "prop_laser_catcher"
-	"angles" "-90 180 0"
-	"model" "models/props/laser_catcher_center.mdl"
+	"angles" "-90 $yaw 0"
+	"model" "models/bee2/props_p1/laser_catcher.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"SkinType" "0"
+	"solid" "6"
 	"src_fix_skins" "1"
-	"targetname" "laser_catcher"
-	connections
-	{
-		"OnPowered" "proxyProxyRelay0-1"
-		"OnUnpowered" "proxyProxyRelay0-1"
-	}
-	"origin" "-31.9 0 -80"
+	"targetname" "catcher"
+	"origin" "-32 0 -80"
 	editor
 	{
 		"color" "220 30 220"
