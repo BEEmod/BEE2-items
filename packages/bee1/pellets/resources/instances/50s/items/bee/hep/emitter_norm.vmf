@@ -2,12 +2,18 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "150"
+	"mapversion" "162"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
+	visgroup
+	{
+		"name" "old_trigger"
+		"visgroupid" "15"
+		"color" "110 151 100"
+	}
 }
 viewsettings
 {
@@ -20,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "150"
+	"mapversion" "162"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -80,11 +86,11 @@ entity
 	"lfomodvol" "0"
 	"lforate" "0"
 	"lfotype" "0"
-	"message" "world.nightvision.powerup"
+	"message" "ui/nv_powerup.wav"
 	"pitch" "100"
 	"pitchstart" "100"
 	"preset" "0"
-	"radius" "1250"
+	"radius" "2000"
 	"SourceEntityName" "fx"
 	"spawnflags" "48"
 	"spindown" "0"
@@ -113,11 +119,11 @@ entity
 	"lfomodvol" "0"
 	"lforate" "0"
 	"lfotype" "0"
-	"message" "portalExperiment.portalGun_powerdown"
+	"message" "weapons/portalgun_powerdown.wav"
 	"pitch" "100"
 	"pitchstart" "100"
 	"preset" "0"
-	"radius" "1250"
+	"radius" "2000"
 	"SourceEntityName" "fx"
 	"spawnflags" "48"
 	"spindown" "0"
@@ -169,11 +175,9 @@ entity
 	"targetname" "branch_respawn"
 	connections
 	{
-		"OnFalse" "launcherinstance:BallLauncher;Kill01"
+		"OnFalse" "launcherKill01"
 		"OnFalse" "counterKill01"
 		"OnFalse" "branch_toggleSetValueTest001"
-		"OnTrue" "launcherinstance:BallLauncher;Enable0-1"
-		"OnTrue" "launcherinstance:BallLauncher;LaunchBall1-1"
 	}
 	"origin" "16 48 -48"
 	editor
@@ -1540,7 +1544,7 @@ entity
 	"MinLifeAfterPortal" "$refresh_time"
 	"minspeed" "$speed"
 	"spawnflags" "4096"
-	"targetname" "launcher_real"
+	"targetname" "launcher"
 	connections
 	{
 		"OnBallCaught" "branch_respawnTest0-1"
@@ -1554,103 +1558,111 @@ entity
 		"logicalpos" "[0 2000]"
 	}
 }
-entity
+hidden
 {
-	"id" "3296"
-	"classname" "trigger_multiple"
-	"filtername" "pellet_filter"
-	"origin" "0 0 -28"
-	"solid" "6"
-	"spawnflags" "4104"
-	"StartDisabled" "1"
-	"targetname" "inside_trig"
-	"wait" "0.01"
-	connections
+	entity
 	{
-		"OnStartTouch" "!activatorKill0-1"
-	}
-	solid
-	{
-		"id" "3297"
-		side
+		"id" "3296"
+		"classname" "trigger_multiple"
+		"filtername" "pellet_filter"
+		"origin" "0 0 -28"
+		"solid" "6"
+		"spawnflags" "4104"
+		"StartDisabled" "1"
+		"targetname" "inside_trig"
+		"wait" "0.01"
+		connections
 		{
-			"id" "366"
-			"plane" "(-8 8 4) (-8 8 -60) (8 8 -60)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -34] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
+			"OnStartTouch" "!activatorKill0-1"
 		}
-		side
+		hidden
 		{
-			"id" "365"
-			"plane" "(8 -8 4) (8 -8 -60) (-8 -8 -60)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 -34] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "364"
-			"plane" "(8 8 4) (8 8 -60) (8 -8 -60)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 -1 -34] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "363"
-			"plane" "(-8 -8 4) (-8 -8 -60) (-8 8 -60)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 0 1 34] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "362"
-			"plane" "(8 -8 4) (-8 -8 4) (-8 8 4)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "361"
-			"plane" "(8 8 -60) (-8 8 -60) (-8 -8 -60)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
+			solid
+			{
+				"id" "3297"
+				side
+				{
+					"id" "366"
+					"plane" "(-8 8 4) (-8 8 -60) (8 8 -60)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -34] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"id" "365"
+					"plane" "(8 -8 4) (8 -8 -60) (-8 -8 -60)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -34] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"id" "364"
+					"plane" "(8 8 4) (8 8 -60) (8 -8 -60)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 0 -1 -34] 0.25"
+					"vaxis" "[0 -1 0 0] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"id" "363"
+					"plane" "(-8 -8 4) (-8 -8 -60) (-8 8 -60)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 0 1 34] 0.25"
+					"vaxis" "[0 -1 0 0] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"id" "362"
+					"plane" "(8 -8 4) (-8 -8 4) (-8 8 4)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 0] 0.25"
+					"vaxis" "[0 -1 0 0] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"id" "361"
+					"plane" "(8 8 -60) (-8 8 -60) (-8 -8 -60)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 0] 0.25"
+					"vaxis" "[0 -1 0 0] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				editor
+				{
+					"color" "220 30 220"
+					"visgroupshown" "1"
+					"visgroupautoshown" "1"
+				}
+			}
 		}
 		editor
 		{
 			"color" "220 30 220"
-			"visgroupshown" "1"
+			"visgroupid" "15"
+			"visgroupshown" "0"
 			"visgroupautoshown" "1"
+			"comments" "shouldn't be necessary anymore - seems to be left over from when there was a fake pellet in here"
+			"logicalpos" "[0 2500]"
 		}
-	}
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 2500]"
 	}
 }
 entity
@@ -1692,15 +1704,14 @@ entity
 		"OnTrue" "beamTurnOn0-1"
 		"OnTrue" "coreStartCharge0.50-1"
 		"OnTrue" "fxEnable0-1"
-		"OnTrue" "launcher_insideLaunchBall0-1"
 		"OnTrue" "inside_trigDisable0-1"
-		"OnTrue" "launcher_realEnable0-1"
+		"OnTrue" "launcherEnable0-1"
 		"OnFalse" "inside_trigDisable0.01-1"
 		"OnFalse" "inside_trigEnable0-1"
 		"OnFalse" "fxDisable0-1"
 		"OnFalse" "coreStop0.50-1"
 		"OnFalse" "beamTurnOff0-1"
-		"OnFalse" "launcher_realDisable0-1"
+		"OnFalse" "launcherDisable0-1"
 		"OnTrue" "snd_onPlaySound0-1"
 		"OnFalse" "snd_offPlaySound0-1"
 	}

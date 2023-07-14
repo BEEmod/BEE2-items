@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "157"
+	"mapversion" "163"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "157"
+	"mapversion" "163"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -97,27 +97,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[1000 -12768]"
-	}
-}
-entity
-{
-	"id" "4318"
-	"classname" "math_counter"
-	"angles" "0 0 0"
-	"max" "$connectioncount"
-	"targetname" "counter"
-	connections
-	{
-		"OnChangedFromMax" "launcherRunScriptCodeinput_off()0-1"
-		"OnHitMax" "launcherRunScriptCodeinput_on()0-1"
-	}
-	"origin" "0 48 -48"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -2067,6 +2046,7 @@ entity
 	"spawnflags" "4096"
 	"targetname" "launcher"
 	"thinkfunction" "Think"
+	"vscript_init_code" "$init_code"
 	"vscripts" "BEE2/inf_pellet.nut"
 	connections
 	{
@@ -2110,29 +2090,11 @@ entity
 }
 entity
 {
-	"id" "784"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	connections
-	{
-		"OnProxyRelay" "counterAdd10-1"
-		"OnProxyRelay" "counterSubtract10-1"
-	}
-	"origin" "-16 48 -48"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
-	}
-}
-entity
-{
 	"id" "307"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 0"
 	"parm10" "$life_after_portaltransition$life_after_portaltransition string"
+	"parm11" "$init_code string"
 	"parm2" "$start_enabled integer 1"
 	"parm3" "$lifetime integer 5"
 	"parm4" "$respawntime integer 1"
