@@ -2651,12 +2651,25 @@
 						// 		{
 						// 		"Model" "under_las_catcher_offset.3ds"
 						// 		}
-						// 	//TODO: Old Ap offset catcher models. 
 						// 	}
 						"Instances"
 							{
 							"0" "instances/BEE2/50s/items/laser/catcher_offset.vmf"
 							"bee2_targpos" "" // Unused, no light.
+							}
+						}
+					"Append" // Add VScript which resizes target bbox to match the models.
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance" "[laserCatcher], [laserRelay]"
+								"Result"
+									{
+									"addGlobal" "instances/BEE2/logic/laser/resize_catcher.vmf"
+									}
+								}
 							}
 						}
 					}
@@ -2690,6 +2703,7 @@
 						{
 						"0" "instances/BEE2/50s/items/laser/relay_center.vmf"
 						}
+					// The relay bbox gets resized by the same VScript that the catcher uses.
 					"Extra"
 						{
 						// "Palette"

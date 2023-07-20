@@ -772,6 +772,20 @@
 							"bee2_targpos" "instances/BEE2/clean/items/laser/catcher_targpos.vmf"
 							}
 						}
+					"Append" // Add VScript which resizes target bbox to match the models.
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance" "[laserCatcher], [laserRelay]"
+								"Result"
+									{
+									"addGlobal" "instances/BEE2/logic/laser/resize_catcher.vmf"
+									}
+								}
+							}
+						}
 					}
 				}
 			}
