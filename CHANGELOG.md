@@ -4,6 +4,7 @@
 
 ### New Features:
 * Added the Destruction Target, a bullseye that turrets shoot to fire outputs.
+* New custom models for Old Aperture Laser items, made by [Rosemary Webs](https://www.youtube.com/@ErinRoseWebs).
 
 ### Enhancements:
 * Added tint mask for ARES 228's Old Aperture ball, when being coloured.
