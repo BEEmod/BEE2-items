@@ -1,3 +1,5 @@
+// NOTE: This script is in both the P1 and Old Aperture packages, make sure to update both if you make any changes
+
 // Model name to min/max pair.
 // Valve's ents:
 CATCHER_CENTER <- [Vector(1, -20, -20), Vector(31, 20, 20)]
