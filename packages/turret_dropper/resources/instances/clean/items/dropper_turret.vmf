@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "509"
+	"mapversion" "515"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -56,7 +56,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "509"
+	"mapversion" "515"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2293,6 +2293,10 @@ entity
 	"targetname" "claw_slide"
 	"teleportfollowdistance" "0"
 	"torquelimit" "0"
+	connections
+	{
+		"OnBreak" "scriptCallScriptFunctionconst_broken0-1"
+	}
 	"origin" "-4 -4.02145e-006 160"
 	editor
 	{
@@ -4537,7 +4541,7 @@ entity
 	"torquelimit" "0"
 	connections
 	{
-		"OnBreak" "scriptCallScriptFunctionclaw_destroyed0-1"
+		"OnBreak" "scriptCallScriptFunctionconst_broken0-1"
 	}
 	"origin" "0 1.53864e-005 176"
 	editor
@@ -5076,7 +5080,6 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 0"
 	"parm2" "$disable_autorespawn boolean 0"
-	"parm3" "$dist float 256"
 	"origin" "-48 -16 -64"
 	editor
 	{

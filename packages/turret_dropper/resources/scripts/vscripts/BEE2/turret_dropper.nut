@@ -105,8 +105,9 @@ function retract_cable() {
 		ent_retractor.SetOrigin(claw_mdl.GetOrigin())
 		EntFireByHandle(claw_phys, "DisableMotion", "", 0.0, self, self)
 		EntFireByHandle(claw_phys, "SetParent", ent_retractor.GetName(), 0.0, self, self)
-		EntFireByHandle(ent_retractor, "SetSpeed", "100", 0.0, self, self)
 		EntFireByHandle(ent_retractor, "SetPosition", "0", 0.0, self, self)
+		// Simulate acceleration.
+		EntFireByHandle(ent_retractor, "SetSpeed", "100", 0.0, self, self)
 		EntFireByHandle(ent_retractor, "SetSpeed", "200", 0.2, self, self)
 		EntFireByHandle(ent_retractor, "SetSpeed", "300", 0.4, self, self)
 		EntFireByHandle(ent_retractor, "SetSpeed", "400", 0.6, self, self)
@@ -127,9 +128,10 @@ function release_turret() {
 	turret_spawned = turret_waiting
 	// We just spawned, no need for another.
 	conf_want_spawn = false
+	EntFireByHandle(claw_phys, "DisableMotion", "", 0.0, self, self)
 	EntFireByHandle(turret_spawned, "Enable", "", 0.50, self, self) // Make it active
-	EntFireByHandle(constraint, "Break", "", 0.00, self, self) // Actually detach.
-	EntFireByHandle(self, "FireUser2", "", 0.00, self, self)
+	EntFireByHandle(constraint, "Break", "", 0.01, self, self) // Actually detach.
+	EntFireByHandle(self, "FireUser2", "", 0.01, self, self)
 	// Reset everything
 	is_lowering = false
 	turret_waiting = null
@@ -142,13 +144,13 @@ function release_turret() {
 	}
 }
 
-// Fired if a constraint snaps or the cla fizzled. It needs to be replaced and retried.
+
+// Fired if a constraint snaps or the claw fizzled. It needs to be replaced and retried.
 // Note we only care if we're lowering. If we aren't, the turret was already released, so it'll 
 // reset once the rope completes anyway.
 function claw_destroyed() {
 	if (is_lowering) {
 		// Turret might have died while lifting - ignore if so.
-
 		// Clean up the dead turret after a second or so.
 		if (turret_waiting != null && turret_waiting.IsValid()) {
 			EntFireByHandle(fizzler, "Dissolve", "!activator", 1.50, turret_waiting, self)
@@ -161,6 +163,7 @@ function claw_destroyed() {
 		retract_cable()
 	}
 }
+const_broken <- claw_destroyed
 
 
 // Internal functions
@@ -208,14 +211,39 @@ function Think() {
 	}
 
 	if (is_lowering && g_last_lower_z != null) {
-		// See if the turret stopped.
-		local turr_z = turret_waiting.GetOrigin().z;
-		// printl(format("Turret Z: %.6f", g_last_lower_z - turr_z));
-		if (g_last_lower_z - turr_z < 15.0 && turr_z < RELEASE_CEIL) {
+		// The turret is dropping. We want to drop it in two cases:
+		// * if it slows/stops (hit a floor).
+		// * If an open portal is right below the turret (so we don't teleport the cable).
+		local turr_pos = turret_waiting.GetOrigin();
+
+		local found_portal = false
+		local portal = null
+		while (portal = Entities.FindByClassname(portal, "prop_portal")) {
+			if (portal.GetForwardVector().z < 0.1) continue; // Don't care about wall/ceiling portals.
+			local pscope = portal.GetScriptScope();
+			if (pscope == null) continue; // Our trigger didn't detect.
+			if ("__pgun_active" in pscope && pscope.__pgun_active) {
+				// Found an open portal. Is it underneath us?
+				local offset = (portal.GetOrigin() - turr_pos);
+				if (-16.0 < offset.z && offset.z < 128.0) {
+					// YZ in the portal's local coordinates.
+					local port_horiz = portal.GetLeftVector().Dot(offset);
+					local port_vert = portal.GetUpVector().Dot(offset);
+					if (-32.0 < port_horiz && port_horiz < 32.0 && -54.0 < port_vert && port_vert < 54.0) {
+						found_portal = true
+						break
+					}
+				}
+			}
+		}
+		// printl(format("Turret Z: %.6f = %.6f", turr_pos.z, g_last_lower_z - turr_pos.z));
+		if ((turr_pos.z < RELEASE_CEIL) && (
+			found_portal || g_last_lower_z - turr_pos.z < 15.0
+		)) {
 			release_turret();
 			g_last_lower_z = null
 		} else {
-			g_last_lower_z = turr_z;
+			g_last_lower_z = turr_pos.z;
 		}
 		return 0.1; // We're active, think faster.
 	}
