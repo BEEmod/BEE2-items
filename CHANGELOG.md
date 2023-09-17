@@ -13,6 +13,7 @@
 * Large and Small Faith Plate items have now been merged together. This means the "faith_variants" package has been removed entirely.
 * Add compiler error if unused cube types on piston/track platforms.
 * #3917: New editor models for P1 entry/exit doors.
+* Tweak Coop Spawn Room editor model to indicate orientation when vertical.
 
 ### Bugfixes:
 * Improve entry door logic to prevent being able to portal past the door-close trigger.
@@ -27,6 +28,7 @@
 * Remove duplicate sign in Clean SP downward exit, if the regular sign is present.
 * Add clips to panels in Clean SP upward exit.
 * When spawning in Clean corridors, make the test chamber sign start illuminated.
+* #4352: Fix Clean Coop Entry not cutting tiles when on the floor/ceiling.
 
 ------------------------------------------
 
