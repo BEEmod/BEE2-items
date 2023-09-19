@@ -10,7 +10,7 @@
 * Added tint mask for ARES 228's Old Aperture ball, when being coloured.
 * Added a new Clean coop corridor, which shoots the bots up out of the floor.
 * #4315 & #1100: Piston and Track Platforms can now have their speed customised.
-* Large and Small Faith Plate items have now been merged together. This means the "faith_variants" package has been removed entirely.
+* Large and Small Faith Plate items have now been merged together. This means the "faith_variants" package has been removed entirely, make sure to remove that file.
 * Add compiler error if unused cube types on piston/track platforms.
 * #3917: New editor models for P1 entry/exit doors.
 * Tweak Coop Spawn Room editor model to indicate orientation when vertical.
@@ -29,6 +29,7 @@
 * Add clips to panels in Clean SP upward exit.
 * When spawning in Clean corridors, make the test chamber sign start illuminated.
 * #4352: Fix Clean Coop Entry not cutting tiles when on the floor/ceiling.
+* #4336, #3941: Fix some catwalk placement issues.
 
 ------------------------------------------
 
