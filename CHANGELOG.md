@@ -30,6 +30,7 @@
 * When spawning in Clean corridors, make the test chamber sign start illuminated.
 * #4352: Fix Clean Coop Entry not cutting tiles when on the floor/ceiling.
 * #4336, #3941: Fix some catwalk placement issues.
+* Fix seams in Clean custom fizzler model, improve collisions.
 
 ------------------------------------------
 
