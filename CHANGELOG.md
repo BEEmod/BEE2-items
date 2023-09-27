@@ -31,6 +31,7 @@
 * #4352: Fix Clean Coop Entry not cutting tiles when on the floor/ceiling.
 * #4336, #3941: Fix some catwalk placement issues.
 * Fix seams in Clean custom fizzler model, improve collisions.
+* Fix Piston/Track Platforms always using 4x4 tile patterns.
 
 ------------------------------------------
 
