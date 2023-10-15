@@ -32,6 +32,7 @@
 * #4336, #3941: Fix some catwalk placement issues.
 * Fix seams in Clean custom fizzler model, improve collisions.
 * Fix Piston/Track Platforms always using 4x4 tile patterns.
+* #4378: Fix 1970s SP exit door sign not working when vertical
 
 ------------------------------------------
 
