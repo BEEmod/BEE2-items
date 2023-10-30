@@ -5,6 +5,7 @@
 ### New Features:
 * Added the Destruction Target, a bullseye that turrets shoot to fire outputs.
 * New custom models for Old Aperture Laser items, made by [Rosemary Webs](https://www.youtube.com/@ErinRoseWebs).
+* Laser Catchers and Emitters can now use the alternate model which is closer to the floor.
 
 ### Enhancements:
 * Added tint mask for ARES 228's Old Aperture ball, when being coloured.
@@ -14,6 +15,8 @@
 * Add compiler error if unused cube types on piston/track platforms.
 * #3917: New editor models for P1 entry/exit doors.
 * Tweak Coop Spawn Room editor model to indicate orientation when vertical.
+* Several editor models have been remade: Pellet Destroyers, Logic gates, Triggers, Catwalks, Coop Checkpoint, P1 Entry/Exit Doors
+* Pellets may now be configured to no longer hurt players.
 
 ### Bugfixes:
 * Improve entry door logic to prevent being able to portal past the door-close trigger.
@@ -28,6 +31,7 @@
 * Remove duplicate sign in Clean SP downward exit, if the regular sign is present.
 * Add clips to panels in Clean SP upward exit.
 * When spawning in Clean corridors, make the test chamber sign start illuminated.
+* The Overgrowth music track now functions properly.
 * #4352: Fix Clean Coop Entry not cutting tiles when on the floor/ceiling.
 * #4336, #3941: Fix some catwalk placement issues.
 * Fix seams in Clean custom fizzler model, improve collisions.
