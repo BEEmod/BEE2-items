@@ -460,14 +460,14 @@ function trace()
 
     hit <- 0;
     trace_cubes();
-    trace_portals();
+    trace_portals(hit != 0);
     if (hit == 2) {
         // trace cubes again to prevent wasting a beam
         // when a cube is inside a portal
         trace_cubes();
         if (hit == 1) {
             // ...and once more, with feeling!
-            trace_portals();
+            trace_portals(true);
         }
     }
 
@@ -581,7 +581,7 @@ function trace_cubes()
 }
 
 
-function trace_portals()
+function trace_portals(last_was_cube)
 {
     // Find out if we are hitting a portal and translate current_pos
     // and current_dir to the other side.
@@ -590,7 +590,8 @@ function trace_portals()
         local angles = v.GetAngles();
         local offset = unrotate(current_pos - v.GetOrigin(), angles);
         if (fabs(offset.y) < 32 && fabs(offset.z) < 54 &&
-                offset.x < 1 && offset.x > -12) {
+                // If a cube, allow the position to be further behind the portal.
+                offset.x < 1 && offset.x > (last_was_cube ? -24 : -12)) {
 
             // Position is close to (or past) portal surface.
             // Find other portal end and check incoming direction.
