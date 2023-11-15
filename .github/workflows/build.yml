@@ -1,0 +1,71 @@
+name: Compile Packages
+on:
+  schedule:
+    - cron: '47 7 * * THU' # Run at 7:47 (5:47pm local) on Thursday
+  create:
+    ref_type: 'tag'
+  workflow_dispatch:
+    # Allow triggering manually whenever it's useful.
+    inputs:
+      source:
+        description: 'Branch/Tag'
+        required: true
+        default: 'dev'
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Use the tag if created there, dev each week, or what's specified when done manually.
+      - name: Checkout tag
+        if: github.event_name == 'create'
+        uses: actions/checkout@v3
+        with:
+          ref: $ {{ github.event.ref }}
+
+      - name: Checkout dev
+        if: github.event_name == 'schedule'
+        uses: actions/checkout@v3
+        with:
+          ref: 'dev'
+
+      - name: Checkout reference
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.source }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Build Packages
+        run: python compile_packages.py --confirm --overwrite --zip "" "packages/"
+
+      - name: Packages upload (tag)
+        uses: actions/upload-artifact@v3
+        if: github.event_name == 'create'
+        with:
+          name: beemod2_${{ github.event.ref }}_packages
+          path: ./zips/
+          if-no-files-found: error
+
+      - name: Packages upload (hash)
+        uses: actions/upload-artifact@v3
+        if: github.event_name != 'create'
+        with:
+          name: beemod2_${{ github.sha }}_packages
+          path: ./zips/
+          if-no-files-found: error
+          retention-days: 8
