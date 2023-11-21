@@ -39,6 +39,7 @@
 * #4378: Fix 1970s SP exit door sign not working when vertical.
 * #4379: Fix leak with P1 Adjustable Pedestal Buttons.
 * #4076: Added safeguard in case Sendificator sends cubes out of bounds - they will be fizzled.
+* #3574: Fix leaks when using Old Aperture drawbridge with inputs.
 
 ------------------------------------------
 
