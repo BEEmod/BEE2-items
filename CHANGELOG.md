@@ -15,7 +15,7 @@
 * Add compiler error if unused cube types on piston/track platforms.
 * #3917: New editor models for P1 entry/exit doors.
 * Tweak Coop Spawn Room editor model to indicate orientation when vertical.
-* Several editor models have been remade: Pellet Destroyers, Logic gates, Triggers, Catwalks, Coop Checkpoint, P1 Entry/Exit Doors
+* Several editor models have been remade: Pellet Destroyers, Logic gates, Triggers, Catwalks, Coop Checkpoints, P1 Entry/Exit Doors and P1 Fizzlers.
 * Pellets may now be configured to no longer hurt players.
 
 ### Bugfixes:
