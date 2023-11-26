@@ -31,6 +31,7 @@
 * Remove duplicate sign in Clean SP downward exit, if the regular sign is present.
 * Add clips to panels in Clean SP upward exit.
 * When spawning in Clean corridors, make the test chamber sign start illuminated.
+* Increase brightness of light strips in Clean corridors.
 * The Overgrowth music track now functions properly.
 * #4352: Fix Clean Coop Entry not cutting tiles when on the floor/ceiling.
 * #4336, #3941: Fix some catwalk placement issues.
