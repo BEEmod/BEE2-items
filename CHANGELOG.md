@@ -41,6 +41,7 @@
 * #4379: Fix leak with P1 Adjustable Pedestal Buttons.
 * #4076: Added safeguard in case Sendificator sends cubes out of bounds - they will be fizzled.
 * #3574: Fix leaks when using Old Aperture drawbridge with inputs.
+* #4392: Fix incorrect nodrawing of tiles underneath Clean/P1/Overgrown BEE1 doors.
 
 ------------------------------------------
 
