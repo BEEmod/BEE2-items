@@ -1,0 +1,71 @@
+"ID"		"BEE2_DESTRUCTION_TARGET"
+"Name"		"Destruction Target"
+"Desc"      "A target which activates an output while being damaged."
+
+"Item"
+	{
+	"ID" "BEE2_DESTRUCTION_TARGET"
+	"Description"
+		{
+		"" "A large wall-mounted target which activates outputs while being damaged. "
+		"" "Once destroyed, the output will activate for the specified time, while the target will be automatically replaced. "
+		"" "If the target is being continually damaged the output will stay on."
+		"" "* Turrets will automatically shoot the target, but they will prioritise the player."
+		"" "* If set to infinite, the target will be permanently destroyed."
+		"" "* It can be placed on the floor or ceiling, but turrets need to be quite close to reliably hit it."
+		}
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN"
+				{
+				"Folder" "dest_targ"
+				"config" "dest_targ_clean.cfg"
+				"Instances"
+					{
+					"0"           "instances/BEE2/clean/items/dest_target/logic.vmf"
+					"singular"    "instances/BEE2/clean/items/dest_target/singular.vmf"
+					"multi_case"  "instances/BEE2/clean/items/dest_target/multi_case.vmf"
+					"single_case" "instances/BEE2/clean/items/dest_target/single_case.vmf"
+					}
+				}
+			"BEE2_OVERGROWN"
+				{
+				"Base" "BEE2_CLEAN"
+				"Instances"
+					{
+					"0"           "instances/BEE2/clean/items/dest_target/logic.vmf"
+					"singular"    "instances/BEE2/clean/items/dest_target/singular.vmf"
+					"multi_case"  "instances/BEE2/over/items/dest_target/multi_case.vmf"
+					"single_case" "instances/BEE2/over/items/dest_target/single_case.vmf"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%SKIN%" "1"
+						}
+					}
+				}
+			"BEE2_PORTAL_1"
+				{
+				"Base" "BEE2_CLEAN"
+				"config" "dest_targ_p1.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/p1/items/dest_target.vmf"
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"Config" "dest_targ_retro.cfg"
+				"Instances"
+					{
+					"0" "instances/BEE2/50s/items/dest_target.vmf"
+					}
+				}
+			}
+		}
+	}

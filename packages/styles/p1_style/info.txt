@@ -61,7 +61,7 @@
 		"instance" "instances/BEE2/p1/elevator_sp/entrance_corridor_2.vmf"
 		"config" "entry_door/corr_right_stairs.cfg"
 		"name" "Right Stairs"
-		"authors" "Luke18033"
+		"authors" "Kelsey"
 		"Description"
 			{
 			"" "A right hand turn with stairs into the test chamber. "
@@ -341,7 +341,7 @@
 	{
 	"ID"            "P1_DOORLESS_ENTRY"
 	"Name"          "Open P1 Entrance"
-	"Description"   "Don't add doors or fizzlers to the Portal 1 singleplayer entrance. This is more accurate to the original game, but may break some puzzles by allowing portal surfaces in the corridor to be used."
+	"Description"   "Allow Portal 1 singleplayer entrances to generate without a door or fizzler. This matches the original game, but may break some puzzles by allowing portal surfaces in the corridor to be used."
 	"Enabled"       "1"
 	"Style"         "BEE2_PORTAL_1"
 	}
@@ -445,7 +445,24 @@
 				}
 			}
 		}
-	
+
+	"Item"
+		{
+		"ID" "ITEM_INDICATOR_PANEL"  // Antline checkmark
+		"Version"
+			{
+			"Styles"
+				{
+				// Functions the same as modern, but with a frame.
+				"BEE2_PORTAL_1"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config" "indicator_panel.cfg"
+					}
+				}
+			}
+		}
+
 	"Item"
 		{
 		"ID" "ITEM_TURRET" 
@@ -566,22 +583,16 @@
 						{
 						"0"
 							{
-							"pal_name" "WHITE LIGHT STRIP"
-							"Name"     "White Light Strip"
 							"Model"    "BEE2/p1/lights/lightstrip_cool.mdl"
 							"Icon"     "palette/p1/light_strip_cool.vtf"
 							}
 						"1"
 							{
-							"pal_name" "ORANGE LIGHT STRIP"
-							"Name"     "Orange Light Strip"
 							"Model"    "BEE2/p1/lights/lightstrip_warm.mdl"
 							"Icon"     "palette/p1/light_strip_warm.vtf"
 							}
 						"2"
 							{
-							"pal_name" "BLUE LIGHT STRIP"
-							"Name"     "Blue Light Strip"
 							"Model"    "BEE2/p1/lights/lightstrip_cold.mdl"
 							"Icon"     "palette/p1/light_strip_cold.vtf"
 							}
@@ -608,11 +619,11 @@
 						{
 						"0"
 							{
-							"Model" "bee2_p1_fizz_frame.3ds"
+							"Model" "BEE2/p1/fizzler/portal.mdl"
 							}
 						"1"
 							{
-							"Model" "bee2_p1_las_frame.3ds"
+							"Model" "BEE2/p1/fizzler/laserfield.mdl"
 							}
 						}
 					}
@@ -740,7 +751,36 @@
 			{
 			"Styles"
 				{
-				"BEE2_PORTAL_1"	"laser/catcher"
+				"BEE2_PORTAL_1"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0" "instances/BEE2/p1/items/laser/catcher_center.vmf"
+						}
+					"Extra"
+						{
+						"Instances"
+							{
+							"0"            "instances/BEE2/p1/items/laser/catcher_offset.vmf"
+							"bee2_targpos" "instances/BEE2/clean/items/laser/catcher_targpos.vmf"
+							}
+						}
+					"Append" // Add VScript which resizes target bbox to match the models.
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance" "[laserCatcher], [laserRelay]"
+								"Result"
+									{
+									"addGlobal" "instances/BEE2/logic/laser/resize_catcher.vmf"
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -793,6 +833,7 @@
 								{
 								"Priority" "-10"
 								"instance" "<ITEM_CATAPULT>"
+								"instvar"  "$start_reversed = 0"
 								"Result"
 									{
 									"AddOverlay" "instances/BEE2/p1/items/faith_sign.vmf"

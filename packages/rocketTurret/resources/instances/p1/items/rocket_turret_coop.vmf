@@ -1,0 +1,83 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "8997"
+	"mapversion" "3"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "8"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "3"
+	"classname" "worldspawn"
+	"skyname" "sky_black_nofog"
+	"maxpropscreenwidth" "-1"
+	"detailvbsp" "detail.vbsp"
+	"detailmaterial" "detail/detailsprites"
+	"maxblobcount" "250"
+}
+entity
+{
+	"id" "81"
+	"classname" "npc_enemyfinder"
+	"angles" "0 0 0"
+	"fieldofview" "-1"
+	"freepass_movetolerance" "120"
+	"freepass_refillrate" "0.5"
+	"maxsearchdist" "8192"
+	"relationship" "player D_HT 0"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"rendermode" "1"
+	"solid" "6"
+	"spawnflags" "66052"
+	"starton" "1"
+	"targetname" "coop_enemy_finder"
+	connections
+	{
+		"OnFoundEnemy" "RocketSentrySetTarget0-1"
+	}
+	"origin" "0 0 -24"
+	editor
+	{
+		"color" "255 150 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "88"
+	"classname" "hammer_notes"
+	"scale" "0.25"
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Note for people copying this logic to use elsewhere: npc_enemyfinder requires enemies to have targetnames set. For Portal 2 Coop the bots are automatically named 'blue' and 'red' so this works fine, but in other contexts (multiplayer mod, P2CE multiplayer, P1) you will need to ensure each player has a unique targetname through other logic."
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}

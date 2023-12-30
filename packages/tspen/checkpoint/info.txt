@@ -10,6 +10,8 @@
 		"" "It is a one-way path and requires both players inside before the door in front will unlock as the doors behind close."
 		"" ""
 		"" "* The entry door will accept inputs to open/close it."
+		"" "* This item needs to be placed on solid surface, with another room opposite to connect to the exit doors:"
+		"" "![placement guide](TSPEN_CHECKPOINT:help/coop_check_placement.png)"
 		}
 	"all_conf" "coop_check.cfg"
 	"Version"
@@ -112,6 +114,14 @@
 "Item"
 	{
 	"ID" "ITEM_TSPEN_COOP_CHECKPOINT_SEP"
+	"Description"	
+		{
+		"" "A version of the checkpoint room which will separate players after they exit."
+		"" ""
+		"" "* Players can choose which side they will be on."
+		"" "* This item needs to be placed on solid surface, with another room opposite to connect to the exit doors:"
+		"" "![placement guide](TSPEN_CHECKPOINT:help/coop_check_sep_placement.png)"
+		}
 	"Version"
 		{
 		"Styles"
@@ -187,6 +197,8 @@
 		"" "* This will trigger its output permanently when the door closes, as well as autosave."
 		"" "* If Portalgun On/Off buttons are present in the map, this will contain an Absolute Fizzler and dissolve cubes on On/Off Buttons when walked through."
 		"" "* Alternatively, in Aperture Tag it will disable the paint gun."
+		"" "* This item needs to be placed on solid surface, with another room opposite to connect to the exit doors:"
+		"" "![placement guide](TSPEN_CHECKPOINT:help/chamberlock_placement.png)"
 		}
 	"All_conf" "sp_check.cfg"
 	"Version"
@@ -211,10 +223,32 @@
 					"bee2_fizz_abs" "instances/BEE2/p1/items/tspen/chamberlock_abs_fizz.vmf"
 					}
 				"Config" "sp_check_p1.cfg"
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "BEE2/p1/chamberlock_closed.mdl"
+						}
+					"1"
+						{
+						"Model" "BEE2/p1/chamberlock_open.mdl"
+						}
+					}
 				}
 			"BEE2_1950s"
 				{
 				"Folder" "sp_check"
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "BEE2/50s/chamberlock_closed.mdl"
+						}
+					"1"
+						{
+						"Model" "BEE2/50s/chamberlock_open.mdl"
+						}
+					}
 				"Config" "sp_check_retro.cfg"
 				"Instances"
 					{
@@ -241,6 +275,17 @@
 			"BEE2_1970s"
 				{
 				"Base" "BEE2_1950s"
+				"Palette"
+					{
+					"0"
+						{
+						"Model" "BEE2/70s/chamberlock_closed.mdl"
+						}
+					"1"
+						{
+						"Model" "BEE2/70s/chamberlock_open.mdl"
+						}
+					}
 				"Instances"
 					{
 					"bee2_decade" "instances/BEE2/70s/items/tspen/chamberlock_70s.vmf"

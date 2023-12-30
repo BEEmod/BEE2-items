@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "427"
+	"editorbuild" "8997"
+	"mapversion" "449"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "427"
+	"mapversion" "449"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -38,6 +38,7 @@ entity
 {
 	"id" "13374"
 	"classname" "comp_pack"
+	"ctrl_value" "1"
 	"sound1" "sound/weapons/rocket/rocket_fire1.wav"
 	"sound2" "sound/weapons/rocket/rocket_fly_loop1.wav"
 	"sound3" "sound/weapons/rocket/rocket_locked_beep1.wav"
@@ -55,6 +56,7 @@ entity
 	"id" "12857"
 	"classname" "func_door"
 	"_minlight" "0"
+	"angles" "0 0 0"
 	"disableflashlight" "0"
 	"disablereceiveshadows" "0"
 	"disableshadowdepth" "0"
@@ -642,7 +644,7 @@ entity
 		"OnChangeToAllTrue" "beamTurnOn4.34-1"
 		"OnChangeToAllTrue" "manSetStateBFalse4.35-1"
 		"OnChangeToAllTrue" "RocketSentryEnable0.02-1"
-		"OnChangeToAllTrue" "RocketSentrySetTarget!player0-1"
+		"OnChangeToAllTrue" "RocketSentrySetTarget!player4-1"
 		"OnChangeToAllFalse" "beamTurnOff0-1"
 		"OnChangeToAllFalse" "clipClose2-1"
 		"OnChangeToAllTrue" "clipOpen0-1"
@@ -650,6 +652,10 @@ entity
 		"OnChangeToAllFalse" "RocketSentrySkin34.66-1"
 		"OnChangeToAllFalse" "RocketSentryRunScriptCodeactive = false0-1"
 		"OnChangeToAllTrue" "RocketSentryRunScriptCodeactive = true4.34-1"
+		"OnChangeToAllTrue" "coop_enemy_finderTurnOn4.1-1"
+		"OnChangeToAllFalse" "coop_enemy_finderTurnOff0-1"
+		"OnChangeToAllFalse" "coop_enemy_finderForgetEntity!player_blue0-1"
+		"OnChangeToAllFalse" "coop_enemy_finderForgetEntity!player_orange0-1"
 	}
 	"origin" "0 -16 0"
 	editor
@@ -679,6 +685,7 @@ entity
 {
 	"id" "5694"
 	"classname" "npc_rocket_turret"
+	"_sphere_radius" "8192"
 	"angles" "0 0 0"
 	"drawinfastreflection" "1"
 	"model" "models/props_bts/rocket_sentry.mdl"
@@ -709,12 +716,13 @@ entity
 	"spawnflags" "1"
 	connections
 	{
-		"OnMapSpawn" "RocketSentryRunScriptCodesetup()0-1"
+		"OnMapSpawn" "manSetStateBTrue0.1-1"
 		"OnMapSpawn" "beam_startSetParentAttachmentbarrel0-1"
 		"OnMapSpawn" "RocketSentryAddOutputmins 0 0 00.5-1"
 		"OnMapSpawn" "RocketSentryAddOutputmaxs 0 0 00.5-1"
 		"OnMapSpawn" "RocketSentryDisable0.05-1"
 		"OnMapSpawn" "RocketSentrySkin30.1-1"
+		"OnMapSpawn" "RocketSentryAddOutputplaybackrate 100.1-1"
 	}
 	"origin" "0 0 0"
 	editor
@@ -722,7 +730,7 @@ entity
 		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "Changing the rocket turret's model causes it to reset to the default pose. Disabling it here instead of setting the flag ensures it retracts correctly."
+		"comments" "Changing the rocket turret's model causes it to reset to the default pose. Disabling it here instead of setting the flag ensures it retracts correctly. The playbackrate AddOutput makes the first animation instant, it auto resets. I don't remember what the mins/maxs is for but it's probably important."
 		"logicalpos" "[0 5000]"
 	}
 }

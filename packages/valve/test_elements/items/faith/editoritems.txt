@@ -4,6 +4,7 @@
 	"ItemClass"		"ItemCatapult"
 	"Editor"
 		{
+		"SubTypeProperty" "StartReversed"
 		"SubType"
 			{
 			"Name"		"PORTAL2_PuzzleEditor_Item_faith_plate"
@@ -14,8 +15,31 @@
 			"Palette"
 				{
 				"Tooltip"	"PORTAL2_PuzzleEditor_Palette_faith_plate"
-				"Image"		"palette/faithplate.png"
+				"Image"		"palette/faithplate.vtf"
 				"Position"	"1 2 0"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"		"Large Faith Plate"
+			"Model"
+				{
+				// Fixed version of Valve's model, with glass
+				// and black inside the holes instead of showing the 
+				// wall tile.
+				"ModelName"		"large_faith_plate.3ds"
+				}
+			"Palette"
+				{
+				"Tooltip"	"FAITH PLATE - LARGE"
+				"Image"		"palette/faithplate_128.vtf"
 				}
 			"Sounds"
 				{
@@ -55,6 +79,11 @@
 			"DefaultValue"		"1"
 			"Index"				"4"
 			}
+		"StartReversed"
+			{
+			"DefaultValue"      "0"
+			"Index"             "5"
+			}
 		}
 	"Exporting"
 		{
@@ -74,11 +103,10 @@
 			"BEE2"
 				{
 				"Type"              "AND"
-				"Init"              "NONE"
-				
-				"InvertVar"         "$start_enabled"
-				"Enable_Cmd"        "arm,FireUser4,,0.00,-1"
-				"Disable_Cmd"       "arm,FireUser3,,0.00,-1"
+
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "input,TurnOn,,0.00,-1"
+				"Disable_Cmd"   "input,TurnOff,,0.00,-1"
 				}
 			}
 
@@ -124,7 +152,23 @@
 		
 		"ConnectionPoints"
 			{
-			// The plate points to the left, don't have antlines on that side...
+			// The plate points to the left, avoid antlines on that side...
+			"Point"
+				{
+				"Dir"           "1 0 0"
+				"Pos"           "-1 3 0"
+				"SignageOffset" "-2 2 0"
+				"Priority"      "0"
+				"GroupID"       "0"
+				}
+			"Point"
+				{
+				"Dir"           "1 0 0"
+				"Pos"           "-1 4 0"
+				"SignageOffset" "-2 5 0"
+				"Priority"      "0"
+				"GroupID"       "0"
+				}
 
 			// right (behind plate)
 			"Point"
@@ -132,16 +176,16 @@
 				"Dir"           "-1 0 0"
 				"Pos"           "8 3 0"
 				"SignageOffset" "9 2 0"
-				"Priority"      "1"
-				"GroupID"       "1"
+				"Priority"      "2"
+				"GroupID"       "2"
 				}
 			"Point"
 				{
 				"Dir"           "-1 0 0"
 				"Pos"           "8 4 0"
 				"SignageOffset" "9 5 0"
-				"Priority"      "1"
-				"GroupID"       "1"
+				"Priority"      "2"
+				"GroupID"       "2"
 				}
 
 			// up (left side)
@@ -150,16 +194,16 @@
 				"Dir"           "0 1 0"
 				"Pos"           "3 -2 0"
 				"SignageOffset" "2 -1 0"
-				"Priority"      "0"
-				"GroupID"       "0"
+				"Priority"      "1"
+				"GroupID"       "1"
 				}
 			"Point"
 				{
 				"Dir"           "0 1 0"
 				"Pos"           "5 -1 0"
 				"SignageOffset" "4 -2 0"
-				"Priority"      "0"
-				"GroupID"       "0"
+				"Priority"      "1"
+				"GroupID"       "1"
 				}
 
 			// down (right side)
@@ -168,16 +212,16 @@
 				"Dir"           "0 -1 0"
 				"Pos"           "2 9 0"
 				"SignageOffset" "3 8 0"
-				"Priority"      "0"
-				"GroupID"       "0"
+				"Priority"      "1"
+				"GroupID"       "1"
 				}
 			"Point"
 				{
 				"Dir"           "0 -1 0"
 				"Pos"           "4 9 0"
 				"SignageOffset" "5 8 0"
-				"Priority"      "0"
-				"GroupID"       "0"
+				"Priority"      "1"
+				"GroupID"       "1"
 				}
 			}
 		}
@@ -235,6 +279,173 @@
 					{
 					"Normal"    "0 0 1"
 					}
+				}
+			}
+		}
+	}
+
+// Old definition for backwards compatibility.
+"Item"
+	{
+	"Type"			"ITEM_TSPEN_LARGE_CATAPULT"
+	"ItemClass"		"ItemCatapult"
+	"Editor"
+		{
+		"SubType"
+			{
+			"Name"		"Large Faith Plate"
+			"Model"
+				{
+				"ModelName"		"large_faith_plate.3ds"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"		"HANDLE_CATAPULT"
+		}
+	"Properties"
+		{
+		"VerticalAlignment"
+			{
+			"DefaultValue"  "0"
+			"Index"         "0"
+			}
+		"CatapultSpeed"
+			{
+			"DefaultValue"  "500"
+			"Index"         "1"
+			}
+		"TargetName"
+			{
+			"DefaultValue"  "target"
+			"Index"         "2"
+			}
+		"ConnectionCount"
+			{
+			"DefaultValue"  "0"
+			"Index"         "3"
+			}
+		"StartEnabled"
+			{
+			"DefaultValue"  "1"
+			"Index"         "4"
+			}
+		}
+	"Exporting"
+		{		
+		"TargetName"    "lfp"
+		"Offset"        "64 64 64"
+		"Instances"
+			{
+			"0"
+				{
+				"Name"				"instances/BEE2/clean/items/large_faith_plate.vmf"
+				"EntityCount"		"8"
+				"BrushCount"		"3"
+				"BrushSideCount"	"22"
+				}
+			}
+		"Inputs"
+			{
+			"BEE2"
+				{
+				"Type"          "AND"
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "plate,TurnOn,,0.00,-1"
+				"Disable_Cmd"   "plate,TurnOff,,0.00,-1"
+				}
+			}
+		"OccupiedVoxels"
+			{
+			"Voxel"
+				{
+				"Pos"   "0 0 0"
+				"CollideType"       "COLLIDE_SOLID"
+				"CollideAgainst"    "COLLIDE_SOLID COLLIDE_GLASS COLLIDE_GRATING COLLIDE_ANTLINES"
+
+				"Surface"
+					{
+					"Normal"    "0 0 1"
+					}
+				}
+			}
+		"EmbeddedVoxels"
+			{
+			"Voxel"
+				{
+				"Pos" "0 0 0"
+				}
+			}
+			
+		"ConnectionPoints"
+			{
+			// left
+			"Point"
+				{
+				"Dir"           "1 0 0"
+				"Pos"           "-1 3 0"
+				"SignageOffset" "-2 2 0"
+				"Priority"      "0"
+				}
+			"Point"
+				{
+				"Dir"           "1 0 0"
+				"Pos"           "-1 4 0"
+				"SignageOffset" "-2 5 0"
+				"Priority"      "0"
+				}
+
+			// right
+			"Point"
+				{
+				"Dir"           "-1 0 0"
+				"Pos"           "8 3 0"
+				"SignageOffset" "9 2 0"
+				"Priority"      "0"
+				}
+			"Point"
+				{
+				"Dir"           "-1 0 0"
+				"Pos"           "8 4 0"
+				"SignageOffset" "9 5 0"
+				"Priority"  "0"
+				}
+
+			// up
+			"Point"
+				{
+				"Dir"           "0 1 0"
+				"Pos"           "3 -1 0"
+				"SignageOffset" "2 -2 0"
+				"Priority"      "0"
+				}
+			"Point"
+				{
+				"Dir"           "0 1 0"
+				"Pos"           "4 -1 0"
+				"SignageOffset" "5 -2 0"
+				"Priority"      "0"
+				}
+
+			// down
+			"Point"
+				{
+				"Dir"           "0 -1 0"
+				"Pos"           "3 8 0"
+				"SignageOffset" "2 9 0"
+				"Priority"      "0"
+				}
+			"Point"
+				{
+				"Dir"           "0 -1 0"
+				"Pos"           "4 8 0"
+				"SignageOffset" "5 9 0"
+				"Priority"      "0"
 				}
 			}
 		}

@@ -4,10 +4,7 @@
 // Time since last death - we only trigger once every 10 seconds.
 BEE2_LastDeathTime <- -100;
 
-BEE2_PLAY_DING <- false; //Play ding_on and off before/after lines.
-
-// Include the data script
-DoIncludeScript("BEE2/coop_response_data", self.GetScriptScope())
+// BEE2_PLAY_DING <- false; //Play ding_on and off before/after lines.
 
 // Trigger_hurt values assoicated with the item.
 DEATH_TYPES <- {
@@ -27,7 +24,7 @@ function BEE2_play_line(channel, ch_arg) {
 	}
 	local line_key = channel + "_" + ch_arg;
 	if (!(line_key in BEE2_RESPONSES)) {
-	
+		// No more specific lines, try a generic one.
 		if (ch_arg != "generic") {
 			BEE2_play_line(channel, null);
 		} else {
@@ -39,7 +36,7 @@ function BEE2_play_line(channel, ch_arg) {
 	local lines = BEE2_RESPONSES[line_key]
 	
 	if (lines == null) {
-		return
+		return;
 	}
 
 	local line_index = RandomInt(0, lines.len() - 1)
@@ -102,11 +99,10 @@ function PlayerTauntCamera(player, animation) {
 }
 
 function RespondToTaunt(taunt) {
-	printl("Taunt: " + taunt)
+	// printl("Taunt: " + taunt)
 }
 
-function CoopPingTool(player,surface) {
+function CoopPingTool(player, surface) {
 	// Surface 1 = black
 	// Surface 2 = white
-	printl("Surf " + surface)
 }

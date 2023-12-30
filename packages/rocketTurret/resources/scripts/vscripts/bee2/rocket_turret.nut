@@ -26,6 +26,14 @@ function Think() {
 	local rockets = [];
 	while(ent = Entities.FindByClassname(ent, "rocket_turret_projectile")) {
 		
+		// Rockets seem to be able to take damage, but when they "die" they don't
+		// get removed and instead fly infinitely into the void, this removes any "dead" rockets
+		if (ent.GetHealth() <= 0) {
+			ent.Destroy()
+			// printl("Removing dead rocket")
+			continue;
+		}
+
 		// It's a fixed one, skip.
 		if(ent.GetName() == "") {
 			rockets.append(ent);
@@ -43,6 +51,13 @@ function Think() {
 
 	// Rename so we won't affect this one in future.
 	ent.__KeyValueFromString("targetname", "@rocket_turret_missile");
+
+	// Play fire sound from nearest rocket turret, for some reason this doesn't happen anymore
+	// If we play it from the rocket itself, it overrides the fly loop
+	local turret = Entities.FindByClassnameNearest("npc_rocket_turret", ent.GetOrigin(), 128)
+	if (turret) {
+		turret.EmitSound("NPC_FloorTurret.RocketFire")
+	}
 
 	// Spawn in our extra entities. 
 	self.SpawnEntityAtLocation(origin, angles);

@@ -1824,6 +1824,31 @@
 	{
 	"Item"
 		{
+		"ID" "ITEM_INDICATOR_PANEL"
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config" "indicator_panel_50s.cfg"
+					}
+				"BEE2_1980s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config" "indicator_panel_80s.cfg"
+					}
+				}
+			}
+		}
+	}
+
+
+"Overrides"
+	{
+	"Item"
+		{
 		"ID" "ITEM_BUTTON_FLOOR"
 		"Version"
 			{
@@ -1938,24 +1963,22 @@
 						{
 						"0"
 							{
-							"pal_name" "WARM NEON LIGHT"
-							"Name"     "Warm Neon Light"
+							"pal_name" "WARM LIGHT STRIP"
+							"Name"     "Warm Light Strip"
 							"Model"    "under_light_warm.3ds"
 							"Icon"     "palette/50s/light_strip_warm.png"
 							"BEE2"     "50s/light_strip_warm.png"
 							}
 						"1"
 							{
-							"pal_name" "COOL NEON LIGHT"
-							"Name"     "Cool Neon Light"
+							"pal_name" "PORTAL2_PuzzleEditor_Palette_light_strip"
+							"Name"     "PORTAL2_PuzzleEditor_Item_light_strip"
 							"Model"    "under_light_cool.3ds"
 							"Icon"     "palette/50s/light_strip_cool.png"
 							"BEE2"     "50s/light_strip_cool.png"
 							}
 						"2"
 							{
-							"pal_name" "COLD NEON LIGHT"
-							"Name"     "Cold Neon Light"
 							"Model"    "under_light_cold.3ds"
 							"Icon"     "palette/50s/light_strip_cold.png"
 							"BEE2"     "50s/light_strip_cold.png"
@@ -2240,8 +2263,8 @@
 					"Description"	"A specially-shaped pool of Repulsion Gel that throws things along a preset trajectory. It is also capable of throwing paint bombs."
 					"Instances"
 						{
-						"0" "instances/BEE2/50s/items/gel_plate/static.vmf"
-						"bee2_toggle" "instances/BEE2/50s/items/gel_plate/toggle_decade.vmf"
+						"bee2_small_dec_static" "instances/BEE2/50s/items/gel_plate/small_static.vmf"
+						"bee2_small_dec_toggle" "instances/BEE2/50s/items/gel_plate/small_toggle_decade.vmf"
 						}
 					"Append"
 						{
@@ -2268,8 +2291,8 @@
 						}
 					"Instances"
 						{
-						"0" "instances/BEE2/70s/items/gel_plate/static.vmf"
-						"bee2_toggle" "instances/BEE2/70s/items/gel_plate/dynamic.vmf"
+						"bee2_small_dec_static" "instances/BEE2/70s/items/gel_plate/small_static.vmf"
+						"bee2_small_dec_toggle" "instances/BEE2/70s/items/gel_plate/small_dynamic.vmf"
 						}
 					"Append"
 						{
@@ -2297,8 +2320,8 @@
 						}
 					"Instances"
 						{
-						"0" "instances/BEE2/80s/items/gel_plate/static.vmf"
-						"bee2_toggle" "instances/BEE2/80s/items/gel_plate/dynamic.vmf"
+						"bee2_small_dec_static" "instances/BEE2/80s/items/gel_plate/small_static.vmf"
+						"bee2_small_dec_toggle" "instances/BEE2/80s/items/gel_plate/small_dynamic.vmf"
 						}
 					"Append"
 						{
@@ -2511,32 +2534,79 @@
 				"BEE2_1950s"
 					{
 					"Base" "BEE2_CLEAN"
+					"Append" "laser_emitter.cfg"
+					"Authors" "Rosemary Webs, TeamSpen210"
+					"Description"
+						{
+						"" "* The custom model was made by [Rosemary Webs](https://www.youtube.com/@ErinRoseWebs)."
+						}
 					"Palette"
 						{
 						"0"
 							{
-							"Model" "under_las_emitter_center.3ds"
+							"Model" "bee2/retro/laser_emitter_center.mdl"
+							}
+						"1"
+							{
+							"Model" "bee2/retro/laser_emitter_center.mdl"
+							}
+						"2"
+							{
+							"Model" "bee2/retro/laser_emitter_center.mdl"
+							}
+						"3"
+							{
+							"Model" "bee2/retro/laser_emitter_center.mdl"
+							}
+						"4"
+							{
+							"Model" "bee2/retro/laser_emitter_center.mdl"
 							}
 						}
 					"Instances"
 						{
 						"0"          "instances/BEE2/50s/items/laser/emitter_center.vmf"
-						"bee2_floor" "instances/BEE2/50s/items/laser/emitter_center.vmf"
+						"bee2_floor" "instances/BEE2/50s/items/laser/emitter_center_floor.vmf"
+						"bee2_glass" "instances/BEE2/50s/items/laser/emitter_floor_glass.vmf"
 						}
 					"Extra"
 						{
 						"Instances"
 							{
 							"0"          "instances/BEE2/50s/items/laser/emitter_offset.vmf"
-							"bee2_floor" "instances/BEE2/50s/items/laser/emitter_offset.vmf"
+							"bee2_floor" "instances/BEE2/50s/items/laser/emitter_offset_floor.vmf"
 							}
 						"Palette"
 							{
 							"0"
 								{
-								"Model" "under_las_emitter_offset.3ds"
+								"Model" "bee2/retro/laser_emitter_offset.mdl"
+								}
+							"1"
+								{
+								"Model" "bee2/retro/laser_emitter_offset_west.mdl"
+								}
+							"2"
+								{
+								"Model" "bee2/retro/laser_emitter_offset_north.mdl"
+								}
+							"3"
+								{
+								"Model" "bee2/retro/laser_emitter_offset_east.mdl"
+								}
+							"4"
+								{
+								"Model" "bee2/retro/laser_emitter_offset_south.mdl"
 								}
 							}
+						}
+					}
+				"BEE2_1970s"
+					{
+					"Base" "BEE2_1950s"
+					"Instances"
+						{
+						"bee2_glass" "instances/BEE2/70s/items/laser_emitter_floor_glass.vmf"
 						}
 					}
 				}
@@ -2551,11 +2621,91 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s" "las_catcher_50s"
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Authors" "Rosemary Webs, TeamSpen210"
+					"Description"
+						{
+						"" "* The custom model was made by [Rosemary Webs](https://www.youtube.com/@ErinRoseWebs)."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "bee2/retro/laser_catcher_center.mdl"
+							}
+						"1"
+							{
+							"Model" "bee2/retro/laser_catcher_center.mdl"
+							}
+						"2"
+							{
+							"Model" "bee2/retro/laser_catcher_center.mdl"
+							}
+						"3"
+							{
+							"Model" "bee2/retro/laser_catcher_center.mdl"
+							}
+						"4"
+							{
+							"Model" "bee2/retro/laser_catcher_center.mdl"
+							}
+						}
+					"Instances"
+						{
+						"0" "instances/BEE2/50s/items/laser/catcher_center.vmf"
+						}
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Model" "bee2/retro/laser_catcher_offset.mdl"
+								}
+							"1"
+								{
+								"Model" "bee2/retro/laser_catcher_offset_west.mdl"
+								}
+							"2"
+								{
+								"Model" "bee2/retro/laser_catcher_offset_north.mdl"
+								}
+							"3"
+								{
+								"Model" "bee2/retro/laser_catcher_offset_east.mdl"
+								}
+							"4"
+								{
+								"Model" "bee2/retro/laser_catcher_offset_south.mdl"
+								}
+							}
+						"Instances"
+							{
+							"0" "instances/BEE2/50s/items/laser/catcher_offset.vmf"
+							"bee2_targpos" "" // Unused, no light.
+							}
+						}
+					"Append" // Add VScript which resizes target bbox to match the models.
+						{
+						"Conditions"
+							{
+							"Condition"
+								{
+								"instance" "[laserCatcher], [laserRelay]"
+								"Result"
+									{
+									"addGlobal" "instances/BEE2/logic/laser/resize_catcher.vmf"
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
-		
+
 	"Item"
 		{
 		"ID" "ITEM_LASER_RELAY_CENTER"
@@ -2563,7 +2713,41 @@
 			{
 			"Styles"
 				{
-				"BEE2_1950s"		"las_relay_50s"
+				"BEE2_1950s"
+					{
+					"Base" "BEE2_CLEAN"
+					"Authors" "Rosemary Webs, TeamSpen210"
+					"Description"
+						{
+						"" "* The custom model was made by [Rosemary Webs](https://www.youtube.com/@ErinRoseWebs)."
+						}
+					"Palette"
+						{
+						"0"
+							{
+							"Model" "bee2/retro/laser_relay_center.mdl"
+							}
+						}
+					"Instances"
+						{
+						"0" "instances/BEE2/50s/items/laser/relay_center.vmf"
+						}
+					// The relay bbox gets resized by the same VScript that the catcher uses.
+					"Extra"
+						{
+						"Palette"
+							{
+							"0"
+								{
+								"Model" "bee2/retro/laser_relay_offset.mdl"
+								}
+							}
+						"Instances"
+							{
+							"0" "instances/BEE2/50s/items/laser/relay_offset.vmf"
+							}
+						}
+					}
 				}
 			}
 		}
@@ -2675,15 +2859,14 @@
 					"IOConf"
 						{
 						"Type"              "DUAL"
-						"Init"              "Auto"
 						"DefaultDual"       "A"
-						
+
 						"InvertVar"         "$start_enabled"
 						"Enable_Cmd"        "tbeam,Enable,,0.00,-1"
 						"Disable_Cmd"       "tbeam,Disable,,0.00,-1"
 						"Enable_Cmd"        "asb,TurnOn,,0.00,-1"
 						"Disable_Cmd"       "asb,TurnOff,,0.00,-1"
-						
+
 						"Sec_InvertVar"     "$start_reversed"
 						"Sec_Enable_Cmd"    "mdl,FireUser4,,0.00,-1"
 						"Sec_Disable_Cmd"   "mdl,FireUser3,,0.00,-1"

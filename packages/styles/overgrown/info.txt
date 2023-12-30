@@ -759,8 +759,75 @@
 			}
 		}
 	}
-	
-	
+
+"Overrides"
+	{
+	"Item"
+		{
+		"ID" "ITEM_INDICATOR_PANEL"  // Antline checkmark
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/over/indicator_check.vmf"
+							"EntityCount"		"5"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						}
+					"Config" "indicator_panel.cfg"
+					}
+				}
+			}
+		}
+
+	"Item"
+		{
+		"ID" "ITEM_INDICATOR_PANEL_TIMER"  // Antline tick/tock timer.
+		"Version"
+			{
+			"Styles"
+				{
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0"
+							{
+							"Name"				"instances/BEE2/over/indicator_timer.vmf"
+							"EntityCount"		"5"
+							"BrushCount"		"2"
+							"BrushSideCount"	"12"
+							}
+						}
+					"IOConf"
+						{
+						"Enable_Cmd"    "pan,Start,,0.00,-1"
+						"Disable_Cmd"   "pan,Reset,,0.00,-1"
+						}
+					"Config"
+						{
+						// We can't use the inbuilt texturetoggle, since it doesn't turn
+						// off when prematurely stopped.
+						"Options"
+							{
+    						"ind_pan_timer_switching" "custom"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 "Overrides"
 	{
 	"Item"
@@ -775,13 +842,9 @@
 					"Base" "BEE2_CLEAN"
 					"Instances"
 						{
-						"0"
-							{
-							"Name"				"instances/BEE2/over/items/faith_plate.vmf"
-							"EntityCount"		"3"
-							"BrushCount"		"3"
-							"BrushSideCount"	"22"
-							}
+						// We need to swap the signage materials, everything else
+						// can be done with just a skin swap.
+						"bee2_small"    "instances/BEE2/over/items/faith_plate.vmf"
 						}
 					"Append"
 						{
@@ -815,8 +878,7 @@
 							"BrushCount"		"3"
 							"BrushSideCount"	"22"
 							}
-						// TODO: remove this instance entirely once blank filenames work correctly
-						"bee2_polarity" "instances/BEE2/over/items/tbeam_rev.vmf"
+						"bee2_polarity" ""
 						}
 					"Authors" "Valve, Erin-Rose"
 					"AppendDesc"
@@ -862,10 +924,26 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN" "laser/catcher"
+				"BEE2_OVERGROWN"
+					{
+					"Base" "BEE2_CLEAN"
+					"Instances"
+						{
+						"0" "instances/BEE2/over/items/laser/catcher_center.vmf"
+						}
+					"Extra"
+						{
+						"Instances"
+							{
+							"0"            "instances/BEE2/over/items/laser/catcher_offset.vmf"
+							"bee2_targpos" "instances/BEE2/clean/items/laser/catcher_targpos.vmf"
+							}
+						}
+					}
 				}
 			}
 		}
+	// "instances/BEE2/over/items/laser/catcher_center.vmf"
 	"Item"
 		{
 		"ID" "ITEM_LASER_RELAY_CENTER"
