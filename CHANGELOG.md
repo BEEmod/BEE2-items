@@ -1,5 +1,12 @@
 # Changelog
 
+# Version `<dev>`
+
+### Bugfixes:
+* Fix neurotoxin timer not compiling in P1 style.
+
+------------------------------------------
+
 # Version 4.44.0
 
 ### New Features:
