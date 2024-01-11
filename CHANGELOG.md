@@ -4,6 +4,7 @@
 
 ## Enhancements:
 * #4308: Enlarge P1/1950s Small Glass Hole slightly to allow pellets through.
+* Add editor model for Absolute Fizzlers.
 
 ### Bugfixes:
 * Fix neurotoxin timer not compiling in P1 style.
