@@ -9,6 +9,7 @@
 ### Bugfixes:
 * Fix neurotoxin timer not compiling in P1 style.
 * Fix weird geometry in clean fizzler editor models.
+* Fix #4406: Centered Overgrown laser catcher doesn't output.
 
 ------------------------------------------
 
