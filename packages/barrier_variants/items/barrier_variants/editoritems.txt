@@ -1,7 +1,6 @@
 "Item"
 	{
 	"Type"		"ITEM_BEE2_GLASS_VARIANTS"
-	"ItemClass"	"ItemBarrier"
 	"Editor"
 		{
 		"SubType"
@@ -20,6 +19,21 @@
 		}
 	"Properties"
 		{
+		"ConnectionCount"
+			{
+			"DefaultValue" "0"
+			"Index"        "3"
+			}
+		"CubeType"
+			{
+			"DefaultValue" "0"
+			"Index"        "2"
+			}
+		"StartOpen"
+			{
+			"DefaultValue" "0"
+			"Index"        "3"
+			}
 		}
 	"Exporting"
 		{
@@ -32,16 +46,17 @@
 				"BrushCount"		"2"
 				"BrushSideCount"	"12"
 				}
-			"1" ""
-			"2" ""
-			"3" ""
-			"4" ""
-			"5" ""
-			"6" ""
-			"7" ""
-			"8" ""
 			}
 		"TargetName"		"bg"
 		"Offset"		"64 64 64"
+		"Inputs" 
+			{
+			// Outputs are used to target the glass to convert.
+			// Inputs will be used for sliding glass.
+			"BEE2"
+				{
+				"Force" "output"
+				}
+			}
 		}
 	}
