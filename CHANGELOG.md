@@ -155,6 +155,7 @@
 * Fix Old Aperture Sendificator Slim having broken antlines.
 * Fix P1 entrances not detecting people portalling out.
 * Fixed position of Old Aperture Flip Panel wheel.
+* Fixed check locations for Old Aperture entry/exit door speaker placements.
 
 ------------------------------------------
 
