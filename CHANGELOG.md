@@ -12,6 +12,8 @@
 * Fix #4406: Centered Overgrown laser catcher doesn't output.
 * Fix #4403: Missing palette icon for voxel logic gates.
 * Fix an issue where Clean and Overgrown cube droppers could be tricked into dropping two cubes, if a spawning cube is pushed against the iris.
+* Sendificators will fizzle cubes if transported past the exit door fizzler.
+* Sendificators are now blocked by Closed Solid Fields.
 
 ------------------------------------------
 

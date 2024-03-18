@@ -79,8 +79,8 @@ ripple_fx <- Entities.FindByName(null, "@sendtor_ripple_e");
 
 // BEE addition: If cube teleports outside max bounds, fizzle it. This can
 // happen if you hit a laser cube inside a portal.
-map_bounds_min <- -128.0;
-map_bounds_max <- 26 * 128.0;
+map_bounds_min <- -1024.0;
+map_bounds_max <- 28 * 128.0;
 
 
 // static variables
@@ -472,13 +472,20 @@ function trace()
     }
 
     if (hit == 0) {
-        // No more cubes and portals.  We might still be hitting glass,
-        // so check the thickness.
-        if (place_laser_for_glass()) {
-            schedule_call("trace_glass();");
-        }
-        else {
-            reset_lasers();
+        // No more cubes and portals.
+
+        // First check if glass is here, via dumped BEE info.
+        if (::BEE_PointCollide(current_pos, ::BEECollide.GLASS, 0.5)) {
+            // Glass is here, check if it's thin enough for passage.
+            if (place_laser_for_glass()) {
+                schedule_call("trace_glass();");
+            }
+            else { // Can't place laser, fail.
+                reset_lasers();
+            }
+        } else {
+            // Not glass, place the cube.
+            teleport_cube();
         }
         return;
     }
@@ -511,18 +518,20 @@ function trace_glass()
         // Not glass, so this is the endpoint.
         // Turn off the glass-tracing laser.
         reset_laser_for_glass();
-
-        // Calculate the teleport destination
-        local cargo = find_cube_to_send(::sendtor_platform.GetOrigin());
-        local dest_offset = teleport_dest_offset;
-        if (cargo != null && is_monster_cube(cargo)) {
-            dest_offset = teleport_dest_offset_mon;
-        }
-        pos = backtrack_dest(dest_offset, index);
-        dest_confirm(cargo, pos);
-
+        teleport_cube();
         return;
     }
+}
+
+function teleport_cube() {
+    // Calculate the teleport destination
+    local cargo = find_cube_to_send(::sendtor_platform.GetOrigin());
+    local dest_offset = teleport_dest_offset;
+    if (cargo != null && is_monster_cube(cargo)) {
+        dest_offset = teleport_dest_offset_mon;
+    }
+    local pos = backtrack_dest(dest_offset, index);
+    dest_confirm(cargo, pos);
 }
 
 
@@ -702,13 +711,18 @@ function dest_confirm(cargo, location)
             freeze_time = 0.1;
         }
 
-        if (
+        if (::BEE_PointCollide(current_pos, ::BEECollide.OOB, 0.1)) {
+            // Placed in an OOB area - exit, obs rooms, etc.
+            // Fizzle the cube.
+            printl("Cube sendificated out of bounds, fizzling.");
+            EntFireByHandle(cargo, "Dissolve", "", 0.5, self, self);
+        } else if (
             map_bounds_min > location.x || location.y > map_bounds_max ||
             map_bounds_min > location.y || location.x > map_bounds_max ||
             map_bounds_min > location.z || location.z > map_bounds_max
             ) {
-            // Outside the map, force a fizzle.
-            printl("Cube sendificated out of bounds, fizzling.");
+            // Fully outside the map, force a fizzle.
+            printl("Cube sendificated out of the map, fizzling.");
             EntFireByHandle(cargo, "SilentDissolve", "", 0.1, self, self);
             EntFireByHandle(cargo, "Dissolve", "", 0.25, self, self);
             // Play fizzling sound globally, to let players know what happened.
