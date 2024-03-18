@@ -2,6 +2,9 @@
 
 # Version `<dev>`
 
+## New Features:
+* New Item: Tinted Glass, a blue-coloured version of glass which blocks absolutely everything, including lasers.
+
 ## Enhancements:
 * #4308: Enlarge P1/1950s Small Glass Hole slightly to allow pellets through.
 * Add editor model for Absolute Fizzlers.
@@ -12,8 +15,8 @@
 * Fix #4406: Centered Overgrown laser catcher doesn't output.
 * Fix #4403: Missing palette icon for voxel logic gates.
 * Fix an issue where Clean and Overgrown cube droppers could be tricked into dropping two cubes, if a spawning cube is pushed against the iris.
-* Sendificators will fizzle cubes if transported past the exit door fizzler.
-* Sendificators are now blocked by Closed Solid Fields.
+* #2966: Sendificators will fizzle cubes if transported past the exit door fizzler, as well as other "out of bounds" locations.
+* #1609: Sendificators are now blocked by Closed Solid Fields.
 
 ------------------------------------------
 
