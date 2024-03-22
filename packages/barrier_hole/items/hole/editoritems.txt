@@ -1,29 +1,86 @@
 "Item"
 	{
+	"Type"      "ITEM_BEE2_BARRIER_HOLE"
+	"Editor"
+		{
+		"SubTypeProperty"   "CubeType"
+		"SubType"
+			{
+			"Name"	"Small Barrier Hole"
+			"Model" "bee2_glass_hole_small.3ds"
+			"Palette"
+				{
+				"Tooltip"   "BARRIER HOLE"
+				"Image"     "palette/clean/BEE2/glass_hole.png"
+				}
+			}
+		"SubType"
+			{
+			"Name"	"Medium Barrier Hole"
+			"Model" "bee2_barrier_hole_medium.3ds"
+			}
+		"SubType"
+			{
+			"Name"	"Large Barrier Hole"
+			"Model" "bee2_barrier_hole_large.3ds"
+			}
+		"SubType"
+			{
+			"Name"	"Centered Slotted Barrier Hole"
+			"Model" "bee2_barrier_hole_slot_center.3ds"
+			}
+		"SubType"
+			{
+			"Name"	"Offset Slotted Barrier Hole"
+			"Model" "bee2_barrier_hole_slot_offset.3ds"
+			}
+		"MovementHandle"        "HANDLE_4_DIRECTIONS"
+		"OccupiesVoxel"         "0"
+		"CanAnchorOnBarriers"   "1"
+		}
+	"Properties"
+		{
+		"StartOpen"
+			{
+			"DefaultValue"  "0"
+			"Index"         "1"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"              "instances/BEE2/logic/geometry/barrier_hole.vmf"
+				"EntityCount"       "0"
+				"BrushCount"        "1"
+				"BrushSideCount"    "6"
+				}
+			}
+
+		"TargetName"    "hole"
+		"Offset"        "64 64 64"
+		}
+	}
+
+
+// Old item name, when only circular holes exist.
+"Item"
+	{
 	"Type"      "ITEM_BEE2_GLASS_HOLE"
 	"Editor"
 		{
 		"SubTypeProperty"   "StartOpen"
 		"SubType"
 			{
-			"Name"			"Small Glass Hole"
-			"Model"
-				{
-				"ModelName"	"bee2_glass_hole_small.3ds"
-				}
-			"Palette"
-				{
-				"Tooltip"   "GLASS HOLE"
-				"Image"     "palette/clean/BEE2/glass_hole.png"
-				}
+			"Name"	"Small Glass Hole"
+			"Model" "bee2_barrier_hole_small.mdl"
 			}
 		"SubType"
 			{
-			"Name"			"Large Glass Hole"
-			"Model"
-				{
-				"ModelName"	"bee2_glass_hole_large.3ds"
-				}
+			"Name"  "Large Glass Hole"
+			"Model" "bee2_barrier_hole_large.mdl"
 			}
 		"MovementHandle"        "HANDLE_NONE"
 		"OccupiesVoxel"         "0"
