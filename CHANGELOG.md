@@ -4,6 +4,8 @@
 
 ## New Features:
 * New Item: Tinted Glass, a blue-coloured version of glass which blocks absolutely everything, including lasers.
+* Added 2 new Barrier Hole variants: the Medium Hole can fit cubes, and the Slot Hole fits a light bridge through.
+* Added a few new Clean entry corridor variants, based on the Overgrown layouts.
 
 ## Enhancements:
 * #4308: Enlarge P1/1950s Small Glass Hole slightly to allow pellets through.
