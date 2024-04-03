@@ -15,12 +15,13 @@
 ### Bugfixes:
 * Fix neurotoxin timer not compiling in P1 style.
 * Fix weird geometry in clean fizzler editor models.
-* Fix #4406: Centered Overgrown laser catcher doesn't output.
-* Fix #4403: Missing palette icon for voxel logic gates.
+* #4406: Fix centered Overgrown laser catcher not triggering outputs.
+* #4403: Fix missing palette icon for voxel logic gates.
 * Fix an issue where Clean and Overgrown cube droppers could be tricked into dropping two cubes, if a spawning cube is pushed against the iris.
 * #2966: Sendificators will fizzle cubes if transported past the exit door fizzler, as well as other "out of bounds" locations.
 * #1609: Sendificators are now blocked by Closed Solid Fields.
 * #4415: Add additional clips underneath stair items to fix issues with items falling inside.
+* #4417: Fix it being possible to portal on extended Old Aperture stairs.
 
 ------------------------------------------
 

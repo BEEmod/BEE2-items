@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "92"
+	"editorbuild" "9672"
+	"mapversion" "93"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "92"
+	"mapversion" "93"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -546,26 +546,7 @@ world
 }
 entity
 {
-	"id" "3345"
-	"classname" "logic_auto"
-	"angles" "0 0 0"
-	"spawnflags" "1"
-	connections
-	{
-		"OnMapSpawn" "stairSetAnimationopen01"
-	}
-	"origin" "64 32 -48"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "3107"
+	"id" "3408"
 	"classname" "prop_dynamic"
 	"angles" "0 270 0"
 	"body" "0"
@@ -612,6 +593,8 @@ entity
 		"OnUser1" "stairSetPlaybackRate-10.05-1"
 		"OnUser2" "stairSetPlaybackRate10.05-1"
 		"OnUser2" "motor_rotOpen0-1"
+		"OnUser2" "noportalActivate0.05-1"
+		"OnUser1" "noportalDeactivate0.05-1"
 	}
 	"origin" "64 0 -64"
 	editor
@@ -620,6 +603,307 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 -15768]"
+	}
+}
+entity
+{
+	"id" "3413"
+	"classname" "func_noportal_volume"
+	"origin" "64 0 -64"
+	"parent_attachment_point" "stair_5"
+	"parentname" "stair"
+	"spawnflags" "1"
+	"targetname" "noportal"
+	solid
+	{
+		"id" "3414"
+		side
+		{
+			"id" "784"
+			"plane" "(40 56 -60) (88 56 -60) (88 -56 -60)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "783"
+			"plane" "(40 -56 -68) (88 -56 -68) (88 56 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "782"
+			"plane" "(40 56 -60) (40 -56 -60) (40 -56 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "781"
+			"plane" "(88 56 -68) (88 -56 -68) (88 -56 -60)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "780"
+			"plane" "(88 56 -60) (40 56 -60) (40 56 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "779"
+			"plane" "(88 -56 -68) (40 -56 -68) (40 -56 -60)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Prevent portals being placed while extended. Since the steps are planar portals can stretch across. We need multiple because it uses the AABB, this covers all portal placements."
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "3416"
+	"classname" "func_noportal_volume"
+	"origin" "160 0 -64"
+	"parent_attachment_point" "stair_7"
+	"parentname" "stair"
+	"spawnflags" "1"
+	"targetname" "noportal"
+	solid
+	{
+		"id" "3417"
+		side
+		{
+			"id" "790"
+			"plane" "(136 56 -60) (184 56 -60) (184 -56 -60)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "789"
+			"plane" "(136 -56 -68) (184 -56 -68) (184 56 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "788"
+			"plane" "(136 56 -60) (136 -56 -60) (136 -56 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "787"
+			"plane" "(184 56 -68) (184 -56 -68) (184 -56 -60)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "786"
+			"plane" "(184 56 -60) (136 56 -60) (136 56 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "785"
+			"plane" "(184 -56 -68) (136 -56 -68) (136 -56 -60)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Prevent portals being placed while extended. Since the steps are planar portals can stretch across. We need multiple because it uses the AABB, this covers all portal placements."
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "3419"
+	"classname" "func_noportal_volume"
+	"origin" "-32 0 -64"
+	"parent_attachment_point" "stair_2"
+	"parentname" "stair"
+	"spawnflags" "1"
+	"targetname" "noportal"
+	solid
+	{
+		"id" "3420"
+		side
+		{
+			"id" "796"
+			"plane" "(-56 56 -60) (-8 56 -60) (-8 -56 -60)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "795"
+			"plane" "(-56 -56 -68) (-8 -56 -68) (-8 56 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "794"
+			"plane" "(-56 56 -60) (-56 -56 -60) (-56 -56 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "793"
+			"plane" "(-8 56 -68) (-8 -56 -68) (-8 -56 -60)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "792"
+			"plane" "(-8 56 -60) (-56 56 -60) (-56 56 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "791"
+			"plane" "(-8 -56 -68) (-56 -56 -68) (-56 -56 -60)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.05"
+			"vaxis" "[0 0 -1 -27.0793] 0.0175439"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Prevent portals being placed while extended. Since the steps are planar portals can stretch across. We need multiple because it uses the AABB, this covers all portal placements."
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "3345"
+	"classname" "logic_auto"
+	"angles" "0 0 0"
+	"spawnflags" "1"
+	connections
+	{
+		"OnMapSpawn" "stairSetAnimationopen01"
+	}
+	"origin" "64 32 -48"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 entity
