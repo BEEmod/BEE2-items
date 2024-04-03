@@ -15,6 +15,7 @@
 ### Bugfixes:
 * Fix neurotoxin timer not compiling in P1 style.
 * Fix weird geometry in clean fizzler editor models.
+* Fix laser emitters not starting disabled properly.
 * #4406: Fix centered Overgrown laser catcher not triggering outputs.
 * #4403: Fix missing palette icon for voxel logic gates.
 * Fix an issue where Clean and Overgrown cube droppers could be tricked into dropping two cubes, if a spawning cube is pushed against the iris.
