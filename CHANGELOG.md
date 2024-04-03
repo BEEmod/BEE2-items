@@ -22,6 +22,7 @@
 * #1609: Sendificators are now blocked by Closed Solid Fields.
 * #4415: Add additional clips underneath stair items to fix issues with items falling inside.
 * #4417: Fix it being possible to portal on extended Old Aperture stairs.
+* #2779: Add proper hold-logic and clips to P1 vertical Exit Door.
 
 ------------------------------------------
 
