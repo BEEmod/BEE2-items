@@ -20,6 +20,7 @@
 * Fix an issue where Clean and Overgrown cube droppers could be tricked into dropping two cubes, if a spawning cube is pushed against the iris.
 * #2966: Sendificators will fizzle cubes if transported past the exit door fizzler, as well as other "out of bounds" locations.
 * #1609: Sendificators are now blocked by Closed Solid Fields.
+* #4415: Add additional clips underneath stair items to fix issues with items falling inside.
 
 ------------------------------------------
 
