@@ -25,6 +25,7 @@
 * #4415: Add additional clips underneath stair items to fix issues with items falling inside.
 * #4417: Fix it being possible to portal on extended Old Aperture stairs.
 * #2779: Add proper hold-logic and clips to P1 vertical Exit Door.
+* #4290, #3242, #4393: Remake restart-on-exit logic to be more consistent across styles.
 
 ------------------------------------------
 
