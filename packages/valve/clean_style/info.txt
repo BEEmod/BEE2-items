@@ -20,7 +20,11 @@
 	"Base"        ""
 	
 	"Has_Video"   "1"
-	"Description" "Portal 2 Clean style, like after GLaDOS has been awoken and finished cleaning the facility, or in a parallel world where it was never destroyed. Similar to the default PeTI style but with more variety of wall panels and automatic security cameras."
+	"Description" 
+		{
+		"" "Portal 2 Clean style, like after GLaDOS has been awoken and finished cleaning the facility, or in a parallel world where it was never destroyed."
+		"" "Similar to the default PeTI style but with more variety of wall panels and automatic security cameras."
+		}
 	"Suggested"
 		{
 		"Quote"  "BEE2_GLADOS_CLEAN"
@@ -59,6 +63,46 @@
 "CorridorGroup"
 	{
 	"ID" "BEE2_CLEAN"
+	"Options"
+		{
+		"ELEVATOR_DIRECTION_ENTRY"
+			{
+			"Name"    "Elevator Direction"
+			"var"     "$travel_dir_entry"
+			"default" "DOWN"
+			"global"  "sp_entry"
+			"Values"
+				{
+				"UP"   "Upward"
+				"DOWN" "Downward"
+				}
+			}
+		"ELEVATOR_DIRECTION_EXIT"
+			{
+			"Name"    "Elevator Direction"
+			"var"     "$travel_dir_exit"
+			"global"  "sp_exit"
+			"default" "DOWN"
+			"Values"
+				{
+				"UP"   "Upward"
+				"DOWN" "Downward"
+				}
+			}
+		"TEMPERATURE"
+			{
+			"Name"    "Light Temperature"
+			"var"     "$temperature"
+			"default" "NEUTRAL"
+			"Values"
+				{
+				"WARM"    "Warm"
+				"NEUTRAL" "Neutral"
+				"COLD"    "Cold"
+				}
+			}
+		}
+
 	"sp_entry"
 		{
 		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_1.vmf"
@@ -67,11 +111,15 @@
 		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/1_1.jpg"
 		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/1_2.jpg"
 		"DefaultIndex" "1"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
 			"$door" "testchamber"
+
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:corr_1"
 			}
 		}
 	"sp_entry"
