@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "1038"
+	"mapversion" "1041"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -16,15 +16,15 @@ visgroups
 	}
 	visgroup
 	{
-		"name" "Stair up"
-		"visgroupid" "24"
-		"color" "157 114 251"
-	}
-	visgroup
-	{
 		"name" "Logic Up"
 		"visgroupid" "32"
 		"color" "247 212 85"
+	}
+	visgroup
+	{
+		"name" "Stair up"
+		"visgroupid" "24"
+		"color" "157 114 251"
 	}
 	visgroup
 	{
@@ -32,19 +32,25 @@ visgroups
 		"visgroupid" "33"
 		"color" "190 215 196"
 	}
+	visgroup
+	{
+		"name" "Stair Flat"
+		"visgroupid" "27"
+		"color" "109 130 155"
+	}
 }
 viewsettings
 {
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "32"
+	"nGridSpacing" "64"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "1038"
+	"mapversion" "1041"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -493,11 +499,11 @@ world
 		{
 			"id" "22529"
 			"plane" "(-256 320 -1312) (-256 320 -1280) (-256 -256 -1280)"
-			"material" "TOOLS/TOOLSBLACK_NOPORTAL"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[0 0 -1 32] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
-			"lightmapscale" "512"
+			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		editor
@@ -591,6 +597,26 @@ world
 			"color" "224 229 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
+		}
+	}
+}
+hidden
+{
+	entity
+	{
+		"id" "139467"
+		"classname" "func_instance"
+		"angles" "-0 0 0"
+		"file" "instances/bee2/clean/elevator_sp/elevator_entrance/stair_flat.vmf"
+		"replace01" "$no_player_start ???"
+		"origin" "0 0 0"
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupid" "27"
+			"visgroupshown" "0"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 1500]"
 		}
 	}
 }
@@ -702,6 +728,9 @@ entity
 	"id" "138044"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "cavejohnson.DLC2_multiverse_transition"
 	"pitch" "100"
@@ -16372,8 +16401,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[11.7215 147.707 104.945]"
-		"look" "[11.7211 152.549 42.0147]"
+		"position" "[-346.534 828.021 207.986]"
+		"look" "[-310.881 790.061 172.327]"
 	}
 	camera
 	{
