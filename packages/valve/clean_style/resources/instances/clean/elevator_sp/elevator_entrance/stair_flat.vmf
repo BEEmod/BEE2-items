@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "1032"
+	"mapversion" "1033"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "1032"
+	"mapversion" "1033"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2386,6 +2386,56 @@ world
 }
 entity
 {
+	"id" "137790"
+	"classname" "comp_kv_setter"
+	"angles" "0 0 0"
+	"conv_ang" "0"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"invert" "0"
+	"kv_name" "lightingorigin"
+	"kv_value_local" "@entrance_portal_elevator_side"
+	"kv_value_mode" "local"
+	"kv_value_pos" "16 752 -120"
+	"mode" "kv"
+	"rotate" "0"
+	"target" "@entrance_airlock_door"
+	"origin" "16 752 -120"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "137793"
+	"classname" "prop_testchamber_door"
+	"angles" "0 270 0"
+	"lightingorigin" "@entrance_portal_elevator_side"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"solid" "6"
+	"targetname" "@entrance_airlock_door"
+	connections
+	{
+		"OnOpen" "door_clipDisable0.25-1"
+		"OnFullyOpen" "@entrance_airlock_doorSetLightingOrigin@entrance_portal_chamber_side0-1"
+	}
+	"origin" "0 782 -128"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Change the lighting origin once open, so that it blends when closed again."
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
 	"id" "136487"
 	"classname" "prop_static"
 	"angles" "0 0 0"
@@ -3464,29 +3514,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[2500 -12768]"
-	}
-}
-entity
-{
-	"id" "122952"
-	"classname" "prop_testchamber_door"
-	"angles" "0 270 0"
-	"lightingorigin" "@entrance_portal_chamber_side"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"solid" "6"
-	"targetname" "@entrance_airlock_door"
-	connections
-	{
-		"OnOpen" "door_clipDisable0.25-1"
-	}
-	"origin" "0 782 -128"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
 	}
 }
 entity
@@ -5504,8 +5531,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-45.8654 164.399 25.1763]"
-		"look" "[-38.7896 202.96 -24.288]"
+		"position" "[-5.90955 633.085 -43.6335]"
+		"look" "[1.88796 694.828 -54.1595]"
 	}
 	camera
 	{

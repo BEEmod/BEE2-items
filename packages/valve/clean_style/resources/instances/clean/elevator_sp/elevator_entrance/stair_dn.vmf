@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "1049"
+	"mapversion" "1051"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "1049"
+	"mapversion" "1051"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2124,7 +2124,7 @@ world
 		{
 			"id" "24938"
 			"plane" "(96 704 -256) (96 640 -256) (-96 640 -256)"
-			"material" "TOOLS/TOOLSBLACK_NOPORTAL"
+			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[1 0 0 0] 0.25"
 			"rotation" "0"
@@ -2570,6 +2570,56 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "147940"
+	"classname" "comp_kv_setter"
+	"angles" "0 0 0"
+	"conv_ang" "0"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"invert" "0"
+	"kv_name" "lightingorigin"
+	"kv_value_local" "@entrance_portal_elevator_side"
+	"kv_value_mode" "local"
+	"kv_value_pos" "16 624 -248"
+	"mode" "kv"
+	"rotate" "0"
+	"target" "@entrance_airlock_door"
+	"origin" "16 624 -248"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "147943"
+	"classname" "prop_testchamber_door"
+	"angles" "0 270 0"
+	"lightingorigin" "@entrance_portal_elevator_side"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"solid" "6"
+	"targetname" "@entrance_airlock_door"
+	connections
+	{
+		"OnOpen" "door_clipDisable0.25-1"
+		"OnFullyOpen" "@entrance_airlock_doorSetLightingOrigin@entrance_portal_chamber_side0-1"
+	}
+	"origin" "0 654 -256"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Change the lighting origin once open, so that it blends when closed again."
+		"logicalpos" "[0 500]"
 	}
 }
 entity
@@ -3635,29 +3685,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "122952"
-	"classname" "prop_testchamber_door"
-	"angles" "0 270 0"
-	"lightingorigin" "@entrance_portal_chamber_side"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"solid" "6"
-	"targetname" "@entrance_airlock_door"
-	connections
-	{
-		"OnOpen" "door_clipDisable0.25-1"
-	}
-	"origin" "0 654 -256"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
 	}
 }
 entity
@@ -5523,8 +5550,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[413.374 665.202 173.273]"
-		"look" "[365.116 653.165 134.414]"
+		"position" "[1.59723 509.373 -101.863]"
+		"look" "[4.57998 562.816 -135.311]"
 	}
 	camera
 	{
