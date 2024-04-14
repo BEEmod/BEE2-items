@@ -12,6 +12,8 @@
 * #4308: Enlarge P1/1950s Small Glass Hole slightly to allow pellets through.
 * Add editor model for Absolute Fizzlers.
 * Laser Emitters now always use a static light, instead of it being togglable. This had the potential to quickly hit VRAD limits and generally fail to function.
+* Added ability to specify travel direction and stair direction for Clean SP elevators.
+* The light "temperature" can now be customised for Clean SP corridors.
 
 ### Bugfixes:
 * Fix neurotoxin timer not compiling in P1 style.
