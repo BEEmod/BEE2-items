@@ -30,6 +30,7 @@
 * #2779: Add proper hold-logic and clips to P1 vertical Exit Door.
 * #4290, #3242, #4393: Remake restart-on-exit logic to be more consistent across styles.
 * Fix "advanced" P1 Indicator Timer Panels not functioning.
+* Fix extraneous world brush being placed when Standing Fizzlers are used.
 
 ------------------------------------------
 
