@@ -171,6 +171,11 @@
 			"DefaultValue"		"1"
 			"Index"				"6"
 			}
+		"AutoDrop"
+			{
+			"DefaultValue"		"0"
+			"Index"				"7"
+			}
 		}
 	"Exporting"
 		{
@@ -232,7 +237,11 @@
 			{
 			"BEE2"
 				{
-				"Force" "Input"
+				"Type"          "AND"
+				"SpawnFire"     "always"
+				"invertVar"     "$start_active"
+				"Enable_Cmd"    "platform,TurnOn,,0.00,-1"
+				"Disable_Cmd"   "platform,TurnOff,,0.00,-1"
 				}
 			}
 		"Offset"		"64 64 64"
