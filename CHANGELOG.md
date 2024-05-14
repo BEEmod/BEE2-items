@@ -33,6 +33,7 @@
 * #4290, #3242, #4393: Remake restart-on-exit logic to be more consistent across styles.
 * Fix "advanced" P1 Indicator Timer Panels not functioning.
 * Fix extraneous world brush being placed when Standing Fizzlers are used.
+* Fix incorrect beveling on non-block Overgrown Stairs.
 
 ------------------------------------------
 
