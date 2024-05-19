@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "209"
+	"mapversion" "212"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "209"
+	"mapversion" "212"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -80,7 +80,6 @@ entity
 	"filtername" "@is_mbox"
 	"origin" "48 0 0"
 	"parentname" "track_lift_movelinear"
-	"solid" "6"
 	"spawnflags" "4104"
 	"StartDisabled" "1"
 	"targetname" "cube_enable_motion_trigger"
@@ -228,7 +227,7 @@ entity
 	"parm1" "$connectioncount integer 0"
 	"parm2" "$travel_distance integer 128"
 	"parm3" "$speed integer 100"
-	"parm4" "$travel_direction angle 0 90 0"
+	"parm4" "$travel_direction angle 0 0 0"
 	"parm5" "$starting_position float 0"
 	"parm6" "$start_active boolean 0"
 	"parm7" "$model string"
@@ -249,8 +248,6 @@ entity
 	"angles" "0 0 0"
 	"blockdamage" "0"
 	"disablereceiveshadows" "0"
-	"fademindist" "-1"
-	"fadescale" "1"
 	"movedir" "$travel_direction"
 	"movedistance" "$travel_distance"
 	"origin" "0 0 0"
@@ -258,7 +255,6 @@ entity
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "10"
-	"solid" "6"
 	"spawnflags" "0"
 	"speed" "$speed"
 	"startposition" "$starting_position"
@@ -274,46 +270,35 @@ entity
 	}
 	solid
 	{
-		"id" "3130"
+		"id" "3267"
 		side
 		{
-			"id" "1044"
-			"plane" "(-56 18 64) (-56 -19 64) (-56 -19 -64)"
+			"id" "1057"
+			"plane" "(-56 -14 64) (-56 14 64) (-20 14 64)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 1 0] 0.25"
+			"uaxis" "[1 0 0 32] 0.25"
+			"vaxis" "[0 -1 0 8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "1043"
-			"plane" "(32 -19 -64) (32 18 -64) (-56 18 -64)"
+			"id" "1056"
+			"plane" "(-56 14 -64) (-56 -14 -64) (28 -14 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[1 0 0 55.7822] 0.25"
+			"uaxis" "[1 0 0 32] 0.25"
+			"vaxis" "[0 -1 0 8] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "1042"
-			"plane" "(-16 -19 64) (-16 18 64) (32 18 -64)"
+			"id" "1055"
+			"plane" "(-56 -14 -64) (-56 14 -64) (-56 14 64)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "1041"
-			"plane" "(-56 -19 64) (-16 -19 64) (32 -19 -64)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.25"
+			"uaxis" "[0 1 0 -8] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -321,10 +306,10 @@ entity
 		}
 		side
 		{
-			"id" "1040"
-			"plane" "(32 18 -64) (-16 18 64) (-56 18 64)"
+			"id" "1054"
+			"plane" "(28 14 -64) (28 -14 -64) (28 -14 -52)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[-1 0 0 0] 0.25"
+			"uaxis" "[0 1 0 -8] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -332,11 +317,33 @@ entity
 		}
 		side
 		{
-			"id" "1039"
-			"plane" "(-16 18 64) (-16 -19 64) (-56 -19 64)"
+			"id" "1053"
+			"plane" "(-56 14 -64) (28 14 -64) (28 14 -52)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0.919131 0 0.393951 0] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
+			"uaxis" "[1 0 0 32] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "1052"
+			"plane" "(28 -14 -64) (-56 -14 -64) (-56 -14 64)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[1 0 0 32] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "1051"
+			"plane" "(28 14 -52) (28 -14 -52) (-20 -14 64)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -384,8 +391,6 @@ entity
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "0"
-	"SetBodyGroup" "0"
-	"shadowdepthnocache" "0"
 	"skin" "$skin"
 	"skinset" "$skin"
 	"solid" "6"

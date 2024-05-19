@@ -5,7 +5,7 @@
 ## New Features:
 * New Item: Tinted Glass, a blue-coloured version of glass which blocks absolutely everything, including lasers.
 * Added 2 new Barrier Hole variants: the Medium Hole can fit cubes, and the Slot Hole fits a light bridge through. The package has been renamed from "glass_hole", make sure to remove that file.
-* Glass/Grating now has a Start Reversed oprion, which shifts them to the inner pair of tiles.
+* Glass/Grating now has a Start Reversed option, which shifts them to the inner pair of tiles.
 * Added a few new Clean entry corridor variants, based on the Overgrown layouts.
 
 ## Enhancements:
@@ -34,6 +34,7 @@
 * Fix "advanced" P1 Indicator Timer Panels not functioning.
 * Fix extraneous world brush being placed when Standing Fizzlers are used.
 * Fix incorrect beveling on non-block Overgrown Stairs.
+* Fix Overgrown/Clean Track Platforms moving when built to be 1 block long.
 
 ------------------------------------------
 
