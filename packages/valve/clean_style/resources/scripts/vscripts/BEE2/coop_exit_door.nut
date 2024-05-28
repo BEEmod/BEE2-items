@@ -3,8 +3,8 @@
 // OnUser2: Open door.
 // OnUser3: Lock door and open elevator door
 // OnUser4: 
-BLUE <- 0
-ORAN <- 1
+const BLUE = 0
+const ORAN = 1
 
 ent_camera <- EntityGroup[0]
 
@@ -16,10 +16,10 @@ ent_tog <- [EntityGroup[3], EntityGroup[4]]
 // CONF_STARTOPEN <- true
 
 // Player states:
-STATE_OUTSIDE  <- 0 // Not near the door.
-STATE_INFRONT  <- 1 // In front of the door - open it.
-STATE_INSIDE   <- 2 // Inside corridor - lock door open
-STATE_ELEVATOR <- 3 // Fully inside - close door when both are here.
+const STATE_OUTSIDE  = 0 // Not near the door.
+const STATE_INFRONT  = 1 // In front of the door - open it.
+const STATE_INSIDE   = 2 // Inside corridor - lock door open
+const STATE_ELEVATOR = 3 // Fully inside - close door when both are here.
 
 // st_names <- ["OUTSIDE", "INFRONT", "INSIDE", "ELEVATOR"]
 
@@ -85,7 +85,7 @@ function update_state() {
 	if (state[BLUE] == STATE_ELEVATOR && state[ORAN] == STATE_ELEVATOR) {
 		has_won = true;
 		door_close();
-		EntFire("@has_won", "Trigger")
+		EntFire("@map_won", "Trigger")
 	    EFBH(self, "FireUser3")
 
 	} else if (state[BLUE] >= STATE_INSIDE || state[ORAN] >= STATE_INSIDE) {
@@ -99,7 +99,7 @@ function update_state() {
 }
 
 function inp_io(is_open) {
-	is_unlocked = is_open;
+	is_unlocked = is_open ? true : false;
 	update_state();
 }
 

@@ -1,5 +1,43 @@
 # Changelog
 
+# Version 4.45.0
+
+## New Features:
+* New Item: Tinted Glass, a blue-coloured version of glass which blocks absolutely everything, including lasers.
+* Added 2 new Barrier Hole variants: the Medium Hole can fit cubes, and the Slot Hole fits a light bridge through. The package has been renamed from "glass_hole", make sure to remove that file.
+* Glass/Grating now has a Start Reversed option, which shifts them to the inner pair of tiles.
+* Added a few new Clean entry corridor variants, based on the Overgrown layouts.
+
+## Enhancements:
+* #4308: Enlarge P1/1950s Small Glass Hole slightly to allow pellets through.
+* Add editor model for Absolute Fizzlers.
+* Laser Emitters now always use a static light, instead of it being togglable. This had the potential to quickly hit VRAD limits and generally fail to function.
+* Added ability to specify travel direction and stair direction for Clean SP elevators.
+* The light "temperature" can now be customised for Clean SP corridors.
+* #2811: Added "Auto Drop" to Track Platforms, giving them the player detection trigger like Piston Platforms.
+
+### Bugfixes:
+* Fix neurotoxin timer not compiling in P1 style.
+* Fix weird geometry in clean fizzler editor models.
+* Fix laser emitters not starting disabled properly.
+* #1571: Tweak coop exit stair position, add endcap model.
+* #4406: Fix centered Overgrown laser catcher not triggering outputs.
+* #4403: Fix missing palette icon for voxel logic gates.
+* Fix an issue where Clean and Overgrown cube droppers could be tricked into dropping two cubes, if a spawning cube is pushed against the iris.
+* #3289: Redo custom fizzler textures to fix bad tinting.
+* #2966: Sendificators will fizzle cubes if transported past the exit door fizzler, as well as other "out of bounds" locations.
+* #1609: Sendificators are now blocked by Closed Solid Fields.
+* #4415: Add additional clips underneath stair items to fix issues with items falling inside.
+* #4417: Fix it being possible to portal on extended Old Aperture stairs.
+* #2779: Add proper hold-logic and clips to P1 vertical Exit Door.
+* #4290, #3242, #4393: Remake restart-on-exit logic to be more consistent across styles.
+* Fix "advanced" P1 Indicator Timer Panels not functioning.
+* Fix extraneous world brush being placed when Standing Fizzlers are used.
+* Fix incorrect beveling on non-block Overgrown Stairs.
+* Fix Overgrown/Clean Track Platforms moving when built to be 1 block long.
+
+------------------------------------------
+
 # Version 4.44.0
 
 ### New Features:
@@ -140,6 +178,7 @@
 * Fix Old Aperture Sendificator Slim having broken antlines.
 * Fix P1 entrances not detecting people portalling out.
 * Fixed position of Old Aperture Flip Panel wheel.
+* Fixed check locations for Old Aperture entry/exit door speaker placements.
 
 ------------------------------------------
 

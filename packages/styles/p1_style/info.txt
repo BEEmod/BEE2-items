@@ -39,17 +39,36 @@
 		"Skybox"	"BEE2_PORTAL_1"
 		}
 	}
-	
+
 "CorridorGroup"
 	{
 	"ID" "BEE2_PORTAL_1"
+
+	"Options"
+		{
+		"DOORLESS"
+			{
+			"Name"    "Open Entrance"
+			"var"     "$doorless"
+			"default" "0"
+
+			"Description" "Allow singleplayer entrances to generate without a door or fizzler. This matches the original game, but may break some puzzles by allowing portal surfaces in the corridor to be used."
+			"Values"
+				{
+				"1" "Yes"
+				"0" "No"
+				}
+			}
+		}
+
 	"sp_entry"
 		{
 		"instance" "instances/BEE2/p1/elevator_sp/entrance_corridor_1.vmf"
 		"name" "Left Turn"
 		"authors" "Carl Kenner"
 		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/1.jpg"
-		"DefaultIndex" "1"
+
+		"Option" "DOORLESS"
 		"Fixups"
 			{
 			"$fizz_size" "160"
@@ -68,7 +87,8 @@
 			"" "Some panels are missing, showing a vactube which contains a cube, contains gel, or is shattered depending on the contents of the chamber."
 			}
 		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/2.jpg"
-		"DefaultIndex" "2"
+
+		"Option" "DOORLESS"
 		"Fixups"
 			{
 			"$fizz_size" "256"
@@ -81,7 +101,8 @@
 		"name" "Left Small"
 		"authors" "Carl Kenner"
 		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/6.jpg"
-		"DefaultIndex" "6"
+		
+		"Option" "DOORLESS"
 		"Fixups"
 			{
 			"$fizz_size" "128"
@@ -95,7 +116,8 @@
 		"authors" "TeamSpen210"
 		"Description" "A wide open corridor with portalable walls."
 		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/7.jpg"
-		"DefaultIndex" "7"
+		
+		"Option" "DOORLESS"
 		"Fixups"
 			{
 			"$fizz_size" "128"
@@ -113,7 +135,6 @@
 		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/down_piston_2.jpg"
 		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/down_piston_3.jpg"
 		"image" "BEE2_PORTAL_1:corr/p1/sp_entry/down_piston_4.jpg"
-		"DefaultIndex" "1"
 		"Fixups"
 			{
 			"$door_type" "remove"
@@ -127,7 +148,6 @@
 		"authors" "Carl Kenner"
 		"Description" "A straight corridor to the exit with non-portalable walls."
 		"image" "BEE2_PORTAL_1:corr/p1/sp_exit/1.jpg"
-		"DefaultIndex" "1"
 		"Fixups" 
 			{
 			"$door_type" "norm"
@@ -142,7 +162,6 @@
 		"authors" "Carl Kenner"
 		"Description" "A straight corridor to the exit with portalable walls."
 		"image" "BEE2_PORTAL_1:corr/p1/sp_exit/2.jpg"
-		"DefaultIndex" "2"
 		"Fixups" 
 			{
 			"$door_type" "norm"
@@ -157,7 +176,6 @@
 		"authors" "Carl Kenner"
 		"Description" "A right turn corridor with non-portalable walls."
 		"image" "BEE2_PORTAL_1:corr/p1/sp_exit/3.jpg"
-		"DefaultIndex" "3"
 		"Fixups" 
 			{
 			"$door_type" "norm"
@@ -176,7 +194,6 @@
 			"" "Changes the exit to a vertical door instead of a standard door."
 			}
 		"image" "BEE2_PORTAL_1:corr/p1/sp_exit/4.jpg"
-		"DefaultIndex" "4"
 		"config" "exit_door/corr_vert_door.cfg"
 		"Fixups" 
 			{
@@ -194,11 +211,10 @@
 		"image" "corr/p1/coop_entry/horiz_2.jpg"
 	
 		"instance" "instances/BEE2/p1/elevator_coop/spawn_room.vmf"
-		"DefaultIndex" "1"
 		"Fixups"
 			{
 			"$atlas_pos" "-144 -32 312"
-			"$atlas_ang" "1 0 0"
+			"$atlas_ang" "0 0 0"
 			}
 		}
 
@@ -209,7 +225,6 @@
 		"authors" "TeamSpen210"
 		"Description" "A straight corridor to the exit, with a short set of stairs in the middle."
 		"image" "BEE2_PORTAL_1:corr/p1/coop/1.jpg"
-		"DefaultIndex" "1"
 		"Fixups" 
 			{
 			"$door_type"   "norm"
@@ -225,7 +240,6 @@
 		"authors" "TeamSpen210"
 		"Description" "A large open corridor with portalable walls."
 		"image" "BEE2_PORTAL_1:corr/p1/coop/2.jpg"
-		"DefaultIndex" "2"
 		"Fixups" 
 			{
 			"$door_type"   "norm"
@@ -246,7 +260,6 @@
 			"" "If turrets are in the map, they retract."
 			}
 		"image" "BEE2_PORTAL_1:corr/p1/coop/3.jpg"
-		"DefaultIndex" "3"
 		"Fixups" 
 			{
 			"$door_type"   "norm"
@@ -262,7 +275,6 @@
 		"authors" "TeamSpen210"
 		"Description" "A non-portalable corridor which turns off to the left."
 		"image" "BEE2_PORTAL_1:corr/p1/coop/4.jpg"
-		"DefaultIndex" "4"
 		"Fixups" 
 			{
 			"$door_type"   "norm"
@@ -337,15 +349,6 @@
 	"Style"         "BEE2_PORTAL_1"
 	}
 
-"StyleVar"
-	{
-	"ID"            "P1_DOORLESS_ENTRY"
-	"Name"          "Open P1 Entrance"
-	"Description"   "Allow Portal 1 singleplayer entrances to generate without a door or fizzler. This matches the original game, but may break some puzzles by allowing portal surfaces in the corridor to be used."
-	"Enabled"       "1"
-	"Style"         "BEE2_PORTAL_1"
-	}
-	
 "Overrides"
 	{
 	"StyleVar"
@@ -712,7 +715,11 @@
 			{
 			"Styles"
 				{
-				"BEE2_PORTAL_1"		"glass"
+				"BEE2_PORTAL_1"
+					{
+					"Base" "BEE2_CLEAN"
+					"Config" "glass.cfg"
+					}
 				}
 			}
 		}

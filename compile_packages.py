@@ -10,7 +10,7 @@ import sys
 import itertools
 from zipfile import ZipFile, ZIP_LZMA, ZIP_DEFLATED
 
-from srctools import Property, KeyValError, VMF, Entity, conv_bool
+from srctools import VMF, Entity, conv_bool
 import argparse
 
 OPTIMISE = False

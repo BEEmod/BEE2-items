@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "221"
+	"editorbuild" "9672"
+	"mapversion" "222"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "221"
+	"mapversion" "222"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -34,9 +34,12 @@ entity
 	"classname" "comp_kv_setter"
 	"angles" "0 0 0"
 	"conv_ang" "0"
+	"ctrl_value" "1"
 	"invert" "0"
 	"kv_name" "model"
 	"kv_value_global" "$model"
+	"kv_value_mode" "legacy"
+	"kv_value_pos" "32 -16 -16"
 	"mode" "kv"
 	"rotate" "0"
 	"target" "mdl"
@@ -55,7 +58,8 @@ entity
 	"classname" "comp_relay"
 	"ctrl_type" "0"
 	"ctrl_value" "1"
-	"targetname" "plat"
+	"delay" "0.0"
+	"targetname" "platform"
 	connections
 	{
 		"OnTurnedOff" "cube_enable_motion_triggerDisable0.01-1"
@@ -166,6 +170,9 @@ entity
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"lfomodpitch" "0"
 	"lfomodvol" "0"
@@ -376,6 +383,7 @@ entity
 {
 	"id" "2"
 	"classname" "func_movelinear"
+	"angles" "0 0 0"
 	"blockdamage" "0"
 	"disablereceiveshadows" "0"
 	"movedir" "$travel_direction"
