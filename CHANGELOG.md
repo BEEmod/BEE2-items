@@ -1,5 +1,13 @@
 # Changelog
 
+# Version (dev)
+
+## Enhancements:
+* Added an explicit error if a Neurotoxin Timer is present in the map without
+  any Vents also present.
+
+------------------------------------------
+
 # Version 4.45.0
 
 ## New Features:
