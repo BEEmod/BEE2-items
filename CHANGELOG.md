@@ -5,6 +5,7 @@
 ## Enhancements:
 * Added an explicit error if a Neurotoxin Timer is present in the map without
   any Vents also present.
+* Optimise track platforms with longer rail models, depending on the length.
 
 ------------------------------------------
 
