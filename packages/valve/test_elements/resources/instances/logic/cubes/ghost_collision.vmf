@@ -1,0 +1,80 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "9672"
+	"mapversion" "5"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
+}
+world
+{
+	"id" "1"
+	"mapversion" "5"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2"
+	"classname" "logic_collision_pair"
+	"angles" "0 0 0"
+	"attach1" "cube"
+	"attach2" "cube"
+	"startdisabled" "0"
+	"targetname" "ghost_collision"
+	"vscripts" "bee2/cube_ghost_pair.nut"
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "128 128 128"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "25"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "release_rl"
+	connections
+	{
+		"OnTrigger" "ghost_collisionCallScriptFunctionFindCube0.1-1"
+		"OnTrigger" "ghost_collisionEnableCollisions0-1"
+	}
+	"origin" "-16 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "Triggered when the cube should spawn. The ent does nothing if it thinks collisions are disabled already, so enable first."
+		"logicalpos" "[0 0]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
