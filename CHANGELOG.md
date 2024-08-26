@@ -6,7 +6,7 @@
 * Added an explicit error if a Neurotoxin Timer is present in the map without
   any Vents also present.
 * Optimise track platforms with longer rail models, depending on the length.
-* Added "Precise Cube Dropper" option, which delays cube release to prevent it tumbling from the dropper doors.
+* #4383: Added "Precise Cube Dropper" option, which delays cube release to prevent it tumbling from the dropper doors.
 * Added option to prevent cubes from colliding with their own fizzling ghost.
 
 ------------------------------------------
