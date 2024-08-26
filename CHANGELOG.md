@@ -9,6 +9,9 @@
 * #4383: Added "Precise Cube Dropper" option, which delays cube release to prevent it tumbling from the dropper doors.
 * Added option to prevent cubes from colliding with their own fizzling ghost.
 
+### Bugfixes:
+* Fix missing texture for Tinted Glass editor model.
+
 ------------------------------------------
 
 # Version 4.45.0
