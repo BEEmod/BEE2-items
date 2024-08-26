@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8973"
-	"mapversion" "362"
+	"editorbuild" "9672"
+	"mapversion" "370"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -44,7 +44,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "362"
+	"mapversion" "370"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -462,7 +462,10 @@ entity
 	"id" "7003"
 	"classname" "comp_kv_setter"
 	"angles" "0 0 0"
+	"ctrl_value" "1"
 	"invert" "0"
+	"kv_value_mode" "legacy"
+	"kv_value_pos" "32 16 48"
 	"mode" "kv"
 	"target" "close_trig"
 	connections
@@ -519,6 +522,9 @@ entity
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"lfomodpitch" "0"
 	"lfomodvol" "0"
@@ -553,6 +559,9 @@ entity
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"lfomodpitch" "0"
 	"lfomodvol" "0"
@@ -740,6 +749,7 @@ entity
 	"id" "5027"
 	"classname" "prop_dynamic"
 	"angles" "0 270 -180"
+	"animateeveryframe" "1"
 	"DefaultAnim" "idle_closed"
 	"disableshadows" "1"
 	"drawinfastreflection" "1"
@@ -1246,15 +1256,15 @@ entity
 	"targetname" "spawn_man"
 	connections
 	{
-		"OnChangeToAllTrue" "spawn_manSetStateAFalse0.45-1"
-		"OnChangeToAllTrue" "cover_clipDisable1.1-1"
-		"OnChangeToAllTrue" "snd_openPlaySound0.45-1"
-		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationopen0.45-1"
+		"OnChangeToAllTrue" "cover_clipDisable0.55-1"
+		"OnChangeToAllTrue" "snd_openPlaySound0.1-1"
+		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationopen0.1-1"
 		"OnChangeToAllTrue" "box*FireUser10.01-1"
 		"OnChangeToAllTrue" "close_trigEnable0-1"
 		"OnChangeToAllTrue" "spawn_manFireUser101"
 		"OnChangeToAllTrue" "cube_dropper_box_reenter_clipDisable0-1"
 		"OnChangeToAllTrue" "spawn_manSetStateBFalse0-1"
+		"OnChangeToAllTrue" "release_rlTrigger0-1"
 	}
 	"origin" "32 -16 48"
 	editor

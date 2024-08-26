@@ -601,22 +601,42 @@
 		}
 	}
 
-"StyleVar"
+"ConfigGroup"
 	{
-	"ID"          "DoorCameras"
-	"Enabled"     "1"
-	"Name"        "Door Cameras"
-	"Description" "Automatically add cameras around the entry and exit doors."
-	"Style"       "BEE2_CLEAN"
-	}
+	"ID"    "VALVE_MANDATORY"
+	"Name"  "Mandatory Items"
+	"Widget"
+		{
+		"ID"      "DoorCameras"
+		"Type"    "Checkbox"
+		"Default" "1"
+		"Label"   "Door Cameras"
 
-"StyleVar"
-	{
-	"ID"          "RestartOnExit"
-	"Enabled"     "1"
-	"Name"        "Restart When Reaching Exit"
-	"Description" "Automatically restart the map once the player(s) have reached the exit."
-	"Style"       "BEE2_CLEAN"
+		"legacy_stylevar_id" "DoorCameras"
+		"Tooltip" "Automatically add cameras around the entry and exit doors."
+		}
+
+	"Widget"
+		{
+		"ID"      "RestartOnExit"
+		"Type"    "Checkbox"
+		"Default" "1"
+		"Label"   "Restart When Reaching Exit"
+
+		"legacy_stylevar_id" "RestartOnExit"
+		"Tooltip" "Automatically restart the map once the player(s) have reached the exit."
+		}
+
+	"Widget"
+		{
+		"ID"      "UnlockDefault"
+		"Type"    "Checkbox"
+		"Default" "1"
+		"Label"   "Unlock Default Items"
+
+		"legacy_stylevar_id" "UnlockDefault"
+		"Tooltip" "Allow placing and deleting the mandatory Entry/Exit Doors and Large Observation Room. Use with caution, this can have weird results!"
+		}
 	}
 
 "Item"
