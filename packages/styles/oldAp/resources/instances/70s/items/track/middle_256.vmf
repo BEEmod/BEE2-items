@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "6432"
-	"mapversion" "34"
+	"editorbuild" "9672"
+	"mapversion" "37"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "64"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "34"
+	"mapversion" "37"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -29,22 +29,22 @@ world
 	"skyname" "sky_black_nofog"
 	solid
 	{
-		"id" "49"
+		"id" "956"
 		side
 		{
-			"id" "138"
-			"plane" "(64 64 -64) (64 -64 -64) (-64 -64 -64)"
-			"material" "METAL/UNDERGROUND_BLACK_TILE001C"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 768] 0.25"
-			"rotation" "0"
+			"id" "1"
+			"plane" "(-128 -64 -64) (-128 64 -64) (128 64 -64)"
+			"material" "WOOD/UNDERGROUND_WOODTRIM001A"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[1 0 0 512] 0.25"
+			"rotation" "90"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "137"
-			"plane" "(-64 64 -64) (-64 -64 -64) (-48 -48 -80)"
+			"id" "2"
+			"plane" "(-128 64 -64) (-128 -64 -64) (-124 -60 -68)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -54,8 +54,8 @@ world
 		}
 		side
 		{
-			"id" "136"
-			"plane" "(64 -64 -64) (64 64 -64) (48 48 -80)"
+			"id" "3"
+			"plane" "(124 -60 -68) (128 -64 -64) (128 64 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 18.745] 0.25"
 			"vaxis" "[0 0 -1 -26.5097] 0.25"
@@ -65,8 +65,8 @@ world
 		}
 		side
 		{
-			"id" "135"
-			"plane" "(48 -48 -80) (48 48 -80) (-48 48 -80)"
+			"id" "4"
+			"plane" "(-124 -60 -68) (-128 -64 -64) (128 -64 -64)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -76,8 +76,8 @@ world
 		}
 		side
 		{
-			"id" "134"
-			"plane" "(64 -64 -64) (48 -48 -80) (-48 -48 -80)"
+			"id" "5"
+			"plane" "(128 64 -64) (-128 64 -64) (-124 60 -68)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -87,8 +87,8 @@ world
 		}
 		side
 		{
-			"id" "133"
-			"plane" "(-64 64 -64) (-48 48 -80) (48 48 -80)"
+			"id" "6"
+			"plane" "(-124 60 -68) (-124 -60 -68) (124 -60 -68)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -106,9 +106,9 @@ world
 }
 entity
 {
-	"id" "923"
+	"id" "945"
 	"classname" "prop_static"
-	"angles" "0 180 180"
+	"angles" "0 90 -180"
 	"disableflashlight" "0"
 	"disableselfshadowing" "0"
 	"disableshadowdepth" "0"
@@ -124,7 +124,7 @@ entity
 	"maxgpulevel" "0"
 	"mincpulevel" "0"
 	"mingpulevel" "0"
-	"model" "models/bee2/props_ingame/retro_track_128.mdl"
+	"model" "models/props_underground/moving_platform_track.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"RenderMode" "0"
@@ -132,7 +132,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "0"
-	"origin" "0 49 -48"
+	"origin" "-0.410999 -49.4867 -64"
 	editor
 	{
 		"color" "255 255 0"
@@ -143,9 +143,9 @@ entity
 }
 entity
 {
-	"id" "927"
+	"id" "949"
 	"classname" "prop_static"
-	"angles" "0 0 -180"
+	"angles" "0 90 -180"
 	"disableflashlight" "0"
 	"disableselfshadowing" "0"
 	"disableshadowdepth" "0"
@@ -161,7 +161,7 @@ entity
 	"maxgpulevel" "0"
 	"mincpulevel" "0"
 	"mingpulevel" "0"
-	"model" "models/bee2/props_ingame/retro_track_128.mdl"
+	"model" "models/props_underground/moving_platform_track.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"RenderMode" "0"
@@ -169,7 +169,7 @@ entity
 	"shadowdepthnocache" "0"
 	"skin" "0"
 	"solid" "0"
-	"origin" "-0.410999 -49 -48"
+	"origin" "0 49 -64"
 	editor
 	{
 		"color" "255 255 0"
