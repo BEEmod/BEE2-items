@@ -9,6 +9,7 @@
 * #4383: Added "Precise Cube Dropper" option, which delays cube release to prevent it tumbling from the dropper doors.
 * Added option to prevent cubes from colliding with their own fizzling ghost.
 * Several stylevars ("Unlock Default Items" and "Restart On Exit") were moved to the "mandatory items" tab.
+* Added numbers to the ingame signage legend.
 
 ### Bugfixes:
 * Fix missing texture for Tinted Glass editor model.
