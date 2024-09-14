@@ -17,6 +17,7 @@
 * Fix leak in 1980s Coop spawn room.
 * #4382: Re-enable antline transferal to block items.
 * Fix Clean downward exit not trigging "map won" logic.
+* Fix 1-long Clean Track Platform not working.
 
 ------------------------------------------
 
