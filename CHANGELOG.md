@@ -18,6 +18,7 @@
 * #4382: Re-enable antline transferal to block items.
 * Fix Clean downward exit not trigging "map won" logic.
 * Fix 1-long Clean Track Platform not working.
+* Fix barriers not being cut by the resizable Black/White Wall item.
 
 ------------------------------------------
 
