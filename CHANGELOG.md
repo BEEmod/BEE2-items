@@ -20,6 +20,7 @@
 * Fix 1-long Clean Track Platform not working.
 * Fix barriers not being cut by the resizable Black/White Wall item.
 * Fix P1 ceiling Obs Room (light hole) and Large Obs Room not actually producing light.
+* Make P1 Track Platform 'bottom grate' match the shape of the platform.
 
 ------------------------------------------
 
