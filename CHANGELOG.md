@@ -10,6 +10,7 @@
 * Added option to prevent cubes from colliding with their own fizzling ghost.
 * Several stylevars ("Unlock Default Items" and "Restart On Exit") were moved to the "mandatory items" tab.
 * Added numbers to the ingame signage legend.
+* Added option to have barriers extend down to the surface of goo.
 
 ### Bugfixes:
 * Fix missing texture for Tinted Glass editor model.
