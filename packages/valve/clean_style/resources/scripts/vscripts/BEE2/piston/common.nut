@@ -40,6 +40,8 @@ dn_fizz_on <- false;
 dn_fizz_allowed <- false;
 door_pos <- null;
 crush_count <- 0;
+snd_btm_pos <- self.GetOrigin();
+snd_top_ent <- null;
 
 
 function Precache() {
@@ -75,11 +77,9 @@ function OnPostSpawn() {
 		pos = highest_pos;
 	}
 	
-	snd_source_ent <- self.GetMoveParent();
-	if (snd_source_ent == null) {
-		snd_source_ent = self;
-	} else {
-		// No use for the parent now we know about it.
+	snd_top_ent <- self.GetMoveParent();
+	if (snd_top_ent != null) {
+		// We now know what it is.
 		EntFireByHandle(self, "ClearParent", "", 0, self, self);
 	}
 	
@@ -105,8 +105,8 @@ function moveto(new_pos) {
 		if(START_SND) {
 			self.EmitSound(START_SND);
 		}
-		if(self.GetClassname() == "ambient_generic") {
-			EntFireByHandle(self, "PlaySound", "", 0.00, self, self);
+		if (self.GetClassname() == "func_rotating") { // Looping sound
+			EntFireByHandle(self, "Start", "", 0.00, self, self);
 		}
 		if (enable_motion_trig != null) {
 			EntFireByHandle(enable_motion_trig, "Enable", "", 0, self, self);
@@ -147,10 +147,10 @@ function _up() {
 	// Finished.
 	cur_moving = -1;
 	if (STOP_SND) {
-		snd_source_ent.EmitSound(STOP_SND);
+		self.EmitSound(STOP_SND);
 	}
-	if(self.GetClassname() == "ambient_generic") {
-		EntFireByHandle(self, "StopSound", "", 0.00, self, self);
+	if (self.GetClassname() == "func_rotating") { // Looping sound
+		EntFireByHandle(self, "Stop", "", 0.00, self, self);
 	}
 }
 
@@ -169,10 +169,10 @@ function _dn() {
 	// Finished.
 	cur_moving = -1;
 	if (STOP_SND) {
-		snd_source_ent.EmitSound(STOP_SND);
+		self.EmitSound(STOP_SND);
 	}
-	if(self.GetClassname() == "ambient_generic") {
-		EntFireByHandle(self, "StopSound", "", 0.00, self, self);
+	if (self.GetClassname() == "func_rotating") { // Looping sound.
+		EntFireByHandle(self, "Stop", "", 0.00, self, self);
 	}
 	if (has_dn_fizz && dn_fizz_on) {
 		dn_fizz_on = false;
@@ -182,9 +182,16 @@ function _dn() {
 	}
 }
 
-// Used by pistons that can fizzle objects below them.
-// If it gets stuck (stops moving), activate.
-function FizzThink() {
+function Think() {
+	if (cur_moving != -1 && snd_top_ent != null) {
+		// Update position.
+		local sum = snd_btm_pos + snd_top_ent.GetOrigin();
+		sum *= 0.5;
+		self.SetOrigin(sum);
+	}
+
+	// Used by pistons that can fizzle objects below them.
+	// If it gets stuck (stops moving), activate.
 	// Lotsa checks here.
 	// Only run if:
 	// * allowed to.
@@ -207,5 +214,5 @@ function FizzThink() {
 		door_pos = new_pos;
    		return 0.05;
     }
-    return 0.25;
+    return cur_moving != -1 ? 0.1 : 0.25;
 }
