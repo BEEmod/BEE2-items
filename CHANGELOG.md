@@ -23,6 +23,7 @@
 * Fix P1 ceiling Obs Room (light hole) and Large Obs Room not actually producing light.
 * Make P1 Track Platform 'bottom grate' match the shape of the platform.
 * #4446: Fix piston movement sounds looping forever.
+* #4448: Futbols will now respawn if falling into goo.
 
 ------------------------------------------
 
