@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "4"
+	"mapversion" "7"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,19 +20,19 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "4"
+	"mapversion" "7"
 	"classname" "worldspawn"
-	"skyname" "sky_black_nofog"
-	"maxpropscreenwidth" "-1"
-	"detailvbsp" "detail.vbsp"
 	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
 }
 entity
 {
 	"id" "2"
 	"classname" "func_clip_vphysics"
-	"filtername" "cube_dropper_box_filter"
+	"filtername" "filter_name"
 	"origin" "0 0 39"
 	"parentname" "door_rot"
 	"targetname" "door_clip"
@@ -240,12 +240,12 @@ entity
 {
 	"id" "12"
 	"classname" "comp_relay"
+	"ctrl_value" "1"
 	"delay" "0.0"
 	"targetname" "release_rl"
-	"ctrl_value" "1"
 	connections
 	{
-		"OnTrigger" "cube_dropper_box_drop_clipDisable0.1-1"
+		"OnTrigger" "cube_dropper_box_drop_clipDisable0.15-1"
 		"OnTrigger" "door_rotOpen0.1-1"
 		"OnTurnedOff" "door_rotClose0-1"
 	}

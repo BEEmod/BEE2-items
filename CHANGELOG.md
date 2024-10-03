@@ -14,6 +14,7 @@
 
 ### Bugfixes:
 * Fix missing texture for Tinted Glass editor model.
+* #2475: Fix cubes being duplicated if they get fizzled while they are leaving the dropper.
 * #4442: Fix missing `exit_deadly_coop` instance for "Glados Human Vault" voiceline set.
 * Fix leak in 1980s Coop spawn room.
 * #4382: Re-enable antline transferal to block items.

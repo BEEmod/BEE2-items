@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "346"
+	"mapversion" "356"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -56,13 +56,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "346"
+	"mapversion" "356"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -621,6 +621,26 @@ world
 }
 entity
 {
+	"id" "7210"
+	"classname" "filter_multi"
+	"angles" "0 0 0"
+	"filter01" "filter_name"
+	"filter02" "@filter_not_fizzling"
+	"filtertype" "0"
+	"Negated" "0"
+	"targetname" "cube_dropper_box_filter"
+	"origin" "0 16 48"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "We need the fizzling filter to prevent the close trigger double-detecting a fizzling cube if it fizzles while still falling out of the dropper."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "6522"
 	"classname" "comp_relay"
 	"ctrl_type" "0"
@@ -631,7 +651,7 @@ entity
 	{
 		"OnTrigger" "cube_dropper_box_drop_clipDisable0.7-1"
 	}
-	"origin" "16 0 48"
+	"origin" "16 -16 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -1073,7 +1093,7 @@ entity
 	{
 		"OnTrigger" "spawn_manSetStateATrue0-1"
 	}
-	"origin" "0 0 48"
+	"origin" "-16 0 48"
 	editor
 	{
 		"color" "0 100 250"
@@ -1394,9 +1414,9 @@ entity
 	"classname" "filter_activator_name"
 	"angles" "0 0 0"
 	"filtername" "box*"
-	"Negated" "Allow entities that match criteria"
-	"targetname" "cube_dropper_box_filter"
-	"origin" "-16 -16 48"
+	"Negated" "0"
+	"targetname" "filter_name"
+	"origin" "0 -16 48"
 	editor
 	{
 		"color" "0 255 0"
@@ -1420,7 +1440,7 @@ entity
 		"OnEntitySpawned" "box*FireUser40-1"
 		"OnEntitySpawned" "cube_addon_*FireUser40-1"
 	}
-	"origin" "16 -16 48"
+	"origin" "0 0 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -1455,7 +1475,7 @@ entity
 		"OnChangeToAllTrue" "spawn_manFireUser10.1-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetDefaultAnimationopen_idle0.2-1"
 	}
-	"origin" "16 16 48"
+	"origin" "16 0 48"
 	editor
 	{
 		"color" "0 100 250"
