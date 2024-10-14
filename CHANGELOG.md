@@ -11,6 +11,7 @@
 * Several stylevars ("Unlock Default Items" and "Restart On Exit") were moved to the "mandatory items" tab.
 * Added numbers to the ingame signage legend.
 * Added option to have barriers extend down to the surface of goo.
+* Portal 1 style will now extend white walls into the top of goo.
 
 ### Bugfixes:
 * Fix missing texture for Tinted Glass editor model.
