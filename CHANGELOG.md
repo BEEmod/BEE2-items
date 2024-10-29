@@ -12,6 +12,7 @@
 * Added numbers to the ingame signage legend.
 * Added option to have barriers extend down to the surface of goo.
 * Portal 1 style will now extend white walls into the top of goo.
+* Add support for VScript raytracing against exported collision volumes.
 
 ### Bugfixes:
 * Fix missing texture for Tinted Glass editor model.
