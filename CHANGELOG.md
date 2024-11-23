@@ -15,6 +15,7 @@
 * Add support for VScript raytracing against exported collision volumes.
 
 ### Bugfixes:
+* Fix collisions on static Angled Panels.
 * Fix missing texture for Tinted Glass editor model.
 * #2475: Fix cubes being duplicated if they get fizzled while they are leaving the dropper.
 * #4442: Fix missing `exit_deadly_coop` instance for "Glados Human Vault" voiceline set.
