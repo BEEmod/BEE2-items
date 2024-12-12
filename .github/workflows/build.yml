@@ -63,7 +63,7 @@ jobs:
       - name: Calc Name (hash)
         if: github.event_name != 'create'
         run: |
-          pyp "f'ARTI_NAME=beemod2_dev{'${{ github.sha }}'[:8]}_packages" >> "$GITHUB_ENV"
+          pyp "f'ARTI_NAME=beemod2_dev{'${{ github.sha }}'[:8]}_packages'" >> "$GITHUB_ENV"
           echo "RETENTION=8" >> "$GITHUB_ENV"
 
       - name: Packages upload
