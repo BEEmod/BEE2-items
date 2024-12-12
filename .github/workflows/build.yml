@@ -57,7 +57,7 @@ jobs:
         if: github.event_name == 'create'
         # Strip folders from ref names, / isn't valid in a filename.
         run: |
-          pyp "f'ARTI_NAME=beemod2_{re.sub('[^a-zA-Z0-9]+', '', Path('${{ github.event.ref }}').stem}_packages')" >> "$GITHUB_ENV"
+          pyp "f'ARTI_NAME=beemod2_{re.sub('[^a-zA-Z0-9]+', '', Path('${{ github.event.ref }}').stem)}_packages'" >> "$GITHUB_ENV"
           echo "RETENTION=30" >> "$GITHUB_ENV"
 
       - name: Calc Name (hash)
