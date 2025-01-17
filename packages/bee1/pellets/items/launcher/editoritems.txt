@@ -521,22 +521,27 @@
 			"DefaultValue"		"1"
 			"Index"		"2"
 			}
+		"AutoDrop"
+			{
+			"DefaultValue"		"0"
+			"Index"		"3"
+			}
 		"AutoRespawn"
 			{
 			"DefaultValue"		"1"
-			"Index"		"3"
+			"Index"		"4"
 			}
 		"TimerDelay"
 			{
 			"DefaultValue"		"5"
-			"Index"		"4"
+			"Index"		"5"
 			}
 		}
 	"Exporting"
 		{
 		"Instances"
 			{
-			"bee2_inf"  "instances/BEE2/clean/items/BEE/hep/emitter_inf.vmf"
+			//"bee2_inf"  "instances/BEE2/clean/items/BEE/hep/emitter_inf.vmf"
 			"bee2_norm" "instances/BEE2/clean/items/BEE/hep/emitter_norm.vmf"
 			"0"
 				{
@@ -554,8 +559,9 @@
 				{
 				"Type"          "AND"
 				"InvertVar"     "$start_enabled"
-				"Enable_Cmd"    "launcher,Enable,,0.00,-1"
-				"Disable_Cmd"   "launcher,Disable,,0.00,-1"
+				"Enable_Cmd"  "launcher,CallScriptFunction,turn_on,0.00,-1"
+				"Disable_Cmd" "launcher,CallScriptFunction,turn_off,0.00,-1"
+				"SpawnFire"   "always"
 				}
 			}
 		"Offset"		"64 64 64"
