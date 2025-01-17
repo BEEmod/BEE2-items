@@ -80,6 +80,11 @@ function Reset() {
 
 function FizzleCube() {
 	if (cube != null) {
+	
+		if (cube_trigger != null && cube_trigger.IsValid()) {
+			cube_trigger.Destroy();
+		}
+		
 		EntFireByHandle(cube, "Dissolve", "", 0.0, activator, self);
 		cube = null;
 	}
