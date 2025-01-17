@@ -10,6 +10,8 @@ ORIENT_NORM <- tele.GetAngles();
 // ORIENT_MONST: comp_kv_setter.
 cube <- null;
 was_ball <- false;
+cube_child <- null;
+cube_trigger <- null;
 
 const SND_OFF = "BEE2.p1.rex_deflect_off";
 const SND_ON  = "BEE2.p1.rex_deflect_on";
@@ -43,10 +45,19 @@ function AttachCube() {
 		EntFireByHandle(self, "FireUser1", "", 0.0, cube, self);
 		tele.EmitSound(SND_ON);
 	}
+	
 	::rex_holder_constrained[inst_name] <- cube;
 	EntFireByHandle(self, "Disable", "", 0.0, self, self);
 	EntFireByHandle(cube, "DisableMotion", "", 0.0, cube, self);
 	EntFireByHandle(tele, "TeleportToCurrentPos", "!activator", 0.0, cube, self);
+	
+	// Disable cube pellet trigger
+	cube_child = cube.FirstMoveChild();
+	if (cube_child != null && cube_child.IsValid() && cube_child.GetClassname() == "trigger_multiple" && cube_child.GetName().find("cube_addon_rex_pellet_trig") != null) {
+		cube_trigger = cube_child;
+		EntFireByHandle(cube_trigger, "Disable", "", 0.0, cube_trigger, self);
+	}
+	cube_child = null;
 	
 	EntFireByHandle(template, "ForceSpawn", "", 0.0, self, self);
 	EntFireByHandle(cube, "EnableMotion", "", 0.1, cube, self);
@@ -60,6 +71,11 @@ function Reset() {
 		tele.EmitSound(SND_OFF);
 	}
 	cube = null;
+	
+	if (cube_trigger != null && cube_trigger.IsValid()) {
+		EntFireByHandle(cube_trigger, "Enable", "", 0.0, cube_trigger, self);
+	}
+	cube_trigger = null;
 }
 
 function FizzleCube() {
