@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8973"
-	"mapversion" "110"
+	"editorbuild" "9672"
+	"mapversion" "117"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,95 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "2"
+	"nGridSpacing" "1"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "110"
+	"mapversion" "117"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_day01_01"
+	solid
+	{
+		"id" "844"
+		side
+		{
+			"id" "486"
+			"plane" "(-26 -32 -68) (32 -32 -68) (32 -32 -187)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 -6] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "487"
+			"plane" "(-26 32 -187) (32 32 -187) (32 32 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 -6] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "488"
+			"plane" "(-26 -32 -68) (-26 -32 -187) (-26 32 -187)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 0 1 6] 0.25"
+			"vaxis" "[0 1 0 6] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "489"
+			"plane" "(32 32 -68) (32 32 -187) (32 -32 -187)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 0 1 6] 0.25"
+			"vaxis" "[0 1 0 6] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "490"
+			"plane" "(32 -32 -68) (-26 -32 -68) (-26 32 -68)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 6] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "491"
+			"plane" "(32 32 -187) (-26 32 -187) (-26 -32 -187)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 6] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "0 187 112"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
 	solid
 	{
 		"id" "759"
@@ -692,6 +768,48 @@ world
 }
 entity
 {
+	"id" "826"
+	"classname" "comp_kv_setter"
+	"angles" "0 0 0"
+	"conv_ang" "0"
+	"ctrl_type" "0"
+	"ctrl_value" "$offset_mdl"
+	"invert" "0"
+	"kv_name" "model"
+	"kv_value_global" "models/bee2/props_p1/laser_emitter_offset.mdl"
+	"mode" "kv"
+	"rotate" "0"
+	"target" "laser"
+	"origin" "-16 -16 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "828"
+	"classname" "func_instance_parms"
+	"parm1" "$connectioncount integer"
+	"parm2" "$start_enabled boolean 1"
+	"parm3" "$start_disabled boolean 0"
+	"parm4" "$yaw float 0"
+	"parm5" "$autoaim string"
+	"parm6" "$offset_mdl boolean 0"
+	"origin" "16 16 -56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "676"
 	"classname" "func_detail"
 	solid
@@ -874,6 +992,7 @@ entity
 	"_lightHDR" "-1 -1 -1 1"
 	"_lightscaleHDR" "1"
 	"_quadratic_attn" "1"
+	"_shadoworiginoffset" "0 0 0"
 	"angles" "0 0 0"
 	"spawnflags" "0"
 	"origin" "0 0 -40"
@@ -978,32 +1097,16 @@ entity
 }
 entity
 {
-	"id" "377"
-	"classname" "func_instance_parms"
-	"parm1" "$connectioncount integer 0"
-	"parm2" "$start_enabled boolean 0"
-	"parm3" "$start_disabled boolean 1"
-	"origin" "0 0 -24"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "287"
 	"classname" "env_portal_laser"
-	"angles" "-90 180 0"
+	"angles" "-90 $yaw 0"
 	"AutoAimEnabled" "$autoaim"
 	"model" "models/bee2/props_p1/laser_emitter.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"StartState" "$start_disabled"
+	"StartState" "!$start_enabled"
 	"targetname" "laser"
 	"origin" "0 0 -80"
 	editor

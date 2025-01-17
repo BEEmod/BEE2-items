@@ -1,0 +1,22 @@
+UnlitGeneric
+{
+$basetexture "BEE2/models/props_clean/indicator/slices"
+$translucent 1
+$decal 1
+$model 1
+
+$alpha 0.5  // This value displays in Hammer, helping preview the bodygroups.
+$progress 1.0
+
+Proxies
+	{
+	MaterialModify
+		{
+		}
+	Equals // Ensure materialsystem knows we're editing alpha.
+		{
+		srcVar1 $progress
+		resultVar $alpha
+		}
+	}
+}

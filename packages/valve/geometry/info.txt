@@ -21,11 +21,53 @@
 		
 		"Tooltip" "If Stairs recieve no inputs they will switch to an alternate design, made of solid blocks. This disables that feature, for designers who prefer the fully-articulated panels."
 		}
+	"Widget"
+		{
+		"ID"      "TrackPlatSpeed"
+		"Type"    "Slider"
+		"Default" "100"
+		"Min"     "25"
+		"Max"     "200"
+		"Step"    "25"
+
+		"Label"   "Track Platform Speed"
+		"Tooltip" "Allows customising the movement speed for Track Platforms. This is measured in Hammer units per second - a Puzzlemaker voxel is 128 units across. Puzzlemaker defaults to 100u/s, while the campaign tends to use values of 75, 100 or 150 depending on the map."
+		}
+	"Widget"
+		{
+		"ID"      "PistonPlatSpeed"
+		"Type"    "Slider"
+		"Default" "150"
+		"Min"     "25"
+		"Max"     "200"
+		"Step"    "25"
+
+		"Label"   "Piston Platform Speed"
+		"Tooltip" "Allows customising the movement speed for Piston Platforms. This is measured in Hammer units per second - a Puzzlemaker voxel is 128 units across. Puzzlemaker defaults to 150u/s, while the campaign tends to use values of 100 or 150 depending on the map."
+		}
+	"Widget"
+		{
+		"ID"	  "ExtendGooBarrier"
+		"Type"    "Checkbox"
+		"Default" "0"
+
+		"Label" "Extend Walls into Goo"
+		"Tooltip" "If barrier items are placed vertically above goo, should it be extended down to the surface?"
+		}
 	}
-	
+
 "Item"
 	{
 	"ID" "ITEM_BARRIER"
+	"Description"	
+		{
+		"" "Thin walls made of glass or grating."
+		"" ""
+		"" "* Glass only lets through Discouragement Beams."
+		"" "* Grating only blocks player movement, cubes and turrets(but not turret bullets)."
+		"" "* If the 'Start Reversed' option is checked, the wall will be shifted to the inner pair of tiles instead of the outer pair."
+		"" "* This item accepts inputs to allow it to be connected to custom barrier items. It has no effect for others."
+		}
 	"Version"
 		{
 		"Styles"
@@ -103,11 +145,18 @@
 			}
 		}
 	}
-	
-	
+
 "Item"
 	{
 	"ID" "ITEM_RAIL_PLATFORM"
+	"Description"
+		{
+		"" "A platform that moves along a track. It can either move back and forth when enabled or change from one side to another when turned on or off."
+		"" ""
+		"" "* The Auto Drop option enables or disables player detection. If enabled the platform will only move when players stand on the platform."
+		"" "* If connections are attached, they must be all active first before the platform will function."
+		"" "* Cube Type allows using Portalable or non-Portalable surfaces on the top of the platform. Sphere and Franken should not be used."
+		}
 	"Version"
 		{
 		"Styles"
@@ -116,7 +165,7 @@
 			}
 		}
 	}
-	
+
 "Item"
 	{
 	"ID" "ITEM_PISTON_PLATFORM"
@@ -136,4 +185,21 @@
 			"BEE2_CLEAN"	"piston_plat"
 			}
 		}
+	}
+
+
+"TransToken"
+	{
+	"ID" "BAD_TRACK_PLAT_CUBE_TYPE"
+
+	"Text" "The <kbd><samp>Sphere</samp></kbd> or <kbd><samp>Franken</samp></kbd> cube types should not be used on Track Platforms."
+	"Text" "These types are reserved for future functionality."
+	}
+
+"TransToken"
+	{
+	"ID" "BAD_PISTON_PLAT_CUBE_TYPE"
+
+	"Text" "The <kbd><samp>Sphere</samp></kbd> or <kbd><samp>Franken</samp></kbd> cube types should not be used on Piston Platforms."
+	"Text" "These types are reserved for future functionality."
 	}

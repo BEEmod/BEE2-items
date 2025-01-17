@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8997"
-	"mapversion" "334"
+	"editorbuild" "9672"
+	"mapversion" "341"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -62,7 +62,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "334"
+	"mapversion" "341"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -277,6 +277,68 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "6310"
+	"classname" "filter_activator_name"
+	"angles" "0 0 0"
+	"filtername" "box*"
+	"Negated" "0"
+	"targetname" "filter_name"
+	"origin" "0 -16 56"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupid" "15"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "6269"
+	"classname" "comp_relay"
+	"ctrl_type" "1"
+	"ctrl_value" "$item_fall_straight_down"
+	"delay" "0.0"
+	"targetname" "release_rl"
+	connections
+	{
+		"OnTrigger" "cube_dropper_box_drop_clipDisable0.35-1"
+	}
+	"origin" "-16 0 56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "If off, release early to allow it to tumble."
+		"logicalpos" "[646.626 3430.16]"
+	}
+}
+entity
+{
+	"id" "6271"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "$item_fall_straight_down"
+	"delay" "0.0"
+	"targetname" "release_rl"
+	connections
+	{
+		"OnTrigger" "cube_dropper_box_drop_clipDisable1.2-1"
+	}
+	"origin" "16 0 56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "If enabled, drop only after the iris is open"
+		"logicalpos" "[646.626 3430.16]"
 	}
 }
 entity
@@ -557,18 +619,21 @@ entity
 entity
 {
 	"id" "34"
-	"classname" "filter_activator_name"
+	"classname" "filter_multi"
 	"angles" "0 0 0"
-	"filtername" "box*"
-	"Negated" "Allow entities that match criteria"
+	"filter01" "filter_name"
+	"filter02" "@filter_not_fizzling"
+	"filtertype" "0"
+	"Negated" "0"
 	"targetname" "cube_dropper_box_filter"
-	"origin" "-16 -48 56"
+	"origin" "0 16 56"
 	editor
 	{
 		"color" "0 255 0"
 		"visgroupid" "15"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "We need the fizzling filter to prevent the close trigger double-detecting a fizzling cube if it fizzles while still falling out of the dropper."
 		"logicalpos" "[0 0]"
 	}
 }
@@ -587,7 +652,7 @@ entity
 		"OnEntitySpawned" "box*FireUser40-1"
 		"OnEntitySpawned" "settle_trigEnable0-1"
 	}
-	"origin" "16 48 56"
+	"origin" "16 16 56"
 	editor
 	{
 		"color" "220 30 220"
@@ -607,9 +672,9 @@ entity
 	"targetname" "spawn_man"
 	connections
 	{
-		"OnChangeToAllTrue" "spawn_manSetStateAFalse0.1-1"
+		"OnChangeToAllTrue" "spawn_manSetStateAFalse0.3-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSkin02-1"
-		"OnChangeToAllTrue" "cube_dropper_box_drop_clipDisable1.1-1"
+		"OnChangeToAllTrue" "release_rlTrigger0-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetDefaultAnimationitem_dropper_idle0.2-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationitem_dropper_open0.1-1"
 		"OnChangeToAllTrue" "box*FireUser10.01-1"
@@ -620,7 +685,7 @@ entity
 		"OnChangeToAllTrue" "box*EnableDrawInFastReflection0.1-1"
 		"OnChangeToAllTrue" "spawn_manFireUser10.01-1"
 	}
-	"origin" "16 -48 56"
+	"origin" "0 0 56"
 	editor
 	{
 		"color" "0 100 250"
@@ -636,12 +701,11 @@ entity
 	"classname" "logic_auto"
 	"angles" "0 0 0"
 	"spawnflags" "1"
-	"targetname" "cube_dropper_gate_relay"
 	connections
 	{
 		"OnMapSpawn" "cube_templateForceSpawn0.1-1"
 	}
-	"origin" "-16 48 56"
+	"origin" "-16 16 56"
 	editor
 	{
 		"color" "0 100 250"
@@ -662,7 +726,7 @@ entity
 	"parm5" "$item_fall_straight_down boolean 1"
 	"parm6" "$indicator_lights string"
 	"parm7" "$start_reversed boolean 1"
-	"origin" "0 0 56"
+	"origin" "-16 -16 56"
 	editor
 	{
 		"color" "220 30 220"

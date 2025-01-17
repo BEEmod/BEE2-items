@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8874"
-	"mapversion" "332"
+	"editorbuild" "9672"
+	"mapversion" "356"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -56,13 +56,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "332"
+	"mapversion" "356"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -621,6 +621,48 @@ world
 }
 entity
 {
+	"id" "7210"
+	"classname" "filter_multi"
+	"angles" "0 0 0"
+	"filter01" "filter_name"
+	"filter02" "@filter_not_fizzling"
+	"filtertype" "0"
+	"Negated" "0"
+	"targetname" "cube_dropper_box_filter"
+	"origin" "0 16 48"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "We need the fizzling filter to prevent the close trigger double-detecting a fizzling cube if it fizzles while still falling out of the dropper."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "6522"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "$item_fall_straight_down"
+	"delay" "0.0"
+	"targetname" "release_rl"
+	connections
+	{
+		"OnTrigger" "cube_dropper_box_drop_clipDisable0.7-1"
+	}
+	"origin" "16 -16 48"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "If enabled, drop only after the door is visually open."
+		"logicalpos" "[646.626 3430.16]"
+	}
+}
+entity
+{
 	"id" "6245"
 	"classname" "func_detail"
 	solid
@@ -1051,7 +1093,7 @@ entity
 	{
 		"OnTrigger" "spawn_manSetStateATrue0-1"
 	}
-	"origin" "0 0 48"
+	"origin" "-16 0 48"
 	editor
 	{
 		"color" "0 100 250"
@@ -1094,12 +1136,12 @@ entity
 	"id" "11"
 	"classname" "prop_dynamic"
 	"angles" "0 270 -180"
+	"animateeveryframe" "1"
 	"defaultanim" "close_idle"
 	"disablebonefollowers" "1"
 	"disableshadows" "1"
 	"drawinfastreflection" "1"
 	"fademindist" "-1"
-	"fadescale" "1"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props_underground/underground_boxdropper.mdl"
@@ -1246,72 +1288,106 @@ entity
 		"OnEndTouchAll" "cube_dropper_box_reenter_clipEnable0-1"
 		"OnEndTouchAll" "spawn_manFireUser20.5-1"
 		"OnEndTouchAll" "cube_dropper_modelSetDefaultAnimationclose_idle0.1-1"
+		"OnEndTouchAll" "release_rlTurnOff0-1"
 	}
 	solid
 	{
-		"id" "32"
+		"id" "6955"
 		side
 		{
-			"id" "138"
-			"plane" "(40 40 -180) (-40 40 -180) (-40 -40 -180)"
+			"id" "2813"
+			"plane" "(48 48 -180) (-48 48 -180) (-48 -48 -180)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2812"
+			"plane" "(-48 48 40) (-48 48 -180) (48 48 -180)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2811"
+			"plane" "(48 -48 136) (48 -48 -180) (-48 -48 -180)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 -0.00390625] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "137"
-			"plane" "(40 -40 56) (-40 -40 56) (-40 40 56)"
+			"id" "2810"
+			"plane" "(-48 -48 136) (-48 -48 -180) (-48 48 -180)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 -1 0 -0.00390625] 0.25"
+			"uaxis" "[0 -1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "136"
-			"plane" "(-40 40 -180) (40 40 -180) (40 40 56)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0.00390625] 0.25"
-			"vaxis" "[0 0 -1 8] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "135"
-			"plane" "(40 -40 -180) (-40 -40 -180) (-40 -40 56)"
-			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[1 0 0 0.00390625] 0.25"
-			"vaxis" "[0 0 -1 8] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "134"
-			"plane" "(-40 -40 -180) (-40 40 -180) (-40 40 56)"
+			"id" "2809"
+			"plane" "(48 48 40) (48 48 -180) (48 -48 -180)"
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 8] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "133"
-			"plane" "(40 40 -180) (40 -40 -180) (40 -40 56)"
+			"id" "2808"
+			"plane" "(48 -48 136) (-48 -48 136) (-48 -11 129)"
 			"material" "TOOLS/TOOLSTRIGGER"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 8] 0.25"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 0.98257 -0.185891 -23.0184] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2807"
+			"plane" "(-48 -11 129) (-48 20 108) (48 20 108)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 0.827919 -0.560848 -28.3456] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2806"
+			"plane" "(48 41 77) (48 20 108) (-48 20 108)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 0.560848 -0.827918 -19.6055] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2805"
+			"plane" "(-48 48 40) (48 48 40) (48 41 77)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 0.185892 -0.98257 -38.4801] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -1338,9 +1414,9 @@ entity
 	"classname" "filter_activator_name"
 	"angles" "0 0 0"
 	"filtername" "box*"
-	"Negated" "Allow entities that match criteria"
-	"targetname" "cube_dropper_box_filter"
-	"origin" "-16 -16 48"
+	"Negated" "0"
+	"targetname" "filter_name"
+	"origin" "0 -16 48"
 	editor
 	{
 		"color" "0 255 0"
@@ -1364,7 +1440,7 @@ entity
 		"OnEntitySpawned" "box*FireUser40-1"
 		"OnEntitySpawned" "cube_addon_*FireUser40-1"
 	}
-	"origin" "16 -16 48"
+	"origin" "0 0 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -1384,8 +1460,8 @@ entity
 	"targetname" "spawn_man"
 	connections
 	{
-		"OnChangeToAllTrue" "spawn_manSetStateAFalse0-1"
-		"OnChangeToAllTrue" "cube_dropper_box_drop_clipDisable1.1-1"
+		"OnChangeToAllTrue" "spawn_manSetStateAFalse0.2-1"
+		"OnChangeToAllTrue" "release_rlTrigger0-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationopen0.1-1"
 		"OnChangeToAllTrue" "cube_dropper_close_triggerEnable0.1-1"
 		"OnChangeToAllTrue" "cube_templateForceSpawn0.05-1"
@@ -1399,7 +1475,7 @@ entity
 		"OnChangeToAllTrue" "spawn_manFireUser10.1-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetDefaultAnimationopen_idle0.2-1"
 	}
-	"origin" "16 16 48"
+	"origin" "16 0 48"
 	editor
 	{
 		"color" "0 100 250"

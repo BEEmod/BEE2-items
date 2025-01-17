@@ -1,26 +1,28 @@
 # Translations template for BEEmod package "High Energy Pellets".
-# Built with BEEmod version 2.4.42.0.dev+150234ed 64-bit.
+# Built with BEEmod version 2.4.43.0.dev+1ca53954 64-bit.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: High Energy Pellets 2.4.42.0.dev+150234ed 64-bit\n"
+"Project-Id-Version: High Energy Pellets 2.4.43.0.dev+1ca53954 64-bit\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-01 14:14+1000\n"
+"POT-Creation-Date: 2023-12-30 10:40+1000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.1\n"
+"Generated-By: Babel 2.12.1\n"
 
 #: items/ITEM_HIGH_ENERGY_PELLET_INF/ANY.desc items/ITEM_HIGH_ENERGY_PELLET_INF/BEE2_1950s.desc
 #: items/ITEM_HIGH_ENERGY_PELLET_INF/BEE2_1960s.desc items/ITEM_HIGH_ENERGY_PELLET_INF/BEE2_1970s.desc
 #: items/ITEM_HIGH_ENERGY_PELLET_INF/BEE2_1980s.desc items/ITEM_HIGH_ENERGY_PELLET_INF/BEE2_CLEAN.desc
 #: items/ITEM_HIGH_ENERGY_PELLET_INF/BEE2_CLEAN_ORIGINAL.desc items/ITEM_HIGH_ENERGY_PELLET_INF/BEE2_OVERGROWN.desc
 #: items/ITEM_HIGH_ENERGY_PELLET_INF/BEE2_PORTAL_1.desc
-msgid "An infinite-lifetime High Energy Pellet. This will never despawn (unless destroyed)."
+msgid ""
+"A standalone infinite-lifetime High Energy Pellet. This won't explode on its own, but if it gets destroyed by other "
+"means, it will never respawn."
 msgstr ""
 
 #: items/ITEM_HIGH_ENERGY_PELLET_INF/ANY.name items/ITEM_HIGH_ENERGY_PELLET_INF/BEE2_1950s.name
@@ -57,15 +59,17 @@ msgstr ""
 #: items/ITEM_HIGH_ENERGY_PELLET_EMITTER.desc
 msgid ""
 "High Energy Pellet Emitter ported from Portal 1. This periodically shoots energy spheres which ricochet off walls and"
-" kill players.\n"
+" activate catchers.\n"
 "\n"
 "* Direct them into catchers to activate them.\n"
 "* The timer property controls how long it will last until exploding.\n"
 "* If set to infinite, enabling the input will spawn the pellet; disabling it destroys the pellet.\n"
 "* The respawn checkbox does different things depending on the timer property.  \n"
-"    If the emitter is timed, the launcher will be permanently disabled once a catcher receives this pellet.  \n"
+"    If the emitter is timed, when this is disabled the launcher will be permanently disabled once a catcher receives "
+"this pellet.  \n"
 "    If the emitter is infinite, this controls whether the pellet will be replaced if destroyed and the input is still"
-" active."
+" active.\n"
+"* By default they will kill players like in Portal 1, but this can be turned off in the style/item properties window."
 msgstr ""
 
 #: package/name
@@ -80,8 +84,19 @@ msgstr ""
 msgid "INFINITE HEP"
 msgstr ""
 
+#: configgroup/BEE_PELLET/pelletnocollide.tooltip
+msgid ""
+"If enabled, energy pellets will pass through players harmlessly, instead of killing them.\n"
+"Note: Due to technical limitations, in co-op pellets may still kill players if they just passed through a portal or "
+"if both players are standing near each other. Try to design your puzzles so this won't happen."
+msgstr ""
+
 #: configgroup/BEE_PELLET/pelletgrating.name
 msgid "Ignore Gratings"
+msgstr ""
+
+#: configgroup/BEE_PELLET/pelletnocollide.name
+msgid "Ignore Players"
 msgstr ""
 
 #: package/desc

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8973"
-	"mapversion" "104"
+	"editorbuild" "9672"
+	"mapversion" "110"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "104"
+	"mapversion" "110"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -480,6 +480,29 @@ world
 }
 entity
 {
+	"id" "652"
+	"classname" "comp_kv_setter"
+	"angles" "0 0 0"
+	"conv_ang" "0"
+	"ctrl_type" "0"
+	"ctrl_value" "$offset_mdl"
+	"invert" "0"
+	"kv_name" "model"
+	"kv_value_global" "models/props/laser_emitter.mdl"
+	"mode" "kv"
+	"rotate" "0"
+	"target" "laser"
+	"origin" "-15.3685 -16.3765 -54"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "562"
 	"classname" "func_noportal_volume"
 	"origin" "0 0 -79.5"
@@ -576,6 +599,9 @@ entity
 	"parm1" "$connectioncount integer"
 	"parm2" "$start_enabled integer"
 	"parm3" "$start_disabled string"
+	"parm4" "$yaw float 0"
+	"parm5" "$autoaim string"
+	"parm6" "$offset_mdl boolean 0"
 	"origin" "0 0 -40"
 	editor
 	{
@@ -589,7 +615,7 @@ entity
 {
 	"id" "287"
 	"classname" "env_portal_laser"
-	"angles" "-90 180 0"
+	"angles" "-90 $yaw 0"
 	"AutoAimEnabled" "$autoaim"
 	"fademindist" "-1"
 	"fadescale" "1"
@@ -598,7 +624,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"StartState" "$start_disabled"
+	"StartState" "!$start_enabled"
 	"targetname" "laser"
 	"origin" "0.0999985 0 -80"
 	editor

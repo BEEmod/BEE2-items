@@ -1,13 +1,12 @@
 "ID"    "BEE2_CLEAN_STYLE"
 "Name"  "Clean Style"
-"Desc"  "Adds the Clean Style, plus several critical resources.\n\nThis cannot be disabled!."
+"Desc"  "Adds the Clean Style, defining the mandatory items.\n\nThis cannot be disabled!"
 
 
 "Prerequisites"
 	{
-	"Package"	"VALVE_MUSIC"
+	"Package"	"BEE2_CORE"
 	}
-
 
 "Style"
 	{
@@ -20,7 +19,11 @@
 	"Base"        ""
 	
 	"Has_Video"   "1"
-	"Description" "Portal 2 Clean style, like after GLaDOS has been awoken and finished cleaning the facility, or in a parallel world where it was never destroyed. Similar to the default PeTI style but with more variety of wall panels and automatic security cameras."
+	"Description" 
+		{
+		"" "Portal 2 Clean style, like after GLaDOS has been awoken and finished cleaning the facility, or in a parallel world where it was never destroyed."
+		"" "Similar to the default PeTI style but with more variety of wall panels and automatic security cameras."
+		}
 	"Suggested"
 		{
 		"Quote"  "BEE2_GLADOS_CLEAN"
@@ -45,7 +48,6 @@
 	"Description" 
 		{
 		"" "A version of Clean style which uses the original wall textures. Items still use the BEE2-enhanced versions."
-		"" " [More info](https://github.com/BEEmod/BEE2-items/wiki/Clean#original-clean)"
 		}
 	"Suggested"
 		{
@@ -60,17 +62,72 @@
 "CorridorGroup"
 	{
 	"ID" "BEE2_CLEAN"
+	"Options"
+		{
+		"ELEVATOR_DIRECTION"
+			{
+			"Name"    "Elevator Direction"
+			"var"     "$travel_dir"
+			"default" "<RANDOM>"
+			"global"  "sp_entry"
+			"global"  "sp_exit"
+
+			"Description" "Controls the direction the elevator travels when arriving at the entrance and leaving the exit. In the campaign only Wheatley levels travel upward, but either direction makes sense."
+			"Values"
+				{
+				"UP"   "Upward"
+				"DOWN" "Downward"
+				}
+			}
+		"ELEVATOR_STAIRS"
+			{
+			"Name"    "Elevator Stairs"
+			"var"     "$stair_dir"
+			"default" "<RANDOM>"
+			"global"  "sp_entry"
+			"global"  "sp_exit"
+
+			"Description" "Specifies the direction stairs travel in. Normally they go upward from the entrance and downward at the exit, but the other variants provide some variety."
+			"Values"
+				{
+				"UP"   "Upward"
+				"FLAT" "Flat"
+				"DOWN" "Downward"
+				}
+			}
+		"TEMPERATURE"
+			{
+			"Name"    "Light Temperature"
+			"var"     "$temperature"
+			"default" "COLD"
+
+			"Description" "Specifies the lighting tint in corridors. Clean chambers tend to be predominantly cool, so warm lighting provides a contrast."
+			"Values"
+				{
+				"WARM"    "Warm"
+				"NEUTRAL" "Neutral"
+				"COLD"    "Cold"
+				}
+			}
+		}
+
 	"sp_entry"
 		{
 		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_1.vmf"
 		"name" "Corridor 1"
 		"authors" "Valve"
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/1.jpg"
-		"DefaultIndex" "1"
+		"Description" "A straight corridor with a little nook on either side."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/1_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/1_2.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
+			"$door" "testchamber"
+
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:corr_1"
 			}
 		}
 	"sp_entry"
@@ -84,12 +141,17 @@
 			"" "A right hand turn into the test chamber. "
 			"" "Some panels are missing, showing a vactube which contains different gels depending on the contents of the chamber."
 			}
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/2.jpg"
-		"DefaultIndex" "2"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/right_tubes_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/right_tubes_2.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/right_tubes_3.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
+			"$door" "testchamber"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:corr_right_tubes"
 			}
 		}
 	"sp_entry"
@@ -98,12 +160,16 @@
 		"name" "Right S-Bend"
 		"authors" "Valve"
 		"Description" "Players shift slightly to the right to enter the chamber."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/3.jpg"
-		"DefaultIndex" "3"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/right_s_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/right_s_2.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
+			"$door" "testchamber"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:corr_3"
 			}
 		}
 	"sp_entry"
@@ -112,12 +178,16 @@
 		"name" "Corridor 4"
 		"authors" "Valve"
 		"Description" "A straight corridor with a little nook on either side."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/4.jpg"
-		"DefaultIndex" "4"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/4_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/4_2.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
+			"$door" "testchamber"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:corr_4"
 			}
 		}
 	"sp_entry"
@@ -126,12 +196,16 @@
 		"name" "Corridor 5"
 		"authors" "Valve"
 		"Description" "A straight corridor with a little nook on either side and lowered ceiling."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/5.jpg"
-		"DefaultIndex" "5"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/5_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/5_2.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
+			"$door" "testchamber"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:corr_5"
 			}
 		}
 	"sp_entry"
@@ -140,12 +214,16 @@
 		"name" "Stairs"
 		"authors" "Valve, TeamSpen210"
 		"Description" "Players must climb up some stairs to reach the chamber."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/6.jpg"
-		"DefaultIndex" "6"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/stairs_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/stairs_2.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
+			"$door" "testchamber"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:corr_6"
 			}
 		}
 	"sp_entry"
@@ -154,12 +232,72 @@
 		"name" "Left Turn"
 		"authors" "Valve"
 		"Description" "A corridor with a left hand turn into the chamber."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/7.jpg"
-		"DefaultIndex" "7"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/left_turn_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/left_turn_2.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/left_turn_3.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
+			"$door" "testchamber"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:corr_7"
+			}
+		}
+
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_over_white_left.vmf"
+		"name" "Cleaned Left Turn"
+		"authors" "TeamSpen210"
+		"Description" "A clean version of Overgrown's \"White Left\" corridor."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/over_white_left_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/over_white_left_2.jpg"
+
+		"Option" "TEMPERATURE"
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			"$door" "testchamber"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_OVER_LIGHTS:white_left"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_over_right_turn.vmf"
+		"name" "Cleaned Right Turn"
+		"authors" "TeamSpen210"
+		"Description" "A clean version of Overgrown's \"Right Turn\" corridor."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/over_right_turn_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/over_right_turn_2.jpg"
+
+		"Option" "TEMPERATURE"
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			"$door" "testchamber"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_OVER_LIGHTS:right_turn"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_over_small_right.vmf"
+		"name" "Cleaned Small Right"
+		"authors" "TeamSpen210"
+		"Description" "A clean version of Overgrown's \"Small Right\" corridor."
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/over_small_right_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/over_small_right_2.jpg"
+
+		"Option" "TEMPERATURE"
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			"$door" "testchamber"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_OVER_LIGHTS:small_right"
 			}
 		}
 
@@ -169,12 +307,15 @@
 		"name" "Track Lift"
 		"authors" "Valve"
 		"Description" "Players are raised on a platform into the chamber."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/3.jpg"
-		"DefaultIndex" "1"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/up_track_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/up_track_2.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "0"
 			"$frame" "remove"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:up_track"
 			}
 		}
 	"sp_entry_down"
@@ -183,90 +324,104 @@
 		"name" "Piston Drop"
 		"authors" "Valve"
 		"Description" "Players drop through the floor into the chamber. The ceiling is then closed."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/3.jpg"
-		"DefaultIndex" "1"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/down_pist_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_entry/down_pist_2.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "0"
 			"$frame" "remove"
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:down_piston"
 			}
 		}
 
 	"sp_exit"
 		{
 		"instance" "instances/BEE2/clean/elevator_sp/door_exit_1.vmf"
-		"name" "Warm #1"
+		"name" "Straight #1"
 		"authors" "Valve"
-		"Description" "A straight corridor to the exit, with warm lighting. The ceiling is fully intact."
+		"Description" "A straight corridor to the exit. The ceiling is fully intact."
 		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/1.jpg"
-		"DefaultIndex" "1"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
 			"$exit_folder" "instances/BEE2/clean/elevator_sp/exit_"
+			"$light_temp" "BEE2_CLEAN_SP_EXIT_CORR_LIGHTS:corr_1"
 			}
 		}
 	"sp_exit"
 		{
 		"instance" "instances/BEE2/clean/elevator_sp/door_exit_2.vmf"
-		"name" "Warm #2"
+		"name" "Straight #2"
 		"authors" "Valve"
-		"Description" "A straight corridor to the exit, with warm lighting. The ceiling is missing showing exposed framework."
+		"Description" "A straight corridor to the exit. The ceiling is missing showing exposed framework."
 		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/2.jpg"
-		"DefaultIndex" "2"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
 			"$exit_folder" "instances/BEE2/clean/elevator_sp/exit_"
+			"$light_temp" "BEE2_CLEAN_SP_EXIT_CORR_LIGHTS:corr_2"
 			}
 		}
 	"sp_exit"
 		{
 		"instance" "instances/BEE2/clean/elevator_sp/door_exit_3.vmf"
-		"name" "Warm #3"
+		"name" "Straight #3"
 		"authors" "Valve"
-		"Description" "A straight corridor to the exit, with warm lighting. The ceiling and walls are unfinished with exposed framework."
+		"Description" "A straight corridor to the exit. The ceiling and walls are unfinished with exposed framework."
 		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/3.jpg"
-		"DefaultIndex" "3"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
 			"$exit_folder" "instances/BEE2/clean/elevator_sp/exit_"
+			"$light_temp" "BEE2_CLEAN_SP_EXIT_CORR_LIGHTS:corr_3"
 			}
 		}
 	"sp_exit"
 		{
 		"instance" "instances/BEE2/clean/elevator_sp/door_exit_4.vmf"
-		"name" "Cool #1"
+		"name" "Straight #1"
 		"authors" "Valve"
-		"Description" "A straight corridor to the exit, with cool lighting. The ceiling is missing showing exposed framework."
+		"Description" "A straight corridor to the exit. The ceiling is missing showing exposed framework, along with a line of light strips."
 		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/4.jpg"
-		"DefaultIndex" "4"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "1"
 			"$frame" "door"
 			"$exit_folder" "instances/BEE2/clean/elevator_sp/exit_"
+			"$light_temp" "BEE2_CLEAN_SP_EXIT_CORR_LIGHTS:corr_4"
 			}
 		}
 
 	"sp_exit_up"
 		{
 		"instance" "instances/BEE2/clean/elevator_sp/door_exit_up_stair/corridor.vmf"
-		"config" "entry_door/corr_up_stairs.cfg"
 		"name" "Upward Catch"
 		"authors" "TeamSpen210"
 		"Description" "The exit is a small room in the ceiling, which catches you when you fling up."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/3.jpg"
-		"DefaultIndex" "1"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/up_stair_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/up_stair_2.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "0"
 			"$frame" "remove"
 			"$exit_folder" "instances/BEE2/clean/elevator_sp/door_exit_up_stair/"
+			"$exit_sign_folder" "instances/BEE2/clean/elevator_sp/door_exit_up_stair/"
+			"$light_temp" "BEE2_CLEAN_SP_EXIT_CORR_LIGHTS:up_stair"
 			}
 		}
 
@@ -276,13 +431,18 @@
 		"name" "Square Drop"
 		"authors" "TeamSpen210"
 		"Description" "The exit is a square room placed on the floor."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/3.jpg"
-		"DefaultIndex" "1"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/down_square_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/down_square_2.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/sp_exit/down_square_3.jpg"
+
+		"Option" "TEMPERATURE"
 		"Fixups"
 			{
 			"$horiz_cam" "0"
 			"$frame" "remove"
 			"$exit_folder" "instances/BEE2/clean/elevator_sp/door_exit_down_square/"
+			"$exit_sign_folder" "instances/BEE2/clean/elevator_sp/door_exit_down_square/"
+			"$light_temp" "BEE2_CLEAN_SP_EXIT_CORR_LIGHTS:down_square"
 			}
 		}
 
@@ -295,31 +455,52 @@
 		"image" "corr/clean/coop_entry/horiz_2.jpg"
 
 		"instance" "instances/BEE2/clean/elevator_coop/spawn_room.vmf"
-		"DefaultIndex" "1"
+
 		"Fixups"
 			{
 			"$atlas_pos" "-352 96 352"
 			"$atlas_ang" "0 0 0"
 			"$tag_fizz" "instances/bee2/clean/elevator_coop/entry_fizz_tag.vmf"
+			"$frame"  "remove"
 			}
 		}
 
 	"coop_entry_down"
 		{
-		"name" "Dropper Chamber Spawn"
-		"authors" "Valve"
+		"name" "Ceiling Dropper Spawn"
+		"authors" "TeamSpen210"
 		"Description" "Coop robots drop into the chamber through cube dropper vents. Note that the entry sign is not present, since you immediately leave the room."
 		"image" "corr/clean/coop_entry/down_cham_1.jpg"
 		"image" "corr/clean/coop_entry/down_cham_2.jpg"
 		"image" "corr/clean/coop_entry/down_cham_3.jpg"
 
 		"instance" "instances/BEE2/clean/elevator_coop/spawn_room_down_chamber.vmf"
-		"DefaultIndex" "1"
+
 		"Fixups"
 			{
 			"$atlas_pos" "-32 0 464"
 			"$atlas_ang" "0 90 0"
 			"$tag_fizz"  "instances/bee2/clean/elevator_coop/entry_fizz_tag_down.vmf"
+			"$frame"  "remove"
+			}
+		}
+
+	"coop_entry_up"
+		{
+		"name" "Dropper Chamber Spawn"
+		"authors" "TeamSpen210"
+		"Description" "Coop robots are blown into the chamber through upside-down cube dropper vents. Note that the entry sign is not present, since you immediately leave the room."
+		"image" "corr/clean/coop_entry/up_dropper.jpg"
+
+		"instance" "instances/BEE2/clean/elevator_coop/spawn_room_up_dropper.vmf"
+
+		"Config" "coop_spawn/corr_up_dropper.cfg"
+		"Fixups"
+			{
+			"$atlas_pos" "0 0 -380"
+			"$atlas_ang" "0 270 0"
+			// No tag fizzler, just spawn with an inactive gun. You can't re-enter the droppers.
+			"$tag_fizz" "" 
 			}
 		}
 
@@ -329,8 +510,8 @@
 		"name" "Warm #1"
 		"authors" "Valve"
 		"Description" "A straight corridor to the exit, with warm lighting. The ceiling is incomplete showing exposed framework."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/coop/1.jpg"
-		"DefaultIndex" "1"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/coop_exit/1.jpg"
+
 		"Fixups"
 			{
 			"$horiz_cam" "0"
@@ -345,8 +526,8 @@
 		"name" "Warm #2"
 		"authors" "Valve"
 		"Description" "A straight corridor to the exit, with warm lighting. The ceiling is mostly missing showing exposed framework."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/coop/2.jpg"
-		"DefaultIndex" "2"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/coop_exit/2.jpg"
+
 		"Fixups"
 			{
 			"$horiz_cam" "0"
@@ -361,8 +542,8 @@
 		"name" "Warm #3"
 		"authors" "Valve"
 		"Description" "A straight corridor to the exit, with warm lighting. The ceiling and walls are unfinished with exposed framework."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/coop/3.jpg"
-		"DefaultIndex" "3"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/coop_exit/3.jpg"
+
 		"Fixups"
 			{
 			"$horiz_cam" "0"
@@ -375,10 +556,12 @@
 		{
 		"instance" "instances/BEE2/clean/elevator_coop/door_exit_4.vmf"
 		"name" "Drop"
-		"authors" "Valve"
+		"authors" "TeamSpen210"
 		"Description" "To exit the chamber both players must drop down to a lower level."
-		"image" "BEE2_CLEAN_STYLE:corr/clean/coop/4.jpg"
-		"DefaultIndex" "4"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/coop_exit/4_1.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/coop_exit/4_2.jpg"
+		"image" "BEE2_CLEAN_STYLE:corr/clean/coop_exit/4_3.jpg"
+
 		"Fixups"
 			{
 			"$horiz_cam" "0"
@@ -389,6 +572,12 @@
 		}
 	}
 
+"CorridorGroup"
+	{
+	"ID" "BEE2_CLEAN_ORIGINAL"
+	// Copy all the definitions across.
+	"Inherit" "BEE2_CLEAN"
+	}
 
 "QuotePack"
 	{
@@ -411,22 +600,42 @@
 		}
 	}
 
-"StyleVar"
+"ConfigGroup"
 	{
-	"ID"          "DoorCameras"
-	"Enabled"     "1"
-	"Name"        "Door Cameras"
-	"Description" "Automatically add cameras around the entry and exit doors."
-	"Style"       "BEE2_CLEAN"
-	}
+	"ID"    "VALVE_MANDATORY"
+	"Name"  "Mandatory Items"
+	"Widget"
+		{
+		"ID"      "DoorCameras"
+		"Type"    "Checkbox"
+		"Default" "1"
+		"Label"   "Door Cameras"
 
-"StyleVar"
-	{
-	"ID"          "RestartOnExit"
-	"Enabled"     "1"
-	"Name"        "Restart When Reaching Exit"
-	"Description" "Automatically restart the map once the player(s) have reached the exit."
-	"Style"       "BEE2_CLEAN"
+		"legacy_stylevar_id" "DoorCameras"
+		"Tooltip" "Automatically add cameras around the entry and exit doors."
+		}
+
+	"Widget"
+		{
+		"ID"      "RestartOnExit"
+		"Type"    "Checkbox"
+		"Default" "1"
+		"Label"   "Restart When Reaching Exit"
+
+		"legacy_stylevar_id" "RestartOnExit"
+		"Tooltip" "Automatically restart the map once the player(s) have reached the exit."
+		}
+
+	"Widget"
+		{
+		"ID"      "UnlockDefault"
+		"Type"    "Checkbox"
+		"Default" "1"
+		"Label"   "Unlock Default Items"
+
+		"legacy_stylevar_id" "UnlockDefault"
+		"Tooltip" "Allow placing and deleting the mandatory Entry/Exit Doors and Large Observation Room. Use with caution, this can have weird results!"
+		}
 	}
 
 "Item"
@@ -493,7 +702,21 @@
 			}
 		}
 	}
-	
+
+// The two antline items, timer is also in this.
+"Item"
+	{
+	"ID"          "ITEM_INDICATOR_PANEL"
+	"Description" "Checkmark/Timer placed next to items with multiple inputs."
+	"Version"
+		{
+		"Styles"
+			{
+			"BEE2_CLEAN" "indicator_panel"
+			}
+		}
+	}
+
 "SkyBox"
 	{
 	"ID"            "BEE2_CLEAN"
@@ -504,15 +727,15 @@
 	"Material"      "sky_black"
 	"Authors"       "Valve"
 	"Description"   "Pure black skybox, with Clean test chamber fog."
-	
+
 	"Fog"
 		{
 		"start"     "128"
         "end"       "5000"
         "density"   "0.95"
-        
+
         "primaryColor"      "40 53 64"
-        
+
         "tonemap_rate"          "0.25"
         "tonemap_brightpixels"  "5"
         "tonemap_exposure_min"  ".5"
