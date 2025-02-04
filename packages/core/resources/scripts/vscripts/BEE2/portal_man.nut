@@ -190,13 +190,43 @@ function map_won() {
 	portalgun_onoff_count = -1;
 }
 
+// Collect all active portal pairs and return them.
+function get_portal_pairs() {
+	port_blue <- {};
+	port_oran <- {};
+	local portal = null;
+	while (portal = Entities.FindByClassname(portal, "prop_portal")) {
+		local scope = portal.GetScriptScope()
+		if (scope != null && scope.__pgun_active) {
+			local table = scope.__pgun_is_oran ? port_oran : port_blue;
+			if (scope.__pgun_port_id in table) {
+				printl(format(
+					"Duplicate active portals with ID %i, colour=%s", 
+					scope.__pgun_port_id, 
+					scope.__pgun_is_oran ? "orange" : "blue"
+				));
+			} else {
+				table[scope.__pgun_port_id] <- portal;
+			}
+		}
+	}
+	local results = {};
+	foreach (port_id, blue in port_blue) {
+		if (port_id in port_oran) {
+			results[port_id] <- [blue, port_oran[port_id]];
+		}
+	}
+	return results;
+}
+::BEE_GetPortalPairs <- get_portal_pairs;
+
 function kill_pgun_portals(color) {
 	// Fizzle "loose" portals, (not from autoportals).
 	// If color is -1, we kill all portals (including coop).
 	// If 0 or 1, we kill just that colour - this is for portalgun pedestals
-	local portal = Entities.FindByClassname(null, "prop_portal");
+	local portal = null;
 	local scope = null;
-	while (portal != null) {
+	while (portal = Entities.FindByClassname(portal, "prop_portal")) {
 		// If the portal has a name, it's an autoportal - ignore.
 		if (portal.GetName() == "") {
 			portal.ValidateScriptScope();
@@ -211,7 +241,6 @@ function kill_pgun_portals(color) {
 				}
 			}
 		}
-		portal = Entities.FindByClassname(portal, "prop_portal");
 	}
 }
 
