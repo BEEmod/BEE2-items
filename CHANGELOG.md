@@ -18,6 +18,8 @@
 	* Fix #1599: Cubes will slightly resist being removed.
 	* Fix #2206: Deflectors can now be placed on walls and ceilings.
 	* Visual effects have been remade using particle systems.
+* All block items have been remade with a new editor design courtesy of Konclan.
+* Added an option to prevent players from grabbing cubes through grating in coop.
 
 ### Bugfixes:
 * Fix collisions on static Angled Panels.
