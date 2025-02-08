@@ -3,6 +3,7 @@
 # Version (dev)
 
 ## Enhancements:
+* The Half Grate has been replaced by an item which offers several shapes of glass/grating, which will merge into the standard glass/grating.
 * Added an explicit error if a Neurotoxin Timer is present in the map without
   any Vents also present.
 * Optimise track platforms with longer rail models, depending on the length.
@@ -11,15 +12,17 @@
 * Several stylevars ("Unlock Default Items" and "Restart On Exit") were moved to the "mandatory items" tab.
 * Added numbers to the ingame signage legend.
 * Added option to have barriers extend down to the surface of goo.
-* Portal 1 style will now extend white walls into the top of goo.
-* Add support for VScript raytracing against exported collision volumes.
+* It is now possible to select Portal 1's Chell as a player model.
+* Portal 1 style will now extend white walls into the top of goo to better match the actual levels.
+* VScript code is now able to perform collision checks against chamber geometry calculated by BEE, which enables more robust items.
 * Rebuilt Rexurua Cube Deflector to be more reliable:
-	* Redirected pellets align more precisly to the grid.
+	* Redirected pellets will continue down the direct center of the voxel.
 	* Fix #1599: Cubes will slightly resist being removed.
 	* Fix #2206: Deflectors can now be placed on walls and ceilings.
 	* Visual effects have been remade using particle systems.
-* All block items have been remade with a new editor design courtesy of Konclan.
-* Added an option to prevent players from grabbing cubes through grating in coop.
+* All block items and several logic gates have been remade with a new editor design courtesy of Konclan.
+* Added an option to prevent players from grabbing cubes through grating in coop. This functionality is no longer present directly in Half Grates.
+* Antlasers can now be used in the special connection between Sendificators and their laser, producing a unique variant.
 
 ### Bugfixes:
 * Fix collisions on static Angled Panels.
@@ -33,9 +36,10 @@
 * Fix barriers not being cut by the resizable Black/White Wall item.
 * Fix P1 ceiling Obs Room (light hole) and Large Obs Room not actually producing light.
 * Make P1 Track Platform 'bottom grate' match the shape of the platform.
-* #4446: Fix piston movement sounds looping forever.
+* #4446: Fix piston movement sounds never stopping.
 * #4448: Futbols will now respawn if falling into goo.
 * #4449: Monitors not showing GLaDOS/Wheatley in them correctly.
+* #4300 Added option to make monitors unbreakable.
 
 ------------------------------------------
 
