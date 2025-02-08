@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8997"
-	"mapversion" "44"
+	"editorbuild" "9672"
+	"mapversion" "45"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "44"
+	"mapversion" "45"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -637,8 +637,8 @@ entity
 	"targetname" "reset_rl"
 	connections
 	{
-		"OnTrigger" "targetSetTextureIndex00-1"
 		"OnUser1" "beamStop0-1"
+		"OnTrigger" "set_indicator_idle_rlTrigger0-1"
 	}
 	"origin" "0 0 -16"
 	editor
@@ -701,6 +701,7 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"model" "models/props/konclan/sendificator_slim.mdl"
+	"modelscale" "1.0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
@@ -723,7 +724,6 @@ entity
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer"
 	"parm2" "$alpha string"
-	"parm3" "$ind_name target_destination"
 	"parm4" "$skin integer 0"
 	"origin" "16 -3.8147e-006 -16"
 	editor
@@ -771,6 +771,7 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/hmw/props/sendificator_beam.mdl"
+	"modelscale" "1.0"
 	"physdamagescale" "1.0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
@@ -808,9 +809,9 @@ entity
 entity
 {
 	"id" "957"
-	"classname" "env_texturetoggle"
+	"classname" "info_target"
 	"angles" "0 0 0"
-	"target" "$ind_name"
+	"spawnflags" "0"
 	"targetname" "target"
 	connections
 	{
@@ -819,6 +820,8 @@ entity
 		"OnUser1" "flash_shapeSetAnimationflash0-1"
 		"OnUser1" "flash_shape_blendStartFloatLerp1 0 0.75 00-1"
 		"OnUser1" "flash_shapeEnable0-1"
+		"OnUser1" "set_indicator_success_rlTrigger0-1"
+		"OnUser3" "set_indicator_fail_rlTrigger0-1"
 	}
 	"origin" "0 0 -40"
 	editor
@@ -826,7 +829,7 @@ entity
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "User1 comes from the script, on sucess."
+		"comments" "User1 comes from the script, on sucess. User2 is fired always, User3 is fail."
 		"logicalpos" "[0 6500]"
 	}
 }
@@ -2064,6 +2067,9 @@ entity
 	"id" "234"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "world/light_power_off_01.wav"
 	"pitch" "100"
@@ -2086,6 +2092,9 @@ entity
 	"id" "261"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "world/light_power_on_03.wav"
 	"pitch" "100"
@@ -2108,6 +2117,9 @@ entity
 	"id" "264"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "world/light_power_on_04.wav"
 	"pitch" "100"
@@ -2130,6 +2142,9 @@ entity
 	"id" "267"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "Portal.close_red"
 	"pitch" "100"
