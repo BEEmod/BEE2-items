@@ -40,6 +40,7 @@
 * #4448: Futbols will now respawn if falling into goo.
 * #4449: Monitors not showing GLaDOS/Wheatley in them correctly.
 * #4300 Added option to make monitors unbreakable.
+* #4466: Fix tracktrains not starting in Old Ap, make it more difficult to misalign them.
 
 ------------------------------------------
 
