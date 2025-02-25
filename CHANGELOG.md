@@ -41,6 +41,7 @@
 * #4449: Monitors not showing GLaDOS/Wheatley in them correctly.
 * #4300 Added option to make monitors unbreakable.
 * #4466: Fix tracktrains not starting in Old Ap, make it more difficult to misalign them.
+* #4473: Fix Sendificator not teleporting through glass in P1 and Overgrown.
 
 ------------------------------------------
 
