@@ -104,7 +104,7 @@ function BlockGrabCheck(start, end) {
 	} else {
 		result = ::BEE_TraceRay(start, end-start, ::BEECollide.GRATING) == null;
 	}
-	DebugDrawLine(start, end, result ? 0 : 255, result ? 255 : 0, 0, true, 2.5);
+	// DebugDrawLine(start, end, result ? 0 : 255, result ? 255 : 0, 0, true, 2.5);
 	return result;
 }
 
