@@ -19,28 +19,25 @@ function InputUse() {
 	local success;
 	local portals = ::BEE_GetPortalPairs();
 
-	local cube_pos = self.GetOrigin();
-	local player_pos = player.GetOrigin();
-	player_pos.z = player.EyePosition().z;
+	local player_pos = player.EyePosition();
 
 	local other_player = null;
 	if (block_grab_holder != null) {
 		// We're held, The other player could pushing the cube through grating,
 		// check they're holding it validly.
-		local other_player = block_grab_holder.GetOrigin();
-		other_player.z += 32;
-		if (!BlockGrabCheck(other_player, cube_pos)) {
+		local other_player = block_grab_holder.EyePosition();
+		if (!BlockGrabCubeCheck(other_player)) {
 			// Try through portals.
 			success = false;
 			foreach (pair in portals) {
 				// Move out a tad so we don't trace exactly on a surface.
 				local left = pair[0].GetOrigin() + pair[0].GetForwardVector();
 				local right = pair[1].GetOrigin() + pair[1].GetForwardVector();
-				if (BlockGrabCheck(cube_pos, left) && BlockGrabCheck(right, other_player)) {
+				if (BlockGrabCubeCheck(left) && BlockGrabCheck(right, other_player)) {
 					success = true;
 					break
 				}
-				if (BlockGrabCheck(other_player, left) && BlockGrabCheck(right, cube_pos)) {
+				if (BlockGrabCheck(other_player, left) && BlockGrabCubeCheck(right)) {
 					success = true;
 					break
 				}
@@ -51,17 +48,43 @@ function InputUse() {
 			}
 		}
 	}
-	if (BlockGrabCheck(player_pos, cube_pos)) {
+	if (BlockGrabCubeCheck(player_pos)) {
 		// Direct grab, we're good.
 		return true;
 	}
 	foreach (pair in portals) {
 		local left = pair[0].GetOrigin() + pair[0].GetForwardVector();
 		local right = pair[1].GetOrigin() + pair[1].GetForwardVector();
-		if (BlockGrabCheck(cube_pos, left) && BlockGrabCheck(right, player_pos)) {
+		if (BlockGrabCubeCheck(left) && BlockGrabCheck(right, player_pos)) {
 			return true;
 		}
-		if (BlockGrabCheck(player_pos, left) && BlockGrabCheck(right, cube_pos)) {
+		if (BlockGrabCheck(player_pos, left) && BlockGrabCubeCheck(right)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+// Check if there is a path to the cube.
+// We check the center plus the three closest faces.
+function BlockGrabCubeCheck(pos) {
+	local cube_pos = self.GetOrigin();
+	if (BlockGrabCheck(pos, cube_pos)) {
+		return true;
+	}
+	local offset = self.GetOrigin() - pos;
+	foreach (axis in [
+		self.GetForwardVector(),
+		self.GetLeftVector(),
+		self.GetUpVector(),
+	]) {
+		local targ;
+		if (offset.Dot(axis) > 0) {
+			targ = cube_pos + axis * -18;
+		} else {
+			targ = cube_pos + axis * 18;
+		}
+		if (BlockGrabCheck(pos, targ)) {
 			return true;
 		}
 	}
@@ -81,7 +104,7 @@ function BlockGrabCheck(start, end) {
 	} else {
 		result = ::BEE_TraceRay(start, end-start, ::BEECollide.GRATING) == null;
 	}
-	//DebugDrawLine(start, end, result ? 0 : 255, result ? 255 : 0, 0, true, 2.5);
+	DebugDrawLine(start, end, result ? 0 : 255, result ? 255 : 0, 0, true, 2.5);
 	return result;
 }
 
