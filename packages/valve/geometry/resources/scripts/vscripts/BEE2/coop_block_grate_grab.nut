@@ -21,7 +21,7 @@ function InputUse() {
 
 	local cube_pos = self.GetOrigin();
 	local player_pos = player.GetOrigin();
-	player_pos.z += 32; // Not eye pos, about halfway where cubes are held.
+	player_pos.z = player.EyePosition().z;
 
 	local other_player = null;
 	if (block_grab_holder != null) {
@@ -81,6 +81,7 @@ function BlockGrabCheck(start, end) {
 	} else {
 		result = ::BEE_TraceRay(start, end-start, ::BEECollide.GRATING) == null;
 	}
+	//DebugDrawLine(start, end, result ? 0 : 255, result ? 255 : 0, 0, true, 2.5);
 	return result;
 }
 
