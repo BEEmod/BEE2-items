@@ -34,8 +34,10 @@ STOP_SND <- "";
 
 // If true, we spawned extended.
 SPAWN_UP <- false;
+// Name of down fizzler. Starts set for backward compat.
+DN_FIZZ_NAME <- "dn_fizz";
 
-has_dn_fizz <- false;
+dn_fizz_ents <- [];
 dn_fizz_on <- false;
 dn_fizz_allowed <- false;
 door_pos <- null;
@@ -87,8 +89,12 @@ function OnPostSpawn() {
 	enable_motion_trig <- Entities.FindByName(null, inst_name + "-wake_trig");
 	
 	// If we have these, turn them on while going down.
-	// We can't store the handle to it, since there's a hurt and fizzler.
-	has_dn_fizz <- Entities.FindByName(null, inst_name + "-dn_fizz") != null;
+	// Need to loop since there could be a hurt and fizzler.
+	local dn_fizz = null;
+	local dn_fizz_name = format("%s-%s", inst_name, DN_FIZZ_NAME);
+	while (dn_fizz = Entities.FindByName(dn_fizz, dn_fizz_name)) {
+		dn_fizz_ents.push(dn_fizz);
+	}
 }
 
 function moveto(new_pos) {
@@ -116,17 +122,19 @@ function moveto(new_pos) {
 	
 	if (old_pos < new_pos) {
 		door_pos = null;
-		if (has_dn_fizz) {
+		if (dn_fizz_ents.len() > 0) {
 			dn_fizz_allowed = false;
 			if (dn_fizz_on) {
 				dn_fizz_on = false;
-				EntFire(inst_name + "-dn_fizz", "Disable", "", 0, self);
+				foreach (fizz in dn_fizz_ents) {
+					EntFireByHandle(fizz, "Disable", "", 0, self, self);
+				}
 			}
 		}
 		_up();
 	} else if (old_pos > new_pos) {
 		_dn();
-		if (has_dn_fizz) {
+		if (dn_fizz_ents.len() > 0) {
 			dn_fizz_allowed <- true;
 		}
 	}
@@ -174,11 +182,13 @@ function _dn() {
 	if (self.GetClassname() == "func_rotating") { // Looping sound.
 		EntFireByHandle(self, "Stop", "", 0.00, self, self);
 	}
-	if (has_dn_fizz && dn_fizz_on) {
+	if (dn_fizz_on) {
 		dn_fizz_on = false;
 		dn_fizz_allowed = false;
 		door_pos = null;
-		EntFire(inst_name + "-dn_fizz", "Disable", "", 0, self);
+		foreach (fizz in dn_fizz_ents) {
+			EntFireByHandle(fizz, "Disable", "", 0, self, self);
+		}
 	}
 }
 
@@ -206,7 +216,9 @@ function Think() {
 			if (crush_count > 2) {
 				// Stuck...
 				dn_fizz_on = true;
-				EntFire(inst_name + "-dn_fizz", "Enable", "", 0, self);
+				foreach (fizz in dn_fizz_ents) {
+					EntFireByHandle(fizz, "Enable", "", 0, self, self);
+				}
 			}
 		} else {
 			crush_count = 0;
