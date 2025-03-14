@@ -24,6 +24,10 @@
 * Added an option to prevent players from grabbing cubes through grating in coop. This functionality is no longer present directly in Half Grates.
 * Antlasers can now be used in the special connection between Sendificators and their laser, producing a unique variant.
 
+### Changes:
+* Antline Corners now reserve timer delays over 10 for future use. Previously
+  these wrapped around. The error message will indicate which timer to switch to. This allows future variants to be added.
+
 ### Bugfixes:
 * Fix collisions on static Angled Panels.
 * Fix missing texture for Tinted Glass editor model.
