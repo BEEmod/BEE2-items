@@ -46,7 +46,8 @@
 * #4300 Added option to make monitors unbreakable.
 * #4466: Fix tracktrains not starting in Old Ap, make it more difficult to misalign them.
 * #4473: Fix Sendificator not teleporting through glass in P1 and Overgrown.
-* #4476: Fix turrets ignoring players if aiming at a target behind glass
+  Also ensure it can teleport through the small Window item.
+* #4476: Fix turrets ignoring players if aiming at a target behind glass.
 
 ------------------------------------------
 
