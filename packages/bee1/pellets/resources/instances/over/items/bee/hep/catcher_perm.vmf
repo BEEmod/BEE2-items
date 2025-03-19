@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "140"
+	"mapversion" "141"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "140"
+	"mapversion" "141"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -57,7 +57,6 @@ entity
 	"classname" "trigger_once"
 	"filtername" "@filter_pellet"
 	"origin" "0 0 -60"
-	"solid" "6"
 	"spawnflags" "64"
 	"StartDisabled" "0"
 	"targetname" "catcher_trigger"
@@ -65,7 +64,6 @@ entity
 	{
 		"OnTrigger" "!activatorKill0.01-1"
 		"OnTrigger" "CatcherPropSetAnimationclose0-1"
-		"OnTrigger" "pellet_mdlEnable0-1"
 		"OnTrigger" "spotLightOff0-1"
 		"OnTrigger" "snd_onPlaySound0-1"
 		"OnTrigger" "sprShowSprite0-1"
@@ -73,6 +71,8 @@ entity
 		"OnTrigger" "!activatorBallCaught0-1"
 		"OnTrigger" "lightTurnOff0-1"
 		"OnTrigger" "@commandCommandcc_emit ScriptedSequence.GladosReawaken0-1"
+		"OnTrigger" "pellet_mdlEnable0.01-1"
+		"OnTrigger" "filter_is_infTestActivator0-1"
 	}
 	solid
 	{

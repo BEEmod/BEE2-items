@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "197"
+	"editorbuild" "9672"
+	"mapversion" "201"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "197"
+	"mapversion" "201"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,8 +30,31 @@ world
 }
 entity
 {
+	"id" "3085"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "platform"
+	connections
+	{
+		"OnTurnedOn" "move_rlTrigger0-1"
+		"OnTurnedOff" "move_rlFireUser10-1"
+	}
+	"origin" "48 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
 	"id" "3073"
 	"classname" "logic_relay"
+	"angles" "0 0 0"
 	"spawnflags" "0"
 	"targetname" "move_rl"
 	connections
@@ -58,6 +81,7 @@ entity
 {
 	"id" "3075"
 	"classname" "logic_branch"
+	"angles" "0 0 0"
 	"InitialValue" "1"
 	"targetname" "branch_pos"
 	connections
@@ -196,6 +220,7 @@ entity
 {
 	"id" "2"
 	"classname" "func_movelinear"
+	"angles" "0 0 0"
 	"blockdamage" "0"
 	"disablereceiveshadows" "0"
 	"movedir" "$travel_direction"
@@ -205,7 +230,7 @@ entity
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
 	"rendermode" "10"
-	"spawnflags" "0"
+	"spawnflags" "8"
 	"speed" "$speed"
 	"startposition" "$starting_position"
 	"startsound" "plats/a2_laser_over_goo_platform_travel_lp_01.wav"

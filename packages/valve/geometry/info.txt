@@ -45,6 +45,29 @@
 		"Label"   "Piston Platform Speed"
 		"Tooltip" "Allows customising the movement speed for Piston Platforms. This is measured in Hammer units per second - a Puzzlemaker voxel is 128 units across. Puzzlemaker defaults to 150u/s, while the campaign tends to use values of 100 or 150 depending on the map."
 		}
+	"Widget"
+		{
+		"ID"	  "ExtendGooBarrier"
+		"Type"    "Checkbox"
+		"Default" "0"
+
+		"Label" "Extend Walls into Goo"
+		"Tooltip" "If barrier items are placed vertically above goo, should it be extended down to the surface?"
+		}
+	"Widget"
+		{
+		"ID"      "BlockCoopGrateUse"
+		"Type"    "Checkbox"
+		"Default" "0"
+
+		"Label" "Block Coop Cube/Grating Teleport"
+		"Tooltip" 
+			{
+			"" "In Coop, objects are entirely non-physical while held, so grabbing an object behind grating will cause it to be pulled through."
+			"" "This option prevents this by disabling grabbing from the other side of a grate."
+			"" "This is not perfectly reliable, more complex situations involving things like grabbing through portals may fail/succeed incorrectly still."
+			}
+		}
 	}
 
 "Item"
@@ -56,6 +79,8 @@
 		"" ""
 		"" "* Glass only lets through Discouragement Beams."
 		"" "* Grating only blocks player movement, cubes and turrets(but not turret bullets)."
+		"" "* If the 'Start Reversed' option is checked, the wall will be shifted to the inner pair of tiles instead of the outer pair."
+		"" "* This item accepts inputs to allow it to be connected to custom barrier items. It has no effect for others."
 		}
 	"Version"
 		{
@@ -142,6 +167,8 @@
 		{
 		"" "A platform that moves along a track. It can either move back and forth when enabled or change from one side to another when turned on or off."
 		"" ""
+		"" "* The Auto Drop option enables or disables player detection. If enabled the platform will only move when players stand on the platform."
+		"" "* If connections are attached, they must be all active first before the platform will function."
 		"" "* Cube Type allows using Portalable or non-Portalable surfaces on the top of the platform. Sphere and Franken should not be used."
 		}
 	"Version"

@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8973"
-	"mapversion" "360"
+	"editorbuild" "9672"
+	"mapversion" "369"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -80,7 +80,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "360"
+	"mapversion" "369"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -976,6 +976,72 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "6849"
+	"classname" "filter_multi"
+	"angles" "0 0 0"
+	"filter01" "filter_name"
+	"filter02" "@filter_not_fizzling"
+	"filtertype" "0"
+	"Negated" "0"
+	"targetname" "cube_dropper_box_filter"
+	"origin" "0 8 56"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "We need the fizzling filter to prevent the close trigger double-detecting a fizzling cube if it fizzles while still falling out of the dropper."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "6732"
+	"classname" "comp_relay"
+	"ctrl_type" "1"
+	"ctrl_value" "$item_fall_straight_down"
+	"delay" "0.0"
+	"targetname" "release_rl"
+	connections
+	{
+		"OnTrigger" "cube_dropper_box_drop_clipDisable0.35-1"
+	}
+	"origin" "-16 -24 56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupid" "16"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "If off, release early to allow it to tumble."
+		"logicalpos" "[646.626 3430.16]"
+	}
+}
+entity
+{
+	"id" "6745"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "$item_fall_straight_down"
+	"delay" "0.0"
+	"targetname" "release_rl"
+	connections
+	{
+		"OnTrigger" "cube_dropper_box_drop_clipDisable1.2-1"
+	}
+	"origin" "16 -24 56"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupid" "16"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "If enabled, drop only after the iris is open"
+		"logicalpos" "[646.626 3430.16]"
 	}
 }
 hidden
@@ -2589,7 +2655,7 @@ hidden
 				editor
 				{
 					"color" "220 30 220"
-					"visgroupshown" "0"
+					"visgroupshown" "1"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -2668,7 +2734,7 @@ hidden
 				editor
 				{
 					"color" "220 30 220"
-					"visgroupshown" "0"
+					"visgroupshown" "1"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -2747,7 +2813,7 @@ hidden
 				editor
 				{
 					"color" "220 30 220"
-					"visgroupshown" "0"
+					"visgroupshown" "1"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -2826,7 +2892,7 @@ hidden
 				editor
 				{
 					"color" "220 30 220"
-					"visgroupshown" "0"
+					"visgroupshown" "1"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -2905,7 +2971,7 @@ hidden
 				editor
 				{
 					"color" "220 30 220"
-					"visgroupshown" "0"
+					"visgroupshown" "1"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -2984,7 +3050,7 @@ hidden
 				editor
 				{
 					"color" "220 30 220"
-					"visgroupshown" "0"
+					"visgroupshown" "1"
 					"visgroupautoshown" "1"
 				}
 			}
@@ -3363,9 +3429,9 @@ entity
 	"classname" "filter_activator_name"
 	"angles" "0 0 0"
 	"filtername" "box*"
-	"Negated" "Allow entities that match criteria"
-	"targetname" "cube_dropper_box_filter"
-	"origin" "-16 8 -8"
+	"Negated" "0"
+	"targetname" "filter_cube_name"
+	"origin" "0 -24 56"
 	editor
 	{
 		"color" "0 255 0"
@@ -3389,7 +3455,7 @@ entity
 		"OnEntitySpawned" "cube_addon_*FireUser40-1"
 		"OnEntitySpawned" "box*FireUser40-1"
 	}
-	"origin" "-16 -8 -8"
+	"origin" "-16 -8 56"
 	editor
 	{
 		"color" "220 30 220"
@@ -3409,8 +3475,8 @@ entity
 	"targetname" "spawn_man"
 	connections
 	{
-		"OnChangeToAllTrue" "spawn_manSetStateAFalse0.6-1"
-		"OnChangeToAllTrue" "cube_dropper_box_drop_clipDisable1.05-1"
+		"OnChangeToAllTrue" "spawn_manSetStateAFalse0.3-1"
+		"OnChangeToAllTrue" "release_rlTrigger0-1"
 		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationitem_dropper_open0.1-1"
 		"OnChangeToAllTrue" "voice_rlEnable0.02-1"
 		"OnChangeToAllTrue" "box*FireUser10.01-1"
@@ -3421,7 +3487,7 @@ entity
 		"OnChangeToAllTrue" "close_trigEnable0-1"
 		"OnChangeToAllTrue" "spawn_manFireUser10.01-1"
 	}
-	"origin" "16 -8 -8"
+	"origin" "16 -8 56"
 	editor
 	{
 		"color" "0 100 250"
@@ -3441,7 +3507,7 @@ entity
 	{
 		"OnMapSpawn" "cube_templateForceSpawn0.11"
 	}
-	"origin" "0 -8 -8"
+	"origin" "0 -8 56"
 	editor
 	{
 		"color" "0 100 250"
@@ -3459,7 +3525,8 @@ entity
 	"parm2" "$disable_autodrop boolean 0"
 	"parm3" "$disable_autorespawn boolean 0"
 	"parm4" "$counnectioncount string"
-	"origin" "16 8 -8"
+	"parm5" "$item_fall_straight_down boolean 0"
+	"origin" "16 8 56"
 	editor
 	{
 		"color" "220 30 220"

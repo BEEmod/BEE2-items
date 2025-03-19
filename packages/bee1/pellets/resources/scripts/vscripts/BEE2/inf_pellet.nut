@@ -29,9 +29,10 @@ function pellet_launched() {
 		// We spawned, but disabled in the time - kill it.
 		kill_pellet();
 	} else {
-		
 		// Fire a user output with the pellet as an !activator (for overgrown particles).
 		EntFireByHandle(self, "FireUser2", "", 0.0, self, cur_pellet);
+		// And change its name so filters can distinguish inf/timed.
+		cur_pellet.__KeyValueFromString("targetname", "@infinite_pellet")
 	}
 }
 

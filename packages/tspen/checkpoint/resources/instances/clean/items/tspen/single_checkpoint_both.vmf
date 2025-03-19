@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8973"
-	"mapversion" "30"
+	"editorbuild" "9672"
+	"mapversion" "33"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,43 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "8"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "30"
+	"mapversion" "33"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "619"
+	"classname" "logic_timer"
+	"angles" "0 0 0"
+	"RefireTime" "1"
+	"spawnflags" "1"
+	"StartDisabled" "1"
+	"targetname" "switch_tim"
+	"UseRandomTime" "0"
+	connections
+	{
+		"OnTimerHigh" "mdlSkin10-1"
+		"OnTimerLow" "mdlSkin00-1"
+	}
+	"origin" "0 0 104"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
 }
 entity
 {
@@ -41,8 +65,8 @@ entity
 	{
 		"OnUser1" "spawn_blueSetAsActiveSpawn0.011"
 		"OnUser1" "spawn_blueEnable01"
-		"OnUser1" "both_manSetStateATrue0.011"
-		"OnUser1" "light_blueTrigger01"
+		"OnUser1" "both_manSetStateATrue01"
+		"OnUser1" "mdlSkin001"
 	}
 	"origin" "0 1.11901e-005 224"
 	editor
@@ -66,8 +90,8 @@ entity
 	{
 		"OnUser1" "spawn_oranEnable01"
 		"OnUser1" "spawn_oranSetAsActiveSpawn0.011"
-		"OnUser1" "both_manSetStateBTrue0.011"
-		"OnUser1" "light_oranTrigger01"
+		"OnUser1" "both_manSetStateBTrue01"
+		"OnUser1" "mdlSkin101"
 	}
 	"origin" "0 1.11901e-005 140"
 	editor
@@ -89,7 +113,7 @@ entity
 	connections
 	{
 		"OnChangeToAllTrue" "!selfKill01"
-		"OnChangeToAllTrue" "light_bothTrigger0.11"
+		"OnChangeToAllTrue" "switch_timEnable01"
 	}
 	"origin" "0 1.11901e-005 120"
 	editor

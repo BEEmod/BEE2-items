@@ -12,7 +12,7 @@ This also includes Reflection Gel (since this is implemented in the original Gel
 	"Package"	"BEE2_CLEAN_STYLE"
 	}
 
-	
+
 "ConfigGroup"
 	{
 	"ID"    "VALVE_TEST_ELEM"
@@ -22,9 +22,8 @@ This also includes Reflection Gel (since this is implemented in the original Gel
 		"ID"      "LaserCubeHelper"
 		"Type"    "Checkbox"
 		"Default" "0"
-		
+
 		"Label"   "Targeting Laser Cubes"
-		
 		"Tooltip" "Add a beam to laser cubes, to make aiming them easier. Does not have any physical effects. It is enabled while holding a cube."
 		}
 	"Widget"
@@ -32,35 +31,53 @@ This also includes Reflection Gel (since this is implemented in the original Gel
 		"ID"      "WakeLaserCubes"
 		"Type"    "Slider"
 		"Default" "0"
-		
+
 		"Min"     "0"
 		"Max"     "5"
 		"Step"    "0.1"
+		"zeroOff" "1"
 
 		"Label"   "Laser Cube Wakeup Timer"
 		"Tooltip" "Periodically wake up Laser Cubes, to prevent the laser cube floating glitch. This however will cause all laser cubes to \"jump\" around, potentially knocking them out of alignment with targets."
 		}
 	"Widget"
 		{
+		"ID"      "CubeFallStraightDown"
+		"Type"    "Checkbox"
+		"Default" "1"
+
+		"Label"   "Precise Cube Dropping"
+		"Tooltip" "Hold cubes inside the dropper longer, so that they do not tumble out of the dropper. This doesn't look as nice, but ensures cubes land on things directly under the dropper."
+		}
+	"Widget"
+		{
+		"ID"      "BlockCubeGhostPairCollision"
+		"Type"    "Checkbox"
+		"Default" "0"
+
+		"Label"   "Prevent Fizzling Cube Self-Collision"
+		"Tooltip" "Alters collision behaviour so that if a cube is fizzled and re-dispensed, the new cube will not collide with the old fizzling cube. It will still collide with other cubes."
+		}
+	"Widget"
+		{
 		"ID"      "BlockPlayerGelBomb"
 		"Type"    "Checkbox"
 		"Default" "1"
-		
+
 		"Label"   "Block Gel Bomb Nudging"
 		"Tooltip" "Detonate Gel Bombs when they get close to the player, so they can't nudge them around.
 This doesn't affect cube nudging. When the bomb explodes like this, it does not paint anything."
 		}
-		
 	"Widget"
 		{
 		"ID"      "FunnelSpeed"
 		"Type"    "Slider"
 		"Default" "250"
-		
+
 		"Min"     "150"
 		"Max"     "400"
 		"Step"    "50"
-		
+
 		"Label"   "Funnel Speed"
 		"Tooltip" "Funnels have the hidden ability to adjust the speed they move at. Use this to reduce waiting in large chambers. This is measured in Hammer units per second - a Puzzlemaker voxel is 128 units across."
 		}
@@ -80,6 +97,8 @@ This doesn't affect cube nudging. When the bomb explodes like this, it does not 
 		"" ""
 		"" "* Place Propulsion or Repulsion Gel splats on top of Cubes or Droppers to make them spawn already painted with that color.  "
 		"" "  Repulsion Gel will be applied as it leaves the dropper."
+		"" "  The splatter is removed automatically, place a second to also paint the surface."
+		"" "  Splats on the dropper are prioritised over the cube. A Cleansing Gel splat can be used on the ceiling to get a non-painted cube to drop onto a gelled floor."
 		"" "* Set the `Timer Delay` on a dropperless Cube and Dropper to the same value to link them together.  "
 		"" "  The cube will then respawn from the dropper."
 		"" "  This is useful to precisely position cubes, or respawn at a more convenient location.  "

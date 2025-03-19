@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "291"
+	"mapversion" "295"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "291"
+	"mapversion" "295"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -5181,9 +5181,12 @@ entity
 	"classname" "comp_kv_setter"
 	"angles" "0 0 0"
 	"conv_ang" "0"
+	"ctrl_value" "1"
 	"invert" "1"
 	"kv_name" "DefaultPlayerStateA"
 	"kv_value_global" "$start_open"
+	"kv_value_mode" "legacy"
+	"kv_value_pos" "0 -16 -32"
 	"mode" "kv"
 	"rotate" "0"
 	"target" "close_man"
@@ -5721,6 +5724,7 @@ entity
 		"OnTrigger" "close_manKill0-1"
 		"OnTrigger" "door_open_rlDisable0-1"
 		"OnTrigger" "@voice_exitTrigger0.25-1"
+		"OnTrigger" "@map_wonTrigger0-1"
 	}
 	solid
 	{
@@ -6652,7 +6656,7 @@ entity
 	"model" "models/props_lab/glass_lightcover.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
-	"skin" "1"
+	"skin" "$strip_skin"
 	"solid" "6"
 	"origin" "-128 -144 -352"
 	editor
@@ -6661,94 +6665,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[2500 -12768]"
-	}
-}
-entity
-{
-	"id" "10531"
-	"classname" "func_detail"
-	solid
-	{
-		"id" "13608"
-		side
-		{
-			"id" "4322"
-			"plane" "(-135 -135 -408) (-135 -153 -408) (-135 -153 -296)"
-			"material" "LIGHTS/LIGHT_PANEL_WARM"
-			"uaxis" "[0 1 0 40] 3"
-			"vaxis" "[0 0 -1 -26.6667] 3"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4321"
-			"plane" "(-135 -153 -296) (-135 -153 -408) (-136 -153 -408)"
-			"material" "LIGHTS/LIGHT_PANEL_WARM"
-			"uaxis" "[1 0 0 32] 3"
-			"vaxis" "[0 0 -1 5.33333] 3"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4320"
-			"plane" "(-136 -135 -296) (-135 -135 -296) (-135 -153 -296)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 -32] 0.25"
-			"vaxis" "[1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4319"
-			"plane" "(-136 -153 -408) (-135 -153 -408) (-135 -135 -408)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 -32] 0.25"
-			"vaxis" "[1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4318"
-			"plane" "(-136 -135 -408) (-135 -135 -408) (-135 -135 -296)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4317"
-			"plane" "(-136 -153 -296) (-136 -153 -408) (-136 -135 -408)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 180 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "0 180 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -6763,7 +6679,7 @@ entity
 	"model" "models/props_lab/glass_lightcover.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
-	"skin" "1"
+	"skin" "$strip_skin"
 	"solid" "6"
 	"origin" "128 144 -352"
 	editor
@@ -6772,83 +6688,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[2500 -12768]"
-	}
-}
-entity
-{
-	"id" "10616"
-	"classname" "func_detail"
-	solid
-	{
-		"id" "10778"
-		side
-		{
-			"id" "3550"
-			"plane" "(153 135 -408) (135 135 -408) (135 135 -296)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 32] 3"
-			"vaxis" "[0 0 -1 -26.6667] 3"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3549"
-			"plane" "(135 135 -296) (135 135 -408) (135 153 -408)"
-			"material" "LIGHTS/LIGHT_PANEL_WARM"
-			"uaxis" "[0 1 0 32] 3"
-			"vaxis" "[0 0 -1 5.33333] 3"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3548"
-			"plane" "(153 135 -296) (135 135 -296) (135 153 -296)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 -32] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3547"
-			"plane" "(135 153 -408) (135 135 -408) (153 135 -408)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 -32] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3546"
-			"plane" "(135 153 -296) (135 153 -408) (153 135 -408)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 180 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "0 180 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -6863,7 +6702,7 @@ entity
 	"model" "models/props_lab/glass_lightcover.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
-	"skin" "1"
+	"skin" "$strip_skin"
 	"solid" "6"
 	"origin" "-128 144 -352"
 	editor
@@ -6872,171 +6711,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[2500 -12768]"
-	}
-}
-entity
-{
-	"id" "10656"
-	"classname" "func_detail"
-	solid
-	{
-		"id" "13622"
-		side
-		{
-			"id" "4334"
-			"plane" "(-136 153 -408) (-135 153 -408) (-135 153 -296)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[-1 0 0 32] 4"
-			"vaxis" "[0 0 -1 -16] 4"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4333"
-			"plane" "(-135 153 -296) (-135 153 -408) (-135 135 -408)"
-			"material" "LIGHTS/LIGHT_PANEL_WARM"
-			"uaxis" "[0 1 0 -40] 3"
-			"vaxis" "[0 0 -1 5.33333] 3"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4332"
-			"plane" "(-136 153 -296) (-135 153 -296) (-135 135 -296)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 -32] 0.25"
-			"vaxis" "[1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4331"
-			"plane" "(-135 153 -408) (-136 153 -408) (-136 135 -408)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 -32] 0.25"
-			"vaxis" "[1 0 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4330"
-			"plane" "(-135 135 -296) (-135 135 -408) (-136 135 -408)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[-1 0 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "4329"
-			"plane" "(-136 135 -408) (-136 153 -408) (-136 153 -296)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 180 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "0 180 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
-	"id" "10658"
-	"classname" "func_detail"
-	solid
-	{
-		"id" "10779"
-		side
-		{
-			"id" "3555"
-			"plane" "(135 -153 -408) (135 -135 -408) (135 -135 -296)"
-			"material" "LIGHTS/LIGHT_PANEL_WARM"
-			"uaxis" "[0 1 0 32] 3"
-			"vaxis" "[0 0 -1 -26.6667] 3"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3554"
-			"plane" "(135 -135 -296) (135 -135 -408) (153 -135 -408)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 -32] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3553"
-			"plane" "(135 -153 -296) (135 -135 -296) (153 -135 -296)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 -32] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3552"
-			"plane" "(153 -135 -408) (135 -135 -408) (135 -153 -408)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[1 0 0 -32] 0.25"
-			"vaxis" "[0 -1 0 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		side
-		{
-			"id" "3551"
-			"plane" "(153 -135 -296) (153 -135 -408) (135 -153 -408)"
-			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 1 0 0] 0.25"
-			"vaxis" "[0 0 -1 0] 0.25"
-			"rotation" "0"
-			"lightmapscale" "16"
-			"smoothing_groups" "0"
-		}
-		editor
-		{
-			"color" "0 180 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	editor
-	{
-		"color" "0 180 0"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
 	}
 }
 entity
@@ -7051,7 +6725,7 @@ entity
 	"model" "models/props_lab/glass_lightcover.mdl"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
-	"skin" "1"
+	"skin" "$strip_skin"
 	"solid" "6"
 	"origin" "128 -144 -352"
 	editor

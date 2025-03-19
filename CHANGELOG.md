@@ -1,10 +1,100 @@
 # Changelog
 
-# Version `<dev>`
+# Version (dev)
+
+## Enhancements:
+* The Half Grate has been replaced by an item which offers several shapes of glass/grating, which will merge into the standard glass/grating.
+* Added an explicit error if a Neurotoxin Timer is present in the map without
+  any Vents also present.
+* Optimise track platforms with longer rail models, depending on the length.
+* #4383: Added "Precise Cube Dropper" option, which delays cube release to prevent it tumbling from the dropper doors.
+* Added option to prevent cubes from colliding with their own fizzling ghost.
+* Several stylevars ("Unlock Default Items" and "Restart On Exit") were moved to the "mandatory items" tab.
+* Added numbers to the ingame signage legend.
+* Added option to have barriers extend down to the surface of goo.
+* It is now possible to select Portal 1's Chell as a player model.
+* Portal 1 style will now extend white walls into the top of goo to better match the actual levels.
+* VScript code is now able to perform collision checks against chamber geometry calculated by BEE, which enables more robust items.
+* Rebuilt Rexurua Cube Deflector to be more reliable:
+	* Redirected pellets will continue down the direct center of the voxel.
+	* Fix #1599: Cubes will slightly resist being removed.
+	* Fix #2206: Deflectors can now be placed on walls and ceilings.
+	* Visual effects have been remade using particle systems.
+* All block items and several logic gates have been remade with a new editor design courtesy of Konclan.
+* Added an option to prevent players from grabbing cubes through grating in coop. This functionality is no longer present directly in Half Grates.
+* Antlasers can now be used in the special connection between Sendificators and their laser, producing a unique variant.
+
+### Changes:
+* Antline Corners now reserve timer delays over 10 for future use. Previously
+  these wrapped around. The error message will indicate which timer to switch to. This allows future variants to be added.
+
+### Bugfixes:
+* Fix collisions on static Angled Panels.
+* Fix missing texture for Tinted Glass editor model.
+* #2475: Fix cubes being duplicated if they get fizzled while they are leaving the dropper.
+* #4442: Fix missing `exit_deadly_coop` instance for "Glados Human Vault" voiceline set.
+* Fix leak in 1980s Coop spawn room.
+* #4382: Re-enable antline transferal to block items.
+* Fix Clean downward exit not trigging "map won" logic.
+* Fix 1-long Clean Track Platform not working.
+* Fix barriers not being cut by the resizable Black/White Wall item.
+* Fix P1 ceiling Obs Room (light hole) and Large Obs Room not actually producing light.
+* Make P1 Track Platform 'bottom grate' match the shape of the platform.
+* #4446: Fix piston movement sounds never stopping.
+* #4448: Futbols will now respawn if falling into goo.
+* #4449: Monitors not showing GLaDOS/Wheatley in them correctly.
+* #4300 Added option to make monitors unbreakable.
+* #4466: Fix tracktrains not starting in Old Ap, make it more difficult to misalign them.
+* #4473: Fix Sendificator not teleporting through glass in P1 and Overgrown.
+  Also ensure it can teleport through the small Window item.
+* #4476: Fix turrets ignoring players if aiming at a target behind glass.
+
+------------------------------------------
+
+# Version 4.45.0
+
+## New Features:
+* New Item: Tinted Glass, a blue-coloured version of glass which blocks absolutely everything, including lasers.
+* Added 2 new Barrier Hole variants: the Medium Hole can fit cubes, and the Slot Hole fits a light bridge through. The package has been renamed from "glass_hole", make sure to remove that file.
+* Glass/Grating now has a Start Reversed option, which shifts them to the inner pair of tiles.
+* Added a few new Clean entry corridor variants, based on the Overgrown layouts.
+
+## Enhancements:
+* #4308: Enlarge P1/1950s Small Glass Hole slightly to allow pellets through.
+* Add editor model for Absolute Fizzlers.
+* Laser Emitters now always use a static light, instead of it being togglable. This had the potential to quickly hit VRAD limits and generally fail to function.
+* Added ability to specify travel direction and stair direction for Clean SP elevators.
+* The light "temperature" can now be customised for Clean SP corridors.
+* #2811: Added "Auto Drop" to Track Platforms, giving them the player detection trigger like Piston Platforms.
+
+### Bugfixes:
+* Fix neurotoxin timer not compiling in P1 style.
+* Fix weird geometry in clean fizzler editor models.
+* Fix laser emitters not starting disabled properly.
+* #1571: Tweak coop exit stair position, add endcap model.
+* #4406: Fix centered Overgrown laser catcher not triggering outputs.
+* #4403: Fix missing palette icon for voxel logic gates.
+* Fix an issue where Clean and Overgrown cube droppers could be tricked into dropping two cubes, if a spawning cube is pushed against the iris.
+* #3289: Redo custom fizzler textures to fix bad tinting.
+* #2966: Sendificators will fizzle cubes if transported past the exit door fizzler, as well as other "out of bounds" locations.
+* #1609: Sendificators are now blocked by Closed Solid Fields.
+* #4415: Add additional clips underneath stair items to fix issues with items falling inside.
+* #4417: Fix it being possible to portal on extended Old Aperture stairs.
+* #2779: Add proper hold-logic and clips to P1 vertical Exit Door.
+* #4290, #3242, #4393: Remake restart-on-exit logic to be more consistent across styles.
+* Fix "advanced" P1 Indicator Timer Panels not functioning.
+* Fix extraneous world brush being placed when Standing Fizzlers are used.
+* Fix incorrect beveling on non-block Overgrown Stairs.
+* Fix Overgrown/Clean Track Platforms moving when built to be 1 block long.
+
+------------------------------------------
+
+# Version 4.44.0
 
 ### New Features:
 * Added the Destruction Target, a bullseye that turrets shoot to fire outputs.
 * New custom models for Old Aperture Laser items, made by [Rosemary Webs](https://www.youtube.com/@ErinRoseWebs).
+* Laser Catchers and Emitters can now use the alternate model which is closer to the floor.
 
 ### Enhancements:
 * Added tint mask for ARES 228's Old Aperture ball, when being coloured.
@@ -14,6 +104,8 @@
 * Add compiler error if unused cube types on piston/track platforms.
 * #3917: New editor models for P1 entry/exit doors.
 * Tweak Coop Spawn Room editor model to indicate orientation when vertical.
+* Several editor models have been remade: Pellet Destroyers, Logic gates, Triggers, Catwalks, Coop Checkpoints, P1 Entry/Exit Doors and P1 Fizzlers.
+* Pellets may now be configured to no longer hurt players.
 
 ### Bugfixes:
 * Improve entry door logic to prevent being able to portal past the door-close trigger.
@@ -28,10 +120,17 @@
 * Remove duplicate sign in Clean SP downward exit, if the regular sign is present.
 * Add clips to panels in Clean SP upward exit.
 * When spawning in Clean corridors, make the test chamber sign start illuminated.
+* Increase brightness of light strips in Clean corridors.
+* The Overgrowth music track now functions properly.
 * #4352: Fix Clean Coop Entry not cutting tiles when on the floor/ceiling.
 * #4336, #3941: Fix some catwalk placement issues.
 * Fix seams in Clean custom fizzler model, improve collisions.
 * Fix Piston/Track Platforms always using 4x4 tile patterns.
+* #4378: Fix 1970s SP exit door sign not working when vertical.
+* #4379: Fix leak with P1 Adjustable Pedestal Buttons.
+* #4076: Added safeguard in case Sendificator sends cubes out of bounds - they will be fizzled.
+* #3574: Fix leaks when using Old Aperture drawbridge with inputs.
+* #4392: Fix incorrect nodrawing of tiles underneath Clean/P1/Overgrown BEE1 doors.
 
 ------------------------------------------
 
@@ -130,6 +229,7 @@
 * Fix Old Aperture Sendificator Slim having broken antlines.
 * Fix P1 entrances not detecting people portalling out.
 * Fixed position of Old Aperture Flip Panel wheel.
+* Fixed check locations for Old Aperture entry/exit door speaker placements.
 
 ------------------------------------------
 

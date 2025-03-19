@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7335"
-	"mapversion" "154"
+	"editorbuild" "9672"
+	"mapversion" "158"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,13 +20,39 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "154"
+	"mapversion" "158"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "2005"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "platform"
+	connections
+	{
+		"OnTurnedOn" "cube_enable_motion_triggerDisable0.01-1"
+		"OnTurnedOn" "track_lift_movelinearSetPosition10-1"
+		"OnTurnedOn" "cube_enable_motion_triggerEnable0-1"
+		"OnTurnedOff" "cube_enable_motion_triggerDisable0.01-1"
+		"OnTurnedOff" "track_lift_movelinearSetPosition00-1"
+		"OnTurnedOff" "cube_enable_motion_triggerEnable0-1"
+	}
+	"origin" "48 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
 }
 entity
 {
@@ -148,6 +174,7 @@ entity
 {
 	"id" "2"
 	"classname" "func_movelinear"
+	"angles" "0 0 0"
 	"blockdamage" "0"
 	"disablereceiveshadows" "0"
 	"movedir" "$travel_direction"
@@ -163,15 +190,6 @@ entity
 	"startsound" "plats/a2_laser_over_goo_platform_travel_lp_01.wav"
 	"stopsound" "plats/a2_laser_over_goo_platform_arrive.wav"
 	"targetname" "track_lift_movelinear"
-	connections
-	{
-		"OnUser2" "cube_enable_motion_triggerDisable0.01-1"
-		"OnUser2" "cube_enable_motion_triggerEnable0-1"
-		"OnUser2" "track_lift_movelinearSetPosition10-1"
-		"OnUser1" "cube_enable_motion_triggerDisable0.01-1"
-		"OnUser1" "cube_enable_motion_triggerEnable0-1"
-		"OnUser1" "track_lift_movelinearSetPosition00-1"
-	}
 	solid
 	{
 		"id" "1176"

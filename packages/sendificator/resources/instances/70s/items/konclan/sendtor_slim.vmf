@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8997"
-	"mapversion" "130"
+	"editorbuild" "9672"
+	"mapversion" "132"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "130"
+	"mapversion" "132"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -410,7 +410,7 @@ world
 }
 entity
 {
-	"id" "5703"
+	"id" "5790"
 	"classname" "comp_relay"
 	"ctrl_type" "0"
 	"ctrl_value" "1"
@@ -418,7 +418,7 @@ entity
 	"targetname" "reset_rl"
 	connections
 	{
-		"OnTrigger" "targetSetTextureIndex00-1"
+		"OnTrigger" "set_indicator_idle_rlTrigger0-1"
 	}
 	"origin" "40 -32 -26"
 	editor
@@ -432,6 +432,30 @@ entity
 }
 entity
 {
+	"id" "5792"
+	"classname" "info_target"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"targetname" "target"
+	connections
+	{
+		"OnUser1" "fire_soundPlaySound0-1"
+		"OnUser1" "teslaDoSpark0-1"
+		"OnUser1" "set_indicator_success_rlTrigger0-1"
+		"OnUser3" "set_indicator_fail_rlTrigger0-1"
+	}
+	"origin" "0 0 -40"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "User1 comes from the script, on sucess."
+		"logicalpos" "[0 6500]"
+	}
+}
+entity
+{
 	"id" "5621"
 	"classname" "prop_under_floor_button"
 	"angles" "0 0 0"
@@ -439,6 +463,8 @@ entity
 	"disablereceiveshadows" "1"
 	"disableshadowdepth" "1"
 	"disableshadows" "1"
+	"model" "models/props_underground/underground_floor_button.mdl"
+	"modelscale" "1.0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"rendermode" "10"
@@ -507,28 +533,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 2500]"
-	}
-}
-entity
-{
-	"id" "5633"
-	"classname" "env_texturetoggle"
-	"angles" "0 0 0"
-	"target" "$ind_name"
-	"targetname" "target"
-	connections
-	{
-		"OnUser1" "fire_soundPlaySound0-1"
-		"OnUser1" "teslaDoSpark0-1"
-	}
-	"origin" "0 -9.53674e-007 -40"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"comments" "User1 comes from the script, on sucess."
-		"logicalpos" "[0 6500]"
 	}
 }
 entity
@@ -1460,6 +1464,7 @@ entity
 	"_lightscaleHDR" "1"
 	"_linear_attn" "0"
 	"_quadratic_attn" "1"
+	"_shadoworiginoffset" "0 0 0"
 	"_zero_percent_distance" "0"
 	"angles" "0 0 0"
 	"spawnflags" "0"
@@ -1478,6 +1483,9 @@ entity
 	"id" "4196"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "1"
 	"message" "EnergyBall.AmbientLoop"
 	"pitch" "80"
@@ -2373,6 +2381,9 @@ entity
 	"id" "234"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "Sphere.FiringPowerup"
 	"pitch" "100"
@@ -2425,6 +2436,9 @@ entity
 	"id" "261"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "world/light_power_on_03.wav"
 	"pitch" "100"
@@ -2447,6 +2461,9 @@ entity
 	"id" "264"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "world/light_power_on_04.wav"
 	"pitch" "100"
@@ -2469,6 +2486,9 @@ entity
 	"id" "267"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "Portal.close_red"
 	"pitch" "100"

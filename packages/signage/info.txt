@@ -10,6 +10,8 @@
 		"" "Signage helps indicate unseen elements or hint to solutions for puzzles."
 		"" ""
 		"" "* The timer widget chooses which sign should be used. Infinite uses no sign."
+		"" "* Change which sign corresponds to which timer value in the Item/Style Properties window."
+		"" "* Right click on the item in the editor to see the currently selected order."
 		"" "* Set Start Enabled to add an arrow pointing in a direction."
 		"" "* Set Start Reversed to point towards the center of the block instead."
 		"" ""
@@ -89,6 +91,8 @@
 		"" "Allows manually placing the signage used for antline connections."
 		"" ""
 		"" "* The timer widget chooses which sign should be used (3-12)."
+		"" "* These match the signs used on connections, in the same order that the editor picks."
+		"" "* Right click on the item in the editor to see the sign order."
 		"" "* Set Start Reversed to place it on the other side."
 		"" ""
 		"" "The signage blocks portal placement as well."
@@ -104,7 +108,7 @@
 					{
 					"0"
 						{
-						"Model"     "bee2_signage_fwd_antline_clean.mdl"
+						"Model"     "bee2/signage_antline_fwd.mdl"
 						"icon"      "signage_shape_box.png"
 						"bee2"      "clean/BEE/signage_antline.png"
 						"pal_name"  "CONNECTION SIGNAGE"
@@ -112,7 +116,7 @@
 						}
 					"1"
 						{
-						"Model"     "bee2_signage_rev_antline_clean.mdl"
+						"Model"     "bee2/signage_antline_rev.mdl"
 						}
 					}
 				"Instances"
@@ -138,13 +142,8 @@
 					{
 					"0"
 						{
-						"Model" "bee2_signage_fwd_antline_over.mdl"
 						"icon"  "signage_shape_box.png"
 						"bee2"  "over/BEE/signage_antline.png"
-						}
-					"1"
-						{
-						"Model" "bee2_signage_rev_antline_over.mdl"
 						}
 					}
 				}
@@ -156,13 +155,8 @@
 					{
 					"0"
 						{
-						"Model" "bee2_signage_fwd_antline_50s.mdl"
 						"icon"  "signage_shape_box.png"
 						"bee2"  "50s/BEE/signage_antline.png"
-						}
-					"1"
-						{
-						"Model" "bee2_signage_rev_antline_50s.mdl"
 						}
 					}
 				// Arrow pointing up
@@ -183,13 +177,8 @@
 					{
 					"0"
 						{
-						"Model" "bee2_signage_fwd_antline_70s.mdl"
 						"icon"  "signage_shape_box.png"
 						"bee2"  "70s/BEE/signage_antline.png"
-						}
-					"1"
-						{
-						"Model" "bee2_signage_rev_antline_70s.mdl"
 						}
 					}
 				"Config" "sign_70s.cfg"
@@ -226,43 +215,149 @@
 "SignageLegend"
 	{
 	"ID" "BEE2_CLEAN"
-	"Overlay" "signage/clean.png"
-	"Blank"   "items/clean/BEE/signage/blank.png"
+	"symbol"
+		{
+		"Overlay" "signage/sym_clean.png"
+		"Blank"   "items/clean/BEE/signage/blank.png"
+
+		// Spritesheet for the icons. Can be any size.
+		"numbers" "signage/clean_numbers.png"
+
+		// Offsets from the bottom-left of each icon.
+		"num_side" "8"
+		"num_bottom" "4"
+		}
+	"antline"
+		{
+		"Overlay" "signage/ant_clean.png"
+		"Blank"   "items/clean/BEE/signage/blank.png"
+
+		"numbers" "signage/clean_numbers.png"
+
+		"num_side" "4"
+		"num_bottom" "4"
+		}
 	}
 
 "SignageLegend"
 	{
 	"ID" "BEE2_1980s"
-	"Overlay" "signage/clean.png"
-	"Blank"   "items/clean/BEE/signage/blank.png"
+	"symbol"
+		{
+		"Overlay" "signage/sym_clean.png"
+		"Blank"   "signage/oldap_blank_sym.png"
+
+		"numbers" "signage/oldap_numbers.png"
+		"num_side" "2"
+		"num_bottom" "4"
+		}
+	"antline"
+		{
+		"Overlay" "signage/ant_clean.png"
+		"Blank"   "signage/oldap_blank_ant.png"
+
+		"numbers" "signage/oldap_numbers.png"
+		"num_side" "2"
+		"num_bottom" "4"
+		}
 	}
 
 "SignageLegend"
 	{
 	"ID" "BEE2_PORTAL_1"
-	"Overlay" "signage/clean.png"
-	"Blank"   "items/clean/BEE/signage/blank.png"
+	"symbol"
+		{
+		"Overlay" "signage/sym_clean.png"
+		"Blank"   "items/clean/BEE/signage/blank.png"
+
+		// Spritesheet for the icons. Can be any size.
+		"numbers" "signage/clean_numbers.png"
+
+		// Offsets from the bottom-left of each icon.
+		"num_side" "8"
+		"num_bottom" "4"
+		}
+	"antline"
+		{
+		"Overlay" "signage/ant_clean.png"
+		"Blank"   "items/clean/BEE/signage/blank.png"
+
+		"numbers" "signage/clean_numbers.png"
+
+		"num_side" "4"
+		"num_bottom" "4"
+		}
 	}
 
 "SignageLegend"
 	{
 	"ID" "BEE2_OVERGROWN"
-	"Overlay" "signage/over.png"
-	"Background" "signage/over_bg.png"
+	"symbol"
+		{
+		"Overlay" "signage/sym_over.png"
+		"Background" "signage/over_bg.png"
+
+		"numbers" "signage/clean_numbers.png"
+		"num_side" "4"
+		"num_bottom" "4"
+		}
+	"antline"
+		{
+		"Overlay" "signage/ant_over.png"
+
+		"numbers" "signage/clean_numbers.png"
+		"num_side" "4"
+		"num_bottom" "4"
+		}
 	}
 
 "SignageLegend"
 	{
 	"ID" "BEE2_1950s"
-	"Overlay"    "signage/50s.png"
-	"Background" "signage/50s_bg.png"
+	"symbol"
+		{
+		"Overlay"    "signage/sym_50s.png"
+		"Background" "signage/50s_bg.png"
+		"Blank"   "signage/oldap_blank_sym.png"
+
+		"numbers" "signage/oldap_numbers.png"
+		"num_side" "2"
+		"num_bottom" "4"
+		}
+	"antline"
+		{
+		"Overlay"    "signage/ant_50s.png"
+		"Blank"   "signage/oldap_blank_ant.png"
+
+		"numbers" "signage/oldap_numbers.png"
+		"num_side" "2"
+		"num_bottom" "4"
+		}
 	}
 
 "SignageLegend"
 	{
 	"ID" "BEE2_1970s"
-	"Overlay" "signage/70s.png"
-	"Background" "signage/70s_bg.png"
+	"symbol"
+		{
+		"Overlay" "signage/sym_70s.png"
+		"Background" "signage/70s_bg.png"
+		"Blank"   "signage/oldap_blank_sym.png"
+
+		"numbers" "signage/oldap_numbers.png"
+		"num_side" "2"
+		"num_bottom" "4"
+		}
+	"antline"
+		{
+		"Overlay" "signage/ant_70s.png"
+		"Background" "signage/70s_bg.png"
+		"Blank"   "signage/oldap_blank_ant.png"
+
+		"numbers" "signage/oldap_numbers.png"
+		"num_side" "2"
+		"num_bottom" "4"
+		}
 	}
 
 
@@ -284,7 +379,15 @@
 		"BEE2_1950s"
 			{
 			"overlay" "signage/underground_arrow"
-			"icon"    "items/50s/BEE/signage/arrow.png"
+			"icon"	
+				{
+				"transform"
+					{
+					"orient" "ccw"
+					// This is a rightward arrow, reuse it.
+					"child" "items/50s/BEE/signage.png"
+					}
+				}
 			}
 		"BEE2_1970s"
 			{
@@ -567,6 +670,7 @@
 	{
 	"ID" "SIGN_BALL_DROPPER"
 	"Name" "Ball Dropper"
+	"Secondary" "SIGN_CUBE_HURT"
 	"Styles"
 		{
 		"BEE2_CLEAN"
@@ -633,6 +737,7 @@
 	{
 	"ID" "SIGN_REFLECTION_DROPPER"
 	"Name" "Reflection Cube Dropper"
+	"Secondary" "SIGN_CUBE_HURT"
 	"Description" "This texture variation was made by Alfe5."
 	"Styles"
 		{

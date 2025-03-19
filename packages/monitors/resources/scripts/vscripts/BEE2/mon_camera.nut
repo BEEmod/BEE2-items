@@ -1,6 +1,5 @@
 // Cycles through active cameras.
-// Values set by generated entity script called 
-// before this executes: 
+// Values injected by comp_scriptvar_setter:
 // CAM_NUM = int (Number of cameras in the map)
 // CAM_ACTIVE = [bool] (For each camera, if it starts on/is on)
 // CAM_ACTIVE_NUM = int (Total number of enabled cams)
@@ -8,8 +7,7 @@
 // CAM_ANGLES = [Vector] (For each camera, the pitch, yaw, and zero roll)
 // CAM_STUDIO_CHANCE = float (If -1, other studio values are undefined..)
 // CAM_STUDIO_LOC = Vector (Location of studio, for the voiceline)
-// CAM_STUDIO_PITCH = float
-// CAM_STUDIO_YAW = float
+// CAM_STUDIO_ANG = Vector (pitch/yaw/roll for the studio)
 // This is also always defined
 // CAM_STUDIO_TURRET = bool (If true, an ai_relationship should make turrets shoot.)
 
@@ -102,7 +100,7 @@ function set_camera() {
 
 function set_camera_studio() {
 	self.SetAbsOrigin(CAM_STUDIO_LOC);
-	self.SetAngles(CAM_STUDIO_PITCH, CAM_STUDIO_YAW, 0);
+	self.SetAngles(CAM_STUDIO_ANG.x, CAM_STUDIO_ANG.y, CAM_STUDIO_ANG.z);
 	is_studio = 1;
 	if (CAM_STUDIO_TURRET) {
 		EntFire("@monitor_turr_hate", "ApplyRelationship", "", 0);

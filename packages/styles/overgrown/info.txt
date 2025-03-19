@@ -363,16 +363,7 @@
 	"Description" "Add random junk in Toxic Goo."
 	"Style" "BEE2_OVERGROWN"
 	}
-	
-"Overrides"
-	{
-	"StyleVar"
-		{
-		"ID"    "RestartOnExit"
-		"Style" "BEE2_OVERGROWN"
-		}
-	}
-	
+
 "QuotePack"
 	{
 	"ID"			"BEE2_ANNOUNCER_APOC"
@@ -649,7 +640,11 @@
 			{
 			"Styles"
 				{
-				"BEE2_OVERGROWN"	"glass"
+				"BEE2_OVERGROWN"
+					{
+					"Base"   "BEE2_CLEAN"
+					"Config" "glass.cfg"
+					}
 				}
 			}
 		}
@@ -753,6 +748,10 @@
 						"4" "instances/BEE2/clean/items/track/platform.vmf"
 						"5" "instances/BEE2/clean/items/track/platform_oscillate.vmf"
 						"6" "instances/BEE2/over/items/track/single.vmf"
+						
+						"bee2_multi_256" "instances/BEE2/over/items/track/middle_256.vmf"
+						"bee2_multi_512" "instances/BEE2/over/items/track/middle_512.vmf"
+						"bee2_multi_1024" "instances/BEE2/over/items/track/middle_1024.vmf"
 						}
 					}
 				}
@@ -878,8 +877,7 @@
 							"BrushCount"		"3"
 							"BrushSideCount"	"22"
 							}
-						// TODO: remove this instance entirely once blank filenames work correctly
-						"bee2_polarity" "instances/BEE2/over/items/tbeam_rev.vmf"
+						"bee2_polarity" ""
 						}
 					"Authors" "Valve, Erin-Rose"
 					"AppendDesc"

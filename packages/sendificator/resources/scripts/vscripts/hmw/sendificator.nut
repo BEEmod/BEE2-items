@@ -77,6 +77,11 @@ ripple_fx <- Entities.FindByName(null, "@sendtor_ripple_e");
 // ::sendtor_platform = location of source object
 // ::sendtor_override_angles = angle to use (set by angle snapping instances)
 
+// BEE addition: If cube teleports outside max bounds, fizzle it. This can
+// happen if you hit a laser cube inside a portal.
+map_bounds_min <- -1024.0;
+map_bounds_max <- 28 * 128.0;
+
 
 // static variables
 
@@ -178,6 +183,10 @@ function unrotate(point, angles)
 //  ------------------------------------------------------------------------
 //                               Initialisation
 //  ------------------------------------------------------------------------
+
+function Precache() {
+    self.PrecacheSoundScript("Prop.Fizzled");
+}
 
 
 function initialise(n)
@@ -317,13 +326,22 @@ function find_cube_to_send(platform_origin)
 {
     // Return the cube currently on the indicated platform.
     // Return null if platform is empty.
-    local cube = Entities.FindByClassnameNearest(
-            "prop_weighted_cube", platform_origin, 32);
-    if (cube == null) {
-        cube = Entities.FindByClassnameNearest(
-                "prop_monster_box", platform_origin, 32);
+    local best = null;
+    local best_len = 9999999999;
+    local ent = null;
+    while(ent = Entities.FindInSphere(ent, platform_origin, 32.0)) {
+        local cls = ent.GetClassname();
+        if (cls == "prop_weighted_cube" || cls == "prop_monster_box" || cls == "npc_portal_turret_floor" ||
+            // Special case: look for Superposition ghosts, which are regular prop_physics.
+            (cls == "prop_physics" && ent.GetScriptScope() != null && "is_superpos_ghost" in ent.GetScriptScope())) {
+            local length = (ent.GetOrigin() - platform_origin).LengthSqr();
+            if (length < (32*32) && length < best_len) {
+                best = ent;
+                best_len = length;
+            }
+        }
     }
-    return cube;
+    return best;
 }
 
 
@@ -442,25 +460,32 @@ function trace()
 
     hit <- 0;
     trace_cubes();
-    trace_portals();
+    trace_portals(hit != 0);
     if (hit == 2) {
         // trace cubes again to prevent wasting a beam
         // when a cube is inside a portal
         trace_cubes();
         if (hit == 1) {
             // ...and once more, with feeling!
-            trace_portals();
+            trace_portals(true);
         }
     }
 
     if (hit == 0) {
-        // No more cubes and portals.  We might still be hitting glass,
-        // so check the thickness.
-        if (place_laser_for_glass()) {
-            schedule_call("trace_glass();");
-        }
-        else {
-            reset_lasers();
+        // No more cubes and portals.
+
+        // First check if glass is here, via dumped BEE info.
+        if (::BEE_PointCollide(current_pos, ::BEECollide.GLASS, 0.5)) {
+            // Glass is here, check if it's thin enough for passage.
+            if (place_laser_for_glass()) {
+                schedule_call("trace_glass();");
+            }
+            else { // Can't place laser, fail.
+                reset_lasers();
+            }
+        } else {
+            // Not glass, place the cube.
+            teleport_cube();
         }
         return;
     }
@@ -493,18 +518,20 @@ function trace_glass()
         // Not glass, so this is the endpoint.
         // Turn off the glass-tracing laser.
         reset_laser_for_glass();
-
-        // Calculate the teleport destination
-        local cargo = find_cube_to_send(::sendtor_platform.GetOrigin());
-        local dest_offset = teleport_dest_offset;
-        if (cargo != null && is_monster_cube(cargo)) {
-            dest_offset = teleport_dest_offset_mon;
-        }
-        pos = backtrack_dest(dest_offset, index);
-        dest_confirm(cargo, pos);
-
+        teleport_cube();
         return;
     }
+}
+
+function teleport_cube() {
+    // Calculate the teleport destination
+    local cargo = find_cube_to_send(::sendtor_platform.GetOrigin());
+    local dest_offset = teleport_dest_offset;
+    if (cargo != null && is_monster_cube(cargo)) {
+        dest_offset = teleport_dest_offset_mon;
+    }
+    local pos = backtrack_dest(dest_offset, index);
+    dest_confirm(cargo, pos);
 }
 
 
@@ -563,7 +590,7 @@ function trace_cubes()
 }
 
 
-function trace_portals()
+function trace_portals(last_was_cube)
 {
     // Find out if we are hitting a portal and translate current_pos
     // and current_dir to the other side.
@@ -572,7 +599,8 @@ function trace_portals()
         local angles = v.GetAngles();
         local offset = unrotate(current_pos - v.GetOrigin(), angles);
         if (fabs(offset.y) < 32 && fabs(offset.z) < 54 &&
-                offset.x < 1 && offset.x > -12) {
+                // If a cube, allow the position to be further behind the portal.
+                offset.x < 1 && offset.x > (last_was_cube ? -24 : -12)) {
 
             // Position is close to (or past) portal surface.
             // Find other portal end and check incoming direction.
@@ -660,6 +688,13 @@ function dest_confirm(cargo, location)
         else if (is_round_cube(cargo)) {
             platform_fx = platform_fx_sphere;
             destination_fx = destination_fx_sphere;
+        } else if (cargo.GetClassname() == "npc_portal_turret_floor") {
+            // Easter egg, burn em.
+            EntFireByHandle(cargo, "Ignite", "", freeze_time, self, self);
+            EntFireByHandle(cargo, "SelfDestructImmediately", "", freeze_time + 0.5, self, self);
+            location.z -= 32.0;
+            platform_fx = platform_fx_sphere;
+            destination_fx = null;
         }
 
         EntFireByHandle(cargo, "DisableMotion", "", 0, self, self);
@@ -676,9 +711,32 @@ function dest_confirm(cargo, location)
             freeze_time = 0.1;
         }
 
+        if (::BEE_PointCollide(current_pos, ::BEECollide.OOB, 0.1)) {
+            // Placed in an OOB area - exit, obs rooms, etc.
+            // Fizzle the cube.
+            printl("Cube sendificated out of bounds, fizzling.");
+            EntFireByHandle(cargo, "Dissolve", "", 0.5, self, self);
+        } else if (
+            map_bounds_min > location.x || location.y > map_bounds_max ||
+            map_bounds_min > location.y || location.x > map_bounds_max ||
+            map_bounds_min > location.z || location.z > map_bounds_max
+            ) {
+            // Fully outside the map, force a fizzle.
+            printl("Cube sendificated out of the map, fizzling.");
+            EntFireByHandle(cargo, "SilentDissolve", "", 0.1, self, self);
+            EntFireByHandle(cargo, "Dissolve", "", 0.25, self, self);
+            // Play fizzling sound globally, to let players know what happened.
+            local player = null;
+            while (player = Entities.FindByClassname(player, "player")) {
+                player.EmitSound("Prop.Fizzled");
+            }
+        }
+
         cargo.SetOrigin(location);
         EntFireByHandle(cargo, "EnableMotion", "", freeze_time, self, self);
-        destination_fx.SpawnEntityAtLocation(location, cargo.GetAngles());
+        if (destination_fx != null) {
+            destination_fx.SpawnEntityAtLocation(location, cargo.GetAngles());
+        }
 
         // add ripple effects
         laser_ripple_dir <- null;
