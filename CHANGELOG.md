@@ -32,6 +32,8 @@
 ### Bugfixes:
 * Fix collisions on static Angled Panels.
 * Fix missing texture for Tinted Glass editor model.
+* Unstationary Scaffolds will now wake laser cubes when starting to move.
+* Fixed Old Aperture non-oscillating Unstationary Scaffolds.
 * #2475: Fix cubes being duplicated if they get fizzled while they are leaving the dropper.
 * #4442: Fix missing `exit_deadly_coop` instance for "Glados Human Vault" voiceline set.
 * Fix leak in 1980s Coop spawn room.

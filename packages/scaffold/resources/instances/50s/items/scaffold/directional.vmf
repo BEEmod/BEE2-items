@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8973"
-	"mapversion" "147"
+	"editorbuild" "9672"
+	"mapversion" "162"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -32,7 +32,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "147"
+	"mapversion" "162"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -52,10 +52,110 @@ world
 }
 entity
 {
+	"id" "9125"
+	"classname" "trigger_multiple"
+	"filtername" "@is_mbox"
+	"origin" "0 0 48"
+	"parentname" "train"
+	"spawnflags" "8"
+	"StartDisabled" "1"
+	"targetname" "motion_trig"
+	"wait" "1"
+	connections
+	{
+		"OnStartTouch" "!activatorExitDisabledState0-1"
+	}
+	solid
+	{
+		"id" "9126"
+		side
+		{
+			"id" "1233"
+			"plane" "(64 -64 64) (64 -64 32) (-64 -64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "1232"
+			"plane" "(-64 64 64) (-64 64 32) (64 64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "1231"
+			"plane" "(-64 -64 64) (-64 -64 32) (-64 64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "1230"
+			"plane" "(64 64 64) (64 64 32) (64 -64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "1229"
+			"plane" "(64 -64 64) (-64 -64 64) (-64 64 64)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "1228"
+			"plane" "(64 64 32) (-64 64 32) (-64 -64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
 	"id" "8673"
 	"classname" "comp_relay"
 	"ctrl_type" "0"
 	"ctrl_value" "1"
+	"delay" "0.0"
 	"targetname" "input"
 	connections
 	{
@@ -65,8 +165,12 @@ entity
 		"OnTurnedOff" "trainStartBackward0-1"
 		"OnTurnedOn" "spinnerStartForward0-1"
 		"OnTurnedOff" "spinnerStartBackward0-1"
-		"OnTurnedOn" "@scaff_fx_grp$groupFireUser20-1"
 		"OnTurnedOff" "@scaff_fx_grp$groupFireUser30-1"
+		"OnTurnedOn" "motion_trigDisable0.1-1"
+		"OnTurnedOn" "motion_trigEnable0-1"
+		"OnTurnedOff" "motion_trigDisable0.1-1"
+		"OnTurnedOff" "motion_trigEnable0-1"
+		"OnTurnedOn" "@scaff_fx_grp$groupFireUser20-1"
 	}
 	"origin" "32 32 48"
 	editor
@@ -4094,6 +4198,9 @@ entity
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"lfomodpitch" "0"
 	"lfomodvol" "0"
@@ -4147,9 +4254,9 @@ entity
 	"spawnflags" "528"
 	"speed" "0"
 	"StartSound" "container.enginestart"
-	"startspeed" "30"
+	"startspeed" "$speed"
 	"StopSound" "container.enginestop"
-	"target" "$track_name"
+	"target" "@scaff_track_grp$group_$ind"
 	"targetname" "train"
 	"velocitytype" "0"
 	"volume" "10"
@@ -4160,16 +4267,17 @@ entity
 		"OnUser3" "las*ScrollSpeed100-1"
 		"OnUser3" "train_coreStartDischarge0-1"
 		"OnUser3" "beam_soundPlaySound0-1"
-		"OnUser3" "$all_beamsColor50 200 200-1"
-		"OnUser3" "$all_beamsWidth20-1"
+		"OnUser3" "@scaff_beam_grp$group_*Color50 200 200-1"
+		"OnUser3" "@scaff_beam_grp$group_*Width20-1"
 		"OnUser4" "las*Color30 80 00-1"
 		"OnUser4" "spinnerStop0-1"
 		"OnUser4" "las*ScrollSpeed40-1"
 		"OnUser4" "train_coreStop10-1"
 		"OnUser4" "beam_soundStopSound0-1"
-		"OnUser4" "$all_beamsColor30 80 00-1"
-		"OnUser4" "$all_beamsWidth10-1"
-		"OnUser4" "$all_beamsFireUser10-1"
+		"OnUser4" "@scaff_beam_grp$group_*Color30 80 00-1"
+		"OnUser4" "@scaff_beam_grp$group_*Width10-1"
+		"OnUser4" "@scaff_beam_grp$group_*FireUser10-1"
+		"OnUser4" "@scaff_fx_grp$groupFireUser10-1"
 	}
 	solid
 	{
@@ -4708,8 +4816,8 @@ entity
 	"radius" "0"
 	"spawnflags" "0"
 	"speed" "100"
-	"target" "$next_track"
-	"targetname" "$track_name"
+	"target" "@scaff_track_grp$group_$next"
+	"targetname" "@scaff_track_grp$group_$ind"
 	connections
 	{
 		"OnPass" "trainFireUser40-1"
@@ -4728,7 +4836,7 @@ entity
 	"id" "39"
 	"classname" "env_beam"
 	"angles" "0 0 0"
-	"BoltWidth" "3"
+	"BoltWidth" "1"
 	"ClipStyle" "0"
 	"damage" "0"
 	"decalname" "Bigshot"
@@ -4737,8 +4845,8 @@ entity
 	"framestart" "2"
 	"HDRColorScale" "1.0"
 	"life" "0"
-	"LightningEnd" "$next_beam"
-	"LightningStart" "$beam_name"
+	"LightningEnd" "@scaff_beam_grp$group_$next"
+	"LightningStart" "@scaff_beam_grp$group_$ind"
 	"NoiseAmplitude" "0"
 	"Radius" "0"
 	"renderamt" "128"
@@ -4747,7 +4855,7 @@ entity
 	"rendermode" "1"
 	"spawnflags" "1"
 	"StrikeTime" "1"
-	"targetname" "$beam_name"
+	"targetname" "@scaff_beam_grp$group_$ind"
 	"targetpoint" "0 0 0"
 	"texture" "sprites/laserbeam.vmt"
 	"TextureScroll" "0"
