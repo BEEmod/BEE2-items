@@ -12,6 +12,7 @@
 * Several stylevars ("Unlock Default Items" and "Restart On Exit") were moved to the "mandatory items" tab.
 * Added numbers to the ingame signage legend.
 * Added option to have barriers extend down to the surface of goo.
+* Added option to disable automatic exit door signage.
 * It is now possible to select Portal 1's Chell as a player model.
 * Portal 1 style will now extend white walls into the top of goo to better match the actual levels.
 * The portal magnets automatically created by lasers/funnels/bridges can now be disabled.
