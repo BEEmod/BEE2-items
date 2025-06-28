@@ -18,6 +18,8 @@ _next_oran <- null;
 _spawn_scheduled <- false;
 
 _held_object <- null;
+// Functions which are called when portals change.
+_change_callbacks <- [];
 
 
 // Number of portalgun on/off buttons currently on.
@@ -249,6 +251,13 @@ function portal_get_id(portal) {
 ::BEE_GetPortalPairs <- get_portal_pairs.bindenv(this);
 ::BEE_PortalActive <- portal_active_ent.bindenv(this);
 
+// Register a function which is called whentever portals open/close.
+// Caller will need to do ::BEE_PortalRegisterChange(some_func.bindenv(this))
+function register_change_callback(func) {
+	_change_callbacks.push(func);
+}
+::BEE_PortalRegisterChange <- register_change_callback.bindenv(this);
+
 // Public: Fizzle "loose" portals, (not from autoportals).
 // If color is -1, we kill all portals (including coop).
 // If 0 or 1, we kill just that colour - this is for portalgun pedestals
@@ -351,6 +360,9 @@ function _on_open(port_id, is_oran) {
 	scope.__pgun_active <- true;
 	scope.__pgun_is_oran <- is_oran;
 	scope.__pgun_port_id <- port_id;
+	foreach(func in _change_callbacks) {
+		func(portal);
+	}
 }
 
 function _on_close(port_id) {
@@ -360,4 +372,7 @@ function _on_close(port_id) {
 	}
 	portal.ValidateScriptScope();
 	portal.GetScriptScope().__pgun_active <- false;
+	foreach(func in _change_callbacks) {
+		func(portal);
+	}
 }
