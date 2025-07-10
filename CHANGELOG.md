@@ -43,16 +43,17 @@
 * Fix Clean downward exit not trigging "map won" logic.
 * Fix 1-long Clean Track Platform not working.
 * Fix barriers not being cut by the resizable Black/White Wall item.
-* Fix P1 ceiling Obs Room (light hole) and Large Obs Room not actually producing light.
-* Make P1 Track Platform 'bottom grate' match the shape of the platform.
+  Also ensure it can teleport through the small Window item.
+* #4300 Added option to make monitors unbreakable.
+* #4441: Fix incorrect positioning of observation grates
 * #4446: Fix piston movement sounds never stopping.
 * #4448: Futbols will now respawn if falling into goo.
 * #4449: Monitors not showing GLaDOS/Wheatley in them correctly.
-* #4300 Added option to make monitors unbreakable.
 * #4466: Fix tracktrains not starting in Old Ap, make it more difficult to misalign them.
 * #4473: Fix Sendificator not teleporting through glass in P1 and Overgrown.
-  Also ensure it can teleport through the small Window item.
 * #4476: Fix turrets ignoring players if aiming at a target behind glass.
+* Fix P1 ceiling Obs Room (light hole) and Large Obs Room not actually producing light.
+* Make P1 Track Platform 'bottom grate' match the shape of the platform.
 
 ------------------------------------------
 
