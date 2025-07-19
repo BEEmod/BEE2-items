@@ -32,28 +32,29 @@
   these wrapped around. The error message will indicate which timer to switch to. This allows future variants to be added.
 
 ### Bugfixes:
-* Fix collisions on static Angled Panels.
-* Fix missing texture for Tinted Glass editor model.
-* Unstationary Scaffolds will now wake laser cubes when starting to move.
-* Fixed Old Aperture non-oscillating Unstationary Scaffolds.
-* #2475: Fix cubes being duplicated if they get fizzled while they are leaving the dropper.
-* #4442: Fix missing `exit_deadly_coop` instance for "Glados Human Vault" voiceline set.
-* Fix leak in 1980s Coop spawn room.
-* #4382: Re-enable antline transferal to block items.
-* Fix Clean downward exit not trigging "map won" logic.
-* Fix 1-long Clean Track Platform not working.
-* Fix barriers not being cut by the resizable Black/White Wall item.
   Also ensure it can teleport through the small Window item.
+* #2475: Fix cubes being duplicated if they get fizzled while they are leaving the dropper.
 * #4300 Added option to make monitors unbreakable.
+* #4382: Re-enable antline transferal to block items.
 * #4441: Fix incorrect positioning of observation grates
+* #4442: Fix missing `exit_deadly_coop` instance for "Glados Human Vault" voiceline set.
 * #4446: Fix piston movement sounds never stopping.
 * #4448: Futbols will now respawn if falling into goo.
 * #4449: Monitors not showing GLaDOS/Wheatley in them correctly.
 * #4466: Fix tracktrains not starting in Old Ap, make it more difficult to misalign them.
 * #4473: Fix Sendificator not teleporting through glass in P1 and Overgrown.
 * #4476: Fix turrets ignoring players if aiming at a target behind glass.
+* #4538: Fix incorrect model filename for flamethrower 'crusher'.
+* Fix 1-long Clean Track Platform not working.
+* Fix barriers not being cut by the resizable Black/White Wall item.
+* Fix Clean downward exit not trigging "map won" logic.
+* Fix collisions on static Angled Panels.
+* Fix leak in 1980s Coop spawn room.
+* Fix missing texture for Tinted Glass editor model.
 * Fix P1 ceiling Obs Room (light hole) and Large Obs Room not actually producing light.
+* Fixed Old Aperture non-oscillating Unstationary Scaffolds.
 * Make P1 Track Platform 'bottom grate' match the shape of the platform.
+* Unstationary Scaffolds will now wake laser cubes when starting to move.
 
 ------------------------------------------
 
