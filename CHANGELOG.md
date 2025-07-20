@@ -9,7 +9,9 @@
 * Optimise track platforms with longer rail models, depending on the length.
 * #4383: Added "Precise Cube Dropper" option, which delays cube release to prevent it tumbling from the dropper doors.
 * Added option to prevent cubes from colliding with their own fizzling ghost.
-* Several stylevars ("Unlock Default Items" and "Restart On Exit") were moved to the "mandatory items" tab.
+* Several "style properties" have been moved to other tabs: 
+	* "Unlock Default Items" and "Restart On Exit": moved to "mandatory items" tab
+	* "Use P1 Portal Gun" and "Use P1 Fizzler FX": moved to new "Portal 1" tab
 * Added numbers to the ingame signage legend.
 * Added option to have barriers extend down to the surface of goo.
 * Added option to disable automatic exit door signage.

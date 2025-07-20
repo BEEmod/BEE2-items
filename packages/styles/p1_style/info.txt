@@ -349,23 +349,35 @@
 	"Authors"     "Carl Kenner, TeamSpen210"
 	"Description" "GLaDOS with adjusted audio intended for Portal 1 chambers."
 	}
-	
-"StyleVar"
-	{
-	"ID"            "P1_PORTED_PGUN"
-	"Name"          "Use P1 Portal Gun"
-	"Description"   "Use a ported version of the Portal 1 Portal gun in SP mode. It's clean, and has different grabbing animations. This also adds the original P1 sound effects."
-	"Enabled"       "1"
-	"Style"         "BEE2_PORTAL_1"
-	}
 
-"StyleVar"
+"ConfigGroup"
 	{
-	"ID"            "P1_OLD_DISSOLVE"
-	"Name"          "Use P1 Fizzler FX"
-	"Description"   "Use the Portal 1 fizzler effects instead of the Portal 2 ones. This also removes the sounds."
-	"Enabled"       "1"
-	"Style"         "BEE2_PORTAL_1"
+	"ID" "BEE2_PORTAL_1"
+	"Name" "Portal 1"
+
+	"Widget"
+		{
+		"ID"       "PortedPGun"
+		"Type"     "checkbox"
+		"Default"  "1"
+		"UseTimer" "0"
+		"Label"    "Use P1 Portal Gun"
+		"legacy_stylevar_id" "P1_PORTED_PGUN"
+
+		"Tooltip"  "Use a ported version of the Portal 1 Portal gun in SP mode. It's clean, and has different grabbing animations. This also adds the original P1 sound effects."
+		}
+
+	"Widget"
+		{
+		"ID"       "OldDissolve"
+		"Type"     "checkbox"
+		"Default"  "1"
+		"UseTimer" "0"
+		"Label"    "Use P1 Fizzler FX"
+		"legacy_stylevar_id" "P1_OLD_DISSOLVE"
+
+		"Tooltip"  "Use the Portal 1 fizzler effects instead of the Portal 2 ones. This also removes the sounds."
+		}
 	}
 
 "Overrides"
