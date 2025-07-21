@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8997"
-	"mapversion" "102"
+	"editorbuild" "9672"
+	"mapversion" "106"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "102"
+	"mapversion" "106"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -55,14 +55,12 @@ entity
 	"targetname" "in"
 	connections
 	{
-		"OnChangedFromMin" "outFireUser20-1"
-		"OnHitMin" "outFireUser10-1"
+		"OnChangedFromMin" "outTurnOn0-1"
+		"OnHitMin" "outTurnOff0-1"
 		"OnUser1" "!selfSubtract10-1"
 		"OnUser2" "!selfAdd10-1"
-		"OnChangedFromMin" "orangeEnable0-1"
-		"OnHitMin" "orangeDisable0-1"
-		"OnChangedFromMin" "blueDisable0-1"
-		"OnHitMin" "blueEnable0-1"
+		"OnHitMin" "toggleSetTextureIndex00-1"
+		"OnChangedFromMin" "toggleSetTextureIndex10-1"
 	}
 	"origin" "16 0 -32"
 	editor
@@ -76,20 +74,15 @@ entity
 entity
 {
 	"id" "1860"
-	"classname" "logic_relay"
-	"angles" "0 0 0"
-	"spawnflags" "0"
-	"StartDisabled" "0"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
 	"targetname" "out"
-	connections
-	{
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnUser1" "proxyProxyRelay0-1"
-	}
 	"origin" "-16 0 -32"
 	editor
 	{
-		"color" "0 100 250"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"

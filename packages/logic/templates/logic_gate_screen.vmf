@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "105"
+	"editorbuild" "9672"
+	"mapversion" "6"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,53 +14,48 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "4"
-	"bShow3DGrid" "1"
+	"nGridSpacing" "16"
+	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "105"
+	"mapversion" "6"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
-	"skyname" "sky_day01_01"
-}
-entity
-{
-	"id" "1529"
-	"classname" "func_detail"
+	"skyname" "sky_black_nofog"
 	solid
 	{
-		"id" "1592"
+		"id" "3"
 		side
 		{
-			"id" "1547"
-			"plane" "(-10 -12 -67) (-10 12 -67) (10 12 -67)"
-			"material" "BEE2/HMW/LOGIC_NAMES"
-			"uaxis" "[0 1 0 82] 0.31"
-			"vaxis" "[1 0 0 -35.4516] 0.31"
-			"rotation" "0"
+			"id" "1"
+			"plane" "(-24 -24 -68) (-24 24 -68) (24 24 -68)"
+			"material" "SIGNAGE/COUNTDOWN_BACKGROUND"
+			"uaxis" "[0 1 0 64] 0.375"
+			"vaxis" "[1 0 0 64] 0.375"
+			"rotation" "90"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "1546"
-			"plane" "(-10 12 -68) (-10 -12 -68) (10 -12 -68)"
+			"id" "2"
+			"plane" "(-24 24 -72) (-24 -24 -72) (24 -24 -72)"
 			"material" "TOOLS/TOOLSNODRAW"
-			"uaxis" "[0 -1 0 0] 0.25"
-			"vaxis" "[1 0 0 -40] 0.25"
+			"uaxis" "[-1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
 		}
 		side
 		{
-			"id" "1545"
-			"plane" "(-10 -12 -68) (-10 12 -68) (-10 12 -67)"
+			"id" "3"
+			"plane" "(-24 -24 -72) (-24 24 -72) (-24 24 -68)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -70,8 +65,8 @@ entity
 		}
 		side
 		{
-			"id" "1544"
-			"plane" "(10 12 -68) (10 -12 -68) (10 -12 -67)"
+			"id" "4"
+			"plane" "(24 24 -72) (24 -24 -72) (24 -24 -68)"
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -81,10 +76,10 @@ entity
 		}
 		side
 		{
-			"id" "1543"
-			"plane" "(-10 12 -68) (10 12 -68) (10 12 -67)"
-			"material" "BEE2/HMW/LOGIC_NAMES"
-			"uaxis" "[-1 0 0 8] 0.25"
+			"id" "5"
+			"plane" "(-24 24 -72) (24 24 -72) (24 24 -68)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[-1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -92,10 +87,10 @@ entity
 		}
 		side
 		{
-			"id" "1542"
-			"plane" "(10 -12 -68) (-10 -12 -68) (-10 -12 -67)"
-			"material" "BEE2/HMW/LOGIC_NAMES"
-			"uaxis" "[1 0 0 -8] 0.25"
+			"id" "6"
+			"plane" "(24 -24 -72) (-24 -24 -72) (-24 -24 -68)"
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
@@ -103,17 +98,29 @@ entity
 		}
 		editor
 		{
-			"color" "0 180 0"
+			"color" "0 179 108"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
+}
+entity
+{
+	"id" "7"
+	"classname" "bee2_template_conf"
+	"auto_realign" "0"
+	"debug" "0"
+	"detail_auto_visgroup" "0"
+	"discard_brushes" "0"
+	"temp_type" "detail"
+	"template_id" "BEE2_LOGIC_GATE_SCREEN"
+	"origin" "0 0 -48"
 	editor
 	{
-		"color" "0 180 0"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"logicalpos" "[0 1000]"
+		"logicalpos" "[0 0]"
 	}
 }
 cameras

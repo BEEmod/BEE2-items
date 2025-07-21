@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8997"
-	"mapversion" "109"
+	"editorbuild" "9672"
+	"mapversion" "115"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "109"
+	"mapversion" "115"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,11 +30,28 @@ world
 }
 entity
 {
-	"id" "1842"
+	"id" "1889"
 	"classname" "func_instance_parms"
 	"parm1" "$connectioncount integer 1"
 	"parm2" "$start_enabled integer 1"
-	"origin" "0 0 -32"
+	"origin" "16 0 -32"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "1891"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "out"
+	"origin" "-16 0 -32"
 	editor
 	{
 		"color" "220 30 220"
@@ -55,16 +72,14 @@ entity
 	"targetname" "in"
 	connections
 	{
-		"OnHitMin" "outFireUser20.01-1"
-		"OnChangedFromMin" "outFireUser10.01-1"
+		"OnHitMin" "outTurnOn0.01-1"
+		"OnChangedFromMin" "outTurnOff0.01-1"
 		"OnUser1" "!selfSubtract10-1"
 		"OnUser2" "!selfAdd10-1"
-		"OnChangedFromMin" "blueEnable0.01-1"
-		"OnHitMin" "blueDisable0.01-1"
-		"OnChangedFromMin" "orangeDisable0.01-1"
-		"OnHitMin" "orangeEnable0.01-1"
+		"OnChangedFromMin" "toggleSetTextureIndex20.01-1"
+		"OnHitMin" "toggleSetTextureIndex30.01-1"
 	}
-	"origin" "0 16 -32"
+	"origin" "0 0 -32"
 	editor
 	{
 		"color" "0 100 250"
@@ -76,20 +91,15 @@ entity
 entity
 {
 	"id" "1860"
-	"classname" "logic_relay"
+	"classname" "logic_auto"
 	"angles" "0 0 0"
-	"spawnflags" "0"
-	"StartDisabled" "0"
-	"targetname" "out"
+	"spawnflags" "1"
 	connections
 	{
-		"OnUser2" "proxyProxyRelay0-1"
-		"OnUser1" "proxyProxyRelay0-1"
-		"OnSpawn" "!selfFireUser201"
-		"OnSpawn" "blueDisable01"
-		"OnSpawn" "orangeEnable01"
+		"OnMapSpawn" "outTurnOn1-1"
+		"OnMapSpawn" "toggleSetTextureIndex30-1"
 	}
-	"origin" "0 -16 -32"
+	"origin" "0 0 -16"
 	editor
 	{
 		"color" "0 100 250"
