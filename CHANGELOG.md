@@ -19,6 +19,7 @@
 * Portal 1 style will now extend white walls into the top of goo to better match the actual levels.
 * The portal magnets automatically created by lasers/funnels/bridges can now be disabled.
 * Add colourised version of Rosemary's Old Ap Reflection Cube.
+* Added option to enable the 'cube flipper' device on Sendificators, to more easily point reflection cubes upwards.
 * VScript code is now able to perform collision checks against chamber geometry calculated by BEE, which enables more robust items.
 * Rebuilt Rexurua Cube Deflector to be more reliable:
 	* Redirected pellets will continue down the direct center of the voxel.
