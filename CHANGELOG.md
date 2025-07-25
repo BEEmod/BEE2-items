@@ -27,6 +27,7 @@
 	* Visual effects have been remade using particle systems.
 * All block items and several logic gates have been remade with a new editor design courtesy of Konclan.
 * Added an option to prevent players from grabbing cubes through grating in coop. This functionality is no longer present directly in Half Grates.
+* Added two additional modes to Surface Lacquer to allow disabling surface or voxel application, as well as connection support to apply to a larger area.
 * Antlasers can now be used in the special connection between Sendificators and their laser, producing a unique variant.
 
 ### Changes:
