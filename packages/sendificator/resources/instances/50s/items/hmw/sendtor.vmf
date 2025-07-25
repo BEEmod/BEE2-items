@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8997"
-	"mapversion" "192"
+	"editorbuild" "9672"
+	"mapversion" "199"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,19 +14,25 @@ visgroups
 		"visgroupid" "38"
 		"color" "144 241 150"
 	}
+	visgroup
+	{
+		"name" "Invis"
+		"visgroupid" "26"
+		"color" "153 110 167"
+	}
 }
 viewsettings
 {
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "192"
+	"mapversion" "199"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -46,6 +52,33 @@ world
 }
 entity
 {
+	"id" "10288"
+	"classname" "light"
+	"_castentityshadow" "0"
+	"_constant_attn" "0"
+	"_distance" "0"
+	"_fifty_percent_distance" "114"
+	"_hardfalloff" "0"
+	"_light" "102 125 6 25"
+	"_lightHDR" "-1 -1 -1 1"
+	"_lightscaleHDR" "1"
+	"_linear_attn" "0"
+	"_quadratic_attn" "1"
+	"_shadoworiginoffset" "0 0 0"
+	"_zero_percent_distance" "146"
+	"angles" "0 0 0"
+	"style" "0"
+	"origin" "0 0 18"
+	editor
+	{
+		"color" "255 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "10066"
 	"classname" "comp_relay"
 	"ctrl_type" "0"
@@ -54,7 +87,7 @@ entity
 	"targetname" "reset_rl"
 	connections
 	{
-		"OnTrigger" "targetSetTextureIndex00-1"
+		"OnTrigger" "set_indicator_idle_rlTrigger0-1"
 	}
 	"origin" "64 0 -16"
 	editor
@@ -93,6 +126,8 @@ entity
 	"disablereceiveshadows" "1"
 	"disableshadowdepth" "1"
 	"disableshadows" "1"
+	"model" "models/props_underground/underground_floor_button.mdl"
+	"modelscale" "1.0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"rendermode" "10"
@@ -104,6 +139,7 @@ entity
 	editor
 	{
 		"color" "220 30 220"
+		"visgroupid" "26"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 3500]"
@@ -112,9 +148,9 @@ entity
 entity
 {
 	"id" "9088"
-	"classname" "env_texturetoggle"
+	"classname" "info_target"
 	"angles" "0 0 0"
-	"target" "$ind_name"
+	"spawnflags" "0"
 	"targetname" "target"
 	connections
 	{
@@ -125,6 +161,8 @@ entity
 		"OnUser1" "flash_shapeSetAnimationflash0-1"
 		"OnUser1" "flash_shape_blendStartFloatLerp1 0 0.75 00-1"
 		"OnUser1" "flash_shapeEnable0-1"
+		"OnUser1" "set_indicator_success_rlTrigger0-1"
+		"OnUser3" "set_indicator_fail_rlTrigger0-1"
 	}
 	"origin" "0 0 -48"
 	editor
@@ -424,6 +462,7 @@ entity
 	editor
 	{
 		"color" "220 30 220"
+		"visgroupid" "26"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 2500]"
@@ -566,6 +605,7 @@ entity
 	{
 		"color" "220 30 220"
 		"visgroupid" "38"
+		"visgroupid" "26"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
@@ -576,6 +616,9 @@ entity
 	"id" "8015"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "world/light_power_on_03.wav"
 	"pitch" "100"
@@ -599,6 +642,9 @@ entity
 	"id" "8019"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "world/light_power_on_04.wav"
 	"pitch" "100"
@@ -622,6 +668,9 @@ entity
 	"id" "8023"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "Portal.close_red"
 	"pitch" "100"
@@ -645,6 +694,9 @@ entity
 	"id" "8027"
 	"classname" "ambient_generic"
 	"angles" "0 0 0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"message" "Sphere.FiringPowerup"
 	"pitch" "100"
@@ -701,6 +753,7 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/hmw/props/sendificator_beam.mdl"
+	"modelscale" "1.0"
 	"physdamagescale" "1.0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
