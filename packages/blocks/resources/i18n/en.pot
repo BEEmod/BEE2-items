@@ -1,12 +1,12 @@
 # Translations template for BEEmod package "Block items".
-# Built with BEEmod version 2.4.45.2.dev+c95821b9 64-bit.
+# Built with BEEmod version 2.4.45.2.dev+641ba4f3 64-bit.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Block items 2.4.45.2.dev+c95821b9 64-bit\n"
+"Project-Id-Version: Block items 2.4.45.2.dev+641ba4f3 64-bit\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-19 13:37+1000\n"
+"POT-Creation-Date: 2025-08-02 15:39+1000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -260,6 +260,12 @@ msgstr ""
 msgid "Alters the tile pattern. Only appears on surfaces with textures larger than 4x4."
 msgstr ""
 
+#: package/cust/bad_antigel_output_item
+msgid ""
+"An Antigel Marker was connected to an item of another type.\n"
+"The output connection is used to specify a larger volume to mark, it cannot be an arbitary item."
+msgstr ""
+
 #: items/ITEM_BEE2_ANGLED_BLOCK/ANY.desc items/ITEM_BEE2_ANGLED_BLOCK/BEE2_1950S.desc
 #: items/ITEM_BEE2_ANGLED_BLOCK/BEE2_1960S.desc items/ITEM_BEE2_ANGLED_BLOCK/BEE2_1970S.desc
 #: items/ITEM_BEE2_ANGLED_BLOCK/BEE2_1980S.desc items/ITEM_BEE2_ANGLED_BLOCK/BEE2_CLEAN.desc
@@ -378,8 +384,14 @@ msgstr ""
 msgid ""
 "Coats surfaces in a lacquer, preventing gel from being applied to it. Portals can still be applied normally however.\n"
 "\n"
-"* Tiles flat on the wall will only be affected if the marker is on that surface, but any blocks/panels in the tile "
-"will be affected."
+"\n"
+"* This item has three variants, changing how it determines which surfaces to affect.\n"
+"* 'Companion' applies to the surface the item is placed on, converting regular tiles on the wall/floor/ceiling.\n"
+"* 'Reflect' applies to the whole voxel, converting any block/panel items inside it, but not other regular tiles.\n"
+"* 'Weighted' is a combination of both.\n"
+"* The item supports connections - linking two together modifies all voxels in the bounding box, and surfaces on the "
+"boundary. This depends on the variants that were used.\n"
+"* The other two 'cube types' are reserved for future variants."
 msgstr ""
 
 #: items/ITEM_BEE2_HALF_WALL/ANY.name items/ITEM_BEE2_HALF_WALL/BEE2_1950S.name items/ITEM_BEE2_HALF_WALL/BEE2_1960S.name
@@ -553,8 +565,23 @@ msgid ""
 "TIP: This can be placed under other items to affect them, such as buttons and panels."
 msgstr ""
 
+#: package/cust/bad_antigel_cube_type
+msgid ""
+"The <kbd><samp>Sphere</samp></kbd> or <kbd><samp>Franken</samp></kbd> cube types should not be used on Antigel "
+"Markers.\n"
+"These types are reserved for future functionality."
+msgstr ""
+
 #: items/ITEM_TSPEN_DITCH/BEE2_1970S.desc
 msgid "These ditches are very simple - a hole in the floor, closed by a grating."
+msgstr ""
+
+#: items/ITEM_BEE2_ANTIGEL_MARKER/ANY.name items/ITEM_BEE2_ANTIGEL_MARKER/BEE2_1950S.name
+#: items/ITEM_BEE2_ANTIGEL_MARKER/BEE2_1960S.name items/ITEM_BEE2_ANTIGEL_MARKER/BEE2_1970S.name
+#: items/ITEM_BEE2_ANTIGEL_MARKER/BEE2_1980S.name items/ITEM_BEE2_ANTIGEL_MARKER/BEE2_CLEAN.name
+#: items/ITEM_BEE2_ANTIGEL_MARKER/BEE2_CLEAN_ORIGINAL.name items/ITEM_BEE2_ANTIGEL_MARKER/BEE2_OVERGROWN.name
+#: items/ITEM_BEE2_ANTIGEL_MARKER/BEE2_PORTAL_1.name
+msgid "Unused"
 msgstr ""
 
 #: package/desc
