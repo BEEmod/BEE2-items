@@ -2,6 +2,10 @@
 
 # Version (dev)
 
+## Backwards Incompatible Change:
+* Antline Corners now reserve timer delays over 10 for future use. Previously
+  these wrapped around. The error message will indicate which timer to switch to. This allows future variants to be added.
+
 ## Enhancements:
 * The Half Grate has been replaced by an item which offers several shapes of glass/grating, which will merge into the standard glass/grating.
 * Added an explicit error if a Neurotoxin Timer is present in the map without
@@ -13,15 +17,15 @@
 	* "Unlock Default Items" and "Restart On Exit": moved to "mandatory items" tab
 	* "Use P1 Portal Gun" and "Use P1 Fizzler FX": moved to new "Portal 1" tab
 * Added numbers to the ingame signage legend.
-* Added option to have barriers extend down to the surface of goo.
+* Added option to have barriers (glass, grating, fizzlers) extend down to the surface of goo.
 * Added option to disable automatic exit door signage.
 * It is now possible to select Portal 1's Chell as a player model.
 * Portal 1 style will now extend white walls into the top of goo to better match the actual levels.
 * The portal magnets automatically created by lasers/funnels/bridges can now be disabled.
 * Add colourised version of Rosemary's Old Ap Reflection Cube.
-* Added option to enable the 'cube flipper' device on Sendificators, to more easily point reflection cubes upwards.
+* Added option to enable the 'cube flipper' device on Sendificators, to more easily point reflection cubes upwards. This isn't present on the slim version due to size reasons.
 * VScript code is now able to perform collision checks against chamber geometry calculated by BEE, which enables more robust items.
-* Rebuilt Rexurua Cube Deflector to be more reliable:
+* Rebuilt Rexaura Cube Deflector to be more reliable:
 	* Redirected pellets will continue down the direct center of the voxel.
 	* Fix #1599: Cubes will slightly resist being removed.
 	* Fix #2206: Deflectors can now be placed on walls and ceilings.
@@ -31,12 +35,7 @@
 * Added two additional modes to Surface Lacquer to allow disabling surface or voxel application, as well as connection support to apply to a larger area.
 * Antlasers can now be used in the special connection between Sendificators and their laser, producing a unique variant.
 
-### Changes:
-* Antline Corners now reserve timer delays over 10 for future use. Previously
-  these wrapped around. The error message will indicate which timer to switch to. This allows future variants to be added.
-
-### Bugfixes:
-  Also ensure it can teleport through the small Window item.
+## Bugfixes:
 * #2475: Fix cubes being duplicated if they get fizzled while they are leaving the dropper.
 * #4300 Added option to make monitors unbreakable.
 * #4382: Re-enable antline transferal to block items.
@@ -44,9 +43,10 @@
 * #4442: Fix missing `exit_deadly_coop` instance for "Glados Human Vault" voiceline set.
 * #4446: Fix piston movement sounds never stopping.
 * #4448: Futbols will now respawn if falling into goo.
-* #4449: Monitors not showing GLaDOS/Wheatley in them correctly.
-* #4466: Fix tracktrains not starting in Old Ap, make it more difficult to misalign them.
+* #4449: Fix Monitors not showing GLaDOS/Wheatley in them correctly.
+* #4466: Fix conveyors not starting in Old Ap, make it more difficult to misalign them.
 * #4473: Fix Sendificator not teleporting through glass in P1 and Overgrown.
+  Also ensure it can teleport through the small Window item.
 * #4476: Fix turrets ignoring players if aiming at a target behind glass.
 * #4538: Fix incorrect model filename for flamethrower 'crusher'.
 * Fix 1-long Clean Track Platform not working.
