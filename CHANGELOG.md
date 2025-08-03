@@ -2,10 +2,6 @@
 
 # Version (dev)
 
-## Backwards Incompatible Change:
-* Antline Corners now reserve timer delays over 10 for future use. Previously
-  these wrapped around. The error message will indicate which timer to switch to. This allows future variants to be added.
-
 ## Enhancements:
 * The Half Grate has been replaced by an item which offers several shapes of glass/grating, which will merge into the standard glass/grating.
 * Added an explicit error if a Neurotoxin Timer is present in the map without
@@ -19,6 +15,7 @@
 * Added numbers to the ingame signage legend.
 * Added option to have barriers (glass, grating, fizzlers) extend down to the surface of goo.
 * Added option to disable automatic exit door signage.
+* Antline Corners have been renamed to just "Custom Antlines". Timer values 11-18 produce checkmark/timer signs.
 * It is now possible to select Portal 1's Chell as a player model.
 * Portal 1 style will now extend white walls into the top of goo to better match the actual levels.
 * The portal magnets automatically created by lasers/funnels/bridges can now be disabled.
