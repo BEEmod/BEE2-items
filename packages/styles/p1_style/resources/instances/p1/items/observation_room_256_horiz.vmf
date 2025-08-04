@@ -2,18 +2,12 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "231"
+	"mapversion" "235"
 	"formatversion" "100"
 	"prefab" "0"
 }
 visgroups
 {
-	visgroup
-	{
-		"name" "Clip"
-		"visgroupid" "16"
-		"color" "203 248 249"
-	}
 	visgroup
 	{
 		"name" "cam pos"
@@ -32,7 +26,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "231"
+	"mapversion" "235"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -2707,32 +2701,15 @@ entity
 entity
 {
 	"id" "5891"
-	"classname" "func_brush"
-	"_minlight" "0"
-	"disableflashlight" "0"
-	"disablereceiveshadows" "0"
-	"disableshadowdepth" "0"
-	"drawinfastreflection" "0"
-	"invert_exclusion" "0"
-	"origin" "-136 -64 50"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"rendermode" "0"
-	"solidbsp" "0"
-	"solidity" "2"
-	"spawnflags" "2"
-	"startdisabled" "0"
-	"texframeindex" "0"
-	"vrad_brush_cast_shadows" "0"
+	"classname" "func_detail"
 	solid
 	{
 		"id" "5848"
 		side
 		{
 			"id" "2662"
-			"plane" "(-208 -192 164) (-208 64 164) (-64 64 164)"
-			"material" "BEE2/INVISIBLE_NOPORTAL"
+			"plane" "(-208 -192 164) (-208 64 164) (-80 64 164)"
+			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 -24] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
 			"rotation" "0"
@@ -2742,8 +2719,8 @@ entity
 		side
 		{
 			"id" "2661"
-			"plane" "(-208 64 -64) (-208 -192 -64) (-64 -192 -64)"
-			"material" "BEE2/INVISIBLE_NOPORTAL"
+			"plane" "(-208 64 -64) (-208 -192 -64) (-80 -192 -64)"
+			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 24] 0.25"
 			"vaxis" "[0 1 0 0] 0.25"
 			"rotation" "0"
@@ -2753,8 +2730,8 @@ entity
 		side
 		{
 			"id" "2660"
-			"plane" "(-64 64 -64) (-64 -192 -64) (-64 -192 164)"
-			"material" "BEE2/INVISIBLE_NOPORTAL"
+			"plane" "(-80 64 -64) (-80 -192 -64) (-80 -192 164)"
+			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -2765,7 +2742,7 @@ entity
 		{
 			"id" "2659"
 			"plane" "(-208 -192 -64) (-208 64 -64) (-208 64 164)"
-			"material" "BEE2/INVISIBLE_NOPORTAL"
+			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -2775,8 +2752,8 @@ entity
 		side
 		{
 			"id" "2658"
-			"plane" "(-64 -192 -64) (-208 -192 -64) (-208 -192 164)"
-			"material" "BEE2/INVISIBLE_NOPORTAL"
+			"plane" "(-80 -192 -64) (-208 -192 -64) (-208 -192 164)"
+			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 24] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -2786,8 +2763,8 @@ entity
 		side
 		{
 			"id" "2657"
-			"plane" "(-208 64 -64) (-64 64 -64) (-64 64 164)"
-			"material" "BEE2/INVISIBLE_NOPORTAL"
+			"plane" "(-208 64 -64) (-80 64 -64) (-80 64 164)"
+			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 -24] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -2796,14 +2773,90 @@ entity
 		}
 		editor
 		{
-			"color" "220 30 220"
+			"color" "0 180 0"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	solid
+	{
+		"id" "10014"
+		side
+		{
+			"id" "2962"
+			"plane" "(-80 -192 64) (-80 64 64) (-64 64 64)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[-1 0 0 40] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2961"
+			"plane" "(-80 64 -64) (-80 -192 -64) (-64 -192 -64)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 -40] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2960"
+			"plane" "(-64 64 -64) (-64 -192 -64) (-64 -192 64)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2959"
+			"plane" "(-80 -192 -64) (-80 64 -64) (-80 64 64)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 -1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2958"
+			"plane" "(-64 -192 -64) (-80 -192 -64) (-80 -192 64)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 -40] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2957"
+			"plane" "(-80 64 -64) (-64 64 -64) (-64 64 64)"
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[-1 0 0 40] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "0 180 0"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 180 0"
 		"visgroupid" "16"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
@@ -4734,6 +4787,7 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props/lab_chair/lab_chair.mdl"
+	"modelscale" "1.0"
 	"PerformanceMode" "0"
 	"physdamagescale" "1.0"
 	"pressuredelay" "0"
@@ -4773,6 +4827,7 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props/lab_chair/lab_chair.mdl"
+	"modelscale" "1.0"
 	"PerformanceMode" "0"
 	"physdamagescale" "1.0"
 	"pressuredelay" "0"
@@ -4834,6 +4889,7 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props/lab_chair/lab_chair.mdl"
+	"modelscale" "1.0"
 	"PerformanceMode" "0"
 	"physdamagescale" "1.0"
 	"pressuredelay" "0"
@@ -5611,8 +5667,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-109.227 55.6361 91.8451]"
-		"look" "[-141.909 -176.912 -24.7272]"
+		"position" "[-15.0407 208.878 201.054]"
+		"look" "[-120.852 2.99028 77.9706]"
 	}
 	camera
 	{
