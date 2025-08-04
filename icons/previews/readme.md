@@ -18,20 +18,15 @@ The preview images will end up as PNG files, so ideally they should be taken wit
 
 ### For accurate results
 * Do not modify the Puzzlemaker maps in any way. 
-* Do not move your camera after running the setpos/setang commands.
-* Make sure you are standing still before running the setpos/setang commands, as otherwise your position may drift slightly after teleporting.
 * Do not show any custom assets that aren't a part of the style/skybox itself.
 
 ## Style previews
 1. Set lighting mode to Full in the BEE2 compile options window
 2. Export your custom style with the recommended settings (skybox, etc.), but disable all voice lines.
 3. Build and play Style Preview Map in the Puzzlemaker.
-4. Fully enter the chamber so that the door closes behind you. Ensure that the monitor extends, cubes drop, etc. before proceeding
-5. Run the following commands in the console:
-* `sv_cheats 1;noclip;notarget;cl_drawhud 0;r_drawviewmodel 0`
-* `setpos 2223.582520 2035.648682 549.729980;setang 15.516277 49.474407 0.000000`
+4. Fully enter the chamber so that the door closes behind you. You will automatically enter a viewcontrol with the correct camera angle. Ensure that the monitor extends, cubes drop, etc. before proceeding.
 6. Double-check that you are using the resolution and video settings listed above
-7. Take the screenshot
+7. Take the screenshot.
 8. Save your icon as `[yourstyle].png` in `[package]/resources/BEE2/prev/`.
 9. If adding a preview to a style that did not previously have one, add this line to your style in info.txt:
 `"IconLarge" "prev/[yourstyle].png"`
@@ -40,10 +35,7 @@ The preview images will end up as PNG files, so ideally they should be taken wit
 1. Set lighting mode to Full in the BEE2 compile options window
 2. Export the Original Clean style with your custom skybox.
 3. Build and play Skybox Preview Map in the Puzzlemaker.
-4. Fully enter the chamber so that the door closes behind you.
-5. Run the following commands in the console: 
-* `sv_cheats 1;noclip;cl_drawhud 0;r_drawviewmodel 0`
-* `setpos 568 175 340; setang 0 90 0`
+4. Fully enter the chamber so that the door closes behind you. You will automatically enter a viewcontrol with the correct camera angle.
 6. Double-check that you are using the resolution and video settings listed above
 7. Take the screenshot
 8. Save your icon as `sky_[yourskybox].png` in `[package]/resources/BEE2/prev/`.
