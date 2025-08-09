@@ -1,6 +1,6 @@
 # Changelog
 
-# Version (dev)
+# Version 4.46.0
 
 ## New Items
 * Added strip forms of Input A/B, SR Latches and Delayers.
