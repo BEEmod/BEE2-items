@@ -95,6 +95,9 @@ def search_list_of_dirs(list_of_dirs, zip_path: str, include_test: bool):
     for dir_path in list_of_dirs:
         if not os.path.isdir(dir_path):  # it's a file
             continue
+        if not include_test and dir_path.endswith(('/test', '\\test')):
+            # Special package used to test the app.
+            continue
         if 'info.txt' not in os.listdir(dir_path):  # it's a folder, probably with packages
             # go search its contents
             yield from search_list_of_dirs([os.path.join(dir_path, i) for i in os.listdir(dir_path)], zip_path, include_test)
@@ -103,9 +106,6 @@ def search_list_of_dirs(list_of_dirs, zip_path: str, include_test: bool):
         # do not preserve original file structure, dump all found packs in root of zip_path
         pack_name = os.path.split(dir_path)[-1]
         pack_zip_path = os.path.join(zip_path, pack_name) + ".bee_pack"
-        # Special package used to test the app,
-        if pack_name == 'test' and not include_test:
-            continue
 
         print('| ' + pack_name + '.bee_pack')
 
