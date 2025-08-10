@@ -1,8 +1,12 @@
 # Changelog
 
-# Version (dev)
+# Version 4.46.0
 
-## Enhancements:
+## New Items
+* Added strip forms of Input A/B, SR Latches and Delayers.
+* Added standalone checkmarks, as timer values 11-18 of Antline Corners.
+
+## Enhancements
 * The Half Grate has been replaced by an item which offers several shapes of glass/grating, which will merge into the standard glass/grating.
 * Added an explicit error if a Neurotoxin Timer is present in the map without
   any Vents also present.
@@ -15,7 +19,6 @@
 * Added numbers to the ingame signage legend.
 * Added option to have barriers (glass, grating, fizzlers) extend down to the surface of goo.
 * Added option to disable automatic exit door signage.
-* Antline Corners have been renamed to just "Custom Antlines". Timer values 11-18 produce checkmark/timer signs.
 * It is now possible to select Portal 1's Chell as a player model.
 * Portal 1 style will now extend white walls into the top of goo to better match the actual levels.
 * The portal magnets automatically created by lasers/funnels/bridges can now be disabled.
@@ -28,6 +31,7 @@
 	* Fix #2206: Deflectors can now be placed on walls and ceilings.
 	* Visual effects have been remade using particle systems.
 * All block items and several logic gates have been remade with a new editor design courtesy of Konclan.
+* All logic gates have a unified design now, with additional iconography/text.
 * Added an option to prevent players from grabbing cubes through grating in coop. This functionality is no longer present directly in Half Grates.
 * Added two additional modes to Surface Lacquer to allow disabling surface or voxel application, as well as connection support to apply to a larger area.
 * Antlasers can now be used in the special connection between Sendificators and their laser, producing a unique variant.

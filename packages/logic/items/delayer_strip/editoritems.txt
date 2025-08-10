@@ -1,0 +1,230 @@
+"Item"
+	{
+	"ItemClass" "ItemButtonFloor"
+	"Type"		"ITEM_BEE2_LOGIC_DELAYER_STRIP"
+	"Editor"
+		{
+		"SubTypeProperty" "ButtonType"
+		"SubType"
+			{
+			"Name"		"Delayer (Both)"
+			"Model"
+				{
+				"ModelName"		"bee2/logic/strip_delayer_both.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"DELAYER - BOTH"
+				"Image"			"palette/logic/strip_delayer_both.vtf"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"		"Activation Delayer"
+			"Model"
+				{
+				"ModelName"		"bee2/logic/strip_delayer_rising.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"ON DELAYER"
+				"Image"			"palette/logic/strip_delayer_rising.vtf"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"SubType"
+			{
+			"Name"		"Shutdown Delayer"
+			"Model"
+				{
+				"ModelName"		"bee2/logic/strip_delayer_falling.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"OFF DELAYER"
+				"Image"			"palette/logic/strip_delayer_falling.vtf"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+				}
+			}
+		"MovementHandle"    "HANDLE_8_POSITIONS"
+		}
+	"Properties"
+		{
+		"ButtonType"
+			{
+			"DefaultValue"  "0"
+			"Index"         "0"
+			}
+		"ConnectionCount"
+			{
+			"DefaultValue"  "0"
+			"Index"         "1"
+			}
+		"TimerDelay"
+			{
+			"DefaultValue"  "1"
+			"Index"         "2"
+			}
+		"AutoDrop"
+			{
+			"DefaultValue"	"0"
+			"Index"			"3"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_both.vmf"
+				"EntityCount"	"6"
+				}
+			"1"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_both.vmf"
+				"EntityCount"	"6"
+				}
+			"2"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_rising.vmf"
+				"EntityCount"	"5"
+				}
+			"3"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_rising.vmf"
+				"EntityCount"	"5"
+				}
+			"4"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_falling.vmf"
+				"EntityCount"	"5"
+				}
+			"5"
+				{
+				"Name"			"instances/BEE2/logic/tspen/delayer_falling.vmf"
+				"EntityCount"	"5"
+				}
+			}
+
+		"TargetName"		"delay"
+		"Inputs"
+			{
+			// Each item type is defined in the config.
+			"BEE2"
+				{
+				"Force" "input"
+				"Out_Activate"      "instance:out;OnUser2"
+				"Out_Deactivate"    "instance:out;OnUser1"
+				}
+			}
+		"Collisions" {}
+		"ConnectionPoints"
+			{
+			// Forward
+			"Point"
+				{
+				"Dir" "1 0 0"
+				"Pos" "2 1 0"
+				"SignageOffset" "1 0 0"
+				"Priority" "1"
+				"GroupID" "0"
+				}
+			"Point"
+				{
+				"Dir" "1 0 0"
+				"Pos" "2 3 0"
+				"SignageOffset" "1 2 0"
+				"Priority" "0"
+				"GroupID" "0"
+				}
+			"Point"
+				{
+				"Dir" "1 0 0"
+				"Pos" "2 4 0"
+				"SignageOffset" "1 5 0"
+				"Priority" "0"
+				"GroupID" "0"
+				}
+			"Point"
+				{
+				"Dir" "1 0 0"
+				"Pos" "2 6 0"
+				"SignageOffset" "1 7 0"
+				"Priority" "1"
+				"GroupID" "0"
+				}
+			// Backwards
+			"Point"
+				{
+				"Dir" "-1 0 0"
+				"Pos" "5 1 0"
+				"SignageOffset" "6 0 0"
+				"Priority" "1"
+				"GroupID" "1"
+				}
+			"Point"
+				{
+				"Dir" "-1 0 0"
+				"Pos" "5 3 0"
+				"SignageOffset" "6 2 0"
+				"Priority" "0"
+				"GroupID" "1"
+				}
+			"Point"
+				{
+				"Dir" "-1 0 0"
+				"Pos" "5 4 0"
+				"SignageOffset" "6 5 0"
+				"Priority" "0"
+				"GroupID" "1"
+				}
+			"Point"
+				{
+				"Dir" "-1 0 0"
+				"Pos" "5 6 0"
+				"SignageOffset" "6 7 0"
+				"Priority" "1"
+				"GroupID" "1"
+				}
+			// Left
+			"Point"
+				{
+				"Dir" "0 1 0"
+				"Pos" "4 -1 0"
+				"SignageOffset" "3 -2 0"
+				"Priority" "1"
+				"GroupID" "2"
+				}
+			// Right
+			"Point"
+				{
+				"Dir" "0 -1 0"
+				"Pos" "4 8 0"
+				"SignageOffset" "3 9 0"
+				"Priority" "1"
+				"GroupID" "3"
+				}
+			}
+		"Offset"	"64 64 64"
+		}
+	}

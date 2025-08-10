@@ -1,0 +1,238 @@
+"Item"
+	{
+	"ItemClass"		"ItemButtonFloor"
+	"Type"			"ITEM_BEE2_LOGIC_INPUTS_SR_STRIP"
+	"Editor"
+		{
+		"SubTypeProperty"		"ButtonType"
+		"SubType"
+			{
+			"Name"		"Input A"
+			"Model"
+				{
+				"ModelName"		"bee2/logic/strip_input_a.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"INPUT A"
+				"Image"			"palette/logic/strip_input_a.vtf"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceButton"
+				"SOUND_EDITING_ACTIVATE"			"P2Editor.ExpandButton"
+				"SOUND_EDITING_DEACTIVATE"			"P2Editor.CollapseButton"
+				"SOUND_DELETED"					"P2Editor.RemoveButton"
+				}
+			}
+		
+		"SubType"
+			{
+			"Name"		"Input B"
+			"Model"
+				{
+				"ModelName"		"bee2/logic/strip_input_b.mdl"
+				}
+			"Palette"
+				{
+				"Tooltip"		"INPUT B"
+				"Image"			"palette/logic/strip_input_b.vtf"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceButton"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandButton"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseButton"
+				"SOUND_DELETED"					"P2Editor.RemoveButton"
+				}
+			}
+		"SubType"
+			{
+			"Name"		"Set/Reset Latch"
+			"Model"
+			{
+				"ModelName"		"bee2/logic/strip_sr_latch.mdl"
+			}
+			"Palette"
+				{
+				"Tooltip"		"SR LATCH"
+				"Image"			"palette/logic/strip_sr_latch.vtf"
+				}
+			"Sounds"
+				{
+				"SOUND_CREATED"					"P2Editor.PlaceButton"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandButton"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseButton"
+				"SOUND_DELETED"					"P2Editor.RemoveButton"
+				}
+			}
+		"MovementHandle"	"HANDLE_8_POSITIONS"
+		}
+	"Properties"
+		{
+		"ButtonType"
+			{
+			"DefaultValue"  "0"
+			"Index"         "1"
+			}
+		"ConnectionCount"
+			{
+			"DefaultValue"  "0"
+			"Index"         "2"
+			}
+		"StartEnabled"
+			{
+			"DefaultValue"  "0"
+			"Index"         "3"
+			}
+		}
+	"Exporting"
+		{
+		"Instances"
+			{
+			"0"
+				{
+				"Name"			"instances/BEE2/logic/tspen/input_a.vmf"
+				"EntityCount"	"9"
+				}
+			"1"
+				{
+				"Name"			"instances/BEE2/logic/tspen/input_a.vmf"
+				"EntityCount"	"5"
+				}
+			"2"
+				{
+				"Name"			"instances/BEE2/logic/tspen/input_b.vmf"
+				"EntityCount"	"10"
+				}
+			"3"
+				{
+				"Name"			"instances/BEE2/logic/tspen/input_b.vmf"
+				"EntityCount"	"10"
+				}
+			"4"
+				{
+				"Name"			"instances/BEE2/logic/tspen/sr_latch.vmf"
+				"EntityCount"	"10"
+				}
+			"5"
+				{
+				"Name"			"instances/BEE2/logic/tspen/sr_latch.vmf"
+				"EntityCount"	"10"
+				}
+			}
+		"TargetName"		"tsdual"
+		"Inputs"
+			{
+			// Definition for SR latch here.
+			"BEE2"
+				{
+				"Type"              "DUAL"
+				"DefaultDual"       "A"
+				
+				"InvertVar"         "0"
+				"Sec_InvertVar"     "0"
+				
+				"Enable_Cmd"        "man,SetStateATrue,,0.00,-1"
+				"Sec_Enable_Cmd"    "man,SetStateAFalse,,0.00,-1"
+				}
+			}
+		"Outputs"
+			{
+			"CONNECTION_STANDARD"
+				{
+				"Activate"		"instance:man;OnUser2"
+				"Deactivate"	"instance:man;OnUser1"
+				}
+			}
+		"Collisions" {}
+		"ConnectionPoints"
+			{
+			// Forward
+			"Point"
+				{
+				"Dir" "1 0 0"
+				"Pos" "2 1 0"
+				"SignageOffset" "1 0 0"
+				"Priority" "1"
+				"GroupID" "0"
+				}
+			"Point"
+				{
+				"Dir" "1 0 0"
+				"Pos" "2 3 0"
+				"SignageOffset" "1 2 0"
+				"Priority" "0"
+				"GroupID" "0"
+				}
+			"Point"
+				{
+				"Dir" "1 0 0"
+				"Pos" "2 4 0"
+				"SignageOffset" "1 5 0"
+				"Priority" "0"
+				"GroupID" "0"
+				}
+			"Point"
+				{
+				"Dir" "1 0 0"
+				"Pos" "2 6 0"
+				"SignageOffset" "1 7 0"
+				"Priority" "1"
+				"GroupID" "0"
+				}
+			// Backwards
+			"Point"
+				{
+				"Dir" "-1 0 0"
+				"Pos" "5 1 0"
+				"SignageOffset" "6 0 0"
+				"Priority" "1"
+				"GroupID" "1"
+				}
+			"Point"
+				{
+				"Dir" "-1 0 0"
+				"Pos" "5 3 0"
+				"SignageOffset" "6 2 0"
+				"Priority" "0"
+				"GroupID" "1"
+				}
+			"Point"
+				{
+				"Dir" "-1 0 0"
+				"Pos" "5 4 0"
+				"SignageOffset" "6 5 0"
+				"Priority" "0"
+				"GroupID" "1"
+				}
+			"Point"
+				{
+				"Dir" "-1 0 0"
+				"Pos" "5 6 0"
+				"SignageOffset" "6 7 0"
+				"Priority" "1"
+				"GroupID" "1"
+				}
+			// Left
+			"Point"
+				{
+				"Dir" "0 1 0"
+				"Pos" "4 -1 0"
+				"SignageOffset" "3 -2 0"
+				"Priority" "1"
+				"GroupID" "2"
+				}
+			// Right
+			"Point"
+				{
+				"Dir" "0 -1 0"
+				"Pos" "4 8 0"
+				"SignageOffset" "3 9 0"
+				"Priority" "1"
+				"GroupID" "3"
+				}
+			}
+		"Offset"	"64 64 64"
+		}
+	}
