@@ -1,6 +1,6 @@
 Preview maps created by Byzarru. 
 
-Follow this guide to create previews for styles and skyboxes in BEE 2.4 that match the official ones.
+Follow this guide to create previews for styles and skyboxes in BEE 2.4 that match the official ones. This is required if you are contributing updated previews for official packages, and highly recommended for UCP creators to follow as well.
 
 First, copy the .p2c files and their screenshots from the `p2c/` folder that sits next to this file, to `Portal 2/portal2/puzzles/[YourSteamID]/`.
 You should have two maps titled *Style Preview Map* and *Skybox Preview Map* under Create Test Chambers.
@@ -30,7 +30,7 @@ Note that the "Take Screen Shot" action shown in the keyboard options menu (F5 b
 1. Set lighting mode to Full in the BEE2 compile options window
 2. Export your custom style with the recommended settings (skybox, etc.), but disable all voice lines.
 3. Build and play Style Preview Map in the Puzzlemaker.
-4. Fully enter the chamber so that the door closes behind you. You will automatically enter a viewcontrol with the correct camera angle. Ensure that the monitor extends, cubes drop, etc. before proceeding.
+4. Once loading is complete, you will automatically enter a viewcontrol with the correct camera angle. Ensure that the monitor extends, cubes drop, etc. before proceeding.
 6. Apply the video settings listed above if you were not already using them before this point.
 7. Take the screenshot.
 8. Save your icon as `[yourstyle].png` in `[package]/resources/BEE2/prev/`.
@@ -41,7 +41,7 @@ Note that the "Take Screen Shot" action shown in the keyboard options menu (F5 b
 1. Set lighting mode to Full in the BEE2 compile options window
 2. Export the Original Clean style with your custom skybox.
 3. Build and play Skybox Preview Map in the Puzzlemaker.
-4. Fully enter the chamber so that the door closes behind you. You will automatically enter a viewcontrol with the correct camera angle.
+4. Once loading is complete, you will automatically enter a viewcontrol with the correct camera angle.
 6. Apply the video settings listed above if you were not already using them before this point.
 7. Take the screenshot.
 8. Save your icon as `sky_[yourskybox].png` in `[package]/resources/BEE2/prev/`.
