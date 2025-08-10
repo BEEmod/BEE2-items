@@ -3,6 +3,7 @@
 # Version (dev)
 
 * Fix missing antline checkmark material.
+* Fix incorrect NOT gate texture.
 
 ------------------------------------------
 
