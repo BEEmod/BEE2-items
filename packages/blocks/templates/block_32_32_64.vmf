@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "13"
+	"mapversion" "14"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,7 +14,7 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "32"
 }
 palette_plus
 {
@@ -89,7 +89,7 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "13"
+	"mapversion" "14"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -102,13 +102,13 @@ world
 		side
 		{
 			"id" "1"
-			"plane" "(16 32 0) (16 32 -64) (-16 32 -64)"
+			"plane" "(16 -64 0) (16 -64 -64) (-16 -64 -64)"
 			vertices_plus
 			{
-				"v" "16 32 0"
-				"v" "16 32 -64"
-				"v" "-16 32 -64"
-				"v" "-16 32 0"
+				"v" "16 -64 0"
+				"v" "16 -64 -64"
+				"v" "-16 -64 -64"
+				"v" "-16 -64 0"
 			}
 			"material" "METAL/BLACK_WALL_METAL_002B"
 			"uaxis" "[1 0 0 320] 0.25"
@@ -120,13 +120,13 @@ world
 		side
 		{
 			"id" "2"
-			"plane" "(-16 64 0) (-16 64 -64) (16 64 -64)"
+			"plane" "(-16 -32 0) (-16 -32 -64) (16 -32 -64)"
 			vertices_plus
 			{
-				"v" "-16 64 0"
-				"v" "-16 64 -64"
-				"v" "16 64 -64"
-				"v" "16 64 0"
+				"v" "-16 -32 0"
+				"v" "-16 -32 -64"
+				"v" "16 -32 -64"
+				"v" "16 -32 0"
 			}
 			"material" "METAL/BLACK_WALL_METAL_002B"
 			"uaxis" "[1 0 0 320] 0.25"
@@ -138,13 +138,13 @@ world
 		side
 		{
 			"id" "3"
-			"plane" "(-16 32 0) (-16 32 -64) (-16 64 -64)"
+			"plane" "(-16 -64 0) (-16 -64 -64) (-16 -32 -64)"
 			vertices_plus
 			{
-				"v" "-16 32 0"
-				"v" "-16 32 -64"
-				"v" "-16 64 -64"
-				"v" "-16 64 0"
+				"v" "-16 -64 0"
+				"v" "-16 -64 -64"
+				"v" "-16 -32 -64"
+				"v" "-16 -32 0"
 			}
 			"material" "METAL/BLACK_WALL_METAL_002B"
 			"uaxis" "[0 0 1 256] 0.25"
@@ -156,13 +156,13 @@ world
 		side
 		{
 			"id" "4"
-			"plane" "(16 64 0) (16 64 -64) (16 32 -64)"
+			"plane" "(16 -32 0) (16 -32 -64) (16 -64 -64)"
 			vertices_plus
 			{
-				"v" "16 64 0"
-				"v" "16 64 -64"
-				"v" "16 32 -64"
-				"v" "16 32 0"
+				"v" "16 -32 0"
+				"v" "16 -32 -64"
+				"v" "16 -64 -64"
+				"v" "16 -64 0"
 			}
 			"material" "METAL/BLACK_WALL_METAL_002B"
 			"uaxis" "[0 0 1 256] 0.25"
@@ -174,13 +174,13 @@ world
 		side
 		{
 			"id" "5"
-			"plane" "(16 32 0) (-16 32 0) (-16 64 0)"
+			"plane" "(16 -64 0) (-16 -64 0) (-16 -32 0)"
 			vertices_plus
 			{
-				"v" "16 32 0"
-				"v" "-16 32 0"
-				"v" "-16 64 0"
-				"v" "16 64 0"
+				"v" "16 -64 0"
+				"v" "-16 -64 0"
+				"v" "-16 -32 0"
+				"v" "16 -32 0"
 			}
 			"material" "METAL/BLACK_WALL_METAL_002B"
 			"uaxis" "[1 0 0 320] 0.25"
@@ -192,13 +192,13 @@ world
 		side
 		{
 			"id" "6"
-			"plane" "(16 64 -64) (-16 64 -64) (-16 32 -64)"
+			"plane" "(16 -32 -64) (-16 -32 -64) (-16 -64 -64)"
 			vertices_plus
 			{
-				"v" "16 64 -64"
-				"v" "-16 64 -64"
-				"v" "-16 32 -64"
-				"v" "16 32 -64"
+				"v" "16 -32 -64"
+				"v" "-16 -32 -64"
+				"v" "-16 -64 -64"
+				"v" "16 -64 -64"
 			}
 			"material" "TOOLS/TOOLSNODRAW"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -220,7 +220,7 @@ entity
 	"id" "458"
 	"classname" "bee2_template_barrier_voxel_clear"
 	"angles" "0 0 0"
-	"origin" "0 48 -48"
+	"origin" "0 -48 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -236,7 +236,7 @@ entity
 	"angles" "0 0 0"
 	"color" "tile"
 	"skin" "4"
-	"origin" "0 48 -64"
+	"origin" "0 -48 -64"
 	editor
 	{
 		"color" "220 30 220"
@@ -252,7 +252,7 @@ entity
 	"angles" "0 90 90"
 	"color" "tile"
 	"skin" "4"
-	"origin" "-16 48 -48"
+	"origin" "-16 -48 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -268,7 +268,7 @@ entity
 	"angles" "0 0 90"
 	"color" "tile"
 	"skin" "4"
-	"origin" "0 64 -48"
+	"origin" "0 -32 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -284,7 +284,7 @@ entity
 	"angles" "0 180 90"
 	"color" "tile"
 	"skin" "4"
-	"origin" "0 32 -48"
+	"origin" "0 -64 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -319,7 +319,7 @@ entity
 	"angles" "0 180 90"
 	"color" "tile"
 	"skin" "4"
-	"origin" "0 32 -16"
+	"origin" "0 -64 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -335,7 +335,7 @@ entity
 	"angles" "0 90 90"
 	"color" "tile"
 	"skin" "4"
-	"origin" "-16 48 -16"
+	"origin" "-16 -48 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -351,7 +351,7 @@ entity
 	"angles" "0 0 90"
 	"color" "tile"
 	"skin" "4"
-	"origin" "0 64 -16"
+	"origin" "0 -32 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -365,7 +365,7 @@ entity
 	"id" "504"
 	"classname" "bee2_template_barrier_voxel_clear"
 	"angles" "0 0 0"
-	"origin" "0 48 -16"
+	"origin" "0 -48 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -381,7 +381,7 @@ entity
 	"angles" "0 0 90"
 	"color" "tile"
 	"skin" "4"
-	"origin" "0 48 -48"
+	"origin" "0 -48 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -397,7 +397,7 @@ entity
 	"angles" "0 270 90"
 	"color" "tile"
 	"skin" "4"
-	"origin" "16 48 -48"
+	"origin" "16 -48 -48"
 	editor
 	{
 		"color" "220 30 220"
@@ -413,7 +413,7 @@ entity
 	"angles" "0 270 90"
 	"color" "tile"
 	"skin" "4"
-	"origin" "16 48 -16"
+	"origin" "16 -48 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -432,7 +432,7 @@ entity
 	"priority" "0"
 	"remove_brush" "0"
 	"use_pattern" "0"
-	"origin" "0 48 -64"
+	"origin" "0 -48 -64"
 	editor
 	{
 		"color" "220 30 220"
