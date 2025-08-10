@@ -1,5 +1,68 @@
 # Changelog
 
+# Version 4.46.0
+
+## New Items
+* Added strip forms of Input A/B, SR Latches and Delayers.
+* Added standalone checkmarks, as timer values 11-18 of Antline Corners.
+
+## Enhancements
+* The Half Grate has been replaced by an item which offers several shapes of glass/grating, which will merge into the standard glass/grating.
+* Added an explicit error if a Neurotoxin Timer is present in the map without
+  any Vents also present.
+* Optimise track platforms with longer rail models, depending on the length.
+* #4383: Added "Precise Cube Dropper" option, which delays cube release to prevent it tumbling from the dropper doors.
+* Added option to prevent cubes from colliding with their own fizzling ghost.
+* Several "style properties" have been moved to other tabs: 
+	* "Unlock Default Items" and "Restart On Exit": moved to "mandatory items" tab
+	* "Use P1 Portal Gun" and "Use P1 Fizzler FX": moved to new "Portal 1" tab
+* Added numbers to the ingame signage legend.
+* Added option to have barriers (glass, grating, fizzlers) extend down to the surface of goo.
+* Added option to disable automatic exit door signage.
+* It is now possible to select Portal 1's Chell as a player model.
+* Portal 1 style will now extend white walls into the top of goo to better match the actual levels.
+* The portal magnets automatically created by lasers/funnels/bridges can now be disabled.
+* Add colourised version of Rosemary's Old Ap Reflection Cube.
+* Added option to enable the 'cube flipper' device on Sendificators, to more easily point reflection cubes upwards. This isn't present on the slim version due to size reasons.
+* VScript code is now able to perform collision checks against chamber geometry calculated by BEE, which enables more robust items.
+* Rebuilt Rexaura Cube Deflector to be more reliable:
+	* Redirected pellets will continue down the direct center of the voxel.
+	* Fix #1599: Cubes will slightly resist being removed.
+	* Fix #2206: Deflectors can now be placed on walls and ceilings.
+	* Visual effects have been remade using particle systems.
+* All block items and several logic gates have been remade with a new editor design courtesy of Konclan.
+* All logic gates have a unified design now, with additional iconography/text.
+* Added an option to prevent players from grabbing cubes through grating in coop. This functionality is no longer present directly in Half Grates.
+* Added two additional modes to Surface Lacquer to allow disabling surface or voxel application, as well as connection support to apply to a larger area.
+* Antlasers can now be used in the special connection between Sendificators and their laser, producing a unique variant.
+
+## Bugfixes:
+* #2475: Fix cubes being duplicated if they get fizzled while they are leaving the dropper.
+* #4300 Added option to make monitors unbreakable.
+* #4382: Re-enable antline transferal to block items.
+* #4441: Fix incorrect positioning of observation grates
+* #4442: Fix missing `exit_deadly_coop` instance for "Glados Human Vault" voiceline set.
+* #4446: Fix piston movement sounds never stopping.
+* #4448: Futbols will now respawn if falling into goo.
+* #4449: Fix Monitors not showing GLaDOS/Wheatley in them correctly.
+* #4466: Fix conveyors not starting in Old Ap, make it more difficult to misalign them.
+* #4473: Fix Sendificator not teleporting through glass in P1 and Overgrown.
+  Also ensure it can teleport through the small Window item.
+* #4476: Fix turrets ignoring players if aiming at a target behind glass.
+* #4538: Fix incorrect model filename for flamethrower 'crusher'.
+* Fix 1-long Clean Track Platform not working.
+* Fix barriers not being cut by the resizable Black/White Wall item.
+* Fix Clean downward exit not trigging "map won" logic.
+* Fix collisions on static Angled Panels.
+* Fix leak in 1980s Coop spawn room.
+* Fix missing texture for Tinted Glass editor model.
+* Fix P1 ceiling Obs Room (light hole) and Large Obs Room not actually producing light.
+* Fixed Old Aperture non-oscillating Unstationary Scaffolds.
+* Make P1 Track Platform 'bottom grate' match the shape of the platform.
+* Unstationary Scaffolds will now wake laser cubes when starting to move.
+
+------------------------------------------
+
 # Version 4.45.0
 
 ## New Features:

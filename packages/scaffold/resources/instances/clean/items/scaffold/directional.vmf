@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8973"
-	"mapversion" "72"
+	"editorbuild" "9672"
+	"mapversion" "74"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 	"bShow3DGrid" "1"
 }
 world
 {
 	"id" "1"
-	"mapversion" "72"
+	"mapversion" "74"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -31,10 +31,110 @@ world
 }
 entity
 {
+	"id" "1654"
+	"classname" "trigger_multiple"
+	"filtername" "@is_mbox"
+	"origin" "0 0 48"
+	"parentname" "train"
+	"spawnflags" "8"
+	"StartDisabled" "1"
+	"targetname" "motion_trig"
+	"wait" "1"
+	connections
+	{
+		"OnStartTouch" "!activatorExitDisabledState0-1"
+	}
+	solid
+	{
+		"id" "1655"
+		side
+		{
+			"id" "390"
+			"plane" "(-64 -64 64) (64 -64 64) (64 -64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "389"
+			"plane" "(-64 64 32) (64 64 32) (64 64 64)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "388"
+			"plane" "(-64 -64 64) (-64 -64 32) (-64 64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "387"
+			"plane" "(64 64 64) (64 64 32) (64 -64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "386"
+			"plane" "(64 -64 64) (-64 -64 64) (-64 64 64)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "385"
+			"plane" "(64 64 32) (-64 64 32) (-64 -64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
 	"id" "1576"
 	"classname" "comp_relay"
 	"ctrl_type" "0"
 	"ctrl_value" "1"
+	"delay" "0.0"
 	"targetname" "input"
 	connections
 	{
@@ -58,6 +158,7 @@ entity
 	"classname" "comp_relay"
 	"ctrl_type" "0"
 	"ctrl_value" "1"
+	"delay" "0.0"
 	"targetname" "effects"
 	connections
 	{
@@ -71,6 +172,8 @@ entity
 		"OnTurnedOn" "@scaff_beam_grp$group_*Color176 217 2470-1"
 		"OnTurnedOn" "@scaff_beam_grp$group_*Width100-1"
 		"OnTurnedOn" "@scaff_beam_grp$group_*FireUser20-1"
+		"OnTurnedOn" "motion_trigDisable0.1-1"
+		"OnTurnedOn" "motion_trigEnable0-1"
 	}
 	"origin" "16 0 40"
 	editor
@@ -532,6 +635,9 @@ entity
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"lfomodpitch" "0"
 	"lfomodvol" "0"
@@ -573,6 +679,7 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props/light_rail_platform.mdl"
+	"modelscale" "1.0"
 	"parentname" "train"
 	"PerformanceMode" "0"
 	"physdamagescale" "1.0"

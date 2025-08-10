@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8973"
-	"mapversion" "75"
+	"editorbuild" "9672"
+	"mapversion" "77"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "75"
+	"mapversion" "77"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -28,6 +28,105 @@ world
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
 	"underwaterparticle" "underwater_default"
+}
+entity
+{
+	"id" "1570"
+	"classname" "trigger_multiple"
+	"filtername" "@is_mbox"
+	"origin" "0 0 48"
+	"parentname" "train"
+	"spawnflags" "8"
+	"StartDisabled" "1"
+	"targetname" "motion_trig"
+	"wait" "1"
+	connections
+	{
+		"OnStartTouch" "!activatorExitDisabledState0-1"
+	}
+	solid
+	{
+		"id" "1571"
+		side
+		{
+			"id" "390"
+			"plane" "(-64 -64 64) (64 -64 64) (64 -64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "389"
+			"plane" "(-64 64 32) (64 64 32) (64 64 64)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "388"
+			"plane" "(-64 -64 64) (-64 -64 32) (-64 64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "387"
+			"plane" "(64 64 64) (64 64 32) (64 -64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 0 1 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "386"
+			"plane" "(64 -64 64) (-64 -64 64) (-64 64 64)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "385"
+			"plane" "(64 64 32) (-64 64 32) (-64 -64 32)"
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
 }
 entity
 {
@@ -484,6 +583,9 @@ entity
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"lfomodpitch" "0"
 	"lfomodvol" "0"
@@ -545,6 +647,8 @@ entity
 		"OnTrigger" "trainStop0-1"
 		"OnTrigger" "beam_soundPlaySound3-1"
 		"OnTrigger" "beam_soundStopSound0-1"
+		"OnTrigger" "motion_trigEnable3-1"
+		"OnTrigger" "motion_trigDisable3.1-1"
 	}
 	"origin" "32 0 48"
 	editor
@@ -570,6 +674,7 @@ entity
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
 	"model" "models/props/light_rail_platform.mdl"
+	"modelscale" "1.0"
 	"parentname" "train"
 	"PerformanceMode" "0"
 	"physdamagescale" "1.0"
@@ -600,6 +705,8 @@ entity
 		"OnUser1" "@scaff_beam_grp$group_*Color38 50 680-1"
 		"OnUser1" "beam_soundStopSound0-1"
 		"OnUser1" "reverse_rlCancelPending0-1"
+		"OnUser2" "motion_trigEnable0-1"
+		"OnUser2" "motion_trigDisable0.1-1"
 	}
 	"origin" "0 0 -10"
 	editor

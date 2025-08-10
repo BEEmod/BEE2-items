@@ -50,7 +50,7 @@
 			{
 			"Name"    "Open Entrance"
 			"var"     "$doorless"
-			"default" "0"
+			"default" "1"
 
 			"Description" "Allow singleplayer entrances to generate without a door or fizzler. This matches the original game, but may break some puzzles by allowing portal surfaces in the corridor to be used."
 			"Values"
@@ -318,6 +318,25 @@
 		}
 	}
 
+"PlayerModel"
+	{
+	"ID"	  "VALVE_P1_CHELL"
+	"Name"    "Chell (P1)"
+	"Model"   "bee2/player/chell_p1"
+	"GunSkin" "0"
+	"voice"
+		{
+		"chell" "1"
+	    "bendy" "0"
+	    "atlas" "0"
+	    "pbody" "0"
+	    "sp"    "1"
+	    "coop"  "0"
+	    "human" "1"
+	    "robot" "0"
+		}
+	}
+
 "QuotePack"
 	{
 	"ID"          "BEE2_GLADOS_P1"
@@ -330,31 +349,34 @@
 	"Authors"     "Carl Kenner, TeamSpen210"
 	"Description" "GLaDOS with adjusted audio intended for Portal 1 chambers."
 	}
-	
-"StyleVar"
-	{
-	"ID"            "P1_PORTED_PGUN"
-	"Name"          "Use P1 Portal Gun"
-	"Description"   "Use a ported version of the Portal 1 Portal gun in SP mode. It's clean, and has different grabbing animations. This also adds the original P1 sound effects."
-	"Enabled"       "1"
-	"Style"         "BEE2_PORTAL_1"
-	}
 
-"StyleVar"
+"ConfigGroup"
 	{
-	"ID"            "P1_OLD_DISSOLVE"
-	"Name"          "Use P1 Fizzler FX"
-	"Description"   "Use the Portal 1 fizzler effects instead of the Portal 2 ones. This also removes the sounds."
-	"Enabled"       "1"
-	"Style"         "BEE2_PORTAL_1"
-	}
+	"ID" "BEE2_PORTAL_1"
+	"Name" "Portal 1"
 
-"Overrides"
-	{
-	"StyleVar"
+	"Widget"
 		{
-		"ID"    "RestartOnExit"
-		"Style" "BEE2_PORTAL_1"
+		"ID"       "PortedPGun"
+		"Type"     "checkbox"
+		"Default"  "1"
+		"UseTimer" "0"
+		"Label"    "Use P1 Portal Gun"
+		"legacy_stylevar_id" "P1_PORTED_PGUN"
+
+		"Tooltip"  "Use a ported version of the Portal 1 Portal gun in SP mode. It's clean, and has different grabbing animations. This also adds the original P1 sound effects."
+		}
+
+	"Widget"
+		{
+		"ID"       "OldDissolve"
+		"Type"     "checkbox"
+		"Default"  "1"
+		"UseTimer" "0"
+		"Label"    "Use P1 Fizzler FX"
+		"legacy_stylevar_id" "P1_OLD_DISSOLVE"
+
+		"Tooltip"  "Use the Portal 1 fizzler effects instead of the Portal 2 ones. This also removes the sounds."
 		}
 	}
 
@@ -367,7 +389,7 @@
 		"Name"		"Door Cameras"
 		"Style"		"BEE2_PORTAL_1"
 		}
-	
+
 	"Item"
 		{
 		"ID" "ITEM_ENTRY_DOOR"
@@ -380,7 +402,7 @@
 				}
 			}
 		}
-	
+
 	"Item"
 		{
 		"ID" "ITEM_EXIT_DOOR"
@@ -393,7 +415,7 @@
 				}
 			}
 		}
-		
+
 	"Item"
 		{
 		"ID" "ITEM_COOP_ENTRY_DOOR"
@@ -678,6 +700,11 @@
 						"4" "instances/BEE2/p1/items/track/platform.vmf"
 						"5" "instances/BEE2/p1/items/track/platform_oscillate.vmf"
 						"6" "instances/BEE2/p1/items/track/single.vmf"
+
+						"bee2_multi_128" "instances/BEE2/p1/items/track/middle_128.vmf"
+						"bee2_multi_256" "instances/BEE2/p1/items/track/middle_256.vmf"
+						"bee2_multi_512" "instances/BEE2/p1/items/track/middle_512.vmf"
+						"bee2_multi_1024" "instances/BEE2/p1/items/track/middle_1024.vmf"
 						}
 					}
 				}

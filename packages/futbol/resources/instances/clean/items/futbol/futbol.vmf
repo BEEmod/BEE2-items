@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "3"
+	"editorbuild" "9672"
+	"mapversion" "9"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "3"
+	"mapversion" "9"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -30,11 +30,74 @@ world
 }
 entity
 {
+	"id" "15"
+	"classname" "comp_kv_setter"
+	"angles" "0 0 0"
+	"ctrl_type" "0"
+	"ctrl_value" "$disable_autorespawn"
+	"invert" "0"
+	"kv_value_mode" "legacy"
+	"kv_value_pos" "-16 -16 0"
+	"mode" "kv"
+	"target" "futbol"
+	connections
+	{
+		"OnBreak" "rl_spawnTrigger0-1"
+		"OnIgnite" "rl_spawnTrigger0-1"
+		"OnTakeDamage" "rl_spawnTrigger0-1"
+		"OnOutOfWorld" "rl_spawnTrigger0-1"
+		"OnFizzled" "rl_spawnTrigger0-1"
+	}
+	"origin" "-16 -16 0"
+	editor
+	{
+		"color" "0 137 174"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "If respawning is enabled, add various outputs for that."
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "52"
+	"classname" "comp_scriptvar_setter"
+	"angles" "0 0 0"
+	"const" "function(){EntFireByHandle(self,`Break`,``,0,null,null)}"
+	"ctrl_type" "0"
+	"ctrl_value" "$disable_autorespawn"
+	"mode" "const"
+	"origin" "-16 16 0"
+	"target" "futbol"
+	"variable" "FellInGoo"
+	connections
+	{
+		"OnBreak" "rl_spawnTrigger0-1"
+		"OnIgnite" "rl_spawnTrigger0-1"
+		"OnTakeDamage" "rl_spawnTrigger0-1"
+		"OnOutOfWorld" "rl_spawnTrigger0-1"
+		"OnFizzled" "rl_spawnTrigger0-1"
+	}
+	editor
+	{
+		"color" "0 179 156"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "If respawning is enabled, add a function definition to allow respawning."
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
 	"id" "7"
 	"classname" "comp_kv_setter"
+	"angles" "0 0 0"
+	"ctrl_value" "1"
 	"invert" "0"
 	"kv_name" "angles"
 	"kv_value_global" "0 0 0"
+	"kv_value_mode" "global"
+	"kv_value_pos" "-16 0 8"
 	"mode" "kv"
 	"target" "futbol"
 	"origin" "-16 0 8"
@@ -59,9 +122,9 @@ entity
 	"fademindist" "-1"
 	"fadescale" "1"
 	"forcetoenablemotion" "0"
-	"inertiaScale" "1.0"
 	"massScale" "0"
 	"minhealthdmg" "0"
+	"model" "models/props/futbol.mdl"
 	"nodamageforces" "0"
 	"PerformanceMode" "0"
 	"physdamagescale" "0.1"

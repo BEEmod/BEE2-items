@@ -1,13 +1,12 @@
 "ID"    "BEE2_CLEAN_STYLE"
 "Name"  "Clean Style"
-"Desc"  "Adds the Clean Style, plus several critical resources.\n\nThis cannot be disabled!."
+"Desc"  "Adds the Clean Style, defining the mandatory items.\n\nThis cannot be disabled!"
 
 
 "Prerequisites"
 	{
-	"Package"	"VALVE_MUSIC"
+	"Package"	"BEE2_CORE"
 	}
-
 
 "Style"
 	{
@@ -601,22 +600,52 @@
 		}
 	}
 
-"StyleVar"
+"ConfigGroup"
 	{
-	"ID"          "DoorCameras"
-	"Enabled"     "1"
-	"Name"        "Door Cameras"
-	"Description" "Automatically add cameras around the entry and exit doors."
-	"Style"       "BEE2_CLEAN"
-	}
+	"ID"    "VALVE_MANDATORY"
+	"Name"  "Mandatory Items"
+	"Widget"
+		{
+		"ID"      "DoorCameras"
+		"Type"    "Checkbox"
+		"Default" "1"
+		"Label"   "Door Cameras"
 
-"StyleVar"
-	{
-	"ID"          "RestartOnExit"
-	"Enabled"     "1"
-	"Name"        "Restart When Reaching Exit"
-	"Description" "Automatically restart the map once the player(s) have reached the exit."
-	"Style"       "BEE2_CLEAN"
+		"legacy_stylevar_id" "DoorCameras"
+		"Tooltip" "Automatically add cameras around the entry and exit doors."
+		}
+
+	"Widget"
+		{
+		"ID"      "ExitSignage"
+		"Type"    "Checkbox"
+		"Default" "1"
+		"Label"   "Exit Signage"
+
+		"Tooltip" "Automatically add exit signage at the exit door."
+		}
+
+	"Widget"
+		{
+		"ID"      "RestartOnExit"
+		"Type"    "Checkbox"
+		"Default" "1"
+		"Label"   "Restart When Reaching Exit"
+
+		"legacy_stylevar_id" "RestartOnExit"
+		"Tooltip" "Automatically restart the map once the player(s) have reached the exit."
+		}
+
+	"Widget"
+		{
+		"ID"      "UnlockDefault"
+		"Type"    "Checkbox"
+		"Default" "1"
+		"Label"   "Unlock Default Items"
+
+		"legacy_stylevar_id" "UnlockDefault"
+		"Tooltip" "Allow placing and deleting the mandatory Entry/Exit Doors and Large Observation Room. Use with caution, this can have weird results!"
+		}
 	}
 
 "Item"
@@ -684,35 +713,6 @@
 		}
 	}
 
-
-"Item"
-	{
-	"ID"          "ITEM_INDICATOR_TOGGLE"
-	"Description" "Special item used to place the env_texturetoggle for antlines. BEE handles this itself, the item isn't directly used."
-	"Unstyled"    "1"
-	"Version"
-		{
-		"Styles"
-			{
-			"UNSTYLED" "indicator_toggle"
-			}
-		}
-	}
-
-"Item"
-	{
-	"ID"          "ITEM_PLACEMENT_HELPER"
-	"Description" "This is placed underneath gel droppers."
-	"Unstyled"    "1"
-	"Version"
-		{
-		"Styles"
-			{
-			"UNSTYLED" "placement_helper"
-			}
-		}
-	}
-
 // The two antline items, timer is also in this.
 "Item"
 	{
@@ -750,5 +750,62 @@
         "tonemap_brightpixels"  "5"
         "tonemap_exposure_min"  ".5"
         "tonemap_exposure_max"  "3"
+		}
+	}
+
+"PlayerModel"
+	{
+	"ID"	  "VALVE_CHELL"
+	"Name"    "Chell"
+	"Model"   "player/chell/player"
+	"GunSkin" "0"
+	"voice"
+		{
+		"chell" "1"
+	    "bendy" "0"
+	    "atlas" "0"
+	    "pbody" "0"
+	    "sp"    "1"
+	    "coop"  "0"
+	    "human" "1"
+	    "robot" "0"
+		}
+	}
+
+"PlayerModel"
+	{
+	"ID"	  "VALVE_ATLAS"
+	"Name"    "ATLAS"
+	"Model"   "player/ballbot/ballbot"
+	"GunSkin" "1"
+	"voice"
+		{
+		"chell" "0"
+	    "bendy" "0"
+	    "atlas" "1"
+	    "pbody" "0"
+	    "sp"    "0"
+	    "coop"  "1"
+	    "human" "0"
+	    "robot" "1"
+		}
+	}
+
+"PlayerModel"
+	{
+	"ID"	  "VALVE_PBODY"
+	"name"    "P-Body"
+	"Model"   "player/eggbot/eggbot"
+	"GunSkin" "2"
+	"voice"
+		{
+		"chell" "0"
+	    "bendy" "0"
+	    "atlas" "0"
+	    "pbody" "1"
+	    "sp"    "0"
+	    "coop"  "1"
+	    "human" "0"
+	    "robot" "1"
 		}
 	}

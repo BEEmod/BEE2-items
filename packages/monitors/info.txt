@@ -5,7 +5,7 @@
 "Item"
 	{
 	"ID"            "ITEM_BEE2_MONITOR"
-	"Description"   "Monitors display the character set in Voice Lines."
+	"Description"   "Monitors display the character set in Voice Lines. If there are Screen Cameras in the map, they will instead cycle through all active cameras, although some characters such as Wheatley may still occasionally interrupt the cycle."
 	"all_conf"		"monitor_all.cfg"
 	"Version"
 		{
@@ -21,7 +21,7 @@
 					}
 				
 				"Ent_Count" "10 + 2 (if lasers present)"
-				"Description" "Clean monitors extend out of the wall when they come within the player's view."
+				"Description" "Clean monitors extend out of the wall when a player gains line of sight to them. If Start Reversed is checked, the monitor will shatter when hit by a player, physics object, laser, or turret fire."
 				}
 			"BEE2_PORTAL_1"
 				{
@@ -33,7 +33,7 @@
 					}
 				
 				"Ent_Count" "10 + 2 (if lasers present)" 
-				"Description" "P1 monitors extend out of the wall when they come within the player's view."
+				"Description" "Portal 1 monitors extend out of the wall when a player gains line of sight to them. If Start Reversed is checked, the monitor will shatter when hit by a player, physics object, laser, or turret fire."
 				}
 			"BEE2_OVERGROWN"
 				{
@@ -45,7 +45,7 @@
 					}
 					
 				"Ent_Count" "5"
-				"Description" "The Overgrown monitor is already shattered, and does not move."
+				"Description" "The Overgrown monitor does not move. If Start Reversed is checked, it will be shattered from the start of the map and randomly flicker."
 				"Collisions"
 					{
 					"Remove" "protrusion"  // Doesn't stick out.
@@ -61,7 +61,7 @@
 					}
 				
 				"Ent_Count" "10 + 2 (if lasers present)"
-				"Description" "In Old Aperture, greyscale CRT screens are used."
+				"Description" "In Old Aperture, greyscale CRT screens are used. These cannot be shattered (as doing so would shut off the image completely)."
 				"Collisions"
 					{
 					"Remove" "*" // Remove clean.

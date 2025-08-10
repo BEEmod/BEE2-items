@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8973"
-	"mapversion" "362"
+	"editorbuild" "9672"
+	"mapversion" "375"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -38,13 +38,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "2"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "362"
+	"mapversion" "375"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -459,10 +459,51 @@ world
 }
 entity
 {
+	"id" "7241"
+	"classname" "filter_multi"
+	"angles" "0 0 0"
+	"filter01" "filter_name"
+	"filter02" "@filter_not_fizzling"
+	"filtertype" "0"
+	"Negated" "0"
+	"targetname" "cube_dropper_box_filter"
+	"origin" "16 0 48"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"comments" "We need the fizzling filter to prevent the close trigger double-detecting a fizzling cube if it fizzles while still falling out of the dropper."
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "7176"
+	"classname" "filter_activator_name"
+	"angles" "0 0 0"
+	"filtername" "box*"
+	"Negated" "0"
+	"targetname" "filter_name"
+	"origin" "-16 0 48"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupid" "16"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
 	"id" "7003"
 	"classname" "comp_kv_setter"
 	"angles" "0 0 0"
+	"ctrl_value" "1"
 	"invert" "0"
+	"kv_value_mode" "legacy"
+	"kv_value_pos" "16 16 48"
 	"mode" "kv"
 	"target" "close_trig"
 	connections
@@ -479,7 +520,7 @@ entity
 		"OnEndTouchAll" "fadeDisable1.3-1"
 		"OnEndTouchAll" "fadeEnable0.6-1"
 	}
-	"origin" "32 16 48"
+	"origin" "16 16 48"
 	editor
 	{
 		"color" "220 30 220"
@@ -519,6 +560,9 @@ entity
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"lfomodpitch" "0"
 	"lfomodvol" "0"
@@ -553,6 +597,9 @@ entity
 	"cspinup" "0"
 	"fadeinsecs" "0"
 	"fadeoutsecs" "0"
+	"haddons_enabled" "-1"
+	"haddons_infrange" "-1"
+	"haddons_mode" "-1"
 	"health" "10"
 	"lfomodpitch" "0"
 	"lfomodvol" "0"
@@ -740,6 +787,7 @@ entity
 	"id" "5027"
 	"classname" "prop_dynamic"
 	"angles" "0 270 -180"
+	"animateeveryframe" "1"
 	"DefaultAnim" "idle_closed"
 	"disableshadows" "1"
 	"drawinfastreflection" "1"
@@ -782,7 +830,7 @@ entity
 		side
 		{
 			"id" "2657"
-			"plane" "(24 -24 -64) (24 -24 32) (-24 -24 32)"
+			"plane" "(-24 -24 32) (-24 -24 -64) (24 -24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -793,7 +841,7 @@ entity
 		side
 		{
 			"id" "2656"
-			"plane" "(-24 -34 32) (-24 -24 32) (24 -24 32)"
+			"plane" "(24 -24 32) (24 -34 32) (-24 -34 32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 -8] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -804,7 +852,7 @@ entity
 		side
 		{
 			"id" "2655"
-			"plane" "(-24 -34 -64) (-24 -24 -64) (-24 -24 32)"
+			"plane" "(-24 -24 32) (-24 -34 32) (-24 -34 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 -8] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -815,7 +863,7 @@ entity
 		side
 		{
 			"id" "2654"
-			"plane" "(24 -24 32) (24 -24 -64) (24 -34 -64)"
+			"plane" "(24 -34 -64) (24 -34 32) (24 -24 32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 8] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -826,7 +874,7 @@ entity
 		side
 		{
 			"id" "2653"
-			"plane" "(24 -24 -64) (-24 -24 -64) (-24 -34 -64)"
+			"plane" "(-24 -34 -64) (24 -34 -64) (24 -24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 -8] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -837,7 +885,7 @@ entity
 		side
 		{
 			"id" "2652"
-			"plane" "(-24 -34 -64) (-24 -34 32) (24 -34 32)"
+			"plane" "(24 -34 32) (24 -34 -64) (-24 -34 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -858,7 +906,7 @@ entity
 		side
 		{
 			"id" "2663"
-			"plane" "(24 24 -64) (24 24 32) (24 -24 32)"
+			"plane" "(24 -24 32) (24 -24 -64) (24 24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -869,7 +917,7 @@ entity
 		side
 		{
 			"id" "2662"
-			"plane" "(34 -24 32) (24 -24 32) (24 24 32)"
+			"plane" "(24 24 32) (34 24 32) (34 -24 32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 -8] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -880,7 +928,7 @@ entity
 		side
 		{
 			"id" "2661"
-			"plane" "(34 -24 -64) (24 -24 -64) (24 -24 32)"
+			"plane" "(24 -24 32) (34 -24 32) (34 -24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 -8] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -891,7 +939,7 @@ entity
 		side
 		{
 			"id" "2660"
-			"plane" "(24 24 32) (24 24 -64) (34 24 -64)"
+			"plane" "(34 24 -64) (34 24 32) (24 24 32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 8] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -902,7 +950,7 @@ entity
 		side
 		{
 			"id" "2659"
-			"plane" "(34 24 -64) (24 24 -64) (24 -24 -64)"
+			"plane" "(24 -24 -64) (34 -24 -64) (34 24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 -8] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -913,7 +961,7 @@ entity
 		side
 		{
 			"id" "2658"
-			"plane" "(34 -24 -64) (34 -24 32) (34 24 32)"
+			"plane" "(34 24 32) (34 24 -64) (34 -24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -934,7 +982,7 @@ entity
 		side
 		{
 			"id" "2669"
-			"plane" "(-34 24 -64) (-34 24 32) (-34 -24 32)"
+			"plane" "(-34 -24 32) (-34 -24 -64) (-34 24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -945,7 +993,7 @@ entity
 		side
 		{
 			"id" "2668"
-			"plane" "(-24 -24 32) (-34 -24 32) (-34 24 32)"
+			"plane" "(-34 24 32) (-24 24 32) (-24 -24 32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 32] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -956,7 +1004,7 @@ entity
 		side
 		{
 			"id" "2667"
-			"plane" "(-24 -24 -64) (-34 -24 -64) (-34 -24 32)"
+			"plane" "(-34 -24 32) (-24 -24 32) (-24 -24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 32] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -967,7 +1015,7 @@ entity
 		side
 		{
 			"id" "2666"
-			"plane" "(-34 24 32) (-34 24 -64) (-24 24 -64)"
+			"plane" "(-24 24 -64) (-24 24 32) (-34 24 32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 -32] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -978,7 +1026,7 @@ entity
 		side
 		{
 			"id" "2665"
-			"plane" "(-24 24 -64) (-34 24 -64) (-34 -24 -64)"
+			"plane" "(-34 -24 -64) (-24 -24 -64) (-24 24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 32] 0.25"
 			"vaxis" "[0 -1 0 0] 0.25"
@@ -989,7 +1037,7 @@ entity
 		side
 		{
 			"id" "2664"
-			"plane" "(-24 -24 -64) (-24 -24 32) (-24 24 32)"
+			"plane" "(-24 24 32) (-24 24 -64) (-24 -24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -1010,7 +1058,7 @@ entity
 		side
 		{
 			"id" "2675"
-			"plane" "(24 34 -64) (24 34 32) (-24 34 32)"
+			"plane" "(-24 34 32) (-24 34 -64) (24 34 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -1021,7 +1069,7 @@ entity
 		side
 		{
 			"id" "2674"
-			"plane" "(-24 24 32) (-24 34 32) (24 34 32)"
+			"plane" "(24 34 32) (24 24 32) (-24 24 32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 32] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -1032,7 +1080,7 @@ entity
 		side
 		{
 			"id" "2673"
-			"plane" "(-24 24 -64) (-24 34 -64) (-24 34 32)"
+			"plane" "(-24 34 32) (-24 24 32) (-24 24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 32] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -1043,7 +1091,7 @@ entity
 		side
 		{
 			"id" "2672"
-			"plane" "(24 34 32) (24 34 -64) (24 24 -64)"
+			"plane" "(24 24 -64) (24 24 32) (24 34 32)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 -32] 0.25"
 			"vaxis" "[0 0 -1 8] 0.25"
@@ -1054,7 +1102,7 @@ entity
 		side
 		{
 			"id" "2671"
-			"plane" "(24 34 -64) (-24 34 -64) (-24 24 -64)"
+			"plane" "(-24 24 -64) (24 24 -64) (24 34 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 32] 0.25"
 			"vaxis" "[-1 0 0 0] 0.25"
@@ -1065,7 +1113,7 @@ entity
 		side
 		{
 			"id" "2670"
-			"plane" "(-24 24 -64) (-24 24 32) (24 24 32)"
+			"plane" "(24 24 32) (24 24 -64) (-24 24 -64)"
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
@@ -1220,24 +1268,6 @@ entity
 }
 entity
 {
-	"id" "34"
-	"classname" "filter_activator_name"
-	"angles" "0 0 0"
-	"filtername" "box*"
-	"Negated" "Allow entities that match criteria"
-	"targetname" "cube_dropper_box_filter"
-	"origin" "32 0 48"
-	editor
-	{
-		"color" "0 255 0"
-		"visgroupid" "16"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
-	}
-}
-entity
-{
 	"id" "40"
 	"classname" "logic_coop_manager"
 	"angles" "0 0 0"
@@ -1246,17 +1276,18 @@ entity
 	"targetname" "spawn_man"
 	connections
 	{
-		"OnChangeToAllTrue" "spawn_manSetStateAFalse0.45-1"
-		"OnChangeToAllTrue" "cover_clipDisable1.1-1"
-		"OnChangeToAllTrue" "snd_openPlaySound0.45-1"
-		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationopen0.45-1"
+		"OnChangeToAllTrue" "cover_clipDisable0.55-1"
+		"OnChangeToAllTrue" "snd_openPlaySound0.1-1"
+		"OnChangeToAllTrue" "cube_dropper_modelSetAnimationopen0.1-1"
 		"OnChangeToAllTrue" "box*FireUser10.01-1"
 		"OnChangeToAllTrue" "close_trigEnable0-1"
 		"OnChangeToAllTrue" "spawn_manFireUser101"
 		"OnChangeToAllTrue" "cube_dropper_box_reenter_clipDisable0-1"
 		"OnChangeToAllTrue" "spawn_manSetStateBFalse0-1"
+		"OnChangeToAllTrue" "release_rlTrigger0-1"
+		"OnChangeToAllTrue" "spawn_manSetStateAFalse0.45-1"
 	}
-	"origin" "32 -16 48"
+	"origin" "32 0 48"
 	editor
 	{
 		"color" "0 100 250"
@@ -1276,7 +1307,7 @@ entity
 	{
 		"OnMapSpawn" "cube_makerForceSpawn0.11"
 	}
-	"origin" "-32 16 48"
+	"origin" "0 0 48"
 	editor
 	{
 		"color" "0 100 250"
@@ -1297,7 +1328,7 @@ entity
 	"parm5" "$item_fall_straight_down boolean 1"
 	"parm6" "$indicator_lights string"
 	"parm7" "$start_reversed boolean 1"
-	"origin" "-32 -16 48"
+	"origin" "-16 -16 48"
 	editor
 	{
 		"color" "220 30 220"
