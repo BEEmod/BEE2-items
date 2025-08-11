@@ -4,6 +4,7 @@
 
 * Fix missing antline checkmark material.
 * Fix incorrect NOT gate texture.
+* #4556: Fix sendificator 'fail' antlines not triggering.
 
 ------------------------------------------
 
