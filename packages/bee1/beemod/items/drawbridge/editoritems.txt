@@ -1,16 +1,32 @@
 "Item"
 {
 	"Type"		"ITEM_DRAW_BRIDGE"
-	"ItemClass"	"ItemButtonFloor"
+	"ItemClass"	"ItemAngledPanel"
 	"Editor"
 	{
+		// Need to use subtypes for extended/retracted versions - normal way doesn't support showing portalability when retracted
+		"SubTypeProperty" "StartEnabled"
 		"SubType"
 		{
 			"Name"		"Draw Bridge"
-			"Model"
-			{
-				"ModelName"	"bee2/clean/drawbridge.3ds"
-			}
+			// No angle property, but we have to specify all the copies anyway
+			// FIXME: Needs new models!
+			// White
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			// Black
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			// Shouldn't appear
+			"Model" { "ModelName"	"bee2/logic/error_marker_voxel.3ds" }
+			"Model" { "ModelName"	"bee2/logic/error_marker_voxel.3ds" }
+			"Model" { "ModelName"	"bee2/logic/error_marker_voxel.3ds" }
+			"Model" { "ModelName"	"bee2/logic/error_marker_voxel.3ds" }
+			
 			"Palette"
 			{
 				"Tooltip"	"DRAW BRIDGE"
@@ -24,7 +40,35 @@
 				"SOUND_DELETED"					"P2Editor.RemoveOther"
 			}
 		}
+		"SubType"
+		{
+			"Name"		"Draw Bridge"
+			// White
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			// Black
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			"Model" { "ModelName"	"bee2/clean/drawbridge.3ds" }
+			// Shouldn't appear
+			"Model" { "ModelName"	"bee2/logic/error_marker_voxel.3ds" }
+			"Model" { "ModelName"	"bee2/logic/error_marker_voxel.3ds" }
+			"Model" { "ModelName"	"bee2/logic/error_marker_voxel.3ds" }
+			"Model" { "ModelName"	"bee2/logic/error_marker_voxel.3ds" }
+			
+			"Sounds"
+			{
+				"SOUND_CREATED"					"P2Editor.PlaceOther"
+				"SOUND_EDITING_ACTIVATE"		"P2Editor.ExpandOther"
+				"SOUND_EDITING_DEACTIVATE"		"P2Editor.CollapseOther"
+				"SOUND_DELETED"					"P2Editor.RemoveOther"
+			}
+		}
 		"MovementHandle"	"HANDLE_4_DIRECTIONS"
+		"DesiredFacing"		"DESIRES_DOWN"
 	}
 	"Properties"
 	{
@@ -44,6 +88,12 @@
 			"DefaultValue"  "0"
 			"Index"         "3"
 		}
+		// Allows swapping models based on portalability
+		"Portalable"
+		{
+			"DefaultValue"	"1"
+			"Index"			"0"
+		}
 	}
 	"Exporting"
 	{
@@ -51,19 +101,11 @@
 		{
 			"0"
 			{
-				"Name"				"instances/BEE2/clean/items/bee/drawbridge_white.vmf"
+				"Name"				"instances/BEE2/clean/items/bee/drawbridge.vmf"
 				"EntityCount"		"12"
 				"BrushCount"		"5" // correct
 				"BrushSideCount"	"32"
 			}
-			"1"
-			{
-				"Name"				"instances/BEE2/clean/items/bee/drawbridge_black.vmf"
-				"EntityCount"		"12"
-				"BrushCount"		"5" // correct
-				"BrushSideCount"	"32"
-			}
-			"logic" "instances/BEE2/clean/items/bee/drawbridge.vmf"
 		}
 
 		"TargetName"		"db"
