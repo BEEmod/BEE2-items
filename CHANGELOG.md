@@ -2,6 +2,20 @@
 
 # Version (dev)
 
+* Fix missing antline checkmark material.
+* Fix incorrect NOT gate texture.
+* #4556: Fix sendificator 'fail' antlines not triggering.
+* #4559: Fix portals not being placable on retracted stairs.
+
+------------------------------------------
+
+# Version 4.46.1
+* Re-added missing "Test Elements" package.
+
+------------------------------------------
+
+# Version 4.46.0
+
 ## New Items
 * Added strip forms of Input A/B, SR Latches and Delayers.
 * Added standalone checkmarks, as timer values 11-18 of Antline Corners.
