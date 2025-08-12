@@ -6,6 +6,7 @@
 * Fix incorrect NOT gate texture.
 * #4556: Fix sendificator 'fail' antlines not triggering.
 * #4559: Fix portals not being placable on retracted stairs.
+* Fix leaks on protruding pedestal buttons.
 
 ------------------------------------------
 
