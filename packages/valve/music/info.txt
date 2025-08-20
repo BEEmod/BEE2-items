@@ -8,16 +8,18 @@
 "Music"
 	{
 	"ID"            "VALVE_PETI"
+	"Sort_Key"      "\"Community Test Chambers #0" // Sort this above the CTC tracks
 	"Name"          "Random PeTI (Robot Waiting Room)"
 	"ShortName"     "Random PeTI"
-	"Group"         "PeTI / Robo Room"
+	"Group"         "PeTI / Robot Waiting Room"
 	"IconLarge"	"music_lrg/default.png"
 	"Authors"       "Valve"
 	"Description"
 		{
 		""  "The original PeTI music."
 		""  ""
-		""  "* Randomly chooses between Robot Waiting Room 1-5 and '7'."
+		""  "* Randomly chooses between \"Community Test Chambers 1\" and Robot Waiting Room 2-5."
+		""  "The former has a slightly higher chance to be played, as it is duplicated."
 		""  "* This special behaviour prevents users from customising tracks."
 		}
 
@@ -28,42 +30,36 @@
 
 "Music"
 	{
-	"ID"            "VALVE_ROBO_ROOM_1"
-	"Name"          "Robot Waiting Room 1"
-	"ShortName"     "Robo Room 1"
-	"Group"         "PeTI / Robo Room"
+	"ID"            "VALVE_ROBOT_ROOM_1" // Formerly mislabeled as 6
+	"Name"          "Robot Waiting Room #1"
+	"ShortName"     "Robot Room #1"
+	"Group"         "PeTI / Robot Waiting Room"
 	"IconLarge"	"music_lrg/robo_room.png"
 	"Authors"       "Valve"
 	"Description"
 		{
-		""  "One of several tracks played in the Cooperative Testing Hub, and PeTI levels."
-		""  "This track is similar to the Old Aperture music tracks."
+		""  "Track played in the Cooperative Testing Hub when only Course 1 is unlocked.  "
+		""  "This track is similar to *Forwarding the Cause of Science* and *The Reunion*."
 		}
-	"Sample"       
-		{
-		"Base"      "p2/ctc_b1_001.ogg"
-		"BounceGel" "p2/ctc_z1_001.ogg"
-		}
-	"Soundscript"
-		{
-		"Base"      "music/ctc_b1_001.wav"
-		"BounceGel" "music/ctc_z1_001.wav"
-		}
+	// The soundscript for this doesn't use the actual sound, so we need to use the raw WAV.
+	"Soundscript"   "music/mp_coop_lobby_2_c1.wav"
+	"Sample"        "p2/mp_coop_lobby_2_c1.ogg"
 	"Children"
 		{
 		"tBeam" "VALVE_PETI_FUNNEL"
+		"BounceGel" "VALVE_PETI_BOUNCE_GEL"
 		}
 	}
 
 "Music"
 	{
-	"ID"            "VALVE_ROBO_ROOM_2"
-	"Name"          "Robot Waiting Room 2"
-	"ShortName"     "Robo Room 2"
-	"Group"         "PeTI / Robo Room"
+	"ID"            "VALVE_ROBOT_ROOM_2"
+	"Name"          "Robot Waiting Room #2"
+	"ShortName"     "Robot Room #2"
+	"Group"         "PeTI / Robot Waiting Room"
 	"IconLarge"	"music_lrg/robo_room.png"
 	"Authors"       "Valve"
-	"Description"   "One of several tracks played in the Cooperative Testing Hub and PeTI levels."
+	"Description"   "Track played in the Cooperative Testing Hub when Course 2 has been unlocked, and randomly in PeTI levels."
 	"Sample"       
 		{
 		"Base"      "p2/ctc_b1_002.ogg"
@@ -82,13 +78,13 @@
 
 "Music"
 	{
-	"ID"            "VALVE_ROBO_ROOM_3"
-	"Name"          "Robot Waiting Room 3"
-	"ShortName"     "Robo Room 3"
-	"Group"         "PeTI / Robo Room"
+	"ID"            "VALVE_ROBOT_ROOM_3"
+	"Name"          "Robot Waiting Room #3"
+	"ShortName"     "Robot Room #3"
+	"Group"         "PeTI / Robot Waiting Room"
 	"IconLarge"	"music_lrg/robo_room.png"
 	"Authors"       "Valve"
-	"Description"   "One of several tracks played in the Cooperative Testing Hub and PeTI levels."
+	"Description"   "Track played in the Cooperative Testing Hub when Course 3 has been unlocked, and randomly in PeTI levels."
 	
 	"Sample"       
 		{
@@ -108,17 +104,13 @@
 
 "Music"
 	{
-	"ID"            "VALVE_ROBO_ROOM_4"
-	"Name"          "Robot Waiting Room 4"
-	"ShortName"     "Robo Room 4"
-	"Group"         "PeTI / Robo Room"
+	"ID"            "VALVE_ROBOT_ROOM_4"
+	"Name"          "Robot Waiting Room #4"
+	"ShortName"     "Robot Room #4"
+	"Group"         "PeTI / Robot Waiting Room"
 	"IconLarge"	"music_lrg/robo_room.png"
 	"Authors"       "Valve"
-	"Description"
-		{
-		""	"One of several tracks played in the Cooperative Testing Hub and PeTI levels."
-		""	"This track is similar to the Old Aperture music tracks."
-		}
+	"Description"  "Track played in the Cooperative Testing Hub when Course 4 has been unlocked, and randomly in PeTI levels."
 	"Sample"       
 		{
 		"Base"      "p2/ctc_b1_004.ogg"
@@ -137,17 +129,13 @@
 
 "Music"
 	{
-	"ID"            "VALVE_ROBO_ROOM_5"
-	"Name"          "Robot Waiting Room 5"
-	"ShortName"     "Robo Room 5"
-	"Group"         "PeTI / Robo Room"
+	"ID"            "VALVE_ROBOT_ROOM_5"
+	"Name"          "Robot Waiting Room #5"
+	"ShortName"     "Robot Room #5"
+	"Group"         "PeTI / Robot Waiting Room"
 	"IconLarge"	"music_lrg/robo_room.png"
 	"Authors"       "Valve"
-	"Description"
-		{
-		""  "One of several tracks played in the Cooperative Testing Hub and PeTI levels."
-		""  "This track is similar to the Old Aperture music tracks."
-		}
+	"Description"   "Track played in the Cooperative Testing Hub when Course 5 has been unlocked, and randomly in PeTI levels."
 	"Sample"       
 		{
 		"Base"      "p2/ctc_b1_005.ogg"
@@ -166,20 +154,16 @@
 
 "Music"
 	{
-	"ID"            "VALVE_ROBO_ROOM_6"
-	"Name"          "Robot Waiting Room 6"
-	"ShortName"     "Robo Room 6"
-	"Group"         "PeTI / Robo Room"
+	"ID"            "VALVE_ROBOT_ROOM_6"
+	"Name"          "Robot Waiting Room #6"
+	"ShortName"     "Robot Room #6"
+	"Group"         "PeTI / Robot Waiting Room"
 	"IconLarge"	"music_lrg/robo_room.png"
 	"Authors"       "Valve"
-	"Description"
-		{
-		""  "One of several tracks played in the Cooperative Testing Hub, but not in PeTI levels.  "
-		""  "This track is similar to Robot Room 1, but slightly more dramatic."
-		}
+	"Description" "Track played in the Cooperative Testing Hub when all courses have been completed."
 	// The soundscript for this doesn't use the actual sound, so we need to use the raw WAV.
-	"Soundscript"   "music/mp_coop_lobby_2_c1.wav"
-	"Sample"        "p2/mp_coop_lobby_2_c1.ogg"
+	"Soundscript"   "music/mp_coop_lobby_2_c7.wav"
+	"Sample"        "p2/mp_coop_lobby_2_c7.ogg"
 	"Children"
 		{
 		"tBeam" "VALVE_PETI_FUNNEL"
@@ -189,18 +173,47 @@
 
 "Music"
 	{
-	"ID"            "VALVE_ROBO_ROOM_PTI"
-	"Sort_Key"      "Robot Waiting Room 7" // Name used for ordering in list.
-	"Name"          "Robot Waiting Room \"7\""
-	"ShortName"     "Robo Room \"7\""
-	"Group"         "PeTI / Robo Room"
-	"IconLarge"	"music_lrg/robo_room.png"
+	"ID"            "VALVE_CTC_1" // Formerly mislabeled as Robot Waiting Room #1
+	"Name"          "\"Community Test Chambers #1\""
+	"ShortName"     "\"CTC #1\""
+	"Group"         "PeTI / Robot Waiting Room"
+	"IconLarge"	"music_lrg/default.png"
 	"Authors"       "Valve"
 	"Description"
 		{
-		""  "An unused track, presumably meant to be played in the Cooperative Testing Hub."
-		""  "This track does not appear in the original game soundtrack."
-		""  "It features trombones and mallet instruments."
+		""  "Track played exclusively in PeTI levels, which does not appear in the OST."
+		""  "It is similar to *You are Not Part of the Control Group*.  "
+		""  "Tracks 2-5 are identical to the respective Robot Waiting Room tracks, and track 6 is a copy of this one."
+		}
+	"Sample"       
+		{
+		"Base"      "p2/ctc_b1_001.ogg"
+		"BounceGel" "p2/ctc_z1_001.ogg"
+		}
+	"Soundscript"
+		{
+		"Base"      "music/ctc_b1_001.wav"
+		"BounceGel" "music/ctc_z1_001.wav"
+		}
+	"Children"
+		{
+		"tBeam" "VALVE_PETI_FUNNEL"
+		}
+	}
+
+"Music"
+	{
+	"ID"            "VALVE_CTC_7" // Formerly mislabeled as Robot Waiting Room "#7"
+	"Name"          "\"Community Test Chambers #7\""
+	"ShortName"     "\"CTC #7\""
+	"Group"         "PeTI / Robot Waiting Room"
+	"IconLarge"	"music_lrg/default.png"
+	"Authors"       "Valve"
+	"Description"
+		{
+		""  "An unused track, presumably meant to be played in PeTI levels,"
+		""  "which does not appear in the OST."
+		""  "It features trombones and mallet instruments.  "
 		}
 	"Sample"       
 		{
