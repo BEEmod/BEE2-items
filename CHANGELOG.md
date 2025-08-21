@@ -2,13 +2,17 @@
 
 # Version (dev)
 
+* New Save Point item features:
+	* Inputs can trigger the save point, instead of player presence.
+	* A timer can be used to activate 'dangerous' autosaves, which require the player to live for a specified time before being used.
+	* Auto-respawn allows triggering it multiple times.
 * Fix missing antline checkmark material.
 * Fix incorrect NOT gate texture.
 * #4556: Fix sendificator 'fail' antlines not triggering.
 * #4559: Fix portals not being placable on retracted stairs.
 * Fix leaks on protruding pedestal buttons.
-* Added a floor exit corridor to Portal 1 style
-* Portal 1 exit corridors with metal walls no longer have small portalable areas near the elevator
+* Added a floor exit corridor to Portal 1 style.
+* Portal 1 exit corridors with metal walls no longer have small portalable areas near the elevator.
 
 ------------------------------------------
 

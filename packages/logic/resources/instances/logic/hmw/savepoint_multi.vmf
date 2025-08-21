@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "105"
+	"mapversion" "106"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "105"
+	"mapversion" "106"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -31,12 +31,14 @@ world
 entity
 {
 	"id" "1189"
-	"classname" "trigger_autosave"
-	"DangerousTimer" "$timer_delay"
-	"MinimumHitPoints" "0"
-	"NewLevelUnit" "0"
+	"classname" "trigger_multiple"
 	"origin" "0 0 0"
 	"spawnflags" "1"
+	"wait" "1"
+	connections
+	{
+		"OnStartTouch" "@autosave$cmd$timer_delay0-1"
+	}
 	solid
 	{
 		"id" "1187"
