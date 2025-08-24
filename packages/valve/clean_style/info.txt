@@ -109,6 +109,19 @@
 				"COLD"    "Cold"
 				}
 			}
+		"BTS_DIRECTION"
+			{
+			"Name"    "BTS Spawn Area"
+			"var"     "$bts_entry_dir"
+			"default" "<RANDOM>"
+
+			"Description" "Specifies area the player starts in."
+			"Values"
+				{
+				"FACT"	"Factory"
+				"OFFI"	"Office"
+				}
+			}
 		}
 
 	"sp_entry"
@@ -298,6 +311,25 @@
 			"$frame" "door"
 			"$door" "testchamber"
 			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_OVER_LIGHTS:small_right"
+			}
+		}
+	"sp_entry"
+		{
+		"instance" "instances/BEE2/clean/elevator_sp/door_entrance_1_bts.vmf"
+		"name" "BTS Test"
+		"authors" "Konclan"
+		"Description" "Spawns you in a bts section that connects to a clean entrance corridor."
+		
+		"Option" "BTS_DIRECTION"
+		"Option" "TEMPERATURE"
+		"Fixups"
+			{
+			"$horiz_cam" "1"
+			"$frame" "door"
+			"$door" "testchamber"
+			"$elevator" "bts_entrance"
+
+			"$light_temp" "BEE2_CLEAN_SP_ENTRY_CORR_LIGHTS:corr_1"
 			}
 		}
 
