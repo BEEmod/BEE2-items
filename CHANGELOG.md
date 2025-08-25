@@ -6,6 +6,7 @@
 	* Inputs can trigger the save point, instead of player presence.
 	* A timer can be used to activate 'dangerous' autosaves, which require the player to live for a specified time before being used.
 	* Auto-respawn allows triggering it multiple times.
+* #4577: Dynamically generate cube dropper clips, making direct button drops much more reliable.
 * Fix missing antline checkmark material.
 * Fix incorrect NOT gate texture.
 * #4556: Fix sendificator 'fail' antlines not triggering.
