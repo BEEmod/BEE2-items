@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "9672"
-	"mapversion" "1541"
+	"mapversion" "1545"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -38,13 +38,13 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "32"
 	"bShow3DGrid" "0"
 }
 world
 {
 	"id" "1"
-	"mapversion" "1541"
+	"mapversion" "1545"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -8280,6 +8280,9 @@ entity
 		"OnTrigger" "blocker_panelDisable1-1"
 		"OnTrigger" "panel_arm_lowerSetPlaybackRate30.01-1"
 		"OnTrigger" "panel_arm_upperSetPlaybackRate30.01-1"
+		"OnTrigger" "panel_arm_upperSetLightingOrigin@entrance_panel_chamber_light0.75-1"
+		"OnTrigger" "panel_backSetLightingOrigin@entrance_panel_chamber_light0.5-1"
+		"OnTrigger" "panel_arm_lowerSetLightingOrigin@entrance_panel_chamber_light0.75-1"
 	}
 	"origin" "-680 872 -48"
 	editor
@@ -8588,59 +8591,9 @@ entity
 }
 entity
 {
-	"id" "197934"
-	"classname" "prop_dynamic"
-	"angles" "0 270 90"
-	"animateeveryframe" "0"
-	"body" "0"
-	"disablebonefollowers" "0"
-	"disableflashlight" "0"
-	"disablereceiveshadows" "0"
-	"disableshadowdepth" "0"
-	"disableshadows" "0"
-	"drawinfastreflection" "0"
-	"effects" "0"
-	"explodedamage" "0"
-	"explodemagnitude" "0"
-	"exploderadius" "0"
-	"health" "0"
-	"holdanimation" "0"
-	"LightingOrigin" "@entrance_portal_elevator_side"
-	"maxanimtime" "10"
-	"minanimtime" "5"
-	"minhealthdmg" "0"
-	"model" "models/anim_wp/room_transform/arm_64x64_justtop.mdl"
-	"modelscale" "1.0"
-	"parent_attachment_point" "panel_attach"
-	"parentname" "panel_arm_upper"
-	"performancemode" "0"
-	"physdamagescale" "1.0"
-	"pressuredelay" "0"
-	"randomanimation" "0"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"renderfx" "0"
-	"rendermode" "0"
-	"skin" "0"
-	"solid" "6"
-	"startdisabled" "0"
-	"suppressanimsounds" "0"
-	"targetname" "panel_top"
-	"updatechildren" "0"
-	"origin" "-770 736 32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[500 1000]"
-	}
-}
-entity
-{
 	"id" "197907"
 	"classname" "prop_dynamic"
-	"angles" "0 270 90"
+	"angles" "0 90 0"
 	"animateeveryframe" "0"
 	"body" "0"
 	"disablebonefollowers" "0"
@@ -8659,7 +8612,7 @@ entity
 	"maxanimtime" "10"
 	"minanimtime" "5"
 	"minhealthdmg" "0"
-	"model" "models/anim_wp/room_transform/arm_64x64_justtop.mdl"
+	"model" "models/bee2/panels/heavy_top.mdl"
 	"modelscale" "1.0"
 	"parent_attachment_point" "panel_attach"
 	"parentname" "panel_arm_lower"
@@ -8675,9 +8628,9 @@ entity
 	"solid" "6"
 	"startdisabled" "0"
 	"suppressanimsounds" "0"
-	"targetname" "panel_top"
+	"targetname" "panel_back"
 	"updatechildren" "0"
-	"origin" "-770 736 -32"
+	"origin" "-784 768 3.8147e-006"
 	editor
 	{
 		"color" "220 30 220"
@@ -9293,8 +9246,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-646.618 681.661 56.6658]"
-		"look" "[-694.329 714.329 31.4033]"
+		"position" "[-509.434 739.01 106.57]"
+		"look" "[-565.877 753.082 82.1172]"
 	}
 	camera
 	{
