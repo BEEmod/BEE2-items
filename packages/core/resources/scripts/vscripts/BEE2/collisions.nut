@@ -64,7 +64,7 @@ class Volume {
 			return true
 		}
 		foreach(plane in planes) {
-			if (plane.norm.Dot(point) < plane.dist + tol) {
+			if (plane.norm.Dot(point) > plane.dist + tol) {
 				return false
 			}
 		}
@@ -90,12 +90,12 @@ class Volume {
 		local inside = true
 		foreach (plane in planes) {
 			// Check if the start point is inside the plane.
-			if (start.Dot(plane.norm) < plane.dist){
+			if (start.Dot(plane.norm) > plane.dist){
 				inside = false
 			}
 			local dot = plane.norm.Dot(direction)
 			// If perpendicular or facing in the same direction, the ray can't trace into it.
-			if (dot <= 0.0) {
+			if (dot >= 0.0) {
 				continue
 			}
 			local t = (plane.dist - start.Dot(plane.norm)) / dot
@@ -112,7 +112,7 @@ class Volume {
 				if (other_plane == plane) {
 					continue
 				}
-				if (impact.Dot(other_plane.norm) < other_plane.dist){
+				if (impact.Dot(other_plane.norm) > other_plane.dist){
 					// We're outside this plane, the impact is wrong.
 					impact = null
 					break
@@ -152,14 +152,14 @@ class Volume {
 				return null
 			}
 			time /= delta[axis]
-			return {t=time, norm=1.0}
+			return {t=time, norm=-1.0}
 		} else if (start[axis] > maxes[axis]) {
 			time = maxes[axis] - start[axis]
 			if (time < delta[axis]) {
 				return null
 			}
 			time /= delta[axis]
-			return {t=time, norm=-1.0}
+			return {t=time, norm=1.0}
 		} else {
 			return {t=-1.0, norm=0.0}
 		}
