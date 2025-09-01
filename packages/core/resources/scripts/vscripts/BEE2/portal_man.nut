@@ -64,6 +64,9 @@ function in_hover_phase() {//When playing coop, there is a phase in which the pl
 		//Get and set pguns
 		EntFireByHandle(self,"CallScriptFunction","on_blue_spawn",0.05,null,null);
 		EntFireByHandle(self,"CallScriptFunction","on_oran_spawn",0.05,null,null);
+		//Building the map for the first time resets the pguns
+		EntFireByHandle(self,"CallScriptFunction","on_blue_spawn",0.5,null,null);
+		EntFireByHandle(self,"CallScriptFunction","on_oran_spawn",0.5,null,null);
 	}
 }
 
@@ -84,7 +87,7 @@ function on_blue_spawn() {//Called when the blue player spawns, input is added b
 		return;
 	}
 	bluegun <- Entities.FindByClassnameNearest("weapon_portalgun",player_blue.GetOrigin(),64);
-	set_gun(pgun_blue_active,pgun_oran_active,PlayerTeam.ATLAS);
+	set_gun(pgun_blue_primary_active,pgun_blue_secondary_active,PlayerTeam.ATLAS);
 }
 function on_oran_spawn() {//Called when the orange player spawns, input is added by the compiler
 	if (player_oran == null) {
@@ -95,7 +98,7 @@ function on_oran_spawn() {//Called when the orange player spawns, input is added
 		return;
 	}
 	orangun <- Entities.FindByClassnameNearest("weapon_portalgun",player_oran.GetOrigin(),64);
-	set_gun(pgun_blue_active,pgun_oran_active,PlayerTeam.PBODY);
+	set_gun(pgun_oran_primary_active,pgun_oran_secondary_active,PlayerTeam.PBODY);
 }
 
 // Called OnMapSpawn by the compiler, passing in this config values.
@@ -113,19 +116,25 @@ function init(blue, orange, has_onoff) {
 
 	if (has_onoff) {
 		portalgun_onoff_count = 0;
-		pgun_blue_active <- false;
-		pgun_oran_active <- false;
+		pgun_blue_primary_active <- false;
+		pgun_blue_secondary_active <- false;
+		pgun_oran_primary_active <- false;
+		pgun_oran_secondary_active <- false;
 		if (IsMultiplayer()) { return; }
 		give_gun(0, 0);
 	} else if (!has_blue && !has_oran) {
 		remove_pgun();
-		pgun_blue_active <- false;
-		pgun_oran_active <- false;
+		pgun_blue_primary_active <- false;
+		pgun_blue_secondary_active <- false;
+		pgun_oran_primary_active <- false;
+		pgun_oran_secondary_active <- false;
 		if (IsMultiplayer()) { return; }
 		give_gun(0, 0);
 	} else {
-		pgun_blue_active <- has_blue;
-		pgun_oran_active <- has_oran;
+		pgun_blue_primary_active <- has_blue;
+		pgun_blue_secondary_active <- has_oran;
+		pgun_oran_primary_active <- has_blue;
+		pgun_oran_secondary_active <- has_oran;
 		if (IsMultiplayer()) { return; }
 		give_gun(blue, orange);
 	}
