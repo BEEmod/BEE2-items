@@ -11,6 +11,7 @@
 * Fix incorrect NOT gate texture.
 * #4556: Fix sendificator 'fail' antlines not triggering.
 * #4559: Fix portals not being placable on retracted stairs.
+* #4597: Fix missing editor model for Overgrown Reflection Gel Dropper
 * Fix leaks on protruding pedestal buttons.
 * Added a floor exit corridor to Portal 1 style.
 * Portal 1 exit corridors with metal walls no longer have small portalable areas near the elevator.
