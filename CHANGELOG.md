@@ -16,6 +16,7 @@
 * Added a floor exit corridor to Portal 1 style.
 * Portal 1 exit corridors with metal walls no longer have small portalable areas near the elevator.
 * Fix incorrect filename for single-sign catapult signage.
+* Removed alternate angle-change sounds in the editor for P1 style, since these constantly break.
 
 ------------------------------------------
 
