@@ -9,6 +9,7 @@
 * #4577: Dynamically generate cube dropper clips, making direct button drops much more reliable.
 * Fix missing antline checkmark material.
 * Fix incorrect NOT gate texture.
+* #4277: Use correct version of Overgrown large observation room.
 * #4556: Fix sendificator 'fail' antlines not triggering.
 * #4559: Fix portals not being placable on retracted stairs.
 * #4597: Fix missing editor model for Overgrown Reflection Gel Dropper.
