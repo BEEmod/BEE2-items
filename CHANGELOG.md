@@ -6,6 +6,7 @@
 	* Inputs can trigger the save point, instead of player presence.
 	* A timer can be used to activate 'dangerous' autosaves, which require the player to live for a specified time before being used.
 	* Auto-respawn allows triggering it multiple times.
+* Quarter Tiles now set the colour to the opposite of the original tile's colour, making them easier to use when making mostly-portalable surfaces. This could cause changes in existing maps though.
 * #4577: Dynamically generate cube dropper clips, making direct button drops much more reliable.
 * Fix missing antline checkmark material.
 * Fix incorrect NOT gate texture.
