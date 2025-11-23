@@ -10,6 +10,7 @@
 * #4577: Dynamically generate cube dropper clips, making direct button drops much more reliable.
 * Fix missing antline checkmark material.
 * Fix incorrect NOT gate texture.
+* #4673: Use horizontal glass stripes in 70s, 80s and Overgrown styles.
 * #4277: Use correct version of Overgrown large observation room.
 * #4556: Fix sendificator 'fail' antlines not triggering.
 * #4559: Fix portals not being placable on retracted stairs.
@@ -18,6 +19,7 @@
 * #4623: Add explosion when Wheately Monitors are destroyed.
 * #4625: Fix missing screenshot for overgrown SP exit corridors.
 * #4632: Fix 80s cube dropper not working properly in non-precise mode.
+* #4681: Fix Clean/Overgrown glass doors not being able to start open
 * Fix leaks on protruding pedestal buttons.
 * Added a floor exit corridor to Portal 1 style.
 * Portal 1 exit corridors with metal walls no longer have small portalable areas near the elevator.
