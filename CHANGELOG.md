@@ -10,6 +10,7 @@
 * #4577: Dynamically generate cube dropper clips, making direct button drops much more reliable.
 * Fix missing antline checkmark material.
 * Fix incorrect NOT gate texture.
+* Fix 70s sign being used for 50s coop separation checkpoint.
 * #4673: Use horizontal glass stripes in 70s, 80s and Overgrown styles.
 * #4277: Use correct version of Overgrown large observation room.
 * #4556: Fix sendificator 'fail' antlines not triggering.
