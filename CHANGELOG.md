@@ -21,7 +21,8 @@
 * #4623: Add explosion when Wheately Monitors are destroyed.
 * #4625: Fix missing screenshot for overgrown SP exit corridors.
 * #4632: Fix 80s cube dropper not working properly in non-precise mode.
-* #4681: Fix Clean/Overgrown glass doors not being able to start open
+* #4681: Fix Clean/Overgrown glass doors not being able to start open.
+* #4695: Use correct orientation for clean custom fizzler emitter models.
 * Fix leaks on protruding pedestal buttons.
 * Added a floor exit corridor to Portal 1 style.
 * Portal 1 exit corridors with metal walls no longer have small portalable areas near the elevator.
