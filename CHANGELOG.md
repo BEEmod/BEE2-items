@@ -9,6 +9,7 @@
 * Quarter Tiles now set the colour to the opposite of the original tile's colour, making them easier to use when making mostly-portalable surfaces. This could cause changes in existing maps though.
 * #4577: Dynamically generate cube dropper clips, making direct button drops much more reliable.
 * Add an explicit error if Bumbleballs are used in Coop, since they'll crash there.
+* Faith Plates now reliably launch bomb-type Gel, even at high speed.
 * Fix missing antline checkmark material.
 * Fix incorrect NOT gate texture.
 * Fix 70s sign being used for 50s coop separation checkpoint.
