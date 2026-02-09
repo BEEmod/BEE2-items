@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "17"
+	"mapversion" "26"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,7 +14,7 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "16"
 }
 palette_plus
 {
@@ -89,7 +89,7 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "17"
+	"mapversion" "26"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -467,14 +467,14 @@ entity
 		}
 		editor
 		{
-			"color" "0 176 225"
+			"color" "220 30 220"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "0 176 225"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
@@ -516,7 +516,7 @@ entity
 	"origin" "0 960 -364"
 	editor
 	{
-		"color" "0 190 147"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -561,7 +561,7 @@ entity
 	"origin" "0 960 -364"
 	editor
 	{
-		"color" "0 212 137"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -574,7 +574,7 @@ entity
 	"origin" "0 960 -360"
 	editor
 	{
-		"color" "0 124 133"
+		"color" "0 0 255"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -619,7 +619,7 @@ entity
 	"origin" "0 960 -364"
 	editor
 	{
-		"color" "0 208 145"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -637,7 +637,7 @@ entity
 	"origin" "0 960 -312"
 	editor
 	{
-		"color" "0 132 125"
+		"color" "255 192 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -659,7 +659,7 @@ entity
 	"origin" "0 960 72"
 	editor
 	{
-		"color" "0 214 107"
+		"color" "255 192 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1000]"
@@ -888,7 +888,7 @@ entity
 		}
 		editor
 		{
-			"color" "0 146 111"
+			"color" "220 30 220"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
@@ -1006,14 +1006,14 @@ entity
 		}
 		editor
 		{
-			"color" "0 146 111"
+			"color" "220 30 220"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "0 146 111"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
@@ -1223,14 +1223,14 @@ entity
 		}
 		editor
 		{
-			"color" "0 124 185"
+			"color" "220 30 220"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "0 124 185"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
@@ -1244,11 +1244,11 @@ entity
 	"model" "models/editor/angle_helper.mdl"
 	"spawnflags" "0"
 	"target" "!player"
-	"targetname" "@test_dome_lift_entry_teleport"
+	"targetname" "@arrival_teleport"
 	"origin" "0 960 -356"
 	editor
 	{
-		"color" "0 186 215"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1387,17 +1387,172 @@ entity
 		}
 		editor
 		{
-			"color" "0 244 217"
+			"color" "220 30 220"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
 	}
 	editor
 	{
-		"color" "0 244 217"
+		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "84201"
+	"classname" "trigger_once"
+	"origin" "-0.01 720 64"
+	"solid" "6"
+	"spawnflags" "4097"
+	"StartDisabled" "0"
+	"targetname" "player_door_trigger"
+	connections
+	{
+		"OnTrigger" "pre_paint_rlTrigger0-1"
+	}
+	solid
+	{
+		"id" "84202"
+		side
+		{
+			"id" "27795"
+			"plane" "(64 736.002 192) (64 704.004 192) (-64 704 192)"
+			vertices_plus
+			{
+				"v" "64 736 192"
+				"v" "64 704 192"
+				"v" "-64 704 192"
+				"v" "-64 736 192"
+			}
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[-1 0 0 31.3813] 0.25"
+			"vaxis" "[0 1 0 8.78223] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "27794"
+			"plane" "(64 704 -64) (64 736.002 -64) (-64 736.002 -64)"
+			vertices_plus
+			{
+				"v" "64 704 -64"
+				"v" "64 736 -64"
+				"v" "-64 736 -64"
+				"v" "-64 704 -64"
+			}
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[-1 0 0 31.3813] 0.25"
+			"vaxis" "[0 1 0 8.78223] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "27793"
+			"plane" "(64 736.002 -64) (64 704.004 -64) (64 704 192)"
+			vertices_plus
+			{
+				"v" "64 736 -64"
+				"v" "64 704 -64"
+				"v" "64 704 192"
+				"v" "64 736 192"
+			}
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 8.78223] 0.25"
+			"vaxis" "[0 0 -1 -2.74805] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "27792"
+			"plane" "(-64 704 -64) (-64 736.002 -64) (-64 736.002 192)"
+			vertices_plus
+			{
+				"v" "-64 704 -64"
+				"v" "-64 736 -64"
+				"v" "-64 736 192"
+				"v" "-64 704 192"
+			}
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[0 1 0 8.78223] 0.25"
+			"vaxis" "[0 0 -1 -2.74805] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "27791"
+			"plane" "(64.002 704.002 -64) (-64 704.002 -64) (-64 704.002 192)"
+			vertices_plus
+			{
+				"v" "64 704 -64"
+				"v" "-64 704 -64"
+				"v" "-64 704 192"
+				"v" "64 704 192"
+			}
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[-1 0 0 31.3813] 0.25"
+			"vaxis" "[0 0 -1 -2.74805] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "27790"
+			"plane" "(-64 736.002 -64) (63.9981 736.002 -64) (64.002 736.002 192)"
+			vertices_plus
+			{
+				"v" "-64 736 -64"
+				"v" "64 736 -64"
+				"v" "64 736 192"
+				"v" "-64 736 192"
+			}
+			"material" "TOOLS/TOOLSTRIGGER"
+			"uaxis" "[-1 0 0 31.3813] 0.25"
+			"vaxis" "[0 0 -1 -2.74805] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "84251"
+	"classname" "env_soundscape"
+	"angles" "0 0 0"
+	"radius" "128"
+	"soundscape" "ug_portal_shaft_01"
+	"origin" "0 960 -336"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[500 -7768]"
 	}
 }
 cameras
@@ -1405,8 +1560,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[309.388 915.397 -345.636]"
-		"look" "[54.118 990.443 -246.684]"
+		"position" "[-46.8819 973.77 -311.26]"
+		"look" "[207.969 917.825 -423.091]"
 	}
 }
 cordons
