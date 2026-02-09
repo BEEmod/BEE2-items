@@ -44,6 +44,40 @@
 "CorridorGroup"
 	{
 	"ID" "BEE2_1950s"
+	"Options"
+		{
+		"ELEVATOR_SPHERE"
+			{
+			"Name"    "Enrichment Sphere"
+			"var"     "$sphere_type"
+			"default" "CLOSED"
+			"global"  "sp"
+
+			"Description" "Specifies the direction stairs travel in. Normally they go upward from the entrance and downward at the exit, but the other variants provide some variety."
+			"Values"
+				{
+				"CLOSED"	"Closed"
+				"OPEN"		"Open"
+				"NONE"		"None"
+				}
+			}
+		"ELEVATOR_STAIRS"
+			{
+			"Name"    "Elevator Stairs"
+			"var"     "$stair_dir"
+			"default" "<RANDOM>"
+			"global"  "sp_entry"
+			"global"  "sp_exit"
+
+			"Description" "Specifies the direction stairs travel in. Normally they go upward from the entrance and downward at the exit, but the other variants provide some variety."
+			"Values"
+				{
+				"UP"   "Upward"
+				"FLAT" "Flat"
+				"DOWN" "Downward"
+				}
+			}
+		}
 	"sp_entry"
 		{
 		"name" "Straight Hallway"
@@ -1473,16 +1507,16 @@
 	"CaveSkin"      "3"
 	}
 
-"StyleVar"
-	{
-	"ID"		"OpenSphere"
-	"Name"		"Opened Enrichment Sphere"
-	"Description"	"Use an alternate enrichment sphere map with a damaged/incomplete sphere, showing the Test Shaft surrounding the map. The added complexity of the map greatly increases compile times, however."
-	"Enabled"	"1"
-	"Inherit"   "0"
-	"Style"		"BEE2_1950s"
-	"Style"		"BEE2_1980s"
-	}
+//"StyleVar"
+//	{
+//	"ID"		"OpenSphere"
+//	"Name"		"Opened Enrichment Sphere"
+//	"Description"	"Use an alternate enrichment sphere map with a damaged/incomplete sphere, showing the Test Shaft surrounding the map. The added complexity of the map greatly increases compile times, however."
+//	"Enabled"	"1"
+//	"Inherit"   "0"
+//	"Style"		"BEE2_1950s"
+//	"Style"		"BEE2_1980s"
+//	}
 
 "Overrides"
 	{
