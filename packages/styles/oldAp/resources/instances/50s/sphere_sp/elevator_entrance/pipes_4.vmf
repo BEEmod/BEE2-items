@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "3"
+	"mapversion" "7"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,7 +14,7 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "8"
+	"nGridSpacing" "16"
 }
 palette_plus
 {
@@ -89,7 +89,7 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "3"
+	"mapversion" "7"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -116,7 +116,7 @@ entity
 	"rendercolor" "$color"
 	"skin" "0"
 	"solid" "6"
-	"origin" "200 896 -64"
+	"origin" "200 880 -64"
 	editor
 	{
 		"color" "255 255 0"
@@ -144,7 +144,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "136 768 -64"
+	"origin" "136 752 -64"
 	editor
 	{
 		"color" "255 255 0"
@@ -157,7 +157,7 @@ entity
 {
 	"id" "10"
 	"classname" "prop_static"
-	"angles" "0 90 180"
+	"angles" "0 90 -180"
 	"disableflashlight" "0"
 	"disableselfshadowing" "0"
 	"disableshadows" "0"
@@ -172,7 +172,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "136 768 -64"
+	"origin" "136 752 -64"
 	editor
 	{
 		"color" "255 255 0"
@@ -185,7 +185,7 @@ entity
 {
 	"id" "14"
 	"classname" "prop_static"
-	"angles" "0 270 -180"
+	"angles" "0 270 180"
 	"disableflashlight" "0"
 	"disableselfshadowing" "0"
 	"disableshadows" "0"
@@ -200,7 +200,7 @@ entity
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"solid" "6"
-	"origin" "264 512 -64"
+	"origin" "264 496 -64"
 	editor
 	{
 		"color" "255 255 0"
@@ -228,13 +228,143 @@ entity
 	"rendercolor" "$color"
 	"skin" "0"
 	"solid" "6"
-	"origin" "264 448 -64"
+	"origin" "264 432 -64"
 	editor
 	{
 		"color" "255 255 0"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 3000]"
+	}
+}
+entity
+{
+	"id" "38"
+	"classname" "func_detail"
+	solid
+	{
+		"id" "34"
+		side
+		{
+			"id" "1"
+			"plane" "(376 976 -8) (312 1072 -8) (384 1152 -8)"
+			vertices_plus
+			{
+				"v" "376 976 -8"
+				"v" "312 1072 -8"
+				"v" "384 1152 -8"
+				"v" "384 976 -8"
+			}
+			"material" "METAL/METALWALL_BTS_003A"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 -64] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2"
+			"plane" "(312 1072 -120) (376 976 -120) (384 976 -120)"
+			vertices_plus
+			{
+				"v" "312 1072 -120"
+				"v" "376 976 -120"
+				"v" "384 976 -120"
+				"v" "384 1152 -120"
+			}
+			"material" "METAL/METALWALL_BTS_003A"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 -64] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3"
+			"plane" "(312 1072 -120) (312 1072 -8) (376 976 -8)"
+			vertices_plus
+			{
+				"v" "312 1072 -120"
+				"v" "312 1072 -8"
+				"v" "376 976 -8"
+				"v" "376 976 -120"
+			}
+			"material" "METAL/METALWALL_BTS_003A"
+			"uaxis" "[0 1 0 64] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "4"
+			"plane" "(384 1152 -8) (384 1152 -120) (384 976 -120)"
+			vertices_plus
+			{
+				"v" "384 1152 -8"
+				"v" "384 1152 -120"
+				"v" "384 976 -120"
+				"v" "384 976 -8"
+			}
+			"material" "TOOLS/TOOLSNODRAW"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "5"
+			"plane" "(384 1152 -120) (384 1152 -8) (312 1072 -8)"
+			vertices_plus
+			{
+				"v" "384 1152 -120"
+				"v" "384 1152 -8"
+				"v" "312 1072 -8"
+				"v" "312 1072 -120"
+			}
+			"material" "METAL/METALWALL_BTS_003A"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "6"
+			"plane" "(384 976 -8) (384 976 -120) (376 976 -120)"
+			vertices_plus
+			{
+				"v" "384 976 -8"
+				"v" "384 976 -120"
+				"v" "376 976 -120"
+				"v" "376 976 -8"
+			}
+			"material" "METAL/METALWALL_BTS_003A"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "0 180 0"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "0 180 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
 	}
 }
 cameras
