@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "1042"
+	"mapversion" "1044"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -44,7 +44,7 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "16"
 }
 palette_plus
 {
@@ -119,7 +119,7 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "1042"
+	"mapversion" "1044"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -1202,7 +1202,7 @@ entity
 	{
 		"OnTrigger" "@video_splitterRunScriptCodeStartArrivalVideo(23,2,0)0-1"
 	}
-	"origin" "0 176 -112"
+	"origin" "0 160 -112"
 	editor
 	{
 		"color" "0 100 250"
@@ -23804,13 +23804,36 @@ hidden
 		}
 	}
 }
+entity
+{
+	"id" "139761"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "@spawn_corridor_rl"
+	connections
+	{
+		"OnTrigger" "@enable_entry_elev_videosKill0-1"
+		"OnTrigger" "@arrival_sign*KillHierarchy0-1"
+		"OnTrigger" "player_door_triggerKill0-1"
+	}
+	"origin" "0 176 -112"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1500 15500]"
+	}
+}
 cameras
 {
 	"activecamera" "0"
 	camera
 	{
-		"position" "[-118.741 144.137 110.014]"
-		"look" "[-81.9028 139.748 58.9512]"
+		"position" "[46.025 110.758 -75.7929]"
+		"look" "[0.432732 139.241 -108.866]"
 	}
 	camera
 	{

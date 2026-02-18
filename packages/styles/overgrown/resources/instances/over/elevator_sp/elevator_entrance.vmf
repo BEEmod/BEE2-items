@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "1910"
+	"mapversion" "1912"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -26,7 +26,7 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "1"
+	"nGridSpacing" "8"
 }
 palette_plus
 {
@@ -101,7 +101,7 @@ bgimages_plus
 world
 {
 	"id" "2"
-	"mapversion" "1910"
+	"mapversion" "1912"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -13237,7 +13237,7 @@ entity
 			vertices_plus
 			{
 				"v" "301.725 412.421 219"
-				"v" "302.216 415 215.99"
+				"v" "302.216 415 216"
 				"v" "311.602 380.036 187.602"
 				"v" "311.111 377.462 190.611"
 			}
@@ -15154,7 +15154,7 @@ entity
 		"OnTimerHigh" "elev_bottomSkin10-1"
 		"OnTimerLow" "elev_bottomSkin00-1"
 	}
-	"origin" "101.407 275.531 -135"
+	"origin" "96 272 -128"
 	editor
 	{
 		"color" "0 100 250"
@@ -42001,6 +42001,33 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
+	"id" "238204"
+	"classname" "comp_relay"
+	"ctrl_type" "0"
+	"ctrl_value" "1"
+	"delay" "0.0"
+	"targetname" "@spawn_corridor_rl"
+	connections
+	{
+		"OnTrigger" "@enable_entry_elev_videosKill0-1"
+		"OnTrigger" "@arrival_sign*KillHierarchy0-1"
+		"OnTrigger" "player_door_triggerKill0-1"
+		"OnTrigger" "@entry_cubesKill0-1"
+		"OnTrigger" "elev_bottom_timKill0-1"
+		"OnTrigger" "@entrance_door_open_rlFireUser40-1"
+		"OnTrigger" "@entrance_door_open_rlFireUser30-1"
+	}
+	"origin" "96 288 -128"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[1500 15500]"
 	}
 }
 cameras
