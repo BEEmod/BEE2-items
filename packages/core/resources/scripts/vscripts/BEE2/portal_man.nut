@@ -13,10 +13,23 @@ PlayerTeam <- {
 	ATLAS = 3,
 }
 
-pgun_blue_primary_active <- true;
-pgun_blue_secondary_active <- true;
-pgun_oran_primary_active <- true;
-pgun_oran_secondary_active <- true;
+class PortalGun {
+	primary = true
+	secondary = true
+	constructor(p,s) {
+		primary = p
+		secondary = s
+	}
+	
+	//Applies this portal gun to an actual portal gun's keyvalues
+	function apply(pgun) {
+		pgun.__KeyValueFromInt("CanFirePortal1",primary.tointeger());
+		pgun.__KeyValueFromInt("CanFirePortal2",secondary.tointeger());
+	}
+}
+
+pgun_atlas_active <- PortalGun(true,true);
+pgun_pbody_active <- PortalGun(true,true);
 
 bluegun <- null;
 orangun <- null;
@@ -87,7 +100,7 @@ function on_blue_spawn() {//Called when the blue player spawns, input is added b
 		return;
 	}
 	bluegun <- Entities.FindByClassnameNearest("weapon_portalgun",player_blue.GetOrigin(),64);
-	set_gun(pgun_blue_primary_active,pgun_blue_secondary_active,PlayerTeam.ATLAS);
+	set_gun(pgun_atlas_active,PlayerTeam.ATLAS);
 }
 function on_oran_spawn() {//Called when the orange player spawns, input is added by the compiler
 	if (player_oran == null) {
@@ -98,7 +111,7 @@ function on_oran_spawn() {//Called when the orange player spawns, input is added
 		return;
 	}
 	orangun <- Entities.FindByClassnameNearest("weapon_portalgun",player_oran.GetOrigin(),64);
-	set_gun(pgun_oran_primary_active,pgun_oran_secondary_active,PlayerTeam.PBODY);
+	set_gun(pgun_pbody_active,PlayerTeam.PBODY);
 }
 
 // Called OnMapSpawn by the compiler, passing in this config values.
@@ -116,25 +129,19 @@ function init(blue, orange, has_onoff) {
 
 	if (has_onoff) {
 		portalgun_onoff_count = 0;
-		pgun_blue_primary_active <- false;
-		pgun_blue_secondary_active <- false;
-		pgun_oran_primary_active <- false;
-		pgun_oran_secondary_active <- false;
+		pgun_atlas_active <- PortalGun(false,false);
+		pgun_pbody_active <- PortalGun(false,false);
 		if (IsMultiplayer()) { return; }
 		give_gun(0, 0);
 	} else if (!has_blue && !has_oran) {
 		remove_pgun();
-		pgun_blue_primary_active <- false;
-		pgun_blue_secondary_active <- false;
-		pgun_oran_primary_active <- false;
-		pgun_oran_secondary_active <- false;
+		pgun_atlas_active <- PortalGun(false,false);
+		pgun_pbody_active <- PortalGun(false,false);
 		if (IsMultiplayer()) { return; }
 		give_gun(0, 0);
 	} else {
-		pgun_blue_primary_active <- has_blue;
-		pgun_blue_secondary_active <- has_oran;
-		pgun_oran_primary_active <- has_blue;
-		pgun_oran_secondary_active <- has_oran;
+		pgun_atlas_active <- PortalGun(has_blue,has_oran);
+		pgun_pbody_active <- PortalGun(has_blue,has_oran);
 		if (IsMultiplayer()) { return; }
 		give_gun(blue, orange);
 	}
@@ -183,8 +190,8 @@ function remove_pgun() {
 // Public: Give the player their gun back with the same settings.
 function return_pgun() {
 	if (IsMultiplayer()) {
-		set_gun(pgun_blue_primary_active, pgun_blue_secondary_active, PlayerTeam.ATLAS);
-		set_gun(pgun_oran_primary_active, pgun_oran_secondary_active, PlayerTeam.PBODY);
+		set_gun(pgun_atlas_active, PlayerTeam.ATLAS);
+		set_gun(pgun_pbody_active, PlayerTeam.PBODY);
 	}
 	else give_gun(has_blue, has_oran);
 }
@@ -217,22 +224,18 @@ function give_gun(blue, oran) {
 }
 
 
-function set_gun(primary, secondary, team) {
+function set_gun(pgun, team) {
 	if (team == PlayerTeam.ATLAS) {
 		if (bluegun != null && bluegun.IsValid()) {//If not, assuming nothing has gone wrong, the player is dead or hasn't had their spawn/join code run yet and will spawn with it
-			bluegun.__KeyValueFromInt("CanFirePortal1",primary.tointeger());
-			bluegun.__KeyValueFromInt("CanFirePortal2",secondary.tointeger());
+			pgun.apply(bluegun);
 		}
-		pgun_blue_primary_active <- primary;
-		pgun_blue_secondary_active <- secondary;
+		pgun_atlas_active <- pgun;
 	}
 	if (team == PlayerTeam.PBODY) {
 		if (orangun != null && orangun.IsValid()) {//If not, assuming nothing has gone wrong, the player is dead or hasn't had their spawn/join code run yet and will spawn with it
-			orangun.__KeyValueFromInt("CanFirePortal1",primary.tointeger());
-			orangun.__KeyValueFromInt("CanFirePortal2",secondary.tointeger());
+			pgun.apply(orangun);
 		}
-		pgun_orange_primary_active <- primary;
-		pgun_orange_secondary_active <- secondary;
+		pgun_pbody_active <- pgun;
 	}
 }
 
@@ -246,10 +249,8 @@ function pgun_btn_act() {
 	
 	if (portalgun_onoff_count == 1) {
 		// Didn't have a gun, give them one.
-		pgun_blue_primary_active <- has_blue;
-		pgun_blue_secondary_active <- has_oran;
-		pgun_oran_primary_active <- has_blue;
-		pgun_oran_secondary_active <- has_oran;
+		pgun_atlas_active <- PortalGun(has_blue,has_oran);
+		pgun_pbody_active <- PortalGun(has_blue,has_oran);
 		return_pgun();
 	}
 }
@@ -263,14 +264,12 @@ function pgun_btn_deact() {
 	portalgun_onoff_count = portalgun_onoff_count - 1;
 	
 	if (portalgun_onoff_count == 0) {
-		pgun_blue_primary_active <- false;
-		pgun_blue_secondary_active <- false;
-		pgun_oran_primary_active <- false;
-		pgun_oran_secondary_active <- false;
+		pgun_atlas_active <- PortalGun(false,false);
+		pgun_pbody_active <- PortalGun(false,false);
 		// Replace the gun with a no-portal gun.
 		if (IsMultiplayer()) {
-			set_gun(0, 0, PlayerTeam.ATLAS);
-			set_gun(0, 0, PlayerTeam.PBODY);
+			set_gun(PortalGun(false,false), PlayerTeam.ATLAS);
+			set_gun(PortalGun(false,false), PlayerTeam.PBODY);
 		}
 		else give_gun(0, 0);
 	}
@@ -301,8 +300,8 @@ function map_won() {
 	}
 	if (portalgun_onoff_count > 0) {
 		if (IsMultiplayer()) {
-			set_gun(0, 0, PlayerTeam.ATLAS);
-			set_gun(0, 0, PlayerTeam.PBODY);
+			set_gun(PortalGun(false,false), PlayerTeam.ATLAS);
+			set_gun(PortalGun(false,false), PlayerTeam.PBODY);
 		}
 		else give_gun(0, 0);
 	}
