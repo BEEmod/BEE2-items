@@ -14,6 +14,9 @@ DEATH_TYPES <- [
 	{bits=0x00001, name="crush"},
 ]
 
+//callback functions to run on bot death
+_death_callbacks <- [];
+
 function BEE2_play_line(channel, ch_arg) {
 	// Play a voiceline. Channel is the type (death, taunt), 
 	// and ch_arg is the subcatagory (damage type, animation)
@@ -60,6 +63,9 @@ function BEE2_play_line(channel, ch_arg) {
 
 function BotDeath(player, dmgtype) {
 	// Called automatically on @glados when death occurs
+	foreach(func in _death_callbacks) {
+		func(player, dmgtype);
+	}
 	
 	// Ignore if a player dies within the last few seconds..
 	local cooldown_time = Time() - BEE2_LastDeathTime
@@ -108,3 +114,10 @@ function CoopPingTool(player, surface) {
 	// Surface 1 = black
 	// Surface 2 = white
 }
+
+// Register a function which is called whentever a bot dies
+// Caller will need to do ::BEE_CoopRegisterDeath(some_func.bindenv(this))
+function register_death_callback(func) {
+	_death_callbacks.push(func);
+}
+::BEE_CoopRegisterDeath <- register_death_callback.bindenv(this);
