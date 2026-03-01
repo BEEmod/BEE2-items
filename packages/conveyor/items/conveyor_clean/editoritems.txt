@@ -1,11 +1,23 @@
 "Item"
 	{
 	"Type"		"ITEM_BEE2_CONVEYOR_BELT"
+	"ItemClass"	"ItemAngledPanel"
 	"Editor"
 		{
 		"SubType"
 		{
 			"Name"  "Conveyor Belt"
+			"Model" "bee2/clean/conveyor_belt.3ds"
+			"Model" "bee2/clean/conveyor_belt.3ds"
+			"Model" "bee2/clean/conveyor_belt.3ds"
+			"Model" "bee2/clean/conveyor_belt.3ds"
+			"Model" "bee2/clean/conveyor_belt.3ds"
+			"Model" "bee2/clean/conveyor_belt.3ds"
+			"Model" "bee2/clean/conveyor_belt.3ds"
+			"Model" "bee2/clean/conveyor_belt.3ds"
+			"Model" "bee2/clean/conveyor_belt.3ds"
+			"Model" "bee2/clean/conveyor_belt.3ds"
+			"Model" "bee2/clean/conveyor_belt.3ds"
 			"Model" "bee2/clean/conveyor_belt.3ds"
 			"Palette"
 			{
@@ -20,10 +32,9 @@
 				"SOUND_DELETED"					"P2Editor.RemoveOther"
 			}
 		}
-		"MovementHandle"        "HANDLE_4_DIRECTIONS"
-		"DesiredFacing"         "DESIRES_UP"
-		"OccupiesVoxel"         "0"
-		"CanAnchorOnBarriers"   "0"
+		"MovementHandle"		"HANDLE_NONE"
+		"InvalidSurface"		"CEILING FLOOR"
+		"DesiredFacing"			"DESIRES_UP"
 		}
 	"Properties"
 		{
@@ -58,6 +69,11 @@
 		"Instances"
 			{
 			"0" "<marker>"
+			
+			"socket" "instances/BEE2/clean/items/conveyor_belt/socket.vmf"
+			"track" "instances/BEE2/clean/items/conveyor_belt/track.vmf"
+			"support" "instances/BEE2/clean/items/conveyor_belt/support.vmf"
+			"support_nopillar" "instances/BEE2/clean/items/conveyor_belt/support_nopillar.vmf"
 			}
 		"Offset"	"64 64 64"
 		"TargetName"	"cbelt"
@@ -69,6 +85,47 @@
 				"Force" "Input Output" 
 				}
 			}
+		"OccupiedVoxels"
+		{
+			"Voxel"
+			{
+				"CollideType"		"COLLIDE_SOLID"
+				"CollideAgainst"	"COLLIDE_SOLID COLLIDE_PHYSICS COLLIDE_ANTLINES"	
+		
+				"Pos"		"0 0 0"
+				"Surface"
+				{
+					"Normal"	"0 0 1"
+				}
+			}
+		}
+		"Collisions" 
+			{
+			"BBox"
+				{
+				"Type" "SOLID"
+				"Pos1" "-64 -64 -60"
+				"Pos2" "64 64 -192"
+				}
+			}
+		"EmbeddedVoxels"
+		{
+			"Volume"
+			{
+				"Pos1"		"0 0 0"
+				"Pos2"		"0 0 -1"
+			}
+		}
+		"EmbedFace" 
+			{
+			"Solid"
+				{
+				"Center"		"32 64 128"
+				"Dimensions"	"64 128 4"
+				"Grid"			"2x2"
+				}
+			}
+		
 		"ConnectionPoints"
 			{
 			// left
