@@ -13,7 +13,6 @@
 		"" "* The conveyor surface is positioned one block above the surface it is placed on - it should be recessed into the floor for best effect."
 		"" "* Extend the start/end of the conveyor back a number of blocks if possible behind the map, so the player can't see the belt disappearing."
 		}
-	"All_conf" "conveyor.cfg"
 	
 	"Migrations"
 	{
@@ -25,21 +24,23 @@
 		"Styles"
 			{
 			"BEE2_CLEAN"        "conveyor_clean"
-			"BEE2_PORTAL_1"     "conveyor_p1"
 			"BEE2_OVERGROWN"
 				{
-				"Folder" "conveyor_clean"
-				"Instances"
+				"Base" "BEE2_CLEAN"
+				"Extra"
 					{
-					// Piece of belt
-					"bee2_segment" "instances/BEE2/over/items/conveyor/segment.vmf"
-					
-					// Frame to hold the model.
-					"bee2_support" "instances/BEE2/over/items/conveyor/support.vmf"
-					
-					"1" "instances/BEE2/over/items/conveyor/bottom.vmf"
-					"2" "instances/BEE2/over/items/conveyor/middle.vmf"
-					"3" "instances/BEE2/over/items/conveyor/top.vmf"
+					"Instances"
+						{
+						// Piece of belt
+						"bee2_segment" "instances/BEE2/over/items/conveyor/segment.vmf"
+						
+						// Frame to hold the model.
+						"bee2_support" "instances/BEE2/over/items/conveyor/support.vmf"
+						
+						"1" "instances/BEE2/over/items/conveyor/bottom.vmf"
+						"2" "instances/BEE2/over/items/conveyor/middle.vmf"
+						"3" "instances/BEE2/over/items/conveyor/top.vmf"
+						}
 					}
 				"Append"
 					{
@@ -66,7 +67,46 @@
 						}
 					}
 				}
-			"BEE2_1950s"        "conveyor_50s"
+			"BEE2_PORTAL_1"
+				{
+				"Base" "BEE2_CLEAN"
+				"config" "conveyor_p1.cfg"
+				"Extra"
+					{
+					"Instances"
+						{
+						// Piece of belt
+						"bee2_segment" "instances/BEE2/p1/items/conveyor/segment.vmf"
+						
+						// Grate covering pit area
+						"bee2_grate" "instances/BEE2/p1/items/conveyor/grate.vmf"
+
+						"1" "instances/BEE2/p1/items/conveyor/bottom.vmf"
+						"2" "instances/BEE2/p1/items/conveyor/middle.vmf"
+						"3" "instances/BEE2/p1/items/conveyor/top.vmf"
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"config" "conveyor_50s.cfg"
+				"Extra"
+					{
+					"Instances"
+						{
+						// Piece of belt
+						"bee2_segment" "instances/BEE2/50s/items/conveyor/segment.vmf"
+						
+						// Frame to hold the tracks.
+						"bee2_support" "instances/BEE2/50s/items/conveyor/support.vmf"
+
+						"1" "instances/BEE2/50s/items/conveyor/bottom.vmf"
+						"2" "instances/BEE2/50s/items/conveyor/middle.vmf"
+						"3" "instances/BEE2/50s/items/conveyor/top.vmf"
+						}
+					}
+				}
 			}
 		}
 	}
