@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "192"
+	"editorbuild" "8870"
+	"mapversion" "195"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,13 +14,82 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
-	"bShow3DGrid" "0"
+	"nGridSpacing" "4"
+}
+palette_plus
+{
+	"color0" "255 255 255"
+	"color1" "255 255 255"
+	"color2" "255 255 255"
+	"color3" "255 255 255"
+	"color4" "255 255 255"
+	"color5" "255 255 255"
+	"color6" "255 255 255"
+	"color7" "255 255 255"
+	"color8" "255 255 255"
+	"color9" "255 255 255"
+	"color10" "255 255 255"
+	"color11" "255 255 255"
+	"color12" "255 255 255"
+	"color13" "255 255 255"
+	"color14" "255 255 255"
+	"color15" "255 255 255"
+}
+colorcorrection_plus
+{
+	"name0" ""
+	"weight0" "1"
+	"name1" ""
+	"weight1" "1"
+	"name2" ""
+	"weight2" "1"
+	"name3" ""
+	"weight3" "1"
+}
+light_plus
+{
+	"samples_sun" "6"
+	"samples_ambient" "40"
+	"samples_vis" "256"
+	"texlight" ""
+	"incremental_delay" "0"
+	"bake_dist" "1024"
+	"radius_scale" "1"
+	"brightness_scale" "1"
+	"ao_scale" "0"
+	"bounced" "1"
+	"incremental" "1"
+	"supersample" "0"
+	"bleed_hack" "1"
+	"soften_cosine" "0"
+	"debug" "0"
+	"cubemap" "1"
+}
+postprocess_plus
+{
+	"enable" "1"
+	"copied_from_controller" "1"
+	"bloom_scale" "1"
+	"bloom_exponent" "2.5"
+	"bloom_saturation" "1"
+	"auto_exposure_min" "0.5"
+	"auto_exposure_max" "2"
+	"tonemap_percent_target" "60"
+	"tonemap_percent_bright_pixels" "2"
+	"tonemap_min_avg_luminance" "3"
+	"tonemap_rate" "1"
+	"vignette_enable" "1"
+	"vignette_start" "1"
+	"vignette_end" "2"
+	"vignette_blur" "0"
+}
+bgimages_plus
+{
 }
 world
 {
 	"id" "1"
-	"mapversion" "192"
+	"mapversion" "195"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -41,7 +110,9 @@ entity
 	"MoveSoundMinPitch" "60"
 	"MoveSoundMinTime" "0"
 	"orientationtype" "0"
-	"origin" "0 0 0"
+	"origin" "0 0 32"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
 	"solid" "6"
 	"spawnflags" "531"
 	"speed" "$start_speed"
@@ -51,14 +122,21 @@ entity
 	"targetname" "train"
 	"velocitytype" "0"
 	"volume" "10"
-	"wheels" "50"
+	"wheels" "0"
 	solid
 	{
 		"id" "3205"
 		side
 		{
 			"id" "1138"
-			"plane" "(-63 -60 14) (-63 60 14) (-63 60 15)"
+			"plane" "(-63 -60 58) (-63 60 58) (-63 60 59)"
+			vertices_plus
+			{
+				"v" "-63 -60 58"
+				"v" "-63 60 58"
+				"v" "-63 60 59"
+				"v" "-63 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 -1 -256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -69,7 +147,14 @@ entity
 		side
 		{
 			"id" "1137"
-			"plane" "(-33 60 14) (-33 -60 14) (-33 -60 15)"
+			"plane" "(-33 60 58) (-33 -60 58) (-33 -60 59)"
+			vertices_plus
+			{
+				"v" "-33 60 58"
+				"v" "-33 -60 58"
+				"v" "-33 -60 59"
+				"v" "-33 60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 1 256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -80,7 +165,14 @@ entity
 		side
 		{
 			"id" "1136"
-			"plane" "(-63 60 14) (-63 -60 14) (-33 -60 14)"
+			"plane" "(-63 60 58) (-63 -60 58) (-33 -60 58)"
+			vertices_plus
+			{
+				"v" "-63 60 58"
+				"v" "-63 -60 58"
+				"v" "-33 -60 58"
+				"v" "-33 60 58"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 -51.2] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -91,7 +183,14 @@ entity
 		side
 		{
 			"id" "1135"
-			"plane" "(-63 -60 15) (-63 60 15) (-33 60 15)"
+			"plane" "(-63 -60 59) (-63 60 59) (-33 60 59)"
+			vertices_plus
+			{
+				"v" "-63 -60 59"
+				"v" "-63 60 59"
+				"v" "-33 60 59"
+				"v" "-33 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 -51.2] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -102,7 +201,14 @@ entity
 		side
 		{
 			"id" "1134"
-			"plane" "(-63 60 15) (-63 60 14) (-33 60 14)"
+			"plane" "(-63 60 59) (-63 60 58) (-33 60 58)"
+			vertices_plus
+			{
+				"v" "-63 60 59"
+				"v" "-63 60 58"
+				"v" "-33 60 58"
+				"v" "-33 60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -113,7 +219,14 @@ entity
 		side
 		{
 			"id" "1133"
-			"plane" "(-33 -60 15) (-33 -60 14) (-63 -60 14)"
+			"plane" "(-33 -60 59) (-33 -60 58) (-63 -60 58)"
+			vertices_plus
+			{
+				"v" "-33 -60 59"
+				"v" "-33 -60 58"
+				"v" "-63 -60 58"
+				"v" "-63 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 -51.2] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -134,7 +247,14 @@ entity
 		side
 		{
 			"id" "1144"
-			"plane" "(-31 -60 14) (-31 60 14) (-31 60 15)"
+			"plane" "(-31 -60 58) (-31 60 58) (-31 60 59)"
+			vertices_plus
+			{
+				"v" "-31 -60 58"
+				"v" "-31 60 58"
+				"v" "-31 60 59"
+				"v" "-31 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 -1 -256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -145,7 +265,14 @@ entity
 		side
 		{
 			"id" "1143"
-			"plane" "(-1 60 14) (-1 -60 14) (-1 -60 15)"
+			"plane" "(-1 60 58) (-1 -60 58) (-1 -60 59)"
+			vertices_plus
+			{
+				"v" "-1 60 58"
+				"v" "-1 -60 58"
+				"v" "-1 -60 59"
+				"v" "-1 60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 1 256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -156,7 +283,14 @@ entity
 		side
 		{
 			"id" "1142"
-			"plane" "(-31 60 14) (-31 -60 14) (-1 -60 14)"
+			"plane" "(-31 60 58) (-31 -60 58) (-1 -60 58)"
+			vertices_plus
+			{
+				"v" "-31 60 58"
+				"v" "-31 -60 58"
+				"v" "-1 -60 58"
+				"v" "-1 60 58"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 -17.0667] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -167,7 +301,14 @@ entity
 		side
 		{
 			"id" "1141"
-			"plane" "(-31 -60 15) (-31 60 15) (-1 60 15)"
+			"plane" "(-31 -60 59) (-31 60 59) (-1 60 59)"
+			vertices_plus
+			{
+				"v" "-31 -60 59"
+				"v" "-31 60 59"
+				"v" "-1 60 59"
+				"v" "-1 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 -17.0667] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -178,7 +319,14 @@ entity
 		side
 		{
 			"id" "1140"
-			"plane" "(-31 60 15) (-31 60 14) (-1 60 14)"
+			"plane" "(-31 60 59) (-31 60 58) (-1 60 58)"
+			vertices_plus
+			{
+				"v" "-31 60 59"
+				"v" "-31 60 58"
+				"v" "-1 60 58"
+				"v" "-1 60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -189,7 +337,14 @@ entity
 		side
 		{
 			"id" "1139"
-			"plane" "(-1 -60 15) (-1 -60 14) (-31 -60 14)"
+			"plane" "(-1 -60 59) (-1 -60 58) (-31 -60 58)"
+			vertices_plus
+			{
+				"v" "-1 -60 59"
+				"v" "-1 -60 58"
+				"v" "-31 -60 58"
+				"v" "-31 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -210,7 +365,14 @@ entity
 		side
 		{
 			"id" "1150"
-			"plane" "(1 -60 14) (1 60 14) (1 60 15)"
+			"plane" "(1 -60 58) (1 60 58) (1 60 59)"
+			vertices_plus
+			{
+				"v" "1 -60 58"
+				"v" "1 60 58"
+				"v" "1 60 59"
+				"v" "1 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 -1 -256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -221,7 +383,14 @@ entity
 		side
 		{
 			"id" "1149"
-			"plane" "(31 60 14) (31 -60 14) (31 -60 15)"
+			"plane" "(31 60 58) (31 -60 58) (31 -60 59)"
+			vertices_plus
+			{
+				"v" "31 60 58"
+				"v" "31 -60 58"
+				"v" "31 -60 59"
+				"v" "31 60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 1 256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -232,7 +401,14 @@ entity
 		side
 		{
 			"id" "1148"
-			"plane" "(1 60 14) (1 -60 14) (31 -60 14)"
+			"plane" "(1 60 58) (1 -60 58) (31 -60 58)"
+			vertices_plus
+			{
+				"v" "1 60 58"
+				"v" "1 -60 58"
+				"v" "31 -60 58"
+				"v" "31 60 58"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 17.0667] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -243,7 +419,14 @@ entity
 		side
 		{
 			"id" "1147"
-			"plane" "(1 -60 15) (1 60 15) (31 60 15)"
+			"plane" "(1 -60 59) (1 60 59) (31 60 59)"
+			vertices_plus
+			{
+				"v" "1 -60 59"
+				"v" "1 60 59"
+				"v" "31 60 59"
+				"v" "31 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 17.0667] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -254,7 +437,14 @@ entity
 		side
 		{
 			"id" "1146"
-			"plane" "(1 60 15) (1 60 14) (31 60 14)"
+			"plane" "(1 60 59) (1 60 58) (31 60 58)"
+			vertices_plus
+			{
+				"v" "1 60 59"
+				"v" "1 60 58"
+				"v" "31 60 58"
+				"v" "31 60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -265,7 +455,14 @@ entity
 		side
 		{
 			"id" "1145"
-			"plane" "(31 -60 15) (31 -60 14) (1 -60 14)"
+			"plane" "(31 -60 59) (31 -60 58) (1 -60 58)"
+			vertices_plus
+			{
+				"v" "31 -60 59"
+				"v" "31 -60 58"
+				"v" "1 -60 58"
+				"v" "1 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -286,7 +483,14 @@ entity
 		side
 		{
 			"id" "1156"
-			"plane" "(33 -60 14) (33 60 14) (33 60 15)"
+			"plane" "(33 -60 58) (33 60 58) (33 60 59)"
+			vertices_plus
+			{
+				"v" "33 -60 58"
+				"v" "33 60 58"
+				"v" "33 60 59"
+				"v" "33 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 -1 -256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -297,7 +501,14 @@ entity
 		side
 		{
 			"id" "1155"
-			"plane" "(63 60 14) (63 -60 14) (63 -60 15)"
+			"plane" "(63 60 58) (63 -60 58) (63 -60 59)"
+			vertices_plus
+			{
+				"v" "63 60 58"
+				"v" "63 -60 58"
+				"v" "63 -60 59"
+				"v" "63 60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 1 256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -308,7 +519,14 @@ entity
 		side
 		{
 			"id" "1154"
-			"plane" "(33 60 14) (33 -60 14) (63 -60 14)"
+			"plane" "(33 60 58) (33 -60 58) (63 -60 58)"
+			vertices_plus
+			{
+				"v" "33 60 58"
+				"v" "33 -60 58"
+				"v" "63 -60 58"
+				"v" "63 60 58"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 51.2] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -319,7 +537,14 @@ entity
 		side
 		{
 			"id" "1153"
-			"plane" "(33 -60 15) (33 60 15) (63 60 15)"
+			"plane" "(33 -60 59) (33 60 59) (63 60 59)"
+			vertices_plus
+			{
+				"v" "33 -60 59"
+				"v" "33 60 59"
+				"v" "63 60 59"
+				"v" "63 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 51.2] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -330,7 +555,14 @@ entity
 		side
 		{
 			"id" "1152"
-			"plane" "(33 60 15) (33 60 14) (63 60 14)"
+			"plane" "(33 60 59) (33 60 58) (63 60 58)"
+			vertices_plus
+			{
+				"v" "33 60 59"
+				"v" "33 60 58"
+				"v" "63 60 58"
+				"v" "63 60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -341,7 +573,14 @@ entity
 		side
 		{
 			"id" "1151"
-			"plane" "(63 -60 15) (63 -60 14) (33 -60 14)"
+			"plane" "(63 -60 59) (63 -60 58) (33 -60 58)"
+			vertices_plus
+			{
+				"v" "63 -60 59"
+				"v" "63 -60 58"
+				"v" "33 -60 58"
+				"v" "33 -60 59"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
