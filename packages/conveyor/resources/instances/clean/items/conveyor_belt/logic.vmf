@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "216"
+	"mapversion" "239"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -14,7 +14,7 @@ viewsettings
 	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "16"
+	"nGridSpacing" "8"
 }
 palette_plus
 {
@@ -89,13 +89,131 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "216"
+	"mapversion" "239"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
 	"maxblobcount" "250"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+	solid
+	{
+		"id" "2653"
+		side
+		{
+			"id" "1"
+			"plane" "(248 8 47) (264 8 47) (264 -8 47)"
+			vertices_plus
+			{
+				"v" "248 8 47"
+				"v" "264 8 47"
+				"v" "264 -8 47"
+				"v" "248 -8 47"
+			}
+			"material" "TOOLS/TOOLSSKIP"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "2"
+			"plane" "(248 -8 46) (264 -8 46) (264 8 46)"
+			vertices_plus
+			{
+				"v" "248 -8 46"
+				"v" "264 -8 46"
+				"v" "264 8 46"
+				"v" "248 8 46"
+			}
+			"material" "TOOLS/TOOLSSKIP"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "3"
+			"plane" "(248 8 47) (248 -8 47) (248 -8 46)"
+			vertices_plus
+			{
+				"v" "248 8 47"
+				"v" "248 -8 47"
+				"v" "248 -8 46"
+				"v" "248 8 46"
+			}
+			"material" "TOOLS/TOOLSSKIP"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 -4] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "4"
+			"plane" "(264 8 46) (264 -8 46) (264 -8 47)"
+			vertices_plus
+			{
+				"v" "264 8 46"
+				"v" "264 -8 46"
+				"v" "264 -8 47"
+				"v" "264 8 47"
+			}
+			"material" "TOOLS/TOOLSSKIP"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 -4] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "5"
+			"plane" "(264 8 47) (248 8 47) (248 8 46)"
+			vertices_plus
+			{
+				"v" "264 8 47"
+				"v" "248 8 47"
+				"v" "248 8 46"
+				"v" "264 8 46"
+			}
+			"material" "TOOLS/TOOLSSKIP"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 -4] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "6"
+			"plane" "(264 -8 46) (248 -8 46) (248 -8 47)"
+			vertices_plus
+			{
+				"v" "264 -8 46"
+				"v" "248 -8 46"
+				"v" "248 -8 47"
+				"v" "264 -8 47"
+			}
+			"material" "TOOLS/TOOLSSKIP"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 -4] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "0 153 226"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
 }
 entity
 {
@@ -107,10 +225,10 @@ entity
 	"targetname" "logic"
 	connections
 	{
-		"OnUser1" "animsFireUser10-1"
-		"OnUser2" "animsFireUser20-1"
-		"OnUser4" "animsFireUser40-1"
-		"OnUser3" "animsFireUser30-1"
+		"OnUser4" "animsRunScriptCodereverse()0-1"
+		"OnUser3" "animsRunScriptCodeforward()0-1"
+		"OnUser2" "animsRunScriptCodestop()0-1"
+		"OnUser1" "animsRunScriptCodestart()0-1"
 	}
 	"origin" "0 0 0"
 	editor
@@ -163,13 +281,6 @@ entity
 	"updatechildren" "1"
 	"vscript_init_code" "init($size, $start_enabled, $start_reversed, $speed)"
 	"vscripts" "bee2/conveyor_belt.nut"
-	connections
-	{
-		"OnUser1" "!selfRunScriptCodestart()0-1"
-		"OnUser2" "!selfRunScriptCodestop()0-1"
-		"OnUser3" "!selfRunScriptCodeforward()0-1"
-		"OnUser4" "!selfRunScriptCodereverse()0-1"
-	}
 	"origin" "256 0 48"
 	editor
 	{

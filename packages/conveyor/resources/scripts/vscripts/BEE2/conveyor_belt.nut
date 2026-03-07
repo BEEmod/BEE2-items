@@ -8,16 +8,25 @@
 //	- anim_speed: float = $speed
 //		* What is the start/max speed. Uses animation speed so will be 0.5 to 3.0.
 
-//local players_touching <- {};
-brushes <- {};
-
 belt_size <- 1;
 is_enabled <- false;
 is_reversed <- false;
 anim_speed <- 1;
 
-// Remove anims from the end, add brush*.
-brush_search <- self.GetName().slice(0, -5) + "*brush";
+// Remove anims from the end.
+inst_name <- self.GetName().slice(0, -5);
+
+brush_search <- inst_name + "*brush";
+
+push_trigger_name <- inst_name + "push";
+push_trigger <- null;
+
+pass_trigger_name <- inst_name + "trig_pass";
+pass_trigger_start <- null;
+pass_trigger_end <- null;
+
+forw <- self.GetLeftVector() * -1;
+back <- self.GetLeftVector();
 
 function init(_size, _start_enabled, _start_reversed, _speed) {
 	belt_size = _size;
@@ -25,11 +34,21 @@ function init(_size, _start_enabled, _start_reversed, _speed) {
 	is_reversed = _start_reversed;
 	anim_speed = _speed;
 
+	push_trigger = Entities.FindByName(null, push_trigger_name);
+	pass_trigger_start = Entities.FindByNameNearest(pass_trigger_name, self.GetOrigin() + (back * 56), 16);
+	pass_trigger_end = Entities.FindByNameNearest(pass_trigger_name, self.GetOrigin() + (forw * (((belt_size + 3) * 128) + 56)), 16);
+
+	if (pass_trigger_start != null) {
+		EntFireByHandle(pass_trigger_start, "AddOutput", "OnStartTouch " + self.GetName() + ":RunScriptCode:onPass(0)::", 0.0, self, self);
+	}
+	if (pass_trigger_end != null) {
+		EntFireByHandle(pass_trigger_end, "AddOutput", "OnStartTouch " + self.GetName() + ":RunScriptCode:onPass(1)::", 0.0, self, self);
+	}
+
 	local ent = null;
 	while(ent = Entities.FindByName(ent, brush_search)) {
 		local cls = ent.GetClassname();
 		if (cls == "func_brush") {
-			brushes[ent.entindex()] <- ent
 			local ent_name = ent.GetName();
 			local string_index = ent_name.find("&");
 			if (string_index != null) {
@@ -51,37 +70,37 @@ function init(_size, _start_enabled, _start_reversed, _speed) {
 	update_movement();
 }
 
-//function Think() {
-	// foreach (id, player in players_touching)
-	// {
-	// 	//printl("player found!");
-	// 	player.SetVelocity(add_velocity(player.GetVelocity(), self.GetLeftVector() * -128));
-	// }
-
-	//foreach (id, brush in brushes)
-	//{
-	//	if (reversed){
-	//		brush.SetVelocity(self.GetLeftVector() * 128);
-	//	}
-	//	else {
-	//		brush.SetVelocity(self.GetLeftVector() * -128);
-	//	}
-	//}
-//	return 0.1;
-//}
-
 function update_movement() {
 	if (is_enabled) {
+		EntFireByHandle(push_trigger, "Enable", "", 0.0, self, self);
 		if (is_reversed) {
 			EntFireByHandle(self, "SetPlaybackRate", (-anim_speed).tostring(), 0.0, self, self);
+			EntFireByHandle(push_trigger, "AddOutput", "pushdir " + back.ToKVString(), 0.0, self, self);
+			EntFireByHandle(pass_trigger_end, "Disable", "", 0.0, self, self);
+			EntFireByHandle(pass_trigger_start, "Enable", "", 0.0, self, self);
 		}
 		else {
 			EntFireByHandle(self, "SetPlaybackRate", (anim_speed).tostring(), 0.0, self, self);
+			EntFireByHandle(push_trigger, "AddOutput", "pushdir " + forw.ToKVString(), 0.0, self, self);
+			EntFireByHandle(pass_trigger_start, "Disable", "", 0.0, self, self);
+			EntFireByHandle(pass_trigger_end, "Enable", "", 0.0, self, self);
 		}
 	}
 	else {
+		EntFireByHandle(push_trigger, "Disable", "", 0.0, self, self);
 		EntFireByHandle(self, "SetPlaybackRate", (0).tostring(), 0.0, self, self);
+		EntFireByHandle(pass_trigger_end, "Disable", "", 0.0, self, self);
+		EntFireByHandle(pass_trigger_start, "Disable", "", 0.0, self, self);
 	}
+}
+
+function onPass(loc) {
+	//printl(activator.GetName() + " has passed " + self.GetName() + " at " + loc.tostring())
+	local reset_time = 0.5/anim_speed
+
+	EntFireByHandle(activator, "RemovePaint", "", 0.0, self, self);
+	EntFireByHandle(activator, "Disable", "", 0.0, self, self);
+	EntFireByHandle(activator, "Enable", "", reset_time, self, self);
 }
 
 function start() {
@@ -103,21 +122,3 @@ function reverse() {
 	is_reversed = true;
 	update_movement();
 }
-
-//function start_touch() {
-//	players_touching[activator.entindex()] <- activator;
-//}
-
-//function end_touch() {
-//	local player_ent = activator.entindex();
-//	if (!(player_ent in players_touching)) {
-//		printl("Exited trigger but didn't enter??");
-//		return;
-//	}
-//	delete players_touching[activator.entindex()];
-//}
-
-//function add_velocity(start_vel, add_vel) {
-//	local velocity = start_vel + add_vel;
-//	return velocity;
-//}
