@@ -70,6 +70,7 @@
 			
 			"bee2_segment" "instances/BEE2/clean/items/conveyor_belt/segment.vmf"
 			"bee2_logic" "instances/bee2/clean/items/conveyor_belt/logic.vmf"
+			"bee2_filter" "instances/bee2/clean/items/conveyor_belt/filter.vmf"
 			
 			"bee2_track" "instances/BEE2/clean/items/conveyor_belt/track.vmf"
 			"bee2_support" "instances/BEE2/clean/items/conveyor_belt/support.vmf"
@@ -80,8 +81,17 @@
 			{
 			"BEE2"
 				{
-				// Required by the compiler.
-				"Force" "Input Output" 
+				"Type"          "DUAL"
+				"DefaultDual"	"A"
+
+				"InvertVar"     "$start_enabled"
+				"Enable_Cmd"    "logic,FireUser1,,0.00,-1"
+				"Disable_Cmd"   "logic,FireUser2,,0.00,-1"
+
+				"Sec_InvertVar"     "$start_reversed"
+				"Sec_Enable_Cmd"    "logic,FireUser4,,0.00,-1"
+				"Sec_Disable_Cmd"   "logic,FireUser3,,0.00,-1"
+				"Force" "Output"
 				}
 			}
 		"OccupiedVoxels"
