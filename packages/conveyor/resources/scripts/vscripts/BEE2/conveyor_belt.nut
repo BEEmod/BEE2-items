@@ -10,13 +10,16 @@
 
 belt_size <- 1;
 is_enabled <- false;
+was_enabled <- false;
 is_reversed <- false;
+was_reversed <- false;
 anim_speed <- 1;
 
 // Remove anims from the end.
 inst_name <- self.GetName().slice(0, -5);
 
-brush_search <- inst_name + "*brush";
+brush_search <- inst_name + "*-&segment*-brush";
+brush_fx_search <- inst_name + "*-&segment*-fx";
 
 push_trigger_name <- inst_name + "push";
 push_trigger <- null;
@@ -27,6 +30,19 @@ pass_trigger_end <- null;
 
 forw <- self.GetLeftVector() * -1;
 back <- self.GetLeftVector();
+
+// Set by comp_scriptvar_setter
+//const SOUND_START = "BEE2.ConveyorBelt.Start";
+//const SOUND_REVERSE = "BEE2.ConveyorBelt.Reverse";
+//const SOUND_STOP = "BEE2.ConveyorBelt.Stop";
+
+// Precached by comp_precache_sound
+//function Precache() {
+//	self.PrecacheSoundScript(SOUND_START);
+//	self.PrecacheSoundScript(SOUND_REVERSE);
+//	self.PrecacheSoundScript(SOUND_STOP);
+//	printl("Precached sounds for " + inst_name);
+//}
 
 function init(_size, _start_enabled, _start_reversed, _speed) {
 	belt_size = _size;
@@ -67,30 +83,61 @@ function init(_size, _start_enabled, _start_reversed, _speed) {
 	EntFireByHandle(self, "SetDefaultAnimation", anim_move, 0.0, self, self);
 	EntFireByHandle(self, "SetAnimation", anim_move, 0.0, self, self);
 
-	update_movement();
+	update_movement(true);
 }
 
-function update_movement() {
+function update_movement(init = false) {
 	if (is_enabled) {
-		EntFireByHandle(push_trigger, "Enable", "", 0.0, self, self);
+		// Make sure we aren't triggering these if it was already enabled.
+		if (!was_enabled) {
+			EntFireByHandle(push_trigger, "Enable", "", 0.0, self, self);
+			if (init) {
+				// Wait a second so the sound actually starts.
+				EntFire(brush_fx_search, "Start", "", 1.0, self);
+			}
+			else {
+				EntFire(brush_fx_search, "Start", "", 0.0, self);
+			}
+			if (!init) { // scriptvar setter is set after init
+				push_trigger.EmitSound(SOUND_START);
+			}
+		}
+
 		if (is_reversed) {
 			EntFireByHandle(self, "SetPlaybackRate", (-anim_speed).tostring(), 0.0, self, self);
 			EntFireByHandle(push_trigger, "AddOutput", "pushdir " + back.ToKVString(), 0.0, self, self);
 			EntFireByHandle(pass_trigger_end, "Disable", "", 0.0, self, self);
 			EntFireByHandle(pass_trigger_start, "Enable", "", 0.0, self, self);
+			if (!was_reversed && was_enabled && !init) { // scriptvar setter is set after init
+				push_trigger.EmitSound(SOUND_REVERSE);
+			}
+			was_reversed = true;
 		}
 		else {
 			EntFireByHandle(self, "SetPlaybackRate", (anim_speed).tostring(), 0.0, self, self);
 			EntFireByHandle(push_trigger, "AddOutput", "pushdir " + forw.ToKVString(), 0.0, self, self);
 			EntFireByHandle(pass_trigger_start, "Disable", "", 0.0, self, self);
 			EntFireByHandle(pass_trigger_end, "Enable", "", 0.0, self, self);
+			if (was_reversed && was_enabled && !init) { // scriptvar setter is set after init
+				push_trigger.EmitSound(SOUND_REVERSE);
+			}
+			was_reversed = false;
 		}
+		was_enabled = true;
 	}
 	else {
-		EntFireByHandle(push_trigger, "Disable", "", 0.0, self, self);
-		EntFireByHandle(self, "SetPlaybackRate", (0).tostring(), 0.0, self, self);
-		EntFireByHandle(pass_trigger_end, "Disable", "", 0.0, self, self);
-		EntFireByHandle(pass_trigger_start, "Disable", "", 0.0, self, self);
+		// Make sure we're not triggering this when it was already stopped.
+		if (was_enabled || init) {
+			EntFireByHandle(push_trigger, "Disable", "", 0.0, self, self);
+			EntFireByHandle(self, "SetPlaybackRate", (0).tostring(), 0.0, self, self);
+			EntFireByHandle(pass_trigger_end, "Disable", "", 0.0, self, self);
+			EntFireByHandle(pass_trigger_start, "Disable", "", 0.0, self, self);
+			EntFire(brush_fx_search, "Stop", "", 0.0, self);
+			if (!init) { // scriptvar setter is set after init
+				push_trigger.EmitSound(SOUND_STOP);
+			}
+			was_enabled = false;
+		}
 	}
 }
 
