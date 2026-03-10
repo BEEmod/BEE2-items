@@ -18,8 +18,8 @@ anim_speed <- 1;
 // Remove anims from the end.
 inst_name <- self.GetName().slice(0, -5);
 
-brush_search <- inst_name + "*-&segment*-brush";
-brush_fx_search <- inst_name + "*-&segment*-fx";
+brush_search <- inst_name + "*-segment*-brush";
+brush_fx_search <- inst_name + "*-segment*-fx";
 
 push_trigger_name <- inst_name + "push";
 push_trigger <- null;
@@ -66,9 +66,9 @@ function init(_size, _start_enabled, _start_reversed, _speed) {
 		local cls = ent.GetClassname();
 		if (cls == "func_brush") {
 			local ent_name = ent.GetName();
-			local string_index = ent_name.find("&");
+			local string_index = ent_name.find("segment");
 			if (string_index != null) {
-				local attach_name = ent_name.slice(string_index+1, -6) + "_attach";
+				local attach_name = ent_name.slice(string_index, -6) + "_attach";
 				EntFireByHandle(ent, "SetParent", self.GetName(), 0.0, self, self);
 				EntFireByHandle(ent, "SetParentAttachment", attach_name, 0.0, self, self);
 			}
@@ -99,27 +99,31 @@ function update_movement(init = false) {
 				EntFire(brush_fx_search, "Start", "", 0.0, self);
 			}
 			if (!init) { // scriptvar setter is set after init
-				push_trigger.EmitSound(SOUND_START);
+				self.EmitSound(SOUND_START);
 			}
 		}
 
 		if (is_reversed) {
 			EntFireByHandle(self, "SetPlaybackRate", (-anim_speed).tostring(), 0.0, self, self);
-			EntFireByHandle(push_trigger, "AddOutput", "pushdir " + back.ToKVString(), 0.0, self, self);
+			if (push_trigger != null) {
+				EntFireByHandle(push_trigger, "AddOutput", "pushdir " + back.ToKVString(), 0.0, self, self);
+			}
 			EntFireByHandle(pass_trigger_end, "Disable", "", 0.0, self, self);
 			EntFireByHandle(pass_trigger_start, "Enable", "", 0.0, self, self);
 			if (!was_reversed && was_enabled && !init) { // scriptvar setter is set after init
-				push_trigger.EmitSound(SOUND_REVERSE);
+				self.EmitSound(SOUND_REVERSE);
 			}
 			was_reversed = true;
 		}
 		else {
 			EntFireByHandle(self, "SetPlaybackRate", (anim_speed).tostring(), 0.0, self, self);
-			EntFireByHandle(push_trigger, "AddOutput", "pushdir " + forw.ToKVString(), 0.0, self, self);
+			if (push_trigger != null) {
+				EntFireByHandle(push_trigger, "AddOutput", "pushdir " + forw.ToKVString(), 0.0, self, self);
+			}
 			EntFireByHandle(pass_trigger_start, "Disable", "", 0.0, self, self);
 			EntFireByHandle(pass_trigger_end, "Enable", "", 0.0, self, self);
 			if (was_reversed && was_enabled && !init) { // scriptvar setter is set after init
-				push_trigger.EmitSound(SOUND_REVERSE);
+				self.EmitSound(SOUND_REVERSE);
 			}
 			was_reversed = false;
 		}
@@ -128,13 +132,15 @@ function update_movement(init = false) {
 	else {
 		// Make sure we're not triggering this when it was already stopped.
 		if (was_enabled || init) {
-			EntFireByHandle(push_trigger, "Disable", "", 0.0, self, self);
+			if (push_trigger != null) {
+				EntFireByHandle(push_trigger, "Disable", "", 0.0, self, self);
+			}
 			EntFireByHandle(self, "SetPlaybackRate", (0).tostring(), 0.0, self, self);
 			EntFireByHandle(pass_trigger_end, "Disable", "", 0.0, self, self);
 			EntFireByHandle(pass_trigger_start, "Disable", "", 0.0, self, self);
 			EntFire(brush_fx_search, "Stop", "", 0.0, self);
 			if (!init) { // scriptvar setter is set after init
-				push_trigger.EmitSound(SOUND_STOP);
+				self.EmitSound(SOUND_STOP);
 			}
 			was_enabled = false;
 		}
