@@ -26,18 +26,26 @@ is_static <- false;
 // Remove anims from the end.
 inst_name <- self.GetName().slice(0, -5);
 
-brush_search <- inst_name + "*-segment*-brush";
+function by_name(_name, _prev = null) {
+	return Entities.FindByName(_prev, _name);
+}
 
-trigger_push <- Entities.FindByName(null, inst_name + "push");; //inst_name + "push"
-trigger_pass_start <- null; //inst_name + "trig_pass";
-trigger_pass_end <- null;
+function local_name(_add = "") {
+	return inst_name + _add;
+}
 
-fx_source <- Entities.FindByName(null, inst_name + "fx_source");
-fx_move <- Entities.FindByName(null, inst_name + "fx_move");
+brush_search <- local_name("*-brush");
+
+trigger_push <- by_name(local_name("push"));
+trigger_pass_start <- by_name(local_name("end_trig_start"));
+trigger_pass_end <- by_name(local_name("end_trig_end"));
+
+fx_source <- by_name(local_name("fx_source"));
+fx_move <- by_name(local_name("fx_move"));
 fx_move_is_playing <- false;
-fx_start <- Entities.FindByName(null, inst_name + "fx_start");
-fx_reverse <- Entities.FindByName(null, inst_name + "fx_reverse");
-fx_stop <- Entities.FindByName(null, inst_name + "fx_stop");
+fx_start <- by_name(local_name("fx_start"));
+fx_reverse <- by_name(local_name("fx_reverse"));
+fx_stop <- by_name(local_name("fx_stop")) ;
 
 bounds <- {}
 
@@ -51,9 +59,6 @@ function init(_size, _start_enabled, _start_reversed, _speed) {
 	pos_end = pos_start + (forw * ((belt_size + 3) * 128))
 
 	bounds = vec_bounds(pos_start, pos_end);
-
-	trigger_pass_start = Entities.FindByNameNearest(inst_name + "trig_pass", pos_start + (back * 56), 16);
-	trigger_pass_end = Entities.FindByNameNearest(inst_name + "trig_pass", pos_end + (forw * 56), 16);
 
 	if (trigger_pass_start != null) {
 		EntFireByHandle(trigger_pass_start, "AddOutput", "OnStartTouch " + self.GetName() + ":RunScriptCode:onPass(0)::", 0.0, self, self);
@@ -183,12 +188,21 @@ function movement_stop() {
 }
 
 function onPass(loc) {
-	//printl(activator.GetName() + " has passed " + self.GetName() + " at " + loc.tostring())
-	local reset_time = 0.5/anim_speed
+	//printl(activator.GetName() + " has passed " + self.GetName() + " at " + loc.tostring());
+	local reset_time = 0.5/anim_speed;
 
-	EntFireByHandle(activator, "RemovePaint", "", 0.0, self, self);
+	//EntFireByHandle(activator, "RemovePaint", "", 0.0, self, self);
 	EntFireByHandle(activator, "Disable", "", 0.0, self, self);
 	EntFireByHandle(activator, "Enable", "", reset_time, self, self);
+
+	// For some reason finding by parent doesn't work so we'll just search for them.
+	local child = by_name(activator.GetName() + "_*");
+
+	while (child) {
+		EntFireByHandle(child, "Disable", "", 0.0, self, self);
+		EntFireByHandle(child, "Enable", "", reset_time, self, self);
+		child = by_name(activator.GetName() + "_*", child);
+	}
 }
 
 function start() {
