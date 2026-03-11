@@ -9,56 +9,57 @@
 //		* What is the start/max speed. Uses animation speed so will be 0.5 to 3.0.
 
 belt_size <- 1;
+anim_speed <- 1;
+
+pos_start <- self.GetOrigin()
+pos_end <- null
+forw <- self.GetLeftVector() * -1;
+back <- self.GetLeftVector();
+
 is_enabled <- false;
 was_enabled <- false;
 is_reversed <- false;
 was_reversed <- false;
-anim_speed <- 1;
+
+is_static <- false;
 
 // Remove anims from the end.
 inst_name <- self.GetName().slice(0, -5);
 
 brush_search <- inst_name + "*-segment*-brush";
-brush_fx_search <- inst_name + "*-segment*-fx";
 
-push_trigger_name <- inst_name + "push";
-push_trigger <- null;
+trigger_push <- Entities.FindByName(null, inst_name + "push");; //inst_name + "push"
+trigger_pass_start <- null; //inst_name + "trig_pass";
+trigger_pass_end <- null;
 
-pass_trigger_name <- inst_name + "trig_pass";
-pass_trigger_start <- null;
-pass_trigger_end <- null;
+fx_source <- Entities.FindByName(null, inst_name + "fx_source");
+fx_move <- Entities.FindByName(null, inst_name + "fx_move");
+fx_move_is_playing <- false;
+fx_start <- Entities.FindByName(null, inst_name + "fx_start");
+fx_reverse <- Entities.FindByName(null, inst_name + "fx_reverse");
+fx_stop <- Entities.FindByName(null, inst_name + "fx_stop");
 
-forw <- self.GetLeftVector() * -1;
-back <- self.GetLeftVector();
-
-// Set by comp_scriptvar_setter
-//const SOUND_START = "BEE2.ConveyorBelt.Start";
-//const SOUND_REVERSE = "BEE2.ConveyorBelt.Reverse";
-//const SOUND_STOP = "BEE2.ConveyorBelt.Stop";
-
-// Precached by comp_precache_sound
-//function Precache() {
-//	self.PrecacheSoundScript(SOUND_START);
-//	self.PrecacheSoundScript(SOUND_REVERSE);
-//	self.PrecacheSoundScript(SOUND_STOP);
-//	printl("Precached sounds for " + inst_name);
-//}
+bounds <- {}
 
 function init(_size, _start_enabled, _start_reversed, _speed) {
 	belt_size = _size;
 	is_enabled = _start_enabled;
 	is_reversed = _start_reversed;
 	anim_speed = _speed;
+	is_static = anim_speed <= 0;
 
-	push_trigger = Entities.FindByName(null, push_trigger_name);
-	pass_trigger_start = Entities.FindByNameNearest(pass_trigger_name, self.GetOrigin() + (back * 56), 16);
-	pass_trigger_end = Entities.FindByNameNearest(pass_trigger_name, self.GetOrigin() + (forw * (((belt_size + 3) * 128) + 56)), 16);
+	pos_end = pos_start + (forw * ((belt_size + 3) * 128))
 
-	if (pass_trigger_start != null) {
-		EntFireByHandle(pass_trigger_start, "AddOutput", "OnStartTouch " + self.GetName() + ":RunScriptCode:onPass(0)::", 0.0, self, self);
+	bounds = vec_bounds(pos_start, pos_end);
+
+	trigger_pass_start = Entities.FindByNameNearest(inst_name + "trig_pass", pos_start + (back * 56), 16);
+	trigger_pass_end = Entities.FindByNameNearest(inst_name + "trig_pass", pos_end + (forw * 56), 16);
+
+	if (trigger_pass_start != null) {
+		EntFireByHandle(trigger_pass_start, "AddOutput", "OnStartTouch " + self.GetName() + ":RunScriptCode:onPass(0)::", 0.0, self, self);
 	}
-	if (pass_trigger_end != null) {
-		EntFireByHandle(pass_trigger_end, "AddOutput", "OnStartTouch " + self.GetName() + ":RunScriptCode:onPass(1)::", 0.0, self, self);
+	if (trigger_pass_end != null) {
+		EntFireByHandle(trigger_pass_end, "AddOutput", "OnStartTouch " + self.GetName() + ":RunScriptCode:onPass(1)::", 0.0, self, self);
 	}
 
 	local ent = null;
@@ -72,79 +73,113 @@ function init(_size, _start_enabled, _start_reversed, _speed) {
 				EntFireByHandle(ent, "SetParent", self.GetName(), 0.0, self, self);
 				EntFireByHandle(ent, "SetParentAttachment", attach_name, 0.0, self, self);
 			}
-			else {
-				printl("No & in " + ent_name);
-			}
 		}
 	}
 
-	local anim_move = "move_" + (belt_size * 128).tostring();
+	local anim = null;
+	if (is_static) {
+		anim = "idle_" + (belt_size * 128).tostring();
+	} else {
+		anim = "move_" + (belt_size * 128).tostring();
+	}
 
-	EntFireByHandle(self, "SetDefaultAnimation", anim_move, 0.0, self, self);
-	EntFireByHandle(self, "SetAnimation", anim_move, 0.0, self, self);
+	EntFireByHandle(self, "SetDefaultAnimation", anim, 0.0, self, self);
+	EntFireByHandle(self, "SetAnimation", anim, 0.0, self, self);
+	EntFireByHandle(self, "SetPlaybackRate", "0", 0.0, self, self);
 
-	update_movement(true);
+	//update_movement(true);
 }
 
-function update_movement(init = false) {
-	if (is_enabled) {
-		// Make sure we aren't triggering these if it was already enabled.
+function Think() {
+	if (IsMultiplayer()) {return 9999999999}
+
+	if (!is_enabled) {return 1;}
+
+	if (GetPlayer()) {
+		fx_source.SetOrigin(vec_clamp(GetPlayer().EyePosition(), bounds.min, bounds.max));
+	} else {
+		//printl("No player found")
+		return 30;
+	}
+
+	return 0.1;
+}
+
+function update_movement(silent = false) {
+	if (is_static) {return;}
+
+	// Check if nothing changed
+	if (is_enabled == was_enabled && is_reversed == was_reversed) {return;}
+
+	if (!is_enabled) { // Stop moving
+		if (!silent) {
+			EntFireByHandle(fx_stop, "PlaySound", "", 0.0, self, self);
+		}
+		if (fx_move_is_playing) {
+			EntFireByHandle(fx_move, "StopSound", "", 0.0, self, self);
+			fx_move_is_playing = false;
+		}
+		movement_stop();
+		was_enabled = false;
+		return;
+	}
+	else {
 		if (!was_enabled) {
-			EntFireByHandle(push_trigger, "Enable", "", 0.0, self, self);
-			if (init) {
-				// Wait a second so the sound actually starts.
-				EntFire(brush_fx_search, "Start", "", 1.0, self);
+			if (!silent) {
+				EntFireByHandle(fx_start, "PlaySound", "", 0.0, self, self);
 			}
-			else {
-				EntFire(brush_fx_search, "Start", "", 0.0, self);
+			if (!fx_move_is_playing) {
+				EntFireByHandle(fx_move, "PlaySound", "", 0.0, self, self);
+				fx_move_is_playing = true;
 			}
-			if (!init) { // scriptvar setter is set after init
-				self.EmitSound(SOUND_START);
+			if (trigger_push != null) {
+				EntFireByHandle(trigger_push, "Enable", "", 0.0, self, self);
 			}
+		}
+		else if (is_reversed != was_reversed && !silent) {
+			EntFireByHandle(fx_reverse, "PlaySound", "", 0.0, self, self);
 		}
 
-		if (is_reversed) {
-			EntFireByHandle(self, "SetPlaybackRate", (-anim_speed).tostring(), 0.0, self, self);
-			if (push_trigger != null) {
-				EntFireByHandle(push_trigger, "AddOutput", "pushdir " + back.ToKVString(), 0.0, self, self);
-			}
-			EntFireByHandle(pass_trigger_end, "Disable", "", 0.0, self, self);
-			EntFireByHandle(pass_trigger_start, "Enable", "", 0.0, self, self);
-			if (!was_reversed && was_enabled && !init) { // scriptvar setter is set after init
-				self.EmitSound(SOUND_REVERSE);
-			}
-			was_reversed = true;
+		if (!is_reversed) {
+			movement_forward();
+			was_reversed = false;
 		}
 		else {
-			EntFireByHandle(self, "SetPlaybackRate", (anim_speed).tostring(), 0.0, self, self);
-			if (push_trigger != null) {
-				EntFireByHandle(push_trigger, "AddOutput", "pushdir " + forw.ToKVString(), 0.0, self, self);
-			}
-			EntFireByHandle(pass_trigger_start, "Disable", "", 0.0, self, self);
-			EntFireByHandle(pass_trigger_end, "Enable", "", 0.0, self, self);
-			if (was_reversed && was_enabled && !init) { // scriptvar setter is set after init
-				self.EmitSound(SOUND_REVERSE);
-			}
-			was_reversed = false;
+			movement_reverse();
+			was_reversed = true;
 		}
 		was_enabled = true;
 	}
-	else {
-		// Make sure we're not triggering this when it was already stopped.
-		if (was_enabled || init) {
-			if (push_trigger != null) {
-				EntFireByHandle(push_trigger, "Disable", "", 0.0, self, self);
-			}
-			EntFireByHandle(self, "SetPlaybackRate", (0).tostring(), 0.0, self, self);
-			EntFireByHandle(pass_trigger_end, "Disable", "", 0.0, self, self);
-			EntFireByHandle(pass_trigger_start, "Disable", "", 0.0, self, self);
-			EntFire(brush_fx_search, "Stop", "", 0.0, self);
-			if (!init) { // scriptvar setter is set after init
-				self.EmitSound(SOUND_STOP);
-			}
-			was_enabled = false;
-		}
+}
+
+function movement_forward() {
+	EntFireByHandle(self, "SetPlaybackRate", (anim_speed).tostring(), 0.0, self, self);
+	if (trigger_push != null) {
+		EntFireByHandle(trigger_push, "AddOutput", "pushdir " + forw.ToKVString(), 0.0, self, self);
 	}
+	EntFireByHandle(trigger_pass_start, "Disable", "", 0.0, self, self);
+	EntFireByHandle(trigger_pass_end, "Enable", "", 0.0, self, self);
+}
+
+function movement_reverse() {
+	EntFireByHandle(self, "SetPlaybackRate", (-anim_speed).tostring(), 0.0, self, self);
+
+	if (trigger_push != null) {
+		EntFireByHandle(trigger_push, "AddOutput", "pushdir " + back.ToKVString(), 0.0, self, self);
+	}
+
+	EntFireByHandle(trigger_pass_end, "Disable", "", 0.0, self, self);
+	EntFireByHandle(trigger_pass_start, "Enable", "", 0.0, self, self);
+}
+
+function movement_stop() {
+	// Make sure we're not triggering this when it was already stopped.
+	if (trigger_push != null) {
+		EntFireByHandle(trigger_push, "Disable", "", 0.0, self, self);
+	}
+	EntFireByHandle(self, "SetPlaybackRate", "0", 0.0, self, self);
+	EntFireByHandle(trigger_pass_end, "Disable", "", 0.0, self, self);
+	EntFireByHandle(trigger_pass_start, "Disable", "", 0.0, self, self);
 }
 
 function onPass(loc) {
@@ -157,21 +192,49 @@ function onPass(loc) {
 }
 
 function start() {
+	if (was_enabled) {return;}
+
 	is_enabled = true;
 	update_movement();
 }
 
 function stop() {
+	if (!was_enabled) {return;}
+
 	is_enabled = false;
 	update_movement();
 }
 
 function forward() {
 	is_reversed = false;
+	if (!is_enabled) {return;}
 	update_movement();
 }
 
 function reverse() {
 	is_reversed = true;
+	if (!is_enabled) {return;}
 	update_movement();
+}
+
+function vec_bounds(pos1, pos2) {
+
+	local _x = [pos1.x, pos2.x];
+	local _y = [pos1.y, pos2.y];
+	local _z = [pos1.z, pos2.z];
+
+	_x.sort();
+	_y.sort();
+	_z.sort();
+
+	local _min = Vector(_x[0], _y[0], _z[0]);
+	local _max = Vector(_x[1], _y[1], _z[1]);
+
+	return { min = _min, max = _max};
+}
+
+function vec_clamp(val, min_, max_) {
+	return Vector((val.x < min_.x) ? min_.x : (val.x > max_.x) ? max_.x : val.x,
+				  (val.y < min_.y) ? min_.y : (val.y > max_.y) ? max_.y : val.y,
+				  (val.z < min_.z) ? min_.z : (val.z > max_.z) ? max_.z : val.z);
 }
