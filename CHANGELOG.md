@@ -34,6 +34,7 @@
 * Fix being able to re-enter OldAp Chamberlocks from the exit, trapping the player.
 * Fix incorrect filename for single-sign catapult signage.
 * Removed alternate angle-change sounds in the editor for P1 style, since these constantly break.
+* Add seperate reverse funnel speed.
 
 ------------------------------------------
 
