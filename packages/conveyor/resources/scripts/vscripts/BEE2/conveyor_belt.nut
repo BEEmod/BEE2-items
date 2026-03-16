@@ -49,7 +49,7 @@ fx_stop <- by_name(local_name("fx_stop")) ;
 
 bounds <- {}
 
-function init(_size, _start_enabled, _start_reversed, _speed) {
+function init(_type, _size, _start_enabled, _start_reversed, _speed, _angle_fixup) {
 	belt_size = _size;
 	is_enabled = _start_enabled;
 	is_reversed = _start_reversed;
@@ -77,6 +77,9 @@ function init(_size, _start_enabled, _start_reversed, _speed) {
 				local attach_name = ent_name.slice(string_index, -6) + "_attach";
 				EntFireByHandle(ent, "SetParent", self.GetName(), 0.0, self, self);
 				EntFireByHandle(ent, "SetParentAttachment", attach_name, 0.0, self, self);
+				if (_type != 3) { // Don't change glass type
+					EntFireByHandle(ent, "SetLocalAngles", _angle_fixup, 0.0, self, self);
+				}
 			}
 		}
 	}
