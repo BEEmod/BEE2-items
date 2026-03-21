@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "214"
+	"mapversion" "219"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -89,7 +89,7 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "214"
+	"mapversion" "219"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -101,7 +101,7 @@ entity
 {
 	"id" "3246"
 	"classname" "prop_dynamic"
-	"angles" "-90 0 0"
+	"angles" "0 0 0"
 	"DisableBoneFollowers" "0"
 	"disablereceiveshadows" "0"
 	"drawinfastreflection" "1"
@@ -112,7 +112,7 @@ entity
 	"HoldAnimation" "0"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
-	"model" "models/bee2/props_clean/scaffold_wall_emitter.mdl"
+	"model" "models/bee2/props_p1/conveyor_rail_platform.mdl"
 	"modelscale" "1.0"
 	"parentname" "brush"
 	"PerformanceMode" "0"
@@ -142,7 +142,7 @@ entity
 {
 	"id" "3288"
 	"classname" "prop_dynamic"
-	"angles" "-90 0 0"
+	"angles" "0 0 0"
 	"DisableBoneFollowers" "0"
 	"disablereceiveshadows" "0"
 	"drawinfastreflection" "1"
@@ -153,7 +153,7 @@ entity
 	"HoldAnimation" "0"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
-	"model" "models/bee2/props_clean/scaffold_wall_emitter.mdl"
+	"model" "models/bee2/props_p1/conveyor_rail_platform.mdl"
 	"modelscale" "1.0"
 	"parentname" "brush"
 	"PerformanceMode" "0"
@@ -202,7 +202,7 @@ entity
 	"scale" "0.5"
 	"spawnflags" "1"
 	"targetname" "brush_sprite"
-	"origin" "32 0 50"
+	"origin" "32 0 36"
 	editor
 	{
 		"color" "20 140 20"
@@ -234,7 +234,7 @@ entity
 	"scale" "0.5"
 	"spawnflags" "1"
 	"targetname" "brush_sprite"
-	"origin" "-32 0 50"
+	"origin" "-32 0 36"
 	editor
 	{
 		"color" "20 140 20"
@@ -358,6 +358,139 @@ entity
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 4] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "3446"
+	"classname" "func_clip_vphysics"
+	"origin" "0 0 58.5"
+	"parentname" "brush"
+	"targetname" "brush_clip"
+	solid
+	{
+		"id" "3447"
+		side
+		{
+			"id" "30"
+			"plane" "(-64 60 59) (64 60 59) (64 -60 59)"
+			vertices_plus
+			{
+				"v" "-64 60 59"
+				"v" "64 60 59"
+				"v" "64 -60 59"
+				"v" "-64 -60 59"
+			}
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "29"
+			"plane" "(-64 -60 58) (64 -60 58) (64 60 58)"
+			vertices_plus
+			{
+				"v" "-64 -60 58"
+				"v" "64 -60 58"
+				"v" "64 60 58"
+				"v" "-64 60 58"
+			}
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "28"
+			"plane" "(-64 60 59) (-64 -60 59) (-64 -60 58)"
+			vertices_plus
+			{
+				"v" "-64 60 59"
+				"v" "-64 -60 59"
+				"v" "-64 -60 58"
+				"v" "-64 60 58"
+			}
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "27"
+			"plane" "(64 60 58) (64 -60 58) (64 -60 59)"
+			vertices_plus
+			{
+				"v" "64 60 58"
+				"v" "64 -60 58"
+				"v" "64 -60 59"
+				"v" "64 60 59"
+			}
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "26"
+			"plane" "(64 60 59) (-64 60 59) (-64 60 58)"
+			vertices_plus
+			{
+				"v" "64 60 59"
+				"v" "-64 60 59"
+				"v" "-64 60 58"
+				"v" "64 60 58"
+			}
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "25"
+			"plane" "(64 -60 58) (-64 -60 58) (-64 -60 59)"
+			vertices_plus
+			{
+				"v" "64 -60 58"
+				"v" "-64 -60 58"
+				"v" "-64 -60 59"
+				"v" "64 -60 59"
+			}
+			"material" "TOOLS/TOOLSINVISIBLE"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
