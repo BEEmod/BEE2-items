@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "206"
+	"editorbuild" "8870"
+	"mapversion" "207"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -15,12 +15,81 @@ viewsettings
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
 	"nGridSpacing" "2"
-	"bShow3DGrid" "0"
+}
+palette_plus
+{
+	"color0" "255 255 255"
+	"color1" "255 255 255"
+	"color2" "255 255 255"
+	"color3" "255 255 255"
+	"color4" "255 255 255"
+	"color5" "255 255 255"
+	"color6" "255 255 255"
+	"color7" "255 255 255"
+	"color8" "255 255 255"
+	"color9" "255 255 255"
+	"color10" "255 255 255"
+	"color11" "255 255 255"
+	"color12" "255 255 255"
+	"color13" "255 255 255"
+	"color14" "255 255 255"
+	"color15" "255 255 255"
+}
+colorcorrection_plus
+{
+	"name0" ""
+	"weight0" "1"
+	"name1" ""
+	"weight1" "1"
+	"name2" ""
+	"weight2" "1"
+	"name3" ""
+	"weight3" "1"
+}
+light_plus
+{
+	"samples_sun" "6"
+	"samples_ambient" "40"
+	"samples_vis" "256"
+	"texlight" ""
+	"incremental_delay" "0"
+	"bake_dist" "1024"
+	"radius_scale" "1"
+	"brightness_scale" "1"
+	"ao_scale" "0"
+	"bounced" "1"
+	"incremental" "1"
+	"supersample" "0"
+	"bleed_hack" "1"
+	"soften_cosine" "0"
+	"debug" "0"
+	"cubemap" "1"
+}
+postprocess_plus
+{
+	"enable" "1"
+	"copied_from_controller" "1"
+	"bloom_scale" "1"
+	"bloom_exponent" "2.5"
+	"bloom_saturation" "1"
+	"auto_exposure_min" "0.5"
+	"auto_exposure_max" "2"
+	"tonemap_percent_target" "60"
+	"tonemap_percent_bright_pixels" "2"
+	"tonemap_min_avg_luminance" "3"
+	"tonemap_rate" "1"
+	"vignette_enable" "1"
+	"vignette_start" "1"
+	"vignette_end" "2"
+	"vignette_blur" "0"
+}
+bgimages_plus
+{
 }
 world
 {
 	"id" "1"
-	"mapversion" "206"
+	"mapversion" "207"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -44,6 +113,8 @@ entity
 	"MoveSoundMinTime" "0"
 	"orientationtype" "0"
 	"origin" "0 0 0"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
 	"solid" "6"
 	"spawnflags" "17"
 	"speed" "$start_speed"
@@ -60,6 +131,13 @@ entity
 		{
 			"id" "1186"
 			"plane" "(8 -60 14) (8 60 14) (8 60 15)"
+			vertices_plus
+			{
+				"v" "8 -60 14"
+				"v" "8 60 14"
+				"v" "8 60 15"
+				"v" "8 -60 15"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 -1 256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -71,6 +149,13 @@ entity
 		{
 			"id" "1185"
 			"plane" "(64 60 14) (64 -60 14) (64 -60 15)"
+			vertices_plus
+			{
+				"v" "64 60 14"
+				"v" "64 -60 14"
+				"v" "64 -60 15"
+				"v" "64 60 15"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 1 -256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -82,6 +167,13 @@ entity
 		{
 			"id" "1184"
 			"plane" "(8 60 14) (8 -60 14) (64 -60 14)"
+			vertices_plus
+			{
+				"v" "8 60 14"
+				"v" "8 -60 14"
+				"v" "64 -60 14"
+				"v" "64 60 14"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 51.2] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -93,6 +185,13 @@ entity
 		{
 			"id" "1183"
 			"plane" "(8 -60 15) (8 60 15) (64 60 15)"
+			vertices_plus
+			{
+				"v" "8 -60 15"
+				"v" "8 60 15"
+				"v" "64 60 15"
+				"v" "64 -60 15"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 51.2] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -104,6 +203,13 @@ entity
 		{
 			"id" "1182"
 			"plane" "(8 60 15) (8 60 14) (64 60 14)"
+			vertices_plus
+			{
+				"v" "8 60 15"
+				"v" "8 60 14"
+				"v" "64 60 14"
+				"v" "64 60 15"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -115,6 +221,13 @@ entity
 		{
 			"id" "1181"
 			"plane" "(64 -60 15) (64 -60 14) (8 -60 14)"
+			vertices_plus
+			{
+				"v" "64 -60 15"
+				"v" "64 -60 14"
+				"v" "8 -60 14"
+				"v" "8 -60 15"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -136,6 +249,13 @@ entity
 		{
 			"id" "1180"
 			"plane" "(-56 -60 14) (-56 60 14) (-56 60 15)"
+			vertices_plus
+			{
+				"v" "-56 -60 14"
+				"v" "-56 60 14"
+				"v" "-56 60 15"
+				"v" "-56 -60 15"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 -1 256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -147,6 +267,13 @@ entity
 		{
 			"id" "1179"
 			"plane" "(0 60 14) (0 -60 14) (0 -60 15)"
+			vertices_plus
+			{
+				"v" "0 60 14"
+				"v" "0 -60 14"
+				"v" "0 -60 15"
+				"v" "0 60 15"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 1 -256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -158,6 +285,13 @@ entity
 		{
 			"id" "1178"
 			"plane" "(-56 60 14) (-56 -60 14) (0 -60 14)"
+			vertices_plus
+			{
+				"v" "-56 60 14"
+				"v" "-56 -60 14"
+				"v" "0 -60 14"
+				"v" "0 60 14"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -169,6 +303,13 @@ entity
 		{
 			"id" "1177"
 			"plane" "(-56 -60 15) (-56 60 15) (0 60 15)"
+			vertices_plus
+			{
+				"v" "-56 -60 15"
+				"v" "-56 60 15"
+				"v" "0 60 15"
+				"v" "0 -60 15"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
@@ -180,6 +321,13 @@ entity
 		{
 			"id" "1176"
 			"plane" "(-56 60 15) (-56 60 14) (0 60 14)"
+			vertices_plus
+			{
+				"v" "-56 60 15"
+				"v" "-56 60 14"
+				"v" "0 60 14"
+				"v" "0 60 15"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -191,6 +339,13 @@ entity
 		{
 			"id" "1175"
 			"plane" "(0 -60 15) (0 -60 14) (-56 -60 14)"
+			vertices_plus
+			{
+				"v" "0 -60 15"
+				"v" "0 -60 14"
+				"v" "-56 -60 14"
+				"v" "-56 -60 15"
+			}
 			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
@@ -228,7 +383,8 @@ entity
 	"HoldAnimation" "0"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
-	"model" "models/bee2/props_clean/scaffold_wall_emitter.mdl"
+	"model" "models/bee2/props_clean/light_rail_wall_emitter.mdl"
+	"modelscale" "1.0"
 	"parentname" "train"
 	"PerformanceMode" "0"
 	"physdamagescale" "1.0"
@@ -267,7 +423,8 @@ entity
 	"HoldAnimation" "0"
 	"MaxAnimTime" "10"
 	"MinAnimTime" "5"
-	"model" "models/bee2/props_clean/scaffold_wall_emitter.mdl"
+	"model" "models/bee2/props_clean/light_rail_wall_emitter.mdl"
+	"modelscale" "1.0"
 	"parentname" "train"
 	"PerformanceMode" "0"
 	"physdamagescale" "1.0"
