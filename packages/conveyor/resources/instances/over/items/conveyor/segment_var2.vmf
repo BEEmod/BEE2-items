@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "8419"
-	"mapversion" "191"
+	"editorbuild" "8870"
+	"mapversion" "192"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -15,12 +15,81 @@ viewsettings
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
 	"nGridSpacing" "1"
-	"bShow3DGrid" "0"
+}
+palette_plus
+{
+	"color0" "255 255 255"
+	"color1" "255 255 255"
+	"color2" "255 255 255"
+	"color3" "255 255 255"
+	"color4" "255 255 255"
+	"color5" "255 255 255"
+	"color6" "255 255 255"
+	"color7" "255 255 255"
+	"color8" "255 255 255"
+	"color9" "255 255 255"
+	"color10" "255 255 255"
+	"color11" "255 255 255"
+	"color12" "255 255 255"
+	"color13" "255 255 255"
+	"color14" "255 255 255"
+	"color15" "255 255 255"
+}
+colorcorrection_plus
+{
+	"name0" ""
+	"weight0" "1"
+	"name1" ""
+	"weight1" "1"
+	"name2" ""
+	"weight2" "1"
+	"name3" ""
+	"weight3" "1"
+}
+light_plus
+{
+	"samples_sun" "6"
+	"samples_ambient" "40"
+	"samples_vis" "256"
+	"texlight" ""
+	"incremental_delay" "0"
+	"bake_dist" "1024"
+	"radius_scale" "1"
+	"brightness_scale" "1"
+	"ao_scale" "0"
+	"bounced" "1"
+	"incremental" "1"
+	"supersample" "0"
+	"bleed_hack" "1"
+	"soften_cosine" "0"
+	"debug" "0"
+	"cubemap" "1"
+}
+postprocess_plus
+{
+	"enable" "1"
+	"copied_from_controller" "1"
+	"bloom_scale" "1"
+	"bloom_exponent" "2.5"
+	"bloom_saturation" "1"
+	"auto_exposure_min" "0.5"
+	"auto_exposure_max" "2"
+	"tonemap_percent_target" "60"
+	"tonemap_percent_bright_pixels" "2"
+	"tonemap_min_avg_luminance" "3"
+	"tonemap_rate" "1"
+	"vignette_enable" "1"
+	"vignette_start" "1"
+	"vignette_end" "2"
+	"vignette_blur" "0"
+}
+bgimages_plus
+{
 }
 world
 {
 	"id" "1"
-	"mapversion" "191"
+	"mapversion" "192"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -70,7 +139,14 @@ entity
 		{
 			"id" "1193"
 			"plane" "(-63 -60 14) (-63 60 14) (-63 60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-63 -60 14"
+				"v" "-63 60 14"
+				"v" "-63 60 15"
+				"v" "-63 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 -1 -256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -81,7 +157,14 @@ entity
 		{
 			"id" "1192"
 			"plane" "(-33 58 14) (-33 -49 14) (-33 -49 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-33 58 14"
+				"v" "-33 -49 14"
+				"v" "-33 -49 15"
+				"v" "-33 58 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 1 256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -92,7 +175,16 @@ entity
 		{
 			"id" "1191"
 			"plane" "(-63 60 14) (-63 -60 14) (-37 -60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-63 60 14"
+				"v" "-63 -60 14"
+				"v" "-37 -60 14"
+				"v" "-33 -49 14"
+				"v" "-33 58 14"
+				"v" "-39 60 14"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 -51.2] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -103,7 +195,16 @@ entity
 		{
 			"id" "1190"
 			"plane" "(-63 -60 15) (-63 60 15) (-39 60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-63 -60 15"
+				"v" "-63 60 15"
+				"v" "-39 60 15"
+				"v" "-33 58 15"
+				"v" "-33 -49 15"
+				"v" "-37 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 -51.2] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "90"
@@ -114,7 +215,14 @@ entity
 		{
 			"id" "1189"
 			"plane" "(-63 60 15) (-63 60 14) (-39 60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-63 60 15"
+				"v" "-63 60 14"
+				"v" "-39 60 14"
+				"v" "-39 60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
 			"rotation" "0"
@@ -125,7 +233,14 @@ entity
 		{
 			"id" "1188"
 			"plane" "(-37 -60 14) (-63 -60 14) (-63 -60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-37 -60 14"
+				"v" "-63 -60 14"
+				"v" "-63 -60 15"
+				"v" "-37 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 -51.2] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
 			"rotation" "0"
@@ -136,7 +251,14 @@ entity
 		{
 			"id" "1187"
 			"plane" "(-33 -49 15) (-33 -49 14) (-37 -60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-33 -49 15"
+				"v" "-33 -49 14"
+				"v" "-37 -60 14"
+				"v" "-37 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -147,7 +269,14 @@ entity
 		{
 			"id" "1186"
 			"plane" "(-39 60 14) (-33 58 14) (-33 58 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-39 60 14"
+				"v" "-33 58 14"
+				"v" "-33 58 15"
+				"v" "-39 60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -168,7 +297,14 @@ entity
 		{
 			"id" "1185"
 			"plane" "(-31 -50 14) (-31 56.501 14) (-31 56.501 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-31 -50 14"
+				"v" "-31 56.5 14"
+				"v" "-31 56.5 15"
+				"v" "-31 -50 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 -1 -256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -179,7 +315,14 @@ entity
 		{
 			"id" "1184"
 			"plane" "(-1 60 14) (-1 -60 14) (-1 -60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-1 60 14"
+				"v" "-1 -60 14"
+				"v" "-1 -60 15"
+				"v" "-1 60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 1 256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -190,7 +333,16 @@ entity
 		{
 			"id" "1183"
 			"plane" "(-31 56.501 14) (-31 -50 14) (-28.2727 -60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-31 56.4997 14"
+				"v" "-31 -50 14"
+				"v" "-28.2727 -60 14"
+				"v" "-1 -60 14"
+				"v" "-1 60 14"
+				"v" "-24 60 14"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -201,7 +353,16 @@ entity
 		{
 			"id" "1182"
 			"plane" "(-31 -50 15) (-31 56.501 15) (-24 60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-31 -50 15"
+				"v" "-31 56.4997 15"
+				"v" "-24 60 15"
+				"v" "-1 60 15"
+				"v" "-1 -60 15"
+				"v" "-28.2723 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -212,7 +373,14 @@ entity
 		{
 			"id" "1181"
 			"plane" "(-24 60 14) (-1 60 14) (-1 60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-24 60 14"
+				"v" "-1 60 14"
+				"v" "-1 60 15"
+				"v" "-24 60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
 			"rotation" "0"
@@ -223,7 +391,14 @@ entity
 		{
 			"id" "1180"
 			"plane" "(-1 -60 15) (-1 -60 14) (-28.2727 -60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-1 -60 15"
+				"v" "-1 -60 14"
+				"v" "-28.2727 -60 14"
+				"v" "-28.2727 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
 			"rotation" "0"
@@ -234,7 +409,14 @@ entity
 		{
 			"id" "1179"
 			"plane" "(-31 56.5 15) (-31 56.5 14) (-24 60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-31 56.4994 15"
+				"v" "-31 56.4994 14"
+				"v" "-24 60 14"
+				"v" "-24 60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -245,7 +427,14 @@ entity
 		{
 			"id" "1178"
 			"plane" "(-28.2727 -60 14) (-31 -50 14) (-31 -50 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "-28.2727 -60 14"
+				"v" "-31 -50 14"
+				"v" "-31 -50 15"
+				"v" "-28.2727 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 1 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -266,7 +455,14 @@ entity
 		{
 			"id" "1163"
 			"plane" "(1 -60 14) (1 60 14) (1 60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "1 -60 14"
+				"v" "1 60 14"
+				"v" "1 60 15"
+				"v" "1 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 -1 -256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -277,7 +473,14 @@ entity
 		{
 			"id" "1162"
 			"plane" "(31 60 14) (31 -56 14) (31 -56 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "31 60 14"
+				"v" "31 -56 14"
+				"v" "31 -56 15"
+				"v" "31 60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 1 256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -288,7 +491,15 @@ entity
 		{
 			"id" "1161"
 			"plane" "(1 60 14) (1 -60 14) (18 -60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "1 60 14"
+				"v" "1 -60 14"
+				"v" "18 -60 14"
+				"v" "31 -56 14"
+				"v" "31 60 14"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 17.0667] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -299,7 +510,15 @@ entity
 		{
 			"id" "1160"
 			"plane" "(1 -60 15) (1 60 15) (31 60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "1 -60 15"
+				"v" "1 60 15"
+				"v" "31 60 15"
+				"v" "31 -56 15"
+				"v" "18 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 17.0667] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "90"
@@ -310,7 +529,14 @@ entity
 		{
 			"id" "1159"
 			"plane" "(1 60 15) (1 60 14) (31 60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "1 60 15"
+				"v" "1 60 14"
+				"v" "31 60 14"
+				"v" "31 60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
 			"rotation" "0"
@@ -321,7 +547,14 @@ entity
 		{
 			"id" "1158"
 			"plane" "(18 -60 14) (1 -60 14) (1 -60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "18 -60 14"
+				"v" "1 -60 14"
+				"v" "1 -60 15"
+				"v" "18 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
 			"rotation" "0"
@@ -332,7 +565,14 @@ entity
 		{
 			"id" "1157"
 			"plane" "(31 -56 15) (31 -56 14) (18 -60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "31 -56 15"
+				"v" "31 -56 14"
+				"v" "18 -60 14"
+				"v" "18 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[1 0 0 0] 0.25"
 			"vaxis" "[0 0 -1 0] 0.25"
 			"rotation" "0"
@@ -353,7 +593,14 @@ entity
 		{
 			"id" "1156"
 			"plane" "(33 -60 14) (33 60 14) (33 60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "33 -60 14"
+				"v" "33 60 14"
+				"v" "33 60 15"
+				"v" "33 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 -1 -256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -364,7 +611,14 @@ entity
 		{
 			"id" "1155"
 			"plane" "(63 60 14) (63 -60 14) (63 -60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "63 60 14"
+				"v" "63 -60 14"
+				"v" "63 -60 15"
+				"v" "63 60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[0 0 1 256] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -375,7 +629,14 @@ entity
 		{
 			"id" "1154"
 			"plane" "(33 60 14) (33 -60 14) (63 -60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "33 60 14"
+				"v" "33 -60 14"
+				"v" "63 -60 14"
+				"v" "63 60 14"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 51.2] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "0"
@@ -386,7 +647,14 @@ entity
 		{
 			"id" "1153"
 			"plane" "(33 -60 15) (33 60 15) (63 60 15)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "33 -60 15"
+				"v" "33 60 15"
+				"v" "63 60 15"
+				"v" "63 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 51.2] 0.0585938"
 			"vaxis" "[0 1 0 256] 0.234375"
 			"rotation" "90"
@@ -397,7 +665,14 @@ entity
 		{
 			"id" "1152"
 			"plane" "(33 60 15) (33 60 14) (63 60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "33 60 15"
+				"v" "33 60 14"
+				"v" "63 60 14"
+				"v" "63 60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
 			"rotation" "0"
@@ -408,7 +683,14 @@ entity
 		{
 			"id" "1151"
 			"plane" "(63 -60 15) (63 -60 14) (33 -60 14)"
-			"material" "BEE2/OVERGROWN/CONVEYOR_BELT"
+			vertices_plus
+			{
+				"v" "63 -60 15"
+				"v" "63 -60 14"
+				"v" "33 -60 14"
+				"v" "33 -60 15"
+			}
+			"material" "METAL/CONVEYOR_BELT"
 			"uaxis" "[-1 0 0 494.933] 0.0585938"
 			"vaxis" "[0 0 1 -64] 0.234375"
 			"rotation" "0"
