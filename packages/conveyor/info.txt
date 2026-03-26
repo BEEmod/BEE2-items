@@ -2,49 +2,94 @@
 "Name"		"Conveyor"
 "Desc"      "Adds various conveyor items."
 
+"ConfigGroup"
+	{
+	"ID"    "BEE2_CONVEYOR"
+	"Name"  "Conveyor Belts"
+	"Widget"
+		{
+		"ID"      "ConveyorSpeed"
+		"Type"    "Slider"
+		"Default" "0.5"
+
+		"Min"     "0.25"
+		"Max"     "2"
+		"Step"    "0.25"
+
+		"Label"   "Conveyor Speed"
+		"Tooltip" "The speed of conveyor belts. A speed of 1 is 128 units per second."
+		}
+	}
+
 "Item"
 	{
-	"ID"        "ITEM_BEE2_CONVEYOR"
+	"ID"        "ITEM_BEE2_CONVEYOR_BELT"
 	"Description"
 		{
-		"" "A continuous belt moving from one end of the track to the other. The first and last sections of belt track are covered."
+		"" "A continuous belt moving from one end of the track to the other."
+		"" "This item requires two ends connected to each other."
+		"" "Ends must share the same orientation and cannot go through full voxels."
+		"" "Direction of the conveyor belt is determined by the connection order (start connects to the end)."
+		"" "Conveyor type and options are taken from start item (end item is ignored)."
+		"" "Conveyor belt segments all share the same lighting information and will try to pick the most open space to be initially placed."
+		"" "This item accepts inputs from either of the two ends."
 		"" ""
-		"" "* Setting it to reversed will increase the speed, preventing the player from walking in the wrong direction."
-		"" "* The conveyor surface is positioned one block above the surface it is placed on - it should be recessed into the floor for best effect."
-		"" "* Extend the start/end of the conveyor back a number of blocks if possible behind the map, so the player can't see the belt disappearing."
+		"" "* **Input B** will reverse the conveyor belt."
+		"" "* **Start Enabled** will start conveyor belt on."
+		"" "* **Start Reversed** will start conveyor belt in the opposite direction."
+		"" "* **Start Active** will set the conveyor speed to max speed, preventing the player from walking in the wrong direction."
+		"" "* **Auto-respawn Cube** will clean gel off conveyor belt segments as they pass through the ends."
 		}
-	"All_conf" "conveyor.cfg"
+	
+	"Migrations"
+	{
+	"ITEM_BEE2_CONVEYOR" "0"
+	}
 	
 	"Version"
 		{
 		"Styles"
 			{
 			"BEE2_CLEAN"        "conveyor_clean"
-			"BEE2_PORTAL_1"     "conveyor_p1"
 			"BEE2_OVERGROWN"
 				{
-				"Folder" "conveyor_clean"
-				"Instances"
+				"Base" "BEE2_CLEAN"
+				"Extra"
 					{
-					// Piece of belt
-					"bee2_segment" "instances/BEE2/over/items/conveyor/segment.vmf"
-					
-					// Frame to hold the model.
-					"bee2_support" "instances/BEE2/over/items/conveyor/support.vmf"
-					
-					"1" "instances/BEE2/over/items/conveyor/bottom.vmf"
-					"2" "instances/BEE2/over/items/conveyor/middle.vmf"
-					"3" "instances/BEE2/over/items/conveyor/top.vmf"
+					"Instances"
+						{
+						// Piece of belt
+						"bee2_segment" "instances/BEE2/over/items/conveyor/segment.vmf"
+						
+						// Frame to hold the model.
+						"bee2_support" "instances/BEE2/over/items/conveyor/support.vmf"
+						
+						"1" "instances/BEE2/over/items/conveyor/bottom.vmf"
+						"2" "instances/BEE2/over/items/conveyor/middle.vmf"
+						"3" "instances/BEE2/over/items/conveyor/top.vmf"
+						}
 					}
 				"Append"
 					{
 					"Replacements"
 						{
+						"%STYLE%" "RUSTY"
+						"%TILE_BLACK%" "metal/factory_metal_floor001c"
+						"%TILE_WHITE%" "tile/white_wall_tile004e"
 						// Use this variant texture on walls bordering the track.
 						"%BORDER_SIDE%" "metal/metalwall_bts_005a"
 						}
 					"Conditions"
 						{
+						"Condition"
+							{
+							"Priority" "500"
+							"instance" "<ITEM_BEE2_CONVEYOR_BELT:bee2_segment_glass>"
+							"Result"
+								{
+								"setinstvar" "$skin 1"
+								}
+							}
 						"Condition"
 							{
 							"Priority" "500"
@@ -61,7 +106,68 @@
 						}
 					}
 				}
-			"BEE2_1950s"        "conveyor_50s"
+			"BEE2_PORTAL_1"
+				{
+				"Base" "BEE2_CLEAN"
+				"config" "conveyor_p1.cfg"
+				"Instances"
+					{
+						"bee2_end" "instances/BEE2/p1/items/conveyor_belt/end.vmf"
+
+						"bee2_segment" "instances/BEE2/p1/items/conveyor_belt/segment.vmf"
+						"bee2_segment_tile" "instances/BEE2/p1/items/conveyor_belt/segment_tile.vmf"
+						"bee2_segment_glass" "instances/BEE2/p1/items/conveyor_belt/segment_glass.vmf"
+					}
+				"Append"
+					{
+					"Replacements"
+						{
+						"%SOUND_MOVE%" "BEE2.p1.scaffold_move"
+						"%SOUND_START%" "BEE2.p1.piston_start"
+						"%SOUND_REVERSE%" "BEE2.p1.piston_start"
+						"%SOUND_STOP%" "BEE2.P1.piston_stop"
+						}
+					}
+				"Extra"
+					{
+					"Instances"
+						{
+						// Piece of belt
+						"bee2_segment" "instances/BEE2/p1/items/conveyor/segment.vmf"
+						
+						// Grate covering pit area
+						"bee2_grate" "instances/BEE2/p1/items/conveyor/grate.vmf"
+
+						"1" "instances/BEE2/p1/items/conveyor/bottom.vmf"
+						"2" "instances/BEE2/p1/items/conveyor/middle.vmf"
+						"3" "instances/BEE2/p1/items/conveyor/top.vmf"
+						}
+					}
+				}
+			"BEE2_1950s"
+				{
+				"Base" "BEE2_CLEAN"
+				"config" "conveyor_50s.cfg"
+				"Instances"
+					{
+					"bee2_segment_glass" "instances/BEE2/50s/items/conveyor_belt/segment_glass.vmf"
+					}
+				"Extra"
+					{
+					"Instances"
+						{
+						// Piece of belt
+						"bee2_segment" "instances/BEE2/50s/items/conveyor/segment.vmf"
+						
+						// Frame to hold the tracks.
+						"bee2_support" "instances/BEE2/50s/items/conveyor/support.vmf"
+
+						"1" "instances/BEE2/50s/items/conveyor/bottom.vmf"
+						"2" "instances/BEE2/50s/items/conveyor/middle.vmf"
+						"3" "instances/BEE2/50s/items/conveyor/top.vmf"
+						}
+					}
+				}
 			}
 		}
 	}
