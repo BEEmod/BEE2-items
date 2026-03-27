@@ -16,6 +16,7 @@
 * Faith Plates now reliably launch bomb-type Gel, even at high speed.
 * Fix missing antline checkmark material.
 * Fix incorrect NOT gate texture.
+* Fix incorrect air resistance physics on all custom cube models.
 * Fix 70s sign being used for 50s coop separation checkpoint.
 * #4673: Use horizontal glass stripes in 70s, 80s and Overgrown styles.
 * #4277: Use correct version of Overgrown large observation room.
