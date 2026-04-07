@@ -1,8 +1,8 @@
 versioninfo
 {
 	"editorversion" "400"
-	"editorbuild" "7552"
-	"mapversion" "58"
+	"editorbuild" "9672"
+	"mapversion" "59"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "58"
+	"mapversion" "59"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -416,12 +416,15 @@ entity
 	"conv_ang" "0"
 	"ctrl_type" "0"
 	"ctrl_value" "$offset_mdl"
+	"ent_version" "1"
 	"invert" "0"
 	"kv_name" "model"
 	"kv_value_global" "models/bee2/props_p1/laser_catcher_offset.mdl"
+	"kv_value_mode" "legacy"
+	"kv_value_pos" "-52 -20 -52"
 	"mode" "kv"
 	"rotate" "0"
-	"target" "laser_catcher"
+	"target" "catcher"
 	"origin" "-52 -20 -52"
 	editor
 	{
@@ -437,17 +440,14 @@ entity
 	"classname" "prop_laser_catcher"
 	"angles" "-90 $yaw 0"
 	"model" "models/props/laser_catcher_center.mdl"
+	"modelscale" "1.0"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"skin" "0"
 	"SkinType" "0"
+	"solid" "6"
 	"src_fix_skins" "1"
-	"targetname" "laser_catcher"
-	connections
-	{
-		"OnPowered" "proxyProxyRelay0-1"
-		"OnUnpowered" "proxyProxyRelay0-1"
-	}
+	"targetname" "catcher"
 	"origin" "0 0 -80"
 	editor
 	{
@@ -545,20 +545,6 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 1500]"
-	}
-}
-entity
-{
-	"id" "137"
-	"classname" "func_instance_io_proxy"
-	"targetname" "proxy"
-	"origin" "0 0 -32"
-	editor
-	{
-		"color" "220 30 220"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 9000]"
 	}
 }
 cameras
