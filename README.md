@@ -10,14 +10,15 @@ This is the default set of packages for the [BEE2.4](https://github.com/BEEmod/B
 
 ## Download and Use
 
-1. Download the BEE2.4 app and compiler from [here](https://github.com/BEEmod/BEE2.4/releases). Download the 64-bit version, unless you are on Windows 7 or you have a 32-bit PC; in these cases download the 32-bit version instead.
+1. Download the BEE2.4 app and compiler from [here](https://github.com/BEEmod/BEE2.4/releases).
+    - If you are using Windows 7 or a 32-bit system, you'll need to download version 4.45.2 or earlier as newer versions no longer support these.
 2. Download the default pack from [here](https://github.com/BEEmod/BEE2-items/releases). Make sure to get the same version as the application, otherwise you may encounter errors.
 3. Extract the application zip to anywhere on your computer.
 4. Extract the contents of the default pack zip to the application folder you just extracted.
 5. To launch BEE2.4, go to the extracted folder and open `BEE2.exe`.
 6. Once opened, select the game you want BEE2.4 to modify.
 
-You can add another game using `File > Add Game`. Any Source game can be added, but BEE2.4 will only work with Portal 2 and Aperture Tag. Thinking With Time Machine support is planned, but has not yet been implemented.
+You can add another game using `File > Add Game`. BEE2.4 is currently only compatible with Portal 2 and Aperture Tag.
 To remove a game, use `File > Uninstall from Selected Game`. As well as unmounting it from BEE2.4, this will also remove all BEE2.4-related resources from the game and reset the Puzzlemaker to the default items and style for that game.
 
 ### Development builds
