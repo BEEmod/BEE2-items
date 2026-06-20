@@ -35,7 +35,6 @@ bluegun <- null;
 orangun <- null;
 player_blue <- null;
 player_oran <- null;
-players_spawned <- 0;
 
 // Takes the gun off you.
 stripper <- null;
@@ -83,35 +82,57 @@ function in_hover_phase() {//When playing coop, there is a phase in which the pl
 	}
 }
 
+function waitForBlueRespawn() {
+	if (player_blue.GetHealth() == 0) {
+		EntFireByHandle(self,"CallScriptFunction","waitForBlueRespawn",0.01,null,null);
+	} else {
+		on_blue_spawn();
+	}
+}
+
+function waitForOrangeRespawn() {
+	if (player_oran.GetHealth() == 0) {
+		EntFireByHandle(self,"CallScriptFunction","waitForOrangeRespawn",0.01,null,null);
+	} else {
+		on_oran_spawn();
+	}
+}
+
+function on_death(player, dmgtype) {//Registered as callback function for @glados's BotDeath
+	if (player == 2) {//Blue
+		EntFireByHandle(self,"CallScriptFunction","waitForBlueRespawn",0.01,null,null);
+	} else {//Orange
+		EntFireByHandle(self,"CallScriptFunction","waitForOrangeRespawn",0.01,null,null);
+	}
+}
+
 function _find_players() {
 	// Grab the two coop players, which we know are in this order.
 	player_blue <- Entities.FindByClassname(null, "player");
 	player_oran <- Entities.FindByClassname(player_blue, "player");
+	::BEE_CoopRegisterDeath(on_death.bindenv(this));//Respawns reset the portal gun, so detect deaths and wait for respawn
 	spawn_pos <- player_blue.GetOrigin();// 
 	in_hover_phase();//Spawn phase that is of unpredictable time in which the portal guns keep getting replaced
 }
 
-function on_blue_spawn() {//Called when the blue player spawns, input is added by the compiler
-	if (player_blue == null) {
-		if (players_spawned == 1) { //In theory this will never happen
-			_find_players();
-		}
-		players_spawned += 1;
-		return;
-	}
+function on_blue_spawn() {//Called when the blue player spawns/respawns
 	bluegun <- Entities.FindByClassnameNearest("weapon_portalgun",player_blue.GetOrigin(),64);
 	set_gun(pgun_atlas_active,PlayerTeam.ATLAS);
 }
-function on_oran_spawn() {//Called when the orange player spawns, input is added by the compiler
-	if (player_oran == null) {
-		if (players_spawned == 1) { //In theory this will always happen
-			_find_players();
-		}
-		players_spawned += 1;
-		return;
-	}
+
+function on_oran_spawn() {//Called when the orange player spawns/respawns
 	orangun <- Entities.FindByClassnameNearest("weapon_portalgun",player_oran.GetOrigin(),64);
 	set_gun(pgun_pbody_active,PlayerTeam.PBODY);
+}
+
+function waitForPlayers() {//Waits for both players to exist before finding the players
+	if (Entities.FindByName(null,"!player_orange") == null) {
+	} else if (Entities.FindByName(null,"!player_blue") == null) {
+	} else {
+		_find_players();
+		return;
+	}
+	EntFireByHandle(self,"CallScriptFunction","waitForPlayers",0.01,self,self);
 }
 
 // Called OnMapSpawn by the compiler, passing in this config values.
@@ -126,6 +147,10 @@ function init(blue, orange, has_onoff) {
 
 	has_blue = blue
 	has_oran = orange
+
+	if (IsMultiplayer()) {//We need to get the player handles
+		EntFireByHandle(self,"CallScriptFunction","waitForPlayers",0.02,null,null);
+	}
 
 	if (has_onoff) {
 		portalgun_onoff_count = 0;
