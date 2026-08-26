@@ -16,23 +16,25 @@ PlayerTeam <- {
 class PortalGun {
 	primary = true
 	secondary = true
-	constructor(p,s) {
-		primary = p
-		secondary = s
-	}
-	
-	//Applies this portal gun to an actual portal gun's keyvalues
-	function apply(pgun) {
-		pgun.__KeyValueFromInt("CanFirePortal1",primary.tointeger());
-		pgun.__KeyValueFromInt("CanFirePortal2",secondary.tointeger());
+	team = 0
+	// Portalgun on/off buttons we're standing on.
+	// Can't use a count, since both players could stand on the same button,
+	// breaks.
+	onoff_btn = null;
+	pgun = null;
+
+	constructor(team_) {
+		primary = true;
+		secondary = true;
+		team = team_;
+		onoff_btn = [];
+		pgun = null;
 	}
 }
 
-pgun_atlas_active <- PortalGun(true,true);
-pgun_pbody_active <- PortalGun(true,true);
+pgun_atlas <- PortalGun(PlayerTeam.ATLAS);
+pgun_pbody <- PortalGun(PlayerTeam.PBODY);
 
-bluegun <- null;
-orangun <- null;
 player_blue <- null;
 player_oran <- null;
 
@@ -50,9 +52,8 @@ _held_object <- null;
 // Functions which are called when portals change.
 _change_callbacks <- [];
 
-
-// Number of portalgun on/off buttons currently on.
-// If -1, disabled.
+// Same as on the portalgun, but for the global cube buttons.
+// If -1, pgun on/off is disabled.
 portalgun_onoff_count <- -1;
 // If true, force the pgun on.
 portalgun_onoff_forced <- false;
@@ -69,7 +70,9 @@ function OnPostSpawn() {
 	}*/
 }
 
-function in_hover_phase() {//When playing coop, there is a phase in which the players are frozen. This function calls itself until it is over 
+
+// When playing coop, there is a phase in which the players are frozen. This function calls itself until it is over 
+function in_hover_phase() {
 	if ((spawn_pos-player_blue.GetOrigin()).LengthSqr() == 0) {//Still in hover phase
 		EntFireByHandle(self,"CallScriptFunction","in_hover_phase",0.01,null,null);
 	} else {
@@ -108,6 +111,7 @@ function on_death(player, dmgtype) {//Registered as callback function for @glado
 
 function _find_players() {
 	// Grab the two coop players, which we know are in this order.
+	printl("Finding players");
 	player_blue <- Entities.FindByClassname(null, "player");
 	player_oran <- Entities.FindByClassname(player_blue, "player");
 	::BEE_CoopRegisterDeath(on_death.bindenv(this));//Respawns reset the portal gun, so detect deaths and wait for respawn
@@ -116,13 +120,13 @@ function _find_players() {
 }
 
 function on_blue_spawn() {//Called when the blue player spawns/respawns
-	bluegun <- Entities.FindByClassnameNearest("weapon_portalgun",player_blue.GetOrigin(),64);
-	set_gun(pgun_atlas_active,PlayerTeam.ATLAS);
+	pgun_atlas.pgun = Entities.FindByClassnameNearest("weapon_portalgun", player_blue.GetOrigin(), 64);
+	set_gun(pgun_atlas);
 }
 
 function on_oran_spawn() {//Called when the orange player spawns/respawns
-	orangun <- Entities.FindByClassnameNearest("weapon_portalgun",player_oran.GetOrigin(),64);
-	set_gun(pgun_pbody_active,PlayerTeam.PBODY);
+	pgun_pbody.pgun = Entities.FindByClassnameNearest("weapon_portalgun", player_oran.GetOrigin(), 64);
+	set_gun(pgun_pbody);
 }
 
 function waitForPlayers() {//Waits for both players to exist before finding the players
@@ -150,23 +154,21 @@ function init(blue, orange, has_onoff) {
 
 	if (IsMultiplayer()) {//We need to get the player handles
 		EntFireByHandle(self,"CallScriptFunction","waitForPlayers",0.02,null,null);
+		pgun_atlas.primary = has_blue;
+		pgun_pbody.primary = has_blue;
+		pgun_atlas.secondary = has_oran;
+		pgun_pbody.secondary = has_oran;
 	}
 
 	if (has_onoff) {
 		portalgun_onoff_count = 0;
-		pgun_atlas_active <- PortalGun(false,false);
-		pgun_pbody_active <- PortalGun(false,false);
 		if (IsMultiplayer()) { return; }
 		give_gun(0, 0);
 	} else if (!has_blue && !has_oran) {
 		remove_pgun();
-		pgun_atlas_active <- PortalGun(false,false);
-		pgun_pbody_active <- PortalGun(false,false);
 		if (IsMultiplayer()) { return; }
 		give_gun(0, 0);
 	} else {
-		pgun_atlas_active <- PortalGun(has_blue,has_oran);
-		pgun_pbody_active <- PortalGun(has_blue,has_oran);
 		if (IsMultiplayer()) { return; }
 		give_gun(blue, orange);
 	}
@@ -177,9 +179,9 @@ function upgrade(blue, orange) {
 	if (IsMultiplayer()) {
 		return; 
 	}
-	
+
 	local needs_new = false;
-	
+
 	if (blue && !has_blue) {
 		has_blue = blue
 		needs_new = true
@@ -192,7 +194,7 @@ function upgrade(blue, orange) {
 		kill_pgun_portals(1)
 		EntFire("@close_orange_autoportals", "FireUser4", "", 0.00);
 	}
-	
+
 	// If on-off buttons are blocking the gun,
 	// remove the new gun we just got given.
 	if (portalgun_onoff_count == 0) {
@@ -215,10 +217,11 @@ function remove_pgun() {
 // Public: Give the player their gun back with the same settings.
 function return_pgun() {
 	if (IsMultiplayer()) {
-		set_gun(pgun_atlas_active, PlayerTeam.ATLAS);
-		set_gun(pgun_pbody_active, PlayerTeam.PBODY);
+		set_gun(pgun_atlas);
+		set_gun(pgun_pbody);
+	} else {
+		give_gun(has_blue, has_oran);
 	}
-	else give_gun(has_blue, has_oran);
 }
 
 // Public: Give the player a gun with the specified colours, or replace an existing one.
@@ -226,78 +229,113 @@ function give_gun(blue, oran) {
 	if (IsMultiplayer()) {
 		return; 
 	}
-	
+
 	_next_blue = blue;
 	_next_oran = oran;
-	
+
 	if (_spawn_scheduled) {
 		// We already are asking for a gun spawn, don't refire outputs.
 		// It'll set the gun to our current settings.
 		return
 	}
-	
+
 	_spawn_scheduled = true;
 	_held_object = null;
-	
+
 	if (has_pgun) { 
 		remove_pgun();
 	}
 	EntFireByHandle(held_trig, "Enable", "", 0.0, self, self);
 	EntFireByHandle(held_trig, "Disable", "", 0.1, self, self);
 	EntFireByHandle(self, "ForceSpawn", "", 0.1, self, self);
-	
+
 }
 
-
-function set_gun(pgun, team) {
-	if (team == PlayerTeam.ATLAS) {
-		if (bluegun != null && bluegun.IsValid()) {//If not, assuming nothing has gone wrong, the player is dead or hasn't had their spawn/join code run yet and will spawn with it
-			pgun.apply(bluegun);
-		}
-		pgun_atlas_active <- pgun;
+// Multiplayer-only, apply Portalgun values to the actual entity.
+function set_gun(pgun) {
+	if (pgun.pgun != null && pgun.pgun.IsValid()) {
+		local allowed = portalgun_onoff_count != 0 || pgun.onoff_btn.len() > 0;
+		pgun.pgun.__KeyValueFromInt("CanFirePortal1", (pgun.primary && allowed).tointeger());
+		pgun.pgun.__KeyValueFromInt("CanFirePortal2", (pgun.secondary && allowed).tointeger());
 	}
-	if (team == PlayerTeam.PBODY) {
-		if (orangun != null && orangun.IsValid()) {//If not, assuming nothing has gone wrong, the player is dead or hasn't had their spawn/join code run yet and will spawn with it
-			pgun.apply(orangun);
-		}
-		pgun_pbody_active <- pgun;
-	}
+	// If not, assuming nothing has gone wrong, the player is dead or hasn't had their spawn/join code run yet and will spawn with it
 }
 
 // Public: Increment the number of Portalgun on/off buttons being pressed.
-function pgun_btn_act() {
-	
+function pgun_btn_act(player=false) {
 	//  Are we disabled?
-	if (portalgun_onoff_count == -1) { return}
-	
+	if (portalgun_onoff_count == -1) { return }
+
 	portalgun_onoff_count = portalgun_onoff_count + 1;
-	
+
 	if (portalgun_onoff_count == 1) {
 		// Didn't have a gun, give them one.
-		pgun_atlas_active <- PortalGun(has_blue,has_oran);
-		pgun_pbody_active <- PortalGun(has_blue,has_oran);
 		return_pgun();
 	}
 }
 
 // Public: Decrement the number of Portalgun on/off buttons being pressed.
 function pgun_btn_deact() {
-	
+
 	//  Are we disabled?
-	if (portalgun_onoff_count == -1) { return}
+	if (portalgun_onoff_count == -1) { return }
 	
 	portalgun_onoff_count = portalgun_onoff_count - 1;
 	
 	if (portalgun_onoff_count == 0) {
-		pgun_atlas_active <- PortalGun(false,false);
-		pgun_pbody_active <- PortalGun(false,false);
 		// Replace the gun with a no-portal gun.
 		if (IsMultiplayer()) {
-			set_gun(PortalGun(false,false), PlayerTeam.ATLAS);
-			set_gun(PortalGun(false,false), PlayerTeam.PBODY);
+			set_gun(pgun_atlas);
+			set_gun(pgun_pbody);
 		}
 		else give_gun(0, 0);
 	}
+}
+
+if (IsMultiplayer() ) {
+// public: For Coop, a player-specific version.
+function pgun_btn_act_player() {
+	//  Are we disabled?
+	if (portalgun_onoff_count == -1) { return }
+
+	if (!activator || activator.GetClassname() != "player") {
+		printl("No player?");
+		return;
+	}
+	if (!caller) {
+		printl("No caller?");
+	}
+
+	local team = activator.GetTeam();
+	local pgun = team == PlayerTeam.ATLAS ? pgun_atlas : pgun_pbody;
+
+	pgun.onoff_btn.push(caller)
+	set_gun(pgun);
+}
+
+// public: For Coop, a player-specific version.
+function pgun_btn_deact_player() {
+	// We don't care about the activator, just remove this button from all players.
+	local btn = caller;
+	foreach (pgun in [pgun_atlas, pgun_pbody]) {
+		local found = false;
+		for (local i = pgun.onoff_btn.len() - 1; i >= 0; i--) {
+			if (pgun.onoff_btn[i] == btn) {
+				pgun.onoff_btn.remove(i);
+				found = true;
+			}
+		}
+		if (found) {
+			set_gun(pgun);
+		}
+	}
+}
+
+}
+else {
+	// Behaves the same in SP, only one player.
+	pgun_btn_act_player <- pgun_btn_act;
+	pgun_btn_deact_player <- pgun_btn_deact;
 }
 
 // Public: For use in corridors or other special cases,
@@ -325,8 +363,10 @@ function map_won() {
 	}
 	if (portalgun_onoff_count > 0) {
 		if (IsMultiplayer()) {
-			set_gun(PortalGun(false,false), PlayerTeam.ATLAS);
-			set_gun(PortalGun(false,false), PlayerTeam.PBODY);
+			pgun_atlas.primary = pgun_atlas.secondary = false;
+			pgun_pbody.primary = pgun_pbody.secondary = false;
+			set_gun(pgun_atlas);
+			set_gun(pgun_pbody);
 		}
 		else give_gun(0, 0);
 	}
