@@ -7,7 +7,7 @@ BEE2_LastDeathTime <- -100;
 // BEE2_PLAY_DING <- false; //Play ding_on and off before/after lines.
 
 // Trigger_hurt values assoicated with the item.
-DEATH_TYPES <- [
+BEE2_DEATH_TYPES <- [
 	{bits=0x40000, name="goo"},
 	{bits=0x00100, name="laserfield"},
 	{bits=0x00002, name="turret"},
@@ -15,7 +15,7 @@ DEATH_TYPES <- [
 ]
 
 //callback functions to run on bot death
-_death_callbacks <- [];
+_BEE2_death_callbacks <- [];
 
 function BEE2_play_line(channel, ch_arg) {
 	// Play a voiceline. Channel is the type (death, taunt), 
@@ -63,7 +63,7 @@ function BEE2_play_line(channel, ch_arg) {
 
 function BotDeath(player, dmgtype) {
 	// Called automatically on @glados when death occurs
-	foreach(func in _death_callbacks) {
+	foreach(func in _BEE2_death_callbacks) {
 		func(player, dmgtype);
 	}
 	
@@ -75,7 +75,7 @@ function BotDeath(player, dmgtype) {
 	}
 	BEE2_LastDeathTime = Time()
 
-	foreach (type in DEATH_TYPES) {
+	foreach (type in BEE2_DEATH_TYPES) {
 		if ((dmgtype & type.bits) != 0) {
 			printl("Death type: " + type.name);
 			if (BEE2_play_line("death", type.name)) {
@@ -117,7 +117,7 @@ function CoopPingTool(player, surface) {
 
 // Register a function which is called whentever a bot dies
 // Caller will need to do ::BEE_CoopRegisterDeath(some_func.bindenv(this))
-function register_death_callback(func) {
-	_death_callbacks.push(func);
+function BEE2_register_death_callback(func) {
+	_BEE2_death_callbacks.push(func);
 }
-::BEE_CoopRegisterDeath <- register_death_callback.bindenv(this);
+::BEE_CoopRegisterDeath <- BEE2_register_death_callback.bindenv(this);
