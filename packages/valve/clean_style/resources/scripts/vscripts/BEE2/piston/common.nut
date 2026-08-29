@@ -147,6 +147,7 @@ function _up() {
 	for(local i=1; i<=pos; i++) {
 		if (positions[i] != POS_UP) {
 			positions[i] = POS_MOVING;
+			pistons[i].__KeyValueFromFloat("speed",SPEED_UP);//From init_code
 			EntFireByHandle(pistons[i], "Open", "", 0, self, self);
 			cur_moving = i;
 			return;
@@ -167,6 +168,7 @@ function _dn() {
 	for(local i=4; i>pos; i--) {
 		if (positions[i] != POS_DN) {
 			positions[i] = POS_MOVING;
+			pistons[i].__KeyValueFromFloat("speed",SPEED_DOWN);//From init_code
 			EntFireByHandle(pistons[i], "Close", "", 0, self, self);
 			cur_moving = i;
 			door_pos = pistons[i].GetOrigin();
