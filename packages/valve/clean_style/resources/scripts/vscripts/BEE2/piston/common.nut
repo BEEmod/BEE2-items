@@ -155,7 +155,9 @@ function _up() {
 	for(local i=1; i<=pos; i++) {
 		if (positions[i] != POS_UP) {
 			positions[i] = POS_MOVING;
-			EntFireByHandle(pistons[i], "SetSpeed", ""+SPEED_UP, 0, self, self);//From init_code
+			if (SPEED_DOWN != SPEED_UP) {//From init_code
+				EntFireByHandle(pistons[i], "SetSpeed", ""+SPEED_UP, 0, self, self);
+			}
 			EntFireByHandle(pistons[i], "Open", "", 0, self, self);
 			if (desired_direction == 0) {
 				EntFireByHandle(self, "RunScriptCode", "verifyDirection(POS_UP)", 0.01, self, self);
@@ -185,7 +187,9 @@ function _dn() {
 	for(local i=4; i>pos; i--) {
 		if (positions[i] != POS_DN) {
 			positions[i] = POS_MOVING;
-			EntFireByHandle(pistons[i], "SetSpeed", ""+SPEED_DOWN, 0, self, self);//From init_code
+			if (SPEED_DOWN != SPEED_UP) {//From init_code
+				EntFireByHandle(pistons[i], "SetSpeed", ""+SPEED_DOWN, 0, self, self);
+			}
 			EntFireByHandle(pistons[i], "Close", "", 0, self, self);
 			if (desired_direction == 0) {
 				EntFireByHandle(self, "RunScriptCode", "verifyDirection(POS_DN)", 0.01, self, self);
