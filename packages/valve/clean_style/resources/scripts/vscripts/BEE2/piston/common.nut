@@ -35,6 +35,9 @@ verify_clock <- 0;//Clock to verify that no inputs butt to the front of the line
 
 START_SND <- "";
 STOP_SND <- "";
+// If not set (old map), these are equal and SetSpeed isn't fired.
+SPEED_UP <- -1;
+SPEED_DOWN <- -1;
 
 // If true, we spawned extended.
 SPAWN_UP <- false;
@@ -82,7 +85,13 @@ function OnPostSpawn() {
 	if (SPAWN_UP) {
 		pos = highest_pos;
 	}
-	
+	if (SPEED_UP < 0) {
+		SPEED_UP = SPEED_DOWN;
+	}
+	if (SPEED_DOWN < 0) {
+		SPEED_DOWN = SPEED_UP;
+	}
+
 	snd_top_ent <- self.GetMoveParent();
 	if (snd_top_ent != null) {
 		// We now know what it is.
@@ -155,8 +164,8 @@ function _up() {
 	for(local i=1; i<=pos; i++) {
 		if (positions[i] != POS_UP) {
 			positions[i] = POS_MOVING;
-			if (SPEED_DOWN != SPEED_UP) {//From init_code
-				EntFireByHandle(pistons[i], "SetSpeed", ""+SPEED_UP, 0, self, self);
+			if (SPEED_DOWN != SPEED_UP) { //From init_code
+				EntFireByHandle(pistons[i], "SetSpeed", SPEED_UP.tostring(), 0, self, self);
 			}
 			EntFireByHandle(pistons[i], "Open", "", 0, self, self);
 			if (desired_direction == 0) {
@@ -188,7 +197,7 @@ function _dn() {
 		if (positions[i] != POS_DN) {
 			positions[i] = POS_MOVING;
 			if (SPEED_DOWN != SPEED_UP) {//From init_code
-				EntFireByHandle(pistons[i], "SetSpeed", ""+SPEED_DOWN, 0, self, self);
+				EntFireByHandle(pistons[i], "SetSpeed", SPEED_DOWN.tostring(), 0, self, self);
 			}
 			EntFireByHandle(pistons[i], "Close", "", 0, self, self);
 			if (desired_direction == 0) {
