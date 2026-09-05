@@ -28,9 +28,16 @@ POS_DN <- -1;
 POS_MOVING <- 0;
 positions <- {};
 cur_moving <- -1;
+//Set for the tick that _up or _down gets called
+desired_direction <- 0;
+verify_clock <- 0;//Clock to verify that no inputs butt to the front of the line
+//INFINITESIMAL_TICK = 3.8146977e-6;
 
 START_SND <- "";
 STOP_SND <- "";
+// If not set (old map), these are equal and SetSpeed isn't fired.
+SPEED_UP <- -1;
+SPEED_DOWN <- -1;
 
 // If true, we spawned extended.
 SPAWN_UP <- false;
@@ -78,7 +85,13 @@ function OnPostSpawn() {
 	if (SPAWN_UP) {
 		pos = highest_pos;
 	}
-	
+	if (SPEED_UP < 0) {
+		SPEED_UP = SPEED_DOWN;
+	}
+	if (SPEED_DOWN < 0) {
+		SPEED_DOWN = SPEED_UP;
+	}
+
 	snd_top_ent <- self.GetMoveParent();
 	if (snd_top_ent != null) {
 		// We now know what it is.
@@ -144,10 +157,22 @@ function moveto(new_pos) {
 // and trigger it.
 // The pistons then trigger them again when they finish, so we loop until done.
 function _up() {
+	if (desired_direction && verify_clock != Time()) {//Caused by I/O logic butting in line
+		EntFireByHandle(self, "CallScriptFunction", "_up", 0, self, self);//Push to the end of the I/O queue after verifyDirection
+		return;
+	}
 	for(local i=1; i<=pos; i++) {
 		if (positions[i] != POS_UP) {
 			positions[i] = POS_MOVING;
+			if (SPEED_DOWN != SPEED_UP) { //From init_code
+				EntFireByHandle(pistons[i], "SetSpeed", SPEED_UP.tostring(), 0, self, self);
+			}
 			EntFireByHandle(pistons[i], "Open", "", 0, self, self);
+			if (desired_direction == 0) {
+				EntFireByHandle(self, "RunScriptCode", "verifyDirection(POS_UP)", 0.01, self, self);
+				verify_clock = Time();
+			}
+			desired_direction <- POS_UP;
 			cur_moving = i;
 			return;
 		}
@@ -163,11 +188,23 @@ function _up() {
 }
 
 function _dn() {
+	if (desired_direction && verify_clock != Time()) {//Caused by I/O logic butting in line
+		EntFireByHandle(self, "CallScriptFunction", "_dn", 0, self, self);//Push to the end of the I/O queue so that verifyDirection runs before this
+		return;
+	}
 	// Do not include piston[pos].
 	for(local i=4; i>pos; i--) {
 		if (positions[i] != POS_DN) {
 			positions[i] = POS_MOVING;
+			if (SPEED_DOWN != SPEED_UP) {//From init_code
+				EntFireByHandle(pistons[i], "SetSpeed", SPEED_DOWN.tostring(), 0, self, self);
+			}
 			EntFireByHandle(pistons[i], "Close", "", 0, self, self);
+			if (desired_direction == 0) {
+				EntFireByHandle(self, "RunScriptCode", "verifyDirection(POS_DN)", 0.01, self, self);
+				verify_clock <- Time();
+			}
+			desired_direction <- POS_DN;
 			cur_moving = i;
 			door_pos = pistons[i].GetOrigin();
 			crush_count = 0;
@@ -189,6 +226,21 @@ function _dn() {
 		foreach (fizz in dn_fizz_ents) {
 			EntFireByHandle(fizz, "Disable", "", 0, self, self);
 		}
+	}
+}
+
+function verifyDirection(original_direction) {
+	if (original_direction == desired_direction) {
+		desired_direction <- 0;//Nothing to correct
+	} else if (desired_direction == POS_UP) {
+		desired_direction <- 0;//Repeat verification
+		_up();
+	} else if (desired_direction == POS_DN) {
+		desired_direction <- 0;//Repeat verification
+		_dn();
+	} else {
+		printl("Incorrect piston behavior");
+		desired_direction <- 0;
 	}
 }
 
